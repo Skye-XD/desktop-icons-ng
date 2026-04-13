@@ -1,6 +1,7 @@
 html, body {
   margin: 0;
   padding: 0;
+  height: 100%;
   overflow: hidden;
 }
 
@@ -18,10 +19,12 @@ body {
 
 #media-root {
   position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
 }
 
-body.ding-pinned:not(.ding-edit-mode) #media-root:empty::before {
-  content: "No media playing";
+#media-root .mp-empty {
   position: absolute;
   inset: 8px;
   border: 1px solid rgba(255, 255, 255, 0.18);
@@ -35,57 +38,63 @@ body.ding-pinned:not(.ding-edit-mode) #media-root:empty::before {
   letter-spacing: 0.02em;
   text-align: center;
   background: rgba(18, 18, 18, 0.42);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
   box-sizing: border-box;
   pointer-events: none;
 }
 
-body.ding-edit-mode #media-root:empty::before {
-  content: "Media Player Horizontal";
-  position: absolute;
-  inset: 8px;
+body.ding-edit-mode #media-root .mp-empty {
   border: 2px dashed rgba(255, 255, 255, 0.7);
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   color: rgba(255, 255, 255, 0.9);
-  font-size: 0.95rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  text-align: center;
   background: rgba(0, 0, 0, 0.18);
-  box-sizing: border-box;
-  pointer-events: none;
+  font-size: 0.95rem;
+}
+
+#media-root.has-player .mp-empty {
+  display: none;
+}
+
+#media-root .mp-main {
+  display: none;
+}
+
+#media-root.has-player .mp-main {
+  display: flex;
 }
 
 .mp-main {
   position: relative;
   display: flex;
-  align-items: center;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  gap: 12px;
   width: 100%;
   height: 100%;
-  gap: 12px;
-  padding: 12px;
+  min-height: 100%;
+  padding: 0;
   box-sizing: border-box;
   border-radius: 14px;
-  background: rgba(var(--bg-r), var(--bg-g), var(--bg-b), var(--bg-alpha));
-  backdrop-filter: blur(12px);
+  background: rgba(var(--bg-r), var(--bg-g), var(--bg-b), calc(var(--bg-alpha) + 0.04));
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  overflow: hidden;
+  isolation: isolate;
 }
 
 .mp-controls-overlay {
   position: absolute;
-  left: 50%;
-  bottom: 4px;
+  left: var(--controls-center-x, 50%);
+  bottom: 0;
   z-index: 3;
   transform: translateX(-50%) translateY(6px);
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
   align-items: center;
   gap: 5px;
   opacity: 0;
   visibility: hidden;
+  padding: 0;
+  box-sizing: border-box;
   pointer-events: none;
   transition: opacity 0.15s ease, transform 0.15s ease;
 }
@@ -103,19 +112,17 @@ body.ding-host-chrome-visible .mp-controls-overlay {
   align-items: center;
   justify-content: center;
   margin-bottom: 2px;
-  pointer-events: auto;
 }
 
 .mp-control-strip {
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-bottom: 0;
+  justify-content: center;
   padding: 5px 8px 6px;
   border-radius: 9999px;
   background: rgba(0, 0, 0, 0.28);
   backdrop-filter: blur(8px);
-  pointer-events: auto;
 }
 
 .mp-volume-btn {
@@ -172,7 +179,7 @@ body.ding-host-chrome-visible .mp-controls-overlay {
 .mp-volume-slider::-webkit-slider-runnable-track {
   height: 6px;
   border-radius: 9999px;
-  background: transparent;
+  background: rgba(255, 255, 255, 0.18);
 }
 
 .mp-volume-slider::-webkit-slider-thumb {
@@ -188,7 +195,7 @@ body.ding-host-chrome-visible .mp-controls-overlay {
 .mp-volume-slider::-moz-range-track {
   height: 6px;
   border-radius: 9999px;
-  background: transparent;
+  background: rgba(255, 255, 255, 0.18);
 }
 
 .mp-volume-slider::-moz-range-progress {
@@ -224,9 +231,9 @@ body.ding-host-chrome-visible .mp-controls-overlay {
   justify-content: center;
   background: rgba(0, 0, 0, 0.65);
   color: #fff;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.18);
   cursor: pointer;
-  transition: background-color 0.15s ease, opacity 0.15s ease, transform 0.15s ease;
+  transition: background-color 0.12s ease, opacity 0.12s ease, transform 0.12s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.18);
 }
 
 .mp-control-btn:hover:not(:disabled) {
@@ -254,17 +261,39 @@ body.ding-host-chrome-visible .mp-controls-overlay {
   height: 15px;
 }
 
+.mp-control-icon-pause {
+  display: none;
+}
+
+.mp-control-btn.is-playing .mp-control-icon-play {
+  display: none;
+}
+
+.mp-control-btn.is-playing .mp-control-icon-pause {
+  display: block;
+}
+
 .mp-cover {
-  width: 64px;
-  height: 64px;
-  flex-shrink: 0;
+  flex: 0 0 auto;
+  align-self: stretch;
+  width: auto;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  max-width: min(42%, 220px);
+  box-sizing: border-box;
   border-radius: 10px;
   overflow: hidden;
-  background: #ddd;
+  background: rgba(255, 255, 255, 0.10);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.35);
+  margin: 0;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.mp-cover-img[hidden],
+.mp-nocover[hidden] {
+  display: none;
 }
 
 .mp-cover img {
@@ -276,63 +305,85 @@ body.ding-host-chrome-visible .mp-controls-overlay {
 .mp-nocover {
   width: 100%;
   height: 100%;
-  background: #bbb;
+  background: rgba(255, 255, 255, 0.14);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .mp-info {
-  flex: 1;
+  flex: 1 1 auto;
   min-width: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: min-content min-content 1fr min-content;
+  align-items: start;
+  align-content: stretch;
+  padding: 0 10px 0 0;
 }
 
 .mp-title {
+  grid-column: 1;
+  grid-row: 1;
   color: var(--text-color);
   font-weight: 600;
-  font-size: 1.05rem;
-  line-height: 1.35;
+  font-size: 1.08rem;
+  line-height: 1.12;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 .mp-artist {
+  grid-column: 1;
+  grid-row: 2;
   color: var(--text-color);
   opacity: 0.85;
-  font-size: 0.9rem;
-  margin-bottom: 6px;
-  line-height: 1.35;
+  font-size: 0.92rem;
+  margin-bottom: 0;
+  line-height: 1.12;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  margin-top: 1px;
 }
 
 .mp-progress {
+  grid-column: 1;
+  grid-row: 3;
   width: 100%;
-  height: 6px;
+  height: 5px;
   border-radius: 3px;
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.20);
+  align-self: end;
+  margin-bottom: 4px;
 }
 
 .mp-bar {
   height: 100%;
-  width: 0%;
+  width: 100%;
   background: var(--progress-color);
-  transition: width 0.2s ease;
+  transform-origin: left center;
+  transform: scaleX(var(--progress-scale, 0));
+  transition: transform 0.2s ease;
+  will-change: transform;
 }
 
 .mp-meta {
-  margin-top: 4px;
+  grid-column: 1;
+  grid-row: 4;
   display: flex;
   align-items: center;
-  font-size: 0.85rem;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 0.78rem;
   color: var(--text-color);
   font-variant-numeric: tabular-nums;
+  min-width: 0;
+  align-self: end;
+  margin-bottom: 4px;
 }
 
 .mp-time-wrap {
@@ -348,18 +399,28 @@ body.ding-host-chrome-visible .mp-controls-overlay {
 
 .mp-status {
   white-space: nowrap;
-  margin-left: auto;
   opacity: 0.85;
+  margin-left: 0;
+  max-width: 45%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: right;
 }
 
-body.ding-host-chrome-visible .mp-meta,
-body.ding-host-chrome-visible .mp-progress {
+.mp-time-current,
+.mp-time-total,
+.mp-status {
+  color: var(--text-color);
+}
+
+body.ding-host-chrome-visible .mp-progress,
+body.ding-host-chrome-visible .mp-meta {
   opacity: 0.14;
-  transition: opacity 0.15s ease;
+  transition: opacity 0.12s ease;
 }
 
 body.ding-host-chrome-visible .mp-title,
 body.ding-host-chrome-visible .mp-artist {
   opacity: 0.5;
-  transition: opacity 0.15s ease;
+  transition: opacity 0.12s ease;
 }

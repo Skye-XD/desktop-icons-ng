@@ -9,8 +9,7 @@ const DEFAULT_CONFIG = {
 };
 
 const POSITION_SAVE_GRANULARITY_US = 5 * 1000 * 1000;
-const PLAYBACK_TICK_MS = 250;
-const POSITION_PERSIST_INTERVAL_MS = 1000;
+const PLAYBACK_TICK_MS = 1000;
 const VOLUME_STEP = 0.05;
 const VOLUME_WRITE_DELAY_MS = 90;
 
@@ -18,19 +17,35 @@ class MediaPlayerWidget {
   constructor(root) {
     this._root = root;
     this._config = {...DEFAULT_CONFIG};
+    this._ui = null;
     this._lastSnapshot = null;
     this._currentArtId = null;
     this._currentArtUrl = null;
     this._lastPersistedKey = '';
     this._controlRequest = null;
     this._playbackTimer = 0;
-    this._positionPersistTimer = 0;
     this._volumeWriteTimer = 0;
+    this._lastProgressRenderKey = '';
+    this._lastTitleSpacingKey = '';
+    this._lastControlOverlayKey = '';
     this._pendingVolume = null;
-    this._visibilityObserver = null;
+    this._isVisible = true;
+    this._titleSpacingObserver = null;
+    this._pinnedMoveCleanup = null;
     this._beforeUnloadHandler = this._handleBeforeUnload.bind(this);
     this._syncConfig = this._readSyncConfig();
     this._client = new DingClient({mode: 'widget'});
+    this._cacheUi();
+    this._client.setDraggable('#media-root');
+    this._pinnedMoveCleanup = this._client.attachPinnedMoveHandle(
+      this._ui?.root ?? this._root,
+      {
+        allowWhen: () => this._client.isPinned(),
+        ignoreSelector: '.mp-controls-overlay, button, input, select, textarea, a',
+      }
+    );
+    this._bindControlButtons();
+    this._watchTitleSpacing();
     window.addEventListener('pagehide', this._beforeUnloadHandler);
     window.addEventListener('beforeunload', this._beforeUnloadHandler);
     this._init();
@@ -55,6 +70,11 @@ class MediaPlayerWidget {
         this._renderFromCache();
     });
 
+    this._client.onVisibilityChange(visible => {
+      this._isVisible = visible;
+      this._syncPlaybackTimer();
+    });
+
     await this._loadConfig();
     this._applyConfig();
     if (this._shouldRestoreFromCache({allowLiveOverride: false}))
@@ -66,8 +86,6 @@ class MediaPlayerWidget {
           this._applySnapshot(snapshot, {persist: true});
       }).catch(() => {});
     }
-
-    this._watchOverlayVisibility();
   }
 
   _readSyncConfig() {
@@ -155,8 +173,9 @@ class MediaPlayerWidget {
     const mediaChanged = this._didMediaIdentityChange(previous, normalized);
     const playbackStateChanged = previous?.playbackStatus !== normalized?.playbackStatus;
     this._lastSnapshot = normalized;
+    if (mediaChanged)
+      this._lastProgressRenderKey = '';
     this._syncPlaybackTimer();
-    this._syncPositionPersistTimer();
     this._render(this._getRenderSnapshot());
 
     if (!normalized?.artId) {
@@ -214,8 +233,17 @@ class MediaPlayerWidget {
   }
 
   _render(snapshot) {
+    const ui = this._ui;
+    if (!ui)
+      return;
+
+    ui.root?.classList.toggle('has-player', !!snapshot?.player);
+
     if (!snapshot || !snapshot.player) {
-      this._root.innerHTML = ``;
+      this._lastProgressRenderKey = '';
+      if (ui.title)
+        ui.title.style.marginTop = '0px';
+      ui.main?.style?.removeProperty('--controls-center-x');
       return;
     }
 
@@ -223,52 +251,127 @@ class MediaPlayerWidget {
       ? Math.min(100, Math.round(snapshot.position / snapshot.length * 100))
       : 0;
 
-    if (!this._root.querySelector('.mp-main')) {
-      this._root.innerHTML = `
-        <div class="mp-main">
-          <div class="mp-cover" id="mp-cover">
-            <div class="mp-nocover" style="display:flex;align-items:center;justify-content:center;font-size:2em;color:#aaa;">?</div>
-          </div>
-          <div class="mp-info">
-            <div class="mp-title"></div>
-            <div class="mp-artist"></div>
-            <div class="mp-progress">
-              <div class="mp-bar"></div>
-            </div>
-            <div class="mp-meta">
-              <span class="mp-time-wrap">
-                <span class="mp-time-current"></span>
-                <span style="margin:0 2px;">/</span>
-                <span class="mp-time-total"></span>
-              </span>
-              <span class="mp-status"></span>
-            </div>
-          </div>
-          <div class="mp-controls-overlay" aria-label="Media controls">
-            <div class="mp-volume-strip" aria-label="Volume controls">
-              <input class="mp-volume-slider" type="range" min="0" max="100" step="1" aria-label="Volume" />
-            </div>
-            <div class="mp-control-strip">
-              <button class="mp-volume-btn" type="button" data-volume-step="-1" aria-label="Decrease volume">-</button>
-              <button class="mp-control-btn" type="button" data-action="previous" aria-label="Previous track"></button>
-              <button class="mp-control-btn mp-control-btn-primary" type="button" data-action="playPause" aria-label="Play or pause"></button>
-              <button class="mp-control-btn" type="button" data-action="next" aria-label="Next track"></button>
-              <button class="mp-volume-btn" type="button" data-volume-step="1" aria-label="Increase volume">+</button>
-            </div>
-          </div>
-        </div>
-      `;
-      this._bindControlButtons();
-    }
-
-    this._root.querySelector('.mp-title').textContent = snapshot.title || '';
-    this._root.querySelector('.mp-artist').textContent = snapshot.artist || '';
-    this._root.querySelector('.mp-bar').style.width = `${percent}%`;
-    this._root.querySelector('.mp-time-current').textContent = this._formatTime(snapshot.position / 1000000);
-    this._root.querySelector('.mp-time-total').textContent = this._formatTime(snapshot.length / 1000000);
-    this._root.querySelector('.mp-status').textContent = snapshot.playbackStatus || '';
+    this._updateStaticFields(snapshot);
+    this._updatePlaybackProgress(snapshot, percent);
     this._updateControlButtons(snapshot);
     this._updateVolumeControls(snapshot);
+  }
+
+  _cacheUi() {
+    this._ui = {
+      root: this._root,
+      main: this._root.querySelector('.mp-main'),
+      cover: this._root.querySelector('#mp-cover'),
+      coverImg: this._root.querySelector('.mp-cover-img'),
+      coverFallback: this._root.querySelector('.mp-nocover'),
+      info: this._root.querySelector('.mp-info'),
+      title: this._root.querySelector('.mp-title'),
+      artist: this._root.querySelector('.mp-artist'),
+      progressBar: this._root.querySelector('.mp-bar'),
+      timeCurrent: this._root.querySelector('.mp-time-current'),
+      timeTotal: this._root.querySelector('.mp-time-total'),
+      status: this._root.querySelector('.mp-status'),
+      volumeStrip: this._root.querySelector('.mp-volume-strip'),
+      volumeSlider: this._root.querySelector('.mp-volume-slider'),
+      controlButtons: [...this._root.querySelectorAll('.mp-control-btn')],
+      volumeButtons: [...this._root.querySelectorAll('.mp-volume-btn')],
+    };
+  }
+
+  _watchTitleSpacing() {
+    if (!this._ui?.info || !window.ResizeObserver || this._titleSpacingObserver)
+      return;
+
+    this._titleSpacingObserver = new ResizeObserver(() => {
+      this._syncTitleSpacing();
+      this._syncControlOverlayPosition();
+    });
+    this._titleSpacingObserver.observe(this._ui.info);
+  }
+
+  _updateStaticFields(snapshot) {
+    const ui = this._ui;
+    if (!ui)
+      return;
+
+    if (ui.title)
+      ui.title.textContent = snapshot.title || '';
+    if (ui.artist)
+      ui.artist.textContent = snapshot.artist || '';
+    if (ui.timeTotal)
+      ui.timeTotal.textContent = this._formatTime(snapshot.length / 1000000);
+    if (ui.status)
+      ui.status.textContent = snapshot.playbackStatus || '';
+
+    const spacingKey = `${snapshot.title || ''}|${snapshot.artist || ''}|${snapshot.playbackStatus || ''}|${snapshot.length || 0}`;
+    if (spacingKey !== this._lastTitleSpacingKey) {
+      this._lastTitleSpacingKey = spacingKey;
+      this._syncTitleSpacing();
+      this._syncControlOverlayPosition();
+    }
+  }
+
+  _syncTitleSpacing() {
+    const ui = this._ui;
+    if (!ui?.info || !ui.title || !ui.artist || !ui.progressBar) {
+      if (ui?.title)
+        ui.title.style.marginTop = '0px';
+      return;
+    }
+
+    ui.title.style.marginTop = '0px';
+
+    const infoRect = ui.info.getBoundingClientRect();
+    const progressRect = ui.progressBar.getBoundingClientRect();
+    const titleRect = ui.title.getBoundingClientRect();
+    const artistRect = ui.artist.getBoundingClientRect();
+
+    const available = Math.max(0, progressRect.top - infoRect.top);
+    const textHeight = Math.max(0, titleRect.height + artistRect.height);
+    const offset = Math.max(0, Math.round((available - textHeight) / 2));
+    ui.title.style.marginTop = `${offset}px`;
+  }
+
+  _updatePlaybackProgress(snapshot, percent = null) {
+    const ui = this._ui;
+    if (!ui)
+      return;
+
+    const progressPct = percent ?? (
+      snapshot.length > 0
+        ? Math.min(100, Math.round(snapshot.position / snapshot.length * 100))
+        : 0
+    );
+    const currentText = this._formatTime(snapshot.position / 1000000);
+    const renderKey = `${progressPct}|${currentText}`;
+    if (renderKey === this._lastProgressRenderKey)
+      return;
+
+    this._lastProgressRenderKey = renderKey;
+
+    if (ui.progressBar)
+      ui.progressBar.style.setProperty('--progress-scale', String(progressPct / 100));
+    if (ui.timeCurrent)
+      ui.timeCurrent.textContent = currentText;
+  }
+
+  _syncControlOverlayPosition() {
+    const ui = this._ui;
+    if (!ui?.main || !ui?.info)
+      return;
+
+    const mainRect = ui.main.getBoundingClientRect();
+    const infoRect = ui.info.getBoundingClientRect();
+    if (!mainRect.width || !infoRect.width)
+      return;
+
+    const centerX = Math.max(0, Math.round(infoRect.left - mainRect.left + infoRect.width / 2));
+    const key = `${centerX}|${Math.round(infoRect.width)}|${Math.round(mainRect.width)}`;
+    if (key === this._lastControlOverlayKey)
+      return;
+
+    this._lastControlOverlayKey = key;
+    ui.main.style.setProperty('--controls-center-x', `${centerX}px`);
   }
 
   async _loadCover(artId) {
@@ -290,25 +393,34 @@ class MediaPlayerWidget {
   }
 
   _renderCover(artUrl) {
-    const coverDiv = this._root.querySelector('#mp-cover');
-    if (!coverDiv)
+    const ui = this._ui;
+    if (!ui?.cover)
       return;
 
-    if (artUrl) {
-      const currentImg = coverDiv.querySelector('img');
-      if (currentImg?.getAttribute('src') === artUrl)
-        return;
-      coverDiv.innerHTML = `<img src="${this._escapeAttr(artUrl)}" alt="cover" style="max-width:100%;max-height:100%;object-fit:cover;"/>`;
+    if (!artUrl) {
+      if (ui.coverImg)
+        ui.coverImg.hidden = true;
+      if (ui.coverFallback)
+        ui.coverFallback.hidden = false;
       return;
     }
 
-    if (coverDiv.querySelector('.mp-nocover'))
+    if (ui.coverImg?.getAttribute('src') === artUrl && !ui.coverImg.hidden) {
+      if (ui.coverFallback)
+        ui.coverFallback.hidden = true;
       return;
-    coverDiv.innerHTML = '<div class="mp-nocover" style="display:flex;align-items:center;justify-content:center;font-size:2em;color:#aaa;">?</div>';
+    }
+
+    if (ui.coverImg) {
+      ui.coverImg.src = artUrl;
+      ui.coverImg.hidden = false;
+    }
+    if (ui.coverFallback)
+      ui.coverFallback.hidden = true;
   }
 
   _bindControlButtons() {
-    for (const button of this._root.querySelectorAll('.mp-control-btn')) {
+    for (const button of this._ui?.controlButtons ?? []) {
       button.addEventListener('pointerdown', event => {
         if (event.button !== 0)
           return;
@@ -324,7 +436,7 @@ class MediaPlayerWidget {
       });
     }
 
-    for (const button of this._root.querySelectorAll('.mp-volume-btn')) {
+    for (const button of this._ui?.volumeButtons ?? []) {
       button.addEventListener('pointerdown', event => {
         if (event.button !== 0)
           return;
@@ -343,7 +455,7 @@ class MediaPlayerWidget {
       });
     }
 
-    const slider = this._root.querySelector('.mp-volume-slider');
+    const slider = this._ui?.volumeSlider;
     const handleVolumeSliderInput = event => {
       event.stopPropagation();
       const nextVolume = Number(event.currentTarget.value) / 100;
@@ -359,7 +471,7 @@ class MediaPlayerWidget {
       event.stopPropagation();
     });
 
-    this._root.querySelector('.mp-main')?.addEventListener('wheel', event => {
+    this._ui?.main?.addEventListener('wheel', event => {
       if (!this._lastSnapshot?.player || !this._lastSnapshot?.canControlVolume)
         return;
       event.preventDefault();
@@ -369,42 +481,8 @@ class MediaPlayerWidget {
     }, {passive: false});
   }
 
-  _watchOverlayVisibility() {
-    if (this._visibilityObserver || !document.body)
-      return;
-
-    const syncVisibleVolume = () => {
-      if (!document.body?.classList?.contains('ding-host-chrome-visible'))
-        return;
-      this._syncVisibleVolumeControls();
-    };
-
-    this._visibilityObserver = new MutationObserver(() => {
-      syncVisibleVolume();
-    });
-    this._visibilityObserver.observe(document.body, {
-      attributes: true,
-      attributeFilter: ['class'],
-    });
-
-    document.addEventListener('visibilitychange', syncVisibleVolume);
-    this._visibilityChangeHandler = syncVisibleVolume;
-  }
-
-  _syncVisibleVolumeControls() {
-    if (!this._lastSnapshot)
-      return;
-
-    const snapshot = this._getRenderSnapshot();
-    if (!snapshot?.canControlVolume || !Number.isFinite(snapshot?.volume))
-      return;
-
-    this._updateVolumeControls(snapshot);
-    requestAnimationFrame(() => this._updateVolumeControls(snapshot));
-  }
-
   _updateControlButtons(snapshot) {
-    const buttons = this._root.querySelectorAll('.mp-control-btn');
+    const buttons = this._ui?.controlButtons ?? [];
     if (!buttons.length)
       return;
 
@@ -415,38 +493,11 @@ class MediaPlayerWidget {
       const isBusy = busyAction === action;
       button.disabled = !hasPlayer || !!busyAction;
       button.classList.toggle('is-busy', isBusy);
-      button.innerHTML = this._getControlIconSvg(
-        action,
-        action === 'playPause' && snapshot?.playbackStatus === 'Playing'
-      );
-    }
-  }
-
-  _getControlIconSvg(action, isPlaying) {
-    switch (action) {
-    case 'previous':
-      return `
-        <svg viewBox="0 0 16 16" aria-hidden="true">
-          <path d="M4 3.25a.75.75 0 0 1 .75.75v8a.75.75 0 0 1-1.5 0V4A.75.75 0 0 1 4 3.25Zm7.396.134a.75.75 0 0 1 .354.636v7.96a.75.75 0 0 1-1.146.636L4.38 8.636a.75.75 0 0 1 0-1.272l6.224-3.98a.75.75 0 0 1 .792 0Z"/>
-        </svg>`;
-    case 'next':
-      return `
-        <svg viewBox="0 0 16 16" aria-hidden="true">
-          <path d="M12 3.25a.75.75 0 0 1 .75.75v8a.75.75 0 0 1-1.5 0V4a.75.75 0 0 1 .75-.75Zm-7.396.134a.75.75 0 0 1 .792 0l6.224 3.98a.75.75 0 0 1 0 1.272l-6.224 3.98A.75.75 0 0 1 4.25 11.98V4.02a.75.75 0 0 1 .354-.636Z"/>
-        </svg>`;
-    case 'playPause':
-      if (isPlaying) {
-        return `
-          <svg viewBox="0 0 16 16" aria-hidden="true">
-            <path d="M4.75 3.25a.75.75 0 0 1 .75.75v8a.75.75 0 0 1-1.5 0V4a.75.75 0 0 1 .75-.75Zm6.5 0A.75.75 0 0 1 12 4v8a.75.75 0 0 1-1.5 0V4a.75.75 0 0 1 .75-.75Z"/>
-          </svg>`;
+      if (action === 'playPause') {
+        const isPlaying = snapshot?.playbackStatus === 'Playing';
+        button.classList.toggle('is-playing', isPlaying);
+        button.setAttribute('aria-label', isPlaying ? 'Pause' : 'Play or pause');
       }
-      return `
-        <svg viewBox="0 0 16 16" aria-hidden="true">
-          <path d="M5.153 3.459A.75.75 0 0 1 6.25 4.12v7.76a.75.75 0 0 1-1.097.662l6-3.88a.75.75 0 0 0 0-1.324l-6-3.88Z"/>
-        </svg>`;
-    default:
-      return '';
     }
   }
 
@@ -469,8 +520,8 @@ class MediaPlayerWidget {
   }
 
   _updateVolumeControls(snapshot) {
-    const overlay = this._root.querySelector('.mp-volume-strip');
-    const slider = this._root.querySelector('.mp-volume-slider');
+    const overlay = this._ui?.volumeStrip;
+    const slider = this._ui?.volumeSlider;
     if (!overlay || !slider)
       return;
 
@@ -478,7 +529,7 @@ class MediaPlayerWidget {
     overlay.hidden = !enabled;
     slider.disabled = !enabled;
 
-    for (const button of this._root.querySelectorAll('.mp-volume-btn'))
+    for (const button of this._ui?.volumeButtons ?? [])
       button.disabled = !enabled;
 
     if (!enabled)
@@ -516,7 +567,7 @@ class MediaPlayerWidget {
       ts: Date.now(),
     };
     this._paintVolumeSlider(
-      this._root.querySelector('.mp-volume-slider'),
+      this._ui?.volumeSlider,
       nextVolume * 100
     );
     this._updateVolumeControls(this._getRenderSnapshot());
@@ -553,7 +604,7 @@ class MediaPlayerWidget {
     this._client.backendRequest('setVolume', {volume}).catch(() => {});
   }
 
-  _persistMediaCache({_immediate = false} = {}) {
+  _persistMediaCache() {
     this._flushPersist();
   }
 
@@ -627,10 +678,6 @@ class MediaPlayerWidget {
     } : null;
   }
 
-  _escapeAttr(str) {
-    return String(str || '').replace(/"/g, '&quot;');
-  }
-
   _formatTime(sec) {
     if (!sec || Number.isNaN(sec))
       return '0:00';
@@ -641,7 +688,8 @@ class MediaPlayerWidget {
 
   _syncPlaybackTimer() {
     const shouldTick = this._lastSnapshot?.player &&
-      this._lastSnapshot?.playbackStatus === 'Playing';
+      this._lastSnapshot?.playbackStatus === 'Playing' &&
+      this._isVisible;
 
     if (!shouldTick) {
       if (this._playbackTimer) {
@@ -660,33 +708,8 @@ class MediaPlayerWidget {
         return;
       }
 
-      this._render(this._getRenderSnapshot());
+      this._updatePlaybackProgress(this._getRenderSnapshot());
     }, PLAYBACK_TICK_MS);
-  }
-
-  _syncPositionPersistTimer() {
-    const shouldPersistPosition = this._lastSnapshot?.player &&
-      this._lastSnapshot?.playbackStatus === 'Playing';
-
-    if (!shouldPersistPosition) {
-      if (this._positionPersistTimer) {
-        clearInterval(this._positionPersistTimer);
-        this._positionPersistTimer = 0;
-      }
-      return;
-    }
-
-    if (this._positionPersistTimer)
-      return;
-
-    this._positionPersistTimer = setInterval(() => {
-      if (!this._lastSnapshot || this._lastSnapshot.playbackStatus !== 'Playing') {
-        this._syncPositionPersistTimer();
-        return;
-      }
-
-      this._flushPersist();
-    }, POSITION_PERSIST_INTERVAL_MS);
   }
 
   _getRenderSnapshot() {
@@ -728,24 +751,15 @@ class MediaPlayerWidget {
       clearInterval(this._playbackTimer);
       this._playbackTimer = 0;
     }
-    if (this._positionPersistTimer) {
-      clearInterval(this._positionPersistTimer);
-      this._positionPersistTimer = 0;
-    }
     if (this._volumeWriteTimer) {
       clearTimeout(this._volumeWriteTimer);
       this._volumeWriteTimer = 0;
     }
     this._flushVolumeWrite();
-    this._visibilityObserver?.disconnect?.();
-    this._visibilityObserver = null;
-    if (this._visibilityChangeHandler) {
-      document.removeEventListener(
-        'visibilitychange',
-        this._visibilityChangeHandler
-      );
-      this._visibilityChangeHandler = null;
-    }
+    this._titleSpacingObserver?.disconnect?.();
+    this._titleSpacingObserver = null;
+    this._pinnedMoveCleanup?.();
+    this._pinnedMoveCleanup = null;
     this._client?.destroy?.();
     window.removeEventListener('pagehide', this._beforeUnloadHandler);
     window.removeEventListener('beforeunload', this._beforeUnloadHandler);

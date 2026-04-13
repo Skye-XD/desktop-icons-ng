@@ -6,7 +6,6 @@ import {BackendApp, runBackend} from '../backEndApp.js';
 const ByteArray = imports.byteArray;
 
 const MPRIS_PREFIX = 'org.mpris.MediaPlayer2.';
-const UPDATE_HEARTBEAT_MS = 15000;
 const SEEK_JUMP_THRESHOLD_US = 5 * 1000 * 1000;
 const MIN_VOLUME = 0;
 const MAX_VOLUME = 1;
@@ -60,9 +59,12 @@ class MediaBackend extends BackendApp {
     constructor(params) {
         super(params);
         this._refreshSource = 0;
+        this._signalSubscriptions = [];
         this._lastSnapshot = null;
-        this._lastSentTs = 0;
-        this.registerMethod('getSnapshot', () => this._lastSnapshot);
+        this.registerMethod('getSnapshot', async () => {
+            await this._refresh();
+            return this._lastSnapshot;
+        });
         this.registerMethod('getArt', async ({artId}) => {
             if (!artId) return null;
             if (!this._lastSnapshot || this._lastSnapshot.artId !== artId) return null;
@@ -75,26 +77,90 @@ class MediaBackend extends BackendApp {
     }
 
     onHello(_ctx) {
-        this._refresh();
-        this._ensureRefreshTimer();
+        this._ensureSignalSubscriptions();
+        this._scheduleRefresh();
     }
 
     onShutdown() {
-        if (this._refreshSource) {
-            GLib.Source.remove(this._refreshSource);
-            this._refreshSource = 0;
-        }
+        this._clearRefreshSource();
+        this._clearSignalSubscriptions();
     }
 
-    _ensureRefreshTimer() {
+    _clearRefreshSource() {
+        if (this._refreshSource)
+            GLib.Source.remove(this._refreshSource);
+        this._refreshSource = 0;
+    }
+
+    _scheduleRefresh() {
         if (this._refreshSource)
             return;
-        this._refreshSource = GLib.timeout_add_seconds(
-            GLib.PRIORITY_DEFAULT, 1, () => {
-                this._refresh();
-                return GLib.SOURCE_CONTINUE;
-            }
+
+        this._refreshSource = GLib.idle_add(GLib.PRIORITY_DEFAULT, () => {
+            this._refreshSource = 0;
+            this._refresh();
+            return GLib.SOURCE_REMOVE;
+        });
+    }
+
+    _ensureSignalSubscriptions() {
+        if (this._signalSubscriptions.length)
+            return;
+
+        const bus = Gio.DBus.session;
+        this._signalSubscriptions.push(
+            bus.signal_subscribe(
+                null,
+                'org.freedesktop.DBus',
+                'NameOwnerChanged',
+                '/org/freedesktop/DBus',
+                null,
+                Gio.DBusSignalFlags.NONE,
+                (_conn, _sender, _path, _iface, _signal, params) => {
+                    const [name] = params.deep_unpack();
+                    if (typeof name === 'string' && name.startsWith(MPRIS_PREFIX))
+                        this._scheduleRefresh();
+                }
+            )
         );
+
+        this._signalSubscriptions.push(
+            bus.signal_subscribe(
+                null,
+                'org.freedesktop.DBus.Properties',
+                'PropertiesChanged',
+                '/org/mpris/MediaPlayer2',
+                null,
+                Gio.DBusSignalFlags.NONE,
+                (_conn, _sender, _path, _iface, _signal, params) => {
+                    const [ifaceName] = params.deep_unpack();
+                    if (ifaceName === 'org.mpris.MediaPlayer2.Player')
+                        this._scheduleRefresh();
+                }
+            )
+        );
+
+        this._signalSubscriptions.push(
+            bus.signal_subscribe(
+                null,
+                'org.mpris.MediaPlayer2.Player',
+                'Seeked',
+                '/org/mpris/MediaPlayer2',
+                null,
+                Gio.DBusSignalFlags.NONE,
+                () => this._scheduleRefresh()
+            )
+        );
+    }
+
+    _clearSignalSubscriptions() {
+        const bus = Gio.DBus.session;
+        for (const id of this._signalSubscriptions) {
+            try {
+                bus.signal_unsubscribe(id);
+            } catch (e) {}
+        }
+        this._signalSubscriptions = [];
     }
 
     _listPlayerCandidates() {
@@ -344,7 +410,6 @@ class MediaBackend extends BackendApp {
         if (!this._shouldSendUpdate(prev, nextSnapshot))
             return;
 
-        this._lastSentTs = nextSnapshot.ts;
         const { _rawArtUrl: _r, ...publicSnapshot } = nextSnapshot;
         this.sendEvent('update', publicSnapshot);
     }
@@ -381,9 +446,6 @@ class MediaBackend extends BackendApp {
 
         if (Math.abs(nextPosition - expectedPosition) >= SEEK_JUMP_THRESHOLD_US)
             return true;
-
-        if (next.playbackStatus === 'Playing')
-            return nextTs - this._lastSentTs >= UPDATE_HEARTBEAT_MS;
 
         return false;
     }

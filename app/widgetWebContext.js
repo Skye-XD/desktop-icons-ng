@@ -169,6 +169,12 @@ const WebWidgetContext = class {
         const settings = webView.get_settings();
         settings.set_enable_write_console_messages_to_stdout(true);
         settings.set_enable_webgl(true);
+        if (typeof settings.set_hardware_acceleration_policy === 'function' &&
+            WebKit?.HardwareAccelerationPolicy?.ALWAYS !== undefined) {
+            settings.set_hardware_acceleration_policy(
+                WebKit.HardwareAccelerationPolicy.ALWAYS
+            );
+        }
 
         webView.set_background_color(new Gdk.RGBA({
             red: 0,

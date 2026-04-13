@@ -5,9 +5,12 @@
   "kind": "html",
   "defaultWidth": 320,
   "defaultHeight": 100,
-  "author": "xiaozhangup",
-  "version": "1.1",
+  "author": "xiaozhangup, Sundeep Mediratta",
+  "version": "1.3",
   "pinnable": true,
+  "chrome": {
+    "showMoveButton": false
+  },
   "defaultConfig": {
     "textColor": "#ffffff",
     "progressColor": "#ffffff",

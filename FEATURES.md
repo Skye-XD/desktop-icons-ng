@@ -196,6 +196,8 @@ The application functionality and behavior is consistent with the two other very
 
 - [x] Added draggable widget areas for HTML widgets, letting widgets publish host hit-test rectangles for move start without a visible drag handle. The host now uses those draggable regions to suppress the move-button affordance when the widget provides its own draggable area.
 
+- [x] Media player widgets version 1.2: moved the backend to signal-driven MPRIS refreshes, reduced frontend playback updates to a visible-only 1 Hz timer, switched the progress bar to compositor-friendly transform rendering, refreshed reload snapshots on demand, and persisted only meaningful media changes.
+
 **FIXES**
 
 - [x] Fix Gtk4 Icon Rendering Code to at least render generic correct icons at the correct size.
