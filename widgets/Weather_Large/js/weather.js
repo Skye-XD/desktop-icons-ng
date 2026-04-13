@@ -37,7 +37,7 @@ function _defaults() {
         location: {label: '', lat: null, lon: null},
         units: 'system',
         refreshMinutes: 30,
-        animationsEnabled: true,
+        animationsEnabled: false,
         textColor: '#f5f6f8',
         bgColor: '#ffffff',
         bgAlpha: 0,
@@ -90,9 +90,12 @@ class WeatherApp {
 
         try {
             this._applySizeClass();
+            this._syncDraggableSurface();
+            this._syncPinnedMoveSurface();
             const onResize = debounce(() => {
                 if (!this._destroyed)
                     this._applySizeClass();
+                this._syncDraggableSurface();
             }, 60);
             window.addEventListener('resize', onResize);
             this._teardowns.push(() => window.removeEventListener('resize', onResize));
@@ -217,6 +220,22 @@ class WeatherApp {
         const html = this._els.html;
         html.classList.remove('wx-small', 'wx-medium', 'wx-large');
         html.classList.add(cls);
+    }
+
+    _syncDraggableSurface() {
+        if (this._destroyed || !this._els.root)
+            return;
+
+        this._client?.setDraggable?.(this._els.root);
+    }
+
+    _syncPinnedMoveSurface() {
+        if (this._destroyed || !this._els.root)
+            return;
+
+        const teardown = this._client?.attachPinnedMoveHandle?.(this._els.root);
+        if (typeof teardown === 'function')
+            this._teardowns.push(teardown);
     }
 
     _applyMotionClass() {

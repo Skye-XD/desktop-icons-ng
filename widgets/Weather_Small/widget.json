@@ -4,8 +4,11 @@
   "kind": "html",
   "entry": "index.html",
   "prefs": "prefs.html",
-  "version": 3,
+  "version": 4,
   "pinnable": true,
+  "chrome": {
+    "showMoveButton": false
+  },
   "defaultWidth": 260,
   "defaultHeight": 160,
   "defaultConfig": {
@@ -16,7 +19,7 @@
     },
     "units": "system",
     "refreshMinutes": 30,
-    "animationsEnabled": true,
+    "animationsEnabled": false,
     "cache": null
   },
   "permissions": [
