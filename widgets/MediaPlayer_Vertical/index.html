@@ -8,7 +8,57 @@
   <link rel="stylesheet" href="mediaPlayer.css">
 </head>
 <body>
-  <div id="media-root" style="width:100vw;height:100vh;"></div>
+  <div id="media-root" class="mp-root">
+    <div class="mp-empty" aria-live="polite">No media playing</div>
+    <div class="mp-main">
+      <div class="mp-cover" id="mp-cover">
+        <img class="mp-cover-img" alt="cover" hidden />
+        <div class="mp-nocover">?</div>
+      </div>
+      <div class="mp-info">
+        <div class="mp-title"></div>
+        <div class="mp-artist"></div>
+      </div>
+      <div class="mp-progress">
+        <div class="mp-bar"></div>
+      </div>
+      <div class="mp-meta">
+        <span class="mp-time-wrap">
+          <span class="mp-time-current"></span>
+          <span style="margin:0 2px;">/</span>
+          <span class="mp-time-total"></span>
+        </span>
+        <span class="mp-status"></span>
+      </div>
+      <div class="mp-controls-overlay" aria-label="Media controls">
+        <div class="mp-volume-strip" aria-label="Volume controls">
+          <input class="mp-volume-slider" type="range" min="0" max="100" step="1" aria-label="Volume" />
+        </div>
+        <div class="mp-control-strip">
+          <button class="mp-volume-btn" type="button" data-volume-step="-1" aria-label="Decrease volume">-</button>
+          <button class="mp-control-btn" type="button" data-action="previous" aria-label="Previous track">
+            <svg class="mp-control-icon" viewBox="0 0 16 16" aria-hidden="true">
+              <path d="M4 3.25a.75.75 0 0 1 .75.75v8a.75.75 0 0 1-1.5 0V4A.75.75 0 0 1 4 3.25Zm7.396.134a.75.75 0 0 1 .354.636v7.96a.75.75 0 0 1-1.146.636L4.38 8.636a.75.75 0 0 1 0-1.272l6.224-3.98a.75.75 0 0 1 .792 0Z"/>
+            </svg>
+          </button>
+          <button class="mp-control-btn mp-control-btn-primary" type="button" data-action="playPause" aria-label="Play or pause">
+            <svg class="mp-control-icon mp-control-icon-play" viewBox="0 0 16 16" aria-hidden="true">
+              <path d="M5.153 3.459A.75.75 0 0 1 6.25 4.12v7.76a.75.75 0 0 1-1.097.662l6-3.88a.75.75 0 0 0 0-1.324l-6-3.88Z"/>
+            </svg>
+            <svg class="mp-control-icon mp-control-icon-pause" viewBox="0 0 16 16" aria-hidden="true">
+              <path d="M4.75 3.25a.75.75 0 0 1 .75.75v8a.75.75 0 0 1-1.5 0V4a.75.75 0 0 1 .75-.75Zm6.5 0A.75.75 0 0 1 12 4v8a.75.75 0 0 1-1.5 0V4a.75.75 0 0 1 .75-.75Z"/>
+            </svg>
+          </button>
+          <button class="mp-control-btn" type="button" data-action="next" aria-label="Next track">
+            <svg class="mp-control-icon" viewBox="0 0 16 16" aria-hidden="true">
+              <path d="M12 3.25a.75.75 0 0 1 .75.75v8a.75.75 0 0 1-1.5 0V4a.75.75 0 0 1 .75-.75Zm-7.396.134a.75.75 0 0 1 .792 0l6.224 3.98a.75.75 0 0 1 0 1.272l-6.224 3.98A.75.75 0 0 1 4.25 11.98V4.02a.75.75 0 0 1 .354-.636Z"/>
+            </svg>
+          </button>
+          <button class="mp-volume-btn" type="button" data-volume-step="1" aria-label="Increase volume">+</button>
+        </div>
+      </div>
+    </div>
+  </div>
   <script type="module" src="mediaPlayer.js"></script>
 </body>
 </html>

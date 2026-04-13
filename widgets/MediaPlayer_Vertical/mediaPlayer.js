@@ -27,11 +27,12 @@ class MediaPlayerWidget {
     this._volumeWriteTimer = 0;
     this._lastProgressRenderKey = '';
     this._pendingVolume = null;
-    this._visibilityObserver = null;
     this._isVisible = true;
     this._beforeUnloadHandler = this._handleBeforeUnload.bind(this);
     this._syncConfig = this._readSyncConfig();
     this._client = new DingClient({mode: 'widget'});
+    this._cacheUi();
+    this._bindControlButtons();
     window.addEventListener('pagehide', this._beforeUnloadHandler);
     window.addEventListener('beforeunload', this._beforeUnloadHandler);
     this._init();
@@ -72,8 +73,6 @@ class MediaPlayerWidget {
           this._applySnapshot(snapshot, {persist: true});
       }).catch(() => {});
     }
-
-    this._watchOverlayVisibility();
   }
 
   _readSyncConfig() {
@@ -159,7 +158,6 @@ class MediaPlayerWidget {
     const normalized = this._normalizeSnapshot(snapshot);
     const previous = this._lastSnapshot;
     const mediaChanged = this._didMediaIdentityChange(previous, normalized);
-    const playbackStateChanged = previous?.playbackStatus !== normalized?.playbackStatus;
     this._lastSnapshot = normalized;
     if (mediaChanged)
       this._lastProgressRenderKey = '';
@@ -170,7 +168,7 @@ class MediaPlayerWidget {
       this._currentArtId = null;
       this._currentArtUrl = null;
       if (persist)
-        this._persistMediaCache({immediate: mediaChanged || playbackStateChanged});
+        this._persistMediaCache();
       return;
     }
 
@@ -187,7 +185,7 @@ class MediaPlayerWidget {
       if (artChanged)
         this._renderCover(cachedArtUrl);
       if (persist)
-        this._persistMediaCache({immediate: mediaChanged || playbackStateChanged});
+        this._persistMediaCache();
       return;
     }
 
@@ -198,7 +196,7 @@ class MediaPlayerWidget {
       this._loadCover(normalized.artId);
 
     if (persist)
-      this._persistMediaCache({immediate: mediaChanged || playbackStateChanged});
+      this._persistMediaCache();
   }
 
   _normalizeSnapshot(snapshot) {
@@ -221,9 +219,13 @@ class MediaPlayerWidget {
   }
 
   _render(snapshot) {
+    const ui = this._ui;
+    if (!ui)
+      return;
+
+    ui.root?.classList.toggle('has-player', !!snapshot?.player);
+
     if (!snapshot || !snapshot.player) {
-      this._root.innerHTML = ``;
-      this._ui = null;
       this._lastProgressRenderKey = '';
       return;
     }
@@ -231,45 +233,6 @@ class MediaPlayerWidget {
     const percent = snapshot.length > 0
       ? Math.min(100, Math.round(snapshot.position / snapshot.length * 100))
       : 0;
-
-    if (!this._root.querySelector('.mp-main')) {
-      this._root.innerHTML = `
-        <div class="mp-main">
-          <div class="mp-cover" id="mp-cover">
-            <div class="mp-nocover" style="display:flex;align-items:center;justify-content:center;font-size:2em;color:#aaa;">?</div>
-          </div>
-          <div class="mp-info">
-            <div class="mp-title"></div>
-            <div class="mp-artist"></div>
-            <div class="mp-progress">
-              <div class="mp-bar"></div>
-            </div>
-            <div class="mp-meta">
-              <span class="mp-time-wrap">
-                <span class="mp-time-current"></span>
-                <span style="margin:0 2px;">/</span>
-                <span class="mp-time-total"></span>
-              </span>
-              <span class="mp-status"></span>
-            </div>
-          </div>
-          <div class="mp-controls-overlay" aria-label="Media controls">
-            <div class="mp-volume-strip" aria-label="Volume controls">
-              <input class="mp-volume-slider" type="range" min="0" max="100" step="1" aria-label="Volume" />
-            </div>
-            <div class="mp-control-strip">
-              <button class="mp-volume-btn" type="button" data-volume-step="-1" aria-label="Decrease volume">-</button>
-              <button class="mp-control-btn" type="button" data-action="previous" aria-label="Previous track"></button>
-              <button class="mp-control-btn mp-control-btn-primary" type="button" data-action="playPause" aria-label="Play or pause"></button>
-              <button class="mp-control-btn" type="button" data-action="next" aria-label="Next track"></button>
-              <button class="mp-volume-btn" type="button" data-volume-step="1" aria-label="Increase volume">+</button>
-            </div>
-          </div>
-        </div>
-      `;
-      this._bindControlButtons();
-      this._cacheUi();
-    }
 
     this._updateStaticFields(snapshot);
     this._updatePlaybackProgress(snapshot, percent);
@@ -279,6 +242,11 @@ class MediaPlayerWidget {
 
   _cacheUi() {
     this._ui = {
+      root: this._root,
+      main: this._root.querySelector('.mp-main'),
+      cover: this._root.querySelector('#mp-cover'),
+      coverImg: this._root.querySelector('.mp-cover-img'),
+      coverFallback: this._root.querySelector('.mp-nocover'),
       title: this._root.querySelector('.mp-title'),
       artist: this._root.querySelector('.mp-artist'),
       progressBar: this._root.querySelector('.mp-bar'),
@@ -301,6 +269,8 @@ class MediaPlayerWidget {
       ui.title.textContent = snapshot.title || '';
     if (ui.artist)
       ui.artist.textContent = snapshot.artist || '';
+    if (ui.timeTotal)
+      ui.timeTotal.textContent = this._formatTime(snapshot.length / 1000000);
     if (ui.status)
       ui.status.textContent = snapshot.playbackStatus || '';
   }
@@ -316,8 +286,7 @@ class MediaPlayerWidget {
         : 0
     );
     const currentText = this._formatTime(snapshot.position / 1000000);
-    const totalText = this._formatTime(snapshot.length / 1000000);
-    const renderKey = `${progressPct}|${currentText}|${totalText}`;
+    const renderKey = `${progressPct}|${currentText}`;
     if (renderKey === this._lastProgressRenderKey)
       return;
 
@@ -327,8 +296,6 @@ class MediaPlayerWidget {
       ui.progressBar.style.setProperty('--progress-scale', String(progressPct / 100));
     if (ui.timeCurrent)
       ui.timeCurrent.textContent = currentText;
-    if (ui.timeTotal)
-      ui.timeTotal.textContent = totalText;
   }
 
   async _loadCover(artId) {
@@ -350,25 +317,34 @@ class MediaPlayerWidget {
   }
 
   _renderCover(artUrl) {
-    const coverDiv = this._root.querySelector('#mp-cover');
-    if (!coverDiv)
+    const ui = this._ui;
+    if (!ui?.cover)
       return;
 
-    if (artUrl) {
-      const currentImg = coverDiv.querySelector('img');
-      if (currentImg?.getAttribute('src') === artUrl)
-        return;
-      coverDiv.innerHTML = `<img src="${this._escapeAttr(artUrl)}" alt="cover" style="max-width:100%;max-height:100%;object-fit:cover;"/>`;
+    if (!artUrl) {
+      if (ui.coverImg)
+        ui.coverImg.hidden = true;
+      if (ui.coverFallback)
+        ui.coverFallback.hidden = false;
       return;
     }
 
-    if (coverDiv.querySelector('.mp-nocover'))
+    if (ui.coverImg?.getAttribute('src') === artUrl && !ui.coverImg.hidden) {
+      if (ui.coverFallback)
+        ui.coverFallback.hidden = true;
       return;
-    coverDiv.innerHTML = '<div class="mp-nocover" style="display:flex;align-items:center;justify-content:center;font-size:2em;color:#aaa;">?</div>';
+    }
+
+    if (ui.coverImg) {
+      ui.coverImg.src = artUrl;
+      ui.coverImg.hidden = false;
+    }
+    if (ui.coverFallback)
+      ui.coverFallback.hidden = true;
   }
 
   _bindControlButtons() {
-    for (const button of this._root.querySelectorAll('.mp-control-btn')) {
+    for (const button of this._ui?.controlButtons ?? []) {
       button.addEventListener('pointerdown', event => {
         if (event.button !== 0)
           return;
@@ -384,7 +360,7 @@ class MediaPlayerWidget {
       });
     }
 
-    for (const button of this._root.querySelectorAll('.mp-volume-btn')) {
+    for (const button of this._ui?.volumeButtons ?? []) {
       button.addEventListener('pointerdown', event => {
         if (event.button !== 0)
           return;
@@ -403,7 +379,7 @@ class MediaPlayerWidget {
       });
     }
 
-    const slider = this._root.querySelector('.mp-volume-slider');
+    const slider = this._ui?.volumeSlider;
     const handleVolumeSliderInput = event => {
       event.stopPropagation();
       const nextVolume = Number(event.currentTarget.value) / 100;
@@ -419,7 +395,7 @@ class MediaPlayerWidget {
       event.stopPropagation();
     });
 
-    this._root.querySelector('.mp-main')?.addEventListener('wheel', event => {
+    this._ui.main?.addEventListener('wheel', event => {
       if (!this._lastSnapshot?.player || !this._lastSnapshot?.canControlVolume)
         return;
       event.preventDefault();
@@ -429,42 +405,8 @@ class MediaPlayerWidget {
     }, {passive: false});
   }
 
-  _watchOverlayVisibility() {
-    if (this._visibilityObserver || !document.body)
-      return;
-
-    const syncVisibleVolume = () => {
-      if (!document.body?.classList?.contains('ding-host-chrome-visible'))
-        return;
-      this._syncVisibleVolumeControls();
-    };
-
-    this._visibilityObserver = new MutationObserver(() => {
-      syncVisibleVolume();
-    });
-    this._visibilityObserver.observe(document.body, {
-      attributes: true,
-      attributeFilter: ['class'],
-    });
-
-    document.addEventListener('visibilitychange', syncVisibleVolume);
-    this._visibilityChangeHandler = syncVisibleVolume;
-  }
-
-  _syncVisibleVolumeControls() {
-    if (!this._lastSnapshot)
-      return;
-
-    const snapshot = this._getRenderSnapshot();
-    if (!snapshot?.canControlVolume || !Number.isFinite(snapshot?.volume))
-      return;
-
-    this._updateVolumeControls(snapshot);
-    requestAnimationFrame(() => this._updateVolumeControls(snapshot));
-  }
-
   _updateControlButtons(snapshot) {
-    const buttons = this._root.querySelectorAll('.mp-control-btn');
+    const buttons = this._ui?.controlButtons ?? [];
     if (!buttons.length)
       return;
 
@@ -475,38 +417,11 @@ class MediaPlayerWidget {
       const isBusy = busyAction === action;
       button.disabled = !hasPlayer || !!busyAction;
       button.classList.toggle('is-busy', isBusy);
-      button.innerHTML = this._getControlIconSvg(
-        action,
-        action === 'playPause' && snapshot?.playbackStatus === 'Playing'
-      );
-    }
-  }
-
-  _getControlIconSvg(action, isPlaying) {
-    switch (action) {
-    case 'previous':
-      return `
-        <svg viewBox="0 0 16 16" aria-hidden="true">
-          <path d="M4 3.25a.75.75 0 0 1 .75.75v8a.75.75 0 0 1-1.5 0V4A.75.75 0 0 1 4 3.25Zm7.396.134a.75.75 0 0 1 .354.636v7.96a.75.75 0 0 1-1.146.636L4.38 8.636a.75.75 0 0 1 0-1.272l6.224-3.98a.75.75 0 0 1 .792 0Z"/>
-        </svg>`;
-    case 'next':
-      return `
-        <svg viewBox="0 0 16 16" aria-hidden="true">
-          <path d="M12 3.25a.75.75 0 0 1 .75.75v8a.75.75 0 0 1-1.5 0V4a.75.75 0 0 1 .75-.75Zm-7.396.134a.75.75 0 0 1 .792 0l6.224 3.98a.75.75 0 0 1 0 1.272l-6.224 3.98A.75.75 0 0 1 4.25 11.98V4.02a.75.75 0 0 1 .354-.636Z"/>
-        </svg>`;
-    case 'playPause':
-      if (isPlaying) {
-        return `
-          <svg viewBox="0 0 16 16" aria-hidden="true">
-            <path d="M4.75 3.25a.75.75 0 0 1 .75.75v8a.75.75 0 0 1-1.5 0V4a.75.75 0 0 1 .75-.75Zm6.5 0A.75.75 0 0 1 12 4v8a.75.75 0 0 1-1.5 0V4a.75.75 0 0 1 .75-.75Z"/>
-          </svg>`;
+      if (action === 'playPause') {
+        const isPlaying = snapshot?.playbackStatus === 'Playing';
+        button.classList.toggle('is-playing', isPlaying);
+        button.setAttribute('aria-label', isPlaying ? 'Pause' : 'Play or pause');
       }
-      return `
-        <svg viewBox="0 0 16 16" aria-hidden="true">
-          <path d="M5.153 3.459A.75.75 0 0 1 6.25 4.12v7.76a.75.75 0 0 1-1.097.662l6-3.88a.75.75 0 0 0 0-1.324l-6-3.88Z"/>
-        </svg>`;
-    default:
-      return '';
     }
   }
 
@@ -529,8 +444,8 @@ class MediaPlayerWidget {
   }
 
   _updateVolumeControls(snapshot) {
-    const overlay = this._root.querySelector('.mp-volume-strip');
-    const slider = this._root.querySelector('.mp-volume-slider');
+    const overlay = this._ui?.volumeStrip;
+    const slider = this._ui?.volumeSlider;
     if (!overlay || !slider)
       return;
 
@@ -538,7 +453,7 @@ class MediaPlayerWidget {
     overlay.hidden = !enabled;
     slider.disabled = !enabled;
 
-    for (const button of this._root.querySelectorAll('.mp-volume-btn'))
+    for (const button of this._ui?.volumeButtons ?? [])
       button.disabled = !enabled;
 
     if (!enabled)
@@ -576,7 +491,7 @@ class MediaPlayerWidget {
       ts: Date.now(),
     };
     this._paintVolumeSlider(
-      this._root.querySelector('.mp-volume-slider'),
+      this._ui?.volumeSlider,
       nextVolume * 100
     );
     this._updateVolumeControls(this._getRenderSnapshot());
@@ -613,7 +528,7 @@ class MediaPlayerWidget {
     this._client.backendRequest('setVolume', {volume}).catch(() => {});
   }
 
-  _persistMediaCache({_immediate = false} = {}) {
+  _persistMediaCache() {
     this._flushPersist();
   }
 
@@ -685,10 +600,6 @@ class MediaPlayerWidget {
       g: parseInt(result[2], 16),
       b: parseInt(result[3], 16),
     } : null;
-  }
-
-  _escapeAttr(str) {
-    return String(str || '').replace(/"/g, '&quot;');
   }
 
   _formatTime(sec) {
@@ -769,15 +680,6 @@ class MediaPlayerWidget {
       this._volumeWriteTimer = 0;
     }
     this._flushVolumeWrite();
-    this._visibilityObserver?.disconnect?.();
-    this._visibilityObserver = null;
-    if (this._visibilityChangeHandler) {
-      document.removeEventListener(
-        'visibilitychange',
-        this._visibilityChangeHandler
-      );
-      this._visibilityChangeHandler = null;
-    }
     this._client?.destroy?.();
     window.removeEventListener('pagehide', this._beforeUnloadHandler);
     window.removeEventListener('beforeunload', this._beforeUnloadHandler);
