@@ -1,5 +1,12 @@
 # Sticky Note Widget
 
+**Author:** Sundeep Mediratta
+
+**Copyright:** Copyright (C) 2026 Sundeep Mediratta
+
+Licensed under the GNU General Public License version 3 or later.
+This widget is distributed without any warranty.
+
 ## Overview
 
 Sticky Note is a local-only desktop note widget.
@@ -52,6 +59,11 @@ The top control strip contains:
 - Edit: toggles edit mode
 - Close: removes the current widget instance
 
+The note header also contains an invisible draggable region in the raised widget container:
+- It sits between the left-side and right-side buttons in the top bar
+- It lets you move the note without a visible drag handle
+- It only applies while the note is in the raised widget container
+
 ## Pinning and Pinned Move
 
 Sticky Note is pinnable and manages its own pin and move controls.
@@ -72,6 +84,11 @@ Moving while pinned:
 - The Move button is active only while the note is pinned
 - Dragging the empty part of the top bar while pinned also starts a pinned window move
 - The final pinned position is reported back to the host and persisted in the widget instance state
+
+Moving while raised on the desktop:
+- Dragging the center of the top bar starts moving the widget without a visible handle
+- The top bar drag area is intentionally kept clear of the chrome buttons
+- This raised-container drag uses the widget helper's draggable-region API, not the pinned floating-window move API
 
 ## Editor
 

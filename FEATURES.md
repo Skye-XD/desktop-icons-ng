@@ -185,6 +185,7 @@ The application functionality and behavior is consistent with the two other very
 - [x] Added widget grid, snap to widget grid functionality and imporved right click menu
 
 - [x] Floating/pinned HTML widgets are implemented, now survive container/window reparenting reliably by reloading the WebView when WebKit does not repaint correctly after the parent change. Pinnable widgets therefore need to tolerate reload and persist meaningful state outside transient page memory.
+
 - [x] Added floating widget polish and bug fixes: better pinned overlay controls, improved focus retention, cleaner selected-state handling on floating actors, and safer widget-layer chrome handling while widgets are active.
 
 - [x] Added a new Sticky Note widget with local config-backed note storage, rich-text editing, checklist support, links, note colors, and explicit pin/move controls for floating mode.
@@ -192,6 +193,8 @@ The application functionality and behavior is consistent with the two other very
 - [x] Today calendar and media player widgets are now pinnable in floating windows.
 
 - [x] Media player widgets now have built-in transport and volume controls, including Previous, Play/Pause, Next, slider-based volume, +/- volume steps, mouse-wheel volume, and cached media state for smoother restore after reloads.
+
+- [x] Added draggable widget areas for HTML widgets, letting widgets publish host hit-test rectangles for move start without a visible drag handle. The host now uses those draggable regions to suppress the move-button affordance when the widget provides its own draggable area.
 
 **FIXES**
 
@@ -408,3 +411,5 @@ The application functionality and behavior is consistent with the two other very
 - [x] Fix compatibility with newer GLibUnix signal APIs and older runtimes by switching from `signal-add-full` to `signal-add` and removing optional chaining from widget WebContext code.
 
 - [x] Fix application icon resource naming collisions by namespacing icons with the `ding-` prefix.
+
+- [x] Fix broken widget long-press dragging by removing the long-press path and using grouped click + drag instead. The click sequence now decides selection, pass-through, and drag start in one place, with draggable widget regions and draggable chrome handled from the click sequence rather than a separate long-press gesture.

@@ -6,7 +6,7 @@
   "defaultWidth": 360,
   "defaultHeight": 300,
   "author": "Sundeep Mediratta",
-  "version": "0.1",
+  "version": "0.2",
   "pinnable": true,
   "chrome": {
     "showCloseButton": false,
