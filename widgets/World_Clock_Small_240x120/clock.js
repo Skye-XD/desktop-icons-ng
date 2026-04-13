@@ -2,6 +2,7 @@
 /* eslint-disable no-undef */
 /* World Clock widget face logic (timezone aware; no seconds; minute-aligned) */
 
+import {DingClient} from './widgetHelper.js';
 import {getDefaultZone, getDisplayLabelForZone, getZoneInfo} from './timezones.js';
 
 const PRESET_COLORS = {
@@ -29,10 +30,16 @@ const timeTextEl = document.getElementById('timeText');
 const ampmTextEl = document.getElementById('ampmText');
 const utcTextEl = document.getElementById('utcText');
 const rootEl = document.getElementById('root');
+const client = new DingClient({mode: 'widget'});
 
 let config = {...DEFAULT_CONFIG};
 let timer = null;
 let interval = null;
+let resizeHandler = null;
+let visibilityHandler = null;
+let pinnedMoveCleanup = null;
+let configCleanup = null;
+let destroyed = false;
 
 function clamp(n, lo, hi) {
     return Math.max(lo, Math.min(hi, n));
@@ -214,36 +221,96 @@ function restartTimer() {
     }, Math.max(50, msToNextMinute));
 }
 
-function main() {
+function syncDragSurfaces() {
+    if (destroyed || !rootEl)
+        return;
+
+    client.setDraggable(rootEl);
+
+    if (!pinnedMoveCleanup) {
+        const teardown = client.attachPinnedMoveHandle(rootEl);
+        if (typeof teardown === 'function')
+            pinnedMoveCleanup = teardown;
+    }
+}
+
+function stopTimers() {
+    if (timer) {
+        clearTimeout(timer);
+        timer = null;
+    }
+    if (interval) {
+        clearInterval(interval);
+        interval = null;
+    }
+}
+
+function cleanup() {
+    if (destroyed)
+        return;
+
+    destroyed = true;
+    stopTimers();
+
+    if (resizeHandler)
+        window.removeEventListener('resize', resizeHandler);
+    if (visibilityHandler)
+        document.removeEventListener('visibilitychange', visibilityHandler);
+    if (configCleanup)
+        configCleanup();
+    configCleanup = null;
+
+    pinnedMoveCleanup?.();
+    pinnedMoveCleanup = null;
+    client.destroy();
+}
+
+async function main() {
     applySizing();
-    window.addEventListener('resize', () => applySizing());
+    resizeHandler = () => {
+        if (destroyed)
+            return;
+        applySizing();
+        syncDragSurfaces();
+    };
+    window.addEventListener('resize', resizeHandler);
+    syncDragSurfaces();
 
     try {
-        if (window.ding && typeof window.ding.getConfigSync === 'function')
-            config = normalizeConfigObject(window.ding.getConfigSync());
+        const cfg = await client.getConfig();
+        if (cfg)
+            config = normalizeConfigObject(cfg);
     } catch (_error) {}
 
     applyNeon();
     renderOnce();
     restartTimer();
 
-    document.addEventListener('visibilitychange', () => {
+    visibilityHandler = () => {
         if (!document.hidden)
             renderOnce();
-    });
+    };
+    document.addEventListener('visibilitychange', visibilityHandler);
 
     try {
-        if (window.ding && typeof window.ding.onConfigChanged === 'function') {
-            window.ding.onConfigChanged((cfg, _meta) => {
+        const unsubscribe = client.onConfigChanged((cfg, _meta) => {
+            if (destroyed)
+                return;
+            if (cfg) {
                 config = normalizeConfigObject(cfg);
                 applyNeon();
                 renderOnce();
                 restartTimer();
-            });
-        }
+                syncDragSurfaces();
+            }
+        });
+        if (typeof unsubscribe === 'function')
+            configCleanup = unsubscribe;
     } catch (_error) {
         // Keep running with defaults.
     }
+
+    window.addEventListener('beforeunload', cleanup, {once: true});
 }
 
 if (document.readyState === 'loading')
