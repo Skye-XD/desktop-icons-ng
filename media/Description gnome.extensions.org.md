@@ -2,7 +2,7 @@ Adw. Desktop Icons
 
 Libadwaita/Gtk4 port of Desktop Icons NG with multiple fixes and new features.
 
-Latest update: widgets can now be pinned into floating windows, including the Today calendar and media widgets. This release also adds a new Sticky Note widget, improves pinned widget controls and focus behavior, adds media widget playback and volume controls, and updates the world clock widgets for better timezone and DST handling.
+Latest update: GNOME 50 support has been refreshed with window-tracking fixes, better drag behaviour for widgets in both pinned and unpinned stats, and lower-CPU use by widgets. Weather animations are off by default, and the media widgets now use a lighter DOM with signal-driven refreshes and drag hooks. Addresses long press regression on Gnome 50 and removes it entirely with straight drags. Please re-install latest widgets.
 
 Now has a widget layer that can run widgets- like KDE desklets, they are little HTML display apps that run in Webkit. Icons cover this layer, layers can be moved up or down for editing. Widgets can be snapped to a grid to maintain row/column alignment or free positioned.
 

@@ -27,13 +27,14 @@ Application was rewritten, cleaned up and restructured completely and several ne
 
 Uses Libretranslate to automatically translate into multiple languages.
 
-### UPDATE Web Widget Layer December 2025
+### UPDATE Web Widget Layer April 2026
 
 - Added a desktop web-widget layer like KDE desklets for Gnome Desktop: HTML widgets run in isolated WebKit WebViews (shared WebContext/UCM, jailed `ding-widget://` scheme) with per-monitor layers you can toggle above/below icons.
 - Widgets support preferences via `widget.json` `prefs` paths (any subdirectory) and per-instance config (overwrites on save).
 - Floating/pinned HTML widgets can be reparented between the desktop container and floating widget windows. In that case the host may reload the WebView to recover WebKit rendering, so pinnable widgets should persist meaningful state outside transient page memory.
 - As with any web content, widgets carry the same security considerations as a web page; read the security sections in the widget docs for details.
 - The widget runtime is initialized lazily: if no widgets are enabled or instantiated, no WebKit processes are started, no additional resources are used, and there is no added attack surface beyond normal DING operation.
+- The current widget set includes Today, Weather, World Clock, Metrics, Media Player, and Sticky Note widgets. The heavier widgets were tuned to reduce idle CPU use: weather animations are off by default, and the media widgets use a lighter DOM with signal-driven refreshes.
 - The new web-widget layer can optionally launch helper backends defined per widget via `widget.json`. `HtmlWidgetHostWithBackend` spawns those commands directly from the widget bundle and exchanges newline-delimited JSON so widgets can render data produced by applications written in any language. This gives widget authors the power to integrate local system information or custom services well beyond what WebKit alone can access, so treat backend-enabled widgets like local applications and install only from trusted sources.
 - Documentation: [Desktop_Widgets.md](Desktop_Widgets.md), [Widget_API.md](widgets/Widget_API.md), [Widget_CSP_Profiles.md](Widget_CSP_Profiles.md). An optional shared stylesheet `widgets/ding-widget.css` is covered in [Widget_API.md](widgets/Widget_API.md#optional-helper-stylesheet-ding-widgetcss).
 
@@ -43,6 +44,8 @@ Uses Libretranslate to automatically translate into multiple languages.
 - X11 support has been removed; the extension now requires a Wayland session. Therefore compatibility with prior shells dropeed.
 - Removed X11-specific dependencies, legacy window-type emulation, and older Wayland compatibility workarounds.
 - Added desktop dock window-type emulation and improved raised/layered state handling with GNOME Shell.
+- Fixed window tracking and drag behavior for clock, metrics, weather, and media widgets, including pinned windows and widget chrome drag regions.
+- Kept weather animations off by default and moved more widget refresh work onto signal-driven paths to reduce CPU use.
 - Improved widget layer behavior:
   - better focus/visibility handling when dialogs open/close
   - restored widget focus after closing dialogs and auxiliary windows

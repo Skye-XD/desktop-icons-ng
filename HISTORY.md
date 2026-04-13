@@ -1,4 +1,12 @@
 # History of versions #
+* Adw Version 100.22 for Gnome 49, 50
+  * Fix window position tracking so restored and floating windows are tracked reliably. (Sundeep Mediratta)
+  * Keep clock and metrics surfaces draggable in both pinned and unpinned states. (Sundeep Mediratta)
+  * Stabilize weather widget drag handling and leave animations off by default to save CPU. (Sundeep Mediratta)
+  * Add drag hooks, refactor the media player UI to a lighter DOM and controls layout, and reduce playback-widget overhead. (Sundeep Mediratta)
+  * Improve unpinned/pinned-window dragging and widget draggable-region handling, and fix the GNOME 50 WebKit long-press + drag regression on child widgets. (Sundeep Mediratta)
+  * Refresh release notes and docs for the GNOME 50 widget and window behavior updates. (Sundeep Mediratta)
+
 * Adw Version 100.21 for Gnome 49, 50
   * Harden the extension lifecycle for the EGO fixes: create `DingManager` only in `enable()`, clean up null references on disable and unlock-session transitions, and make shutdown behavior explicit. (Sundeep Mediratta)
   * Fix window-type manager regressions from the EGO fixes: guard cleanup against null references, keep top/bottom stacking signals stable, and use GNOME 50+ compatible maximize behavior for fixed-position windows. (Sundeep Mediratta)
