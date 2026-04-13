@@ -61,6 +61,13 @@ body.ding-selected .note-shell,
   position: relative;
 }
 
+.note-drag-region {
+  position: absolute;
+  inset: 0 52px;
+  pointer-events: none;
+  z-index: 0;
+}
+
 .note-shell.note-editing .note-topbar,
 body.ding-selected .note-shell .note-topbar,
 .ding-pinned:not(.ding-edit-mode) .note-shell.widget-hovered .note-topbar,
@@ -222,6 +229,11 @@ body.ding-pinned:not(.ding-edit-mode) .note-shell.widget-hovered #btn-close,
 }
 
 body.ding-pinned:not(.ding-edit-mode) .note-shell.widget-hovered #btn-move {
+  display: block;
+  pointer-events: auto;
+}
+
+.note-shell.widget-selected #btn-move {
   display: block;
   pointer-events: auto;
 }
