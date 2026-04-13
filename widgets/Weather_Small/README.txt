@@ -17,6 +17,7 @@ Behavior
 - Widget layer changes and host reparenting reuse fresh cached weather data.
 - Layer changes do not trigger a weather refetch.
 - Failed icon fetches during reload are ignored and not retried repeatedly during the same page lifetime.
+- In pinned mode, the entire widget surface acts as the drag handle for moving the window.
 
 Configuration
 - `location`: selected location label, latitude, and longitude
