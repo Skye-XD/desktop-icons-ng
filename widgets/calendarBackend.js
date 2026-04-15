@@ -196,6 +196,23 @@ class CalendarBackend extends BackendApp {
         };
     }
 
+    _icalTimeToUnix(icalTime) {
+        if (!icalTime)
+            return 0;
+
+        try {
+            const zone = icalTime.get_timezone();
+            if (zone)
+                return icalTime.as_timet_with_zone(zone) ?? 0;
+        } catch {}
+
+        try {
+            return icalTime.as_timet() ?? 0;
+        } catch {}
+
+        return 0;
+    }
+
     _refreshToday() {
         const {nowUnix, dayStartUnix, dayEndUnix} = this._todayRangeUnix();
 
@@ -251,8 +268,8 @@ class CalendarBackend extends BackendApp {
                         let endUnix = 0;
 
                         try {
-                            startUnix = instanceStart?.as_timet?.() ?? 0;
-                            endUnix = instanceEnd?.as_timet?.() ?? 0;
+                            startUnix = this._icalTimeToUnix(instanceStart);
+                            endUnix = this._icalTimeToUnix(instanceEnd);
                         } catch {}
 
                         // Safety: clamp to today window if backend gives oddities

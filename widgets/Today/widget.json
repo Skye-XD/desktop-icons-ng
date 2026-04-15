@@ -7,9 +7,12 @@
   "defaultWidth": 260,
   "defaultHeight": 320,
   "pinnable": true,
+  "chrome": {
+    "showMoveButton": false
+  },
 
   "author": "Sundeep Mediratta",
-  "version": "1.0",
+  "version": "1.1",
 
   "defaultConfig": {
     "headerColor": "#f5f6f8",

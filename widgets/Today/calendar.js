@@ -37,9 +37,14 @@ export class CalendarWidget {
         this._client = new DingClient({mode: 'widget'});
         this._lastSnapshot = null;
         this._tickId = null;
+        this._destroyed = false;
+        this._pinnedMoveHandleCleanup = null;
+        this._onResize = this._onResize.bind(this);
         this._applyConfigObject(this._syncConfig);
         this._renderFromCache();
         this._applyConfig();
+        this._syncDragSurfaces();
+        window.addEventListener('resize', this._onResize);
 
         this._client.onBackendEvent((name, payload) => {
             if (name === 'update')
@@ -77,6 +82,12 @@ export class CalendarWidget {
         }
 
         this._startTick();
+    }
+
+    _onResize() {
+        if (this._destroyed)
+            return;
+        this._syncDragSurfaces();
     }
 
     _readSyncConfig() {
@@ -308,6 +319,19 @@ export class CalendarWidget {
         return `in ${hours} hour${hours === 1 ? '' : 's'}`;
     }
 
+    _syncDragSurfaces() {
+        if (this._destroyed || !this._root)
+            return;
+
+        this._client?.setDraggable?.(this._root);
+
+        if (!this._pinnedMoveHandleCleanup && this._client?.attachPinnedMoveHandle) {
+            const teardown = this._client.attachPinnedMoveHandle(this._root);
+            if (typeof teardown === 'function')
+                this._pinnedMoveHandleCleanup = teardown;
+        }
+    }
+
     _applyConfig() {
         const headerColor = this._normalizeHex(this._cfg.headerColor) || '#f5f6f8';
         const eventColor = this._normalizeHex(this._cfg.eventColor) || '#f5f6f8';
@@ -345,6 +369,25 @@ export class CalendarWidget {
                 this._schedulePersist();
             }
         }, 60000);
+    }
+
+    destroy() {
+        if (this._destroyed)
+            return;
+
+        this._destroyed = true;
+        window.removeEventListener('resize', this._onResize);
+        if (this._tickId) {
+            clearInterval(this._tickId);
+            this._tickId = null;
+        }
+        if (this._persistTimer) {
+            clearTimeout(this._persistTimer);
+            this._persistTimer = 0;
+        }
+        this._pinnedMoveHandleCleanup?.();
+        this._pinnedMoveHandleCleanup = null;
+        this._client?.destroy?.();
     }
 
     _schedulePersist() {
