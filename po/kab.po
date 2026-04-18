@@ -7,50 +7,53 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-30 06:42-0400\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2026-04-18 16:09+0000\n"
+"Last-Translator: Amadɣas <massiin@proton.me>\n"
+"Language-Team: Kabyle <https://hosted.weblate.org/projects/gtk4-desktop-"
+"icons-ng/gtk4-ding-pot/kab/>\n"
 "Language: kab\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 5.17.1-dev\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
-msgstr ""
+msgstr "Semselsi CSS"
 
 #: app/adwPreferencesWindow.js:162
 msgid "Customise the appearance of desktop icons with CSS"
-msgstr ""
+msgstr "Sagen temẓri n tignitin n tnarit s CSS"
 
 #: app/adwPreferencesWindow.js:166
 msgid "Warning: This can break the extension if done incorrectly"
 msgstr ""
+"Alɣu: Ayagi yezmer ad yerreẓ asiɣzef ma yella ur yettwag ara akken iwata"
 
 #: app/adwPreferencesWindow.js:172
 msgid "Edit CSS Override File..."
-msgstr ""
+msgstr "Ẓreg afaylu usemselsi CSS..."
 
 #: app/adwPreferencesWindow.js:180
 msgid "Apply CSS Changes Now"
-msgstr ""
+msgstr "Snes Isenfal CSS tura"
 
 #: app/adwPreferencesWindow.js:181
 msgid "Reload the CSS to apply changes immediately"
-msgstr ""
+msgstr "Ales asali n CSS iwakken ad tsenseḍ ibeddilen tura"
 
 #: app/adwPreferencesWindow.js:248 data/com.desktop.ding.desktop.in:29
 msgid "Shortcuts"
-msgstr ""
+msgstr "Inegzumen"
 
 #: app/adwPreferencesWindow.js:251
 msgid "Edit Shortcuts..."
-msgstr ""
+msgstr "Ẓreg inegzumen..."
 
 #: app/adwPreferencesWindow.js:266
 msgid "Edit Application Shortcuts"
-msgstr ""
+msgstr "Ẓreg inegzumen n usnas"
 
 #: app/adwPreferencesWindow.js:271
 msgid "Shortcuts Editable only when Extension Enabled..."
@@ -58,15 +61,15 @@ msgstr ""
 
 #: app/adwPreferencesWindow.js:376
 msgid "Help translate in your web browser"
-msgstr ""
+msgstr "Mudd afus n tallelt i ussuqel deg iminig-ik·im web"
 
 #: app/adwPreferencesWindow.js:599 app/adwPreferencesWindow.js:600
 msgid "Desktop"
-msgstr ""
+msgstr "Tanarit"
 
 #: app/adwPreferencesWindow.js:605 app/adwPreferencesWindow.js:606
 msgid "Files"
-msgstr ""
+msgstr "Ifuyla"
 
 #: app/adwPreferencesWindow.js:611 app/adwPreferencesWindow.js:612
 #: app/adwPreferencesWindow.js:654
@@ -75,31 +78,31 @@ msgstr ""
 
 #: app/adwPreferencesWindow.js:617 app/adwPreferencesWindow.js:618
 msgid "More"
-msgstr ""
+msgstr "Ugar"
 
 #: app/adwPreferencesWindow.js:629
 msgid "Desktop Settings"
-msgstr ""
+msgstr "Iɣewwaṛen n tnarit"
 
 #: app/adwPreferencesWindow.js:630
 msgid "Settings for the Desktop Program"
-msgstr ""
+msgstr "Iɣewwaṛen n wahil n tnarit"
 
 #: app/adwPreferencesWindow.js:636
 msgid "Desktop Folder"
-msgstr ""
+msgstr "Akaram n tnarit"
 
 #: app/adwPreferencesWindow.js:637
 msgid "Current Desktop: "
-msgstr ""
+msgstr "Taranit tamirant: "
 
 #: app/adwPreferencesWindow.js:647
 msgid "Files Settings"
-msgstr ""
+msgstr "Iɣewwaṛen n ifuyla"
 
 #: app/adwPreferencesWindow.js:648
 msgid "Settings shared with Gnome Files"
-msgstr ""
+msgstr "Iɣewwaṛen yettwabḍan akked yifuyla n Gnome"
 
 #: app/adwPreferencesWindow.js:655
 msgid "Miscellaneous Tweaks"
@@ -107,47 +110,47 @@ msgstr ""
 
 #: app/adwPreferencesWindow.js:679
 msgid "Size for the desktop icons"
-msgstr ""
+msgstr "Tiddi n tignitin n tnarit"
 
 #: app/adwPreferencesWindow.js:681
 msgid "Tiny"
-msgstr ""
+msgstr "Meẓẓi aṭas"
 
 #: app/adwPreferencesWindow.js:682
 msgid "Small"
-msgstr ""
+msgstr "Meẓẓi"
 
 #: app/adwPreferencesWindow.js:683
 msgid "Standard"
-msgstr ""
+msgstr "Tizeɣt"
 
 #: app/adwPreferencesWindow.js:684
 msgid "Large"
-msgstr ""
+msgstr "Meqqer"
 
 #: app/adwPreferencesWindow.js:690
 msgid "New icons alignment"
-msgstr ""
+msgstr "Tarigla tamaynutt n tignitin"
 
 #: app/adwPreferencesWindow.js:692
 msgid "Top left corner"
-msgstr ""
+msgstr "Tiɣmert tazelmaḍt n tama ufella"
 
 #: app/adwPreferencesWindow.js:693
 msgid "Top right corner"
-msgstr ""
+msgstr "Tiɣmert tayeffust n tama ufella"
 
 #: app/adwPreferencesWindow.js:694
 msgid "Bottom left corner"
-msgstr ""
+msgstr "Tiɣmert tazelmaḍt n tama wadda"
 
 #: app/adwPreferencesWindow.js:695
 msgid "Bottom right corner"
-msgstr ""
+msgstr "Tiɣmert tayeffust n tama wadda"
 
 #: app/adwPreferencesWindow.js:701
 msgid "Add new icons to Secondary Monitors first, if available"
-msgstr ""
+msgstr "Rnu tignitin timaynutin ɣer ugdil wis sin deg tazwara, ma yella yewjed"
 
 #: app/adwPreferencesWindow.js:705
 msgid "Snap icons to grid"
@@ -195,23 +198,23 @@ msgstr ""
 
 #: app/adwPreferencesWindow.js:755
 msgid "Show the personal folder on the desktop"
-msgstr ""
+msgstr "Sken akaram udmawan deg tnarit"
 
 #: app/adwPreferencesWindow.js:760
 msgid "Show the trash icon on the desktop"
-msgstr ""
+msgstr "Sken tignit n tqecwalt deg tnarit"
 
 #: app/adwPreferencesWindow.js:765
 msgid "Show external drives on the desktop"
-msgstr ""
+msgstr "ken iḍebsiyen izɣarayen ɣef tnarit"
 
 #: app/adwPreferencesWindow.js:770
 msgid "Show network drives on the desktop"
-msgstr ""
+msgstr "Sken iḍebsiyen n uẓeṭṭa ɣef tnarit"
 
 #: app/adwPreferencesWindow.js:775
 msgid "Add new drives to the opposite side of the desktop"
-msgstr ""
+msgstr "Rnu iḍebsiyen imaynuten ɣer tama tanemgalt n tnarit"
 
 #: app/adwPreferencesWindow.js:780
 msgid "Action to Open Items"
