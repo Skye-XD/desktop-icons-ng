@@ -13,8 +13,8 @@ DESCRIPTION="${DESCRIPTION:-Adw/Gtk4 Fork of Desktop Icons NG Extension that dis
 LICENSE="${LICENSE:-GPL-3+}"
 DEPENDS="${DEPENDS:-gir1.2-gnomeautoar-0.1,
          gir1.2-gnomedesktop-3.0,
-         gnome-shell (>= 45~),
-         gnome-shell (<< 50~),
+         gnome-shell (>= 49~),
+         gnome-shell (<< 51~),
          gjs,
          nautilus (>= 3.38)}"
 HOMEPAGE="https://gitlab.com/smedius/desktop-icons-ng"

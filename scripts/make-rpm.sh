@@ -12,8 +12,8 @@ PREFIX="${PREFIX:-/usr}"
 NOARCH="${NOARCH:-1}"
 LOCALE_DOMAIN="${LOCALE_DOMAIN:-gtk4-ding}"
 
-REQUIRES="${REQUIRES:-gnome-shell >= 45, \
-         gnome-shell < 50, \
+REQUIRES="${REQUIRES:-gnome-shell >= 49, \
+         gnome-shell < 51, \
          gjs, \
          nautilus >= 3.38, \
          gsettings-desktop-schemas}"
