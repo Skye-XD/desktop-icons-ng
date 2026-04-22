@@ -13,8 +13,8 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-30 06:42-0400\n"
-"PO-Revision-Date: 2026-03-31 15:10+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2026-04-20 02:09+0000\n"
+"Last-Translator: anas agha <anasagha2001@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/ar/>\n"
 "Language: ar\n"
@@ -23,7 +23,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 5.17-dev\n"
+"X-Generator: Weblate 5.17.1-dev\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
@@ -1532,8 +1532,9 @@ msgid "Preview"
 msgstr "معاينة"
 
 #: app/shortcuts.js:36
+#, fuzzy
 msgid "Toggle Keyboard Selection"
-msgstr ""
+msgstr "تبديل تحديد لوحة المفاتيح"
 
 #: app/shortcuts.js:39
 msgid "Toggle Widget Layer"
@@ -1647,16 +1648,16 @@ msgstr "تفضيلات العناصر"
 #: app/widgetManager.js:2135 app/widgetManager.js:2144
 #, fuzzy
 msgid "Unpin widget"
-msgstr "عنصر GTK"
+msgstr "الغاء تثبيت الويدجت"
 
 #: app/widgetManager.js:2135 app/widgetManager.js:2144
-#, fuzzy
 msgid "Pin widget"
-msgstr "عنصر GTK"
+msgstr "ثبّت الويدجت"
 
 #: app/widgetManager.js:2153
+#, fuzzy
 msgid "Reposition widget"
-msgstr ""
+msgstr "تغيّير موضع الويدجت"
 
 #: app/widgetManager.js:2699
 msgid "HTML widget"

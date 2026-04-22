@@ -2,12 +2,13 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the gtk4-ding package.
 # Amadɣas <massiin@proton.me>, 2026.
+# ButterflyOfFire <boffire@users.noreply.hosted.weblate.org>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-30 06:42-0400\n"
-"PO-Revision-Date: 2026-04-18 16:09+0000\n"
+"PO-Revision-Date: 2026-04-22 14:09+0000\n"
 "Last-Translator: Amadɣas <massiin@proton.me>\n"
 "Language-Team: Kabyle <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/kab/>\n"
@@ -82,7 +83,7 @@ msgstr "Ugar"
 
 #: app/adwPreferencesWindow.js:629
 msgid "Desktop Settings"
-msgstr "Iɣewwaṛen n tnarit"
+msgstr "Iɣewwaren n tnarit"
 
 #: app/adwPreferencesWindow.js:630
 msgid "Settings for the Desktop Program"
@@ -154,47 +155,47 @@ msgstr "Rnu tignitin timaynutin ɣer ugdil wis sin deg tazwara, ma yella yewjed"
 
 #: app/adwPreferencesWindow.js:705
 msgid "Snap icons to grid"
-msgstr ""
+msgstr "Rmed tignitin ɣef uẓiki"
 
 #: app/adwPreferencesWindow.js:711
 msgid "Show desktop widgets"
-msgstr ""
+msgstr "Sken iwiǧiten n tnarit"
 
 #: app/adwPreferencesWindow.js:716
 msgid "New Desktop Folder"
-msgstr ""
+msgstr "Akaram n tnarit amaynut"
 
 #: app/adwPreferencesWindow.js:717
 msgid "Set a new folder for the desktop"
-msgstr ""
+msgstr "Sbadu akaram amaynut i tnarit"
 
 #: app/adwPreferencesWindow.js:718 app/utils/desktopFolderUtils.js:85
 msgid "Choose"
-msgstr ""
+msgstr "Fren"
 
 #: app/adwPreferencesWindow.js:723
 msgid "Set Desktop back to ~/"
-msgstr ""
+msgstr "Err tanarit ɣer ~/"
 
 #: app/adwPreferencesWindow.js:725
 msgid "Restore Default Desktop Folder"
-msgstr ""
+msgstr "Err-d akaram n tnarit amezwer"
 
 #: app/adwPreferencesWindow.js:727
 msgid "Restore"
-msgstr ""
+msgstr "Err-d"
 
 #: app/adwPreferencesWindow.js:736
 msgid "Highlight the drop grid"
-msgstr ""
+msgstr "Sebrureq iẓiki n uɣelluy"
 
 #: app/adwPreferencesWindow.js:746
 msgid "Add information emblems for links, encryption"
-msgstr ""
+msgstr "Rnu tikbabin n talɣut i iseɣwan, akked awgelhen"
 
 #: app/adwPreferencesWindow.js:750
 msgid "Use dark text in icon labels"
-msgstr ""
+msgstr "Seqdec aḍris aberkan di tebzimin n tignit"
 
 #: app/adwPreferencesWindow.js:755
 msgid "Show the personal folder on the desktop"
@@ -218,51 +219,51 @@ msgstr "Rnu iḍebsiyen imaynuten ɣer tama tanemgalt n tnarit"
 
 #: app/adwPreferencesWindow.js:780
 msgid "Action to Open Items"
-msgstr ""
+msgstr "Tigawt ara yeldin iferdisen"
 
 #: app/adwPreferencesWindow.js:782
 msgid "Single click"
-msgstr ""
+msgstr "Asiti asuf"
 
 #: app/adwPreferencesWindow.js:783
 msgid "Double click"
-msgstr ""
+msgstr "Asiti usleg"
 
 #: app/adwPreferencesWindow.js:788
 msgid "Show image thumbnails"
-msgstr ""
+msgstr "Sken tinfulin n tugniwin"
 
 #: app/adwPreferencesWindow.js:790
 msgid "Always"
-msgstr ""
+msgstr "Yal tikelt"
 
 #: app/adwPreferencesWindow.js:791
 msgid "On this computer only"
-msgstr ""
+msgstr "Deg uselkim-agi kan"
 
 #: app/adwPreferencesWindow.js:792
 msgid "Never"
-msgstr ""
+msgstr "Werǧin"
 
 #: app/adwPreferencesWindow.js:797
 msgid "Show a context menu item to delete permanently"
-msgstr ""
+msgstr "Sken aferdis deg wumuɣ asatal akken ad tekkseḍ i lebda"
 
 #: app/adwPreferencesWindow.js:802
 msgid "Show hidden files"
-msgstr ""
+msgstr "Sken ifuyla uffiren"
 
 #: app/adwPreferencesWindow.js:807
 msgid "Open folders on drag hover"
-msgstr ""
+msgstr "Ldi ikaramen mi ara tɛeddi tɣerdayt"
 
 #: app/adwPreferencesWindow.js:811
 msgid "About..."
-msgstr ""
+msgstr "Ɣef…"
 
 #: app/adwPreferencesWindow.js:824
 msgid "Translation"
-msgstr ""
+msgstr "Tasuqilt"
 
 #: app/adwPreferencesWindow.js:825
 msgid ""
@@ -271,147 +272,149 @@ msgstr ""
 
 #: app/adwPreferencesWindow.js:830
 msgid "Edit Translations"
-msgstr ""
+msgstr "Ẓreg tisuqqilin"
 
 #: app/adwPreferencesWindow.js:831
 msgid "Verify, add or correct translation in your web browser"
-msgstr ""
+msgstr "Selken, rnu neɣ seɣti tasuqilt deg iming-ik·im web"
 
 #: app/adwPreferencesWindow.js:832
 msgid "Translate"
-msgstr ""
+msgstr "Suqel"
 
 #: app/appChooser.js:78
 msgid "Choose an application to open <b>{foo}</b>"
-msgstr ""
+msgstr "Fren asnas ara teldiḍ <b>{foo}</b>"
 
 #: app/appChooser.js:90
 msgid "Open Items"
-msgstr ""
+msgstr "Ldi iferdisen"
 
 #: app/appChooser.js:92
 msgid "Open Folder"
-msgstr ""
+msgstr "Ldi Akaram"
 
 #: app/appChooser.js:94 data/ui/ding-app-chooser.ui:6
 msgid "Open File"
-msgstr ""
+msgstr "Ldi afaylu"
 
 #: app/appChooser.js:165
 msgid "Error changing default application"
-msgstr ""
+msgstr "Tuccḍa deg ubeddel n usnas amezwer"
 
 #: app/appChooser.js:168
 msgid "Error while setting {foo} as default application for {mimetype}"
-msgstr ""
+msgstr "Tuccḍa deg usbadu n {foo} d asnas amezwer i {mimetype}"
 
 #: app/appImageFileItem.js:57
 msgid "Invalid Permissions on AppImage File"
-msgstr ""
+msgstr "Tisirag d tirmeɣta deg ufaylu AppImage"
 
 #: app/appImageFileItem.js:58
 msgid "This AppImage File has incorrect Permissions."
-msgstr ""
+msgstr "Afaylu-agi AppImage ɣur-s tisirag ur nelli ara d tirmeɣta."
 
 #: app/appImageFileItem.js:59 app/desktopFileIcon.js:153
 msgid "Right Click to edit Properties, then:"
-msgstr ""
+msgstr "Sit s ayeffus iwakken ad tẓergeḍ iraten, sakin:"
 
 #: app/appImageFileItem.js:61 app/desktopFileIcon.js:155
 msgid "Set Permissions, in"
-msgstr ""
+msgstr "Sbadu tisirag, deg"
 
 #: app/appImageFileItem.js:62 app/desktopFileIcon.js:156
 msgid "Others Access"
-msgstr ""
+msgstr "Adduf-nniḍen"
 
 #: app/appImageFileItem.js:63 app/desktopFileIcon.js:157
 msgid "Read Only"
-msgstr ""
+msgstr "Taɣuṛi kan"
 
 #: app/appImageFileItem.js:64 app/desktopFileIcon.js:158
 msgid "or"
-msgstr ""
+msgstr "naɣ"
 
 #: app/appImageFileItem.js:65 app/desktopFileIcon.js:159
 #: app/shortcutManager.js:58 app/shortcutManager.js:99
 msgid "None"
-msgstr ""
+msgstr "Ula yiwet"
 
 #: app/appImageFileItem.js:66 app/desktopFileIcon.js:160
 msgid "Enable option"
-msgstr ""
+msgstr "Sermed tanefrunt"
 
 #: app/appImageFileItem.js:67 app/desktopFileIcon.js:161
 msgid "Allow Executing File as a Program"
-msgstr ""
+msgstr "Sireg aselkem n ufaylu am wahil"
 
 #: app/appImageFileItem.js:79
 msgid "Untrusted AppImage File"
-msgstr ""
+msgstr "Afaylu AppImage ur nettwaman ara"
 
 #: app/appImageFileItem.js:81
 msgid "This AppImage file is not trusted, it can not be launched."
-msgstr ""
+msgstr "Afaylu-agi ur nettwaman ara, ur yezmir ara ad ittusenker."
 
 #: app/appImageFileItem.js:82 app/desktopFileIcon.js:176
 msgid "To enable launching, right-click, then:"
-msgstr ""
+msgstr "Iwakken ad tesremdeḍ asenker, sit ɣef uyeffus, sakin:"
 
 #: app/appImageFileItem.js:83 app/desktopFileIcon.js:177
 msgid "enable"
-msgstr ""
+msgstr "sermed"
 
 #: app/appImageFileItem.js:84 app/desktopFileIcon.js:178
 #: app/fileItemMenu.js:316 app/fileItemMenu.js:330
 msgid "Allow Launching"
-msgstr ""
+msgstr "Sireg asenker"
 
 #: app/askRenamePopup.js:61
 msgid "Folder name"
-msgstr ""
+msgstr "Isem n ukaram"
 
 #: app/askRenamePopup.js:61
 msgid "File name"
-msgstr ""
+msgstr "Isem n ufaylu"
 
 #: app/askRenamePopup.js:75 app/autoAr.js:303 app/desktopManager.js:1297
 #: app/fileItemMenu.js:968
 msgid "OK"
-msgstr ""
+msgstr "Seɣbel"
 
 #: app/askRenamePopup.js:75
 msgid "Rename"
-msgstr ""
+msgstr "Senfel isem"
 
 #: app/autoAr.js:71
 msgid "AutoAr is not installed"
-msgstr ""
+msgstr "AutoAr ur yettwasbedd ara"
 
 #: app/autoAr.js:72
 msgid ""
 "To be able to work with compressed files, install file-roller and/or gir-1.2-"
 "gnomeAutoAr"
 msgstr ""
+"Akken ad tizmireḍ ad tmahleḍ s yifuyla yeskussem, sebded file-roller akked/"
+"neɣ gir-1.2-gnomeAutoAr"
 
 #: app/autoAr.js:207
 msgid "Extracting files"
-msgstr ""
+msgstr "Tussfa n ifuyla"
 
 #: app/autoAr.js:224
 msgid "Compressing files"
-msgstr ""
+msgstr "Asekkussem n ifuyla"
 
 #: app/autoAr.js:295 app/autoAr.js:624 app/desktopManager.js:180
 #: app/desktopManager.js:1299 app/dragManager.js:792 app/fileItemMenu.js:915
 #: app/fileItemMenu.js:968 app/showErrorPopup.js:41 app/showErrorPopup.js:58
 #: app/widgetManager.js:2830
 msgid "Cancel"
-msgstr ""
+msgstr "Sefsex"
 
 #: app/autoAr.js:315 app/autoAr.js:612
 msgid "Enter a password here"
-msgstr ""
+msgstr "Sekcem awal uffir dagi"
 
 #: app/autoAr.js:358
 msgid "Removing partial file '${outputFile}'"
@@ -419,99 +422,101 @@ msgstr ""
 
 #: app/autoAr.js:377
 msgid "Creating destination folder"
-msgstr ""
+msgstr "Snulfu-d akaram aɣerwaḍ"
 
 #: app/autoAr.js:409
 msgid "Extracting files into '${outputPath}'"
-msgstr ""
+msgstr "Tussfa n ifuyla ɣer '${outputPath}'"
 
 #: app/autoAr.js:439
 msgid "Extraction completed"
-msgstr ""
+msgstr "Tussfa temmed"
 
 #: app/autoAr.js:440
 msgid "Extracting '${fullPathFile}' has been completed."
-msgstr ""
+msgstr "Tussfa n ufaylu '${fullPathFile}' temmed."
 
 #: app/autoAr.js:446
 msgid "Extraction cancelled"
-msgstr ""
+msgstr "Tussfa tettwasefsex"
 
 #: app/autoAr.js:447
 msgid "Extracting '${fullPathFile}' has been cancelled by the user."
-msgstr ""
+msgstr "Tussfa n '${fullPathFile}' tettwasefsex sɣur useqdac."
 
 #: app/autoAr.js:457
 msgid "Passphrase required for ${filename}"
-msgstr ""
+msgstr "Tafyirt n uɛeddi tettwasra i ${filename}"
 
 #: app/autoAr.js:460
 msgid "Error during extraction"
-msgstr ""
+msgstr "Tuccḍa deg tussfa"
 
 #: app/autoAr.js:487
 msgid "Compressing files into '${outputFile}'"
-msgstr ""
+msgstr "Asekkussem n yifuyla deg '${outputFile}'"
 
 #: app/autoAr.js:500
 msgid "Compression completed"
-msgstr ""
+msgstr "Asekkussem yemmed"
 
 #: app/autoAr.js:501
 msgid "Compressing files into '${outputFile}' has been completed."
-msgstr ""
+msgstr "Asekkussem n yifuyla deg '${outputFile}' yemmed."
 
 #: app/autoAr.js:505 app/autoAr.js:512
 msgid "Cancelled compression"
-msgstr ""
+msgstr "Asekkussem yettwasefsex"
 
 #: app/autoAr.js:506
 msgid "The output file '${outputFile}' already exists."
-msgstr ""
+msgstr "Afaylu n tuffɣa '${outputFile}' yella yakan."
 
 #: app/autoAr.js:513
 msgid "Compressing files into '${outputFile}' has been cancelled by the user."
-msgstr ""
+msgstr "Asekkussem n yifuyla deg '${outputFile}' yessefsex-it useqdac."
 
 #: app/autoAr.js:516
 msgid "Error during compression"
-msgstr ""
+msgstr "Tuccḍa deg uskussem"
 
 #: app/autoAr.js:551
 msgid "Create archive"
-msgstr ""
+msgstr "Snulfu-d aɣbaṛ"
 
 #: app/autoAr.js:575
 msgid "Archive name"
-msgstr ""
+msgstr "Isem n uɣbaṛ"
 
 #: app/autoAr.js:608
 msgid "Password"
-msgstr ""
+msgstr "Awal n uɛeddi"
 
 #: app/autoAr.js:621
 msgid "Create"
-msgstr ""
+msgstr "Snulfu-d"
 
 #: app/autoAr.js:712
 msgid "Compatible with all operating systems."
-msgstr ""
+msgstr "Imṣada akked inagrawen n wammud meṛṛa."
 
 #: app/autoAr.js:718
 msgid "Password protected .zip, must be installed on Windows and Mac."
 msgstr ""
+"Afaylu .zip ittummesten s wawal uffir, issefk ad ittusebded ɣef Windows "
+"akked Mac."
 
 #: app/autoAr.js:724
 msgid "Smaller archives but Linux and Mac only."
-msgstr ""
+msgstr "Iɣbaṛen imeẓyanen maca Linux d Mac kan."
 
 #: app/autoAr.js:730
 msgid "Smaller archives but must be installed on Windows and Mac."
-msgstr ""
+msgstr "Iɣbaren imeẓyanen maca ilaq ad ttusbedden ɣef Windows akked Mac."
 
 #: app/desktopFileIcon.js:125
 msgid "The Displayed Desktop is writable by others"
-msgstr ""
+msgstr "Iɣewwaren n ubeqqeḍ ttwarun sɣur wiyaḍ"
 
 #: app/desktopFileIcon.js:128
 msgid ""
@@ -524,7 +529,7 @@ msgstr ""
 
 #: app/desktopFileIcon.js:138
 msgid "Broken Desktop File"
-msgstr ""
+msgstr "Afaylu n tnarit yerreẓ"
 
 #: app/desktopFileIcon.js:141
 msgid ""
@@ -536,35 +541,35 @@ msgstr ""
 
 #: app/desktopFileIcon.js:151
 msgid "Invalid Permissions on Desktop File"
-msgstr ""
+msgstr "Tisirag d tirmeɣta deg ufaylu n tnarit"
 
 #: app/desktopFileIcon.js:152
 msgid "This Desktop File has incorrect Permissions."
-msgstr ""
+msgstr "Afaylu-agi n tnarit ur ɣur-s ara tisirag s wudem ameɣtu."
 
 #: app/desktopFileIcon.js:173
 msgid "Untrusted Desktop File"
-msgstr ""
+msgstr "Afaylu n tnarit ur yettwaman ara"
 
 #: app/desktopFileIcon.js:175
 msgid "This Desktop file is not trusted, it can not be launched."
-msgstr ""
+msgstr "Afaylu n tnarit-a ur yettwaman ara, ur yezmir ara ad ittusenker."
 
 #: app/desktopFileIcon.js:204 app/gnomeShellDragDrop.js:355
 msgid "Could not open File"
-msgstr ""
+msgstr "Ur izmir ara ad yeldi ufaylu"
 
 #: app/desktopFileIcon.js:206
 msgid "{appName} can not open files of this Type!"
-msgstr ""
+msgstr "{appName} ur yezmir ara ad d-yeldi ifuyla n wanaw-agi!"
 
 #: app/desktopFolderMonitor.js:101 app/desktopFolderMonitor.js:107
 msgid "Desktop Folder Change Failed"
-msgstr ""
+msgstr "Asenfel n ukaram n tnarit ur yeddi ara"
 
 #: app/desktopFolderMonitor.js:102
 msgid "The new Desktop Folder is a Symbolic Link"
-msgstr ""
+msgstr "Akaram amaynut n tnarit d aseɣwen azamulan"
 
 #: app/desktopFolderMonitor.js:109
 msgid "The new Desktop Folder does not exist or is not a Folder!"
@@ -581,7 +586,7 @@ msgstr ""
 #: app/desktopGrid.js:66 data/com.desktop.ding.desktop.in:3
 #: data/com.desktop.ding.desktop.in:4
 msgid "Desktop Icons"
-msgstr ""
+msgstr "Tignitin n tnarit"
 
 #: app/desktopGrid.js:2587
 msgid "Back to Desktop"
@@ -593,7 +598,7 @@ msgstr ""
 
 #: app/desktopGrid.js:2589
 msgid "Add Widget..."
-msgstr ""
+msgstr "Rnu awiǧit…"
 
 #: app/desktopManager.js:166
 msgid "Monitor Frame Buffer Scaling is not enabled"
@@ -616,7 +621,7 @@ msgstr ""
 
 #: app/desktopManager.js:181 data/com.desktop.ding.desktop.in:25
 msgid "Enable"
-msgstr ""
+msgstr "Sermed"
 
 #: app/desktopManager.js:205 app/desktopManager.js:215
 msgid "Can Not Show the Desktop"
@@ -640,7 +645,7 @@ msgstr ""
 
 #: app/desktopManager.js:228
 msgid "GNOME Files not found"
-msgstr ""
+msgstr "Ifuyla GNOME ur ttwafen ara"
 
 #: app/desktopManager.js:229
 msgid "The GNOME Files application is required by Gtk4 Desktop Icons NG."
@@ -667,23 +672,23 @@ msgstr ""
 
 #: app/desktopManager.js:360
 msgid "Clear current selection before new search"
-msgstr ""
+msgstr "Sfeḍ tafrayt tamirant send anadi amaynut"
 
 #: app/desktopManager.js:1301
 msgid "Find Files on Desktop"
-msgstr ""
+msgstr "Af-d ifuyla ɣef tnarit"
 
 #: app/desktopManager.js:1644 app/desktopMenu.js:1065 app/shortcuts.js:10
 msgid "New Folder"
-msgstr ""
+msgstr "Akaram amaynut"
 
 #: app/desktopManager.js:1678
 msgid "Folder Creation Failed"
-msgstr ""
+msgstr "Timerna n ukaram ur teddi ara"
 
 #: app/desktopManager.js:1679
 msgid "Could not create folder"
-msgstr ""
+msgstr "Ulamek asnulfu n ukaram"
 
 #: app/desktopMenu.js:598
 msgid "Unable to open Desktop in Gnome Files"
@@ -691,43 +696,43 @@ msgstr ""
 
 #: app/desktopMenu.js:617
 msgid "Preferences Window is Open"
-msgstr ""
+msgstr "Asfaylu n ismenyifen yeldi"
 
 #: app/desktopMenu.js:618
 msgid "This Window is open. Please switch to the active window."
-msgstr ""
+msgstr "Asfaylu-a yeldi. Ttxil-k·m, senfel ɣer usfaylu urmid."
 
 #: app/desktopMenu.js:627 app/desktopMenu.js:1118
 msgid "Settings"
-msgstr ""
+msgstr "Iɣewwaren"
 
 #: app/desktopMenu.js:907
 msgid "Template Creation Error"
-msgstr ""
+msgstr "Tuccḍa deg tmerna n tneɣruft"
 
 #: app/desktopMenu.js:908
 msgid "Could not create document"
-msgstr ""
+msgstr "Ur yezmer ara asnulfu n isemli"
 
 #: app/desktopMenu.js:1026
 msgid "Name"
-msgstr ""
+msgstr "Isem"
 
 #: app/desktopMenu.js:1028
 msgid "Name Z-A"
-msgstr ""
+msgstr "Isem Z-A"
 
 #: app/desktopMenu.js:1030
 msgid "Modified Time"
-msgstr ""
+msgstr "Azemz n ubeddel"
 
 #: app/desktopMenu.js:1032
 msgid "Type"
-msgstr ""
+msgstr "Anaw"
 
 #: app/desktopMenu.js:1034
 msgid "Size"
-msgstr ""
+msgstr "Tiddi"
 
 #: app/desktopMenu.js:1039
 msgid "Keep Arranged…"
@@ -739,7 +744,7 @@ msgstr ""
 
 #: app/desktopMenu.js:1046
 msgid "Sort Home/Drives/Trash…"
-msgstr ""
+msgstr "Smizwer Home/Drives/Trash…"
 
 #: app/desktopMenu.js:1051
 msgid "Change Desktop"
@@ -751,7 +756,7 @@ msgstr ""
 
 #: app/desktopMenu.js:1060
 msgid "Desktop Icon Settings"
-msgstr ""
+msgstr "Iɣewwaṛen n tignit n tnarit"
 
 #: app/desktopMenu.js:1062
 msgid "Show Shortcuts"
@@ -759,23 +764,23 @@ msgstr ""
 
 #: app/desktopMenu.js:1070 app/shortcuts.js:67
 msgid "New Document"
-msgstr ""
+msgstr "Isemli amaynut"
 
 #: app/desktopMenu.js:1075 app/shortcuts.js:11
 msgid "Paste"
-msgstr ""
+msgstr "Senṭeḍ"
 
 #: app/desktopMenu.js:1077 app/shortcuts.js:12
 msgid "Undo"
-msgstr ""
+msgstr "Err-d"
 
 #: app/desktopMenu.js:1079 app/shortcuts.js:13
 msgid "Redo"
-msgstr ""
+msgstr "Ales tikkelt nniḍen"
 
 #: app/desktopMenu.js:1085 app/shortcuts.js:14
 msgid "Select All"
-msgstr ""
+msgstr "Fren-iten akk"
 
 #: app/desktopMenu.js:1092
 msgid "Arrange Icons"
@@ -791,7 +796,7 @@ msgstr ""
 
 #: app/desktopMenu.js:1109
 msgid "Open In {0}"
-msgstr ""
+msgstr "Ldi deg {0}"
 
 #: app/desktopMenu.js:1126
 msgid "Edit Widgets…"
@@ -803,11 +808,11 @@ msgstr ""
 
 #: app/dragManager.js:101 app/dragManager.js:939
 msgid "Making SymLink Failed"
-msgstr ""
+msgstr "Ur yeddi ara usnulfu n useɣwen azamulan"
 
 #: app/dragManager.js:102 app/dragManager.js:940
 msgid "Could not create symbolic link"
-msgstr ""
+msgstr "D awezɣi asnulfu n useɣwen azamulan"
 
 #: app/dragManager.js:748
 msgid "Copy/Move Failed"
@@ -819,31 +824,31 @@ msgstr ""
 
 #: app/dragManager.js:791
 msgid "Choose Action for Files"
-msgstr ""
+msgstr "Fren tigawt i yifuyla"
 
 #: app/dragManager.js:792
 msgid "Move"
-msgstr ""
+msgstr "Smutti"
 
 #: app/dragManager.js:792 app/fileItemMenu.js:240
 msgid "Copy"
-msgstr ""
+msgstr "Nɣel"
 
 #: app/dragManager.js:792
 msgid "Link"
-msgstr ""
+msgstr "Aseɣwen"
 
 #: app/fileItemIcon.js:95
 msgid "Folder"
-msgstr ""
+msgstr "Akaram"
 
 #: app/fileItemIcon.js:96
 msgid "File"
-msgstr ""
+msgstr "Afaylu"
 
 #: app/fileItemIcon.js:286
 msgid "Opening File Failed"
-msgstr ""
+msgstr "Alday n ufaylu ur yeddi ara"
 
 #: app/fileItemIcon.js:292
 msgid "There is no application installed to open \"{fo}\" files."
@@ -857,7 +862,7 @@ msgstr[1] ""
 
 #: app/fileItemMenu.js:114
 msgid "Open All..."
-msgstr ""
+msgstr "Ldi-ten akk…"
 
 #: app/fileItemMenu.js:122
 msgid "Launch"
@@ -865,23 +870,23 @@ msgstr ""
 
 #: app/fileItemMenu.js:135
 msgid "Open with {foo}"
-msgstr ""
+msgstr "Ldi-t s {foo}"
 
 #: app/fileItemMenu.js:138
 msgid "Open"
-msgstr ""
+msgstr "Ldi"
 
 #: app/fileItemMenu.js:156 app/fileItemMenu.js:160
 msgid "Extract Here"
-msgstr ""
+msgstr "Ssef da"
 
 #: app/fileItemMenu.js:162
 msgid "Extract To..."
-msgstr ""
+msgstr "Ssef ɣer…"
 
 #: app/fileItemMenu.js:170 app/fileItemMenu.js:177
 msgid "Open With..."
-msgstr ""
+msgstr "Ldi-t s…"
 
 #: app/fileItemMenu.js:176
 msgid "Open All With Other Application..."
@@ -905,27 +910,27 @@ msgstr ""
 
 #: app/fileItemMenu.js:234
 msgid "Scripts"
-msgstr ""
+msgstr "Iskripten"
 
 #: app/fileItemMenu.js:239
 msgid "Cut"
-msgstr ""
+msgstr "Gzem"
 
 #: app/fileItemMenu.js:244
 msgid "Move to..."
-msgstr ""
+msgstr "Smutti-t ɣer…"
 
 #: app/fileItemMenu.js:245
 msgid "Copy to..."
-msgstr ""
+msgstr "Nɣel-it ɣer…"
 
 #: app/fileItemMenu.js:249
 msgid "Rename…"
-msgstr ""
+msgstr "Senfel isem…"
 
 #: app/fileItemMenu.js:254
 msgid "Create Link..."
-msgstr ""
+msgstr "Snulfu-d aseɣwen…"
 
 #: app/fileItemMenu.js:261
 msgid "Compress {0} folder"
@@ -969,7 +974,7 @@ msgstr ""
 
 #: app/fileItemMenu.js:348
 msgid "Unmount"
-msgstr ""
+msgstr "Kkes aserkeb"
 
 #: app/fileItemMenu.js:354
 msgid "Common Properties"
@@ -989,7 +994,7 @@ msgstr ""
 
 #: app/fileItemMenu.js:374
 msgid "Open in {0}"
-msgstr ""
+msgstr "Ldi deg {0}"
 
 #: app/fileItemMenu.js:538
 msgid "Open Item"
@@ -1009,7 +1014,7 @@ msgstr ""
 
 #: app/fileItemMenu.js:880 app/fileItemMenu.js:908
 msgid "Select"
-msgstr ""
+msgstr "Fren"
 
 #: app/fileItemMenu.js:964
 msgid "Can not email a Directory"
@@ -1063,7 +1068,7 @@ msgstr ""
 
 #: app/fileItemMenu.js:1238
 msgid "Please Install {0}"
-msgstr ""
+msgstr "Ttxil sbedd {0}"
 
 #: app/fileItemMenu.js:1282
 msgid "Copy Cancelled"
@@ -1087,7 +1092,7 @@ msgstr ""
 
 #: app/preferences.js:1097
 msgid "Console"
-msgstr ""
+msgstr "Tadiwent"
 
 #: app/shortcutManager.js:98
 msgid "Default Shortcut:"
@@ -1223,7 +1228,7 @@ msgstr ""
 
 #: app/shortcuts.js:34
 msgid "Preview"
-msgstr ""
+msgstr "Timeẓriwt"
 
 #: app/shortcuts.js:36
 msgid "Toggle Keyboard Selection"
@@ -1289,11 +1294,11 @@ msgstr ""
 #. the user's personal folder
 #: app/specialFolderIcon.js:57 app/specialFolderIcon.js:69
 msgid "Home"
-msgstr ""
+msgstr "Akaram udmawan"
 
 #: app/specialFolderIcon.js:63
 msgid "Trash"
-msgstr ""
+msgstr "Taqecwalt"
 
 #. * TRANSLATORS: when using a screen reader,
 #. * this is the text read when a stack is
@@ -1305,15 +1310,15 @@ msgstr ""
 
 #: app/symLinkIcon.js:100
 msgid "Broken Link"
-msgstr ""
+msgstr "Aseɣwen yerrẓen"
 
 #: app/symLinkIcon.js:102
 msgid "Can not open this File because it is a Broken Symlink"
-msgstr ""
+msgstr "Ulamek alday n ufaylu-agi acku d aseɣwen azamulan yeṛṛeẓen"
 
 #: app/volumeIcon.js:58
 msgid "Drive"
-msgstr ""
+msgstr "Aḍebsi"
 
 #: app/widgetManager.js:2123
 msgid "Widget preferences"
@@ -1341,11 +1346,11 @@ msgstr ""
 
 #: app/widgetManager.js:2710
 msgid "User"
-msgstr ""
+msgstr "Aseqdac"
 
 #: app/widgetManager.js:2829
 msgid "Allow"
-msgstr ""
+msgstr "Sireg"
 
 #: app/widgetManager.js:2883
 msgid "Strict"
@@ -1379,7 +1384,7 @@ msgstr ""
 
 #: app/widgetManager.js:2908
 msgid "Development"
-msgstr ""
+msgstr "Taneflit"
 
 #: app/widgetManager.js:2910
 msgid ""
@@ -1393,7 +1398,7 @@ msgstr ""
 
 #: app/widgetManager.js:2919
 msgid "Default"
-msgstr ""
+msgstr "Amezwer"
 
 #: app/widgetManager.js:2921
 msgid ""
@@ -1440,7 +1445,7 @@ msgstr ""
 
 #: app/widgetManager.js:2979
 msgid "Command:"
-msgstr ""
+msgstr "Anezḍay:"
 
 #: app/widgetManager.js:2982
 msgid "Only allow this for widgets you implicitly trust."
@@ -1491,11 +1496,11 @@ msgstr ""
 
 #: data/ui/ding-app-chooser.ui:104
 msgid "_Cancel"
-msgstr ""
+msgstr "Se_fsex"
 
 #: data/ui/ding-app-chooser.ui:110
 msgid "_Open"
-msgstr ""
+msgstr "_Ldi"
 
 #: data/com.desktop.ding.desktop.in:5
 msgid "Display icons on the GNOME desktop"
@@ -1511,15 +1516,15 @@ msgstr ""
 
 #: data/com.desktop.ding.desktop.in:33
 msgid "Preferences"
-msgstr ""
+msgstr "Imenyafen"
 
 #: data/com.desktop.ding.desktop.in:37
 msgid "Disable"
-msgstr ""
+msgstr "Kkes armad"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"
-msgstr ""
+msgstr "Tiddi n tignitin"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:26
 msgid "Set the size for the desktop icons."
