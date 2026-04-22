@@ -22,8 +22,8 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-30 06:42-0400\n"
-"PO-Revision-Date: 2026-03-31 15:10+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2026-04-22 14:09+0000\n"
+"Last-Translator: Francisco Serrador <fserrador@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/es/>\n"
 "Language: es\n"
@@ -31,7 +31,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.17-dev\n"
+"X-Generator: Weblate 5.17.1-dev\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
@@ -664,7 +664,6 @@ msgid "Back to Desktop"
 msgstr "Volver a Escritorio"
 
 #: app/desktopGrid.js:2588 app/widgetManager.js:1525
-#, fuzzy
 msgid "Toggle Widget Grid"
 msgstr "Mostrar/ocultar cuadro de widgets"
 
@@ -762,19 +761,18 @@ msgstr "Gnome Files no está registrado como un Gestor de Archivo"
 
 # MT: LibreTranslate
 #: app/desktopManager.js:245
-#, fuzzy
 msgid ""
 "The Gnome Files application is not programmed to open Folders!\n"
 "Check your xdg-utils installation\n"
 "Check Gnome Files .desktop File installation"
 msgstr ""
 "¡La aplicación GNOME Files no está programada para abrir carpetas!\n"
-"Revise su instalación de xdg-utils\n"
-"Revise la instalación del Archivo .desktop de GNOME Files"
+"Compruebe su instalación de xdg-utils\n"
+"Compruebe la instalación del Archivo .desktop de GNOME Files"
 
 #: app/desktopManager.js:360
 msgid "Clear current selection before new search"
-msgstr "Borre la selección actual antes de comenzar una nueva búsqueda"
+msgstr "Vacíe la selección actual antes de comenzar una búsqueda nueva"
 
 #: app/desktopManager.js:1301
 msgid "Find Files on Desktop"
@@ -1181,12 +1179,12 @@ msgstr "Hubo un error en el correo electrónico Archivos"
 # MT: LibreTranslate
 #: app/fileItemMenu.js:1175
 msgid "Can Not open the Working Directory"
-msgstr "No puede abrir el Directorio de Trabajo"
+msgstr "No puede abrir el Pupitre"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:1226
 msgid "Unable to Open in Gnome Console"
-msgstr "Incapaz de abrir en la consola Gnome"
+msgstr "Incapaz de abrir en la consola GNOME"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:1228
@@ -1213,7 +1211,7 @@ msgstr "No se pueden copiar archivos, no hay carpeta de destino"
 
 #: app/fileItemMenu.js:1306
 msgid "Move Cancelled"
-msgstr "\"Mover\" cancelado"
+msgstr "“Mover” cancelado"
 
 #: app/fileItemMenu.js:1307
 msgid "Unable to move Files, no destination folder"
@@ -1227,7 +1225,7 @@ msgstr "$appName$ no puede abrir archivos de este tipo!"
 # MT: LibreTranslate
 #: app/preferences.js:1097
 msgid "Console"
-msgstr "Consol"
+msgstr "Consola"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:98
@@ -1237,12 +1235,12 @@ msgstr "Atajo predeterminado:"
 # MT: LibreTranslate
 #: app/shortcutManager.js:122
 msgid "Type new..."
-msgstr "Teclee nuevo…"
+msgstr "Tipo nuevo…"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:138
 msgid "Modifier + Key (e.g. Ctrl + Alt + D)"
-msgstr "Modificador + Clave (p. ej. Ctrl + Alt + D)"
+msgstr "Modificador + Tecla (p. ej. Ctrl + Alt + D)"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:143
@@ -1302,7 +1300,7 @@ msgstr "Reinicia todos los atajos a Predeterminados"
 # MT: LibreTranslate
 #: app/shortcutManager.js:685
 msgid "Reset All..."
-msgstr "Reiniciar todo..."
+msgstr "Restablecer todo…"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:15
@@ -1311,7 +1309,7 @@ msgstr "Mostrar Escritorio en Archivos"
 
 #: app/shortcuts.js:16
 msgid "Open in Terminal"
-msgstr "Abrir en una terminal"
+msgstr "Abrir en terminal"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:17
@@ -1321,7 +1319,7 @@ msgstr "Cambiar Fondo"
 # MT: LibreTranslate
 #: app/shortcuts.js:18
 msgid "Change Display Settings"
-msgstr "Cambiar ajustes de visualización"
+msgstr "Cambiar Ajustes de Pantalla"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:19
@@ -1331,57 +1329,57 @@ msgstr "Cambiar Ajustes del Icono del Escritorio"
 # MT: LibreTranslate
 #: app/shortcuts.js:20
 msgid "Clean Up Icons"
-msgstr "Limpiar iconos"
+msgstr "Purgar iconos"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:21
 msgid "Keep Arranged"
-msgstr "Mantén arreglado"
+msgstr "Mantener organizado"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:22
 msgid "Keep Stacked"
-msgstr "Mantén atascado"
+msgstr "Mantener apilado"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:23 app/shortcuts.js:24
 msgid "Sort Special Folders"
-msgstr "Carpetas especiales"
+msgstr "Ordenar carpetas especiales"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:25
 msgid "Arrange Icons by Name"
-msgstr "Arregle Iconos por Nombre"
+msgstr "Organiza iconos por Nombre"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:26
 msgid "Arrange Icons By Descending Name"
-msgstr "Ordene los iconos por nombre descendente"
+msgstr "Organiza iconos por Nombre Descendente"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:27
 msgid "Arrange Icons By Modified Time"
-msgstr "Arregle Iconos Por Tiempo Modificado"
+msgstr "Organiza iconos por Fecha y Hora de Modificación"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:28
 msgid "Arrange Icons By Kind"
-msgstr "Arrange Icons Por favor"
+msgstr "Organiza iconos por Tipo"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:29
 msgid "Arrange Icons By Size"
-msgstr "Arranque Iconos por tamaño"
+msgstr "Organiza iconos por Tamaño"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:30
 msgid "Find Files"
-msgstr "Encontrar archivos"
+msgstr "Buscar archivos"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:31
 msgid "Update Desktop"
-msgstr "Actualización"
+msgstr "Actualizar escritorio"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:32
@@ -1399,9 +1397,8 @@ msgid "Preview"
 msgstr "Vista previa"
 
 #: app/shortcuts.js:36
-#, fuzzy
 msgid "Toggle Keyboard Selection"
-msgstr "Cambiar Selección del Teclado"
+msgstr "Conmutar Selección de Teclado"
 
 #: app/shortcuts.js:39
 msgid "Toggle Widget Layer"
@@ -1414,22 +1411,22 @@ msgstr "Añadir widget"
 # MT: LibreTranslate
 #: app/shortcuts.js:43
 msgid "Choose Icon Left"
-msgstr "Elija Icon Left"
+msgstr "Elija icono izquierdo"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:48
 msgid "Choose Icon Right"
-msgstr "Elija Icon Right"
+msgstr "Elegir icono derecho"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:53
 msgid "Choose Icon Up"
-msgstr "Elija Icon Up"
+msgstr "Elija subir icono"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:58
 msgid "Choose Icon Down"
-msgstr "Elija Icon Down"
+msgstr "Elija bajar icono"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:62
@@ -1510,18 +1507,16 @@ msgid "Widget preferences"
 msgstr "Preferencias de Widget"
 
 #: app/widgetManager.js:2135 app/widgetManager.js:2144
-#, fuzzy
 msgid "Unpin widget"
-msgstr "Widget GTK"
+msgstr "Soltar widget"
 
 #: app/widgetManager.js:2135 app/widgetManager.js:2144
-#, fuzzy
 msgid "Pin widget"
-msgstr "Widget GTK"
+msgstr "Pinchar Widget"
 
 #: app/widgetManager.js:2153
 msgid "Reposition widget"
-msgstr ""
+msgstr "Widget de reposición"
 
 #: app/widgetManager.js:2699
 msgid "HTML widget"
@@ -1686,13 +1681,15 @@ msgstr "Preferencias de widget"
 
 #: app/widgetWebContext.js:792
 msgid "Open link in browser?"
-msgstr "Abrir enlace en el navegador"
+msgstr "¿Abro el enlace con el explorador?"
 
 #: app/widgetWebContext.js:793
 msgid ""
 "The widget wants to open this link in your browser:\n"
 "\n"
 msgstr ""
+"El widget desea abrir este enlace en su explorado:\n"
+"\n"
 
 # MT: LibreTranslate
 #: app/utils/dbusUtils.js:67
