@@ -3,12 +3,14 @@
 # This file is distributed under the same license as the gtk4-ding package.
 # Amadɣas <massiin@proton.me>, 2026.
 # ButterflyOfFire <boffire@users.noreply.hosted.weblate.org>, 2026.
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2026.
+# Weblate <noreply-mt-weblate@weblate.org>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-30 06:42-0400\n"
-"PO-Revision-Date: 2026-04-22 14:09+0000\n"
+"PO-Revision-Date: 2026-04-26 16:09+0000\n"
 "Last-Translator: Amadɣas <massiin@proton.me>\n"
 "Language-Team: Kabyle <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/kab/>\n"
@@ -58,7 +60,7 @@ msgstr "Ẓreg inegzumen n usnas"
 
 #: app/adwPreferencesWindow.js:271
 msgid "Shortcuts Editable only when Extension Enabled..."
-msgstr ""
+msgstr "Inegzumen ttwaẓrgen kan mi ara yermed usiɣzef..."
 
 #: app/adwPreferencesWindow.js:376
 msgid "Help translate in your web browser"
@@ -75,7 +77,7 @@ msgstr "Ifuyla"
 #: app/adwPreferencesWindow.js:611 app/adwPreferencesWindow.js:612
 #: app/adwPreferencesWindow.js:654
 msgid "Tweaks"
-msgstr ""
+msgstr "Isgaddiyen"
 
 #: app/adwPreferencesWindow.js:617 app/adwPreferencesWindow.js:618
 msgid "More"
@@ -107,7 +109,7 @@ msgstr "Iɣewwaṛen yettwabḍan akked yifuyla n Gnome"
 
 #: app/adwPreferencesWindow.js:655
 msgid "Miscellaneous Tweaks"
-msgstr ""
+msgstr "Isgaddiyen yemgaraden"
 
 #: app/adwPreferencesWindow.js:679
 msgid "Size for the desktop icons"
@@ -269,6 +271,8 @@ msgstr "Tasuqilt"
 msgid ""
 "Machine translated using LibreTranslate. User verified and edited on Weblate."
 msgstr ""
+"Tamacint tettwasuqqel s useqdec n LibreTranslate. tettwasenqed yerna "
+"tettwaẓreg sɣur aseqdac di Weblate."
 
 #: app/adwPreferencesWindow.js:830
 msgid "Edit Translations"
@@ -366,7 +370,7 @@ msgstr "sermed"
 #: app/appImageFileItem.js:84 app/desktopFileIcon.js:178
 #: app/fileItemMenu.js:316 app/fileItemMenu.js:330
 msgid "Allow Launching"
-msgstr "Sireg asenker"
+msgstr "Sireg Asenker"
 
 #: app/askRenamePopup.js:61
 msgid "Folder name"
@@ -557,7 +561,7 @@ msgstr "Afaylu n tnarit-a ur yettwaman ara, ur yezmir ara ad ittusenker."
 
 #: app/desktopFileIcon.js:204 app/gnomeShellDragDrop.js:355
 msgid "Could not open File"
-msgstr "Ur izmir ara ad yeldi ufaylu"
+msgstr "Ur izmir ara ad yeldi Afaylu"
 
 #: app/desktopFileIcon.js:206
 msgid "{appName} can not open files of this Type!"
@@ -573,15 +577,15 @@ msgstr "Akaram amaynut n tnarit d aseɣwen azamulan"
 
 #: app/desktopFolderMonitor.js:109
 msgid "The new Desktop Folder does not exist or is not a Folder!"
-msgstr ""
+msgstr "Akaram n tnarit amaynut ulac-it neɣ mačči d akaram!"
 
 #: app/desktopFolderMonitor.js:120
 msgid "Desktop Folder Changed"
-msgstr ""
+msgstr "Akaram n tnarit yettwabeddel"
 
 #: app/desktopFolderMonitor.js:121
 msgid "Switching to new Desktop..."
-msgstr ""
+msgstr "Asenfel ɣer tnarit tamaynut..."
 
 #: app/desktopGrid.js:66 data/com.desktop.ding.desktop.in:3
 #: data/com.desktop.ding.desktop.in:4
@@ -590,11 +594,11 @@ msgstr "Tignitin n tnarit"
 
 #: app/desktopGrid.js:2587
 msgid "Back to Desktop"
-msgstr ""
+msgstr "Uɣal ɣer tnarit"
 
 #: app/desktopGrid.js:2588 app/widgetManager.js:1525
 msgid "Toggle Widget Grid"
-msgstr ""
+msgstr "Qluqel aẓiki n uwiǧit"
 
 #: app/desktopGrid.js:2589
 msgid "Add Widget..."
@@ -625,7 +629,7 @@ msgstr "Sermed"
 
 #: app/desktopManager.js:205 app/desktopManager.js:215
 msgid "Can Not Show the Desktop"
-msgstr ""
+msgstr "Ur yezmir ara ad d-yesken Tanarit"
 
 #. TRANSLATORS: {desktop} folder path automatically inserted
 #: app/desktopManager.js:207
@@ -634,6 +638,9 @@ msgid ""
 "\n"
 "Please set the Desktop Folder to a real Folder"
 msgstr ""
+"Akaram n tnarit {desktop} d aseɣwen azamulan\n"
+"\n"
+"Ttxil-k·m sbadu akaram n tnarit ɣer ukaram n tidet"
 
 #. TRANSLATORS: {desktop} folder path automatically inserted
 #: app/desktopManager.js:217
@@ -649,19 +656,19 @@ msgstr "Ifuyla GNOME ur ttwafen ara"
 
 #: app/desktopManager.js:229
 msgid "The GNOME Files application is required by Gtk4 Desktop Icons NG."
-msgstr ""
+msgstr "Asnas n yifuyla GNOME yettwasra s tignitin n tnarit NG."
 
 #: app/desktopManager.js:236
 msgid "There is no default File Manager"
-msgstr ""
+msgstr "Ulac amsefrak n ifuyla amezwer"
 
 #: app/desktopManager.js:237
 msgid "There is no application that handles mimetype \"inode/directory\""
-msgstr ""
+msgstr "Ulac asnas ara isefreken anaw mimetype \"inode/directory\""
 
 #: app/desktopManager.js:244
 msgid "Gnome Files is not registered as a File Manager"
-msgstr ""
+msgstr "Ifuyla Gnome ur ttwakelsen ara d amsefrak n ifuyla"
 
 #: app/desktopManager.js:245
 msgid ""
@@ -692,7 +699,7 @@ msgstr "Ulamek asnulfu n ukaram"
 
 #: app/desktopMenu.js:598
 msgid "Unable to open Desktop in Gnome Files"
-msgstr ""
+msgstr "Ulamek alday n tnarit deg yifuyla Gnome"
 
 #: app/desktopMenu.js:617
 msgid "Preferences Window is Open"
@@ -756,11 +763,11 @@ msgstr ""
 
 #: app/desktopMenu.js:1060
 msgid "Desktop Icon Settings"
-msgstr "Iɣewwaṛen n tignit n tnarit"
+msgstr "Iɣewwaṛen n Tignit n Tnarit"
 
 #: app/desktopMenu.js:1062
 msgid "Show Shortcuts"
-msgstr ""
+msgstr "Sken-d inegzumen"
 
 #: app/desktopMenu.js:1070 app/shortcuts.js:67
 msgid "New Document"
@@ -857,8 +864,8 @@ msgstr ""
 #: app/fileItemMenu.js:104
 msgid "New Folder with {0} item"
 msgid_plural "New Folder with {0} items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Akaram amaynut s [0} uferdis"
+msgstr[1] "Akaram amaynut s {0} yiferdisen"
 
 #: app/fileItemMenu.js:114
 msgid "Open All..."
@@ -866,7 +873,7 @@ msgstr "Ldi-ten akk…"
 
 #: app/fileItemMenu.js:122
 msgid "Launch"
-msgstr ""
+msgstr "Sker"
 
 #: app/fileItemMenu.js:135
 msgid "Open with {foo}"
@@ -890,7 +897,7 @@ msgstr "Ldi-t s…"
 
 #: app/fileItemMenu.js:176
 msgid "Open All With Other Application..."
-msgstr ""
+msgstr "Ldi akk s usnas-nniḍen..."
 
 #: app/fileItemMenu.js:184
 msgid "Launch using Integrated Graphics Card"
@@ -906,7 +913,7 @@ msgstr ""
 
 #: app/fileItemMenu.js:231
 msgid "Run as a Program"
-msgstr ""
+msgstr "Selkem am wahil"
 
 #: app/fileItemMenu.js:234
 msgid "Scripts"
@@ -935,42 +942,42 @@ msgstr "Snulfu-d aseɣwen…"
 #: app/fileItemMenu.js:261
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Sekkusem {0} n ukaram"
+msgstr[1] "Sekkusem {0} n ikaramen"
 
 #: app/fileItemMenu.js:269
 msgid "Compress {0} file"
 msgid_plural "Compress {0} files"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Sekkusem {0} n ufaylu"
+msgstr[1] "Sekkusem {0} n yifuyla"
 
 #: app/fileItemMenu.js:276
 msgid "Email to..."
-msgstr ""
+msgstr "Azen s imayl ɣer..."
 
 #: app/fileItemMenu.js:286
 msgid "Send to Mobile Device"
-msgstr ""
+msgstr "Azen ɣer yibenk aziraz"
 
 #: app/fileItemMenu.js:294
 msgid "Move to Trash"
-msgstr ""
+msgstr "Smutti ɣer tqecwalt"
 
 #: app/fileItemMenu.js:302
 msgid "Delete permanently"
-msgstr ""
+msgstr "Kkes s wudem imezgi"
 
 #: app/fileItemMenu.js:315 app/fileItemMenu.js:329
 msgid "Don't Allow Launching"
-msgstr ""
+msgstr "Ur ttaǧǧa ara Asenker"
 
 #: app/fileItemMenu.js:339
 msgid "Empty Trash"
-msgstr ""
+msgstr "Silem iḍumman"
 
 #: app/fileItemMenu.js:345
 msgid "Eject"
-msgstr ""
+msgstr "Ḍeqqer"
 
 #: app/fileItemMenu.js:348
 msgid "Unmount"
@@ -982,7 +989,7 @@ msgstr ""
 
 #: app/fileItemMenu.js:355
 msgid "Properties"
-msgstr ""
+msgstr "Timeẓliyin"
 
 #: app/fileItemMenu.js:362
 msgid "Show All in {0}"
@@ -1002,7 +1009,7 @@ msgstr ""
 
 #: app/fileItemMenu.js:820
 msgid "Extraction Cancelled"
-msgstr ""
+msgstr "Tussfa tettwasefsex"
 
 #: app/fileItemMenu.js:821
 msgid "Unable to extract File, no destination folder"
@@ -1088,7 +1095,7 @@ msgstr ""
 
 #: app/gnomeShellDragDrop.js:356
 msgid "$appName$ can not open files of this Type!"
-msgstr ""
+msgstr "{appName} ur yezmir ara ad d-yeldi ifuyla n wanaw-agi!"
 
 #: app/preferences.js:1097
 msgid "Console"
@@ -1108,7 +1115,7 @@ msgstr ""
 
 #: app/shortcutManager.js:143
 msgid "Reset to Default"
-msgstr ""
+msgstr "Ales awennez ɣer Umezwer"
 
 #: app/shortcutManager.js:147
 msgid "No Accelerator"
@@ -1140,7 +1147,7 @@ msgstr ""
 
 #: app/shortcutManager.js:669
 msgid "Keyboard Shortcuts"
-msgstr ""
+msgstr "Inegzumen n unasiw"
 
 #: app/shortcutManager.js:681
 msgid "Reset Shortcuts"
@@ -1156,15 +1163,15 @@ msgstr ""
 
 #: app/shortcuts.js:15
 msgid "Show Desktop in Files"
-msgstr ""
+msgstr "Sken-d Tanarit Deg yifuyla GNOME"
 
 #: app/shortcuts.js:16
 msgid "Open in Terminal"
-msgstr ""
+msgstr "Ldi deg yixef"
 
 #: app/shortcuts.js:17
 msgid "Change Background"
-msgstr ""
+msgstr "Snifel agilal…"
 
 #: app/shortcuts.js:18
 msgid "Change Display Settings"
@@ -1220,11 +1227,11 @@ msgstr ""
 
 #: app/shortcuts.js:32
 msgid "Show Hidden Files"
-msgstr ""
+msgstr "Sken ifuyla uffiren"
 
 #: app/shortcuts.js:33
 msgid "Unselect All"
-msgstr ""
+msgstr "Kkes kullec"
 
 #: app/shortcuts.js:34
 msgid "Preview"
@@ -1240,7 +1247,7 @@ msgstr ""
 
 #: app/shortcuts.js:40 app/widgetManager.js:1461
 msgid "Add Widget"
-msgstr ""
+msgstr "Rnu awiǧit…"
 
 #: app/shortcuts.js:43
 msgid "Choose Icon Left"
@@ -1260,7 +1267,7 @@ msgstr ""
 
 #: app/shortcuts.js:62
 msgid "Show Menu"
-msgstr ""
+msgstr "Sken-d umuɣ"
 
 #: app/shortcuts.js:63
 msgid "Display Shell Background Menu"
@@ -1288,7 +1295,7 @@ msgstr ""
 
 #: app/showErrorPopup.js:42
 msgid "More Information"
-msgstr ""
+msgstr "Ugar n isallen"
 
 #. TRANSLATORS: "Home" is the text that will be shown in
 #. the user's personal folder
@@ -1306,7 +1313,7 @@ msgstr "Taqecwalt"
 #. *  is selected, it will say "Stack pictures"
 #: app/stackItem.js:46
 msgid "Stack"
-msgstr ""
+msgstr "Akufi"
 
 #: app/symLinkIcon.js:100
 msgid "Broken Link"
@@ -1461,7 +1468,7 @@ msgstr ""
 
 #: app/widgetWebContext.js:792
 msgid "Open link in browser?"
-msgstr ""
+msgstr "Ldi aseɣwen deg yiminig"
 
 #: app/widgetWebContext.js:793
 msgid ""
@@ -1484,7 +1491,7 @@ msgstr ""
 
 #: app/utils/desktopIconsUtil.js:235
 msgid "Command not found"
-msgstr ""
+msgstr "anezḍay ur yettwaf ara"
 
 #: data/ui/ding-app-chooser.ui:47
 msgid "Choose an app to open the selected files."
@@ -1512,7 +1519,7 @@ msgstr ""
 
 #: data/com.desktop.ding.desktop.in:21
 msgid "Show<>Hide"
-msgstr ""
+msgstr "Senk-d/Ffer"
 
 #: data/com.desktop.ding.desktop.in:33
 msgid "Preferences"
@@ -1528,7 +1535,7 @@ msgstr "Tiddi n tignitin"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:26
 msgid "Set the size for the desktop icons."
-msgstr ""
+msgstr "Tiddi n tignitin n tnarit"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:30
 msgid "Show personal folder"
@@ -1536,7 +1543,7 @@ msgstr ""
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:31
 msgid "Show the personal folder in the desktop."
-msgstr ""
+msgstr "Sken akaram udmawan deg tnarit"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:35
 msgid "Show trash icon"
@@ -1544,7 +1551,7 @@ msgstr ""
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:36
 msgid "Show the trash icon in the desktop."
-msgstr ""
+msgstr "Sken tignit n tqecwalt deg tnarit"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:40
 msgid "New icons start corner"
@@ -1556,7 +1563,7 @@ msgstr ""
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:45
 msgid "Show external drives in the desktop"
-msgstr ""
+msgstr "ken iḍebsiyen izɣarayen ɣef tnarit"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:46
 msgid "Show the disk drives connected to the computer."
@@ -1564,7 +1571,7 @@ msgstr ""
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:50
 msgid "Show network drives in the desktop"
-msgstr ""
+msgstr "Sken iḍebsiyen n uẓeṭṭa ɣef tnarit"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:51
 msgid "Show mounted network volumes in the desktop."
@@ -1672,7 +1679,7 @@ msgstr ""
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:110
 msgid "Show Desktop Widgets"
-msgstr ""
+msgstr "Sken iwiǧiten n tnarit"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:111
 msgid "Displays Widgets in a layer below the icons if installed"
