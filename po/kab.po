@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-30 06:42-0400\n"
-"PO-Revision-Date: 2026-04-25 12:23+0000\n"
+"PO-Revision-Date: 2026-04-26 16:09+0000\n"
 "Last-Translator: Amadɣas <massiin@proton.me>\n"
 "Language-Team: Kabyle <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/kab/>\n"
@@ -60,7 +60,7 @@ msgstr "Ẓreg inegzumen n usnas"
 
 #: app/adwPreferencesWindow.js:271
 msgid "Shortcuts Editable only when Extension Enabled..."
-msgstr ""
+msgstr "Inegzumen ttwaẓrgen kan mi ara yermed usiɣzef..."
 
 #: app/adwPreferencesWindow.js:376
 msgid "Help translate in your web browser"
@@ -77,7 +77,7 @@ msgstr "Ifuyla"
 #: app/adwPreferencesWindow.js:611 app/adwPreferencesWindow.js:612
 #: app/adwPreferencesWindow.js:654
 msgid "Tweaks"
-msgstr ""
+msgstr "Isgaddiyen"
 
 #: app/adwPreferencesWindow.js:617 app/adwPreferencesWindow.js:618
 msgid "More"
@@ -109,7 +109,7 @@ msgstr "Iɣewwaṛen yettwabḍan akked yifuyla n Gnome"
 
 #: app/adwPreferencesWindow.js:655
 msgid "Miscellaneous Tweaks"
-msgstr ""
+msgstr "Isgaddiyen yemgaraden"
 
 #: app/adwPreferencesWindow.js:679
 msgid "Size for the desktop icons"
@@ -271,6 +271,8 @@ msgstr "Tasuqilt"
 msgid ""
 "Machine translated using LibreTranslate. User verified and edited on Weblate."
 msgstr ""
+"Tamacint tettwasuqqel s useqdec n LibreTranslate. tettwasenqed yerna "
+"tettwaẓreg sɣur aseqdac di Weblate."
 
 #: app/adwPreferencesWindow.js:830
 msgid "Edit Translations"
@@ -368,7 +370,7 @@ msgstr "sermed"
 #: app/appImageFileItem.js:84 app/desktopFileIcon.js:178
 #: app/fileItemMenu.js:316 app/fileItemMenu.js:330
 msgid "Allow Launching"
-msgstr "Sireg asenker"
+msgstr "Sireg Asenker"
 
 #: app/askRenamePopup.js:61
 msgid "Folder name"
@@ -627,7 +629,7 @@ msgstr "Sermed"
 
 #: app/desktopManager.js:205 app/desktopManager.js:215
 msgid "Can Not Show the Desktop"
-msgstr ""
+msgstr "Ur yezmir ara ad d-yesken Tanarit"
 
 #. TRANSLATORS: {desktop} folder path automatically inserted
 #: app/desktopManager.js:207
@@ -636,6 +638,9 @@ msgid ""
 "\n"
 "Please set the Desktop Folder to a real Folder"
 msgstr ""
+"Akaram n tnarit {desktop} d aseɣwen azamulan\n"
+"\n"
+"Ttxil-k·m sbadu akaram n tnarit ɣer ukaram n tidet"
 
 #. TRANSLATORS: {desktop} folder path automatically inserted
 #: app/desktopManager.js:217
@@ -655,15 +660,15 @@ msgstr "Asnas n yifuyla GNOME yettwasra s tignitin n tnarit NG."
 
 #: app/desktopManager.js:236
 msgid "There is no default File Manager"
-msgstr ""
+msgstr "Ulac amsefrak n ifuyla amezwer"
 
 #: app/desktopManager.js:237
 msgid "There is no application that handles mimetype \"inode/directory\""
-msgstr ""
+msgstr "Ulac asnas ara isefreken anaw mimetype \"inode/directory\""
 
 #: app/desktopManager.js:244
 msgid "Gnome Files is not registered as a File Manager"
-msgstr ""
+msgstr "Ifuyla Gnome ur ttwakelsen ara d amsefrak n ifuyla"
 
 #: app/desktopManager.js:245
 msgid ""
@@ -694,7 +699,7 @@ msgstr "Ulamek asnulfu n ukaram"
 
 #: app/desktopMenu.js:598
 msgid "Unable to open Desktop in Gnome Files"
-msgstr ""
+msgstr "Ulamek alday n tnarit deg yifuyla Gnome"
 
 #: app/desktopMenu.js:617
 msgid "Preferences Window is Open"
@@ -859,8 +864,8 @@ msgstr ""
 #: app/fileItemMenu.js:104
 msgid "New Folder with {0} item"
 msgid_plural "New Folder with {0} items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Akaram amaynut s [0} uferdis"
+msgstr[1] "Akaram amaynut s {0} yiferdisen"
 
 #: app/fileItemMenu.js:114
 msgid "Open All..."
@@ -892,7 +897,7 @@ msgstr "Ldi-t s…"
 
 #: app/fileItemMenu.js:176
 msgid "Open All With Other Application..."
-msgstr ""
+msgstr "Ldi akk s usnas-nniḍen..."
 
 #: app/fileItemMenu.js:184
 msgid "Launch using Integrated Graphics Card"
@@ -908,7 +913,7 @@ msgstr ""
 
 #: app/fileItemMenu.js:231
 msgid "Run as a Program"
-msgstr ""
+msgstr "Selkem am wahil"
 
 #: app/fileItemMenu.js:234
 msgid "Scripts"
@@ -937,34 +942,34 @@ msgstr "Snulfu-d aseɣwen…"
 #: app/fileItemMenu.js:261
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Sekkusem {0} n ukaram"
+msgstr[1] "Sekkusem {0} n ikaramen"
 
 #: app/fileItemMenu.js:269
 msgid "Compress {0} file"
 msgid_plural "Compress {0} files"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Sekkusem {0} n ufaylu"
+msgstr[1] "Sekkusem {0} n yifuyla"
 
 #: app/fileItemMenu.js:276
 msgid "Email to..."
-msgstr ""
+msgstr "Azen s imayl ɣer..."
 
 #: app/fileItemMenu.js:286
 msgid "Send to Mobile Device"
-msgstr ""
+msgstr "Azen ɣer yibenk aziraz"
 
 #: app/fileItemMenu.js:294
 msgid "Move to Trash"
-msgstr "Smutti ɣer tqecwalt n yiḍumman"
+msgstr "Smutti ɣer tqecwalt"
 
 #: app/fileItemMenu.js:302
 msgid "Delete permanently"
-msgstr "Kkes i lebda"
+msgstr "Kkes s wudem imezgi"
 
 #: app/fileItemMenu.js:315 app/fileItemMenu.js:329
 msgid "Don't Allow Launching"
-msgstr ""
+msgstr "Ur ttaǧǧa ara Asenker"
 
 #: app/fileItemMenu.js:339
 msgid "Empty Trash"
