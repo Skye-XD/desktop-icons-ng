@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-30 06:42-0400\n"
-"PO-Revision-Date: 2026-04-26 16:09+0000\n"
+"PO-Revision-Date: 2026-04-28 10:09+0000\n"
 "Last-Translator: Amadɣas <massiin@proton.me>\n"
 "Language-Team: Kabyle <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/kab/>\n"
@@ -743,11 +743,11 @@ msgstr "Tiddi"
 
 #: app/desktopMenu.js:1039
 msgid "Keep Arranged…"
-msgstr ""
+msgstr "Hreẓ asmizzwer…"
 
 #: app/desktopMenu.js:1044
 msgid "Keep Stacked by Type…"
-msgstr ""
+msgstr "Ḥrez tanebdant s wudem n wanaw…"
 
 #: app/desktopMenu.js:1046
 msgid "Sort Home/Drives/Trash…"
@@ -755,11 +755,11 @@ msgstr "Smizwer Home/Drives/Trash…"
 
 #: app/desktopMenu.js:1051
 msgid "Change Desktop"
-msgstr ""
+msgstr "Snifel Tanarit"
 
 #: app/desktopMenu.js:1056
 msgid "Restore Default Desktop"
-msgstr ""
+msgstr "Err-d tanarit tamezwert"
 
 #: app/desktopMenu.js:1060
 msgid "Desktop Icon Settings"
@@ -791,15 +791,15 @@ msgstr "Fren-iten akk"
 
 #: app/desktopMenu.js:1092
 msgid "Arrange Icons"
-msgstr ""
+msgstr "Smizzwer tignitin"
 
 #: app/desktopMenu.js:1096
 msgid "Arrange By…"
-msgstr ""
+msgstr "Smizzwer s…"
 
 #: app/desktopMenu.js:1104
 msgid "Show Desktop In {0}"
-msgstr ""
+msgstr "Sken tanarit di {0}"
 
 #: app/desktopMenu.js:1109
 msgid "Open In {0}"
@@ -905,11 +905,11 @@ msgstr ""
 
 #: app/fileItemMenu.js:206
 msgid "Stack This Type"
-msgstr ""
+msgstr "Segrew anaw-agi"
 
 #: app/fileItemMenu.js:207
 msgid "Unstack This Type"
-msgstr ""
+msgstr "Kkes asegrew i wanaw-agi"
 
 #: app/fileItemMenu.js:231
 msgid "Run as a Program"
@@ -973,7 +973,7 @@ msgstr "Ur ttaǧǧa ara Asenker"
 
 #: app/fileItemMenu.js:339
 msgid "Empty Trash"
-msgstr "Silem iḍumman"
+msgstr "Silem taqecwalt"
 
 #: app/fileItemMenu.js:345
 msgid "Eject"
@@ -985,11 +985,11 @@ msgstr "Kkes aserkeb"
 
 #: app/fileItemMenu.js:354
 msgid "Common Properties"
-msgstr ""
+msgstr "Iraten imuta"
 
 #: app/fileItemMenu.js:355
 msgid "Properties"
-msgstr "Timeẓliyin"
+msgstr "Iraten"
 
 #: app/fileItemMenu.js:362
 msgid "Show All in {0}"
@@ -1009,15 +1009,15 @@ msgstr ""
 
 #: app/fileItemMenu.js:820
 msgid "Extraction Cancelled"
-msgstr "Tussfa tettwasefsex"
+msgstr "Tussfa Tettwasefsex"
 
 #: app/fileItemMenu.js:821
 msgid "Unable to extract File, no destination folder"
-msgstr ""
+msgstr "Ur yezmir ara tussfa ufaylu, ulac akaram n tɣerwaḍt"
 
 #: app/fileItemMenu.js:877 app/fileItemMenu.js:906
 msgid "Select Destination"
-msgstr ""
+msgstr "Fren taɣerwaḍt"
 
 #: app/fileItemMenu.js:880 app/fileItemMenu.js:908
 msgid "Select"
@@ -1087,11 +1087,11 @@ msgstr ""
 
 #: app/fileItemMenu.js:1306
 msgid "Move Cancelled"
-msgstr ""
+msgstr "Asmutti Yettwasefsex"
 
 #: app/fileItemMenu.js:1307
 msgid "Unable to move Files, no destination folder"
-msgstr ""
+msgstr "Ur izmer ara asmutti n ufaylu, ulac akaram aɣerwaḍ"
 
 #: app/gnomeShellDragDrop.js:356
 msgid "$appName$ can not open files of this Type!"
