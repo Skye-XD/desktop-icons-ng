@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-30 06:42-0400\n"
-"PO-Revision-Date: 2026-04-28 10:09+0000\n"
+"PO-Revision-Date: 2026-04-29 11:09+0000\n"
 "Last-Translator: Amadɣas <massiin@proton.me>\n"
 "Language-Team: Kabyle <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/kab/>\n"
@@ -649,6 +649,9 @@ msgid ""
 "\n"
 "Check your xdg-utils installation and set the correct Desktop Folder"
 msgstr ""
+"Akaram n tnarit {desktop} ulac-it neɣ mačči d akaram\n"
+"\n"
+"Selken asbeddi-inek·inem xdg-utils sakin sbadu akaram ameɣtu n tnarit"
 
 #: app/desktopManager.js:228
 msgid "GNOME Files not found"
@@ -807,11 +810,11 @@ msgstr "Ldi deg {0}"
 
 #: app/desktopMenu.js:1126
 msgid "Edit Widgets…"
-msgstr ""
+msgstr "Ẓreg iwiǧiten…"
 
 #: app/desktopMenu.js:1133
 msgid "Shell Menu…"
-msgstr ""
+msgstr "Umuɣ n Shell…"
 
 #: app/dragManager.js:101 app/dragManager.js:939
 msgid "Making SymLink Failed"
@@ -823,11 +826,11 @@ msgstr "D awezɣi asnulfu n useɣwen azamulan"
 
 #: app/dragManager.js:748
 msgid "Copy/Move Failed"
-msgstr ""
+msgstr "Anɣel/Asmutti ur yeddi ara"
 
 #: app/dragManager.js:749
 msgid "{0} Does not exist"
-msgstr ""
+msgstr "{0} ulac-it"
 
 #: app/dragManager.js:791
 msgid "Choose Action for Files"
@@ -859,7 +862,7 @@ msgstr "Alday n ufaylu ur yeddi ara"
 
 #: app/fileItemIcon.js:292
 msgid "There is no application installed to open \"{fo}\" files."
-msgstr ""
+msgstr "Ulac asnas yettwasbedden akken ad teldiḍ ifuyla \"{fo}\"."
 
 #: app/fileItemMenu.js:104
 msgid "New Folder with {0} item"
@@ -1025,7 +1028,7 @@ msgstr "Fren"
 
 #: app/fileItemMenu.js:964
 msgid "Can not email a Directory"
-msgstr ""
+msgstr "Ur yezmir ara ad d-yazen akaram s yimayl"
 
 #: app/fileItemMenu.js:966
 msgid "Selection includes a Directory, compress to a .zip file first?"
@@ -1079,11 +1082,11 @@ msgstr "Ttxil sbedd {0}"
 
 #: app/fileItemMenu.js:1282
 msgid "Copy Cancelled"
-msgstr ""
+msgstr "Anɣel yettwasefsex"
 
 #: app/fileItemMenu.js:1283
 msgid "Unable to copy Files, no destination folder"
-msgstr ""
+msgstr "D awezɣi anɣal n ifuyla, ulac akaram aɣerwaḍ"
 
 #: app/fileItemMenu.js:1306
 msgid "Move Cancelled"
@@ -1491,15 +1494,15 @@ msgstr ""
 
 #: app/utils/desktopIconsUtil.js:235
 msgid "Command not found"
-msgstr "anezḍay ur yettwaf ara"
+msgstr "Taladna ur tettwaf ara"
 
 #: data/ui/ding-app-chooser.ui:47
 msgid "Choose an app to open the selected files."
-msgstr ""
+msgstr "Fren asnas akken ad teldiḍ ifuyla yettwafernen."
 
 #: data/ui/ding-app-chooser.ui:81
 msgid "Always use for this file type"
-msgstr ""
+msgstr "Seqdec yal tikelt i wanaw-agi n ufaylu"
 
 #: data/ui/ding-app-chooser.ui:104
 msgid "_Cancel"
@@ -1535,23 +1538,23 @@ msgstr "Tiddi n tignitin"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:26
 msgid "Set the size for the desktop icons."
-msgstr "Tiddi n tignitin n tnarit"
+msgstr "Sbadu teɣzi i tignitin n tnarit."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:30
 msgid "Show personal folder"
-msgstr ""
+msgstr "Sken akaram udmawan"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:31
 msgid "Show the personal folder in the desktop."
-msgstr "Sken akaram udmawan deg tnarit"
+msgstr "Sken akaram udmawan deg tnarit."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:35
 msgid "Show trash icon"
-msgstr ""
+msgstr "Sken tignit n tqecwalt"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:36
 msgid "Show the trash icon in the desktop."
-msgstr "Sken tignit n tqecwalt deg tnarit"
+msgstr "Sken tignit n tqecwalt deg tnarit."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:40
 msgid "New icons start corner"
