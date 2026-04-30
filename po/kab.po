@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-30 06:42-0400\n"
-"PO-Revision-Date: 2026-04-29 11:09+0000\n"
+"PO-Revision-Date: 2026-04-30 07:59+0000\n"
 "Last-Translator: Amadɣas <massiin@proton.me>\n"
 "Language-Team: Kabyle <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/kab/>\n"
@@ -1274,7 +1274,7 @@ msgstr "Sken-d umuɣ"
 
 #: app/shortcuts.js:63
 msgid "Display Shell Background Menu"
-msgstr ""
+msgstr "Beqqeḍ umuɣ n ugilal n Shell"
 
 #: app/shortcuts.js:64
 msgid "Create Desktop Shortcut"
