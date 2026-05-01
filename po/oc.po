@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-30 06:42-0400\n"
-"PO-Revision-Date: 2026-04-30 07:59+0000\n"
+"PO-Revision-Date: 2026-05-01 09:09+0000\n"
 "Last-Translator: Quentin PAGÈS <quentinantonin@free.fr>\n"
 "Language-Team: Occitan <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/oc/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.17.1-dev\n"
+"X-Generator: Weblate 5.17.1\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
@@ -103,7 +103,7 @@ msgstr "Paramètres dels fichièrs"
 
 #: app/adwPreferencesWindow.js:648
 msgid "Settings shared with Gnome Files"
-msgstr "Paramètres partejats amb Fichièrs de GNOME"
+msgstr "Paramètres partejats amb Fichièrs de Gnome"
 
 #: app/adwPreferencesWindow.js:655
 msgid "Miscellaneous Tweaks"
@@ -158,9 +158,8 @@ msgid "Snap icons to grid"
 msgstr "Activar las icònas sus la grasilha"
 
 #: app/adwPreferencesWindow.js:711
-#, fuzzy
 msgid "Show desktop widgets"
-msgstr "Mostrar lo burèu dins Fichièrs"
+msgstr "Mostrar los widgets del burèu"
 
 #: app/adwPreferencesWindow.js:716
 msgid "New Desktop Folder"
@@ -187,14 +186,12 @@ msgid "Restore"
 msgstr "Restaurar"
 
 #: app/adwPreferencesWindow.js:736
-#, fuzzy
 msgid "Highlight the drop grid"
-msgstr "Enlusir la zòna de depaus pendent un lisar-depausar"
+msgstr "Enlusir la zòna de depaus"
 
 #: app/adwPreferencesWindow.js:746
-#, fuzzy
 msgid "Add information emblems for links, encryption"
-msgstr "Apondre una emblèma als ligams"
+msgstr "Apondre una emblèma als ligams, chiframent"
 
 #: app/adwPreferencesWindow.js:750
 msgid "Use dark text in icon labels"
@@ -343,18 +340,16 @@ msgid "None"
 msgstr "Cap"
 
 #: app/appImageFileItem.js:66 app/desktopFileIcon.js:160
-#, fuzzy
 msgid "Enable option"
-msgstr "Activar"
+msgstr "Activar l’opcion"
 
 #: app/appImageFileItem.js:67 app/desktopFileIcon.js:161
 msgid "Allow Executing File as a Program"
 msgstr "Permetre d’executar lo fichièr coma programa"
 
 #: app/appImageFileItem.js:79
-#, fuzzy
 msgid "Untrusted AppImage File"
-msgstr "Mostrar lo burèu dins Fichièrs"
+msgstr "Fichièr AppImage non fisable"
 
 #: app/appImageFileItem.js:81
 msgid "This AppImage file is not trusted, it can not be launched."
@@ -555,9 +550,8 @@ msgid "This Desktop File has incorrect Permissions."
 msgstr "Aqueste fichièr de burèu a d’autorizacions incorrèctas."
 
 #: app/desktopFileIcon.js:173
-#, fuzzy
 msgid "Untrusted Desktop File"
-msgstr "Mostrar lo burèu dins Fichièrs"
+msgstr "Fichièr de burèu non fisable"
 
 #: app/desktopFileIcon.js:175
 msgid "This Desktop file is not trusted, it can not be launched."
@@ -569,12 +563,11 @@ msgstr "Impossible de dobrir Fichièr"
 
 #: app/desktopFileIcon.js:206
 msgid "{appName} can not open files of this Type!"
-msgstr ""
+msgstr "{appName} pòt pas dobrir los fichièrs d’aqueste tipe !"
 
 #: app/desktopFolderMonitor.js:101 app/desktopFolderMonitor.js:107
-#, fuzzy
 msgid "Desktop Folder Change Failed"
-msgstr "Nom del dorsièr"
+msgstr "Modificacion del dossièr de burèu non reüssit"
 
 #: app/desktopFolderMonitor.js:102
 msgid "The new Desktop Folder is a Symbolic Link"
@@ -594,14 +587,12 @@ msgstr ""
 
 #: app/desktopGrid.js:66 data/com.desktop.ding.desktop.in:3
 #: data/com.desktop.ding.desktop.in:4
-#, fuzzy
 msgid "Desktop Icons"
-msgstr "Paramètres icònas de burèu"
+msgstr "Icònas de burèu"
 
 #: app/desktopGrid.js:2587
-#, fuzzy
 msgid "Back to Desktop"
-msgstr "Burèu"
+msgstr "Tornar al burèu"
 
 #: app/desktopGrid.js:2588 app/widgetManager.js:1525
 msgid "Toggle Widget Grid"
@@ -609,7 +600,7 @@ msgstr ""
 
 #: app/desktopGrid.js:2589
 msgid "Add Widget..."
-msgstr ""
+msgstr "Apondre widget..."
 
 #: app/desktopManager.js:166
 msgid "Monitor Frame Buffer Scaling is not enabled"
@@ -707,7 +698,7 @@ msgstr ""
 
 #: app/desktopMenu.js:617
 msgid "Preferences Window is Open"
-msgstr ""
+msgstr "La fenèstra de preferéncia es dobèrta"
 
 #: app/desktopMenu.js:618
 msgid "This Window is open. Please switch to the active window."
@@ -719,11 +710,11 @@ msgstr "Paramètres"
 
 #: app/desktopMenu.js:907
 msgid "Template Creation Error"
-msgstr ""
+msgstr "Error de creacion del modèl"
 
 #: app/desktopMenu.js:908
 msgid "Could not create document"
-msgstr ""
+msgstr "Creacion impossibla del document"
 
 #: app/desktopMenu.js:1026
 msgid "Name"
@@ -802,9 +793,8 @@ msgid "Arrange By…"
 msgstr "Triar per…"
 
 #: app/desktopMenu.js:1104
-#, fuzzy
 msgid "Show Desktop In {0}"
-msgstr "Mostrar lo burèu dins Fichièrs"
+msgstr "Mostrar lo burèu dins {0}"
 
 #: app/desktopMenu.js:1109
 msgid "Open In {0}"
@@ -827,18 +817,16 @@ msgid "Could not create symbolic link"
 msgstr ""
 
 #: app/dragManager.js:748
-#, fuzzy
 msgid "Copy/Move Failed"
-msgstr "Anullar"
+msgstr "Fracàs de la còpia/del desplaçament"
 
 #: app/dragManager.js:749
 msgid "{0} Does not exist"
 msgstr "{0} existís pas"
 
 #: app/dragManager.js:791
-#, fuzzy
 msgid "Choose Action for Files"
-msgstr "Mostrar dins Fichièrs"
+msgstr "Causir l’accion pels fichièrs"
 
 #: app/dragManager.js:792
 msgid "Move"
@@ -861,13 +849,12 @@ msgid "File"
 msgstr "Fichièr"
 
 #: app/fileItemIcon.js:286
-#, fuzzy
 msgid "Opening File Failed"
-msgstr "Dobrir"
+msgstr "Impossible de dobrir lo fichièr"
 
 #: app/fileItemIcon.js:292
 msgid "There is no application installed to open \"{fo}\" files."
-msgstr ""
+msgstr "I a pas cap d’aplicacion installada per dobrir los fichèrs « {fo} »."
 
 #: app/fileItemMenu.js:104
 msgid "New Folder with {0} item"
@@ -885,7 +872,7 @@ msgstr "Aviar"
 
 #: app/fileItemMenu.js:135
 msgid "Open with {foo}"
-msgstr "Dobrir amb {foot}"
+msgstr "Dobrir amb {foo}"
 
 #: app/fileItemMenu.js:138
 msgid "Open"
@@ -925,7 +912,7 @@ msgstr "Executar coma programa"
 
 #: app/fileItemMenu.js:234
 msgid "Scripts"
-msgstr "Scripts"
+msgstr "Escripts"
 
 #: app/fileItemMenu.js:239
 msgid "Cut"
@@ -965,7 +952,7 @@ msgstr "Enviar a..."
 
 #: app/fileItemMenu.js:286
 msgid "Send to Mobile Device"
-msgstr ""
+msgstr "Enviar a un aparelh mobil"
 
 #: app/fileItemMenu.js:294
 msgid "Move to Trash"
@@ -1000,19 +987,16 @@ msgid "Properties"
 msgstr "Proprietats"
 
 #: app/fileItemMenu.js:362
-#, fuzzy
 msgid "Show All in {0}"
-msgstr "Tot mostrar dins Fichièrs"
+msgstr "Tot mostrar dins {0}"
 
 #: app/fileItemMenu.js:363
-#, fuzzy
 msgid "Show in {0}"
-msgstr "Mostrar dins Fichièrs"
+msgstr "Mostrar dins {0}"
 
 #: app/fileItemMenu.js:374
-#, fuzzy
 msgid "Open in {0}"
-msgstr "Dobrir un fichièr"
+msgstr "Dobrir dins {0}"
 
 #: app/fileItemMenu.js:538
 msgid "Open Item"
@@ -1050,7 +1034,7 @@ msgstr ""
 
 #: app/fileItemMenu.js:994
 msgid "Unable to find zip command, please install the program"
-msgstr ""
+msgstr "Impossible de trobar la comanda zip, mercés d’installar lo programa"
 
 #. Translators - basename for a zipped archive created for mailing
 #: app/fileItemMenu.js:1000
@@ -1070,13 +1054,12 @@ msgid "There was an error in emailing Files"
 msgstr ""
 
 #: app/fileItemMenu.js:1175
-#, fuzzy
 msgid "Can Not open the Working Directory"
-msgstr "Impossible d’enviar un email a un Repertòri"
+msgstr "Impossible de dobrir lo repertòri de trabalh"
 
 #: app/fileItemMenu.js:1226
 msgid "Unable to Open in Gnome Console"
-msgstr ""
+msgstr "Impossible de dobrir dins la consòla Gnome"
 
 #: app/fileItemMenu.js:1228
 msgid "Please Install Gnome Console or other Terminal Program"
@@ -1084,11 +1067,11 @@ msgstr ""
 
 #: app/fileItemMenu.js:1236
 msgid "Unable to Open {0}"
-msgstr ""
+msgstr "Impossible de dobrir {0}"
 
 #: app/fileItemMenu.js:1238
 msgid "Please Install {0}"
-msgstr ""
+msgstr "Mercés d’installar {0}"
 
 #: app/fileItemMenu.js:1282
 msgid "Copy Cancelled"
@@ -1096,7 +1079,7 @@ msgstr "Còpia anullada"
 
 #: app/fileItemMenu.js:1283
 msgid "Unable to copy Files, no destination folder"
-msgstr ""
+msgstr "Còpia de fichièrs impossible, cap de dossièr de destinacion"
 
 #: app/fileItemMenu.js:1306
 msgid "Move Cancelled"
@@ -1104,11 +1087,11 @@ msgstr "Desplaçament anullat"
 
 #: app/fileItemMenu.js:1307
 msgid "Unable to move Files, no destination folder"
-msgstr ""
+msgstr "Desplaçament de fichièrs impossible, cap de dossièr de destinacion"
 
 #: app/gnomeShellDragDrop.js:356
 msgid "$appName$ can not open files of this Type!"
-msgstr ""
+msgstr "$appName$ pòt pas dobrir los fichièrs d’aqueste tipe !"
 
 #: app/preferences.js:1097
 msgid "Console"
@@ -1120,7 +1103,7 @@ msgstr ""
 
 #: app/shortcutManager.js:122
 msgid "Type new..."
-msgstr ""
+msgstr "Tipe novèl..."
 
 #: app/shortcutManager.js:138
 msgid "Modifier + Key (e.g. Ctrl + Alt + D)"
@@ -1135,27 +1118,24 @@ msgid "No Accelerator"
 msgstr ""
 
 #: app/shortcutManager.js:256
-#, fuzzy
 msgid "System Shortcuts"
-msgstr "Afichar los acorchis"
+msgstr "Acorchis sistèma"
 
 #: app/shortcutManager.js:257
 msgid "Common System Defined Keyboard Shortcuts"
 msgstr ""
 
 #: app/shortcutManager.js:315
-#, fuzzy
 msgid "Local Shortcuts"
-msgstr "Afichar los acorchis"
+msgstr "Acorchis locals"
 
 #: app/shortcutManager.js:316
 msgid "Application Keyboard Shortcuts"
-msgstr ""
+msgstr "Acorchis clavièr aplicacion"
 
 #: app/shortcutManager.js:377
-#, fuzzy
 msgid "Global Shortcuts"
-msgstr "Afichar los acorchis"
+msgstr "Acorchis globals"
 
 #: app/shortcutManager.js:378
 msgid "System Keyboard Shortcuts"
@@ -1166,13 +1146,12 @@ msgid "Keyboard Shortcuts"
 msgstr "Acorchis de clavièr"
 
 #: app/shortcutManager.js:681
-#, fuzzy
 msgid "Reset Shortcuts"
-msgstr "Afichar los acorchis"
+msgstr "Reïnicializar los acorchis"
 
 #: app/shortcutManager.js:682
 msgid "Reset all shortcuts to Defaults"
-msgstr ""
+msgstr "Reïnicializar totes los acorchis a las valors per defaut"
 
 #: app/shortcutManager.js:685
 msgid "Reset All..."
@@ -1200,7 +1179,7 @@ msgstr "Paramètres icònas de burèu"
 
 #: app/shortcuts.js:20
 msgid "Clean Up Icons"
-msgstr ""
+msgstr "Netejar las icònas"
 
 #: app/shortcuts.js:21
 msgid "Keep Arranged"
@@ -1215,38 +1194,32 @@ msgid "Sort Special Folders"
 msgstr "Triar los dossièrs especials"
 
 #: app/shortcuts.js:25
-#, fuzzy
 msgid "Arrange Icons by Name"
-msgstr "Arrengar las icònas"
+msgstr "Triar las icònas per nom"
 
 #: app/shortcuts.js:26
 msgid "Arrange Icons By Descending Name"
-msgstr ""
+msgstr "Triar las icònas per nom descendent"
 
 #: app/shortcuts.js:27
-#, fuzzy
 msgid "Arrange Icons By Modified Time"
-msgstr "Triar per data de modificacion"
+msgstr "Triar las icònas per data de modificacion"
 
 #: app/shortcuts.js:28
-#, fuzzy
 msgid "Arrange Icons By Kind"
-msgstr "Arrengar las icònas"
+msgstr "Triar las icònas per tipe"
 
 #: app/shortcuts.js:29
-#, fuzzy
 msgid "Arrange Icons By Size"
-msgstr "Arrengar las icònas"
+msgstr "Triar las icònas per talha"
 
 #: app/shortcuts.js:30
-#, fuzzy
 msgid "Find Files"
-msgstr "Fichièrs"
+msgstr "Cercar de fichièrs"
 
 #: app/shortcuts.js:31
-#, fuzzy
 msgid "Update Desktop"
-msgstr "Burèu"
+msgstr "Actualizar lo burèu"
 
 #: app/shortcuts.js:32
 msgid "Show Hidden Files"
@@ -1273,24 +1246,20 @@ msgid "Add Widget"
 msgstr ""
 
 #: app/shortcuts.js:43
-#, fuzzy
 msgid "Choose Icon Left"
-msgstr "Mostrar dins Fichièrs"
+msgstr "Causir icòna esquèrra"
 
 #: app/shortcuts.js:48
-#, fuzzy
 msgid "Choose Icon Right"
-msgstr "Mostrar dins Fichièrs"
+msgstr "Causir icòna drecha"
 
 #: app/shortcuts.js:53
-#, fuzzy
 msgid "Choose Icon Up"
-msgstr "Causir"
+msgstr "Causir icòna superior"
 
 #: app/shortcuts.js:58
-#, fuzzy
 msgid "Choose Icon Down"
-msgstr "Mostrar dins Fichièrs"
+msgstr "Causir icòna inferior"
 
 #: app/shortcuts.js:62
 msgid "Show Menu"
@@ -1301,9 +1270,8 @@ msgid "Display Shell Background Menu"
 msgstr ""
 
 #: app/shortcuts.js:64
-#, fuzzy
 msgid "Create Desktop Shortcut"
-msgstr "Mostrar lo burèu dins Fichièrs"
+msgstr "Crear un acorchi de burèu"
 
 #: app/shortcuts.js:65
 msgid "Text Entry Accels Turn On"
@@ -1359,9 +1327,8 @@ msgid "Drive"
 msgstr "Volum"
 
 #: app/widgetManager.js:2123
-#, fuzzy
 msgid "Widget preferences"
-msgstr "Preferéncias"
+msgstr "Preferéncias del widget"
 
 #: app/widgetManager.js:2135 app/widgetManager.js:2144
 msgid "Unpin widget"
@@ -1495,9 +1462,8 @@ msgid "Allow widget backend?"
 msgstr ""
 
 #: app/widgetWebContext.js:263
-#, fuzzy
 msgid "Widget Preferences"
-msgstr "Preferéncias"
+msgstr "Preferéncias del widget"
 
 #: app/widgetWebContext.js:792
 msgid "Open link in browser?"
@@ -1510,9 +1476,8 @@ msgid ""
 msgstr ""
 
 #: app/utils/dbusUtils.js:67
-#, fuzzy
 msgid "\"${programName}\" is not available"
-msgstr "« ${programName} » es requerit per Desktop Icons"
+msgstr "« ${programName} » es indisponible"
 
 #: app/utils/dbusUtils.js:70
 msgid ""
@@ -1723,9 +1688,8 @@ msgid ""
 msgstr ""
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:110
-#, fuzzy
 msgid "Show Desktop Widgets"
-msgstr "Mostrar lo burèu dins Fichièrs"
+msgstr "Mostrar los widgets del burèu"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:111
 msgid "Displays Widgets in a layer below the icons if installed"
