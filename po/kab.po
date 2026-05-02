@@ -10,8 +10,9 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-30 06:42-0400\n"
-"PO-Revision-Date: 2026-04-30 07:59+0000\n"
-"Last-Translator: Amadɣas <massiin@proton.me>\n"
+"PO-Revision-Date: 2026-05-02 11:09+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Kabyle <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/kab/>\n"
 "Language: kab\n"
@@ -19,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.17.1-dev\n"
+"X-Generator: Weblate 5.17.1\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
@@ -1008,7 +1009,7 @@ msgstr "Ldi deg {0}"
 
 #: app/fileItemMenu.js:538
 msgid "Open Item"
-msgstr ""
+msgstr "Ldi aferdis"
 
 #: app/fileItemMenu.js:820
 msgid "Extraction Cancelled"
@@ -1032,16 +1033,16 @@ msgstr "Ur yezmir ara ad d-yazen akaram s yimayl"
 
 #: app/fileItemMenu.js:966
 msgid "Selection includes a Directory, compress to a .zip file first?"
-msgstr ""
+msgstr "Afran yegber akaram, skussem akaram ɣer ufaylu deg tazwara."
 
 #: app/fileItemMenu.js:992 app/fileItemMenu.js:1023 app/fileItemMenu.js:1040
 #: app/fileItemMenu.js:1059
 msgid "Mail Error"
-msgstr ""
+msgstr "Tuccḍa n yimayl"
 
 #: app/fileItemMenu.js:994
 msgid "Unable to find zip command, please install the program"
-msgstr ""
+msgstr "Yegguma ad d-yaf taladna zip, ttxil-k·m sbedd ahil"
 
 #. Translators - basename for a zipped archive created for mailing
 #: app/fileItemMenu.js:1000
@@ -1050,31 +1051,31 @@ msgstr ""
 
 #: app/fileItemMenu.js:1024
 msgid "There was an error in creating a zip archive"
-msgstr ""
+msgstr "Tella-d tuccḍa deg usnulfu n uɣbaṛ zip"
 
 #: app/fileItemMenu.js:1042
 msgid "Unable to find xdg-email, please install the program"
-msgstr ""
+msgstr "Ur izmir ara ad yaf xdg-email, ttxil-k·m sebded ahil"
 
 #: app/fileItemMenu.js:1060
 msgid "There was an error in emailing Files"
-msgstr ""
+msgstr "Teḍra-d tuccḍa di tuzzna n ifuyla s yimayl"
 
 #: app/fileItemMenu.js:1175
 msgid "Can Not open the Working Directory"
-msgstr ""
+msgstr "Ur yezmir ara ad yeldi akaram n umahil"
 
 #: app/fileItemMenu.js:1226
 msgid "Unable to Open in Gnome Console"
-msgstr ""
+msgstr "D awezɣi alday n tdiwent n Gnome"
 
 #: app/fileItemMenu.js:1228
 msgid "Please Install Gnome Console or other Terminal Program"
-msgstr ""
+msgstr "Ttxil-k·m sebded tadiwent n Gnome neɣ Ahil-nniḍen n Tdiwent"
 
 #: app/fileItemMenu.js:1236
 msgid "Unable to Open {0}"
-msgstr ""
+msgstr "D awezɣi alday n {0}"
 
 #: app/fileItemMenu.js:1238
 msgid "Please Install {0}"
@@ -1106,11 +1107,11 @@ msgstr "Tadiwent"
 
 #: app/shortcutManager.js:98
 msgid "Default Shortcut:"
-msgstr ""
+msgstr "Anegzum amezwer:"
 
 #: app/shortcutManager.js:122
 msgid "Type new..."
-msgstr ""
+msgstr "Aru amaynut..."
 
 #: app/shortcutManager.js:138
 msgid "Modifier + Key (e.g. Ctrl + Alt + D)"
@@ -1122,11 +1123,11 @@ msgstr "Ales awennez ɣer Umezwer"
 
 #: app/shortcutManager.js:147
 msgid "No Accelerator"
-msgstr ""
+msgstr "Ulac amesɣiwel"
 
 #: app/shortcutManager.js:256
 msgid "System Shortcuts"
-msgstr ""
+msgstr "Inegzumen n unagraw"
 
 #: app/shortcutManager.js:257
 msgid "Common System Defined Keyboard Shortcuts"
@@ -1134,19 +1135,19 @@ msgstr ""
 
 #: app/shortcutManager.js:315
 msgid "Local Shortcuts"
-msgstr ""
+msgstr "Inegzumen idiganen"
 
 #: app/shortcutManager.js:316
 msgid "Application Keyboard Shortcuts"
-msgstr ""
+msgstr "Inegzumen n unasiw n usnas"
 
 #: app/shortcutManager.js:377
 msgid "Global Shortcuts"
-msgstr ""
+msgstr "Inegzumen imuta"
 
 #: app/shortcutManager.js:378
 msgid "System Keyboard Shortcuts"
-msgstr ""
+msgstr "Inegzumen n unasiw n unagraw"
 
 #: app/shortcutManager.js:669
 msgid "Keyboard Shortcuts"
@@ -1154,15 +1155,15 @@ msgstr "Inegzumen n unasiw"
 
 #: app/shortcutManager.js:681
 msgid "Reset Shortcuts"
-msgstr ""
+msgstr "Ales awennez n yinegzumen"
 
 #: app/shortcutManager.js:682
 msgid "Reset all shortcuts to Defaults"
-msgstr ""
+msgstr "Ales awennez meṛṛa n yinegzumen ɣer umezwer"
 
 #: app/shortcutManager.js:685
 msgid "Reset All..."
-msgstr ""
+msgstr "Ales meṛṛa…"
 
 #: app/shortcuts.js:15
 msgid "Show Desktop in Files"
@@ -1178,31 +1179,31 @@ msgstr "Snifel agilal…"
 
 #: app/shortcuts.js:18
 msgid "Change Display Settings"
-msgstr ""
+msgstr "Beddel iɣewwaren n ubeqqeḍ"
 
 #: app/shortcuts.js:19
 msgid "Change Desktop Icon Settings"
-msgstr ""
+msgstr "Snifel iɣewwaren n tignit n tnarit"
 
 #: app/shortcuts.js:20
 msgid "Clean Up Icons"
-msgstr ""
+msgstr "Sfeḍ tignitin"
 
 #: app/shortcuts.js:21
 msgid "Keep Arranged"
-msgstr ""
+msgstr "Ḥrez asmizzwer"
 
 #: app/shortcuts.js:22
 msgid "Keep Stacked"
-msgstr ""
+msgstr "Ḥrez tanebdant"
 
 #: app/shortcuts.js:23 app/shortcuts.js:24
 msgid "Sort Special Folders"
-msgstr ""
+msgstr "Smizzwer ikaramen uzzigen"
 
 #: app/shortcuts.js:25
 msgid "Arrange Icons by Name"
-msgstr ""
+msgstr "Smizzwer tignitin s yisem"
 
 #: app/shortcuts.js:26
 msgid "Arrange Icons By Descending Name"
@@ -1210,23 +1211,23 @@ msgstr ""
 
 #: app/shortcuts.js:27
 msgid "Arrange Icons By Modified Time"
-msgstr ""
+msgstr "Smizzwer tignitin s wakud n usnifel"
 
 #: app/shortcuts.js:28
 msgid "Arrange Icons By Kind"
-msgstr ""
+msgstr "Smizzwer tignitin S wanaw"
 
 #: app/shortcuts.js:29
 msgid "Arrange Icons By Size"
-msgstr ""
+msgstr "Smizzwer tignitin S Tiddi"
 
 #: app/shortcuts.js:30
 msgid "Find Files"
-msgstr ""
+msgstr "Af-d ifuyla"
 
 #: app/shortcuts.js:31
 msgid "Update Desktop"
-msgstr ""
+msgstr "Leqqem Tanarit"
 
 #: app/shortcuts.js:32
 msgid "Show Hidden Files"
@@ -1242,11 +1243,11 @@ msgstr "Timeẓriwt"
 
 #: app/shortcuts.js:36
 msgid "Toggle Keyboard Selection"
-msgstr ""
+msgstr "Qluqel tafrayt n unasiw"
 
 #: app/shortcuts.js:39
 msgid "Toggle Widget Layer"
-msgstr ""
+msgstr "Qluqel tissi n yiwiǧiten"
 
 #: app/shortcuts.js:40 app/widgetManager.js:1461
 msgid "Add Widget"
@@ -1254,19 +1255,19 @@ msgstr "Rnu awiǧit…"
 
 #: app/shortcuts.js:43
 msgid "Choose Icon Left"
-msgstr ""
+msgstr "Fren tignit ɣer zelmaḍ"
 
 #: app/shortcuts.js:48
 msgid "Choose Icon Right"
-msgstr ""
+msgstr "Fren tignit ɣer yefus"
 
 #: app/shortcuts.js:53
 msgid "Choose Icon Up"
-msgstr ""
+msgstr "Fren tignit d asawen"
 
 #: app/shortcuts.js:58
 msgid "Choose Icon Down"
-msgstr ""
+msgstr "Fren tignit d akessar"
 
 #: app/shortcuts.js:62
 msgid "Show Menu"
@@ -1278,7 +1279,7 @@ msgstr "Beqqeḍ umuɣ n ugilal n Shell"
 
 #: app/shortcuts.js:64
 msgid "Create Desktop Shortcut"
-msgstr ""
+msgstr "Snulfu-d anegzum n tnarit"
 
 #: app/shortcuts.js:65
 msgid "Text Entry Accels Turn On"
@@ -1294,7 +1295,7 @@ msgstr ""
 
 #: app/shortcuts.js:69
 msgid "Show Or Hide Desktop Icons"
-msgstr ""
+msgstr "Sken neɣ Ffer tignitin n tnarit"
 
 #: app/showErrorPopup.js:42
 msgid "More Information"
@@ -1332,7 +1333,7 @@ msgstr "Aḍebsi"
 
 #: app/widgetManager.js:2123
 msgid "Widget preferences"
-msgstr ""
+msgstr "Ismenyifen n yiwiǧit"
 
 #: app/widgetManager.js:2135 app/widgetManager.js:2144
 msgid "Unpin widget"
@@ -1348,11 +1349,11 @@ msgstr ""
 
 #: app/widgetManager.js:2699
 msgid "HTML widget"
-msgstr ""
+msgstr "Awiǧit HTML"
 
 #: app/widgetManager.js:2701
 msgid "GTK widget"
-msgstr ""
+msgstr "Awiǧit GTK"
 
 #: app/widgetManager.js:2710
 msgid "User"
@@ -1644,7 +1645,7 @@ msgstr ""
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
 msgid "Add an emblem to links"
-msgstr ""
+msgstr "Rnu asenǧaq ɣer yiseɣwan izamulan"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:91
 msgid "Add an emblem to allow to identify soft links."
