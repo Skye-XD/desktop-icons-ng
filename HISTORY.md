@@ -1,4 +1,12 @@
 # History of versions #
+* Adw Version 100.23 for Gnome 50
+  * Update the Sushi preview integration to use the newer `org.gnome.NautilusPreviewer2` D-Bus interface and activation-token aware call signature. (Sundeep Mediratta)
+  * Fix cursor updates on GNOME/Mutter 50 by switching away from the older `window_actor` path and using `grab_actor`/Clutter-compatible handling. (Sundeep Mediratta)
+  * Make the Today widget surface directly draggable, improve timezone preservation in calendar event handling, and refresh its widget docs. (Sundeep Mediratta)
+  * Add a nested GNOME Shell launcher script to make extension testing easier without logging out. (Aleksandr Mezin)
+  * Refresh packaging: add an Arch Linux package and update the Debian/RPM build files for GNOME Shell 49/50. (Sundeep Mediratta)
+  * Add Kabyle to `LINGUAS` and bring in Weblate translation updates for Kabyle, Catalan, Spanish, and Occitan. (Weblate Authors)
+
 * Adw Version 100.22 for Gnome 49, 50
   * Fix window position tracking so restored and floating windows are tracked reliably. (Sundeep Mediratta)
   * Keep clock and metrics surfaces draggable in both pinned and unpinned states. (Sundeep Mediratta)

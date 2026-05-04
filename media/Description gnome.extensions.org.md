@@ -2,16 +2,18 @@ Adw. Desktop Icons
 
 Libadwaita/Gtk4 port of Desktop Icons NG with multiple fixes and new features.
 
-Latest update: GNOME 50 support has been refreshed with window-tracking fixes, better drag behaviour for widgets in both pinned and unpinned stats, and lower-CPU use by widgets. Weather animations are off by default, and the media widgets now use a lighter DOM with signal-driven refreshes and drag hooks. Addresses long press regression on Gnome 50 and removes it entirely with straight drags. Please re-install latest widgets.
+Latest update: GNOME 50 support has been refreshed again with a Mutter 50 cursor fix, updated Sushi quick-preview support via the newer Nautilus Previewer 2 D-Bus interface, and improved Today widget dragging and timezone handling.
 
 Now has a widget layer that can run widgets- like KDE desklets, they are little HTML display apps that run in Webkit. Icons cover this layer, layers can be moved up or down for editing. Widgets can be snapped to a grid to maintain row/column alignment or free positioned.
+
+Widgets are discovered automatically at startup from specific directories. For user-installed widgets, download the widget folder you want from the `widgets` folder on the GitLab website and place it in `$XDG_DATA_HOME/com.desktop.ding/widgets/`. The typical path is `~/.local/share/com.desktop.ding/widgets/`.
 
 Icons can be positioned anywhere on desktop or are snapped to a grid. Can make links on the Desktop. GSconnect Integration, can send files to connected devices. Drag and Drop support on to Dock, Dash, or from Dock, Dash to the Desktop.
 
 Updated and modified code base, uses Gio menus. All functions are asynchronous where possible. It is ported to ESM modules, supports Gnome 45 and higher.
 
 Translations available in-
-[ar, az, be, bg, bn, ca, cs, da, de, el, eo, es, et  eu, fa, fi, fr, fur, ga, gl, he, hi, hr, hu, id, it, ja, ka, kk, ko, ky, lv, lt, ms, nb, nb_NO, nl, oc, pl, pt_BR, pt, ro, ru, sk, sl, sq, sv, ta, tl, tr, th, uk, ur, zh-Hans, zh-Hant, zh_CN, zh_TW]
+[ar, az, be, bg, bn, ca, cs, da, de, el, eo, es, et  eu, fa, fi, fr, fur, ga, gl, he, hi, hr, hu, id, it, ja, ka, kab, kk, ko, ky, lv, lt, ms, nb, nb_NO, nl, oc, pl, pt_BR, pt, ro, ru, sk, sl, sq, sv, ta, tl, tr, th, uk, ur, zh-Hans, zh-Hant, zh_CN, zh_TW]
 
 Translated using LibreTranslate, machine translation, not every string is verified manually. Although most strings in languages should be correct, errors are possible.
 

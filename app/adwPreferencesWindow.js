@@ -378,7 +378,9 @@ const aboutApp = class AboutDialog {
         );
 
         aboutDialog.set_release_notes(
-            `<p>* Adw version 100.22 for Gnome 49, 50</p>
+            `<p>* Adw version 100.23 for Gnome 50</p>
+<ul><li>Refreshes GNOME 50 support with a Mutter cursor fix, Nautilus Previewer 2 / Sushi D-Bus support, improved Today widget dragging and timezone handling, plus packaging and translation updates.</li></ul>
+            <p>* Adw version 100.22 for Gnome 49, 50</p>
 <ul><li>Merge the latest window-tracking and draggable-widget fixes: clock, metrics, weather, media, and pinned windows now drag and track positions more reliably, while weather animations stay off by default and media widgets use a lighter DOM to reduce CPU use.</li></ul>
             <p>* Adw version 100.21 for Gnome 49, 50</p>
 <ul><li>Short stability release: hardens the extension lifecycle, fixes window-type manager cleanup and stacking behavior, and adds GLibUnix signal compatibility for older systems.</li></ul>

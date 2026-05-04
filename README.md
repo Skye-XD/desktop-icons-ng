@@ -37,6 +37,7 @@ Uses Libretranslate to automatically translate into multiple languages.
 - The current widget set includes Today, Weather, World Clock, Metrics, Media Player, and Sticky Note widgets. The heavier widgets were tuned to reduce idle CPU use: weather animations are off by default, the Today calendar backend now preserves event timezone semantics correctly for local display, and the media widgets use a lighter DOM with signal-driven refreshes.
 - The new web-widget layer can optionally launch helper backends defined per widget via `widget.json`. `HtmlWidgetHostWithBackend` spawns those commands directly from the widget bundle and exchanges newline-delimited JSON so widgets can render data produced by applications written in any language. This gives widget authors the power to integrate local system information or custom services well beyond what WebKit alone can access, so treat backend-enabled widgets like local applications and install only from trusted sources.
 - Documentation: [Desktop_Widgets.md](Desktop_Widgets.md), [Widget_API.md](widgets/Widget_API.md), [Widget_CSP_Profiles.md](Widget_CSP_Profiles.md). An optional shared stylesheet `widgets/ding-widget.css` is covered in [Widget_API.md](widgets/Widget_API.md#optional-helper-stylesheet-ding-widgetcss).
+- See widget installation below on how to install widgets.
 
 ### UPDATE Gnome 50
 
@@ -305,6 +306,18 @@ To create a ZIP file with the extension, just run:
 ```
 
 This will create the zip file `gtk4-ding@smedius.gitlab.com.zip` of the extension, following the publishing rules at extensions.gnome.org. A pre-built zip is available in Downloads, unzip in ~/.local/share/gnome-shell/extensions to just install manually.
+
+## Widget installation
+
+Widgets are downloaded separately from the `widgets` folder on this website and are discovered automatically when the app starts.
+
+For a user-only install, download the widget folder you want and place it in:
+
+`$XDG_DATA_HOME/com.desktop.ding/widgets/`
+
+Typical path:
+
+`~/.local/share/com.desktop.ding/widgets/`
 
 ## Contributing
 
