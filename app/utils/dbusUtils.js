@@ -679,11 +679,9 @@ Signals.addSignalMethods(DBusManager.prototype);
 class DbusOperationsManager {
     constructor(
         FreeDesktopFileManager,
-        GnomeNautilusPreview,
         GnomeArchiveManager
     ) {
         this.freeDesktopFileManager = FreeDesktopFileManager;
-        this.gnomeNautilusPreviewManager = GnomeNautilusPreview;
         this.gnomeArchiveManager = GnomeArchiveManager;
 
         this._monitorExtractionSupportedTypes();
@@ -794,26 +792,6 @@ class DbusOperationsManager {
         );
     }
 
-    ShowFileRemote(uri, integer, boolean, callback = null) {
-        if (!this.gnomeNautilusPreviewManager.proxy) {
-            this._sendNoProxyError(callback);
-
-            return;
-        }
-
-        this.gnomeNautilusPreviewManager.proxy.ShowFileRemote(
-            uri,
-            integer,
-            boolean,
-            (result, error) => {
-                if (callback)
-                    callback(result, error);
-
-                if (error)
-                    console.log(`Error previewing file: ${error.message}`);
-            });
-    }
-
     ExtractRemote(extractFileItem, folder, boolean, callback = null) {
         if (!this.gnomeArchiveManager.proxy) {
             this._sendNoProxyError(callback);
@@ -889,12 +867,12 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
     ) {
         super(
             FreeDesktopFileManager,
-            GnomeNautilusPreview,
             GnomeArchiveManager
         );
 
         this.mainApp = mainApp;
         this.fileOperationsManager = fileOperationsManager;
+        this.gnomeNautilusPreviewManager = GnomeNautilusPreview;
         this._createPlatformData();
         this._eventsStack = [];
     }
@@ -989,9 +967,34 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
                         'timestamp': new GLib.Variant('u', timestamp),
                         'window-position': new GLib.Variant('s', windowPosition),
                     },
+                    parentHandle,
                     freePlatformData,
                 };
             };
+    }
+
+    async ShowFileRemote(uri, activationToken ='', boolean, callback = null) {
+        if (!this.gnomeNautilusPreviewManager.proxy) {
+            this._sendNoProxyError(callback);
+
+            return;
+        }
+
+        const platformData = await this.platformData();
+
+        this.gnomeNautilusPreviewManager.proxy.ShowFileRemote(
+            uri,
+            platformData.parentHandle,
+            boolean,
+            activationToken,
+            (result, error) => {
+                platformData.freePlatformData();
+                if (callback)
+                    callback(result, error);
+
+                if (error)
+                    console.log(`Error previewing file: ${error.message}`);
+            });
     }
 
     async MoveURIsRemote(fileList, uri, callback) {
@@ -1453,7 +1456,7 @@ const DBusUtils = class {
             this.dbusManagerObject,
             'org.gnome.NautilusPreviewer',
             '/org/gnome/NautilusPreviewer',
-            'org.gnome.NautilusPreviewer',
+            'org.gnome.NautilusPreviewer2',
             insSessionBus,
             'Nautilus-Sushi',
             makeAsync
