@@ -112,10 +112,10 @@ const HtmlWidgetHostWithBackend = class extends HtmlWidgetHost {
 
     _movePidToScope(pid, unitName, description) {
         const bus = Gio.bus_get_sync(Gio.BusType.SESSION, null);
-
+        const appID = this._mainApp.get_application_id();
         const properties = [
             ['Description', new GLib.Variant('s', description)],
-            ['Slice', new GLib.Variant('s', 'adwding.slice')],
+            ['Slice', new GLib.Variant('s', `app-${appID}.slice`)],
             ['PIDs', new GLib.Variant('au', [pid])],
             ['CollectMode', new GLib.Variant('s', 'inactive-or-failed')],
             ['CPUAccounting', new GLib.Variant('b', true)],
@@ -185,13 +185,14 @@ const HtmlWidgetHostWithBackend = class extends HtmlWidgetHost {
                 const backendPid = Number(this._backendProc.get_identifier());
 
                 if (backendPid) {
+                    const appID = this._mainApp.get_application_id();
                     const backendScope =
-                            `ding-backend-${inst.widgetId}-${inst.instanceId.slice(0, 8)}.scope`;
+                            `${appID}-backend-${inst.widgetId}-${inst.instanceId.slice(0, 8)}.scope`;
 
                     this._movePidToScope(
                         backendPid,
                         backendScope,
-                        `GTK4 DING backend ${inst.widgetId}`
+                        `${appID} ${inst.widgetId}`
                     );
                 }
             } catch (e) {

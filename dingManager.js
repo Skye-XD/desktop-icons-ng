@@ -813,10 +813,10 @@ var LaunchSubprocess = class {
 
         const properties = [
             ['Description',
-                new GLib.Variant('s', 'GTK4 DING main process')],
+                new GLib.Variant('s', `${appID} All process`)],
 
             ['Slice',
-                new GLib.Variant('s', 'adwding.slice')],
+                new GLib.Variant('s', `app-${appID}.slice`)],
 
             ['PIDs',
                 new GLib.Variant('au', [pid])],
@@ -835,7 +835,7 @@ var LaunchSubprocess = class {
         ];
 
         const params = new GLib.Variant('(ssa(sv)a(sa(sv)))', [
-            'ding-main.scope',
+            `${appID}-main.scope`,
             'replace',
             properties,
             [],
