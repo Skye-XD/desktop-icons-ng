@@ -730,6 +730,14 @@ var LaunchSubprocess = class {
     async spawnv(argv) {
         try {
             this.subprocess = this.makeWaylandClientSubprocess(argv);
+            try {
+                const pid = Number(this.subprocess?.get_identifier());
+
+                if (pid)
+                    this._movePidToDingScope(pid);
+            } catch (e) {
+                console.warn(`Failed to move ${this._processID} to systemd scope:`, e);
+            }
         } catch (e) {
             this.subprocess = null;
             throw e;
@@ -798,6 +806,52 @@ var LaunchSubprocess = class {
         }
 
         await this.readOutput(dataInputStream, cancellable);
+    }
+
+    _movePidToDingScope(pid) {
+        const bus = Gio.bus_get_sync(Gio.BusType.SESSION, null);
+
+        const properties = [
+            ['Description',
+                new GLib.Variant('s', 'GTK4 DING main process')],
+
+            ['Slice',
+                new GLib.Variant('s', 'adwding.slice')],
+
+            ['PIDs',
+                new GLib.Variant('au', [pid])],
+
+            ['CollectMode',
+                new GLib.Variant('s', 'inactive-or-failed')],
+
+            ['CPUAccounting',
+                new GLib.Variant('b', true)],
+
+            ['MemoryAccounting',
+                new GLib.Variant('b', true)],
+
+            ['TasksAccounting',
+                new GLib.Variant('b', true)],
+        ];
+
+        const params = new GLib.Variant('(ssa(sv)a(sa(sv)))', [
+            'ding-main.scope',
+            'replace',
+            properties,
+            [],
+        ]);
+
+        bus.call_sync(
+            'org.freedesktop.systemd1',
+            '/org/freedesktop/systemd1',
+            'org.freedesktop.systemd1.Manager',
+            'StartTransientUnit',
+            params,
+            null,
+            Gio.DBusCallFlags.NONE,
+            -1,
+            null
+        );
     }
 
     /**
