@@ -187,7 +187,7 @@ const HtmlWidgetHostWithBackend = class extends HtmlWidgetHost {
                 if (backendPid) {
                     const appID = this._mainApp.get_application_id();
                     const backendScope =
-                            `${appID}-backend-${inst.widgetId}-${inst.instanceId.slice(0, 8)}.scope`;
+                            `app-${appID}-backend-${inst.widgetId}-${inst.instanceId.slice(0, 8)}.scope`;
 
                     this._movePidToScope(
                         backendPid,
@@ -201,7 +201,7 @@ const HtmlWidgetHostWithBackend = class extends HtmlWidgetHost {
                     e
                 );
             }
-    
+
             this._backendIn = new Gio.DataOutputStream({
                 base_stream: this._backendProc.get_stdin_pipe(),
             });
