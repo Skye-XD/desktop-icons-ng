@@ -1,10 +1,12 @@
-
 .vscode/settings.json
 *.gresource
 *gschemas.compiled
 
 debian/*
-
 rpmbuild/*
+archlinux/*
 
-package.json
+dist/
+packages/
+
+node_modules/

@@ -6,7 +6,7 @@
 # Usage:
 # ./export-zip.sh - builds extension & create zip inside repository
 
-set -e
+set -euo pipefail
 
 REPO_DIR="$(pwd)"
 BUILD_DIR="${REPO_DIR}/builddir"
@@ -14,21 +14,13 @@ UUID="gtk4-ding@smedius.gitlab.com"
 LOCAL_PREFIX="${REPO_DIR}/${UUID}"
 EXTENSIONS_DIR="${LOCAL_PREFIX}/share/gnome-shell/extensions/${UUID}"
 SCHEMADIR="${LOCAL_PREFIX}/share/glib-2.0/schemas"
+DIST_DIR="${DIST_DIR:-$REPO_DIR/dist}"
+
+mkdir -p "${DIST_DIR}"
 
 # Check old builddir
-if [ -d "${PWD}/${BUILD_DIR}" ]; then
-  echo "A current build directory already exists. Would you like to remove it?"
-  select yn in "Yes" "No"; do
-    case $yn in
-      Yes )
-        rm -rf "${PWD:?}/${BUILD_DIR}"
-        echo "Build directory was removed succesfuly"
-      break;;
-      No )
-        echo "The old build directory must be removed first. Exiting"
-      exit;;
-    esac
-  done
+if [ -d "${BUILD_DIR}" ]; then
+  rm -rf "${BUILD_DIR}"
 fi
 
 # Meson build
@@ -49,7 +41,7 @@ cp -r "${SCHEMADIR}" .
 rm -f "./schemas/gschemas.compiled"
 cp -r "${EXTENSIONS_DIR}"/* .
 zip -qr "${UUID}.zip" ./*.js ./*.json ./locale ./schemas ./app ./utils ./dependencies
-mv -f "${UUID}.zip" "${REPO_DIR}/Downloads"
+mv -f "${UUID}.zip" "${DIST_DIR}/"
 cd "${REPO_DIR}" || exit
 
 # Clean

@@ -1,0 +1,25 @@
+{
+  "name": "desktop-icons-ng",
+  "version": "1.0.0",
+  "description": "<p style=\"text-align: center;\">     <a href=\"https://extensions.gnome.org/extension/5263/gtk4-desktop-icons-ng-ding/\" style=\"margin-left: 20px\">         <img src=\"media/Screenshot7.png\" width=\"800px\"/>     </a> </p>",
+  "main": "desktopIconsIntegration.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/smedius/desktop-icons-ng.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://gitlab.com/smedius/desktop-icons-ng/issues"
+  },
+  "homepage": "https://gitlab.com/smedius/desktop-icons-ng#readme",
+  "devDependencies": {
+    "eslint": "^8.57.1",
+    "eslint-plugin-jsdoc": "^62.9.0"
+  }
+}

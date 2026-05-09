@@ -117,6 +117,11 @@ Optional:
 * For X11 xprop should be installed and executable, will work even without it, however things will work better and be more seamless without emulation if it is available.
 * Node.js is build-time tooling, optional for LibreTranslate automatic translations.
 
+## Downloads
+
+Prebuilt ZIP/RPM/DEB packages are available on the
+[Releases page](https://gitlab.com/smedius/desktop-icons-ng/-/releases).
+
 ## Installation
 
 <p style="text-align: left;">
@@ -131,17 +136,17 @@ The extension can be installed from [extensions.gnome.org](https://extensions.gn
 This should work out of the box for <b><u>Debian, Fedora, SUSE, Arch, Manjaro and most other distributions</b></u>
 
 <p style="text-align: left;">
-For <b><u>Arch Linux</b></u>, (and if needed, <b><u>Manjaro</b></u>), it is available in AUR [here](https://aur.archlinux.org/packages/gnome-shell-extension-gtk4-desktop-icons-ng). A pre-built package is available in downloads. Default install from extensions.gnome.org should also work.
+For <b><u>Arch Linux</b></u>, (and if needed, <b><u>Manjaro</b></u>), it is available in AUR [here](https://aur.archlinux.org/packages/gnome-shell-extension-gtk4-desktop-icons-ng). Prebuilt packages are also available on the [Releases page](https://gitlab.com/smedius/desktop-icons-ng/-/releases). Default install from extensions.gnome.org should also work.
 </p>
 <p style="text-align: left;">
-<b><u>Manjaro</b></u> Gnome desktop has this as a default installed desktop icons extension. A native maintained build is available in the Manjaro Repository that can be installed directly with pacman and other tools. [Download](https://software.manjaro.org/package/gnome-shell-extension-gtk4-desktop-icons-ng) from Manjaro Community Repository is available. Default install from extensions.gnome.org should also work as well. There is a pre-buil package in Downloads.
+<b><u>Manjaro</b></u> Gnome desktop has this as a default installed desktop icons extension. A native maintained build is available in the Manjaro Repository that can be installed directly with pacman and other tools. [Download](https://software.manjaro.org/package/gnome-shell-extension-gtk4-desktop-icons-ng) from Manjaro Community Repository is available. Default install from extensions.gnome.org should also work as well. Prebuilt packages are also available on the [Releases page](https://gitlab.com/smedius/desktop-icons-ng/-/releases).
 </p>
 
 For <b><u>Nix OS</b></u>, please see additional manual installation instructions in the section below.
 
-<b><u>Fedora</b></u> - a prebuilt rpm is in the Downloads subdir for system install. Manual system and local installs with meson should work as well. The script make-rpm.sh in the scripts subdirectory will generate the spec and new rpm from source, edit script for VERSION or set it in the enviorenment.
+<b><u>Fedora</b></u> - prebuilt RPM packages are available on the [Releases page](https://gitlab.com/smedius/desktop-icons-ng/-/releases) for system install. Manual system and local installs with meson should work as well. The script make-rpm.sh in the scripts subdirectory will generate the spec and new rpm from source, edit script for VERSION or set it in the enviorenment.
 
-<b><u>Debian</b></u> - a prebuild deb packages are available in Downloads subdirectory for download and direct install. This will install the extension in the sytem folders for all users. A manual local or system install from a git clone with meson is also possible. Install from extensions.gnome.org is probably the simplest way- this only does a local install for the user. make-deb.sh script in the scripts folder will generate a dpkg from current source, edit VERSION in script or set in enviornment.
+<b><u>Debian</b></u> - prebuilt DEB packages are available on the [Releases page](https://gitlab.com/smedius/desktop-icons-ng/-/releases) for direct install. This will install the extension in the sytem folders for all users. A manual local or system install from a git clone with meson is also possible. Install from extensions.gnome.org is probably the simplest way- this only does a local install for the user. make-deb.sh script in the scripts folder will generate a dpkg from current source, edit VERSION in script or set in enviornment.
 
 <b><u>Ubuntu</b></u> See Debian for prebuilt deb package, works for Ubuntu as well. Otherwise requires manual installation, see instructions, a system installation is preferred to render thumbnails properly. Direct download from gnome extensions is unlikely to work properly.
 
@@ -149,7 +154,14 @@ For <b><u>Slackware Linux</b></u>, it is available in GFS [here](https://reddogl
 
 ## Manual installation
 
-A prebuilt zip file is available in Downloads, unzip in .local/share/gnome-shell/extensions.
+A prebuilt ZIP file is available on the [Releases page](https://gitlab.com/smedius/desktop-icons-ng/-/releases); unzip it in `.local/share/gnome-shell/extensions`.
+
+Because this ZIP is built for upload to extensions.gnome.org, it does not include the compiled GSettings schema file `schemas/gschemas.compiled` generated from `schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml`. After unzipping for a manual install, run:
+
+```bash
+cd ~/.local/share/gnome-shell/extensions/gtk4-ding@smedius.gitlab.com
+glib-compile-schemas schemas/
+```
 
 SORCE LOCAL INSTALL
 
@@ -305,7 +317,20 @@ To create a ZIP file with the extension, just run:
 ./scripts/export-zip.sh
 ```
 
-This will create the zip file `gtk4-ding@smedius.gitlab.com.zip` of the extension, following the publishing rules at extensions.gnome.org. A pre-built zip is available in Downloads, unzip in ~/.local/share/gnome-shell/extensions to just install manually.
+This will create the zip file `gtk4-ding@smedius.gitlab.com.zip` of the extension, following the publishing rules at extensions.gnome.org. A prebuilt ZIP is also available on the [Releases page](https://gitlab.com/smedius/desktop-icons-ng/-/releases); unzip it in `~/.local/share/gnome-shell/extensions` to install manually.
+
+Because this ZIP is built for upload to extensions.gnome.org, it does not include the compiled GSettings schema file `schemas/gschemas.compiled` generated from `schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml`. After unzipping for a manual install, compile the schemas manually with:
+
+```bash
+cd ~/.local/share/gnome-shell/extensions/gtk4-ding@smedius.gitlab.com
+glib-compile-schemas schemas/
+```
+
+If you install the extension system-wide instead, run:
+
+```bash
+sudo glib-compile-schemas /usr/share/gnome-shell/extensions/gtk4-ding@smedius.gitlab.com/schemas/
+```
 
 ## Widget installation
 

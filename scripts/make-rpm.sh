@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-set -e
+set -euo pipefail
 
 PKG_NAME="${PKG_NAME:-gnome-shell-extension-adw-desktop-icons}"
-VERSION="${VERSION:-100.8}"
+VERSION="${VERSION:-100.23}"
 # RPM macro to set dist
 RELEASE="${RELEASE:-1%{?dist}}"
 SUMMARY="${SUMMARY:-Adw/Gtk4 Fork of Desktop Icons NG Extension that displays icons on the Desktop in Gnome}"
@@ -11,6 +11,7 @@ URL="${URL:-https://gitlab.com/smedius/desktop-icons-ng}"
 PREFIX="${PREFIX:-/usr}"
 NOARCH="${NOARCH:-1}"
 LOCALE_DOMAIN="${LOCALE_DOMAIN:-gtk4-ding}"
+DIST_DIR="${DIST_DIR:-$PWD/dist}"
 
 REQUIRES="${REQUIRES:-gnome-shell >= 49, \
          gnome-shell < 51, \
@@ -25,9 +26,14 @@ BUILDDIR="$TOPDIR/BUILD"
 BUILDROOT="$TOPDIR/BUILDROOT"
 RPMDIR="$TOPDIR/RPMS"
 SRPMDIR="$TOPDIR/SRPMS"
+RPMDBDIR="$TOPDIR/RPMDB"
+TMPDIR_RPM="$TOPDIR/TMP"
 SPECFILE="$SPECDIR/${PKG_NAME}.spec"
 
-mkdir -p "$SOURCEDIR" "$SPECDIR" "$BUILDDIR" "$BUILDROOT" "$RPMDIR" "$SRPMDIR"
+mkdir -p "$SOURCEDIR" "$SPECDIR" "$BUILDDIR" "$BUILDROOT" "$RPMDIR" "$SRPMDIR" "$RPMDBDIR" "$TMPDIR_RPM"
+mkdir -p "$DIST_DIR"
+
+rpmdb --dbpath "$RPMDBDIR" --initdb >/dev/null 2>&1 || :
 
 BUILD_DIR="${BUILD_DIR:-build}"
 
@@ -47,7 +53,8 @@ if [ ${#tarballs[@]} -eq 0 ]; then
 fi
 
 TARBALL_SRC="$(ls -t "$DISTDIR"/*.tar.xz | head -n1)"
-EXTRACT_DIR="$(tar -tf "$TARBALL_SRC" | head -n1 | sed 's@/.*@@')"
+EXTRACT_ENTRY="$(tar -tf "$TARBALL_SRC" | sed -n '1p')"
+EXTRACT_DIR="${EXTRACT_ENTRY%%/*}"
 TARBALL_BASENAME="$(basename "$TARBALL_SRC")"
 cp -f "$TARBALL_SRC" "$SOURCEDIR/$TARBALL_BASENAME"
 
@@ -108,7 +115,7 @@ fi
 - Initial RPM build
 EOF
 
-rpmbuild -bb "$SPECFILE" \
+rpmbuild -bb --nodeps "$SPECFILE" \
   --define "_topdir $TOPDIR" \
   --define "_sourcedir $SOURCEDIR" \
   --define "_specdir $SPECDIR" \
@@ -116,9 +123,10 @@ rpmbuild -bb "$SPECFILE" \
   --define "_buildrootdir $BUILDROOT" \
   --define "_rpmdir $RPMDIR" \
   --define "_srcrpmdir $SRPMDIR" \
+  --define "_dbpath $RPMDBDIR" \
+  --define "_tmppath $TMPDIR_RPM" \
   --define "_prefix $PREFIX" \
   --define "LOCALE_DOMAIN $LOCALE_DOMAIN"
 
 echo "RPMS => $TOPDIR/RPMS/*/*.rpm"
-rm $PWD/Downloads/*.rpm
-mv $TOPDIR/RPMS/*/*.rpm $PWD/Downloads
+mv "$TOPDIR"/RPMS/*/*.rpm "$DIST_DIR"/

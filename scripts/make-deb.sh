@@ -5,7 +5,7 @@ set -euo pipefail
 BUILD_DIR="${BUILD_DIR:-build}"
 PREFIX="${PREFIX:-/usr}"
 PKG_NAME="${PKG_NAME:-gnome-shell-extension-adw-desktop-icons}"
-VERSION="${VERSION:-100.8}"
+VERSION="${VERSION:-100.23}"
 MAINTAINER="${MAINTAINER:-Sundeep Mediratta <smedius@gmail.com>}"
 SECTION="${SECTION:-gnome}"
 PRIORITY="${PRIORITY:-optional}"
@@ -23,9 +23,11 @@ STAMP="$(date -u +%Y%m%d%H%M)"
 WORKDIR="$(pwd)/debian"
 ROOT="$WORKDIR/${PKG_NAME}_${VERSION}_${ARCH}"
 DESTDIR="$ROOT"
+DIST_DIR="${DIST_DIR:-$PWD/dist}"
 
 rm -rf "$WORKDIR"
 mkdir -p "$DESTDIR" "$ROOT/DEBIAN"
+mkdir -p "$DIST_DIR"
 
 # Configure/Build
 if [ ! -d "$BUILD_DIR" ]; then
@@ -69,8 +71,6 @@ find "$DESTDIR$PREFIX" -type f -name "adw-ding.js" -exec chmod 0774 {} +
 
 # Build .deb
 package="${PKG_NAME}_${VERSION}-${STAMP}_${ARCH}.deb"
-OUT="$(pwd)/$package"
+OUT="$DIST_DIR/$package"
 dpkg-deb --build --root-owner-group "$ROOT" "$OUT"
 echo "Built: $OUT"
-rm Downloads/*.deb
-mv "$package" Downloads/
