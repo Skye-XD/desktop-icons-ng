@@ -1039,13 +1039,11 @@ class HandleDragActors {
 
         this._getModifierKeys();
 
-        if (this.isShift) {
+        if (this.isShift)
             return DND.DragMotionResult.COPY_DROP;
-        }
 
-        if (this.isControl) {
+        if (this.isControl)
             return DND.DragMotionResult.MOVE_DROP;
-        }
 
         return DND.DragMotionResult.CONTINUE;
     }

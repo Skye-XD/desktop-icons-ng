@@ -18,22 +18,22 @@
 'use strict';
 /**
  *
- * @param {number} c
+ * @param {number} c Temperature in Celsius.
  */
 export function cToF(c) {
     return c * 9 / 5 + 32;
 }
 /**
  *
- * @param {number} n
+ * @param {number} n Numeric value to round.
  */
 export function round0(n) {
     return n === null || n === undefined ? null : Math.round(n);
 }
 /**
  *
- * @param {number} valueC
- * @param {string} unitsMode
+ * @param {number} valueC Temperature in Celsius.
+ * @param {string} unitsMode Unit system identifier.
  */
 export function formatTemp(valueC, unitsMode) {
     if (valueC === null || valueC === undefined)
@@ -44,9 +44,9 @@ export function formatTemp(valueC, unitsMode) {
 }
 /**
  *
- * @param {number} hiC
- * @param {number} loC
- * @param {string} unitsMode
+ * @param {number} hiC High temperature in Celsius.
+ * @param {number} loC Low temperature in Celsius.
+ * @param {string} unitsMode Unit system identifier.
  */
 export function formatTempPair(hiC, loC, unitsMode) {
     const hi = formatTemp(hiC, unitsMode);

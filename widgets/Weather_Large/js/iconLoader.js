@@ -15,6 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+/* eslint-disable no-restricted-globals */
 /* eslint-disable no-undef */
 'use strict';
 const ICON_DIR = 'icons/meteocons';
@@ -48,7 +49,7 @@ function _slowSmil(svg, f) {
     return svg.replace(/\bdur\s*=\s*["']([^"']+)["']/gi, (m, dur) => `dur="${_scaleDur(dur, f)}"`);
 }
 
-async function _fetchText(url) {
+function _fetchText(url) {
     if (_pageReloading || _iconFailures.has(url))
         return null;
     if (_iconTextCache.has(url))
@@ -81,9 +82,9 @@ async function _fetchText(url) {
 
 /**
  *
- * @param {string} stem
- * @param {object} root0
- * @param {boolean} root0.animationsEnabled
+ * @param {string} stem Icon name without the file extension.
+ * @param {object} root0 Loader options.
+ * @param {boolean} root0.animationsEnabled Whether animated SVGs should stay animated.
  */
 export async function loadIconSvgText(stem, {animationsEnabled}) {
     const s = stem || 'not-available';
@@ -102,10 +103,10 @@ export async function loadIconSvgText(stem, {animationsEnabled}) {
 
 /**
  *
- * @param {HTMLElement} el
- * @param {string} stem
- * @param {object} root0
- * @param {boolean} root0.animationsEnabled
+ * @param {HTMLElement} el Target element that should receive the SVG markup.
+ * @param {string} stem Icon name without the file extension.
+ * @param {object} root0 Loader options.
+ * @param {boolean} root0.animationsEnabled Whether animated SVGs should stay animated.
  */
 export async function setIconInto(el, stem, {animationsEnabled}) {
     const svgText = await loadIconSvgText(stem, {animationsEnabled});

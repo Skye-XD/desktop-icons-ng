@@ -20,7 +20,7 @@ import {nowUnix, fmtWeekday} from './util.js';
 
 /**
  *
- * @param {number} code
+ * @param {number} code Open-Meteo weather code.
  */
 export function mapOpenMeteoWeatherCode(code) {
     if (code === 0)
@@ -46,10 +46,10 @@ export function mapOpenMeteoWeatherCode(code) {
 
 /**
  *
- * @param {object} root0
- * @param {object} root0.raw
- * @param {string} root0.locationLabel
- * @param {string} root0.locale
+ * @param {object} root0 Normalization inputs.
+ * @param {object} root0.raw Raw Open-Meteo response payload.
+ * @param {string} root0.locationLabel Human-readable location label.
+ * @param {string} root0.locale Locale used for weekday formatting.
  */
 export function normalizeOpenMeteo({raw, locationLabel, locale}) {
     const isDay = !!raw?.current?.is_day;

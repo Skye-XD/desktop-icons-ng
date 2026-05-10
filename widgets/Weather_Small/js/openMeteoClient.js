@@ -47,9 +47,9 @@ async function _fetchJson(url, {timeoutMs = 12000} = {}) {
 }
 /**
  *
- * @param {object} root0
- * @param {number} root0.lat
- * @param {number} root0.lon
+ * @param {object} root0 Forecast request parameters.
+ * @param {number} root0.lat Latitude for the forecast lookup.
+ * @param {number} root0.lon Longitude for the forecast lookup.
  */
 // eslint-disable-next-line require-await
 export async function fetchForecast({lat, lon}) {
@@ -67,10 +67,10 @@ export async function fetchForecast({lat, lon}) {
 }
 /**
  *
- * @param {object} root0
- * @param {string} root0.query
- * @param {number} [root0.count]
- * @param {string} [root0.language]
+ * @param {object} root0 Geocoding request parameters.
+ * @param {string} root0.query Free-form place name to search for.
+ * @param {number} [root0.count] Maximum number of matches to return.
+ * @param {string} [root0.language] Preferred response language code.
  */
 // eslint-disable-next-line require-await
 export async function geocodeSearch({query, count = 10, language = 'en'}) {

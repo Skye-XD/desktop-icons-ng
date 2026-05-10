@@ -462,7 +462,7 @@ const DingManager = class {
     _getDesktopGeometry() {
         let desktopList = [];
         let ws = global.workspace_manager.get_workspace_by_index(0);
-        const { scaleFactor } = St.ThemeContext.get_for_stage(global.stage);
+        const {scaleFactor} = St.ThemeContext.get_for_stage(global.stage);
 
         for (let monitorIndex = 0;
             monitorIndex < Main.layoutManager.monitors.length;

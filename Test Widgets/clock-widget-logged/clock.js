@@ -1,3 +1,5 @@
+/* eslint-disable no-restricted-globals */
+/* eslint-disable no-undef */
 (function () {
     'use strict';
 
@@ -11,8 +13,8 @@
     function dbg(msg) {
         if (!debugEl)
             return;
-        const line = '[' + new Date().toISOString() + '] ' + msg;
-        debugEl.textContent = line + '\n' + (debugEl.textContent || '');
+        const line = `[${new Date().toISOString()}] ${msg}`;
+        debugEl.textContent = `${line}\n${debugEl.textContent || ''}`;
     }
 
     const hasDing = typeof window.ding === 'object' && window.ding !== null;
@@ -23,7 +25,7 @@
         if (!hasDing || !instanceId)
             return;
         try {
-            window.ding.log('clock-widget: ' + msg + ' (instance=' + instanceId + ')');
+            window.ding.log(`clock-widget: ${msg} (instance=${instanceId})`);
         } catch (_) {}
     }
 
@@ -50,7 +52,7 @@
         let suffix = '';
         if (!config.mode24h) {
             suffix = h >= 12 ? ' PM' : ' AM';
-            h = h % 12;
+            h %= 12;
             if (h === 0)
                 h = 12;
         }
@@ -60,9 +62,9 @@
         const ss = String(s).padStart(2, '0');
 
         if (config.showSeconds)
-            return hh + ':' + mm + ':' + ss + suffix;
+            return `${hh}:${mm}:${ss}${suffix}`;
 
-        return hh + ':' + mm + suffix;
+        return `${hh}:${mm}${suffix}`;
     }
 
     function formatDate(date) {
@@ -71,7 +73,7 @@
         const d = date.getDate();
 
         // YYYY-MM-DD for now; can localize later
-        return y + '-' + String(m).padStart(2, '0') + '-' + String(d).padStart(2, '0');
+        return `${y}-${String(m).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
     }
 
     let tickTimer = null;
@@ -80,7 +82,7 @@
         if (tickTimer !== null)
             clearInterval(tickTimer);
 
-        const update = function () {
+        const update = () => {
             const now = new Date();
             if (timeEl)
                 timeEl.textContent = formatTime(now);
@@ -110,9 +112,9 @@
             return;
         try {
             window.ding.saveConfig(config);
-            hostLog(reason + ' -> ' + JSON.stringify(config));
+            hostLog(`${reason} -> ${JSON.stringify(config)}`);
         } catch (e) {
-            dbg('persist failed: ' + e);
+            dbg(`persist failed: ${e}`);
         }
     }
 
@@ -134,25 +136,25 @@
                     config.mode24h = saved.mode24h;
                 if (typeof saved.showSeconds === 'boolean')
                     config.showSeconds = saved.showSeconds;
-                hostLog('loaded config ' + JSON.stringify(saved));
+                hostLog(`loaded config ${JSON.stringify(saved)}`);
             } else {
                 hostLog('no saved config, using defaults');
             }
         } catch (e) {
-            hostLog('getConfig failed: ' + e);
+            hostLog(`getConfig failed: ${e}`);
         }
 
         renderAll();
     }
 
     if (root) {
-        root.addEventListener('click', function () {
+        root.addEventListener('click', () => {
             config.mode24h = !config.mode24h;
             renderAll();
             persist('toggled hour mode');
         });
 
-        root.addEventListener('contextmenu', function (ev) {
+        root.addEventListener('contextmenu', ev => {
             ev.preventDefault();
             config.showSeconds = !config.showSeconds;
             renderAll();
@@ -164,7 +166,7 @@
         let lastTap = 0;
         if (!root)
             return;
-        root.addEventListener('touchend', function () {
+        root.addEventListener('touchend', () => {
             const now = Date.now();
             if (now - lastTap < 300) {
                 config.theme = config.theme === 'dark' ? 'light' : 'dark';

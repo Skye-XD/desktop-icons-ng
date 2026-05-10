@@ -303,7 +303,7 @@ class StickyNoteWidget {
         this.client.onHostState(state => {
             this._hostState = {
                 ...DEFAULT_HOST_STATE,
-                ...(state || {}),
+                ...state || {},
             };
             this._syncHostUi();
         });
@@ -788,7 +788,7 @@ class StickyNoteWidget {
     _currentHostState() {
         return {
             ...DEFAULT_HOST_STATE,
-            ...(this._hostState || {}),
+            ...this._hostState || {},
         };
     }
 
@@ -963,7 +963,6 @@ class StickyNoteWidget {
             .replaceAll('<', '&lt;')
             .replaceAll('>', '&gt;');
     }
-
 }
 
 window.addEventListener('DOMContentLoaded', () => {

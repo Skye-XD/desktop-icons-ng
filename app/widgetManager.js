@@ -384,9 +384,8 @@ const WidgetManager = class {
 
         const created = await this._ensureInstanceActor(instance);
 
-        if (!created) {
+        if (!created)
             return null;
-        }
 
         if (opts.initialPinned === true)
             instance.pinned = true;
@@ -1907,6 +1906,7 @@ const WidgetManager = class {
                 continue;
 
             try {
+                // eslint-disable-next-line no-await-in-loop
                 await inst.host.reload();
             } catch (e) {
                 console.error(

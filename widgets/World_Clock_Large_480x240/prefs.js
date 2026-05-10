@@ -8,7 +8,7 @@ import {
     getDisplayLabelForZone,
     getRegionIdForZone,
     getRegionInfo,
-    getZoneInfo,
+    getZoneInfo
 } from './timezones.js';
 
 const PRESET_COLORS = {

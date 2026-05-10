@@ -10,11 +10,11 @@ const SEEK_JUMP_THRESHOLD_US = 5 * 1000 * 1000;
 const MIN_VOLUME = 0;
 const MAX_VOLUME = 1;
 
-async function fetchImageAsBase64(url) {
-    return new Promise((resolve) => {
+function fetchImageAsBase64(url) {
+    return new Promise(resolve => {
         try {
             let session = new Soup.Session({
-                timeout: 5
+                timeout: 5,
             });
 
             let message = Soup.Message.new('GET', url);
@@ -23,9 +23,9 @@ async function fetchImageAsBase64(url) {
                 message,
                 GLib.PRIORITY_DEFAULT,
                 null,
-                (session, result) => {
+                (soupSession, result) => {
                     try {
-                        let bytes = session.send_and_read_finish(result);
+                        let bytes = soupSession.send_and_read_finish(result);
 
                         if (message.get_status() !== Soup.Status.OK || !bytes) {
                             resolve(null);
@@ -65,15 +65,17 @@ class MediaBackend extends BackendApp {
             await this._refresh();
             return this._lastSnapshot;
         });
-        this.registerMethod('getArt', async ({artId}) => {
-            if (!artId) return null;
-            if (!this._lastSnapshot || this._lastSnapshot.artId !== artId) return null;
-            return await this._getArtUrl(this._lastSnapshot._rawArtUrl);
+        this.registerMethod('getArt', ({artId}) => {
+            if (!artId)
+                return null;
+            if (!this._lastSnapshot || this._lastSnapshot.artId !== artId)
+                return null;
+            return this._getArtUrl(this._lastSnapshot._rawArtUrl);
         });
-        this.registerMethod('playPause', async () => await this._invokePlayerMethod('PlayPause'));
-        this.registerMethod('next', async () => await this._invokePlayerMethod('Next'));
-        this.registerMethod('previous', async () => await this._invokePlayerMethod('Previous'));
-        this.registerMethod('setVolume', async ({volume}) => await this._setPlayerVolume(volume));
+        this.registerMethod('playPause', () => this._invokePlayerMethod('PlayPause'));
+        this.registerMethod('next', () => this._invokePlayerMethod('Next'));
+        this.registerMethod('previous', () => this._invokePlayerMethod('Previous'));
+        this.registerMethod('setVolume', ({volume}) => this._setPlayerVolume(volume));
     }
 
     onHello(_ctx) {
@@ -189,7 +191,7 @@ class MediaBackend extends BackendApp {
                     'Get',
                     GLib.Variant.new_tuple([
                         GLib.Variant.new_string('org.mpris.MediaPlayer2.Player'),
-                        GLib.Variant.new_string('PlaybackStatus')
+                        GLib.Variant.new_string('PlaybackStatus'),
                     ]),
                     null,
                     Gio.DBusCallFlags.NONE,
@@ -297,13 +299,12 @@ class MediaBackend extends BackendApp {
         return {ok: true, player: selected.name, volume: nextVolume};
     }
 
-    async _refresh() {
+    _refresh() {
         let player = null;
         let identity = null;
         let metadata = null;
         let position = 0;
         let length = 0;
-        let artUrl = null;
         let artId = null;
         let _rawArtUrl = null;
         let artist = null;
@@ -358,39 +359,46 @@ class MediaBackend extends BackendApp {
                 }
                 // Parse metadata, always to string
                 let rawTitle = metadata['xesam:title'];
-                if (rawTitle && typeof rawTitle.deep_unpack === 'function') rawTitle = rawTitle.deep_unpack();
-                if (Array.isArray(rawTitle)) rawTitle = rawTitle[0];
-                title = (rawTitle !== undefined && rawTitle !== null) ? String(rawTitle) : '';
+                if (rawTitle && typeof rawTitle.deep_unpack === 'function')
+                    rawTitle = rawTitle.deep_unpack();
+                if (Array.isArray(rawTitle))
+                    rawTitle = rawTitle[0];
+                title = rawTitle !== undefined && rawTitle !== null ? String(rawTitle) : '';
 
                 let rawArtist = metadata['xesam:artist'];
-                if (rawArtist && typeof rawArtist.deep_unpack === 'function') rawArtist = rawArtist.deep_unpack();
-                if (Array.isArray(rawArtist)) rawArtist = rawArtist[0];
-                artist = (rawArtist !== undefined && rawArtist !== null) ? String(rawArtist) : '';
+                if (rawArtist && typeof rawArtist.deep_unpack === 'function')
+                    rawArtist = rawArtist.deep_unpack();
+                if (Array.isArray(rawArtist))
+                    rawArtist = rawArtist[0];
+                artist = rawArtist !== undefined && rawArtist !== null ? String(rawArtist) : '';
 
                 let rawLength = metadata['mpris:length'];
-                if (rawLength && typeof rawLength.deep_unpack === 'function') rawLength = rawLength.deep_unpack();
-                if (typeof rawLength === 'number') {
+                if (rawLength && typeof rawLength.deep_unpack === 'function')
+                    rawLength = rawLength.deep_unpack();
+                if (typeof rawLength === 'number')
                     length = rawLength;
-                } else if (typeof rawLength === 'bigint') {
+                else if (typeof rawLength === 'bigint')
                     length = Number(rawLength);
-                } else {
+                else
                     length = 0;
-                }
+
 
                 let rawArtUrl = metadata['mpris:artUrl'];
-                if (rawArtUrl && typeof rawArtUrl.deep_unpack === 'function') rawArtUrl = rawArtUrl.deep_unpack();
-                if (Array.isArray(rawArtUrl)) rawArtUrl = rawArtUrl[0];
+                if (rawArtUrl && typeof rawArtUrl.deep_unpack === 'function')
+                    rawArtUrl = rawArtUrl.deep_unpack();
+                if (Array.isArray(rawArtUrl))
+                    rawArtUrl = rawArtUrl[0];
                 _rawArtUrl = rawArtUrl;
                 artId = rawArtUrl;
             }
         } catch (e) {
-            this.log('MPRIS backend error: ' + (e?.message ?? e));
+            this.log(`MPRIS backend error: ${e?.message ?? e}`);
         }
-        
+
         let prev = this._lastSnapshot;
-        if (prev && prev.artId === artId && prev._rawArtUrl && !_rawArtUrl) {
+        if (prev && prev.artId === artId && prev._rawArtUrl && !_rawArtUrl)
             _rawArtUrl = prev._rawArtUrl;
-        }
+
         const nextSnapshot = {
             player,
             identity,
@@ -403,14 +411,14 @@ class MediaBackend extends BackendApp {
             artId,
             playbackStatus,
             ts: Date.now(),
-            _rawArtUrl
+            _rawArtUrl,
         };
         this._lastSnapshot = nextSnapshot;
 
         if (!this._shouldSendUpdate(prev, nextSnapshot))
             return;
 
-        const { _rawArtUrl: _r, ...publicSnapshot } = nextSnapshot;
+        const {_rawArtUrl: unusedRawArtUrl_, ...publicSnapshot} = nextSnapshot;
         this.sendEvent('update', publicSnapshot);
     }
 
@@ -451,21 +459,25 @@ class MediaBackend extends BackendApp {
     }
 
     _makeArtId(urlStr) {
-        if (!urlStr) return null;
-        if (urlStr.startsWith('data:')) return urlStr.slice(0, 64);
+        if (!urlStr)
+            return null;
+        if (urlStr.startsWith('data:'))
+            return urlStr.slice(0, 64);
         return urlStr;
     }
 
-    
-    async _getArtUrl(rawArtUrl) {
-        if (!rawArtUrl) return null;
+
+    _getArtUrl(rawArtUrl) {
+        if (!rawArtUrl)
+            return null;
         let urlStr = String(rawArtUrl);
         if (urlStr.startsWith('file://')) {
             try {
                 let fileUri = urlStr;
                 let filePath = fileUri.slice(7);
-                while (filePath.startsWith('/')) filePath = filePath.slice(1);
-                filePath = '/' + filePath;
+                while (filePath.startsWith('/'))
+                    filePath = filePath.slice(1);
+                filePath = `/${filePath}`;
                 filePath = decodeURIComponent(filePath);
                 let file = Gio.File.new_for_path(filePath);
                 let [, contents] = file.load_contents(null);
@@ -473,12 +485,18 @@ class MediaBackend extends BackendApp {
                 let extMatch = filePath.match(/\.([a-zA-Z0-9]+)$/);
                 if (extMatch) {
                     let ext = extMatch[1].toLowerCase();
-                    if (ext === 'png') mime = 'image/png';
-                    else if (ext === 'gif') mime = 'image/gif';
-                    else if (ext === 'svg') mime = 'image/svg+xml';
-                    else if (ext === 'webp') mime = 'image/webp';
-                    else if (ext === 'bmp') mime = 'image/bmp';
-                    else if (ext === 'ico') mime = 'image/x-icon';
+                    if (ext === 'png')
+                        mime = 'image/png';
+                    else if (ext === 'gif')
+                        mime = 'image/gif';
+                    else if (ext === 'svg')
+                        mime = 'image/svg+xml';
+                    else if (ext === 'webp')
+                        mime = 'image/webp';
+                    else if (ext === 'bmp')
+                        mime = 'image/bmp';
+                    else if (ext === 'ico')
+                        mime = 'image/x-icon';
                 }
                 let base64 = GLib.base64_encode(contents);
                 return `data:${mime};base64,${base64}`;
@@ -486,12 +504,11 @@ class MediaBackend extends BackendApp {
                 return null;
             }
         } else if (urlStr.startsWith('http://') || urlStr.startsWith('https://')) {
-            return await fetchImageAsBase64(urlStr);
+            return fetchImageAsBase64(urlStr);
         } else {
             return urlStr;
         }
     }
-
 });
 
 runBackend(MediaBackend);

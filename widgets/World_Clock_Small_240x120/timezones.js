@@ -163,22 +163,41 @@ for (const region of TIMEZONE_REGIONS) {
     }
 }
 
+/**
+ *
+ */
 export function getDefaultZone() {
     return TIMEZONE_REGIONS[0].zones[0];
 }
 
+/**
+ *
+ * @param {string} zoneId Time zone identifier.
+ */
 export function getZoneInfo(zoneId) {
     return ZONE_MAP.get(zoneId) ?? null;
 }
 
+/**
+ *
+ * @param {string} regionId Region identifier.
+ */
 export function getRegionInfo(regionId) {
     return TIMEZONE_REGIONS.find(region => region.id === regionId) ?? null;
 }
 
+/**
+ *
+ * @param {string} zoneId Time zone identifier.
+ */
 export function getRegionIdForZone(zoneId) {
     return getZoneInfo(zoneId)?.regionId ?? TIMEZONE_REGIONS[0].id;
 }
 
+/**
+ *
+ * @param {string} zoneId Time zone identifier.
+ */
 export function getDisplayLabelForZone(zoneId) {
     return getZoneInfo(zoneId)?.label ?? zoneId ?? getDefaultZone().label;
 }

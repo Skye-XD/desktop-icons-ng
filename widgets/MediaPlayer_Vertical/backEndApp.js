@@ -505,8 +505,8 @@ class BackendApp extends Gio.Application {
 // This keeps all backends consistent.
 /**
  *
- * @param {typeof BackendApp} AppClass
- * @param {string[]} argv
+ * @param {typeof BackendApp} AppClass Backend class to instantiate and run.
+ * @param {string[]} argv Command-line arguments forwarded to the backend app.
  */
 export function runBackend(AppClass, argv = ARGV) {
     const devKeepAlive = Array.isArray(argv) && argv.includes('--dev-keepalive');
