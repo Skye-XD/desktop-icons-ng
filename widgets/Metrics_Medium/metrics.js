@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-globals */
 /* eslint-disable no-undef */
 import {DingClient} from './widgetHelper.js';
 class MetricsWidget {

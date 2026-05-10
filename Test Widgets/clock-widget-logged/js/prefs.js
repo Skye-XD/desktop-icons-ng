@@ -1,5 +1,9 @@
+/* eslint-disable no-restricted-globals */
+/* eslint-disable no-undef */
 (function () {
-    if (!window.ding) {
+    const ding = window.ding;
+
+    if (!ding) {
         console.error('prefs.js: window.ding is not available');
         return;
     }
@@ -9,11 +13,11 @@
     ding.log(`instanceId=${ding.instanceId}`);
     ding.log(`mode=${ding.mode}`);
 
-    if (ding.mode !== 'prefs') {
+    if (ding.mode !== 'prefs')
         ding.log('WARNING: prefs.js is not running in prefs mode');
-    } else {
+    else
         ding.log('Preferences running in correct mode');
-    }
+
 
     // Optional: load config to prove API works
     ding.getConfig()?.then?.(config => {

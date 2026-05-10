@@ -1,3 +1,5 @@
+/* eslint-disable no-restricted-globals */
+/* eslint-disable no-undef */
 'use strict';
 
 const configCountEl = document.getElementById('configCount');
