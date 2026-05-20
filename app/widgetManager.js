@@ -33,6 +33,8 @@ import {WebWidgetContext} from '../dependencies/localFiles.js';
  *   - We store per-instance:
  *       * monitorIndex
  *       * normX, normY  (0..1, normalized to grid.normalizedWidth/Height)
+ *       * pinnedGlobalX, pinnedGlobalY (absolute shell coords for floating
+ *         pinned windows; used to survive margin/order changes)
  *       * width, height (absolute pixels, widget-owned)
  *   - On layout changes, we rebuild a map of:
  *       monitorIndex -> { grid, widgetContainer }
@@ -63,7 +65,7 @@ function configJson(config) {
     }
 }
 
-const WIDGETS_STATE_SCHEMA_VERSION = 3;
+const WIDGETS_STATE_SCHEMA_VERSION = 4;
 const appID = 'com.desktop.ding';
 const appPath = GLib.build_filenamev(['/', ...appID.split('.')]);
 
@@ -460,6 +462,15 @@ const WidgetManager = class {
 
         inst.normX = normX;
         inst.normY = normY;
+        if (inst.pinned) {
+            const [globalX, globalY] =
+                surface.grid.coordinatesLocalToGlobal(
+                    Math.round(x),
+                    Math.round(y)
+                );
+            inst.pinnedGlobalX = globalX;
+            inst.pinnedGlobalY = globalY;
+        }
 
         this._positionInstanceActor(inst);
     }
@@ -469,16 +480,26 @@ const WidgetManager = class {
         if (!inst || !inst.pinned)
             return;
 
+        const roundedGlobalX = Math.round(globalX);
+        const roundedGlobalY = Math.round(globalY);
+
+        if (inst.pinnedGlobalX === roundedGlobalX &&
+            inst.pinnedGlobalY === roundedGlobalY)
+            return;
+
+        inst.pinnedGlobalX = roundedGlobalX;
+        inst.pinnedGlobalY = roundedGlobalY;
+
         let targetSurface = this._surfaces.get(inst.monitorIndex) ?? null;
 
         if (!targetSurface?.grid?.coordinatesBelongToThisGridWindow?.(
-            globalX,
-            globalY
+            roundedGlobalX,
+            roundedGlobalY
         )) {
             for (const surface of this._surfaces.values()) {
                 if (!surface?.grid?.coordinatesBelongToThisGridWindow?.(
-                    globalX,
-                    globalY
+                    roundedGlobalX,
+                    roundedGlobalY
                 ))
                     continue;
 
@@ -488,11 +509,16 @@ const WidgetManager = class {
             }
         }
 
-        if (!targetSurface?.grid)
+        if (!targetSurface?.grid) {
+            this._stateChanged();
             return;
+        }
 
         const [localX, localY] =
-            targetSurface.grid._coordinatesGlobalToLocal(globalX, globalY);
+            targetSurface.grid._coordinatesGlobalToLocal(
+                roundedGlobalX,
+                roundedGlobalY
+            );
         const roundedLocalX = Math.round(localX);
         const roundedLocalY = Math.round(localY);
         const currentFrame = this.getInstanceFrame(instanceId);
@@ -501,8 +527,10 @@ const WidgetManager = class {
         if (currentFrame &&
             inst.monitorIndex === targetMonitorIndex &&
             currentFrame.x === roundedLocalX &&
-            currentFrame.y === roundedLocalY)
+            currentFrame.y === roundedLocalY) {
+            this._stateChanged();
             return;
+        }
 
 
         inst.monitorIndex = targetMonitorIndex;
@@ -510,6 +538,8 @@ const WidgetManager = class {
 
         if (inst.pinned)
             this._pinnedWindowManager.refreshInstance(inst);
+
+        this._stateChanged();
     }
 
     /*
@@ -582,6 +612,24 @@ const WidgetManager = class {
             return null;
 
         const surface = this._surfaces.get(inst.monitorIndex);
+
+        if (inst.pinned &&
+            surface?.grid?.coordinatesBelongToThisGridWindow?.(
+                inst.pinnedGlobalX,
+                inst.pinnedGlobalY
+            ) &&
+            Number.isFinite(inst.pinnedGlobalX) &&
+            Number.isFinite(inst.pinnedGlobalY)
+        ) {
+            return {
+                x: inst.pinnedGlobalX,
+                y: inst.pinnedGlobalY,
+                width: frame.width,
+                height: frame.height,
+                clamped: frame.clamped,
+            };
+        }
+
         if (!surface) {
             return {
                 x: frame.x,
@@ -945,6 +993,14 @@ const WidgetManager = class {
                         instance.normY = instData.normY ?? 0;
                         instance.width = instData.width ?? 200;
                         instance.height = instData.height ?? 150;
+                        instance.pinnedGlobalX =
+                            Number.isFinite(instData.pinnedGlobalX)
+                                ? instData.pinnedGlobalX
+                                : null;
+                        instance.pinnedGlobalY =
+                            Number.isFinite(instData.pinnedGlobalY)
+                                ? instData.pinnedGlobalY
+                                : null;
                         instance.config = resolvedConfig;
                         instance.prefsUri = resolvedPrefsUri;
                         instance.hasPreferences = resolvedHasPreferences;
@@ -965,6 +1021,14 @@ const WidgetManager = class {
                             normY: instData.normY ?? 0,
                             width: instData.width ?? 200,
                             height: instData.height ?? 150,
+                            pinnedGlobalX:
+                                Number.isFinite(instData.pinnedGlobalX)
+                                    ? instData.pinnedGlobalX
+                                    : null,
+                            pinnedGlobalY:
+                                Number.isFinite(instData.pinnedGlobalY)
+                                    ? instData.pinnedGlobalY
+                                    : null,
                             actor: null,
                             config: resolvedConfig,
                             prefsUri: resolvedPrefsUri,
@@ -1094,8 +1158,16 @@ const WidgetManager = class {
         if (!nextPinned && inst.widgetEditMode)
             this._setWidgetEditMode(inst, false);
 
-        if (!nextPinned)
+        if (!nextPinned) {
             this._pinnedWindowManager.unpinInstance(inst);
+        } else if (!Number.isFinite(inst.pinnedGlobalX) ||
+            !Number.isFinite(inst.pinnedGlobalY)) {
+            const frame = this.getInstanceGlobalFrame(instanceId);
+            if (frame) {
+                inst.pinnedGlobalX = frame.x;
+                inst.pinnedGlobalY = frame.y;
+            }
+        }
 
         inst.pinned = nextPinned;
         if (inst.kind === 'html' && inst.actor && inst.host)
@@ -1311,10 +1383,11 @@ const WidgetManager = class {
      *
      * The saved schema is identical to loadState():
      * {
-     *   version: 1,
+     *   version: 4,
      *   instances: [
      *     { instanceId, widgetId, kind, monitorIndex,
-     *       normX, normY, width, height, config }
+     *       normX, normY, width, height,
+     *       pinnedGlobalX, pinnedGlobalY, config }
      *   ]
      * }
      * */
@@ -1338,6 +1411,12 @@ const WidgetManager = class {
                 normY: inst.normY,
                 width: inst.width,
                 height: inst.height,
+                pinnedGlobalX: Number.isFinite(inst.pinnedGlobalX)
+                    ? inst.pinnedGlobalX
+                    : null,
+                pinnedGlobalY: Number.isFinite(inst.pinnedGlobalY)
+                    ? inst.pinnedGlobalY
+                    : null,
                 config: inst.config ?? {},
                 prefsUri: inst.prefsUri ?? null,
                 hasPreferences: !!inst.hasPreferences,
@@ -1409,6 +1488,25 @@ const WidgetManager = class {
             migrated = true;
         }
 
+        if (schemaVersion < 4) {
+            for (const instData of state.instances) {
+                if (!instData || typeof instData !== 'object')
+                    continue;
+
+                instData.pinnedGlobalX =
+                    Number.isFinite(instData.pinnedGlobalX)
+                        ? instData.pinnedGlobalX
+                        : null;
+                instData.pinnedGlobalY =
+                    Number.isFinite(instData.pinnedGlobalY)
+                        ? instData.pinnedGlobalY
+                        : null;
+            }
+
+            state.version = 4;
+            migrated = true;
+        }
+
         if (migrated && this._preferences) {
         // Persist the migrated file state as-is (do NOT call exportState() here).
             this._preferences.widgetState = state;
@@ -1448,6 +1546,8 @@ const WidgetManager = class {
             normY,
             width,
             height,
+            pinnedGlobalX: null,
+            pinnedGlobalY: null,
             actor: null,
             config,
             kind,
