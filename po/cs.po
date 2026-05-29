@@ -9,13 +9,14 @@
 # LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023, 2024, 2026.
 # Sundeep Mediratta <smedius@gmail.com>, 2026.
 # Pavel Vlček <vlcekpavel93@gmail.com>, 2026.
+# Nasipla Nasipla <supervlak7@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-30 06:42-0400\n"
-"PO-Revision-Date: 2026-04-24 23:12+0000\n"
-"Last-Translator: Sundeep Mediratta <smedius@gmail.com>\n"
+"PO-Revision-Date: 2026-05-16 03:11+0000\n"
+"Last-Translator: Nasipla Nasipla <supervlak7@gmail.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/gtk4-desktop-icons-"
 "ng/gtk4-ding-pot/cs/>\n"
 "Language: cs\n"
@@ -23,7 +24,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=((n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2);\n"
-"X-Generator: Weblate 5.17.1-dev\n"
+"X-Generator: Weblate 2026.6.dev0\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
@@ -31,7 +32,7 @@ msgstr "Přepsat"
 
 #: app/adwPreferencesWindow.js:162
 msgid "Customise the appearance of desktop icons with CSS"
-msgstr ""
+msgstr "Upravte vzhled ikon na ploše pomocí CSS"
 
 #: app/adwPreferencesWindow.js:166
 msgid "Warning: This can break the extension if done incorrectly"
@@ -43,11 +44,11 @@ msgstr ""
 
 #: app/adwPreferencesWindow.js:180
 msgid "Apply CSS Changes Now"
-msgstr ""
+msgstr "Aplikovat nyní změny v CSS"
 
 #: app/adwPreferencesWindow.js:181
 msgid "Reload the CSS to apply changes immediately"
-msgstr ""
+msgstr "Obnovte CSS pro aplikaci změn"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:248 data/com.desktop.ding.desktop.in:29
@@ -72,7 +73,7 @@ msgstr "Zkratky Editable pouze tehdy, když rozšíření povoleno..."
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:376
 msgid "Help translate in your web browser"
-msgstr "Nápověda přeložit ve vašem webovém prohlížeči"
+msgstr "Pomoct přeložit na vašem webovém prohlížeči"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:599 app/adwPreferencesWindow.js:600
@@ -81,6 +82,7 @@ msgstr "Plocha"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:605 app/adwPreferencesWindow.js:606
+#, fuzzy
 msgid "Files"
 msgstr "Soubory"
 
@@ -97,13 +99,14 @@ msgstr "Více"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:629
+#, fuzzy
 msgid "Desktop Settings"
 msgstr "Nastavení plochy"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:630
 msgid "Settings for the Desktop Program"
-msgstr "Nastavení programu Desktop"
+msgstr "Nastavení pro program plochy"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:636
@@ -117,18 +120,21 @@ msgstr "Aktuální plocha:"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:647
+#, fuzzy
 msgid "Files Settings"
 msgstr "Nastavení souborů"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:648
+#, fuzzy
 msgid "Settings shared with Gnome Files"
-msgstr "Nastavení sdílené s Gnome soubory"
+msgstr "Nastavení sdílená se soubory Gnome"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:655
+#, fuzzy
 msgid "Miscellaneous Tweaks"
-msgstr "Různé Tyčinky"
+msgstr "Různé Tweaks"
 
 #: app/adwPreferencesWindow.js:679
 msgid "Size for the desktop icons"
@@ -156,28 +162,32 @@ msgstr "Zarovnání nových ikon"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:692
+#, fuzzy
 msgid "Top left corner"
 msgstr "Levý horní roh"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:693
+#, fuzzy
 msgid "Top right corner"
-msgstr "Horní pravý roh"
+msgstr "Pravý horní roh"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:694
+#, fuzzy
 msgid "Bottom left corner"
-msgstr "Dolní levý roh"
+msgstr "Levý dolní roh"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:695
+#, fuzzy
 msgid "Bottom right corner"
 msgstr "Pravý dolní roh"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:701
 msgid "Add new icons to Secondary Monitors first, if available"
-msgstr "Přidat nové ikony do Secondary Monitors první, pokud je k dispozici"
+msgstr "Přidat nové ikony na sekundární monitory, pokud jsou k dispozici"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:705
@@ -232,10 +242,11 @@ msgstr "Přidat informační symboly pro odkazy, šifrování"
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:750
 msgid "Use dark text in icon labels"
-msgstr "Použít tmavý text v ikonových štítcích"
+msgstr "Používat tmavý text v popiscích ikon"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:755
+#, fuzzy
 msgid "Show the personal folder on the desktop"
 msgstr "Zobrazit osobní složku na ploše"
 
@@ -247,20 +258,22 @@ msgstr "Zobrazit ikonu koše na ploše"
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:765
 msgid "Show external drives on the desktop"
-msgstr "Zobrazovat externí disky na ploše"
+msgstr "Zobrazit externí disky na ploše"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:770
+#, fuzzy
 msgid "Show network drives on the desktop"
 msgstr "Zobrazit síťové disky na ploše"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:775
 msgid "Add new drives to the opposite side of the desktop"
-msgstr "Přidat nové jednotky na opačnou stranu plochy"
+msgstr "Přidat nové disky na opačnou stranu plochy"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:780
+#, fuzzy
 msgid "Action to Open Items"
 msgstr "Akce k otevření položek"
 
@@ -282,6 +295,7 @@ msgstr "Vždy"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:791
+#, fuzzy
 msgid "On this computer only"
 msgstr "Pouze na tomto počítači"
 
@@ -300,7 +314,7 @@ msgstr "Zobrazit skryté soubory"
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:807
 msgid "Open folders on drag hover"
-msgstr "Otevřené složky na vznášedle"
+msgstr "Otevřít složky při přetažení"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:811
@@ -336,21 +350,25 @@ msgstr "Přeložit"
 
 # MT: LibreTranslate
 #: app/appChooser.js:78
+#, fuzzy
 msgid "Choose an application to open <b>{foo}</b>"
-msgstr "Zvolte aplikaci pro otevření <b> {foo} < / b >"
+msgstr "Vyberte aplikaci, kterou chcete otevřít <b>{foo}</b>"
 
 # MT: LibreTranslate
 #: app/appChooser.js:90
+#, fuzzy
 msgid "Open Items"
 msgstr "Otevřít položky"
 
 # MT: LibreTranslate
 #: app/appChooser.js:92
+#, fuzzy
 msgid "Open Folder"
 msgstr "Otevřít složku"
 
 # MT: LibreTranslate
 #: app/appChooser.js:94 data/ui/ding-app-chooser.ui:6
+#, fuzzy
 msgid "Open File"
 msgstr "Otevřít soubor"
 
@@ -362,7 +380,7 @@ msgstr "Chyba při změně výchozí aplikace"
 # MT: LibreTranslate
 #: app/appChooser.js:168
 msgid "Error while setting {foo} as default application for {mimetype}"
-msgstr "Chyba při nastavení {foo} jako výchozí aplikace pro {mimetype}"
+msgstr "Chyba při nastavování {foo} jako výchozí aplikace pro {mimetype}"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:57
@@ -442,16 +460,16 @@ msgstr "Povolit spouštění"
 
 #: app/askRenamePopup.js:61
 msgid "Folder name"
-msgstr "Název nové složky"
+msgstr "Název složky"
 
 #: app/askRenamePopup.js:61
 msgid "File name"
-msgstr "Přejmenovat soubor"
+msgstr "Jméno složky"
 
 #: app/askRenamePopup.js:75 app/autoAr.js:303 app/desktopManager.js:1297
 #: app/fileItemMenu.js:968
 msgid "OK"
-msgstr "Budiž"
+msgstr "OK"
 
 #: app/askRenamePopup.js:75
 msgid "Rename"
@@ -460,7 +478,7 @@ msgstr "Přejmenovat"
 # MT: LibreTranslate
 #: app/autoAr.js:71
 msgid "AutoAr is not installed"
-msgstr "Automaticky Ar není nainstalován"
+msgstr "AutoAr není nainstalováno"
 
 # MT: LibreTranslate
 #: app/autoAr.js:72
@@ -468,18 +486,20 @@ msgid ""
 "To be able to work with compressed files, install file-roller and/or gir-1.2-"
 "gnomeAutoAr"
 msgstr ""
-"Chcete-li pracovat s komprimovanými soubory, nainstalujte fileroller a / "
-"nebo gir- 1.2-gnome AutoAr"
+"Abyste mohli pracovat s kompresovanými soubory, nainstalujte file-roller a/"
+"nebo gir-1.2-gnomeAutoAr"
 
 # MT: LibreTranslate
 #: app/autoAr.js:207
+#, fuzzy
 msgid "Extracting files"
-msgstr "Vytahování souborů"
+msgstr "Extrahování souborů"
 
 # MT: LibreTranslate
 #: app/autoAr.js:224
+#, fuzzy
 msgid "Compressing files"
-msgstr "Skládací soubory"
+msgstr "Komprese souborů"
 
 #: app/autoAr.js:295 app/autoAr.js:624 app/desktopManager.js:180
 #: app/desktopManager.js:1299 app/dragManager.js:792 app/fileItemMenu.js:915
@@ -496,17 +516,18 @@ msgstr "Zde zadejte heslo"
 # MT: LibreTranslate
 #: app/autoAr.js:358
 msgid "Removing partial file '${outputFile}'"
-msgstr "Odstranění částečného souboru '${outputFile}'"
+msgstr "Odebírání částečného souboru '${outputFile}'"
 
 # MT: LibreTranslate
 #: app/autoAr.js:377
 msgid "Creating destination folder"
-msgstr "Vytvoření adresáře cíle"
+msgstr "Tvoření cílové složky"
 
 # MT: LibreTranslate
 #: app/autoAr.js:409
+#, fuzzy
 msgid "Extracting files into '${outputPath}'"
-msgstr "Extrakce souborů do '${outputPath}'"
+msgstr "Extrahování souborů do '${outputPath}'"
 
 # MT: LibreTranslate
 #: app/autoAr.js:439
@@ -515,33 +536,39 @@ msgstr "Extrakce dokončena"
 
 # MT: LibreTranslate
 #: app/autoAr.js:440
+#, fuzzy
 msgid "Extracting '${fullPathFile}' has been completed."
 msgstr "Extrakce '${fullPathFile}' byla dokončena."
 
 # MT: LibreTranslate
 #: app/autoAr.js:446
+#, fuzzy
 msgid "Extraction cancelled"
 msgstr "Extrakce zrušena"
 
 # MT: LibreTranslate
 #: app/autoAr.js:447
+#, fuzzy
 msgid "Extracting '${fullPathFile}' has been cancelled by the user."
-msgstr "Extrakce '${fullPathFile}' byla uživatelem zrušena."
+msgstr "Extrahování '${fullPathFile}' bylo zrušeno uživatelem."
 
 # MT: LibreTranslate
 #: app/autoAr.js:457
+#, fuzzy
 msgid "Passphrase required for ${filename}"
-msgstr "Passfrase požadované pro ${filename}"
+msgstr "Pro ${filename} je vyžadována přístupová fráze"
 
 # MT: LibreTranslate
 #: app/autoAr.js:460
+#, fuzzy
 msgid "Error during extraction"
 msgstr "Chyba při extrakci"
 
 # MT: LibreTranslate
 #: app/autoAr.js:487
+#, fuzzy
 msgid "Compressing files into '${outputFile}'"
-msgstr "Skládám soubory do '${outputFile}'"
+msgstr "Komprese souborů do '${outputFile}'"
 
 # MT: LibreTranslate
 #: app/autoAr.js:500
