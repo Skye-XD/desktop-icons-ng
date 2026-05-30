@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-30 06:42-0400\n"
-"PO-Revision-Date: 2026-04-24 23:04+0000\n"
-"Last-Translator: Sundeep Mediratta <smedius@gmail.com>\n"
+"PO-Revision-Date: 2026-05-16 03:11+0000\n"
+"Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/ka/>\n"
 "Language: ka\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.17.1-dev\n"
+"X-Generator: Weblate 2026.6.dev0\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
@@ -160,9 +160,8 @@ msgid "Snap icons to grid"
 msgstr "ბადეზე მიბმა"
 
 #: app/adwPreferencesWindow.js:711
-#, fuzzy
 msgid "Show desktop widgets"
-msgstr "სამუშაო მაგიდის ჩვენება Files-ში"
+msgstr "სამუშაო მაგიდის ვიჯეტების ჩვენება"
 
 #: app/adwPreferencesWindow.js:716
 msgid "New Desktop Folder"
@@ -588,9 +587,8 @@ msgid "Desktop Icons"
 msgstr "სამუშაო დაფის ხატულა"
 
 #: app/desktopGrid.js:2587
-#, fuzzy
 msgid "Back to Desktop"
-msgstr "სამუშაო მაგიდის განახლება"
+msgstr "სამუშაო მაგიდაზე დაბრუნება"
 
 #: app/desktopGrid.js:2588 app/widgetManager.js:1525
 msgid "Toggle Widget Grid"
@@ -1321,9 +1319,8 @@ msgid "Drive"
 msgstr "დრაივი"
 
 #: app/widgetManager.js:2123
-#, fuzzy
 msgid "Widget preferences"
-msgstr "მორგება"
+msgstr "ვიჯეტის მორგება"
 
 #: app/widgetManager.js:2135 app/widgetManager.js:2144
 msgid "Unpin widget"
@@ -1457,13 +1454,12 @@ msgid "Allow widget backend?"
 msgstr ""
 
 #: app/widgetWebContext.js:263
-#, fuzzy
 msgid "Widget Preferences"
-msgstr "მორგება"
+msgstr "ვიჯეტის მორგება"
 
 #: app/widgetWebContext.js:792
 msgid "Open link in browser?"
-msgstr "გახსენი ვებგვერდად"
+msgstr "გაიხსნას ბმული ბრაუზერში?"
 
 #: app/widgetWebContext.js:793
 msgid ""
@@ -1673,9 +1669,8 @@ msgid ""
 msgstr ""
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:110
-#, fuzzy
 msgid "Show Desktop Widgets"
-msgstr "სამუშაო მაგიდის ჩვენება Files-ში"
+msgstr "სამუშაო მაგიდის ვიჯეტების ჩვენება"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:111
 msgid "Displays Widgets in a layer below the icons if installed"
