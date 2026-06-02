@@ -15,8 +15,8 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-30 06:42-0400\n"
-"PO-Revision-Date: 2026-06-02 20:01+0000\n"
-"Last-Translator: Nasipla Nasipla <supervlak7@gmail.com>\n"
+"PO-Revision-Date: 2026-06-02 21:29+0000\n"
+"Last-Translator: Pavel Vlček <vlcekpavel93@gmail.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/gtk4-desktop-icons-"
 "ng/gtk4-ding-pot/cs/>\n"
 "Language: cs\n"
@@ -82,7 +82,6 @@ msgstr "Plocha"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:605 app/adwPreferencesWindow.js:606
-#, fuzzy
 msgid "Files"
 msgstr "Soubory"
 
@@ -99,7 +98,6 @@ msgstr "Více"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:629
-#, fuzzy
 msgid "Desktop Settings"
 msgstr "Nastavení plochy"
 
@@ -126,15 +124,13 @@ msgstr "Nastavení souborů"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:648
-#, fuzzy
 msgid "Settings shared with Gnome Files"
-msgstr "Nastavení sdílená se soubory Gnome"
+msgstr "Nastavení sdílené s Gnome soubory"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:655
-#, fuzzy
 msgid "Miscellaneous Tweaks"
-msgstr "Různé Tweaks"
+msgstr "Různé Tyčinky"
 
 #: app/adwPreferencesWindow.js:679
 msgid "Size for the desktop icons"
@@ -162,25 +158,21 @@ msgstr "Zarovnání nových ikon"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:692
-#, fuzzy
 msgid "Top left corner"
 msgstr "Levý horní roh"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:693
-#, fuzzy
 msgid "Top right corner"
-msgstr "Pravý horní roh"
+msgstr "Horní pravý roh"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:694
-#, fuzzy
 msgid "Bottom left corner"
-msgstr "Levý dolní roh"
+msgstr "Dolní levý roh"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:695
-#, fuzzy
 msgid "Bottom right corner"
 msgstr "Spodní pravý roh"
 
@@ -350,25 +342,21 @@ msgstr "Přeložit"
 
 # MT: LibreTranslate
 #: app/appChooser.js:78
-#, fuzzy
 msgid "Choose an application to open <b>{foo}</b>"
-msgstr "Vyberte aplikaci, kterou chcete otevřít <b>{foo}</b>"
+msgstr "Zvolte aplikaci pro otevření <b> {foo} < / b >"
 
 # MT: LibreTranslate
 #: app/appChooser.js:90
-#, fuzzy
 msgid "Open Items"
 msgstr "Otevřené položky"
 
 # MT: LibreTranslate
 #: app/appChooser.js:92
-#, fuzzy
 msgid "Open Folder"
 msgstr "Otevřít složku"
 
 # MT: LibreTranslate
 #: app/appChooser.js:94 data/ui/ding-app-chooser.ui:6
-#, fuzzy
 msgid "Open File"
 msgstr "Otevřít soubor"
 
@@ -491,15 +479,13 @@ msgstr ""
 
 # MT: LibreTranslate
 #: app/autoAr.js:207
-#, fuzzy
 msgid "Extracting files"
-msgstr "Extrahování souborů"
+msgstr "Vytahování souborů"
 
 # MT: LibreTranslate
 #: app/autoAr.js:224
-#, fuzzy
 msgid "Compressing files"
-msgstr "Komprese souborů"
+msgstr "Skládací soubory"
 
 #: app/autoAr.js:295 app/autoAr.js:624 app/desktopManager.js:180
 #: app/desktopManager.js:1299 app/dragManager.js:792 app/fileItemMenu.js:915
@@ -525,9 +511,8 @@ msgstr "Tvoření cílové složky"
 
 # MT: LibreTranslate
 #: app/autoAr.js:409
-#, fuzzy
 msgid "Extracting files into '${outputPath}'"
-msgstr "Extrahování souborů do '${outputPath}'"
+msgstr "Extrakce souborů do '${outputPath}'"
 
 # MT: LibreTranslate
 #: app/autoAr.js:439
@@ -542,21 +527,18 @@ msgstr "Extrakce '${fullPathFile}' byla dokončena."
 
 # MT: LibreTranslate
 #: app/autoAr.js:446
-#, fuzzy
 msgid "Extraction cancelled"
 msgstr "Extrakce zrušena"
 
 # MT: LibreTranslate
 #: app/autoAr.js:447
-#, fuzzy
 msgid "Extracting '${fullPathFile}' has been cancelled by the user."
-msgstr "Extrahování '${fullPathFile}' bylo zrušeno uživatelem."
+msgstr "Extrakce '${fullPathFile}' byla uživatelem zrušena."
 
 # MT: LibreTranslate
 #: app/autoAr.js:457
-#, fuzzy
 msgid "Passphrase required for ${filename}"
-msgstr "Pro ${filename} je vyžadována přístupová fráze"
+msgstr "Passfrase požadované pro ${filename}"
 
 # MT: LibreTranslate
 #: app/autoAr.js:460
@@ -566,9 +548,8 @@ msgstr "Chyba při extrakci"
 
 # MT: LibreTranslate
 #: app/autoAr.js:487
-#, fuzzy
 msgid "Compressing files into '${outputFile}'"
-msgstr "Komprese souborů do '${outputFile}'"
+msgstr "Skládám soubory do '${outputFile}'"
 
 # MT: LibreTranslate
 #: app/autoAr.js:500
