@@ -60,6 +60,8 @@ class MediaBackend extends BackendApp {
         super(params);
         this._refreshSource = 0;
         this._signalSubscriptions = [];
+        this._activePlayerName = null;
+        this._activePlayerOwner = null;
         this._lastSnapshot = null;
         this.registerMethod('getSnapshot', async () => {
             await this._refresh();
@@ -119,9 +121,19 @@ class MediaBackend extends BackendApp {
                 null,
                 Gio.DBusSignalFlags.NONE,
                 (_conn, _sender, _path, _iface, _signal, params) => {
-                    const [name] = params.deep_unpack();
-                    if (typeof name === 'string' && name.startsWith(MPRIS_PREFIX))
+                    const [name, oldOwner, newOwner] = params.deep_unpack();
+                    if (typeof name === 'string' && name.startsWith(MPRIS_PREFIX)) {
+                        if ((this._activePlayerName === name ||
+                            this._activePlayerOwner === oldOwner) &&
+                            typeof newOwner === 'string' && newOwner) {
+                            this._activePlayerName = name;
+                            this._activePlayerOwner = newOwner;
+                        } else if (this._activePlayerName === name && !newOwner) {
+                            this._activePlayerName = null;
+                            this._activePlayerOwner = null;
+                        }
                         this._scheduleRefresh();
+                    }
                 }
             )
         );
@@ -134,10 +146,13 @@ class MediaBackend extends BackendApp {
                 '/org/mpris/MediaPlayer2',
                 null,
                 Gio.DBusSignalFlags.NONE,
-                (_conn, _sender, _path, _iface, _signal, params) => {
+                (_conn, sender, _path, _iface, _signal, params) => {
                     const [ifaceName] = params.deep_unpack();
-                    if (ifaceName === 'org.mpris.MediaPlayer2.Player')
+                    if (ifaceName === 'org.mpris.MediaPlayer2.Player') {
+                        if (typeof sender === 'string' && sender)
+                            this._activePlayerOwner = sender;
                         this._scheduleRefresh();
+                    }
                 }
             )
         );
@@ -150,7 +165,11 @@ class MediaBackend extends BackendApp {
                 '/org/mpris/MediaPlayer2',
                 null,
                 Gio.DBusSignalFlags.NONE,
-                () => this._scheduleRefresh()
+                (_conn, sender) => {
+                    if (typeof sender === 'string' && sender)
+                        this._activePlayerOwner = sender;
+                    this._scheduleRefresh();
+                }
             )
         );
     }
@@ -198,7 +217,27 @@ class MediaBackend extends BackendApp {
                     -1,
                     null
                 ).deep_unpack()[0].deep_unpack();
-                candidates.push({name, status});
+                let owner = null;
+                if (this._activePlayerName || this._activePlayerOwner) {
+                    try {
+                        owner = bus.call_sync(
+                            'org.freedesktop.DBus',
+                            '/org/freedesktop/DBus',
+                            'org.freedesktop.DBus',
+                            'GetNameOwner',
+                            GLib.Variant.new_tuple([
+                                GLib.Variant.new_string(name),
+                            ]),
+                            null,
+                            Gio.DBusCallFlags.NONE,
+                            -1,
+                            null
+                        ).deep_unpack()[0];
+                    } catch (e) {
+                        owner = null;
+                    }
+                }
+                candidates.push({name, status, owner});
             } catch (e) {
             }
         }
@@ -207,9 +246,18 @@ class MediaBackend extends BackendApp {
     }
 
     _selectPlayer(candidates = []) {
-        const lastPlayer = this._lastSnapshot?.player ?? null;
-        if (lastPlayer) {
-            const matching = candidates.find(candidate => candidate.name === lastPlayer);
+        if (this._activePlayerOwner) {
+            const matching = candidates.find(candidate =>
+                candidate.owner === this._activePlayerOwner
+            );
+            if (matching)
+                return matching;
+        }
+
+        if (this._activePlayerName) {
+            const matching = candidates.find(candidate =>
+                candidate.name === this._activePlayerName
+            );
             if (matching)
                 return matching;
         }
@@ -224,6 +272,9 @@ class MediaBackend extends BackendApp {
         const selected = this._selectPlayer(this._listPlayerCandidates());
         if (!selected)
             return {ok: false, reason: 'no-player'};
+
+        this._activePlayerName = selected.name;
+        this._activePlayerOwner = selected.owner ?? this._activePlayerOwner;
 
         Gio.DBus.session.call_sync(
             selected.name,
@@ -287,6 +338,9 @@ class MediaBackend extends BackendApp {
         );
         if (!Number.isFinite(nextVolume))
             return {ok: false, reason: 'invalid-volume'};
+
+        this._activePlayerName = selected.name;
+        this._activePlayerOwner = selected.owner ?? this._activePlayerOwner;
 
         this._setPlayerProperty(
             selected.name,
