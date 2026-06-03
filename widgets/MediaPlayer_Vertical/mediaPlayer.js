@@ -177,7 +177,7 @@ class MediaPlayerWidget {
         this._syncPlaybackTimer();
         this._render(this._getRenderSnapshot());
 
-        if (mediaChanged) {
+        if (mediaChanged && !fromCache) {
             this._currentArtId = null;
             this._currentArtUrl = null;
             this._renderCover(null);
@@ -191,7 +191,7 @@ class MediaPlayerWidget {
             return;
         }
 
-        const cachedArtUrl = !mediaChanged &&
+        const cachedArtUrl = (!mediaChanged || fromCache) &&
             this._config.mediaCache?.artId === normalized.artId
             ? this._config.mediaCache?.artUrl ?? null
             : null;

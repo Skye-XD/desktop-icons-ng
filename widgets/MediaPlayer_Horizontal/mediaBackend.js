@@ -458,6 +458,11 @@ class MediaBackend extends BackendApp {
         }
 
         let prev = this._lastSnapshot;
+        if (prev && prev.player === player && playbackStatus === 'Paused' &&
+            !artId && !_rawArtUrl && prev.artId && prev._rawArtUrl) {
+            artId = prev.artId;
+            _rawArtUrl = prev._rawArtUrl;
+        }
         if (prev && prev.artId === artId && prev._rawArtUrl && !_rawArtUrl)
             _rawArtUrl = prev._rawArtUrl;
 
