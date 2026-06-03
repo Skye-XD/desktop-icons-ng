@@ -246,21 +246,29 @@ class MediaBackend extends BackendApp {
     }
 
     _selectPlayer(candidates = []) {
-        if (this._activePlayerOwner) {
-            const matching = candidates.find(candidate =>
-                candidate.owner === this._activePlayerOwner
-            );
-            if (matching)
-                return matching;
-        }
+        const pickByActivePlayer = () => {
+            if (this._activePlayerOwner) {
+                const matching = candidates.find(candidate =>
+                    candidate.owner === this._activePlayerOwner
+                );
+                if (matching)
+                    return matching.status === 'Stopped' ? null : matching;
+            }
 
-        if (this._activePlayerName) {
-            const matching = candidates.find(candidate =>
-                candidate.name === this._activePlayerName
-            );
-            if (matching)
-                return matching;
-        }
+            if (this._activePlayerName) {
+                const matching = candidates.find(candidate =>
+                    candidate.name === this._activePlayerName
+                );
+                if (matching)
+                    return matching.status === 'Stopped' ? null : matching;
+            }
+
+            return null;
+        };
+
+        const activeCandidate = pickByActivePlayer();
+        if (activeCandidate)
+            return activeCandidate;
 
         return candidates.find(candidate => candidate.status === 'Playing') ||
             candidates.find(candidate => candidate.status === 'Paused') ||
