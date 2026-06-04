@@ -18,6 +18,7 @@
 import {Adw, Gio, GLib, Gtk, Gdk} from '../dependencies/gi.js';
 import {_} from '../dependencies/gettext.js';
 import {WidgetRegistry} from '../dependencies/localFiles.js';
+import {FileUtils} from '../dependencies/localFiles.js';
 import {HtmlWidgetHost, HtmlWidgetHostWithBackend} from '../dependencies/localFiles.js';
 import {PinnedWindowManager} from '../dependencies/localFiles.js';
 import {WebWidgetContext} from '../dependencies/localFiles.js';
@@ -66,6 +67,7 @@ function configJson(config) {
 }
 
 const WIDGETS_STATE_SCHEMA_VERSION = 4;
+const ENTIRE_STRING_LENGTH = -1;
 const appID = 'com.desktop.ding';
 const appPath = GLib.build_filenamev(['/', ...appID.split('.')]);
 
@@ -2865,6 +2867,8 @@ const WidgetManager = class {
             return null;
         }
 
+        this._widgetRegistry.reload();
+
         let widgets;
         try {
             widgets = await this._widgetRegistry.listWidgets();
@@ -2883,7 +2887,7 @@ const WidgetManager = class {
         if (Number.isInteger(monitorIndex))
             parentWindow = this.getSurfaceWindow(monitorIndex) ?? parentWindow;
 
-        const {window, list, addButton, cancelButton} =
+        const {window, list, addButton, cancelButton, downloadButton} =
             this._createWidgetPickerWindow(parentWindow, widgets);
 
         const resultPromise = new Promise(resolve => {
@@ -2891,6 +2895,12 @@ const WidgetManager = class {
 
             cancelButton.connect('clicked', () => {
                 window.close();
+            });
+
+            downloadButton.connect('clicked', async () => {
+                const didInstall = await this.downloadLatestWidgets(parentWindow);
+                if (didInstall)
+                    window.close();
             });
 
             addButton.connect('clicked', async () => {
@@ -2971,6 +2981,8 @@ const WidgetManager = class {
         const addButton = builder.get_object('add_button');
         /** @type {Gtk.Button} */
         const cancelButton = builder.get_object('cancel_button');
+        /** @type {Gtk.Button} */
+        const downloadButton = builder.get_object('download_button');
 
         if (parentWindow)
             window.set_transient_for(parentWindow);
@@ -2986,7 +2998,7 @@ const WidgetManager = class {
         if (firstRow)
             list.select_row(firstRow);
 
-        return {window, list, addButton, cancelButton};
+        return {window, list, addButton, cancelButton, downloadButton};
     }
 
     _createWidgetRow(desc) {
@@ -3034,6 +3046,104 @@ const WidgetManager = class {
 
         row.set_child(box);
         return row;
+    }
+
+    async downloadLatestWidgets(parentWindow = null) {
+        const confirmed = await this._asyncAskYesNo(
+            _('Download Latest Widgets from Repository?'),
+            _(
+                'This will overwrite all widgets in your local widgets folder.'
+            ),
+            false,
+            parentWindow
+        );
+
+        if (!confirmed)
+            return false;
+
+        const appDataDir = this._desktopIconsUtil.getAppUserDataDir();
+        const archiveUrl = this.Enums.WIDGETS_DOWNLOAD_URL;
+        const tempRootDir = appDataDir.get_child(
+            `widgets.download.${Date.now()}.${Math.floor(Math.random() * 1e9)}`
+        );
+        const extractDir = tempRootDir.get_child('extract');
+        const liveDir = appDataDir.get_child('widgets');
+        const backupDir = appDataDir.get_child('widgets.backup');
+
+        try {
+            await FileUtils.recursivelyMakeDir(tempRootDir);
+            await FileUtils.recursivelyMakeDir(extractDir);
+
+            const archiveData = await FileUtils.downloadBytes(archiveUrl, 30);
+            const archiveFile = tempRootDir.get_child('widgets.tar.gz');
+            await FileUtils.writeBytesToFile(archiveFile, archiveData.bytes);
+            try {
+                await this._desktopManager.autoAr.extractArchiveToFolder(
+                    archiveFile.get_path(),
+                    extractDir
+                );
+            } catch (e) {
+                if (e?.message !== 'AutoAr is not installed')
+                    throw e;
+
+                FileUtils.extractTarGzArchive(archiveFile, extractDir);
+            }
+
+            const sourceWidgetsDir =
+                await FileUtils.findChildDirRecursive(
+                    extractDir,
+                    'widgets'
+                );
+            if (!sourceWidgetsDir)
+                throw new Error('Downloaded archive did not contain a widgets folder');
+
+            if (await FileUtils.queryExists(backupDir))
+                await FileUtils.recursivelyDeleteDir(backupDir, true);
+
+            if (await FileUtils.queryExists(liveDir))
+                await FileUtils.moveFile(liveDir, backupDir);
+
+            try {
+                await FileUtils.moveFile(sourceWidgetsDir, liveDir);
+            } catch (moveError) {
+                if (await FileUtils.queryExists(backupDir)) {
+                    try {
+                        await FileUtils.moveFile(backupDir, liveDir);
+                    } catch (restoreError) {
+                        console.error(
+                            'downloadLatestWidgets: failed to restore widgets backup:',
+                            restoreError
+                        );
+                    }
+                }
+                throw moveError;
+            } finally {
+                // `widgets.backup` is temporary rollback state and should never linger.
+                if (await FileUtils.queryExists(backupDir))
+                    await FileUtils.recursivelyDeleteDir(backupDir, true);
+            }
+
+            this._widgetRegistry.reload();
+            this._desktopManager.dbusManager?.doNotify(
+                _('Widgets updated'),
+                _('The latest widgets were downloaded and installed.')
+            );
+            return true;
+        } catch (e) {
+            console.error('downloadLatestWidgets: install failed:', e);
+            this._desktopManager.dbusManager?.doNotify(
+                _('Widgets download failed'),
+                e?.message ?? String(e)
+            );
+            return false;
+        } finally {
+            try {
+                if (await FileUtils.queryExists(tempRootDir))
+                    await FileUtils.recursivelyDeleteDir(tempRootDir, true);
+            } catch (e) {
+                // ignore cleanup failures
+            }
+        }
     }
 
     _addActions() {
