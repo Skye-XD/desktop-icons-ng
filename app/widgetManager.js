@@ -2892,6 +2892,7 @@ const WidgetManager = class {
 
         const resultPromise = new Promise(resolve => {
             let creationInProgress = false;
+            let reopeningAfterDownload = false;
 
             cancelButton.connect('clicked', () => {
                 window.close();
@@ -2899,8 +2900,13 @@ const WidgetManager = class {
 
             downloadButton.connect('clicked', async () => {
                 const didInstall = await this.downloadLatestWidgets(parentWindow);
-                if (didInstall)
+                if (didInstall) {
+                    reopeningAfterDownload = true;
+                    resolve(null);
                     window.close();
+                    this.openAddWidgetDialog(parentWindow, monitorIndex)
+                        .catch(logError);
+                }
             });
 
             addButton.connect('clicked', async () => {
@@ -2939,6 +2945,9 @@ const WidgetManager = class {
 
             // If user closes via window close button / Esc
             window.connect('close-request', () => {
+                if (reopeningAfterDownload)
+                    return false;
+
                 if (!creationInProgress)
                     resolve(null);
 
