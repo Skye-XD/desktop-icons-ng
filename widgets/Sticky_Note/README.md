@@ -11,7 +11,7 @@ This widget is distributed without any warranty.
 
 Sticky Note is a local-only desktop note widget.
 
-It does not use EDS, a backend process, or direct filesystem writes for note storage. The note is persisted through widget config, with the note body stored as raw HTML.
+It does not use EDS, an external backend, or direct filesystem writes for note storage. The note is persisted through widget config, with the note body stored as raw HTML.
 
 ## Storage
 

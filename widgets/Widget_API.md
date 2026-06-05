@@ -33,7 +33,7 @@ The host creates widget `WebView`s with WebGL enabled and explicitly requests ha
 - Layout-affecting changes such as `width`, `height`, `top`, `left`, or repeated DOM reflow are more likely to cost CPU.
 - WebGL is available for widgets that need it, but it is not required for the common animated-CSS path.
 
-For simple progress indicators or subtle motion, prefer transform-based rendering over width changes when possible. That keeps the widget more compositable and usually lowers CPU pressure in the host/WebKit process tree.
+For simple progress indicators or subtle motion, prefer transform-based rendering over width changes when possible. That keeps the widget more compositable and usually lowers CPU pressure in the host/WebKit runtime stack.
 
 WebKit storage/cache paths are created at runtime:
 
@@ -512,14 +512,14 @@ The host (WebWidgetContext) recognizes these message types from widgets:
 
 ## HtmlWidgetHostWithBackend JSON protocol
 
-Some widgets declare a backend subprocess via `backendSpec`. When present, `HtmlWidgetHostWithBackend` launches that subprocess and exchanges newline-delimited JSON objects over stdin/stdout.
+Some widgets declare a backend helper via `backendSpec`. When present, `HtmlWidgetHostWithBackend` launches that helper in its own systemd scope and exchanges newline-delimited JSON objects over stdin/stdout.
 
 ### Host → backend messages
 
-- **hello**  
-  Sent once after the process starts. Shape:  
+- **hello**
+  Sent once after the helper starts. Shape:
   `{ type: "hello", instanceId, widgetId, mode: "widget", config }`  
-  Receipt of `hello` is a backend’s signal that it can begin doing work. The host sends `hello` immediately after wiring the subprocess—even before any real `request` is dispatched—so widget authors can force eager startup by issuing a no-op `backendRequest` during widget load to trigger process creation.
+  Receipt of `hello` is a backend’s signal that it can begin doing work. The host sends `hello` immediately after wiring the helper—even before any real `request` is dispatched—so widget authors can force eager startup by issuing a no-op `backendRequest` during widget load to trigger helper startup.
 - **request**  
   Sent for each `backendRequest()` invoked by the widget. Shape:  
   `{ type: "request", id, method, params }`  
@@ -527,7 +527,7 @@ Some widgets declare a backend subprocess via `backendSpec`. When present, `Html
 - **shutdown**  
   Sent when the widget host is being destroyed. Shape:  
   `{ type: "shutdown" }`  
-  Backends should treat this as a polite SIGTERM-equivalent and exit promptly; the host will forcibly terminate the process shortly after.
+  Backends should treat this as a polite SIGTERM-equivalent and exit promptly; the host will forcibly terminate the helper shortly after.
 
 ### Backend → host messages
 
@@ -547,9 +547,9 @@ Messages with unknown `type` values or malformed JSON lines are ignored (no erro
 
 ---
 
-### Backend helper: `backEndApp.js` (backend process)
+### Backend helper: `backEndApp.js` (backend scope entrypoint)
 
-Widget backends can subclass `BackendApp` from `widgets/backEndApp.js`, which implements the JSONL protocol over stdin/stdout and wires up request routing, logging, and shutdown handling.
+Widget backends can subclass `BackendApp` from `widgets/backEndApp.js`, which implements the JSONL protocol over stdin/stdout and wires up request routing, logging, and shutdown handling for helpers that run in their own scopes.
 
 Key hooks and helpers:
 

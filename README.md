@@ -79,6 +79,11 @@ Uses Libretranslate to automatically translate into multiple languages.
 - Volume controls are shown only when the current player reports that volume control is supported.
 - Media widgets are pinnable, and cached playback metadata is used so title, art, and progress restore more smoothly after reloads or host transitions.
 
+### Update June 2026
+
+ - The media widget now track multiple players and displays the last interacted one automatically.
+ - The main application now runs in its own slice, in its own systemd scope in this slice. Backends run under their own scope under this slice. The main application slice runs under user.app slice, independent of the gnome-shell slice/scope, allowing independent CPU, memory, task accounting and future controls and limits.
+
 
 ## Security
 

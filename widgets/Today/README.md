@@ -1,13 +1,13 @@
 # Today Widget
 
 The Today widget shows calendar events for the current local day using a small
-HTML frontend and a `gjs` backend backed by Evolution Data Server.
+HTML frontend and a `gjs` backend helper that runs in its own scope backed by Evolution Data Server.
 
 Copyright (C) 2026 Sundeep Mediratta
 
 ## Notes
 
-- Timed events are normalized in the backend before being sent to the widget UI.
+- Timed events are normalized in the backend helper before being sent to the widget UI.
 - The backend preserves the event timezone semantics when converting
   `ICalGLib.Time` values to Unix timestamps.
 - The frontend displays those normalized timestamps using local time formatting.
