@@ -3352,10 +3352,13 @@ const WidgetManager = class {
         const heading = _('Allow web content for {widgetId}?')
             .replace('{widgetId}', widgetId);
         const cspProfile = this._describeCspProfileForHumans();
-        const cspProfileName = GLib.markup_escape_text(cspProfile.name, -1);
+        const cspProfileName = GLib.markup_escape_text(
+            cspProfile.name,
+            ENTIRE_STRING_LENGTH
+        );
         const cspProfileSummary = GLib.markup_escape_text(
             cspProfile.summary,
-            -1
+            ENTIRE_STRING_LENGTH
         );
         const body =
             // eslint-disable-next-line prefer-template
@@ -3400,8 +3403,14 @@ const WidgetManager = class {
         _('The backend runs with your normal user permissions, just like any other application you start.\n') +
         _('It can access your files, system resources, and the network according to your user account permissions.\n\n') +
         (argvStr
-            ? `<b>${GLib.markup_escape_text(_('Command:'), -1)}</b>\n` +
-              `${GLib.markup_escape_text(argvStr, -1)}\n\n`
+            ? `<b>${GLib.markup_escape_text(
+                _('Command:'),
+                ENTIRE_STRING_LENGTH
+            )}</b>\n` +
+              `${GLib.markup_escape_text(
+                  argvStr,
+                  ENTIRE_STRING_LENGTH
+              )}\n\n`
             : '') +
         _('Only allow this for widgets you implicitly trust.');
         const parentWindow = this.getSurfaceWindow(inst.monitorIndex);
