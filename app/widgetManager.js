@@ -18,6 +18,7 @@
 import {Adw, Gio, GLib, Gtk, Gdk} from '../dependencies/gi.js';
 import {_} from '../dependencies/gettext.js';
 import {WidgetRegistry} from '../dependencies/localFiles.js';
+import {FileUtils} from '../dependencies/localFiles.js';
 import {HtmlWidgetHost, HtmlWidgetHostWithBackend} from '../dependencies/localFiles.js';
 import {PinnedWindowManager} from '../dependencies/localFiles.js';
 import {WebWidgetContext} from '../dependencies/localFiles.js';
@@ -66,6 +67,7 @@ function configJson(config) {
 }
 
 const WIDGETS_STATE_SCHEMA_VERSION = 4;
+const ENTIRE_STRING_LENGTH = -1;
 const appID = 'com.desktop.ding';
 const appPath = GLib.build_filenamev(['/', ...appID.split('.')]);
 
@@ -2865,6 +2867,8 @@ const WidgetManager = class {
             return null;
         }
 
+        this._widgetRegistry.reload();
+
         let widgets;
         try {
             widgets = await this._widgetRegistry.listWidgets();
@@ -2883,14 +2887,26 @@ const WidgetManager = class {
         if (Number.isInteger(monitorIndex))
             parentWindow = this.getSurfaceWindow(monitorIndex) ?? parentWindow;
 
-        const {window, list, addButton, cancelButton} =
+        const {window, list, addButton, cancelButton, downloadButton} =
             this._createWidgetPickerWindow(parentWindow, widgets);
 
         const resultPromise = new Promise(resolve => {
             let creationInProgress = false;
+            let reopeningAfterDownload = false;
 
             cancelButton.connect('clicked', () => {
                 window.close();
+            });
+
+            downloadButton.connect('clicked', async () => {
+                const didInstall = await this.downloadLatestWidgets(parentWindow);
+                if (didInstall) {
+                    reopeningAfterDownload = true;
+                    resolve(null);
+                    window.close();
+                    this.openAddWidgetDialog(parentWindow, monitorIndex)
+                        .catch(logError);
+                }
             });
 
             addButton.connect('clicked', async () => {
@@ -2929,6 +2945,9 @@ const WidgetManager = class {
 
             // If user closes via window close button / Esc
             window.connect('close-request', () => {
+                if (reopeningAfterDownload)
+                    return false;
+
                 if (!creationInProgress)
                     resolve(null);
 
@@ -2971,13 +2990,15 @@ const WidgetManager = class {
         const addButton = builder.get_object('add_button');
         /** @type {Gtk.Button} */
         const cancelButton = builder.get_object('cancel_button');
+        /** @type {Gtk.Button} */
+        const downloadButton = builder.get_object('download_button');
 
         if (parentWindow)
             window.set_transient_for(parentWindow);
 
         // Populate rows from registry
-        for (const desc of widgets) {
-            const row = this._createWidgetRow(desc);
+        for (const [index, desc] of widgets.entries()) {
+            const row = this._createWidgetRow(desc, index);
             list.append(row);
         }
 
@@ -2986,22 +3007,42 @@ const WidgetManager = class {
         if (firstRow)
             list.select_row(firstRow);
 
-        return {window, list, addButton, cancelButton};
+        return {window, list, addButton, cancelButton, downloadButton};
     }
 
-    _createWidgetRow(desc) {
+    _createWidgetRow(desc, index = 0) {
         const row = new Gtk.ListBoxRow();
         row._widgetId = desc.id;
+        row.add_css_class('widget-picker-row');
+        if (index % 2 === 1)
+            row.add_css_class('widget-picker-row-alt');
 
         const box = new Gtk.Box({
             orientation: Gtk.Orientation.VERTICAL,
             spacing: 2,
+            hexpand: true,
         });
 
         const titleLabel = new Gtk.Label({
-            label: desc.name || desc.id,
+            label: `<b>${GLib.markup_escape_text(
+                desc.name,
+                ENTIRE_STRING_LENGTH
+            )}</b>`,
+            use_markup: true,
             xalign: 0,
         });
+
+        const descriptionText = desc.description;
+        const descriptionLabel = new Gtk.Label({
+            label: descriptionText,
+            xalign: 0,
+            hexpand: true,
+            halign: Gtk.Align.FILL,
+            wrap: true,
+            wrap_mode: Gtk.WrapMode.WORD_CHAR,
+            max_width_chars: 58,
+        });
+        descriptionLabel.add_css_class('dim-label');
 
         const subtitleParts = [];
 
@@ -3014,11 +3055,9 @@ const WidgetManager = class {
                 subtitleParts.push(desc.kind);
         }
 
-        if (desc.category)
-            subtitleParts.push(desc.category);
-
-        if (desc.isUser)
-            subtitleParts.push(_('User'));
+        subtitleParts.push(
+            desc.isUser ? _('User Installed') : _('System Installed')
+        );
 
         const subtitle = subtitleParts.join(' · ');
 
@@ -3029,11 +3068,110 @@ const WidgetManager = class {
         subtitleLabel.add_css_class('dim-label');
 
         box.append(titleLabel);
+        box.append(descriptionLabel);
         if (subtitle)
             box.append(subtitleLabel);
 
         row.set_child(box);
         return row;
+    }
+
+    async downloadLatestWidgets(parentWindow = null) {
+        const confirmed = await this._asyncAskYesNo(
+            _('Download Latest Widgets from Repository?'),
+            _(
+                'This will overwrite all widgets in your local widgets folder.'
+            ),
+            false,
+            parentWindow
+        );
+
+        if (!confirmed)
+            return false;
+
+        const appDataDir = this._desktopIconsUtil.getAppUserDataDir();
+        const archiveUrl = this.Enums.WIDGETS_DOWNLOAD_URL;
+        const tempRootDir = appDataDir.get_child(
+            `widgets.download.${Date.now()}.${Math.floor(Math.random() * 1e9)}`
+        );
+        const extractDir = tempRootDir.get_child('extract');
+        const liveDir = appDataDir.get_child('widgets');
+        const backupDir = appDataDir.get_child('widgets.backup');
+
+        try {
+            await FileUtils.recursivelyMakeDir(tempRootDir);
+            await FileUtils.recursivelyMakeDir(extractDir);
+
+            const archiveData = await FileUtils.downloadBytes(archiveUrl, 30);
+            const archiveFile = tempRootDir.get_child('widgets.tar.gz');
+            await FileUtils.writeBytesToFile(archiveFile, archiveData.bytes);
+            try {
+                await this._desktopManager.autoAr.extractArchiveToFolder(
+                    archiveFile.get_path(),
+                    extractDir
+                );
+            } catch (e) {
+                if (e?.message !== 'AutoAr is not installed')
+                    throw e;
+
+                FileUtils.extractTarGzArchive(archiveFile, extractDir);
+            }
+
+            const sourceWidgetsDir =
+                await FileUtils.findChildDirRecursive(
+                    extractDir,
+                    'widgets'
+                );
+            if (!sourceWidgetsDir)
+                throw new Error('Downloaded archive did not contain a widgets folder');
+
+            if (await FileUtils.queryExists(backupDir))
+                await FileUtils.recursivelyDeleteDir(backupDir, true);
+
+            if (await FileUtils.queryExists(liveDir))
+                await FileUtils.moveFile(liveDir, backupDir);
+
+            try {
+                await FileUtils.moveFile(sourceWidgetsDir, liveDir);
+            } catch (moveError) {
+                if (await FileUtils.queryExists(backupDir)) {
+                    try {
+                        await FileUtils.moveFile(backupDir, liveDir);
+                    } catch (restoreError) {
+                        console.error(
+                            'downloadLatestWidgets: failed to restore widgets backup:',
+                            restoreError
+                        );
+                    }
+                }
+                throw moveError;
+            } finally {
+                // `widgets.backup` is temporary rollback state and should never linger.
+                if (await FileUtils.queryExists(backupDir))
+                    await FileUtils.recursivelyDeleteDir(backupDir, true);
+            }
+
+            this._widgetRegistry.reload();
+            this._desktopManager.dbusManager?.doNotify(
+                _('Widgets updated'),
+                _('The latest widgets were downloaded and installed.')
+            );
+            return true;
+        } catch (e) {
+            console.error('downloadLatestWidgets: install failed:', e);
+            this._desktopManager.dbusManager?.doNotify(
+                _('Widgets download failed'),
+                e?.message ?? String(e)
+            );
+            return false;
+        } finally {
+            try {
+                if (await FileUtils.queryExists(tempRootDir))
+                    await FileUtils.recursivelyDeleteDir(tempRootDir, true);
+            } catch (e) {
+                // ignore cleanup failures
+            }
+        }
     }
 
     _addActions() {
@@ -3214,10 +3352,13 @@ const WidgetManager = class {
         const heading = _('Allow web content for {widgetId}?')
             .replace('{widgetId}', widgetId);
         const cspProfile = this._describeCspProfileForHumans();
-        const cspProfileName = GLib.markup_escape_text(cspProfile.name, -1);
+        const cspProfileName = GLib.markup_escape_text(
+            cspProfile.name,
+            ENTIRE_STRING_LENGTH
+        );
         const cspProfileSummary = GLib.markup_escape_text(
             cspProfile.summary,
-            -1
+            ENTIRE_STRING_LENGTH
         );
         const body =
             // eslint-disable-next-line prefer-template
@@ -3262,8 +3403,14 @@ const WidgetManager = class {
         _('The backend runs with your normal user permissions, just like any other application you start.\n') +
         _('It can access your files, system resources, and the network according to your user account permissions.\n\n') +
         (argvStr
-            ? `<b>${GLib.markup_escape_text(_('Command:'), -1)}</b>\n` +
-              `${GLib.markup_escape_text(argvStr, -1)}\n\n`
+            ? `<b>${GLib.markup_escape_text(
+                _('Command:'),
+                ENTIRE_STRING_LENGTH
+            )}</b>\n` +
+              `${GLib.markup_escape_text(
+                  argvStr,
+                  ENTIRE_STRING_LENGTH
+              )}\n\n`
             : '') +
         _('Only allow this for widgets you implicitly trust.');
         const parentWindow = this.getSurfaceWindow(inst.monitorIndex);

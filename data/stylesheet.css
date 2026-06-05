@@ -80,6 +80,14 @@ box.desktop-icon-container.keyboard-selected > #file-item.desktop-icons-selected
     color: rgb(255, 0, 0);
 }
 
+.widget-picker-row {
+    padding: 6px 8px;
+}
+
+.widget-picker-row.widget-picker-row-alt:not(:selected) {
+    background-color: alpha(@theme_fg_color, 0.04);
+}
+
 #desktopwindow.background {
     background-blend-mode: normal;
     background-clip: border-box;

@@ -184,6 +184,8 @@ The application functionality and behavior is consistent with the two other very
 
 - [x] Added widget grid, snap to widget grid functionality and imporved right click menu
 
+- [x] Added a `Download Latest` button to the Add Widget dialog so widgets can be automatically downloaded and installed from the current widget set, while still supporting manual widget folder installs.
+
 - [x] Floating/pinned HTML widgets are implemented, now survive container/window reparenting reliably by reloading the WebView when WebKit does not repaint correctly after the parent change. Pinnable widgets therefore need to tolerate reload and persist meaningful state outside transient page memory.
 
 - [x] Added floating widget polish and bug fixes: better pinned overlay controls, improved focus retention, cleaner selected-state handling on floating actors, and safer widget-layer chrome handling while widgets are active.

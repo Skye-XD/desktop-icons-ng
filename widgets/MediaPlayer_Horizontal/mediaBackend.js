@@ -2,7 +2,7 @@ import GLib from 'gi://GLib';
 import Gio from 'gi://Gio';
 import GObject from 'gi://GObject';
 import Soup from 'gi://Soup?version=3.0';
-import {BackendApp, runBackend} from '../backEndApp.js';
+import {BackendApp, runBackend} from './backEndApp.js';
 const ByteArray = imports.byteArray;
 
 const MPRIS_PREFIX = 'org.mpris.MediaPlayer2.';

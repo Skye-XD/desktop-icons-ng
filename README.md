@@ -36,8 +36,8 @@ Uses Libretranslate to automatically translate into multiple languages.
 - The widget runtime is initialized lazily: if no widgets are enabled or instantiated, no WebKit processes are started, no additional resources are used, and there is no added attack surface beyond normal DING operation.
 - The current widget set includes Today, Weather, World Clock, Metrics, Media Player, and Sticky Note widgets. The heavier widgets were tuned to reduce idle CPU use: weather animations are off by default, the Today calendar backend now preserves event timezone semantics correctly for local display, and the media widgets use a lighter DOM with signal-driven refreshes.
 - The new web-widget layer can optionally launch helper backends defined per widget via `widget.json`. `HtmlWidgetHostWithBackend` spawns those commands directly from the widget bundle and exchanges newline-delimited JSON so widgets can render data produced by applications written in any language. This gives widget authors the power to integrate local system information or custom services well beyond what WebKit alone can access, so treat backend-enabled widgets like local applications and install only from trusted sources.
-- Documentation: [Desktop_Widgets.md](Desktop_Widgets.md), [Widget_API.md](widgets/Widget_API.md), [Widget_CSP_Profiles.md](Widget_CSP_Profiles.md). An optional shared stylesheet `widgets/ding-widget.css` is covered in [Widget_API.md](widgets/Widget_API.md#optional-helper-stylesheet-ding-widgetcss).
-- See widget installation below on how to install widgets.
+- Documentation: [Desktop_Widgets.md](Desktop_Widgets.md), [Widget_API.md](Widget_API.md), [Widget_CSP_Profiles.md](Widget_CSP_Profiles.md). An optional shared stylesheet is available in [Widget Helpers/ding-widget.css](Widget%20Helpers/ding-widget.css) and covered in [Widget_API.md](Widget_API.md#optional-helper-stylesheet-ding-widgetcss).
+- Widgets can still be installed manually by copying folders into the widget directories described in the widget guide, or automatically by using the Add Widget dialog's `Download Latest` button.
 
 ### UPDATE Gnome 50
 
@@ -90,7 +90,7 @@ Uses Libretranslate to automatically translate into multiple languages.
 - **Backend-enabled widgets run native code.** If a widget declares a `backend` in `widget.json`, the host will spawn that command with the user’s privileges and pipe JSON over stdin/stdout. That process can read local files, access hardware, and reach the network outside the WebKit sandbox or CSP rules. Review widget bundles before installation and only deploy ones you trust as much as other desktop applications.
 - **Per-widget isolation is at the UI layer, not the OS layer.** Widgets share the same user account and session; a malicious widget (or backend) can interfere with others.
 - **Prefer least privilege.** Keep backend binaries small, audited, and limited to the capabilities they truly need. Forward only sanitized data between WebView and backend.
-- **See** [Widget_API.md](widgets/Widget_API.md#htmlwidgethostwithbackend-json-protocol) **for protocol details and additional guidance.**
+- **See** [Widget_API.md](Widget_API.md#htmlwidgethostwithbackend-json-protocol) **for protocol details and additional guidance.**
 
 ## Features and Fixes
 

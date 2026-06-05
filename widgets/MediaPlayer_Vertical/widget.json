@@ -1,7 +1,7 @@
 {
   "id": "media.player.vertical",
-  "name": "Media Player",
-  "description": "Show current playing music info via MPRIS",
+  "name": "Media Player Vertical",
+  "description": "Show current playing music info via MPRIS in a vertical layout",
   "kind": "html",
   "defaultWidth": 200,
   "defaultHeight": 250,

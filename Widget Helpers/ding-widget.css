@@ -147,26 +147,6 @@ body.ding-pinned .ding-only-unpinned {
 
 
 /* ==================================================
- * Host chrome visibility helpers
- * ==================================================
- *
- * The host sets:
- *   body.ding-host-chrome-visible
- *
- * Widgets can use this when they want internal controls
- * to appear in lockstep with the host chrome timing/state.
- */
-
-.ding-only-host-chrome-visible {
-    display: none;
-}
-
-body.ding-host-chrome-visible .ding-only-host-chrome-visible {
-    display: initial;
-}
-
-
-/* ==================================================
  * Layer-state helpers
  * ==================================================
  *

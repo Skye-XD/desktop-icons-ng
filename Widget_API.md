@@ -6,7 +6,7 @@ This document describes the **current** HTML widget JavaScript API as implemente
 
 It intentionally documents **only what exists today** in code.
 
-If you want a quick start, the optional `ding-client.js` helper handles the bridge plumbing for you, and `ding-widget.css` lets you react to host state using only CSS—jump to those sections if that’s all you need.
+If you want a quick start, the optional `ding-client.js` helper handles the bridge plumbing for you, and the canonical shared stylesheet lives in [Widget Helpers/ding-widget.css](Widget%20Helpers/ding-widget.css). Copy it into your widget bundle as `ding-widget.css` if you want CSS-only host-state reactions—jump to those sections if that’s all you need.
 
 ---
 
@@ -137,7 +137,7 @@ This is intended to make widgets “desktop-friendly” by default (a transparen
 
 ### Optional helper stylesheet: `ding-widget.css`
 
-Alongside this document, the widgets folder includes `ding-widget.css`, an optional helper stylesheet that reacts to host-managed DOM state. No JavaScript is required; it simply listens to classes and attributes the host already maintains.
+Alongside this document, the root-level [Widget Helpers/ding-widget.css](Widget%20Helpers/ding-widget.css) file provides the optional helper stylesheet that reacts to host-managed DOM state. Widgets should copy it into their own bundle as `ding-widget.css`. No JavaScript is required; it simply listens to classes and attributes the host already maintains.
 
 #### State applied by the host
 
@@ -162,8 +162,8 @@ Widgets must never toggle these themselves; the host keeps them up to date:
 
 #### Using the stylesheet
 
-- Plain HTML widget: `<link rel="stylesheet" href="../ding-widget.css">`
-- Bundled builds (React/Svelte/Vite): `import '../ding-widget.css';`
+- Plain HTML widget: `<link rel="stylesheet" href="ding-widget.css">`
+- Bundled builds (React/Svelte/Vite): `import './ding-widget.css';`
 
 That’s it—no additional setup. The stylesheet reacts immediately when host state changes.
 
@@ -506,7 +506,7 @@ The host (WebWidgetContext) recognizes these message types from widgets:
 | `removeWidget` | low-level (`ding.post`) | request removal of the sending widget instance |
 | `openExternalLink` | low-level (`ding.post`) | request host-mediated opening of an external `http`/`https` URL |
 
-> Note: `openPreferences` and `openExternalLink` still use low-level `ding.post(...)` today. If you use `widgets/widgetHelper.js`, it now provides convenience helpers for `createWidget()`, `removeWidget()`, and `setDraggable()`.
+> Note: `openPreferences` and `openExternalLink` still use low-level `ding.post(...)` today. If you use [Widget Helpers/widgetHelper.js](Widget%20Helpers/widgetHelper.js), it now provides convenience helpers for `createWidget()`, `removeWidget()`, and `setDraggable()`.
 
 ---
 
@@ -570,7 +570,7 @@ To run a backend, subclass `BackendApp` and call `runBackend(MyBackend)` from yo
 
 ### Backend helper for widgets: `widgetHelper.js` (DingClient)
 
-For widget-side code, `widgets/widgetHelper.js` exports `DingClient` as a thin helper around the injected `window.ding` API. It exposes `backendRequest`, `backendSend`, `onBackendEvent`, and `onVisibilityChange`, sends an initial backend hello for lazy startup, and includes optional timeouts for requests.
+For widget-side code, [Widget Helpers/widgetHelper.js](Widget%20Helpers/widgetHelper.js) exports `DingClient` as the canonical helper around the injected `window.ding` API. Copy it into your widget bundle as `widgetHelper.js`; the local copy exposes `backendRequest`, `backendSend`, `onBackendEvent`, and `onVisibilityChange`, sends an initial backend hello for lazy startup, and includes optional timeouts for requests.
 
 For draggable regions, the helper also exposes `setDraggable(target)` and `clearDraggable()`. `setDraggable(target)` is for widgets in the **raised widget container** and accepts a selector string, an `Element`, a rect-like object, or an array-like/iterable collection of those values. Selector strings use normal CSS selector syntax, so `#id`, `.class`, `header > .drag-strip`, or similar forms all work. The helper computes the current widget-local rectangles once and posts them as a full replacement list through `window.ding.setDraggableRegions(...)`. Use `clearDraggable()` when you want to remove the current regions explicitly.
 
@@ -956,7 +956,7 @@ In those cases the helper pays for itself immediately by keeping all widgets con
 
 ## Optional helper: `backEndApp.js`
 
-For JavaScript backends, the widgets folder ships `backEndApp.js`, a small GJS base class that implements the JSONL protocol for you. It is optional, but it saves boilerplate and keeps backends consistent.
+For JavaScript backends, the root-level [Widget Helpers/backEndApp.js](Widget%20Helpers/backEndApp.js) file provides a small GJS base class that implements the JSONL protocol for you. Copy it into your widget bundle as `backEndApp.js` if you want the helper; it is optional, but it saves boilerplate and keeps backends consistent.
 
 ### Why use it for backends
 
@@ -997,4 +997,4 @@ Use it if you are writing a JS/GJS backend and want a well-defined protocol wrap
 - If you suppress host chrome, your widget owns the equivalent UI behavior and must call the host APIs itself.
 - Prefer shipping all JS/CSS locally; do not rely on remote `<script src=...>`.
 - If you adopt `ding-client.js`, it can hide most of the plumbing above (instance routing, config access, event subscriptions, backend IPC) so your widget code stays focused on UI logic; using it is optional but recommended for consistency.
-- For purely visual reactions to host state, you can skip JavaScript entirely and include `widgets/ding-widget.css`, which already responds to theme, edit/selection state, pinned state, reduced motion, direction changes, and common pinned/layer combinations (see [Optional helper stylesheet](#optional-helper-stylesheet-ding-widgetcss)).
+- For purely visual reactions to host state, you can skip JavaScript entirely and include `ding-widget.css`, copied from [Widget Helpers/ding-widget.css](Widget%20Helpers/ding-widget.css), which already responds to theme, edit/selection state, pinned state, reduced motion, direction changes, and common pinned/layer combinations (see [Optional helper stylesheet](#optional-helper-stylesheet-ding-widgetcss)).

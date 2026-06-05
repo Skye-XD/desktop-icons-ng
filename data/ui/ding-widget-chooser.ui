@@ -4,7 +4,7 @@
   <requires lib="adwaita" version="1.0"/>
 
   <object class="AdwWindow" id="widget_picker_window">
-    <property name="default-width">420</property>
+    <property name="default-width">640</property>
     <property name="default-height">320</property>
     <property name="modal">true</property>
     <property name="title" translatable="yes">Add Widget</property>
@@ -26,8 +26,14 @@
             </child>
 
             <child type="start">
-              <object class="GtkButton" id="cancel_button">
-                <property name="label" translatable="yes">Cancel</property>
+              <object class="GtkBox" id="start_button_box">
+                <property name="spacing">6</property>
+
+                <child>
+                  <object class="GtkButton" id="cancel_button">
+                    <property name="label" translatable="yes">Cancel</property>
+                  </object>
+                </child>
               </object>
             </child>
 
@@ -59,6 +65,22 @@
                 <child>
                   <object class="GtkListBox" id="widget_list">
                     <property name="selection-mode">single</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+
+            <child>
+              <object class="GtkBox" id="footer_box">
+                <property name="orientation">horizontal</property>
+                <property name="spacing">6</property>
+                <property name="hexpand">true</property>
+                <property name="halign">end</property>
+                <property name="margin-top">6</property>
+
+                <child>
+                  <object class="GtkButton" id="download_button">
+                    <property name="label" translatable="yes">Download Latest</property>
                   </object>
                 </child>
               </object>

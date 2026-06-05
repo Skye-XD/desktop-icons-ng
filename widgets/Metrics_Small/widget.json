@@ -2,6 +2,7 @@
   "id": "metrics-small",
   "kind": "html",
   "name": "Metrics (Small)",
+  "description": "Show system performance metrics in a compact layout",
   "defaultWidth": 260,
   "defaultHeight": 160,
   "version": 3,

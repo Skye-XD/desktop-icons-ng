@@ -2,6 +2,7 @@
   "id": "metrics-medium",
   "kind": "html",
   "name": "Metrics (Medium)",
+  "description": "Show system performance metrics in a medium layout",
   "defaultWidth": 320,
   "defaultHeight": 200,
   "version": 3,
