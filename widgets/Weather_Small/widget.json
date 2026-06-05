@@ -1,6 +1,7 @@
 {
   "id": "com.desktop.ding.weather.small",
   "name": "Weather (Small)",
+  "description": "Show current weather conditions for a user-selected location in a compact layout",
   "kind": "html",
   "entry": "index.html",
   "prefs": "prefs.html",

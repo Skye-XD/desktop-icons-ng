@@ -1,7 +1,7 @@
 {
   "id": "sticky.note",
   "name": "Sticky Note",
-  "description": "Single sticky note stored in widget config",
+  "description": "A colorful sticky note that keeps your thoughts pinned where you can see them.",
   "kind": "html",
   "defaultWidth": 360,
   "defaultHeight": 300,

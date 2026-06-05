@@ -1,6 +1,7 @@
 {
   "id": "com.desktop.ding.weather.medium",
   "name": "Weather (Medium)",
+  "description": "Show current weather conditions for a user-selected location in a medium layout",
   "kind": "html",
   "entry": "index.html",
   "prefs": "prefs.html",

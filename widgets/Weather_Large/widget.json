@@ -1,6 +1,7 @@
 {
   "id": "com.desktop.ding.weather.large",
   "name": "Weather (Large)",
+  "description": "Show current weather conditions for a user-selected location in a large layout",
   "kind": "html",
   "entry": "index.html",
   "prefs": "prefs.html",
