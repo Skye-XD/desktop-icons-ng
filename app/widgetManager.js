@@ -2997,8 +2997,8 @@ const WidgetManager = class {
             window.set_transient_for(parentWindow);
 
         // Populate rows from registry
-        for (const desc of widgets) {
-            const row = this._createWidgetRow(desc);
+        for (const [index, desc] of widgets.entries()) {
+            const row = this._createWidgetRow(desc, index);
             list.append(row);
         }
 
@@ -3010,19 +3010,39 @@ const WidgetManager = class {
         return {window, list, addButton, cancelButton, downloadButton};
     }
 
-    _createWidgetRow(desc) {
+    _createWidgetRow(desc, index = 0) {
         const row = new Gtk.ListBoxRow();
         row._widgetId = desc.id;
+        row.add_css_class('widget-picker-row');
+        if (index % 2 === 1)
+            row.add_css_class('widget-picker-row-alt');
 
         const box = new Gtk.Box({
             orientation: Gtk.Orientation.VERTICAL,
             spacing: 2,
+            hexpand: true,
         });
 
         const titleLabel = new Gtk.Label({
-            label: desc.name || desc.id,
+            label: `<b>${GLib.markup_escape_text(
+                desc.name,
+                ENTIRE_STRING_LENGTH
+            )}</b>`,
+            use_markup: true,
             xalign: 0,
         });
+
+        const descriptionText = desc.description;
+        const descriptionLabel = new Gtk.Label({
+            label: descriptionText,
+            xalign: 0,
+            hexpand: true,
+            halign: Gtk.Align.FILL,
+            wrap: true,
+            wrap_mode: Gtk.WrapMode.WORD_CHAR,
+            max_width_chars: 58,
+        });
+        descriptionLabel.add_css_class('dim-label');
 
         const subtitleParts = [];
 
@@ -3035,11 +3055,9 @@ const WidgetManager = class {
                 subtitleParts.push(desc.kind);
         }
 
-        if (desc.category)
-            subtitleParts.push(desc.category);
-
-        if (desc.isUser)
-            subtitleParts.push(_('User'));
+        subtitleParts.push(
+            desc.isUser ? _('User Installed') : _('System Installed')
+        );
 
         const subtitle = subtitleParts.join(' · ');
 
@@ -3050,6 +3068,7 @@ const WidgetManager = class {
         subtitleLabel.add_css_class('dim-label');
 
         box.append(titleLabel);
+        box.append(descriptionLabel);
         if (subtitle)
             box.append(subtitleLabel);
 
