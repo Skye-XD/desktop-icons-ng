@@ -10,7 +10,7 @@ CSS playback controls: Sundeep Mediratta
 
 - Flattened the widget DOM and removed extra layout wrappers.
 - Simplified the update path so the tick only touches playback progress and time.
-- Switched the backend to signal-driven MPRIS refreshes instead of fixed polling.
+- Switched the widget backend to signal-driven MPRIS refreshes instead of fixed polling.
 - Reduced frontend playback updates to a visible-only 1 Hz timer.
 - Rendered the progress bar with compositor-friendly transforms.
 - Refreshed reload snapshots on demand for accurate playback position.

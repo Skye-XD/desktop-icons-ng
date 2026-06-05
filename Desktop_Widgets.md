@@ -45,7 +45,7 @@ Using HTML also makes it possible to leverage the enormous existing web ecosyste
 
 This makes it easy to build widgets that integrate with home automation systems, monitoring endpoints, remote dashboards, infrastructure services, and other devices that already expose web-based APIs or interfaces.
 
-When HTTP APIs are not enough, widgets can declare a native backend helper. The helper is launched directly from the widget directory and communicates with the HTML UI using newline-delimited JSON. This unlocks integrations with sensors, CLI tools, and custom daemons written in any language, so long as you ship the executable with the widget. Because the helper runs with the user’s privileges, treat it like any other desktop application when reviewing or distributing widgets.
+When HTTP APIs are not enough, widgets can declare a native backend helper. The helper is launched directly from the widget directory into its own systemd scope and communicates with the HTML UI using newline-delimited JSON. This unlocks integrations with sensors, CLI tools, and custom daemons written in any language, so long as you ship the executable with the widget. Because the helper runs with the user’s privileges, treat it like any other desktop application when reviewing or distributing widgets.
 
 This includes:
 - modern JavaScript frameworks and libraries
@@ -94,16 +94,26 @@ The WebKit subprocesses are owned by the ding application, not by GNOME Shell, a
 
 WebKit’s multi-process architecture, combined with the platform’s sandboxing and resource confinement, allows widgets to take advantage of modern web technologies while keeping failures contained. If a widget crashes or becomes unresponsive, it affects only that widget, instead of the desktop environment.
 
-Looking ahead, this architecture opens up even more powerful possibilities. One future direction is to make the widget runtime D-Bus activatable and managed as a user-level systemd service, rather than a simple child process. This would allow the widget system to run in its own cgroup, with explicit limits on CPU usage, memory consumption, and other resources.
+Looking ahead, this systemd-backed layout opens up even more powerful possibilities.
 
-Running widgets under systemd with resource constraints would make it possible to:
+Update June 2026
+
+The desktop app now lives in its own slice under the user.app slice, the webkit processes and the main app has its own scope under this slice, and helper backends now run in their own scopes under the main app slice, so the widget system can evolve toward tighter lifecycle control without tying everything to GNOME Shell. All process, CPU, Memory, task accounting is now independent of the Gnome Shell. Futher hard limits can now be imposed if necessary.
+
+<p align="center">
+  <img src="media/systemd-slice.png" alt="Desktop widgets and main application running its own scope and slice under the user.app slice, backends running in their own scopes under this main slice " width="900">
+  <br>
+  <span>Demonstrates Application, Webkit subprocesses, and backends running in their own scopes under the main application slice</span>
+</p>
+
+This layout makes it possible to:
 
 - enforce hard limits on misbehaving widgets
 - prioritize desktop responsiveness over widget activity
 - cleanly restart the widget runtime without restarting the desktop
 - integrate more naturally with modern Linux process management
 
-This kind of design treats widgets not as fragile extensions, but as contained, well-behaved user processes. It provides strong isolation without pretending to offer absolute security, and it aligns well with modern Linux desktop and system architecture.
+This kind of design treats widgets not as fragile extensions, but as contained, well-behaved user workloads. It provides strong isolation without pretending to offer absolute security, and it aligns well with modern Linux desktop and system architecture.
 
 Overall, this approach strikes a pragmatic balance: it enables powerful, flexible widgets built with existing web technologies, while still respecting the stability, robustness, and reliability expectations of a desktop platform.
 
@@ -710,7 +720,9 @@ The `prefs` key is optional; when set, it should point to a preferences HTML fil
 
 ## Optional backend subprocess
 
-HTML widgets may opt into a helper backend executed by `HtmlWidgetHostWithBackend`. Add a `backend` object to `widget.json` when you need a native companion that talks to system services, performs heavy computation, or reaches resources that WebKit cannot access directly.
+HTML widgets may opt into a helper backend started by `HtmlWidgetHostWithBackend` in its own systemd scope. Add a `backend` object to `widget.json` when you need a native companion that talks to system services, performs heavy computation, or reaches resources that WebKit cannot access directly.
+
+The backend is now launched in its own systemd scope under the main application slice.
 
 ```json
 {
@@ -735,7 +747,7 @@ Manifest fields:
 - `backend.cwd` (optional): working directory relative to the widget root (`"."` by default).
 - `backend.env` (optional): map of environment overrides merged with the host-provided environment.
 
-The backend process receives newline-delimited JSON requests from the host and replies in kind. See [Widget_API.md](widgets/Widget_API.md#htmlwidgethostwithbackend-json-protocol) for the message schema. Because the backend is just a regular executable, you can write it in any language and use it to interact with system internals, hardware, or private APIs, then push the results to the widget UI.
+The backend helper receives newline-delimited JSON requests from the host and replies in kind. See [Widget_API.md](widgets/Widget_API.md#htmlwidgethostwithbackend-json-protocol) for the message schema. Because the backend is just a regular executable, you can write it in any language and use it to interact with system internals, hardware, or private APIs, then push the results to the widget UI.
 
 > **Important:** Backends run with the user’s permissions and can read local files, talk to the network, or spawn additional helpers. Treat backend-enabled widgets as native applications and ship only audited binaries or scripts.
 
@@ -804,7 +816,7 @@ Use of this platform and third-party widgets is ultimately **at your own risk**.
 
 ### Backend subprocesses magnify trust requirements
 
-When a widget declares a `backend`, the host spawns that executable directly from the widget bundle with the user’s privileges. The backend is outside the WebKit sandbox, can access the local filesystem, hardware, and network, and communicates with the widget UI via JSON over stdin/stdout. This design enables powerful integrations (system monitors, hardware bridges, custom daemons) but also means a compromised widget backend has the same reach as any local application. Install backend-enabled widgets only from trusted sources and review their contents just as you would any packaged software.
+When a widget declares a `backend`, the host spawns that executable directly from the widget bundle with the user’s privileges and places it in its own systemd scope. The backend is outside the WebKit sandbox, can access the local filesystem, hardware, and network, and communicates with the widget UI via JSON over stdin/stdout. This design enables powerful integrations (system monitors, hardware bridges, custom daemons) but also means a compromised widget backend has the same reach as any local application. Install backend-enabled widgets only from trusted sources and review their contents just as you would any packaged software.
 
 ---
 

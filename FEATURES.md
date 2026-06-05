@@ -176,7 +176,7 @@ The application functionality and behavior is consistent with the two other very
 
 - [x] New - Desktop widgets with isolated WebKit runtime, jailed `ding-widget://` scheme, shared WebContext/UCM, prefs via `widget.json` `prefs` path (any subdirectory), per-instance config (overwrites on save), and injected `window.ding` API.
 
-- [x] Added optional backend process for html widgets that can run as user and query system internsal, communicate with the widget.
+- [x] Added optional backend processes for html widgets that can run as the user, query system internals, and communicate with the widget.
 
 - [x] Draw with GSK instead of Cairo for selection and other rectangles, optimize GPU vs CPU use.
 
@@ -197,6 +197,8 @@ The application functionality and behavior is consistent with the two other very
 - [x] Added draggable widget areas for HTML widgets, letting widgets publish host hit-test rectangles for move start without a visible drag handle. The host now uses those draggable regions to suppress the move-button affordance when the widget provides its own draggable area.
 
 - [x] Media player widgets version 1.2: moved the backend to signal-driven MPRIS refreshes, reduced frontend playback updates to a visible-only 1 Hz timer, switched the progress bar to compositor-friendly transform rendering, refreshed reload snapshots on demand, and persisted only meaningful media changes.
+
+- [x] The app process now runs in its own slice, the main app with webkit subprocess in one scope in this slice, all backends are also launched in their own scopes under this slice. The slice runs in the user.app slice, with independent accounting of memory/CPU from the Gnome Shell. Independent limits can be imposed in future.
 
 **FIXES**
 

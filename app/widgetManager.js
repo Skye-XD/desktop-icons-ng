@@ -2064,6 +2064,7 @@ const WidgetManager = class {
                 instanceId: inst.instanceId,
                 widgetId: inst.widgetId,
                 frameRect: frame,
+                mainApp: this._desktopManager.mainApp,
                 widgetRegistry: this._widgetRegistry,
                 webContext: webCtx,
             });
