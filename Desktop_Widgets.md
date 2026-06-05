@@ -247,6 +247,11 @@ Some widgets provide preferences.
 
 Widgets are discovered automatically from specific directories. They are discovered at startup.
 
+You can install widgets in either of two ways:
+
+- manually, by copying widget folders into the install locations below
+- automatically, by using the Add Widget dialog's `Download Latest` button to fetch and install the current widget set
+
 **User-installed widgets (recommended)**
 
 Install widgets for your user account only:
@@ -288,6 +293,8 @@ $XDG_DATA_DIRS/<app-id>/widgets/
 
 User widgets always override system widgets with the same ID.
 
+If you use the `Download Latest` button, the widgets are installed into your user widget directory automatically.
+
 ### Removing widgets
 
 To remove a widget:
@@ -314,7 +321,7 @@ Only install widgets from sources you trust.
 - Widgets are optional, lightweight, and opt-in
 - Use edit mode to interact with widgets
 - Press Escape to exit edit mode or rigth click menu
-- Install widgets by copying them into the widgets directory
+- Install widgets by copying them into the widgets directory, or use the `Download Latest` button for automatic installation
 - Widgets are isolated and safe by design, but still run user code and have access to web with a restricted profile for safety
 
 For developers who want to create widgets, see the Author Guide below.

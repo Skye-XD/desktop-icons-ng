@@ -6,7 +6,7 @@ Latest update: GNOME 50 support has been refreshed again with a Mutter 50 cursor
 
 Now has a widget layer that can run widgets- like KDE desklets, they are little HTML display apps that run in Webkit. Icons cover this layer, layers can be moved up or down for editing. Widgets can be snapped to a grid to maintain row/column alignment or free positioned.
 
-Widgets are discovered automatically at startup from specific directories. For user-installed widgets, download the widget folder you want from the `widgets` folder on the GitLab website and place it in `$XDG_DATA_HOME/com.desktop.ding/widgets/`. The typical path is `~/.local/share/com.desktop.ding/widgets/`.
+Widgets are discovered automatically at startup from specific directories. You can install them manually by downloading the widget folder you want from the GitLab `widgets` directory and placing it in `$XDG_DATA_HOME/com.desktop.ding/widgets/` (typically `~/.local/share/com.desktop.ding/widgets/`). You can also use the Add Widget dialog's `Download Latest` button to automatically fetch and install the current widget set from the repository.
 
 Icons can be positioned anywhere on desktop or are snapped to a grid. Can make links on the Desktop. GSconnect Integration, can send files to connected devices. Drag and Drop support on to Dock, Dash, or from Dock, Dash to the Desktop.
 
@@ -20,6 +20,7 @@ Translated using LibreTranslate, machine translation, not every string is verifi
 Corrections, verification of translated strings, and new translations are welcome, all translations are on Weblate. You can help translate Adw. Desktop Icons NG on [Hosted Weblate](https://hosted.weblate.org/projects/gtk4-desktop-icons-ng/gtk4-ding-pot/).
 
 Multiple fixes and new features-
+* Add Widget dialog now includes a `Download Latest` button to automatically fetch and install the current widget set.
 * New media player/display widget in horizontal or vertical available for download. Multiple rendering fixes for the old widgets, please re-install.
 * Media widgets are now pinnable and include on-widget MPRIS controls for Previous, Play/Pause, Next, volume slider, +/- volume buttons, and mouse-wheel volume.
 * New Sticky Note widget with rich-text editing, checklist support, links, note colors, and floating/pinned window support.
@@ -28,7 +29,7 @@ Multiple fixes and new features-
 * Use GSK to draw instead of Cairo, optimizes GPU/CPU use.
 * Fixes to widget positioning, keyboard modifier selection of icons with arrow keys.
 * Fixes overview animation.
-* All widgets have been updaetd. Re-install from widgets folder on GitLab Website.
+* All widgets have been updated. Re-install from the widgets folder on GitLab Website, or use the Add Widget dialog's `Download Latest` button to install them automatically.
 * Widgets can now run backend processes for host side compute work. Added demo new metrics widget and Today(Calendar) view widget. Added helper classes for backend and widget for widget authors.
 * The program no explicitly asks for your permission prior to installing and running a widget and records this choice so you are not asked again.
 * Multiple fixes for the new widgets.
