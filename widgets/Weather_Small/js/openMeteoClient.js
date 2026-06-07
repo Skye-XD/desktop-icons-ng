@@ -19,6 +19,10 @@
 'use strict';
 const FORECAST_BASE = 'https://api.open-meteo.com/v1/forecast';
 const GEOCODE_BASE = 'https://geocoding-api.open-meteo.com/v1/search';
+const RETRYABLE_STATUS = 502;
+const MAX_502_RETRIES = 4;
+const BACKOFF_BASE_MS = 1000;
+const BACKOFF_MAX_MS = 15000;
 function _qs(p) {
     const u = new URLSearchParams();
     for (const [k, v] of Object.entries(p)) {
@@ -28,21 +32,31 @@ function _qs(p) {
     }
     return u.toString();
 }
+function _sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
 async function _fetchJson(url, {timeoutMs = 12000} = {}) {
-    const ac = new AbortController();
-    const t = setTimeout(() => ac.abort(), timeoutMs);
-    try {
-        const res = await fetch(url, {signal: ac.signal, cache: 'no-store'});
-        if (!res.ok) {
-            const text = await res.text().catch(() => '');
-            const e = new Error(`HTTP ${res.status}`);
-            e.status = res.status;
-            e.body = text;
-            throw e;
+    for (let attempt = 0; attempt <= MAX_502_RETRIES; attempt++) {
+        const ac = new AbortController();
+        const t = setTimeout(() => ac.abort(), timeoutMs);
+        try {
+            const res = await fetch(url, {signal: ac.signal, cache: 'no-store'});
+            if (!res.ok) {
+                const text = await res.text().catch(() => '');
+                const e = new Error(`HTTP ${res.status}`);
+                e.status = res.status;
+                e.body = text;
+                throw e;
+            }
+            return await res.json();
+        } catch (e) {
+            if (e?.status !== RETRYABLE_STATUS || attempt >= MAX_502_RETRIES)
+                throw e;
+            const delayMs = Math.min(BACKOFF_BASE_MS * (2 ** attempt), BACKOFF_MAX_MS);
+            await _sleep(delayMs);
+        } finally {
+            clearTimeout(t);
         }
-        return await res.json();
-    } finally {
-        clearTimeout(t);
     }
 }
 /**

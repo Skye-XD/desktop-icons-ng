@@ -27,6 +27,8 @@ import {formatTemp, formatTempPair} from './units.js';
 
 const LOCAL_LOCATION_KEY = 'wx-last-location';
 const LOCAL_SETTINGS_KEY = 'wx-last-settings';
+const RETRYABLE_STATUS = 502;
+const FALLBACK_RETRY_MS = 60 * 1000;
 
 function _api() {
     return window.ding || window.DING || window.WidgetAPI || null;
@@ -61,6 +63,7 @@ class WeatherApp {
         this._host = {reducedMotion: false, locale: null};
         this._cfg = _defaults();
         this._timer = null;
+        this._retryTimeout = null;
         this._busy = false;
         this._acceptConfigRefresh = false;
         this._destroyed = false;
@@ -190,6 +193,7 @@ class WeatherApp {
             clearInterval(this._timer);
             this._timer = null;
         }
+        this._clearRetryTimeout();
 
         for (const teardown of this._teardowns.splice(0)) {
             try {
@@ -307,6 +311,23 @@ class WeatherApp {
         this._timer = setInterval(() => this.refresh('timer'), ms);
     }
 
+    _clearRetryTimeout() {
+        if (this._retryTimeout) {
+            clearTimeout(this._retryTimeout);
+            this._retryTimeout = null;
+        }
+    }
+
+    _scheduleRetrySoon() {
+        if (this._destroyed)
+            return;
+        this._clearRetryTimeout();
+        this._retryTimeout = setTimeout(() => {
+            this._retryTimeout = null;
+            this.refresh('retry-502');
+        }, FALLBACK_RETRY_MS);
+    }
+
     _shouldRefreshForConfigChange(prevCfg, nextCfg, _meta) {
         const prevLoc = prevCfg?.location ?? null;
         const nextLoc = nextCfg?.location ?? null;
@@ -347,11 +368,14 @@ class WeatherApp {
             await this._render(norm, {fromCache: false});
             if (this._destroyed)
                 return;
+            this._clearRetryTimeout();
             this._setStatus(`Updated ${new Date().toLocaleTimeString()}`);
         } catch (e) {
             if (this._destroyed)
                 return;
             console.error('[weather] refresh failed', e);
+            if (e?.status === RETRYABLE_STATUS)
+                this._scheduleRetrySoon();
             this._setStatus(this._cfg.cache ? 'Offline — showing cached data' : 'Unable to load weather');
         } finally {
             this._busy = false;
