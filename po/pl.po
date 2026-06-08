@@ -19,8 +19,8 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-30 06:42-0400\n"
-"PO-Revision-Date: 2026-06-02 21:28+0000\n"
-"Last-Translator: Deleted User <noreply+50296@weblate.org>\n"
+"PO-Revision-Date: 2026-06-08 18:01+0000\n"
+"Last-Translator: Adam Lewicki <a.lewicki95@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/pl/>\n"
 "Language: pl\n"
@@ -561,6 +561,7 @@ msgid ""
 msgstr ""
 "Plików .desktop nie można uruchomić z tego pulpitu, ponieważ inni "
 "użytkownicy mają dostęp do zapisu tego katalogu pulpitu.\n"
+"\n"
 "Sprawdź uprawnienia tego katalogu pulpitu i upewnij się, że inni nie mają "
 "dostępu do zapisu."
 
@@ -643,7 +644,7 @@ msgstr "Przełącz siatkę widżetów"
 
 #: app/desktopGrid.js:2589
 msgid "Add Widget..."
-msgstr "Dodaj widżet"
+msgstr "Dodaj widżet..."
 
 #: app/desktopManager.js:166
 msgid "Monitor Frame Buffer Scaling is not enabled"
@@ -862,7 +863,7 @@ msgstr "Otwórz w {0}"
 
 #: app/desktopMenu.js:1126
 msgid "Edit Widgets…"
-msgstr "Edytuj widżety"
+msgstr "Edytuj widżety…"
 
 #: app/desktopMenu.js:1133
 msgid "Shell Menu…"
@@ -965,7 +966,7 @@ msgstr "Grupuj ten typ"
 
 #: app/fileItemMenu.js:207
 msgid "Unstack This Type"
-msgstr "Nie grupuj tego typ"
+msgstr "Nie grupuj tego typu"
 
 #: app/fileItemMenu.js:231
 msgid "Run as a Program"
@@ -1565,7 +1566,7 @@ msgstr "Preferencje widżetów"
 
 #: app/widgetWebContext.js:792
 msgid "Open link in browser?"
-msgstr "Otwórz link w przeglądarce"
+msgstr "Otworzyć link w przeglądarce?"
 
 #: app/widgetWebContext.js:793
 msgid ""
