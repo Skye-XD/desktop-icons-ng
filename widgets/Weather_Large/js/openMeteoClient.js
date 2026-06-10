@@ -1,3 +1,4 @@
+/* eslint-disable no-await-in-loop */
 /* DING: Desktop Icons New Generation for GNOME Shell
  *
  * Gtk4 Port Copyright (C) 2022 - 2026 Sundeep Mediratta (smedius@gmail.com)
@@ -35,6 +36,7 @@ function _qs(p) {
 function _sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
+// eslint-disable-next-line consistent-return
 async function _fetchJson(url, {timeoutMs = 12000} = {}) {
     for (let attempt = 0; attempt <= MAX_502_RETRIES; attempt++) {
         const ac = new AbortController();
