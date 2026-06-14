@@ -1,0 +1,1701 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the gtk4-ding package.
+# Aidan Tuhoro-Bell <aidan@ursa.nz>, 2026.
+# Weblate <noreply-mt-weblate@weblate.org>, 2026.
+msgid ""
+msgstr ""
+"Project-Id-Version: gtk4-ding\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-30 06:42-0400\n"
+"PO-Revision-Date: 2026-06-14 10:01+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"Language-Team: Maori <https://hosted.weblate.org/projects/gtk4-desktop-icons-"
+"ng/gtk4-ding-pot/mi/>\n"
+"Language: mi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 2026.7.dev0\n"
+
+#: app/adwPreferencesWindow.js:161
+msgid "CSS Override"
+msgstr "Whakakapi CSS"
+
+#: app/adwPreferencesWindow.js:162
+msgid "Customise the appearance of desktop icons with CSS"
+msgstr "Whakaritea te āhua o ngā ata papamahi ki te CSS"
+
+#: app/adwPreferencesWindow.js:166
+msgid "Warning: This can break the extension if done incorrectly"
+msgstr "Whakatūpato: Ka pakaru pea te toronga ki te hē te mahi"
+
+#: app/adwPreferencesWindow.js:172
+msgid "Edit CSS Override File..."
+msgstr "Whakatika Kōnae Whakakapi CSS..."
+
+#: app/adwPreferencesWindow.js:180
+msgid "Apply CSS Changes Now"
+msgstr "Tonoa ngā Hurihanga CSS Ināianei"
+
+#: app/adwPreferencesWindow.js:181
+msgid "Reload the CSS to apply changes immediately"
+msgstr "Whakauta anō te CSS kia tono tonu ai ngā hurihanga"
+
+#: app/adwPreferencesWindow.js:248 data/com.desktop.ding.desktop.in:29
+msgid "Shortcuts"
+msgstr "Ngā Ara Poto"
+
+#: app/adwPreferencesWindow.js:251
+msgid "Edit Shortcuts..."
+msgstr "Whakatika Ngā Ara Poto..."
+
+#: app/adwPreferencesWindow.js:266
+msgid "Edit Application Shortcuts"
+msgstr "Whakatika Ngā Ara Poto Taupānga"
+
+#: app/adwPreferencesWindow.js:271
+msgid "Shortcuts Editable only when Extension Enabled..."
+msgstr ""
+"Ka taea te whakatika ngā Ara Poto i te wā anake e whakahohea ana te "
+"toronga..."
+
+#: app/adwPreferencesWindow.js:376
+msgid "Help translate in your web browser"
+msgstr "Āwhina ki te whakamāori reo i roto i tō pūtirotiro tukutuku"
+
+#: app/adwPreferencesWindow.js:599 app/adwPreferencesWindow.js:600
+msgid "Desktop"
+msgstr "Papamahi"
+
+#: app/adwPreferencesWindow.js:605 app/adwPreferencesWindow.js:606
+msgid "Files"
+msgstr "Ngā Kōnae"
+
+#: app/adwPreferencesWindow.js:611 app/adwPreferencesWindow.js:612
+#: app/adwPreferencesWindow.js:654
+msgid "Tweaks"
+msgstr "Ngā Whakarerekē"
+
+#: app/adwPreferencesWindow.js:617 app/adwPreferencesWindow.js:618
+msgid "More"
+msgstr "Ētahi atu"
+
+#: app/adwPreferencesWindow.js:629
+msgid "Desktop Settings"
+msgstr "Tautuhinga Papamahi"
+
+#: app/adwPreferencesWindow.js:630
+msgid "Settings for the Desktop Program"
+msgstr "Tautuhinga mō te Pūmanawa Papamahi"
+
+#: app/adwPreferencesWindow.js:636
+msgid "Desktop Folder"
+msgstr "Kōpaki Papamahi"
+
+#: app/adwPreferencesWindow.js:637
+msgid "Current Desktop: "
+msgstr "Papamahi o nāianei: "
+
+#: app/adwPreferencesWindow.js:647
+msgid "Files Settings"
+msgstr "Tautuhinga Kōnae"
+
+#: app/adwPreferencesWindow.js:648
+msgid "Settings shared with Gnome Files"
+msgstr "Tautuhinga e tiritahingia ana ki te Gnome Files"
+
+#: app/adwPreferencesWindow.js:655
+msgid "Miscellaneous Tweaks"
+msgstr "Ngā Whakarerekē Huhua"
+
+#: app/adwPreferencesWindow.js:679
+msgid "Size for the desktop icons"
+msgstr "Te rahi o ngā ata papamahi"
+
+#: app/adwPreferencesWindow.js:681
+msgid "Tiny"
+msgstr "Iti rawa"
+
+#: app/adwPreferencesWindow.js:682
+msgid "Small"
+msgstr "Iti"
+
+#: app/adwPreferencesWindow.js:683
+msgid "Standard"
+msgstr "Paerewa"
+
+#: app/adwPreferencesWindow.js:684
+msgid "Large"
+msgstr "Rarahi"
+
+#: app/adwPreferencesWindow.js:690
+msgid "New icons alignment"
+msgstr "Te hāngai o ngā ata hōu"
+
+#: app/adwPreferencesWindow.js:692
+msgid "Top left corner"
+msgstr "Kokonga runga maui"
+
+#: app/adwPreferencesWindow.js:693
+msgid "Top right corner"
+msgstr "Kokonga runga matau"
+
+#: app/adwPreferencesWindow.js:694
+msgid "Bottom left corner"
+msgstr "Kokonga raro maui"
+
+#: app/adwPreferencesWindow.js:695
+msgid "Bottom right corner"
+msgstr "Kokonga raro matau"
+
+#: app/adwPreferencesWindow.js:701
+msgid "Add new icons to Secondary Monitors first, if available"
+msgstr ""
+"Tāpirihia ngā ata hōu ki ngā Aroturuki Tuārua i te tuatahi, mehemea e wātea "
+"ana"
+
+#: app/adwPreferencesWindow.js:705
+msgid "Snap icons to grid"
+msgstr "Piri ngā ata ki te mātakerewhā"
+
+#: app/adwPreferencesWindow.js:711
+msgid "Show desktop widgets"
+msgstr "Whakaatu i ngā taputapuiti papamahi"
+
+#: app/adwPreferencesWindow.js:716
+msgid "New Desktop Folder"
+msgstr "Kōpaki Papamahi Hōu"
+
+#: app/adwPreferencesWindow.js:717
+msgid "Set a new folder for the desktop"
+msgstr "Tautuhia he kōpaki hōu mō te papamahi"
+
+#: app/adwPreferencesWindow.js:718 app/utils/desktopFolderUtils.js:85
+msgid "Choose"
+msgstr "Kōwhiri"
+
+#: app/adwPreferencesWindow.js:723
+msgid "Set Desktop back to ~/"
+msgstr "Tautuhia te Papamahi ki ~/ anō"
+
+#: app/adwPreferencesWindow.js:725
+msgid "Restore Default Desktop Folder"
+msgstr "Whakahokia te Kōpaki Papamahi Taunoa"
+
+#: app/adwPreferencesWindow.js:727
+msgid "Restore"
+msgstr "Whakahoki"
+
+#: app/adwPreferencesWindow.js:736
+msgid "Highlight the drop grid"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:746
+msgid "Add information emblems for links, encryption"
+msgstr "Tāpirihia ngā tohu mōhiohio mō ngā hononga, te whakamunatanga"
+
+#: app/adwPreferencesWindow.js:750
+msgid "Use dark text in icon labels"
+msgstr "Whakamahia te kuputuhi pouri ki ngā tapanga ata"
+
+#: app/adwPreferencesWindow.js:755
+msgid "Show the personal folder on the desktop"
+msgstr "Whakaatu i te kōpaki whaiaro ki te papamahi"
+
+#: app/adwPreferencesWindow.js:760
+msgid "Show the trash icon on the desktop"
+msgstr "Whakaatu i te ata para ki te papamahi"
+
+#: app/adwPreferencesWindow.js:765
+msgid "Show external drives on the desktop"
+msgstr "Whakaatu i ngā taraiwa ā-waho ki te papamahi"
+
+#: app/adwPreferencesWindow.js:770
+msgid "Show network drives on the desktop"
+msgstr "Whakaatu i ngā taraiwa whatunga ki te papamahi"
+
+#: app/adwPreferencesWindow.js:775
+msgid "Add new drives to the opposite side of the desktop"
+msgstr "Tāpirihia ngā taraiwa hōu ki te taha kē o te papamahi"
+
+#: app/adwPreferencesWindow.js:780
+msgid "Action to Open Items"
+msgstr "Mahi hei Whakatuwhera Tūemi"
+
+#: app/adwPreferencesWindow.js:782
+msgid "Single click"
+msgstr "Pāwhiri takitahi"
+
+#: app/adwPreferencesWindow.js:783
+msgid "Double click"
+msgstr "Pāwhiri takirua"
+
+#: app/adwPreferencesWindow.js:788
+msgid "Show image thumbnails"
+msgstr "Whakaatu i ngā whakaahua iti"
+
+#: app/adwPreferencesWindow.js:790
+msgid "Always"
+msgstr "I ngā wā katoa"
+
+#: app/adwPreferencesWindow.js:791
+msgid "On this computer only"
+msgstr "I tēnei rorohiko anake"
+
+#: app/adwPreferencesWindow.js:792
+msgid "Never"
+msgstr "Kāore rawa"
+
+#: app/adwPreferencesWindow.js:797
+msgid "Show a context menu item to delete permanently"
+msgstr "Whakaatu i tētahi tūemi tahua horopaki hei muku tūturu"
+
+#: app/adwPreferencesWindow.js:802
+msgid "Show hidden files"
+msgstr "Whakaatu i ngā kōnae huna"
+
+#: app/adwPreferencesWindow.js:807
+msgid "Open folders on drag hover"
+msgstr "Whakatuwheratia ngā kōpaki ina tau te tohu i te tōnga"
+
+#: app/adwPreferencesWindow.js:811
+msgid "About..."
+msgstr "Mō..."
+
+#: app/adwPreferencesWindow.js:824
+msgid "Translation"
+msgstr "Whakamāoritanga"
+
+#: app/adwPreferencesWindow.js:825
+msgid ""
+"Machine translated using LibreTranslate. User verified and edited on Weblate."
+msgstr ""
+"Whakamāoritia ā-mīhini mā LibreTranslate. I whakaūngia, i whakatikaina hoki "
+"e te kaiwhakamahi i runga i a Weblate."
+
+#: app/adwPreferencesWindow.js:830
+msgid "Edit Translations"
+msgstr "Whakatika Whakamāoritanga"
+
+#: app/adwPreferencesWindow.js:831
+msgid "Verify, add or correct translation in your web browser"
+msgstr ""
+"Manatoko, tāpiri, whakatika rānei i te whakamāoritanga i roto i tō "
+"pūtirotiro tukutuku"
+
+#: app/adwPreferencesWindow.js:832
+msgid "Translate"
+msgstr "Whakamāori"
+
+#: app/appChooser.js:78
+msgid "Choose an application to open <b>{foo}</b>"
+msgstr "Kōwhiria he taupānga hei whakatuwhera i <b>{foo}</b>"
+
+#: app/appChooser.js:90
+msgid "Open Items"
+msgstr "Whakatuwhera Tūemi"
+
+#: app/appChooser.js:92
+msgid "Open Folder"
+msgstr "Whakatuwhera Kōpaki"
+
+#: app/appChooser.js:94 data/ui/ding-app-chooser.ui:6
+msgid "Open File"
+msgstr "Whakatuwhera Kōnae"
+
+#: app/appChooser.js:165
+msgid "Error changing default application"
+msgstr "Hapa i te whakarerekē i te taupānga taunoa"
+
+#: app/appChooser.js:168
+msgid "Error while setting {foo} as default application for {mimetype}"
+msgstr "Hapa i te tautuhi i a {foo} hei taupānga taunoa mō {mimetype}"
+
+#: app/appImageFileItem.js:57
+msgid "Invalid Permissions on AppImage File"
+msgstr "Whakaaetanga Muhu i te Kōnae AppImage"
+
+#: app/appImageFileItem.js:58
+msgid "This AppImage File has incorrect Permissions."
+msgstr "He muhu ngā Whakaaetanga o tēnei Kōnae AppImage."
+
+#: app/appImageFileItem.js:59 app/desktopFileIcon.js:153
+msgid "Right Click to edit Properties, then:"
+msgstr "Pāwhiri matau ki te whakatika i ngā Āhuatanga, kātahi:"
+
+#: app/appImageFileItem.js:61 app/desktopFileIcon.js:155
+msgid "Set Permissions, in"
+msgstr ""
+
+#: app/appImageFileItem.js:62 app/desktopFileIcon.js:156
+msgid "Others Access"
+msgstr "Te Uru Atu ki Ētahi Atu"
+
+#: app/appImageFileItem.js:63 app/desktopFileIcon.js:157
+msgid "Read Only"
+msgstr "Pānui Anake"
+
+#: app/appImageFileItem.js:64 app/desktopFileIcon.js:158
+msgid "or"
+msgstr "rānei"
+
+#: app/appImageFileItem.js:65 app/desktopFileIcon.js:159
+#: app/shortcutManager.js:58 app/shortcutManager.js:99
+msgid "None"
+msgstr "Kore"
+
+#: app/appImageFileItem.js:66 app/desktopFileIcon.js:160
+msgid "Enable option"
+msgstr "Whakahohe kōwhiringa"
+
+#: app/appImageFileItem.js:67 app/desktopFileIcon.js:161
+msgid "Allow Executing File as a Program"
+msgstr "Whakaae kia Whakahaerehia te Kōnae hei Papatono"
+
+#: app/appImageFileItem.js:79
+msgid "Untrusted AppImage File"
+msgstr "Kōnae AppImage Kore Whakawhirinaki"
+
+#: app/appImageFileItem.js:81
+msgid "This AppImage file is not trusted, it can not be launched."
+msgstr ""
+"Kāore tēnei kōnae AppImage e whakawhirinakitia, kāore e taea te whakarewa."
+
+#: app/appImageFileItem.js:82 app/desktopFileIcon.js:176
+msgid "To enable launching, right-click, then:"
+msgstr "Hei whakahohe i te whakarewa, pāwhiri matau, kātahi:"
+
+#: app/appImageFileItem.js:83 app/desktopFileIcon.js:177
+msgid "enable"
+msgstr "whakahohe"
+
+#: app/appImageFileItem.js:84 app/desktopFileIcon.js:178
+#: app/fileItemMenu.js:316 app/fileItemMenu.js:330
+msgid "Allow Launching"
+msgstr ""
+
+#: app/askRenamePopup.js:61
+msgid "Folder name"
+msgstr "Ingoa kōpaki"
+
+#: app/askRenamePopup.js:61
+msgid "File name"
+msgstr "Ingoa kōnae"
+
+#: app/askRenamePopup.js:75 app/autoAr.js:303 app/desktopManager.js:1297
+#: app/fileItemMenu.js:968
+msgid "OK"
+msgstr "Āe"
+
+#: app/askRenamePopup.js:75
+msgid "Rename"
+msgstr "Whakaingoa anō"
+
+#: app/autoAr.js:71
+msgid "AutoAr is not installed"
+msgstr "Kāore a AutoAr i te whakaurua"
+
+#: app/autoAr.js:72
+msgid ""
+"To be able to work with compressed files, install file-roller and/or gir-1.2-"
+"gnomeAutoAr"
+msgstr ""
+
+#: app/autoAr.js:207
+msgid "Extracting files"
+msgstr "Te tango kōnae"
+
+#: app/autoAr.js:224
+msgid "Compressing files"
+msgstr "Te kōpeke kōnae"
+
+#: app/autoAr.js:295 app/autoAr.js:624 app/desktopManager.js:180
+#: app/desktopManager.js:1299 app/dragManager.js:792 app/fileItemMenu.js:915
+#: app/fileItemMenu.js:968 app/showErrorPopup.js:41 app/showErrorPopup.js:58
+#: app/widgetManager.js:2830
+msgid "Cancel"
+msgstr "Whakakore"
+
+#: app/autoAr.js:315 app/autoAr.js:612
+msgid "Enter a password here"
+msgstr "Tāuruhia he kupuhipa ki konei"
+
+#: app/autoAr.js:358
+msgid "Removing partial file '${outputFile}'"
+msgstr "Te tango i te kōnae wāhanga '${outputFile}'"
+
+#: app/autoAr.js:377
+msgid "Creating destination folder"
+msgstr "Te hanga i te kōpaki haerenga"
+
+#: app/autoAr.js:409
+msgid "Extracting files into '${outputPath}'"
+msgstr "Te tango kōnae ki '${outputPath}'"
+
+#: app/autoAr.js:439
+msgid "Extraction completed"
+msgstr "Kua oti te tango"
+
+#: app/autoAr.js:440
+msgid "Extracting '${fullPathFile}' has been completed."
+msgstr "Kua oti te tango i '${fullPathFile}'."
+
+#: app/autoAr.js:446
+msgid "Extraction cancelled"
+msgstr "Kua whakakorea te tango"
+
+#: app/autoAr.js:447
+msgid "Extracting '${fullPathFile}' has been cancelled by the user."
+msgstr "Kua whakakorea e te kaiwhakamahi te tango i '${fullPathFile}'."
+
+#: app/autoAr.js:457
+msgid "Passphrase required for ${filename}"
+msgstr "E hiahiatia ana te kupu tāuru mō ${filename}"
+
+#: app/autoAr.js:460
+msgid "Error during extraction"
+msgstr "He hapa i te wā o te tango"
+
+#: app/autoAr.js:487
+msgid "Compressing files into '${outputFile}'"
+msgstr "Te kōpeke kōnae ki '${outputFile}'"
+
+#: app/autoAr.js:500
+msgid "Compression completed"
+msgstr "Kua oti te kōpeke"
+
+#: app/autoAr.js:501
+msgid "Compressing files into '${outputFile}' has been completed."
+msgstr "Kua oti te kōpeke kōnae ki '${outputFile}'."
+
+#: app/autoAr.js:505 app/autoAr.js:512
+msgid "Cancelled compression"
+msgstr "Kua whakakorea te kōpeke"
+
+#: app/autoAr.js:506
+msgid "The output file '${outputFile}' already exists."
+msgstr "Kei te noho kē te kōnae putanga '${outputFile}'."
+
+#: app/autoAr.js:513
+msgid "Compressing files into '${outputFile}' has been cancelled by the user."
+msgstr "Kua whakakorea e te kaiwhakamahi te kōpeke kōnae ki '${outputFile}'."
+
+#: app/autoAr.js:516
+msgid "Error during compression"
+msgstr "He hapa i te wā o te kōpeke"
+
+#: app/autoAr.js:551
+msgid "Create archive"
+msgstr "Hanga pūranga"
+
+#: app/autoAr.js:575
+msgid "Archive name"
+msgstr "Ingoa pūranga"
+
+#: app/autoAr.js:608
+msgid "Password"
+msgstr "Kupuhipa"
+
+#: app/autoAr.js:621
+msgid "Create"
+msgstr "Hanga"
+
+#: app/autoAr.js:712
+msgid "Compatible with all operating systems."
+msgstr "E hototahi ana ki ngā pūnaha whakahaere katoa."
+
+#: app/autoAr.js:718
+msgid "Password protected .zip, must be installed on Windows and Mac."
+msgstr "He .zip kua tiakina ki te kupuhipa, me tāuta ki te Windows me te Mac."
+
+#: app/autoAr.js:724
+msgid "Smaller archives but Linux and Mac only."
+msgstr "He pūranga iti ake engari mō te Linux me te Mac anake."
+
+#: app/autoAr.js:730
+msgid "Smaller archives but must be installed on Windows and Mac."
+msgstr "He pūranga iti ake engari me tāuta ki te Windows me te Mac."
+
+#: app/desktopFileIcon.js:125
+msgid "The Displayed Desktop is writable by others"
+msgstr "Ka taea e ētahi atu te tuhi ki te Papamahi e whakaaturia ana"
+
+#: app/desktopFileIcon.js:128
+msgid ""
+".deskop files cannot be launched from this Desktop as the Desktop Folder is "
+"writable by other users.\n"
+"\n"
+"Please check the permissions of this Desktop Folder, and make sure it is not "
+"writable by others."
+msgstr ""
+
+#: app/desktopFileIcon.js:138
+msgid "Broken Desktop File"
+msgstr "Kōnae Papamahi Pakaru"
+
+#: app/desktopFileIcon.js:141
+msgid ""
+"This .desktop file has errors or points to a program without permissions. It "
+"can not be executed.\n"
+"\n"
+"Edit the file to set the correct executable Program."
+msgstr ""
+
+#: app/desktopFileIcon.js:151
+msgid "Invalid Permissions on Desktop File"
+msgstr "Whakaaetanga Muhu i te Kōnae Papamahi"
+
+#: app/desktopFileIcon.js:152
+msgid "This Desktop File has incorrect Permissions."
+msgstr "He hē ngā Whakaaetanga o tēnei Kōnae Papamahi."
+
+#: app/desktopFileIcon.js:173
+msgid "Untrusted Desktop File"
+msgstr "Kōnae Papamahi Kore Whakawhirinaki"
+
+#: app/desktopFileIcon.js:175
+msgid "This Desktop file is not trusted, it can not be launched."
+msgstr ""
+"Kāore tēnei kōnae Papamahi e whakawhirinakitia, kāore e taea te whakarewa."
+
+#: app/desktopFileIcon.js:204 app/gnomeShellDragDrop.js:355
+msgid "Could not open File"
+msgstr "Kāore i taea te whakatuwhera Kōnae"
+
+#: app/desktopFileIcon.js:206
+msgid "{appName} can not open files of this Type!"
+msgstr "Kāore e taea e {appName} te whakatuwhera kōnae o tēnei Momo!"
+
+#: app/desktopFolderMonitor.js:101 app/desktopFolderMonitor.js:107
+msgid "Desktop Folder Change Failed"
+msgstr "I rahua te Panoni Kōpaki Papamahi"
+
+#: app/desktopFolderMonitor.js:102
+msgid "The new Desktop Folder is a Symbolic Link"
+msgstr "He Hononga Tohu te Kōpaki Papamahi hou"
+
+#: app/desktopFolderMonitor.js:109
+msgid "The new Desktop Folder does not exist or is not a Folder!"
+msgstr "Kāore te Kōpaki Papamahi hou e noho, ehara rānei i te Kōpaki!"
+
+#: app/desktopFolderMonitor.js:120
+msgid "Desktop Folder Changed"
+msgstr "Kua panonitia te Kōpaki Papamahi"
+
+#: app/desktopFolderMonitor.js:121
+msgid "Switching to new Desktop..."
+msgstr "Te huri ki te Papamahi hou..."
+
+#: app/desktopGrid.js:66 data/com.desktop.ding.desktop.in:3
+#: data/com.desktop.ding.desktop.in:4
+msgid "Desktop Icons"
+msgstr "Ngā Ata Papamahi"
+
+#: app/desktopGrid.js:2587
+msgid "Back to Desktop"
+msgstr "Hoki ki te Papamahi"
+
+#: app/desktopGrid.js:2588 app/widgetManager.js:1525
+msgid "Toggle Widget Grid"
+msgstr ""
+
+#: app/desktopGrid.js:2589
+msgid "Add Widget..."
+msgstr "Tāpiri Pūmanawa Āpiti..."
+
+#: app/desktopManager.js:166
+msgid "Monitor Frame Buffer Scaling is not enabled"
+msgstr ""
+
+#: app/desktopManager.js:167
+msgid ""
+"Multiple monitors with different zoom settings, recommend per monitor "
+"framebuffer scaling.\n"
+"\n"
+"Please enable in Mutter Dconf Settings"
+msgstr ""
+
+#: app/desktopManager.js:178
+msgid ""
+"Multiple monitors with different zoom settings.\n"
+"\n"
+"Enable per monitor framebuffer scaling in Mutter Dconf Settings?"
+msgstr ""
+
+#: app/desktopManager.js:181 data/com.desktop.ding.desktop.in:25
+msgid "Enable"
+msgstr "Whakahohe"
+
+#: app/desktopManager.js:205 app/desktopManager.js:215
+msgid "Can Not Show the Desktop"
+msgstr "Kāore e taea te Whakaatu i te Papamahi"
+
+#. TRANSLATORS: {desktop} folder path automatically inserted
+#: app/desktopManager.js:207
+msgid ""
+"The Desktop folder {desktop} is a Symbolic Link\n"
+"\n"
+"Please set the Desktop Folder to a real Folder"
+msgstr ""
+
+#. TRANSLATORS: {desktop} folder path automatically inserted
+#: app/desktopManager.js:217
+msgid ""
+"The Desktop folder {desktop} does not exist, or is not a Directory\n"
+"\n"
+"Check your xdg-utils installation and set the correct Desktop Folder"
+msgstr ""
+
+#: app/desktopManager.js:228
+msgid "GNOME Files not found"
+msgstr "Kāore i kitea a GNOME Files"
+
+#: app/desktopManager.js:229
+msgid "The GNOME Files application is required by Gtk4 Desktop Icons NG."
+msgstr "E hiahiatia ana te taupānga GNOME Files e Gtk4 Desktop Icons NG."
+
+#: app/desktopManager.js:236
+msgid "There is no default File Manager"
+msgstr "Kāore he Kaiwhakahaere Kōnae taunoa"
+
+#: app/desktopManager.js:237
+msgid "There is no application that handles mimetype \"inode/directory\""
+msgstr ""
+
+#: app/desktopManager.js:244
+msgid "Gnome Files is not registered as a File Manager"
+msgstr "Kāore a Gnome Files i rēhitatia hei Kaiwhakahaere Kōnae"
+
+#: app/desktopManager.js:245
+msgid ""
+"The Gnome Files application is not programmed to open Folders!\n"
+"Check your xdg-utils installation\n"
+"Check Gnome Files .desktop File installation"
+msgstr ""
+
+#: app/desktopManager.js:360
+msgid "Clear current selection before new search"
+msgstr "Whakawātea i te tīpakonga o nāianei i mua i te rapu hou"
+
+#: app/desktopManager.js:1301
+msgid "Find Files on Desktop"
+msgstr "Rapu Kōnae i te Papamahi"
+
+#: app/desktopManager.js:1644 app/desktopMenu.js:1065 app/shortcuts.js:10
+msgid "New Folder"
+msgstr "Kōpaki Hou"
+
+#: app/desktopManager.js:1678
+msgid "Folder Creation Failed"
+msgstr "I rahua te Hanga Kōpaki"
+
+#: app/desktopManager.js:1679
+msgid "Could not create folder"
+msgstr "Kāore i taea te hanga kōpaki"
+
+#: app/desktopMenu.js:598
+msgid "Unable to open Desktop in Gnome Files"
+msgstr "Kāore e taea te whakatuwhera Papamahi i Gnome Files"
+
+#: app/desktopMenu.js:617
+msgid "Preferences Window is Open"
+msgstr "Kua tuwhera te Matapihi Taupanga"
+
+#: app/desktopMenu.js:618
+msgid "This Window is open. Please switch to the active window."
+msgstr "Kua tuwhera tēnei Matapihi. Tēnā huri ki te matapihi hohe."
+
+#: app/desktopMenu.js:627 app/desktopMenu.js:1118
+msgid "Settings"
+msgstr "Tautuhinga"
+
+#: app/desktopMenu.js:907
+msgid "Template Creation Error"
+msgstr "Hapa Hanga Papatauira"
+
+#: app/desktopMenu.js:908
+msgid "Could not create document"
+msgstr "Kāore i taea te hanga tuhinga"
+
+#: app/desktopMenu.js:1026
+msgid "Name"
+msgstr "Ingoa"
+
+#: app/desktopMenu.js:1028
+msgid "Name Z-A"
+msgstr ""
+
+#: app/desktopMenu.js:1030
+msgid "Modified Time"
+msgstr "Wā Whakarerekē"
+
+#: app/desktopMenu.js:1032
+msgid "Type"
+msgstr "Momo"
+
+#: app/desktopMenu.js:1034
+msgid "Size"
+msgstr "Rahi"
+
+#: app/desktopMenu.js:1039
+msgid "Keep Arranged…"
+msgstr ""
+
+#: app/desktopMenu.js:1044
+msgid "Keep Stacked by Type…"
+msgstr ""
+
+#: app/desktopMenu.js:1046
+msgid "Sort Home/Drives/Trash…"
+msgstr ""
+
+#: app/desktopMenu.js:1051
+msgid "Change Desktop"
+msgstr "Panoni Papamahi"
+
+#: app/desktopMenu.js:1056
+msgid "Restore Default Desktop"
+msgstr "Whakahoki Papamahi Taunoa"
+
+#: app/desktopMenu.js:1060
+msgid "Desktop Icon Settings"
+msgstr "Tautuhinga Ata Papamahi"
+
+#: app/desktopMenu.js:1062
+msgid "Show Shortcuts"
+msgstr "Whakaatu Tapahi"
+
+#: app/desktopMenu.js:1070 app/shortcuts.js:67
+msgid "New Document"
+msgstr "Tuhinga Hou"
+
+#: app/desktopMenu.js:1075 app/shortcuts.js:11
+msgid "Paste"
+msgstr "Whakapiri"
+
+#: app/desktopMenu.js:1077 app/shortcuts.js:12
+msgid "Undo"
+msgstr "Wetekina"
+
+#: app/desktopMenu.js:1079 app/shortcuts.js:13
+msgid "Redo"
+msgstr "Mahia anō"
+
+#: app/desktopMenu.js:1085 app/shortcuts.js:14
+msgid "Select All"
+msgstr "Tīpako Katoa"
+
+#: app/desktopMenu.js:1092
+msgid "Arrange Icons"
+msgstr "Whakarite Ata"
+
+#: app/desktopMenu.js:1096
+msgid "Arrange By…"
+msgstr ""
+
+#: app/desktopMenu.js:1104
+msgid "Show Desktop In {0}"
+msgstr ""
+
+#: app/desktopMenu.js:1109
+msgid "Open In {0}"
+msgstr ""
+
+#: app/desktopMenu.js:1126
+msgid "Edit Widgets…"
+msgstr ""
+
+#: app/desktopMenu.js:1133
+msgid "Shell Menu…"
+msgstr ""
+
+#: app/dragManager.js:101 app/dragManager.js:939
+msgid "Making SymLink Failed"
+msgstr "I rahua te Hanga SymLink"
+
+#: app/dragManager.js:102 app/dragManager.js:940
+msgid "Could not create symbolic link"
+msgstr "Kāore i taea te hanga hononga tohu"
+
+#: app/dragManager.js:748
+msgid "Copy/Move Failed"
+msgstr "I rahua te Tārua/Nuku"
+
+#: app/dragManager.js:749
+msgid "{0} Does not exist"
+msgstr "Kāore a {0} e noho"
+
+#: app/dragManager.js:791
+msgid "Choose Action for Files"
+msgstr "Kōwhiria he Mahi mō ngā Kōnae"
+
+#: app/dragManager.js:792
+msgid "Move"
+msgstr "Nuku"
+
+#: app/dragManager.js:792 app/fileItemMenu.js:240
+msgid "Copy"
+msgstr "Tārua"
+
+#: app/dragManager.js:792
+msgid "Link"
+msgstr "Hononga"
+
+#: app/fileItemIcon.js:95
+msgid "Folder"
+msgstr "Kōpaki"
+
+#: app/fileItemIcon.js:96
+msgid "File"
+msgstr "Kōnae"
+
+#: app/fileItemIcon.js:286
+msgid "Opening File Failed"
+msgstr "I rahua te Whakatuwhera Kōnae"
+
+#: app/fileItemIcon.js:292
+msgid "There is no application installed to open \"{fo}\" files."
+msgstr "Kāore he taupānga kua tāutahia hei whakatuwhera i ngā kōnae \"{fo}\"."
+
+#: app/fileItemMenu.js:104
+msgid "New Folder with {0} item"
+msgid_plural "New Folder with {0} items"
+msgstr[0] ""
+msgstr[1] ""
+
+#: app/fileItemMenu.js:114
+msgid "Open All..."
+msgstr "Whakatuwhera Katoa..."
+
+#: app/fileItemMenu.js:122
+msgid "Launch"
+msgstr "Whakarewa"
+
+#: app/fileItemMenu.js:135
+msgid "Open with {foo}"
+msgstr "Whakatuwhera ki {foo}"
+
+#: app/fileItemMenu.js:138
+msgid "Open"
+msgstr "Whakatuwhera"
+
+#: app/fileItemMenu.js:156 app/fileItemMenu.js:160
+msgid "Extract Here"
+msgstr "Tango ki Konei"
+
+#: app/fileItemMenu.js:162
+msgid "Extract To..."
+msgstr "Tango Ki..."
+
+#: app/fileItemMenu.js:170 app/fileItemMenu.js:177
+msgid "Open With..."
+msgstr "Whakatuwhera Ki..."
+
+#: app/fileItemMenu.js:176
+msgid "Open All With Other Application..."
+msgstr "Whakatuwhera Katoa ki tētahi atu Taupānga..."
+
+#: app/fileItemMenu.js:184
+msgid "Launch using Integrated Graphics Card"
+msgstr ""
+
+#: app/fileItemMenu.js:206
+msgid "Stack This Type"
+msgstr "Whakatāpae i tēnei Momo"
+
+#: app/fileItemMenu.js:207
+msgid "Unstack This Type"
+msgstr "Wetewete i tēnei Momo"
+
+#: app/fileItemMenu.js:231
+msgid "Run as a Program"
+msgstr "Whakahaere hei Papatono"
+
+#: app/fileItemMenu.js:234
+msgid "Scripts"
+msgstr "Ngā Tuhinga"
+
+#: app/fileItemMenu.js:239
+msgid "Cut"
+msgstr "Tapahi"
+
+#: app/fileItemMenu.js:244
+msgid "Move to..."
+msgstr "Nuku ki..."
+
+#: app/fileItemMenu.js:245
+msgid "Copy to..."
+msgstr "Tārua ki..."
+
+#: app/fileItemMenu.js:249
+msgid "Rename…"
+msgstr "Whakaingoa anō…"
+
+#: app/fileItemMenu.js:254
+msgid "Create Link..."
+msgstr "Hanga Hononga..."
+
+#: app/fileItemMenu.js:261
+msgid "Compress {0} folder"
+msgid_plural "Compress {0} folders"
+msgstr[0] ""
+msgstr[1] ""
+
+#: app/fileItemMenu.js:269
+msgid "Compress {0} file"
+msgid_plural "Compress {0} files"
+msgstr[0] ""
+msgstr[1] ""
+
+#: app/fileItemMenu.js:276
+msgid "Email to..."
+msgstr "Īmēra ki..."
+
+#: app/fileItemMenu.js:286
+msgid "Send to Mobile Device"
+msgstr "Tuku ki te Pūrere Pūkoro"
+
+#: app/fileItemMenu.js:294
+msgid "Move to Trash"
+msgstr "Nuku ki te Para"
+
+#: app/fileItemMenu.js:302
+msgid "Delete permanently"
+msgstr "Muku tū tonu"
+
+#: app/fileItemMenu.js:315 app/fileItemMenu.js:329
+msgid "Don't Allow Launching"
+msgstr "Kaua e Whakaae ki te Whakarewa"
+
+#: app/fileItemMenu.js:339
+msgid "Empty Trash"
+msgstr "Whakawātea Para"
+
+#: app/fileItemMenu.js:345
+msgid "Eject"
+msgstr "Maka"
+
+#: app/fileItemMenu.js:348
+msgid "Unmount"
+msgstr "Wetewete"
+
+#: app/fileItemMenu.js:354
+msgid "Common Properties"
+msgstr "Ngā Āhuatanga Noa"
+
+#: app/fileItemMenu.js:355
+msgid "Properties"
+msgstr "Ngā Āhuatanga"
+
+#: app/fileItemMenu.js:362
+msgid "Show All in {0}"
+msgstr ""
+
+#: app/fileItemMenu.js:363
+msgid "Show in {0}"
+msgstr ""
+
+#: app/fileItemMenu.js:374
+msgid "Open in {0}"
+msgstr ""
+
+#: app/fileItemMenu.js:538
+msgid "Open Item"
+msgstr "Whakatuwhera Tūemi"
+
+#: app/fileItemMenu.js:820
+msgid "Extraction Cancelled"
+msgstr "Kua Whakakorea te Tango"
+
+#: app/fileItemMenu.js:821
+msgid "Unable to extract File, no destination folder"
+msgstr "Kāore e taea te tango Kōnae, kāore he kōpaki haerenga"
+
+#: app/fileItemMenu.js:877 app/fileItemMenu.js:906
+msgid "Select Destination"
+msgstr "Tīpako Haerenga"
+
+#: app/fileItemMenu.js:880 app/fileItemMenu.js:908
+msgid "Select"
+msgstr "Tīpako"
+
+#: app/fileItemMenu.js:964
+msgid "Can not email a Directory"
+msgstr "Kāore e taea te īmēra i tētahi Whaiaronga"
+
+#: app/fileItemMenu.js:966
+msgid "Selection includes a Directory, compress to a .zip file first?"
+msgstr ""
+
+#: app/fileItemMenu.js:992 app/fileItemMenu.js:1023 app/fileItemMenu.js:1040
+#: app/fileItemMenu.js:1059
+msgid "Mail Error"
+msgstr "Hapa Mēra"
+
+#: app/fileItemMenu.js:994
+msgid "Unable to find zip command, please install the program"
+msgstr "Kāore e taea te kimi i te whakahau zip, tēnā tāutahia te papatono"
+
+#. Translators - basename for a zipped archive created for mailing
+#: app/fileItemMenu.js:1000
+msgid "Archive.zip"
+msgstr ""
+
+#: app/fileItemMenu.js:1024
+msgid "There was an error in creating a zip archive"
+msgstr "He hapa i te hanga pūranga zip"
+
+#: app/fileItemMenu.js:1042
+msgid "Unable to find xdg-email, please install the program"
+msgstr ""
+
+#: app/fileItemMenu.js:1060
+msgid "There was an error in emailing Files"
+msgstr "He hapa i te īmēra Kōnae"
+
+#: app/fileItemMenu.js:1175
+msgid "Can Not open the Working Directory"
+msgstr "Kāore e taea te whakatuwhera i te Whaiaronga Mahi"
+
+#: app/fileItemMenu.js:1226
+msgid "Unable to Open in Gnome Console"
+msgstr ""
+
+#: app/fileItemMenu.js:1228
+msgid "Please Install Gnome Console or other Terminal Program"
+msgstr ""
+
+#: app/fileItemMenu.js:1236
+msgid "Unable to Open {0}"
+msgstr "Kāore e taea te Whakatuwhera i {0}"
+
+#: app/fileItemMenu.js:1238
+msgid "Please Install {0}"
+msgstr "Tēnā Tāuta i {0}"
+
+#: app/fileItemMenu.js:1282
+msgid "Copy Cancelled"
+msgstr "Kua Whakakorea te Tārua"
+
+#: app/fileItemMenu.js:1283
+msgid "Unable to copy Files, no destination folder"
+msgstr "Kāore e taea te tārua Kōnae, kāore he kōpaki haerenga"
+
+#: app/fileItemMenu.js:1306
+msgid "Move Cancelled"
+msgstr "Kua Whakakorea te Nuku"
+
+#: app/fileItemMenu.js:1307
+msgid "Unable to move Files, no destination folder"
+msgstr "Kāore e taea te nuku Kōnae, kāore he kōpaki haerenga"
+
+#: app/gnomeShellDragDrop.js:356
+msgid "$appName$ can not open files of this Type!"
+msgstr "Kāore e taea e $appName$ te whakatuwhera kōnae o tēnei Momo!"
+
+#: app/preferences.js:1097
+msgid "Console"
+msgstr "Papataratara"
+
+#: app/shortcutManager.js:98
+msgid "Default Shortcut:"
+msgstr ""
+
+#: app/shortcutManager.js:122
+msgid "Type new..."
+msgstr "Pātuhi hou..."
+
+#: app/shortcutManager.js:138
+msgid "Modifier + Key (e.g. Ctrl + Alt + D)"
+msgstr ""
+
+#: app/shortcutManager.js:143
+msgid "Reset to Default"
+msgstr "Tautuhi anō ki te Taunoa"
+
+#: app/shortcutManager.js:147
+msgid "No Accelerator"
+msgstr ""
+
+#: app/shortcutManager.js:256
+msgid "System Shortcuts"
+msgstr "Tapahi Pūnaha"
+
+#: app/shortcutManager.js:257
+msgid "Common System Defined Keyboard Shortcuts"
+msgstr ""
+
+#: app/shortcutManager.js:315
+msgid "Local Shortcuts"
+msgstr "Tapahi Rohe"
+
+#: app/shortcutManager.js:316
+msgid "Application Keyboard Shortcuts"
+msgstr "Tapahi Papapātuhi Taupānga"
+
+#: app/shortcutManager.js:377
+msgid "Global Shortcuts"
+msgstr "Tapahi Ao Whānui"
+
+#: app/shortcutManager.js:378
+msgid "System Keyboard Shortcuts"
+msgstr "Tapahi Papapātuhi Pūnaha"
+
+#: app/shortcutManager.js:669
+msgid "Keyboard Shortcuts"
+msgstr "Tapahi Papapātuhi"
+
+#: app/shortcutManager.js:681
+msgid "Reset Shortcuts"
+msgstr "Tautuhi anō i ngā Tapahi"
+
+#: app/shortcutManager.js:682
+msgid "Reset all shortcuts to Defaults"
+msgstr "Tautuhi anō i ngā tapahi katoa ki ngā Taunoa"
+
+#: app/shortcutManager.js:685
+msgid "Reset All..."
+msgstr "Tautuhi Anō Katoa..."
+
+#: app/shortcuts.js:15
+msgid "Show Desktop in Files"
+msgstr "Whakaatu Papamahi i Files"
+
+#: app/shortcuts.js:16
+msgid "Open in Terminal"
+msgstr "Whakatuwhera i te Tūmati"
+
+#: app/shortcuts.js:17
+msgid "Change Background"
+msgstr "Panoni Papamuri"
+
+#: app/shortcuts.js:18
+msgid "Change Display Settings"
+msgstr "Panoni Tautuhinga Whakaatu"
+
+#: app/shortcuts.js:19
+msgid "Change Desktop Icon Settings"
+msgstr "Panoni Tautuhinga Ata Papamahi"
+
+#: app/shortcuts.js:20
+msgid "Clean Up Icons"
+msgstr "Whakapaipai Ata"
+
+#: app/shortcuts.js:21
+msgid "Keep Arranged"
+msgstr ""
+
+#: app/shortcuts.js:22
+msgid "Keep Stacked"
+msgstr ""
+
+#: app/shortcuts.js:23 app/shortcuts.js:24
+msgid "Sort Special Folders"
+msgstr ""
+
+#: app/shortcuts.js:25
+msgid "Arrange Icons by Name"
+msgstr ""
+
+#: app/shortcuts.js:26
+msgid "Arrange Icons By Descending Name"
+msgstr ""
+
+#: app/shortcuts.js:27
+msgid "Arrange Icons By Modified Time"
+msgstr ""
+
+#: app/shortcuts.js:28
+msgid "Arrange Icons By Kind"
+msgstr ""
+
+#: app/shortcuts.js:29
+msgid "Arrange Icons By Size"
+msgstr ""
+
+#: app/shortcuts.js:30
+msgid "Find Files"
+msgstr "Rapu Kōnae"
+
+#: app/shortcuts.js:31
+msgid "Update Desktop"
+msgstr "Whakahou Papamahi"
+
+#: app/shortcuts.js:32
+msgid "Show Hidden Files"
+msgstr "Whakaatu Kōnae Huna"
+
+#: app/shortcuts.js:33
+msgid "Unselect All"
+msgstr "Wetewete Tīpako Katoa"
+
+#: app/shortcuts.js:34
+msgid "Preview"
+msgstr "Arokite"
+
+#: app/shortcuts.js:36
+msgid "Toggle Keyboard Selection"
+msgstr ""
+
+#: app/shortcuts.js:39
+msgid "Toggle Widget Layer"
+msgstr ""
+
+#: app/shortcuts.js:40 app/widgetManager.js:1461
+msgid "Add Widget"
+msgstr "Tāpiri Pūmanawa Āpiti"
+
+#: app/shortcuts.js:43
+msgid "Choose Icon Left"
+msgstr ""
+
+#: app/shortcuts.js:48
+msgid "Choose Icon Right"
+msgstr ""
+
+#: app/shortcuts.js:53
+msgid "Choose Icon Up"
+msgstr ""
+
+#: app/shortcuts.js:58
+msgid "Choose Icon Down"
+msgstr ""
+
+#: app/shortcuts.js:62
+msgid "Show Menu"
+msgstr "Whakaatu Tahua"
+
+#: app/shortcuts.js:63
+msgid "Display Shell Background Menu"
+msgstr ""
+
+#: app/shortcuts.js:64
+msgid "Create Desktop Shortcut"
+msgstr "Hanga Tapahi Papamahi"
+
+#: app/shortcuts.js:65
+msgid "Text Entry Accels Turn On"
+msgstr ""
+
+#: app/shortcuts.js:66
+msgid "Text Entry Accels Turn Off"
+msgstr ""
+
+#: app/shortcuts.js:68
+msgid "Show Shortcut Viewer"
+msgstr ""
+
+#: app/shortcuts.js:69
+msgid "Show Or Hide Desktop Icons"
+msgstr ""
+
+#: app/showErrorPopup.js:42
+msgid "More Information"
+msgstr "Atu Mōhiohio"
+
+#. TRANSLATORS: "Home" is the text that will be shown in
+#. the user's personal folder
+#: app/specialFolderIcon.js:57 app/specialFolderIcon.js:69
+msgid "Home"
+msgstr "Kāinga"
+
+#: app/specialFolderIcon.js:63
+msgid "Trash"
+msgstr "Para"
+
+#. * TRANSLATORS: when using a screen reader,
+#. * this is the text read when a stack is
+#. * selected. Example: if a stack named "pictures"
+#. *  is selected, it will say "Stack pictures"
+#: app/stackItem.js:46
+msgid "Stack"
+msgstr ""
+
+#: app/symLinkIcon.js:100
+msgid "Broken Link"
+msgstr "Hononga Pakaru"
+
+#: app/symLinkIcon.js:102
+msgid "Can not open this File because it is a Broken Symlink"
+msgstr "Kāore e taea te whakatuwhera i tēnei Kōnae nā te mea he Symlink Pakaru"
+
+#: app/volumeIcon.js:58
+msgid "Drive"
+msgstr "Taraiwa"
+
+#: app/widgetManager.js:2123
+msgid "Widget preferences"
+msgstr "Ngā taupanga pūmanawa āpiti"
+
+#: app/widgetManager.js:2135 app/widgetManager.js:2144
+msgid "Unpin widget"
+msgstr "Tango tītī pūmanawa āpiti"
+
+#: app/widgetManager.js:2135 app/widgetManager.js:2144
+msgid "Pin widget"
+msgstr "Tītī pūmanawa āpiti"
+
+#: app/widgetManager.js:2153
+msgid "Reposition widget"
+msgstr ""
+
+#: app/widgetManager.js:2699
+msgid "HTML widget"
+msgstr ""
+
+#: app/widgetManager.js:2701
+msgid "GTK widget"
+msgstr ""
+
+#: app/widgetManager.js:2710
+msgid "User"
+msgstr "Kaiwhakamahi"
+
+#: app/widgetManager.js:2829
+msgid "Allow"
+msgstr "Whakaae"
+
+#: app/widgetManager.js:2883
+msgid "Strict"
+msgstr ""
+
+#: app/widgetManager.js:2885
+msgid ""
+"The widget runs in a tightly sandboxed web environment.\n"
+"\n"
+"• No external scripts or frames are allowed.\n"
+"• Network access is limited to secure (HTTPS) requests.\n"
+"• Only the widget’s own files and inline code may run.\n"
+"\n"
+"This is the safest option and is recommended for most widgets."
+msgstr ""
+
+#: app/widgetManager.js:2896
+msgid "Relaxed"
+msgstr ""
+
+#: app/widgetManager.js:2898
+msgid ""
+"The widget is allowed broader web capabilities.\n"
+"\n"
+"• External scripts, styles, images, and frames from trusted websites may "
+"load.\n"
+"• Network access over HTTPS, WebSockets, and media streams is allowed.\n"
+"\n"
+"Use this only for widgets you trust."
+msgstr ""
+
+#: app/widgetManager.js:2908
+msgid "Development"
+msgstr "Whanaketanga"
+
+#: app/widgetManager.js:2910
+msgid ""
+"The widget runs with development-friendly web access.\n"
+"\n"
+"• Connections to local development servers (localhost) are allowed.\n"
+"• HTTP and WebSocket access may be permitted for testing.\n"
+"\n"
+"This mode is intended for development and debugging only."
+msgstr ""
+
+#: app/widgetManager.js:2919
+msgid "Default"
+msgstr "Taunoa"
+
+#: app/widgetManager.js:2921
+msgid ""
+"The widget runs with a predefined web security policy.\n"
+"\n"
+"Web access and capabilities are restricted according to the active policy."
+msgstr ""
+
+#: app/widgetManager.js:2929
+msgid "Allow web content for {widgetId}?"
+msgstr ""
+
+#. eslint-disable-next-line prefer-template
+#: app/widgetManager.js:2939
+msgid ""
+"The widget you are adding may load web content from the internet.\n"
+"\n"
+msgstr ""
+
+#: app/widgetManager.js:2940
+msgid ""
+"This content is subject to the widget security policy:\n"
+"\n"
+msgstr ""
+
+#: app/widgetManager.js:2974
+msgid ""
+"This widget, {widgetId} runs a background process on your computer.\n"
+"\n"
+msgstr ""
+
+#: app/widgetManager.js:2976
+msgid ""
+"The backend runs with your normal user permissions, just like any other "
+"application you start.\n"
+msgstr ""
+
+#: app/widgetManager.js:2977
+msgid ""
+"It can access your files, system resources, and the network according to "
+"your user account permissions.\n"
+"\n"
+msgstr ""
+
+#: app/widgetManager.js:2979
+msgid "Command:"
+msgstr "Whakahau:"
+
+#: app/widgetManager.js:2982
+msgid "Only allow this for widgets you implicitly trust."
+msgstr ""
+
+#: app/widgetManager.js:2985
+msgid "Allow widget backend?"
+msgstr "Whakaae ki te tuara pūmanawa āpiti?"
+
+#: app/widgetWebContext.js:263
+msgid "Widget Preferences"
+msgstr "Ngā Taupanga Pūmanawa Āpiti"
+
+#: app/widgetWebContext.js:792
+msgid "Open link in browser?"
+msgstr "Whakatuwhera hononga i te pūtirotiro?"
+
+#: app/widgetWebContext.js:793
+msgid ""
+"The widget wants to open this link in your browser:\n"
+"\n"
+msgstr ""
+
+#: app/utils/dbusUtils.js:67
+msgid "\"${programName}\" is not available"
+msgstr ""
+
+#: app/utils/dbusUtils.js:70
+msgid ""
+"Install \"${programName}\" to enable Desktop Icons to perform these actions."
+msgstr ""
+
+#: app/utils/desktopFolderUtils.js:84
+msgid "Choose Desktop Folder"
+msgstr "Kōwhiria te Kōpaki Papamahi"
+
+#: app/utils/desktopIconsUtil.js:235
+msgid "Command not found"
+msgstr "Kāore i kitea te whakahau"
+
+#: data/ui/ding-app-chooser.ui:47
+msgid "Choose an app to open the selected files."
+msgstr "Kōwhiria he taupānga hei whakatuwhera i ngā kōnae kua tīpakohia."
+
+#: data/ui/ding-app-chooser.ui:81
+msgid "Always use for this file type"
+msgstr "Whakamahia i ngā wā katoa mō tēnei momo kōnae"
+
+#: data/ui/ding-app-chooser.ui:104
+msgid "_Cancel"
+msgstr "Whakakore"
+
+#: data/ui/ding-app-chooser.ui:110
+msgid "_Open"
+msgstr "Whakatuwhera"
+
+#: data/com.desktop.ding.desktop.in:5
+msgid "Display icons on the GNOME desktop"
+msgstr "Whakaatu ata i te papamahi GNOME"
+
+#: data/com.desktop.ding.desktop.in:6
+msgid "desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;"
+msgstr ""
+
+#: data/com.desktop.ding.desktop.in:21
+msgid "Show<>Hide"
+msgstr ""
+
+#: data/com.desktop.ding.desktop.in:33
+msgid "Preferences"
+msgstr "Ngā Taupanga"
+
+#: data/com.desktop.ding.desktop.in:37
+msgid "Disable"
+msgstr "Monokia"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
+msgid "Icon size"
+msgstr "Rahi ata"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:26
+msgid "Set the size for the desktop icons."
+msgstr "Tautuhia te rahi mō ngā ata papamahi."
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:30
+msgid "Show personal folder"
+msgstr "Whakaatu kōpaki whaiaro"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:31
+msgid "Show the personal folder in the desktop."
+msgstr "Whakaatu i te kōpaki whaiaro i te papamahi."
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:35
+msgid "Show trash icon"
+msgstr "Whakaatu ata para"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:36
+msgid "Show the trash icon in the desktop."
+msgstr "Whakaatu i te ata para i te papamahi."
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:40
+msgid "New icons start corner"
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:41
+msgid "Set the corner from where the icons will start to be placed."
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:45
+msgid "Show external drives in the desktop"
+msgstr "Whakaatu taraiwa o waho i te papamahi"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:46
+msgid "Show the disk drives connected to the computer."
+msgstr "Whakaatu i ngā taraiwa kōpae kua honoa ki te rorohiko."
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:50
+msgid "Show network drives in the desktop"
+msgstr "Whakaatu taraiwa whatunga i te papamahi"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:51
+msgid "Show mounted network volumes in the desktop."
+msgstr "Whakaatu i ngā rōrahi whatunga kua tāmaua i te papamahi."
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:55
+msgid "Add new drives to the opposite side of the screen"
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:56
+msgid ""
+"When adding drives and volumes to the desktop, add them to the opposite side "
+"of the screen."
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:60
+msgid "Shows a rectangle in the destination place during DnD"
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:61
+msgid ""
+"When doing a Drag'n'Drop operation, marks the place in the grid where the "
+"icon will be put with a semitransparent rectangle."
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:65
+msgid "Sort Special Folders - Home/Trash Drives."
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:66
+msgid ""
+"When arranging Icons on desktop, to sort and change the position of the "
+"Home, Trash and mounted Network or External Drives"
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:70
+msgid "Keep Icons Arranged"
+msgstr "Pupuri Ata kia Whakaritea"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:71
+msgid "Always keep Icons Arranged by the last arranged order"
+msgstr ""
+"Pupuri tonu i ngā Ata kia whakaritea mā te raupapa whakarite whakamutunga"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:75
+msgid "Arrange Order"
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:76
+msgid "Icons Arranged by this property"
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:80
+msgid "Keep Icons Stacked"
+msgstr "Pupuri Ata kia Whakatāpaetia"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:81
+msgid "Always keep Icons Stacked, Similar types are grouped"
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:85
+msgid "Type of Files to not Stack"
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:86
+msgid "An Array of strings types, Don't Stack these types of files"
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
+msgid "Add an emblem to links"
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:91
+msgid "Add an emblem to allow to identify soft links."
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:95
+msgid "Use black for label text"
+msgstr "Whakamahia te pango mō te kuputuhi tapanga"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:96
+msgid ""
+"Paint the label text in black instead of white. Useful when using light "
+"backgrounds."
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:100
+msgid "Show new icons on non primary monitor if connected"
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:101
+msgid ""
+"If a second monitor is connected, new icons are placed on the non primary "
+"monitor"
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
+msgid "Icons can be positioned anywhere on Desktop"
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:106
+msgid ""
+"Icons are not on a rectangular grid but can be postioned anywhere "
+"independent of grid"
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:110
+msgid "Show Desktop Widgets"
+msgstr "Whakaatu Pūmanawa Āpiti Papamahi"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:111
+msgid "Displays Widgets in a layer below the icons if installed"
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:115
+msgid "Hide/Show all desktop windows"
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:116
+msgid "Show the icons on the desktop, or hide them all"
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:120
+msgid "User Application Shortcuts"
+msgstr "Tapahi Taupānga Kaiwhakamahi"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:121
+msgid "Override for default application shortcuts set by the User"
+msgstr ""
