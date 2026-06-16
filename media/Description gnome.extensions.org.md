@@ -13,7 +13,7 @@ Icons can be positioned anywhere on desktop or are snapped to a grid. Can make l
 Updated and modified code base, uses Gio menus. All functions are asynchronous where possible. It is ported to ESM modules, supports Gnome 45 and higher.
 
 Translations available in-
-[ar, az, be, bg, bn, ca, cs, da, de, el, eo, es, et  eu, fa, fi, fr, fur, ga, gl, he, hi, hr, hu, id, it, ja, ka, kab, kk, ko, ky, lv, lt, ms, nb, nb_NO, nl, oc, pl, pt_BR, pt, ro, ru, sk, sl, sq, sv, ta, tl, tr, th, uk, ur, zh-Hans, zh-Hant, zh_CN, zh_TW]
+[ar, az, be, bg, bn, ca, cs, da, de, el, eo, es, et  eu, fa, fi, fr, fur, ga, gl, he, hi, hr, hu, id, it, ja, ka, kab, kk, ko, ky, lv, lt, mi, ms, nb, nb_NO, nl, oc, pl, pt_BR, pt, ro, ru, sk, sl, sq, sv, ta, tl, tr, th, uk, ur, zh-Hans, zh-Hant, zh_CN, zh_TW]
 
 Translated using LibreTranslate, machine translation, not every string is verified manually. Although most strings in languages should be correct, errors are possible.
 
