@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-30 06:42-0400\n"
+"POT-Creation-Date: 2026-06-18 19:30-0400\n"
 "PO-Revision-Date: 2026-06-02 21:29+0000\n"
 "Last-Translator: Sundeep Mediratta <smedius@gmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/gtk4-desktop-"
@@ -74,210 +74,210 @@ msgstr ""
 msgid "Help translate in your web browser"
 msgstr "Segíts a fordításban a böngésződben"
 
-#: app/adwPreferencesWindow.js:599 app/adwPreferencesWindow.js:600
+#: app/adwPreferencesWindow.js:618 app/adwPreferencesWindow.js:619
 msgid "Desktop"
 msgstr "Asztal"
 
-#: app/adwPreferencesWindow.js:605 app/adwPreferencesWindow.js:606
+#: app/adwPreferencesWindow.js:624 app/adwPreferencesWindow.js:625
 msgid "Files"
 msgstr "Fájlok"
 
-#: app/adwPreferencesWindow.js:611 app/adwPreferencesWindow.js:612
-#: app/adwPreferencesWindow.js:654
+#: app/adwPreferencesWindow.js:630 app/adwPreferencesWindow.js:631
+#: app/adwPreferencesWindow.js:673
 msgid "Tweaks"
 msgstr "Hangolás"
 
-#: app/adwPreferencesWindow.js:617 app/adwPreferencesWindow.js:618
+#: app/adwPreferencesWindow.js:636 app/adwPreferencesWindow.js:637
 msgid "More"
 msgstr "Több"
 
-#: app/adwPreferencesWindow.js:629
+#: app/adwPreferencesWindow.js:648
 msgid "Desktop Settings"
 msgstr "Asztali beállítások"
 
-#: app/adwPreferencesWindow.js:630
+#: app/adwPreferencesWindow.js:649
 msgid "Settings for the Desktop Program"
 msgstr "Beállítások az asztali programhoz"
 
-#: app/adwPreferencesWindow.js:636
+#: app/adwPreferencesWindow.js:655
 msgid "Desktop Folder"
 msgstr "Az asztal mappája"
 
-#: app/adwPreferencesWindow.js:637
+#: app/adwPreferencesWindow.js:656
 msgid "Current Desktop: "
 msgstr "Jelenlegi asztal: "
 
-#: app/adwPreferencesWindow.js:647
+#: app/adwPreferencesWindow.js:666
 msgid "Files Settings"
 msgstr "Fájlkezelői beállítások"
 
-#: app/adwPreferencesWindow.js:648
+#: app/adwPreferencesWindow.js:667
 msgid "Settings shared with Gnome Files"
 msgstr "A fájlkezelőre vonatkozó beállítások"
 
-#: app/adwPreferencesWindow.js:655
+#: app/adwPreferencesWindow.js:674
 msgid "Miscellaneous Tweaks"
 msgstr "Egyéb finomhangolások"
 
-#: app/adwPreferencesWindow.js:679
+#: app/adwPreferencesWindow.js:698
 msgid "Size for the desktop icons"
 msgstr "Az asztali ikonok mérete"
 
-#: app/adwPreferencesWindow.js:681
+#: app/adwPreferencesWindow.js:700
 msgid "Tiny"
 msgstr "Apró"
 
-#: app/adwPreferencesWindow.js:682
+#: app/adwPreferencesWindow.js:701
 msgid "Small"
 msgstr "Kicsi"
 
-#: app/adwPreferencesWindow.js:683
+#: app/adwPreferencesWindow.js:702
 msgid "Standard"
 msgstr "Szokásos"
 
-#: app/adwPreferencesWindow.js:684
+#: app/adwPreferencesWindow.js:703
 msgid "Large"
 msgstr "Nagy"
 
-#: app/adwPreferencesWindow.js:690
+#: app/adwPreferencesWindow.js:709
 msgid "New icons alignment"
 msgstr "Új ikonok elrendezése"
 
-#: app/adwPreferencesWindow.js:692
+#: app/adwPreferencesWindow.js:711
 msgid "Top left corner"
 msgstr "Bal felső sarok"
 
-#: app/adwPreferencesWindow.js:693
+#: app/adwPreferencesWindow.js:712
 msgid "Top right corner"
 msgstr "Jobb felső sarok"
 
-#: app/adwPreferencesWindow.js:694
+#: app/adwPreferencesWindow.js:713
 msgid "Bottom left corner"
 msgstr "Bal alsó sarok"
 
-#: app/adwPreferencesWindow.js:695
+#: app/adwPreferencesWindow.js:714
 msgid "Bottom right corner"
 msgstr "Jobb alsó sarok"
 
-#: app/adwPreferencesWindow.js:701
+#: app/adwPreferencesWindow.js:720
 msgid "Add new icons to Secondary Monitors first, if available"
 msgstr "Először az új ikonokat a másodlagos monitorhoz adja hozzá, ha elérhető"
 
-#: app/adwPreferencesWindow.js:705
+#: app/adwPreferencesWindow.js:724
 msgid "Snap icons to grid"
 msgstr "Ikonok rácshoz illesztése"
 
-#: app/adwPreferencesWindow.js:711
+#: app/adwPreferencesWindow.js:730
 msgid "Show desktop widgets"
 msgstr "Asztali widgetek megjelenítése"
 
-#: app/adwPreferencesWindow.js:716
+#: app/adwPreferencesWindow.js:735
 msgid "New Desktop Folder"
 msgstr "Új asztali mappa"
 
-#: app/adwPreferencesWindow.js:717
+#: app/adwPreferencesWindow.js:736
 msgid "Set a new folder for the desktop"
 msgstr "Új mappa beállítása az asztalnak"
 
-#: app/adwPreferencesWindow.js:718 app/utils/desktopFolderUtils.js:85
+#: app/adwPreferencesWindow.js:737 app/utils/desktopFolderUtils.js:85
 msgid "Choose"
 msgstr "Választás"
 
-#: app/adwPreferencesWindow.js:723
+#: app/adwPreferencesWindow.js:742
 msgid "Set Desktop back to ~/"
 msgstr "Asztal visszaállítása ide: ~/"
 
-#: app/adwPreferencesWindow.js:725
+#: app/adwPreferencesWindow.js:744
 msgid "Restore Default Desktop Folder"
 msgstr "Alapértelmezett asztali mappa visszaállítása"
 
-#: app/adwPreferencesWindow.js:727
+#: app/adwPreferencesWindow.js:746
 msgid "Restore"
 msgstr "Visszaállítás"
 
-#: app/adwPreferencesWindow.js:736
+#: app/adwPreferencesWindow.js:755
 msgid "Highlight the drop grid"
 msgstr "Lerakási pozíció kiemelése"
 
-#: app/adwPreferencesWindow.js:746
+#: app/adwPreferencesWindow.js:765
 msgid "Add information emblems for links, encryption"
 msgstr "Információs emblémák hozzáadása hivatkozásokhoz, titkosításhoz"
 
-#: app/adwPreferencesWindow.js:750
+#: app/adwPreferencesWindow.js:769
 msgid "Use dark text in icon labels"
 msgstr "Sötét szöveg használata az ikoncímkékben"
 
-#: app/adwPreferencesWindow.js:755
+#: app/adwPreferencesWindow.js:774
 msgid "Show the personal folder on the desktop"
 msgstr "A személyes mappa megjelenítése az asztalon"
 
-#: app/adwPreferencesWindow.js:760
+#: app/adwPreferencesWindow.js:779
 msgid "Show the trash icon on the desktop"
 msgstr "A kuka ikon megjelenítése az asztalon"
 
-#: app/adwPreferencesWindow.js:765
+#: app/adwPreferencesWindow.js:784
 msgid "Show external drives on the desktop"
 msgstr "A külső meghajtók megjelenítése az asztalon"
 
-#: app/adwPreferencesWindow.js:770
+#: app/adwPreferencesWindow.js:789
 msgid "Show network drives on the desktop"
 msgstr "A hálózati meghajtók megjelenítése az asztalon"
 
-#: app/adwPreferencesWindow.js:775
+#: app/adwPreferencesWindow.js:794
 msgid "Add new drives to the opposite side of the desktop"
 msgstr "Új meghajtók hozzáadása az asztal ellentétes oldalán"
 
-#: app/adwPreferencesWindow.js:780
+#: app/adwPreferencesWindow.js:799
 msgid "Action to Open Items"
 msgstr "Művelet az elemek megnyitásához"
 
-#: app/adwPreferencesWindow.js:782
+#: app/adwPreferencesWindow.js:801
 msgid "Single click"
 msgstr "Egyszeri kattintás"
 
-#: app/adwPreferencesWindow.js:783
+#: app/adwPreferencesWindow.js:802
 msgid "Double click"
 msgstr "Dupla kattintás"
 
-#: app/adwPreferencesWindow.js:788
+#: app/adwPreferencesWindow.js:807
 msgid "Show image thumbnails"
 msgstr "Bélyegképek megjelenítése"
 
-#: app/adwPreferencesWindow.js:790
+#: app/adwPreferencesWindow.js:809
 msgid "Always"
 msgstr "Mindig"
 
-#: app/adwPreferencesWindow.js:791
+#: app/adwPreferencesWindow.js:810
 msgid "On this computer only"
 msgstr "Csak ezen a számítógépen"
 
-#: app/adwPreferencesWindow.js:792
+#: app/adwPreferencesWindow.js:811
 msgid "Never"
 msgstr "Soha"
 
-#: app/adwPreferencesWindow.js:797
+#: app/adwPreferencesWindow.js:816
 msgid "Show a context menu item to delete permanently"
 msgstr "Menüelem megjelenítése a végleges törléshez"
 
-#: app/adwPreferencesWindow.js:802
+#: app/adwPreferencesWindow.js:821
 msgid "Show hidden files"
 msgstr "Rejtett fájlok megjelenítése"
 
-#: app/adwPreferencesWindow.js:807
+#: app/adwPreferencesWindow.js:826
 msgid "Open folders on drag hover"
 msgstr "Mappák megnyitása az egérmutató húzásával"
 
-#: app/adwPreferencesWindow.js:811
+#: app/adwPreferencesWindow.js:830
 msgid "About..."
 msgstr "Névjegy..."
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:824
+#: app/adwPreferencesWindow.js:843
 msgid "Translation"
 msgstr "Fordítás"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:825
+#: app/adwPreferencesWindow.js:844
 msgid ""
 "Machine translated using LibreTranslate. User verified and edited on Weblate."
 msgstr ""
@@ -285,40 +285,40 @@ msgstr ""
 "Weblate."
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:830
+#: app/adwPreferencesWindow.js:849
 msgid "Edit Translations"
 msgstr "Fordítások szerkesztése"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:831
+#: app/adwPreferencesWindow.js:850
 msgid "Verify, add or correct translation in your web browser"
 msgstr "A fordítás ellenőrzése, hozzáadása vagy javítása a böngészőben"
 
-#: app/adwPreferencesWindow.js:832
+#: app/adwPreferencesWindow.js:851
 msgid "Translate"
 msgstr "Fordítás"
 
-#: app/appChooser.js:78
+#: app/appChooser.js:88
 msgid "Choose an application to open <b>{foo}</b>"
 msgstr "Válassz egy alkalmazást a(z) <b>{foo}</b> megnyitásához"
 
-#: app/appChooser.js:90
+#: app/appChooser.js:100
 msgid "Open Items"
 msgstr "Elemek megnyitása"
 
-#: app/appChooser.js:92
+#: app/appChooser.js:102
 msgid "Open Folder"
 msgstr "Mappa megnyitása"
 
-#: app/appChooser.js:94 data/ui/ding-app-chooser.ui:6
+#: app/appChooser.js:104 data/ui/ding-app-chooser.ui:6
 msgid "Open File"
 msgstr "Fájl megnyitása"
 
-#: app/appChooser.js:165
+#: app/appChooser.js:175
 msgid "Error changing default application"
 msgstr "Nem sikerült az alapértelmezett alkalmazás megváltoztatása"
 
-#: app/appChooser.js:168
+#: app/appChooser.js:178
 msgid "Error while setting {foo} as default application for {mimetype}"
 msgstr ""
 "Hiba a(z) {foo} beállítása közben alapértelmezettként, a(z) {mimetype} "
@@ -393,7 +393,7 @@ msgid "enable"
 msgstr "engedélyezése"
 
 #: app/appImageFileItem.js:84 app/desktopFileIcon.js:178
-#: app/fileItemMenu.js:316 app/fileItemMenu.js:330
+#: app/fileItemMenu.js:318 app/fileItemMenu.js:332
 msgid "Allow Launching"
 msgstr "Indítás engedélyezése"
 
@@ -405,8 +405,8 @@ msgstr "Mappanév"
 msgid "File name"
 msgstr "Fájlnév"
 
-#: app/askRenamePopup.js:75 app/autoAr.js:303 app/desktopManager.js:1297
-#: app/fileItemMenu.js:968
+#: app/askRenamePopup.js:75 app/autoAr.js:313 app/desktopManager.js:1320
+#: app/fileItemMenu.js:971
 msgid "OK"
 msgstr "Rendben"
 
@@ -430,114 +430,115 @@ msgstr ""
 msgid "Extracting files"
 msgstr "Fájlok kibontása"
 
-#: app/autoAr.js:224
+#: app/autoAr.js:234
 msgid "Compressing files"
 msgstr "Fájlok tömörítése"
 
-#: app/autoAr.js:295 app/autoAr.js:624 app/desktopManager.js:180
-#: app/desktopManager.js:1299 app/dragManager.js:792 app/fileItemMenu.js:915
-#: app/fileItemMenu.js:968 app/showErrorPopup.js:41 app/showErrorPopup.js:58
-#: app/widgetManager.js:2830
+#: app/autoAr.js:305 app/autoAr.js:634 app/desktopManager.js:196
+#: app/desktopManager.js:1322 app/dragManager.js:792 app/fileItemMenu.js:918
+#: app/fileItemMenu.js:971 app/showErrorPopup.js:49 app/showErrorPopup.js:66
+#: app/widgetManager.js:3253
 msgid "Cancel"
 msgstr "Mégse"
 
-#: app/autoAr.js:315 app/autoAr.js:612
+#: app/autoAr.js:325 app/autoAr.js:622
 msgid "Enter a password here"
 msgstr "Adjon meg egy jelszót itt"
 
-#: app/autoAr.js:358
+#: app/autoAr.js:368
 msgid "Removing partial file '${outputFile}'"
 msgstr "Részben létrehozott fájl eltávolítása: '${outputFile}'"
 
-#: app/autoAr.js:377
+#: app/autoAr.js:387
 msgid "Creating destination folder"
 msgstr "Célmappa létrehozása"
 
-#: app/autoAr.js:409
+#: app/autoAr.js:419
 msgid "Extracting files into '${outputPath}'"
 msgstr "Fájlok kibontása ide: '${outputPath}'"
 
-#: app/autoAr.js:439
+#: app/autoAr.js:449
 msgid "Extraction completed"
 msgstr "A kibontás befejeződött"
 
-#: app/autoAr.js:440
+#: app/autoAr.js:450
 msgid "Extracting '${fullPathFile}' has been completed."
 msgstr "A(z) '${fullPathFile}' kibontása befejeződött."
 
-#: app/autoAr.js:446
+#: app/autoAr.js:456
 msgid "Extraction cancelled"
 msgstr "Kibontás megszakítva"
 
-#: app/autoAr.js:447
+#: app/autoAr.js:457
 msgid "Extracting '${fullPathFile}' has been cancelled by the user."
 msgstr "A felhasználó megszakította a(z) '${fullPathFile}' kibontását."
 
-#: app/autoAr.js:457
+#: app/autoAr.js:467
 msgid "Passphrase required for ${filename}"
 msgstr "Jelszó szükséges a(z) '${filename}' fájlhoz"
 
-#: app/autoAr.js:460
+#: app/autoAr.js:470
 msgid "Error during extraction"
 msgstr "Hiba a kibontás közben"
 
-#: app/autoAr.js:487
+#: app/autoAr.js:497
 msgid "Compressing files into '${outputFile}'"
 msgstr "Fájlok tömörítése ide: '${outputFile}'"
 
-#: app/autoAr.js:500
+#: app/autoAr.js:510
 msgid "Compression completed"
 msgstr "A tömörítés befejeződött"
 
-#: app/autoAr.js:501
+#: app/autoAr.js:511
 msgid "Compressing files into '${outputFile}' has been completed."
 msgstr "A fájlok tömörítése befejeződött ide: '${outputFile}'"
 
-#: app/autoAr.js:505 app/autoAr.js:512
+#: app/autoAr.js:515 app/autoAr.js:522
 msgid "Cancelled compression"
 msgstr "Tömörítés megszakítva"
 
-#: app/autoAr.js:506
+#: app/autoAr.js:516
 msgid "The output file '${outputFile}' already exists."
 msgstr "A fájl '${outputFile}' már létezik."
 
-#: app/autoAr.js:513
+#: app/autoAr.js:523
 msgid "Compressing files into '${outputFile}' has been cancelled by the user."
-msgstr "A fájlok tömörítését ide: '${outputFile}', megszakította a felhasználó."
+msgstr ""
+"A fájlok tömörítését ide: '${outputFile}', megszakította a felhasználó."
 
-#: app/autoAr.js:516
+#: app/autoAr.js:526
 msgid "Error during compression"
 msgstr "Hiba a tömörítés során"
 
-#: app/autoAr.js:551
+#: app/autoAr.js:561
 msgid "Create archive"
 msgstr "Archívum létrehozása"
 
-#: app/autoAr.js:575
+#: app/autoAr.js:585
 msgid "Archive name"
 msgstr "Archívum neve"
 
-#: app/autoAr.js:608
+#: app/autoAr.js:618
 msgid "Password"
 msgstr "Jelszó"
 
-#: app/autoAr.js:621
+#: app/autoAr.js:631
 msgid "Create"
 msgstr "Létrehozás"
 
-#: app/autoAr.js:712
+#: app/autoAr.js:722
 msgid "Compatible with all operating systems."
 msgstr "Minden operációs rendszerrel kompatibilis."
 
-#: app/autoAr.js:718
+#: app/autoAr.js:728
 msgid "Password protected .zip, must be installed on Windows and Mac."
 msgstr "Jelszóval védett .zip, Windows és Mac rendszerrel kompatibilis."
 
-#: app/autoAr.js:724
+#: app/autoAr.js:734
 msgid "Smaller archives but Linux and Mac only."
 msgstr "Kisebb archívumok, de csak Linux és Mac."
 
-#: app/autoAr.js:730
+#: app/autoAr.js:740
 msgid "Smaller archives but must be installed on Windows and Mac."
 msgstr "Kisebb archívumok, de csak Windows és Mac rendszerrel kompatibilis."
 
@@ -627,23 +628,23 @@ msgstr "Átváltás új asztalra..."
 msgid "Desktop Icons"
 msgstr "Asztali ikonok"
 
-#: app/desktopGrid.js:2587
+#: app/desktopGrid.js:2584
 msgid "Back to Desktop"
 msgstr "Vissza az asztalra"
 
-#: app/desktopGrid.js:2588 app/widgetManager.js:1525
+#: app/desktopGrid.js:2585 app/widgetManager.js:1751
 msgid "Toggle Widget Grid"
 msgstr "Widgetrács be-/kikapcsolása"
 
-#: app/desktopGrid.js:2589
+#: app/desktopGrid.js:2586
 msgid "Add Widget..."
 msgstr "Widget hozzáadása..."
 
-#: app/desktopManager.js:166
+#: app/desktopManager.js:182
 msgid "Monitor Frame Buffer Scaling is not enabled"
 msgstr "A monitor Frame Buffer skálázása nincs engedélyezve"
 
-#: app/desktopManager.js:167
+#: app/desktopManager.js:183
 msgid ""
 "Multiple monitors with different zoom settings, recommend per monitor "
 "framebuffer scaling.\n"
@@ -655,7 +656,7 @@ msgstr ""
 "\n"
 "Engedélyezd a Mutter Dconf beállításaiban"
 
-#: app/desktopManager.js:178
+#: app/desktopManager.js:194
 msgid ""
 "Multiple monitors with different zoom settings.\n"
 "\n"
@@ -666,17 +667,17 @@ msgstr ""
 "Engedélyezed a monitoronkénti Frame Buffer skálázást a Mutter Dconf "
 "beállításaiban?"
 
-#: app/desktopManager.js:181 data/com.desktop.ding.desktop.in:25
+#: app/desktopManager.js:197 data/com.desktop.ding.desktop.in:25
 msgid "Enable"
 msgstr "Engedélyezés"
 
-#: app/desktopManager.js:205 app/desktopManager.js:215
+#: app/desktopManager.js:221 app/desktopManager.js:231
 msgid "Can Not Show the Desktop"
 msgstr "Az asztal nem jeleníthető meg"
 
 # MT: LibreTranslate
 #. TRANSLATORS: {desktop} folder path automatically inserted
-#: app/desktopManager.js:207
+#: app/desktopManager.js:223
 msgid ""
 "The Desktop folder {desktop} is a Symbolic Link\n"
 "\n"
@@ -688,7 +689,7 @@ msgstr ""
 
 # MT: LibreTranslate
 #. TRANSLATORS: {desktop} folder path automatically inserted
-#: app/desktopManager.js:217
+#: app/desktopManager.js:233
 msgid ""
 "The Desktop folder {desktop} does not exist, or is not a Directory\n"
 "\n"
@@ -698,27 +699,27 @@ msgstr ""
 "\n"
 "Ellenőrizze a xdg- utils telepítését és állítsa be a megfelelő Asztali mappát"
 
-#: app/desktopManager.js:228
+#: app/desktopManager.js:244
 msgid "GNOME Files not found"
 msgstr "A GNOME fájlkezelő nem található"
 
-#: app/desktopManager.js:229
+#: app/desktopManager.js:245
 msgid "The GNOME Files application is required by Gtk4 Desktop Icons NG."
 msgstr "A GNOME Fájlkezelő szükséges a Gtk4 asztali ikonokhoz."
 
-#: app/desktopManager.js:236
+#: app/desktopManager.js:252
 msgid "There is no default File Manager"
 msgstr "Nincs alapértelmezett fájlkezelő"
 
-#: app/desktopManager.js:237
+#: app/desktopManager.js:253
 msgid "There is no application that handles mimetype \"inode/directory\""
 msgstr "Nincs olyan alkalmazás, amely kezeli a \"inode/directory\" mimetypeot"
 
-#: app/desktopManager.js:244
+#: app/desktopManager.js:260
 msgid "Gnome Files is not registered as a File Manager"
 msgstr "A Gnome fájlkezelő nincs regisztrálva fájlkezelőként"
 
-#: app/desktopManager.js:245
+#: app/desktopManager.js:261
 msgid ""
 "The Gnome Files application is not programmed to open Folders!\n"
 "Check your xdg-utils installation\n"
@@ -728,139 +729,139 @@ msgstr ""
 "Ellenőrizd az xdg-utils telepítésedet.\n"
 "Ellenőrizd a Gnome fájlkezelő .desktop fájl telepítését"
 
-#: app/desktopManager.js:360
+#: app/desktopManager.js:379
 msgid "Clear current selection before new search"
 msgstr "Az új keresés előtt törölje az aktuális kijelölést"
 
-#: app/desktopManager.js:1301
+#: app/desktopManager.js:1324
 msgid "Find Files on Desktop"
 msgstr "Fájlok keresése az asztalon"
 
-#: app/desktopManager.js:1644 app/desktopMenu.js:1065 app/shortcuts.js:10
+#: app/desktopManager.js:1669 app/desktopMenu.js:1096 app/shortcuts.js:10
 msgid "New Folder"
 msgstr "Új mappa"
 
-#: app/desktopManager.js:1678
+#: app/desktopManager.js:1703
 msgid "Folder Creation Failed"
 msgstr "A mappa létrehozása nem sikerült"
 
-#: app/desktopManager.js:1679
+#: app/desktopManager.js:1704
 msgid "Could not create folder"
 msgstr "Nem sikerült a mappát létrehozni"
 
-#: app/desktopMenu.js:598
+#: app/desktopMenu.js:616
 msgid "Unable to open Desktop in Gnome Files"
 msgstr "Nem sikerült megnyitni az asztalt a Gnome fájlkezelőben"
 
-#: app/desktopMenu.js:617
+#: app/desktopMenu.js:635
 msgid "Preferences Window is Open"
 msgstr "A preferenciák ablak meg van nyitva"
 
-#: app/desktopMenu.js:618
+#: app/desktopMenu.js:636
 msgid "This Window is open. Please switch to the active window."
 msgstr "Ez az ablak meg van nyitva. Válts át az aktív ablakra."
 
-#: app/desktopMenu.js:627 app/desktopMenu.js:1118
+#: app/desktopMenu.js:648 app/desktopMenu.js:1149
 msgid "Settings"
 msgstr "Beállítások"
 
-#: app/desktopMenu.js:907
+#: app/desktopMenu.js:938
 msgid "Template Creation Error"
 msgstr "Sablon létrehozási hiba"
 
-#: app/desktopMenu.js:908
+#: app/desktopMenu.js:939
 msgid "Could not create document"
 msgstr "Nem sikerült létrehozni a dokumentumot"
 
-#: app/desktopMenu.js:1026
+#: app/desktopMenu.js:1057
 msgid "Name"
 msgstr "Név"
 
-#: app/desktopMenu.js:1028
+#: app/desktopMenu.js:1059
 msgid "Name Z-A"
 msgstr "Név Z-A"
 
-#: app/desktopMenu.js:1030
+#: app/desktopMenu.js:1061
 msgid "Modified Time"
 msgstr "Módosítási idő"
 
-#: app/desktopMenu.js:1032
+#: app/desktopMenu.js:1063
 msgid "Type"
 msgstr "Típus"
 
-#: app/desktopMenu.js:1034
+#: app/desktopMenu.js:1065
 msgid "Size"
 msgstr "Méret"
 
-#: app/desktopMenu.js:1039
+#: app/desktopMenu.js:1070
 msgid "Keep Arranged…"
 msgstr "Tartsa rendezve…"
 
-#: app/desktopMenu.js:1044
+#: app/desktopMenu.js:1075
 msgid "Keep Stacked by Type…"
 msgstr "Típus szerinti csoportosítás megtartása…"
 
-#: app/desktopMenu.js:1046
+#: app/desktopMenu.js:1077
 msgid "Sort Home/Drives/Trash…"
 msgstr "Kezdőlap/Meghajtók/Kuka rendezése…"
 
-#: app/desktopMenu.js:1051
+#: app/desktopMenu.js:1082
 msgid "Change Desktop"
 msgstr "Asztal megváltoztatása"
 
-#: app/desktopMenu.js:1056
+#: app/desktopMenu.js:1087
 msgid "Restore Default Desktop"
 msgstr "Alapértelmezett asztal visszaállítása"
 
-#: app/desktopMenu.js:1060
+#: app/desktopMenu.js:1091
 msgid "Desktop Icon Settings"
 msgstr "Az asztali ikonok beállításai"
 
-#: app/desktopMenu.js:1062
+#: app/desktopMenu.js:1093
 msgid "Show Shortcuts"
 msgstr "Gyorsbillentyűk megjelenítése"
 
-#: app/desktopMenu.js:1070 app/shortcuts.js:67
+#: app/desktopMenu.js:1101 app/shortcuts.js:67
 msgid "New Document"
 msgstr "Új dokumentum"
 
-#: app/desktopMenu.js:1075 app/shortcuts.js:11
+#: app/desktopMenu.js:1106 app/shortcuts.js:11
 msgid "Paste"
 msgstr "Beillesztés"
 
-#: app/desktopMenu.js:1077 app/shortcuts.js:12
+#: app/desktopMenu.js:1108 app/shortcuts.js:12
 msgid "Undo"
 msgstr "Visszavonás"
 
-#: app/desktopMenu.js:1079 app/shortcuts.js:13
+#: app/desktopMenu.js:1110 app/shortcuts.js:13
 msgid "Redo"
 msgstr "Újra"
 
-#: app/desktopMenu.js:1085 app/shortcuts.js:14
+#: app/desktopMenu.js:1116 app/shortcuts.js:14
 msgid "Select All"
 msgstr "Összes kiválasztása"
 
-#: app/desktopMenu.js:1092
+#: app/desktopMenu.js:1123
 msgid "Arrange Icons"
 msgstr "Ikonok rendezése"
 
-#: app/desktopMenu.js:1096
+#: app/desktopMenu.js:1127
 msgid "Arrange By…"
 msgstr "Rendezés…"
 
-#: app/desktopMenu.js:1104
+#: app/desktopMenu.js:1135
 msgid "Show Desktop In {0}"
 msgstr "Mutasd az asztalt ebben: {0}"
 
-#: app/desktopMenu.js:1109
+#: app/desktopMenu.js:1140
 msgid "Open In {0}"
 msgstr "Megnyitás ebben: {0}"
 
-#: app/desktopMenu.js:1126
+#: app/desktopMenu.js:1157
 msgid "Edit Widgets…"
 msgstr "Widgetek szerkesztése…"
 
-#: app/desktopMenu.js:1133
+#: app/desktopMenu.js:1164
 msgid "Shell Menu…"
 msgstr "Shell menü…"
 
@@ -888,7 +889,7 @@ msgstr "Válasszon műveletet a fájlkezelőnek"
 msgid "Move"
 msgstr "Áthelyezés"
 
-#: app/dragManager.js:792 app/fileItemMenu.js:240
+#: app/dragManager.js:792 app/fileItemMenu.js:242
 msgid "Copy"
 msgstr "Másolás"
 
@@ -912,235 +913,235 @@ msgstr "A fájl megnyitása sikertelen"
 msgid "There is no application installed to open \"{fo}\" files."
 msgstr "Nincs olyan alkalmazás, amely megnyitja a(z) \"{fo}\" fájlokat."
 
-#: app/fileItemMenu.js:104
+#: app/fileItemMenu.js:106
 msgid "New Folder with {0} item"
 msgid_plural "New Folder with {0} items"
 msgstr[0] "Új mappa {0} elemmel"
 msgstr[1] "Új mappa {0} elemmel"
 
-#: app/fileItemMenu.js:114
+#: app/fileItemMenu.js:116
 msgid "Open All..."
 msgstr "Összes megnyitása…"
 
-#: app/fileItemMenu.js:122
+#: app/fileItemMenu.js:124
 msgid "Launch"
 msgstr "Indítás"
 
-#: app/fileItemMenu.js:135
+#: app/fileItemMenu.js:137
 msgid "Open with {foo}"
 msgstr "Megnyitás ezzel: {foo}"
 
-#: app/fileItemMenu.js:138
+#: app/fileItemMenu.js:140
 msgid "Open"
 msgstr "Megnyitás"
 
-#: app/fileItemMenu.js:156 app/fileItemMenu.js:160
+#: app/fileItemMenu.js:158 app/fileItemMenu.js:162
 msgid "Extract Here"
 msgstr "Kibontás ide"
 
-#: app/fileItemMenu.js:162
+#: app/fileItemMenu.js:164
 msgid "Extract To..."
 msgstr "Kibontás…"
 
-#: app/fileItemMenu.js:170 app/fileItemMenu.js:177
+#: app/fileItemMenu.js:172 app/fileItemMenu.js:179
 msgid "Open With..."
 msgstr "Megnyitás ezzel..."
 
-#: app/fileItemMenu.js:176
+#: app/fileItemMenu.js:178
 msgid "Open All With Other Application..."
 msgstr "Összes megnyitása egyéb alkalmazással…"
 
-#: app/fileItemMenu.js:184
+#: app/fileItemMenu.js:186
 msgid "Launch using Integrated Graphics Card"
 msgstr "Futtatás az integrált videokártyával"
 
-#: app/fileItemMenu.js:206
+#: app/fileItemMenu.js:208
 msgid "Stack This Type"
 msgstr "Típus szerinti csoportosítás"
 
-#: app/fileItemMenu.js:207
+#: app/fileItemMenu.js:209
 msgid "Unstack This Type"
 msgstr "Típus szerinti csoportosítás feloldása"
 
-#: app/fileItemMenu.js:231
+#: app/fileItemMenu.js:233
 msgid "Run as a Program"
 msgstr "Futtatás programként"
 
-#: app/fileItemMenu.js:234
+#: app/fileItemMenu.js:236
 msgid "Scripts"
 msgstr "Szkriptek"
 
-#: app/fileItemMenu.js:239
+#: app/fileItemMenu.js:241
 msgid "Cut"
 msgstr "Kivágás"
 
-#: app/fileItemMenu.js:244
+#: app/fileItemMenu.js:246
 msgid "Move to..."
 msgstr "Áthelyezés ide..."
 
-#: app/fileItemMenu.js:245
+#: app/fileItemMenu.js:247
 msgid "Copy to..."
 msgstr "Másolás ide..."
 
-#: app/fileItemMenu.js:249
+#: app/fileItemMenu.js:251
 msgid "Rename…"
 msgstr "Átnevezés…"
 
-#: app/fileItemMenu.js:254
+#: app/fileItemMenu.js:256
 msgid "Create Link..."
 msgstr "Hivatkozás létrehozása..."
 
-#: app/fileItemMenu.js:261
+#: app/fileItemMenu.js:263
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] "{0} mappa tömörítése"
 msgstr[1] "{0} mappa tömörítése"
 
-#: app/fileItemMenu.js:269
+#: app/fileItemMenu.js:271
 msgid "Compress {0} file"
 msgid_plural "Compress {0} files"
 msgstr[0] "{0} fájl tömörítése"
 msgstr[1] "{0} fájl tömörítése"
 
-#: app/fileItemMenu.js:276
+#: app/fileItemMenu.js:278
 msgid "Email to..."
 msgstr "E-mail ide…"
 
-#: app/fileItemMenu.js:286
+#: app/fileItemMenu.js:288
 msgid "Send to Mobile Device"
 msgstr "Küldés mobileszközre"
 
-#: app/fileItemMenu.js:294
+#: app/fileItemMenu.js:296
 msgid "Move to Trash"
 msgstr "Áthelyezés a Kukába"
 
-#: app/fileItemMenu.js:302
+#: app/fileItemMenu.js:304
 msgid "Delete permanently"
 msgstr "Végleges törlés"
 
-#: app/fileItemMenu.js:315 app/fileItemMenu.js:329
+#: app/fileItemMenu.js:317 app/fileItemMenu.js:331
 msgid "Don't Allow Launching"
 msgstr "Indítás tiltása"
 
-#: app/fileItemMenu.js:339
+#: app/fileItemMenu.js:341
 msgid "Empty Trash"
 msgstr "Kuka ürítése"
 
-#: app/fileItemMenu.js:345
+#: app/fileItemMenu.js:347
 msgid "Eject"
 msgstr "Kiadás"
 
-#: app/fileItemMenu.js:348
+#: app/fileItemMenu.js:350
 msgid "Unmount"
 msgstr "Leválasztás"
 
-#: app/fileItemMenu.js:354
+#: app/fileItemMenu.js:356
 msgid "Common Properties"
 msgstr "Gyakori tulajdonságok"
 
-#: app/fileItemMenu.js:355
+#: app/fileItemMenu.js:357
 msgid "Properties"
 msgstr "Tulajdonságok"
 
-#: app/fileItemMenu.js:362
+#: app/fileItemMenu.js:364
 msgid "Show All in {0}"
 msgstr "Összes mutatása itt: {0}"
 
-#: app/fileItemMenu.js:363
+#: app/fileItemMenu.js:365
 msgid "Show in {0}"
 msgstr "Megjelenítés itt: {0}"
 
-#: app/fileItemMenu.js:374
+#: app/fileItemMenu.js:376
 msgid "Open in {0}"
 msgstr "Megnyitás ebben: {0}"
 
-#: app/fileItemMenu.js:538
+#: app/fileItemMenu.js:540
 msgid "Open Item"
 msgstr "Elem megnyitása"
 
-#: app/fileItemMenu.js:820
+#: app/fileItemMenu.js:823
 msgid "Extraction Cancelled"
 msgstr "Kibontás megszakítva"
 
-#: app/fileItemMenu.js:821
+#: app/fileItemMenu.js:824
 msgid "Unable to extract File, no destination folder"
 msgstr "Nem sikerült kibontani a fájlt, mert nincs cél mappa"
 
-#: app/fileItemMenu.js:877 app/fileItemMenu.js:906
+#: app/fileItemMenu.js:880 app/fileItemMenu.js:909
 msgid "Select Destination"
 msgstr "Cél kiválasztása"
 
-#: app/fileItemMenu.js:880 app/fileItemMenu.js:908
+#: app/fileItemMenu.js:883 app/fileItemMenu.js:911
 msgid "Select"
 msgstr "Kiválasztás"
 
-#: app/fileItemMenu.js:964
+#: app/fileItemMenu.js:967
 msgid "Can not email a Directory"
 msgstr "Mappa nem küldhető el e-mailben"
 
-#: app/fileItemMenu.js:966
+#: app/fileItemMenu.js:969
 msgid "Selection includes a Directory, compress to a .zip file first?"
 msgstr "A kijelölés mappát tartalmaz, legyen tömörítve egy .zip fájlba előbb?"
 
-#: app/fileItemMenu.js:992 app/fileItemMenu.js:1023 app/fileItemMenu.js:1040
-#: app/fileItemMenu.js:1059
+#: app/fileItemMenu.js:995 app/fileItemMenu.js:1026 app/fileItemMenu.js:1043
+#: app/fileItemMenu.js:1062
 msgid "Mail Error"
 msgstr "Mail hiba"
 
-#: app/fileItemMenu.js:994
+#: app/fileItemMenu.js:997
 msgid "Unable to find zip command, please install the program"
 msgstr "Nem sikerült megtalálni a zip parancsot, kérjük, telepítsd a programot"
 
 #. Translators - basename for a zipped archive created for mailing
-#: app/fileItemMenu.js:1000
+#: app/fileItemMenu.js:1003
 msgid "Archive.zip"
 msgstr "Archívum.zip"
 
-#: app/fileItemMenu.js:1024
+#: app/fileItemMenu.js:1027
 msgid "There was an error in creating a zip archive"
 msgstr "Volt egy hiba a zip archívum létrehozásakor"
 
-#: app/fileItemMenu.js:1042
+#: app/fileItemMenu.js:1045
 msgid "Unable to find xdg-email, please install the program"
 msgstr "Nem található az xdg-email, kérjük, telepítsd a programot"
 
-#: app/fileItemMenu.js:1060
+#: app/fileItemMenu.js:1063
 msgid "There was an error in emailing Files"
 msgstr "Hiba történt a fájlok e-mail-ben való elküldésekor"
 
-#: app/fileItemMenu.js:1175
+#: app/fileItemMenu.js:1174
 msgid "Can Not open the Working Directory"
 msgstr "Nem nyitható meg a munkamappa"
 
-#: app/fileItemMenu.js:1226
+#: app/fileItemMenu.js:1225
 msgid "Unable to Open in Gnome Console"
 msgstr "Nem sikerült megnyitni a Gnome konzolban"
 
-#: app/fileItemMenu.js:1228
+#: app/fileItemMenu.js:1227
 msgid "Please Install Gnome Console or other Terminal Program"
 msgstr "Kérjük, telepítsd a Gnome Konzolt, vagy más terminál programot"
 
-#: app/fileItemMenu.js:1236
+#: app/fileItemMenu.js:1235
 msgid "Unable to Open {0}"
 msgstr "{0} megnyitása sikertelen"
 
-#: app/fileItemMenu.js:1238
+#: app/fileItemMenu.js:1237
 msgid "Please Install {0}"
 msgstr "Kérjük, telepítsd ezt: {0}"
 
-#: app/fileItemMenu.js:1282
+#: app/fileItemMenu.js:1281
 msgid "Copy Cancelled"
 msgstr "Másolás megszakítva"
 
-#: app/fileItemMenu.js:1283
+#: app/fileItemMenu.js:1282
 msgid "Unable to copy Files, no destination folder"
 msgstr "Hiba a fájlok másolásakor, nincs célmappa"
 
-#: app/fileItemMenu.js:1306
+#: app/fileItemMenu.js:1305
 msgid "Move Cancelled"
 msgstr "Áthelyezés megszakítva"
 
-#: app/fileItemMenu.js:1307
+#: app/fileItemMenu.js:1306
 msgid "Unable to move Files, no destination folder"
 msgstr "Hiba a fájlok áthelyezésekor, nincs célmappa"
 
@@ -1148,7 +1149,7 @@ msgstr "Hiba a fájlok áthelyezésekor, nincs célmappa"
 msgid "$appName$ can not open files of this Type!"
 msgstr "$appName$ nem tudja megnyitni az ilyen típusú fájlokat!"
 
-#: app/preferences.js:1097
+#: app/preferences.js:1044
 msgid "Console"
 msgstr "Konzol"
 
@@ -1296,7 +1297,7 @@ msgstr "Billentyűzetes kijelölés be-/kikapcsolása"
 msgid "Toggle Widget Layer"
 msgstr "Widget réteg ki-/bekapcsolása"
 
-#: app/shortcuts.js:40 app/widgetManager.js:1461
+#: app/shortcuts.js:40 app/widgetManager.js:1687
 msgid "Add Widget"
 msgstr "Widget hozzáadása"
 
@@ -1344,7 +1345,7 @@ msgstr "Gyorsbillentyűk megjelenítése"
 msgid "Show Or Hide Desktop Icons"
 msgstr "Az asztali ikonok megjelenítése/eltüntetése"
 
-#: app/showErrorPopup.js:42
+#: app/showErrorPopup.js:50
 msgid "More Information"
 msgstr "További információ"
 
@@ -1379,43 +1380,68 @@ msgid "Drive"
 msgstr "Meghajtó"
 
 # MT: LibreTranslate
-#: app/widgetManager.js:2123
+#: app/widgetManager.js:2417
 msgid "Widget preferences"
 msgstr "Widget beállítások"
 
-#: app/widgetManager.js:2135 app/widgetManager.js:2144
+#: app/widgetManager.js:2429 app/widgetManager.js:2438
 msgid "Unpin widget"
 msgstr "Widget kitűzésének megszüntetése"
 
-#: app/widgetManager.js:2135 app/widgetManager.js:2144
+#: app/widgetManager.js:2429 app/widgetManager.js:2438
 msgid "Pin widget"
 msgstr "Widget kitűzése"
 
-#: app/widgetManager.js:2153
+#: app/widgetManager.js:2447
 msgid "Reposition widget"
 msgstr "Widget áthelyezése"
 
-#: app/widgetManager.js:2699
+#: app/widgetManager.js:3051
 msgid "HTML widget"
 msgstr "HTML widget"
 
-#: app/widgetManager.js:2701
+#: app/widgetManager.js:3053
 msgid "GTK widget"
 msgstr "GTK widget"
 
-#: app/widgetManager.js:2710
-msgid "User"
-msgstr "Felhasználó"
+#: app/widgetManager.js:3059
+#, fuzzy
+msgid "User Installed"
+msgstr "Kérjük, telepítsd ezt: {0}"
 
-#: app/widgetManager.js:2829
+#: app/widgetManager.js:3059
+msgid "System Installed"
+msgstr ""
+
+#: app/widgetManager.js:3081
+msgid "Download Latest Widgets from Repository?"
+msgstr ""
+
+#: app/widgetManager.js:3083
+msgid "This will overwrite all widgets in your local widgets folder."
+msgstr ""
+
+#: app/widgetManager.js:3156
+msgid "Widgets updated"
+msgstr ""
+
+#: app/widgetManager.js:3157
+msgid "The latest widgets were downloaded and installed."
+msgstr ""
+
+#: app/widgetManager.js:3163
+msgid "Widgets download failed"
+msgstr ""
+
+#: app/widgetManager.js:3252
 msgid "Allow"
 msgstr "Engedélyez"
 
-#: app/widgetManager.js:2883
+#: app/widgetManager.js:3306
 msgid "Strict"
 msgstr "Szigorú"
 
-#: app/widgetManager.js:2885
+#: app/widgetManager.js:3308
 msgid ""
 "The widget runs in a tightly sandboxed web environment.\n"
 "\n"
@@ -1433,11 +1459,11 @@ msgstr ""
 "\n"
 "Ez a legbiztonságosabb opció és ez ajánlott a legtöbb widgethez."
 
-#: app/widgetManager.js:2896
+#: app/widgetManager.js:3319
 msgid "Relaxed"
 msgstr "Lazább"
 
-#: app/widgetManager.js:2898
+#: app/widgetManager.js:3321
 msgid ""
 "The widget is allowed broader web capabilities.\n"
 "\n"
@@ -1456,11 +1482,11 @@ msgstr ""
 "\n"
 "Csak olyan widgetekhez használja ezt, amikben megbízik."
 
-#: app/widgetManager.js:2908
+#: app/widgetManager.js:3331
 msgid "Development"
 msgstr "Fejlesztés"
 
-#: app/widgetManager.js:2910
+#: app/widgetManager.js:3333
 msgid ""
 "The widget runs with development-friendly web access.\n"
 "\n"
@@ -1476,11 +1502,11 @@ msgstr ""
 "\n"
 "Ez az opció csak fejlesztéshez és hibakereséshez ajánlott."
 
-#: app/widgetManager.js:2919
+#: app/widgetManager.js:3342
 msgid "Default"
 msgstr "Alapértelmezett"
 
-#: app/widgetManager.js:2921
+#: app/widgetManager.js:3344
 msgid ""
 "The widget runs with a predefined web security policy.\n"
 "\n"
@@ -1490,12 +1516,12 @@ msgstr ""
 "\n"
 "A Web hozzáférés és képességek az aktív szabályok szerint vannak limitálva."
 
-#: app/widgetManager.js:2929
+#: app/widgetManager.js:3352
 msgid "Allow web content for {widgetId}?"
 msgstr "Engedélyezi a webes tartalmat ehhez: {widgetId}?"
 
 #. eslint-disable-next-line prefer-template
-#: app/widgetManager.js:2939
+#: app/widgetManager.js:3365
 msgid ""
 "The widget you are adding may load web content from the internet.\n"
 "\n"
@@ -1503,7 +1529,7 @@ msgstr ""
 "A widget amit éppen hozzáad betölthet webes tartalmat az internetről.\n"
 "\n"
 
-#: app/widgetManager.js:2940
+#: app/widgetManager.js:3366
 msgid ""
 "This content is subject to the widget security policy:\n"
 "\n"
@@ -1511,7 +1537,7 @@ msgstr ""
 "Ez a tartalom a widget biztonsági szabályai alá tartozik:\n"
 "\n"
 
-#: app/widgetManager.js:2974
+#: app/widgetManager.js:3401
 msgid ""
 "This widget, {widgetId} runs a background process on your computer.\n"
 "\n"
@@ -1519,7 +1545,7 @@ msgstr ""
 "Ez a widget, {widgetId} egy háttérfolyamatot futtat a számítógépén.\n"
 "\n"
 
-#: app/widgetManager.js:2976
+#: app/widgetManager.js:3403
 msgid ""
 "The backend runs with your normal user permissions, just like any other "
 "application you start.\n"
@@ -1527,7 +1553,7 @@ msgstr ""
 "A háttérrendszer az ön normál felhasználói jogosultságaival fut, mint "
 "bármely másik alkalmazás amit elindít.\n"
 
-#: app/widgetManager.js:2977
+#: app/widgetManager.js:3404
 msgid ""
 "It can access your files, system resources, and the network according to "
 "your user account permissions.\n"
@@ -1537,28 +1563,28 @@ msgstr ""
 "felhasználói fiókjának jogosultságai szerint.\n"
 "\n"
 
-#: app/widgetManager.js:2979
+#: app/widgetManager.js:3407
 msgid "Command:"
 msgstr "Parancs:"
 
-#: app/widgetManager.js:2982
+#: app/widgetManager.js:3415
 msgid "Only allow this for widgets you implicitly trust."
 msgstr "Csak olyan widgeteknek engedélyezze ezt, amikben különösen megbízik."
 
-#: app/widgetManager.js:2985
+#: app/widgetManager.js:3419
 msgid "Allow widget backend?"
 msgstr "Engedélyezi a widget háttérrendszert?"
 
 # MT: LibreTranslate
-#: app/widgetWebContext.js:263
+#: app/widgetWebContext.js:296
 msgid "Widget Preferences"
 msgstr "Widget beállítások"
 
-#: app/widgetWebContext.js:792
+#: app/widgetWebContext.js:868
 msgid "Open link in browser?"
 msgstr "Hivatkozás megnyitása a böngészőben?"
 
-#: app/widgetWebContext.js:793
+#: app/widgetWebContext.js:869
 msgid ""
 "The widget wants to open this link in your browser:\n"
 "\n"
@@ -1787,7 +1813,8 @@ msgstr "Az ikonok bárhol elhelyezhetők az asztalon"
 msgid ""
 "Icons are not on a rectangular grid but can be postioned anywhere "
 "independent of grid"
-msgstr "Az ikonok ne legyenek a rácshoz kötve, bárhol el lehessen helyezni őket"
+msgstr ""
+"Az ikonok ne legyenek a rácshoz kötve, bárhol el lehessen helyezni őket"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:110
 msgid "Show Desktop Widgets"
@@ -1812,3 +1839,6 @@ msgstr "Felhasználói alkalmazásgyorsbillentyűk"
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:121
 msgid "Override for default application shortcuts set by the User"
 msgstr "Az alapértelmezett parancsikonok felülírása a felhasználó által"
+
+#~ msgid "User"
+#~ msgstr "Felhasználó"

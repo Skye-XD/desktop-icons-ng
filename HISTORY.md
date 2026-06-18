@@ -1,11 +1,12 @@
 # History of versions #
-* Adw Version 100.23 for Gnome 50
-  * Update the Sushi preview integration to use the newer `org.gnome.NautilusPreviewer2` D-Bus interface and activation-token aware call signature. (Sundeep Mediratta)
-  * Fix cursor updates on GNOME/Mutter 50 by switching away from the older `window_actor` path and using `grab_actor`/Clutter-compatible handling. (Sundeep Mediratta)
-  * Make the Today widget surface directly draggable, improve timezone preservation in calendar event handling, and refresh its widget docs. (Sundeep Mediratta)
-  * Add a nested GNOME Shell launcher script to make extension testing easier without logging out. (Aleksandr Mezin)
-  * Refresh packaging: add an Arch Linux package and update the Debian/RPM build files for GNOME Shell 49/50. (Sundeep Mediratta)
-  * Add Kabyle to `LINGUAS` and bring in Weblate translation updates for Kabyle, Catalan, Spanish, and Occitan. (Weblate Authors)
+* Adw Version 100.24 for Gnome 50
+  * Add support for downloading and installing the latest widgets from the Add Widget dialog, with a refreshed chooser and widget registry parsing. (Sundeep Mediratta)
+  * Run the main app and HTML widget backend processes in dedicated systemd cgroup slice and scopes under `user.app`, with app-prefixed subprocess names, independent of the gnome shell. (Sundeep Mediratta)
+  * Improve media player widgets connecting the the last active player when multiple players are playing. (Sundeep Mediratta)
+  * Persist pinned widget global coordinates so pinned widgets keep their positions across grid and margin changes. (Sundeep Mediratta)
+  * Add retry handling for temporary Open-Meteo 502/504 failures in weather widgets. (Sundeep Mediratta)
+  * Weblate translation update. (Weblate Authors)
+  * Update History.md, update metadata.json, app release note.
 
 * Adw Version 100.22 for Gnome 49, 50
   * Fix window position tracking so restored and floating windows are tracked reliably. (Sundeep Mediratta)

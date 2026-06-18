@@ -184,7 +184,7 @@ The application functionality and behavior is consistent with the two other very
 
 - [x] Added widget grid, snap to widget grid functionality and imporved right click menu
 
-- [x] Added a `Download Latest` button to the Add Widget dialog so widgets can be automatically downloaded and installed from the current widget set, while still supporting manual widget folder installs.
+- [x] Added a `Download Latest` button to the Add Widget dialog and refreshed widget registry parsing so widgets can be downloaded and installed from the current widget set, while still supporting manual widget folder installs.
 
 - [x] Floating/pinned HTML widgets are implemented, now survive container/window reparenting reliably by reloading the WebView when WebKit does not repaint correctly after the parent change. Pinnable widgets therefore need to tolerate reload and persist meaningful state outside transient page memory.
 
@@ -198,9 +198,13 @@ The application functionality and behavior is consistent with the two other very
 
 - [x] Added draggable widget areas for HTML widgets, letting widgets publish host hit-test rectangles for move start without a visible drag handle. The host now uses those draggable regions to suppress the move-button affordance when the widget provides its own draggable area.
 
-- [x] Media player widgets version 1.2: moved the backend to signal-driven MPRIS refreshes, reduced frontend playback updates to a visible-only 1 Hz timer, switched the progress bar to compositor-friendly transform rendering, refreshed reload snapshots on demand, and persisted only meaningful media changes.
+- [x] Media player widgets version 1.2: moved the backend to signal-driven MPRIS refreshes, reduced frontend playback updates to a visible-only 1 Hz timer, switched the progress bar to compositor-friendly transform rendering, refreshed reload snapshots on demand, and kept the last active player selected when multiple players are playing.
 
-- [x] The app process now runs in its own slice, the main app with webkit subprocess in one scope in this slice, all backends are also launched in their own scopes under this slice. The slice runs in the user.app slice, with independent accounting of memory/CPU from the Gnome Shell. Independent limits can be imposed in future.
+- [x] The app process now runs in its own `user.app` slice, with the main app, WebKit subprocess, and backend processes launched in separate scopes using app-prefixed names, independent of GNOME Shell for cleaner CPU and memory accounting and limits in future.
+
+- [x] Pinned widgets now retain their global coordinates across reloads, grid changes, and margin adjustments.
+
+- [x] Weather widgets now retry temporary Open-Meteo 502/504 failures instead of failing immediately.
 
 **FIXES**
 
@@ -403,6 +407,8 @@ The application functionality and behavior is consistent with the two other very
 - [x] Fix floating and pinned widget regressions: preserve pinned windows across grid or margin changes, improve reparent/reload recovery, keep widget buttons valid during interaction, and stop floating chrome from showing incorrectly while dragging or while media is playing.
 
 - [x] Fix floating HTML widgets after resume from sleep and make the weather widgets reload-safe.
+
+- [x] Fix weather widgets to retry temporary Open-Meteo 502/504 failures instead of failing immediately.
 
 - [x] Fix the most serious widget reload regression: local `ding-widget://` fetches during reload could enter a security/access-control retry loop that froze the WebView and locked the desktop. The host now blocks those local fetches during page teardown and returns synthetic success responses or normal 404-style responses instead of surfacing generic fetch failures that trigger infinite retries.
 

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-30 06:42-0400\n"
+"POT-Creation-Date: 2026-06-18 19:30-0400\n"
 "PO-Revision-Date: 2026-06-02 21:32+0000\n"
 "Last-Translator: Sundeep Mediratta <smedius@gmail.com>\n"
 "Language-Team: Urdu <https://hosted.weblate.org/projects/gtk4-desktop-icons-"
@@ -72,259 +72,259 @@ msgid "Help translate in your web browser"
 msgstr "اپنی ویب براؤزر میں ترجمہ کرنے میں مدد"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:599 app/adwPreferencesWindow.js:600
+#: app/adwPreferencesWindow.js:618 app/adwPreferencesWindow.js:619
 msgid "Desktop"
 msgstr "چین"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:605 app/adwPreferencesWindow.js:606
+#: app/adwPreferencesWindow.js:624 app/adwPreferencesWindow.js:625
 msgid "Files"
 msgstr "فائلز"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:611 app/adwPreferencesWindow.js:612
-#: app/adwPreferencesWindow.js:654
+#: app/adwPreferencesWindow.js:630 app/adwPreferencesWindow.js:631
+#: app/adwPreferencesWindow.js:673
 msgid "Tweaks"
 msgstr "رنگ"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:617 app/adwPreferencesWindow.js:618
+#: app/adwPreferencesWindow.js:636 app/adwPreferencesWindow.js:637
 msgid "More"
 msgstr "مزید"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:629
+#: app/adwPreferencesWindow.js:648
 msgid "Desktop Settings"
 msgstr "تنصیب کی ترتیبات"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:630
+#: app/adwPreferencesWindow.js:649
 msgid "Settings for the Desktop Program"
 msgstr "منظم پروگرام کی ترتیبات"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:636
+#: app/adwPreferencesWindow.js:655
 msgid "Desktop Folder"
 msgstr "فولڈر"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:637
+#: app/adwPreferencesWindow.js:656
 msgid "Current Desktop: "
 msgstr "حالیہ غلطی:"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:647
+#: app/adwPreferencesWindow.js:666
 msgid "Files Settings"
 msgstr "فائلیں ترتیبات"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:648
+#: app/adwPreferencesWindow.js:667
 msgid "Settings shared with Gnome Files"
 msgstr "گانم فائلوں کے ساتھ ترتیبات"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:655
+#: app/adwPreferencesWindow.js:674
 msgid "Miscellaneous Tweaks"
 msgstr "مِس رنگ"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:679
+#: app/adwPreferencesWindow.js:698
 msgid "Size for the desktop icons"
 msgstr "ڈیسک ٹاپوں کے لیے حجم"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:681
+#: app/adwPreferencesWindow.js:700
 msgid "Tiny"
 msgstr "مصر"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:682
+#: app/adwPreferencesWindow.js:701
 msgid "Small"
 msgstr "چھوٹا"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:683
+#: app/adwPreferencesWindow.js:702
 msgid "Standard"
 msgstr "معیار"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:684
+#: app/adwPreferencesWindow.js:703
 msgid "Large"
 msgstr "بڑی"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:690
+#: app/adwPreferencesWindow.js:709
 msgid "New icons alignment"
 msgstr "نئی تصاویر"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:692
+#: app/adwPreferencesWindow.js:711
 msgid "Top left corner"
 msgstr "اوپر بائیں جانب"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:693
+#: app/adwPreferencesWindow.js:712
 msgid "Top right corner"
 msgstr "دا ئیں کونے"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:694
+#: app/adwPreferencesWindow.js:713
 msgid "Bottom left corner"
 msgstr "بائیں جانب کونے"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:695
+#: app/adwPreferencesWindow.js:714
 msgid "Bottom right corner"
 msgstr "صحیح کونے میں نیچے"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:701
+#: app/adwPreferencesWindow.js:720
 msgid "Add new icons to Secondary Monitors first, if available"
 msgstr "اگر دستیاب ہو تو پہلے نئے اصناف کو دوسرے درجے پر شامل کریں"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:705
+#: app/adwPreferencesWindow.js:724
 msgid "Snap icons to grid"
 msgstr "گلّے کی تصاویر"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:711
+#: app/adwPreferencesWindow.js:730
 #, fuzzy
 msgid "Show desktop widgets"
 msgstr "فائلیں شامل کریں"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:716
+#: app/adwPreferencesWindow.js:735
 msgid "New Desktop Folder"
 msgstr "نیا فولڈر"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:717
+#: app/adwPreferencesWindow.js:736
 msgid "Set a new folder for the desktop"
 msgstr "ڈیسک ٹاپ کے لیے نیا فولڈر بنائیں"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:718 app/utils/desktopFolderUtils.js:85
+#: app/adwPreferencesWindow.js:737 app/utils/desktopFolderUtils.js:85
 msgid "Choose"
 msgstr "منتخب کریں"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:723
+#: app/adwPreferencesWindow.js:742
 msgid "Set Desktop back to ~/"
 msgstr "~/کے لئے دوبارہ موڑ دیں"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:725
+#: app/adwPreferencesWindow.js:744
 msgid "Restore Default Desktop Folder"
 msgstr "طے شدہ فولڈر"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:727
+#: app/adwPreferencesWindow.js:746
 msgid "Restore"
 msgstr "مصر"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:736
+#: app/adwPreferencesWindow.js:755
 msgid "Highlight the drop grid"
 msgstr "گري رنگ کو روشن کرنا"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:746
+#: app/adwPreferencesWindow.js:765
 msgid "Add information emblems for links, encryption"
 msgstr "لنکس کیلئے معلومات شامل کریں ، ترتیبات"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:750
+#: app/adwPreferencesWindow.js:769
 msgid "Use dark text in icon labels"
 msgstr "تصاویر لیبل میں تاریک متن استعمال کریں"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:755
+#: app/adwPreferencesWindow.js:774
 msgid "Show the personal folder on the desktop"
 msgstr "ڈیسک ٹاپ پر ذاتی فولڈر دکھائیں"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:760
+#: app/adwPreferencesWindow.js:779
 msgid "Show the trash icon on the desktop"
 msgstr "ڈیسک ٹاپ پر آن لائن تصویر دکھائیں"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:765
+#: app/adwPreferencesWindow.js:784
 msgid "Show external drives on the desktop"
 msgstr "ڈیسک ٹاپ پر بیرونی ڈرائیور دکھا وٴ"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:770
+#: app/adwPreferencesWindow.js:789
 msgid "Show network drives on the desktop"
 msgstr "ڈیسک ٹاپ پر نیٹ ورک انسٹال کریں"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:775
+#: app/adwPreferencesWindow.js:794
 msgid "Add new drives to the opposite side of the desktop"
 msgstr "ڈیسک ٹاپ کی مخالف سمت میں نئے ڈرائیور شامل کریں"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:780
+#: app/adwPreferencesWindow.js:799
 msgid "Action to Open Items"
 msgstr "اصلاحی کام"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:782
+#: app/adwPreferencesWindow.js:801
 msgid "Single click"
 msgstr "واحد کلک"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:783
+#: app/adwPreferencesWindow.js:802
 msgid "Double click"
 msgstr "ڈبل کرو"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:788
+#: app/adwPreferencesWindow.js:807
 msgid "Show image thumbnails"
 msgstr "طےشدہ"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:790
+#: app/adwPreferencesWindow.js:809
 msgid "Always"
 msgstr "ہمیشہ"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:791
+#: app/adwPreferencesWindow.js:810
 msgid "On this computer only"
 msgstr "اس کمپیوٹر پر صرف"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:792
+#: app/adwPreferencesWindow.js:811
 msgid "Never"
 msgstr "کبھی نہیں"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:797
+#: app/adwPreferencesWindow.js:816
 msgid "Show a context menu item to delete permanently"
 msgstr "صارف کو مستقل طور پر خارج کرنے کے لیے االله کے نام کا رد کریں"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:802
+#: app/adwPreferencesWindow.js:821
 msgid "Show hidden files"
 msgstr "فائلیں شامل کریں"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:807
+#: app/adwPreferencesWindow.js:826
 msgid "Open folders on drag hover"
 msgstr "بغلی پٹی کھولیں"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:811
+#: app/adwPreferencesWindow.js:830
 msgid "About..."
 msgstr "کے بارے میں..."
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:824
+#: app/adwPreferencesWindow.js:843
 msgid "Translation"
 msgstr "ترجمہ"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:825
+#: app/adwPreferencesWindow.js:844
 msgid ""
 "Machine translated using LibreTranslate. User verified and edited on Weblate."
 msgstr ""
@@ -332,47 +332,47 @@ msgstr ""
 "کی۔."
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:830
+#: app/adwPreferencesWindow.js:849
 msgid "Edit Translations"
 msgstr "تدوین"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:831
+#: app/adwPreferencesWindow.js:850
 msgid "Verify, add or correct translation in your web browser"
 msgstr "اپنے ویب براؤزر میں شامل، جمع یا درست ترجمہ۔"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:832
+#: app/adwPreferencesWindow.js:851
 msgid "Translate"
 msgstr "عبارت"
 
 # MT: LibreTranslate
-#: app/appChooser.js:78
+#: app/appChooser.js:88
 #, fuzzy
 msgid "Choose an application to open <b>{foo}</b>"
 msgstr "کھولنے کے لیے اطلاقیہ منتخب کریں<b>{foo}"
 
 # MT: LibreTranslate
-#: app/appChooser.js:90
+#: app/appChooser.js:100
 msgid "Open Items"
 msgstr "کھولیں"
 
 # MT: LibreTranslate
-#: app/appChooser.js:92
+#: app/appChooser.js:102
 msgid "Open Folder"
 msgstr "فولڈر کھولیں"
 
 # MT: LibreTranslate
-#: app/appChooser.js:94 data/ui/ding-app-chooser.ui:6
+#: app/appChooser.js:104 data/ui/ding-app-chooser.ui:6
 msgid "Open File"
 msgstr "فائل کھولیں"
 
 # MT: LibreTranslate
-#: app/appChooser.js:165
+#: app/appChooser.js:175
 msgid "Error changing default application"
 msgstr "اتصال مدون کا ڈائیلاگ تبدیل کرنے میں غلطی"
 
-#: app/appChooser.js:168
+#: app/appChooser.js:178
 msgid "Error while setting {foo} as default application for {mimetype}"
 msgstr ""
 
@@ -449,7 +449,7 @@ msgstr "قابل"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:84 app/desktopFileIcon.js:178
-#: app/fileItemMenu.js:316 app/fileItemMenu.js:330
+#: app/fileItemMenu.js:318 app/fileItemMenu.js:332
 msgid "Allow Launching"
 msgstr "لانچنگ کی اجازت دیں"
 
@@ -464,8 +464,8 @@ msgid "File name"
 msgstr "فائل کا نام"
 
 # MT: LibreTranslate
-#: app/askRenamePopup.js:75 app/autoAr.js:303 app/desktopManager.js:1297
-#: app/fileItemMenu.js:968
+#: app/askRenamePopup.js:75 app/autoAr.js:313 app/desktopManager.js:1320
+#: app/fileItemMenu.js:971
 msgid "OK"
 msgstr "ٹھیک"
 
@@ -485,8 +485,8 @@ msgid ""
 "To be able to work with compressed files, install file-roller and/or gir-1.2-"
 "gnomeAutoAr"
 msgstr ""
-"نصب شدہ فائلیں کے ساتھ کام کرنے کے قابل ہو سکتے ہیں، فائل-رولر اور/یا Gir-"
-"1.2-Mobile خود کار"
+"نصب شدہ فائلیں کے ساتھ کام کرنے کے قابل ہو سکتے ہیں، فائل-رولر اور/یا "
+"Gir-1.2-Mobile خود کار"
 
 # MT: LibreTranslate
 #: app/autoAr.js:207
@@ -494,140 +494,140 @@ msgid "Extracting files"
 msgstr "فائلیں نکالی جارہی ہیں"
 
 # MT: LibreTranslate
-#: app/autoAr.js:224
+#: app/autoAr.js:234
 msgid "Compressing files"
 msgstr "فائلیں شامل کریں"
 
 # MT: LibreTranslate
-#: app/autoAr.js:295 app/autoAr.js:624 app/desktopManager.js:180
-#: app/desktopManager.js:1299 app/dragManager.js:792 app/fileItemMenu.js:915
-#: app/fileItemMenu.js:968 app/showErrorPopup.js:41 app/showErrorPopup.js:58
-#: app/widgetManager.js:2830
+#: app/autoAr.js:305 app/autoAr.js:634 app/desktopManager.js:196
+#: app/desktopManager.js:1322 app/dragManager.js:792 app/fileItemMenu.js:918
+#: app/fileItemMenu.js:971 app/showErrorPopup.js:49 app/showErrorPopup.js:66
+#: app/widgetManager.js:3253
 msgid "Cancel"
 msgstr "منسوخ"
 
 # MT: LibreTranslate
-#: app/autoAr.js:315 app/autoAr.js:612
+#: app/autoAr.js:325 app/autoAr.js:622
 msgid "Enter a password here"
 msgstr "پاس ورڈ داخل کریں"
 
 # MT: LibreTranslate
-#: app/autoAr.js:358
+#: app/autoAr.js:368
 msgid "Removing partial file '${outputFile}'"
 msgstr "out '${outputFile}'"
 
 # MT: LibreTranslate
-#: app/autoAr.js:377
+#: app/autoAr.js:387
 msgid "Creating destination folder"
 msgstr "سمت فولڈر بنائیں"
 
 # MT: LibreTranslate
-#: app/autoAr.js:409
+#: app/autoAr.js:419
 msgid "Extracting files into '${outputPath}'"
 msgstr "'${outputPath}' میں فائلیں نکالی جارہی ہیں"
 
 # MT: LibreTranslate
-#: app/autoAr.js:439
+#: app/autoAr.js:449
 msgid "Extraction completed"
 msgstr "نکالنا مکمل ہوا"
 
 # MT: LibreTranslate
-#: app/autoAr.js:440
+#: app/autoAr.js:450
 msgid "Extracting '${fullPathFile}' has been completed."
 msgstr "'${fullPathFile}' ڈاؤن لوڈ کی گئی۔."
 
 # MT: LibreTranslate
-#: app/autoAr.js:446
+#: app/autoAr.js:456
 msgid "Extraction cancelled"
 msgstr "نکالنا"
 
 # MT: LibreTranslate
-#: app/autoAr.js:447
+#: app/autoAr.js:457
 msgid "Extracting '${fullPathFile}' has been cancelled by the user."
 msgstr "'${fullPathFile}' کو صارف نے منسوخ کر دیا ہے۔."
 
 # MT: LibreTranslate
-#: app/autoAr.js:457
+#: app/autoAr.js:467
 msgid "Passphrase required for ${filename}"
 msgstr "${filename} کے لئے درکار ہے۔"
 
 # MT: LibreTranslate
-#: app/autoAr.js:460
+#: app/autoAr.js:470
 msgid "Error during extraction"
 msgstr "نکالنے کے دوران غلطی"
 
 # MT: LibreTranslate
-#: app/autoAr.js:487
+#: app/autoAr.js:497
 msgid "Compressing files into '${outputFile}'"
 msgstr "'${outputFile}' میں فائلیں تقسیم کریں"
 
 # MT: LibreTranslate
-#: app/autoAr.js:500
+#: app/autoAr.js:510
 msgid "Compression completed"
 msgstr "دباؤ مکمل ہوا"
 
 # MT: LibreTranslate
-#: app/autoAr.js:501
+#: app/autoAr.js:511
 msgid "Compressing files into '${outputFile}' has been completed."
 msgstr "'${outputFile}' میں فائلیں تقسیم کرنا."
 
 # MT: LibreTranslate
-#: app/autoAr.js:505 app/autoAr.js:512
+#: app/autoAr.js:515 app/autoAr.js:522
 msgid "Cancelled compression"
 msgstr "دباؤ کا شکار ہو سکتا ہے"
 
 # MT: LibreTranslate
-#: app/autoAr.js:506
+#: app/autoAr.js:516
 msgid "The output file '${outputFile}' already exists."
 msgstr "برآمد '${outputFile}' پہلے ہی موجود ہے۔."
 
 # MT: LibreTranslate
-#: app/autoAr.js:513
+#: app/autoAr.js:523
 msgid "Compressing files into '${outputFile}' has been cancelled by the user."
 msgstr "'${outputFile}' میں فائلوں کو صارف نے منسوخ کر دیا ہے۔."
 
 # MT: LibreTranslate
-#: app/autoAr.js:516
+#: app/autoAr.js:526
 msgid "Error during compression"
 msgstr "دباؤ کے دوران غلطی"
 
 # MT: LibreTranslate
-#: app/autoAr.js:551
+#: app/autoAr.js:561
 msgid "Create archive"
 msgstr "محفوظہ بنائیں"
 
 # MT: LibreTranslate
-#: app/autoAr.js:575
+#: app/autoAr.js:585
 msgid "Archive name"
 msgstr "محفوظہ کا نام"
 
 # MT: LibreTranslate
-#: app/autoAr.js:608
+#: app/autoAr.js:618
 msgid "Password"
 msgstr "پاس ورڈ"
 
 # MT: LibreTranslate
-#: app/autoAr.js:621
+#: app/autoAr.js:631
 msgid "Create"
 msgstr "بنائیں"
 
 # MT: LibreTranslate
-#: app/autoAr.js:712
+#: app/autoAr.js:722
 msgid "Compatible with all operating systems."
 msgstr "تمام آپریٹنگ سسٹمز سے جڑے رہے۔."
 
 # MT: LibreTranslate
-#: app/autoAr.js:718
+#: app/autoAr.js:728
 msgid "Password protected .zip, must be installed on Windows and Mac."
 msgstr "پاس ورڈ محفوظ.zip، ونڈو اور میک پر نصب ہونا ضروری ہے."
 
 # MT: LibreTranslate
-#: app/autoAr.js:724
+#: app/autoAr.js:734
 msgid "Smaller archives but Linux and Mac only."
 msgstr "کوچر محفوظات مگر لینکس اور میک صرف."
 
 # MT: LibreTranslate
-#: app/autoAr.js:730
+#: app/autoAr.js:740
 msgid "Smaller archives but must be installed on Windows and Mac."
 msgstr "کوچر آرکائیو لیکن ونڈوز اور میک پر نصب ہونا چاہیے۔."
 
@@ -731,26 +731,26 @@ msgid "Desktop Icons"
 msgstr "فائلز"
 
 # MT: LibreTranslate
-#: app/desktopGrid.js:2587
+#: app/desktopGrid.js:2584
 #, fuzzy
 msgid "Back to Desktop"
 msgstr "طےشدہ"
 
-#: app/desktopGrid.js:2588 app/widgetManager.js:1525
+#: app/desktopGrid.js:2585 app/widgetManager.js:1751
 msgid "Toggle Widget Grid"
 msgstr ""
 
-#: app/desktopGrid.js:2589
+#: app/desktopGrid.js:2586
 msgid "Add Widget..."
 msgstr "ویجیٹ شامل کریں۔"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:166
+#: app/desktopManager.js:182
 msgid "Monitor Frame Buffer Scaling is not enabled"
 msgstr "مینارِنگہبانی سکیلنگ ممکن نہیں"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:167
+#: app/desktopManager.js:183
 msgid ""
 "Multiple monitors with different zoom settings, recommend per monitor "
 "framebuffer scaling.\n"
@@ -762,7 +762,7 @@ msgstr ""
 "براہ مہربانی منٹر Dconf ترتیبات میں قابل ذکر ہیں۔"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:178
+#: app/desktopManager.js:194
 msgid ""
 "Multiple monitors with different zoom settings.\n"
 "\n"
@@ -773,18 +773,18 @@ msgstr ""
 "کیا آپ کو معلوم ہے ؟?"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:181 data/com.desktop.ding.desktop.in:25
+#: app/desktopManager.js:197 data/com.desktop.ding.desktop.in:25
 msgid "Enable"
 msgstr "فعال کریں"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:205 app/desktopManager.js:215
+#: app/desktopManager.js:221 app/desktopManager.js:231
 msgid "Can Not Show the Desktop"
 msgstr "طےشدہ"
 
 # MT: LibreTranslate
 #. TRANSLATORS: {desktop} folder path automatically inserted
-#: app/desktopManager.js:207
+#: app/desktopManager.js:223
 msgid ""
 "The Desktop folder {desktop} is a Symbolic Link\n"
 "\n"
@@ -796,7 +796,7 @@ msgstr ""
 
 # MT: LibreTranslate
 #. TRANSLATORS: {desktop} folder path automatically inserted
-#: app/desktopManager.js:217
+#: app/desktopManager.js:233
 msgid ""
 "The Desktop folder {desktop} does not exist, or is not a Directory\n"
 "\n"
@@ -807,33 +807,34 @@ msgstr ""
 "اپنے Xdg-utils کی تنصیب پڑتال کریں اور صحيح خانه کو مرتب کريں"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:228
+#: app/desktopManager.js:244
 msgid "GNOME Files not found"
 msgstr "گنوم فائلیں نہیں پائی گئی"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:229
+#: app/desktopManager.js:245
 msgid "The GNOME Files application is required by Gtk4 Desktop Icons NG."
 msgstr "گنوم فائلیں استعمال کی جارہی ہیں:."
 
 # MT: LibreTranslate
-#: app/desktopManager.js:236
+#: app/desktopManager.js:252
 msgid "There is no default File Manager"
 msgstr "فائل رولر نہیں پائے گا"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:237
+#: app/desktopManager.js:253
 msgid "There is no application that handles mimetype \"inode/directory\""
 msgstr ""
-"کوئی بھی اطلاق نہیں ہوتا جس میں ممی ٹائپ \"انود/ سمتیہ\" کو ہینڈل کیا جاتا ہے۔"
+"کوئی بھی اطلاق نہیں ہوتا جس میں ممی ٹائپ \"انود/ سمتیہ\" کو ہینڈل کیا جاتا "
+"ہے۔"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:244
+#: app/desktopManager.js:260
 msgid "Gnome Files is not registered as a File Manager"
 msgstr "گم شدہ فائلیں فائل منیجر کے طور پر درج نہیں ہیں۔"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:245
+#: app/desktopManager.js:261
 msgid ""
 "The Gnome Files application is not programmed to open Folders!\n"
 "Check your xdg-utils installation\n"
@@ -844,171 +845,171 @@ msgstr ""
 "چیک کریں Gnome فائل۔۔۔desktop فائل نصب کی جارہی ہے"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:360
+#: app/desktopManager.js:379
 msgid "Clear current selection before new search"
 msgstr "نئی تلاش سے پہلے موجودہ انتخاب کریں"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:1301
+#: app/desktopManager.js:1324
 msgid "Find Files on Desktop"
 msgstr "فائلز پر فائلیں تلاش کریں"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:1644 app/desktopMenu.js:1065 app/shortcuts.js:10
+#: app/desktopManager.js:1669 app/desktopMenu.js:1096 app/shortcuts.js:10
 msgid "New Folder"
 msgstr "نیا فولڈر"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:1678
+#: app/desktopManager.js:1703
 msgid "Folder Creation Failed"
 msgstr "فولڈر بنانے میں ناکامی"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:1679
+#: app/desktopManager.js:1704
 msgid "Could not create folder"
 msgstr "فولڈر نہیں بنایا جاسکتا"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:598
+#: app/desktopMenu.js:616
 msgid "Unable to open Desktop in Gnome Files"
 msgstr "گمے فائلیں میں کھولنے میں ناکام"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:617
+#: app/desktopMenu.js:635
 msgid "Preferences Window is Open"
 msgstr "آن لائن ونڈو کھولیں"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:618
+#: app/desktopMenu.js:636
 msgid "This Window is open. Please switch to the active window."
 msgstr "یہ ونڈوز کھلی ہے۔ براہ کرم فعال ونڈو میں تبدیل کریں."
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:627 app/desktopMenu.js:1118
+#: app/desktopMenu.js:648 app/desktopMenu.js:1149
 msgid "Settings"
 msgstr "ترتیبات"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:907
+#: app/desktopMenu.js:938
 msgid "Template Creation Error"
 msgstr "غلطی"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:908
+#: app/desktopMenu.js:939
 msgid "Could not create document"
 msgstr "دستاویز نہیں بنایا جاسکتا"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1026
+#: app/desktopMenu.js:1057
 msgid "Name"
 msgstr "نام"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1028
+#: app/desktopMenu.js:1059
 msgid "Name Z-A"
 msgstr "نام زی اے -"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1030
+#: app/desktopMenu.js:1061
 msgid "Modified Time"
 msgstr "تبدیل شدہ:"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1032
+#: app/desktopMenu.js:1063
 msgid "Type"
 msgstr "قسم"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1034
+#: app/desktopMenu.js:1065
 msgid "Size"
 msgstr "حجم"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1039
+#: app/desktopMenu.js:1070
 msgid "Keep Arranged…"
 msgstr "محفوظ رکھیں.."
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1044
+#: app/desktopMenu.js:1075
 msgid "Keep Stacked by Type…"
 msgstr "قسم کے استعمال میں رہو.."
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1046
+#: app/desktopMenu.js:1077
 msgid "Sort Home/Drives/Trash…"
 msgstr "گھر/سر/سر کریں.."
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1051
+#: app/desktopMenu.js:1082
 msgid "Change Desktop"
 msgstr "تبدیل کریں"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1056
+#: app/desktopMenu.js:1087
 msgid "Restore Default Desktop"
 msgstr "طےشدہ"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1060
+#: app/desktopMenu.js:1091
 msgid "Desktop Icon Settings"
 msgstr "فائلز"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1062
+#: app/desktopMenu.js:1093
 msgid "Show Shortcuts"
 msgstr "مختصر قسطیں دکھائیں"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1070 app/shortcuts.js:67
+#: app/desktopMenu.js:1101 app/shortcuts.js:67
 msgid "New Document"
 msgstr "نئی دستاویزات"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1075 app/shortcuts.js:11
+#: app/desktopMenu.js:1106 app/shortcuts.js:11
 msgid "Paste"
 msgstr "پیسٹ کریں"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1077 app/shortcuts.js:12
+#: app/desktopMenu.js:1108 app/shortcuts.js:12
 msgid "Undo"
 msgstr "غیر متصل"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1079 app/shortcuts.js:13
+#: app/desktopMenu.js:1110 app/shortcuts.js:13
 msgid "Redo"
 msgstr "دوبارہ شروع"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1085 app/shortcuts.js:14
+#: app/desktopMenu.js:1116 app/shortcuts.js:14
 msgid "Select All"
 msgstr "تمام منتخب کريں"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1092
+#: app/desktopMenu.js:1123
 msgid "Arrange Icons"
 msgstr "فائلز"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1096
+#: app/desktopMenu.js:1127
 msgid "Arrange By…"
 msgstr "قسم.."
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1104
+#: app/desktopMenu.js:1135
 msgid "Show Desktop In {0}"
 msgstr "out {0}"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1109
+#: app/desktopMenu.js:1140
 msgid "Open In {0}"
 msgstr "{0}"
 
-#: app/desktopMenu.js:1126
+#: app/desktopMenu.js:1157
 msgid "Edit Widgets…"
 msgstr ""
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1133
+#: app/desktopMenu.js:1164
 msgid "Shell Menu…"
 msgstr "شیل ڈیوس"
 
@@ -1043,7 +1044,7 @@ msgid "Move"
 msgstr "اقدام"
 
 # MT: LibreTranslate
-#: app/dragManager.js:792 app/fileItemMenu.js:240
+#: app/dragManager.js:792 app/fileItemMenu.js:242
 msgid "Copy"
 msgstr "کاپی"
 
@@ -1073,291 +1074,291 @@ msgid "There is no application installed to open \"{fo}\" files."
 msgstr "\"{fo}\" کھولنے کے لیے کوئی اطلاقیہ نصب نہیں ہے۔."
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:104
+#: app/fileItemMenu.js:106
 msgid "New Folder with {0} item"
 msgid_plural "New Folder with {0} items"
 msgstr[0] "out {0}"
 msgstr[1] "out {0}"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:114
+#: app/fileItemMenu.js:116
 msgid "Open All..."
 msgstr "کھولیں."
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:122
+#: app/fileItemMenu.js:124
 msgid "Launch"
 msgstr "لانچ"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:135
+#: app/fileItemMenu.js:137
 msgid "Open with {foo}"
 msgstr "{foo} کے ساتھ کھولیں"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:138
+#: app/fileItemMenu.js:140
 msgid "Open"
 msgstr "کھولیں"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:156 app/fileItemMenu.js:160
+#: app/fileItemMenu.js:158 app/fileItemMenu.js:162
 msgid "Extract Here"
 msgstr "یہیں نکالیں"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:162
+#: app/fileItemMenu.js:164
 msgid "Extract To..."
 msgstr "نکالیں تا..."
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:170 app/fileItemMenu.js:177
+#: app/fileItemMenu.js:172 app/fileItemMenu.js:179
 msgid "Open With..."
 msgstr "کھولیں."
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:176
+#: app/fileItemMenu.js:178
 msgid "Open All With Other Application..."
 msgstr "دیگر اطلاق کے ساتھ سب کھولیں."
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:184
+#: app/fileItemMenu.js:186
 msgid "Launch using Integrated Graphics Card"
 msgstr "Lanch integrated graphic card استعمال کرتے ہوئے"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:206
+#: app/fileItemMenu.js:208
 msgid "Stack This Type"
 msgstr "اس قسم کو خراب کریں"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:207
+#: app/fileItemMenu.js:209
 msgid "Unstack This Type"
 msgstr "اس قسم کی غیر متصل"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:231
+#: app/fileItemMenu.js:233
 msgid "Run as a Program"
 msgstr "پروگرام کے طور پر بھاگو"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:234
+#: app/fileItemMenu.js:236
 msgid "Scripts"
 msgstr "پرنٹ"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:239
+#: app/fileItemMenu.js:241
 msgid "Cut"
 msgstr "کٹ"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:244
+#: app/fileItemMenu.js:246
 msgid "Move to..."
 msgstr "منتقل کریں..."
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:245
+#: app/fileItemMenu.js:247
 msgid "Copy to..."
 msgstr "کاپی."
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:249
+#: app/fileItemMenu.js:251
 msgid "Rename…"
 msgstr "نام بدلیں.."
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:254
+#: app/fileItemMenu.js:256
 msgid "Create Link..."
 msgstr "لنک بنائیں..."
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:261
+#: app/fileItemMenu.js:263
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] "out {0}"
 msgstr[1] "out {0}"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:269
+#: app/fileItemMenu.js:271
 msgid "Compress {0} file"
 msgid_plural "Compress {0} files"
 msgstr[0] "دباؤ کا ریشو: {0}"
 msgstr[1] "دباؤ کا ریشو: {0}"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:276
+#: app/fileItemMenu.js:278
 msgid "Email to..."
 msgstr "ای میل ای میل."
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:286
+#: app/fileItemMenu.js:288
 msgid "Send to Mobile Device"
 msgstr "موبائل ڈیوائس کے لیے بھیجیں"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:294
+#: app/fileItemMenu.js:296
 msgid "Move to Trash"
 msgstr "ترشے کی طرف"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:302
+#: app/fileItemMenu.js:304
 msgid "Delete permanently"
 msgstr "مستقل حذف"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:315 app/fileItemMenu.js:329
+#: app/fileItemMenu.js:317 app/fileItemMenu.js:331
 msgid "Don't Allow Launching"
 msgstr "لانچنگ کی اجازت مت دو"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:339
+#: app/fileItemMenu.js:341
 msgid "Empty Trash"
 msgstr "اسرائیل"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:345
+#: app/fileItemMenu.js:347
 msgid "Eject"
 msgstr "جٹ"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:348
+#: app/fileItemMenu.js:350
 msgid "Unmount"
 msgstr "غیر درج شدہ"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:354
+#: app/fileItemMenu.js:356
 msgid "Common Properties"
 msgstr "عام خصوصیات"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:355
+#: app/fileItemMenu.js:357
 msgid "Properties"
 msgstr "پر خصوصیات"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:362
+#: app/fileItemMenu.js:364
 msgid "Show All in {0}"
 msgstr "out {0}"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:363
+#: app/fileItemMenu.js:365
 msgid "Show in {0}"
 msgstr "{0} میں دکھائیں"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:374
+#: app/fileItemMenu.js:376
 msgid "Open in {0}"
 msgstr "{0} میں کھولیں"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:538
+#: app/fileItemMenu.js:540
 msgid "Open Item"
 msgstr "دوبارہ شروع کریں"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:820
+#: app/fileItemMenu.js:823
 msgid "Extraction Cancelled"
 msgstr "نکالنا"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:821
+#: app/fileItemMenu.js:824
 msgid "Unable to extract File, no destination folder"
 msgstr "نکالنے میں ناقابل فائل، سمت فولڈر نہیں"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:877 app/fileItemMenu.js:906
+#: app/fileItemMenu.js:880 app/fileItemMenu.js:909
 msgid "Select Destination"
 msgstr "منزل منتخب کریں"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:880 app/fileItemMenu.js:908
+#: app/fileItemMenu.js:883 app/fileItemMenu.js:911
 msgid "Select"
 msgstr "منتخب کریں"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:964
+#: app/fileItemMenu.js:967
 msgid "Can not email a Directory"
 msgstr "ڈائریکٹری کا ای میل نہیں چل سکتا۔"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:966
+#: app/fileItemMenu.js:969
 msgid "Selection includes a Directory, compress to a .zip file first?"
 msgstr ""
 "انتخاب میں ایک ڈائریکٹری شامل ہے، %zip فائل پر دباؤ ڈالا جاتا ہے اور پہلے؟?"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:992 app/fileItemMenu.js:1023 app/fileItemMenu.js:1040
-#: app/fileItemMenu.js:1059
+#: app/fileItemMenu.js:995 app/fileItemMenu.js:1026 app/fileItemMenu.js:1043
+#: app/fileItemMenu.js:1062
 msgid "Mail Error"
 msgstr "میل خامی"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:994
+#: app/fileItemMenu.js:997
 msgid "Unable to find zip command, please install the program"
 msgstr "کمانڈ تلاش کرنے میں ناکامی، براہ مہربانی پروگرام نصب کریں"
 
 # MT: LibreTranslate
 #. Translators - basename for a zipped archive created for mailing
-#: app/fileItemMenu.js:1000
+#: app/fileItemMenu.js:1003
 msgid "Archive.zip"
 msgstr "محفوظہ.zip"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:1024
+#: app/fileItemMenu.js:1027
 msgid "There was an error in creating a zip archive"
 msgstr "محفوظہ بنانے میں غلطی"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:1042
+#: app/fileItemMenu.js:1045
 msgid "Unable to find xdg-email, please install the program"
 msgstr "Xdg-email تلاش کرنے میں ناقابل عمل، براہ مہربانی پروگرام نصب کریں"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:1060
+#: app/fileItemMenu.js:1063
 msgid "There was an error in emailing Files"
 msgstr "فائلیں نکالتے وقت غلطی"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:1175
+#: app/fileItemMenu.js:1174
 msgid "Can Not open the Working Directory"
 msgstr "ورکنگ ڈائریکٹری نہیں کھولی جا سکتی۔"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:1226
+#: app/fileItemMenu.js:1225
 msgid "Unable to Open in Gnome Console"
 msgstr "جنوے کنول میں خالی"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:1228
+#: app/fileItemMenu.js:1227
 msgid "Please Install Gnome Console or other Terminal Program"
 msgstr "براہ مہربانی Gnome County یا دیگر ٹرمینل پروگرام انسٹال کریں"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:1236
+#: app/fileItemMenu.js:1235
 msgid "Unable to Open {0}"
 msgstr "out {0}"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:1238
+#: app/fileItemMenu.js:1237
 msgid "Please Install {0}"
 msgstr "براہ کرم {0} نصب کریں"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:1282
+#: app/fileItemMenu.js:1281
 msgid "Copy Cancelled"
 msgstr "نقل کر سکتے هيں"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:1283
+#: app/fileItemMenu.js:1282
 msgid "Unable to copy Files, no destination folder"
 msgstr "فائلیں کاپی کرنے میں ناکامی، کوئی سمت فولڈر نہیں"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:1306
+#: app/fileItemMenu.js:1305
 msgid "Move Cancelled"
 msgstr "بچ سکتے هيں"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:1307
+#: app/fileItemMenu.js:1306
 msgid "Unable to move Files, no destination folder"
 msgstr "فائل منتقل کرنے میں ناکامی، کوئی سمت فولڈر نہیں"
 
@@ -1367,7 +1368,7 @@ msgid "$appName$ can not open files of this Type!"
 msgstr "قیمتوں کے حساب سے اس قسم کی فائلیں کھل نہیں سکتیں !"
 
 # MT: LibreTranslate
-#: app/preferences.js:1097
+#: app/preferences.js:1044
 msgid "Console"
 msgstr "پرنٹ"
 
@@ -1549,7 +1550,7 @@ msgstr ""
 msgid "Toggle Widget Layer"
 msgstr ""
 
-#: app/shortcuts.js:40 app/widgetManager.js:1461
+#: app/shortcuts.js:40 app/widgetManager.js:1687
 msgid "Add Widget"
 msgstr "ویجیٹ شامل کریں۔"
 
@@ -1609,7 +1610,7 @@ msgid "Show Or Hide Desktop Icons"
 msgstr "طےشدہ"
 
 # MT: LibreTranslate
-#: app/showErrorPopup.js:42
+#: app/showErrorPopup.js:50
 msgid "More Information"
 msgstr "مزید معلومات"
 
@@ -1650,45 +1651,71 @@ msgid "Drive"
 msgstr "چلاو"
 
 # MT: LibreTranslate
-#: app/widgetManager.js:2123
+#: app/widgetManager.js:2417
 #, fuzzy
 msgid "Widget preferences"
 msgstr "ترجیحات"
 
-#: app/widgetManager.js:2135 app/widgetManager.js:2144
+#: app/widgetManager.js:2429 app/widgetManager.js:2438
 msgid "Unpin widget"
 msgstr ""
 
-#: app/widgetManager.js:2135 app/widgetManager.js:2144
+#: app/widgetManager.js:2429 app/widgetManager.js:2438
 #, fuzzy
 msgid "Pin widget"
 msgstr "ویجیٹ شامل کریں۔"
 
-#: app/widgetManager.js:2153
+#: app/widgetManager.js:2447
 msgid "Reposition widget"
 msgstr ""
 
-#: app/widgetManager.js:2699
+#: app/widgetManager.js:3051
 msgid "HTML widget"
 msgstr ""
 
-#: app/widgetManager.js:2701
+#: app/widgetManager.js:3053
 msgid "GTK widget"
 msgstr ""
 
-#: app/widgetManager.js:2710
-msgid "User"
-msgstr "صارف"
+# MT: LibreTranslate
+#: app/widgetManager.js:3059
+#, fuzzy
+msgid "User Installed"
+msgstr "براہ کرم {0} نصب کریں"
 
-#: app/widgetManager.js:2829
+#: app/widgetManager.js:3059
+msgid "System Installed"
+msgstr ""
+
+#: app/widgetManager.js:3081
+msgid "Download Latest Widgets from Repository?"
+msgstr ""
+
+#: app/widgetManager.js:3083
+msgid "This will overwrite all widgets in your local widgets folder."
+msgstr ""
+
+#: app/widgetManager.js:3156
+msgid "Widgets updated"
+msgstr ""
+
+#: app/widgetManager.js:3157
+msgid "The latest widgets were downloaded and installed."
+msgstr ""
+
+#: app/widgetManager.js:3163
+msgid "Widgets download failed"
+msgstr ""
+
+#: app/widgetManager.js:3252
 msgid "Allow"
 msgstr "اجازت دیں"
 
-#: app/widgetManager.js:2883
+#: app/widgetManager.js:3306
 msgid "Strict"
 msgstr "سخت"
 
-#: app/widgetManager.js:2885
+#: app/widgetManager.js:3308
 msgid ""
 "The widget runs in a tightly sandboxed web environment.\n"
 "\n"
@@ -1699,11 +1726,11 @@ msgid ""
 "This is the safest option and is recommended for most widgets."
 msgstr ""
 
-#: app/widgetManager.js:2896
+#: app/widgetManager.js:3319
 msgid "Relaxed"
 msgstr ""
 
-#: app/widgetManager.js:2898
+#: app/widgetManager.js:3321
 msgid ""
 "The widget is allowed broader web capabilities.\n"
 "\n"
@@ -1714,11 +1741,11 @@ msgid ""
 "Use this only for widgets you trust."
 msgstr ""
 
-#: app/widgetManager.js:2908
+#: app/widgetManager.js:3331
 msgid "Development"
 msgstr "ترقی"
 
-#: app/widgetManager.js:2910
+#: app/widgetManager.js:3333
 msgid ""
 "The widget runs with development-friendly web access.\n"
 "\n"
@@ -1729,76 +1756,76 @@ msgid ""
 msgstr ""
 
 # MT: LibreTranslate
-#: app/widgetManager.js:2919
+#: app/widgetManager.js:3342
 msgid "Default"
 msgstr "Default"
 
-#: app/widgetManager.js:2921
+#: app/widgetManager.js:3344
 msgid ""
 "The widget runs with a predefined web security policy.\n"
 "\n"
 "Web access and capabilities are restricted according to the active policy."
 msgstr ""
 
-#: app/widgetManager.js:2929
+#: app/widgetManager.js:3352
 msgid "Allow web content for {widgetId}?"
 msgstr ""
 
 #. eslint-disable-next-line prefer-template
-#: app/widgetManager.js:2939
+#: app/widgetManager.js:3365
 msgid ""
 "The widget you are adding may load web content from the internet.\n"
 "\n"
 msgstr ""
 
-#: app/widgetManager.js:2940
+#: app/widgetManager.js:3366
 msgid ""
 "This content is subject to the widget security policy:\n"
 "\n"
 msgstr ""
 
-#: app/widgetManager.js:2974
+#: app/widgetManager.js:3401
 msgid ""
 "This widget, {widgetId} runs a background process on your computer.\n"
 "\n"
 msgstr ""
 
-#: app/widgetManager.js:2976
+#: app/widgetManager.js:3403
 msgid ""
 "The backend runs with your normal user permissions, just like any other "
 "application you start.\n"
 msgstr ""
 
-#: app/widgetManager.js:2977
+#: app/widgetManager.js:3404
 msgid ""
 "It can access your files, system resources, and the network according to "
 "your user account permissions.\n"
 "\n"
 msgstr ""
 
-#: app/widgetManager.js:2979
+#: app/widgetManager.js:3407
 msgid "Command:"
 msgstr "کمانڈر"
 
-#: app/widgetManager.js:2982
+#: app/widgetManager.js:3415
 msgid "Only allow this for widgets you implicitly trust."
 msgstr ""
 
-#: app/widgetManager.js:2985
+#: app/widgetManager.js:3419
 msgid "Allow widget backend?"
 msgstr ""
 
 # MT: LibreTranslate
-#: app/widgetWebContext.js:263
+#: app/widgetWebContext.js:296
 #, fuzzy
 msgid "Widget Preferences"
 msgstr "ترجیحات"
 
-#: app/widgetWebContext.js:792
+#: app/widgetWebContext.js:868
 msgid "Open link in browser?"
 msgstr "براؤزر میں کھولیں"
 
-#: app/widgetWebContext.js:793
+#: app/widgetWebContext.js:869
 msgid ""
 "The widget wants to open this link in your browser:\n"
 "\n"
@@ -2049,8 +2076,8 @@ msgid ""
 "If a second monitor is connected, new icons are placed on the non primary "
 "monitor"
 msgstr ""
-"اگر کوئی دوسرا مینار متصل ہو تو غیر بنیادی مانیٹر پر نئی تصاویر رکھی جاتی ہیں"
-"۔"
+"اگر کوئی دوسرا مینار متصل ہو تو غیر بنیادی مانیٹر پر نئی تصاویر رکھی جاتی "
+"ہیں۔"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
@@ -2095,3 +2122,6 @@ msgstr "صارف کا استعمال مختصر"
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:121
 msgid "Override for default application shortcuts set by the User"
 msgstr "فراہم کار کی طرف سے طے کردہ درخواستوں کے لیے اوپری تقسیم"
+
+#~ msgid "User"
+#~ msgstr "صارف"

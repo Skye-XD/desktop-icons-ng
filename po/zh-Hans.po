@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-30 06:42-0400\n"
+"POT-Creation-Date: 2026-06-18 19:30-0400\n"
 "PO-Revision-Date: 2026-06-02 21:29+0000\n"
 "Last-Translator: \"Adam C.\" <adam701212@gmail.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
@@ -80,303 +80,303 @@ msgid "Help translate in your web browser"
 msgstr "帮助翻译您的网页浏览器"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:599 app/adwPreferencesWindow.js:600
+#: app/adwPreferencesWindow.js:618 app/adwPreferencesWindow.js:619
 msgid "Desktop"
 msgstr "桌面"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:605 app/adwPreferencesWindow.js:606
+#: app/adwPreferencesWindow.js:624 app/adwPreferencesWindow.js:625
 msgid "Files"
 msgstr "文件"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:611 app/adwPreferencesWindow.js:612
-#: app/adwPreferencesWindow.js:654
+#: app/adwPreferencesWindow.js:630 app/adwPreferencesWindow.js:631
+#: app/adwPreferencesWindow.js:673
 msgid "Tweaks"
 msgstr "调整"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:617 app/adwPreferencesWindow.js:618
+#: app/adwPreferencesWindow.js:636 app/adwPreferencesWindow.js:637
 msgid "More"
 msgstr "更多"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:629
+#: app/adwPreferencesWindow.js:648
 msgid "Desktop Settings"
 msgstr "桌面设置"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:630
+#: app/adwPreferencesWindow.js:649
 msgid "Settings for the Desktop Program"
 msgstr "桌面程序设置"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:636
+#: app/adwPreferencesWindow.js:655
 msgid "Desktop Folder"
 msgstr "桌面文件夹"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:637
+#: app/adwPreferencesWindow.js:656
 msgid "Current Desktop: "
 msgstr "当前桌面: "
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:647
+#: app/adwPreferencesWindow.js:666
 msgid "Files Settings"
 msgstr "文件设置"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:648
+#: app/adwPreferencesWindow.js:667
 msgid "Settings shared with Gnome Files"
 msgstr "与 Gnome 文件共享的设置"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:655
+#: app/adwPreferencesWindow.js:674
 msgid "Miscellaneous Tweaks"
 msgstr "杂项调整"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:679
+#: app/adwPreferencesWindow.js:698
 msgid "Size for the desktop icons"
 msgstr "桌面图标大小"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:681
+#: app/adwPreferencesWindow.js:700
 msgid "Tiny"
 msgstr "小声"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:682
+#: app/adwPreferencesWindow.js:701
 msgid "Small"
 msgstr "小型"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:683
+#: app/adwPreferencesWindow.js:702
 msgid "Standard"
 msgstr "标准"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:684
+#: app/adwPreferencesWindow.js:703
 msgid "Large"
 msgstr "大块"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:690
+#: app/adwPreferencesWindow.js:709
 msgid "New icons alignment"
 msgstr "新图标对齐"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:692
+#: app/adwPreferencesWindow.js:711
 msgid "Top left corner"
 msgstr "左上角"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:693
+#: app/adwPreferencesWindow.js:712
 msgid "Top right corner"
 msgstr "右上角"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:694
+#: app/adwPreferencesWindow.js:713
 msgid "Bottom left corner"
 msgstr "左下角"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:695
+#: app/adwPreferencesWindow.js:714
 msgid "Bottom right corner"
 msgstr "右下角"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:701
+#: app/adwPreferencesWindow.js:720
 msgid "Add new icons to Secondary Monitors first, if available"
 msgstr "优先将新图标添加至第二块显示器(如果存在)"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:705
+#: app/adwPreferencesWindow.js:724
 msgid "Snap icons to grid"
 msgstr "将图标对齐到网格"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:711
+#: app/adwPreferencesWindow.js:730
 msgid "Show desktop widgets"
 msgstr "桌面小部件"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:716
+#: app/adwPreferencesWindow.js:735
 msgid "New Desktop Folder"
 msgstr "新建桌面文件夹"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:717
+#: app/adwPreferencesWindow.js:736
 msgid "Set a new folder for the desktop"
 msgstr "设置桌面的新文件夹"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:718 app/utils/desktopFolderUtils.js:85
+#: app/adwPreferencesWindow.js:737 app/utils/desktopFolderUtils.js:85
 msgid "Choose"
 msgstr "选择"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:723
+#: app/adwPreferencesWindow.js:742
 msgid "Set Desktop back to ~/"
 msgstr "将桌面设定为 ~/"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:725
+#: app/adwPreferencesWindow.js:744
 msgid "Restore Default Desktop Folder"
 msgstr "恢复默认桌面文件夹"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:727
+#: app/adwPreferencesWindow.js:746
 msgid "Restore"
 msgstr "恢复"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:736
+#: app/adwPreferencesWindow.js:755
 msgid "Highlight the drop grid"
 msgstr "突出显示投放网格"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:746
+#: app/adwPreferencesWindow.js:765
 msgid "Add information emblems for links, encryption"
 msgstr "添加链接、加密的信息徽章"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:750
+#: app/adwPreferencesWindow.js:769
 msgid "Use dark text in icon labels"
 msgstr "在图标标签中使用暗文本"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:755
+#: app/adwPreferencesWindow.js:774
 msgid "Show the personal folder on the desktop"
 msgstr "在桌面上显示家目录"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:760
+#: app/adwPreferencesWindow.js:779
 msgid "Show the trash icon on the desktop"
 msgstr "在桌面上显示回收站图标"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:765
+#: app/adwPreferencesWindow.js:784
 msgid "Show external drives on the desktop"
 msgstr "在桌面上显示外置驱动器"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:770
+#: app/adwPreferencesWindow.js:789
 msgid "Show network drives on the desktop"
 msgstr "在桌面上显示网络驱动器"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:775
+#: app/adwPreferencesWindow.js:794
 msgid "Add new drives to the opposite side of the desktop"
 msgstr "将新驱动器添加到桌面的另一侧"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:780
+#: app/adwPreferencesWindow.js:799
 msgid "Action to Open Items"
 msgstr "打开项目的操作"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:782
+#: app/adwPreferencesWindow.js:801
 msgid "Single click"
 msgstr "单击"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:783
+#: app/adwPreferencesWindow.js:802
 msgid "Double click"
 msgstr "双击"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:788
+#: app/adwPreferencesWindow.js:807
 msgid "Show image thumbnails"
 msgstr "显示图像缩略图"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:790
+#: app/adwPreferencesWindow.js:809
 msgid "Always"
 msgstr "永远"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:791
+#: app/adwPreferencesWindow.js:810
 msgid "On this computer only"
 msgstr "仅在这台电脑上"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:792
+#: app/adwPreferencesWindow.js:811
 msgid "Never"
 msgstr "从不"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:797
+#: app/adwPreferencesWindow.js:816
 msgid "Show a context menu item to delete permanently"
 msgstr "显示要永久删除的上下文菜单项"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:802
+#: app/adwPreferencesWindow.js:821
 msgid "Show hidden files"
 msgstr "显示隐藏文件"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:807
+#: app/adwPreferencesWindow.js:826
 msgid "Open folders on drag hover"
 msgstr "拖动鼠标悬停时打开文件夹"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:811
+#: app/adwPreferencesWindow.js:830
 msgid "About..."
 msgstr "关于..."
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:824
+#: app/adwPreferencesWindow.js:843
 msgid "Translation"
 msgstr "翻译"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:825
+#: app/adwPreferencesWindow.js:844
 msgid ""
 "Machine translated using LibreTranslate. User verified and edited on Weblate."
 msgstr "机器使用LibreTranslate翻译. 用户在Weblate上核实并编辑."
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:830
+#: app/adwPreferencesWindow.js:849
 msgid "Edit Translations"
 msgstr "编辑翻译"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:831
+#: app/adwPreferencesWindow.js:850
 msgid "Verify, add or correct translation in your web browser"
 msgstr "在您的网页浏览器中校验、 添加或更正翻译"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:832
+#: app/adwPreferencesWindow.js:851
 msgid "Translate"
 msgstr "翻译"
 
 # MT: LibreTranslate
-#: app/appChooser.js:78
+#: app/appChooser.js:88
 msgid "Choose an application to open <b>{foo}</b>"
 msgstr "选择打开 <b>{foo}</b> 的应用程序"
 
 # MT: LibreTranslate
-#: app/appChooser.js:90
+#: app/appChooser.js:100
 msgid "Open Items"
 msgstr "打开项目"
 
 # MT: LibreTranslate
-#: app/appChooser.js:92
+#: app/appChooser.js:102
 msgid "Open Folder"
 msgstr "打开文件夹"
 
 # MT: LibreTranslate
-#: app/appChooser.js:94 data/ui/ding-app-chooser.ui:6
+#: app/appChooser.js:104 data/ui/ding-app-chooser.ui:6
 msgid "Open File"
 msgstr "打开文件"
 
 # MT: LibreTranslate
-#: app/appChooser.js:165
+#: app/appChooser.js:175
 msgid "Error changing default application"
 msgstr "更改默认应用程序时出错"
 
-#: app/appChooser.js:168
+#: app/appChooser.js:178
 msgid "Error while setting {foo} as default application for {mimetype}"
 msgstr "在将“{foo}”作为“{mimetype}”的默认应用时出现错误"
 
@@ -453,7 +453,7 @@ msgstr "启用"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:84 app/desktopFileIcon.js:178
-#: app/fileItemMenu.js:316 app/fileItemMenu.js:330
+#: app/fileItemMenu.js:318 app/fileItemMenu.js:332
 msgid "Allow Launching"
 msgstr "允许运行"
 
@@ -468,8 +468,8 @@ msgid "File name"
 msgstr "文件名称"
 
 # MT: LibreTranslate
-#: app/askRenamePopup.js:75 app/autoAr.js:303 app/desktopManager.js:1297
-#: app/fileItemMenu.js:968
+#: app/askRenamePopup.js:75 app/autoAr.js:313 app/desktopManager.js:1320
+#: app/fileItemMenu.js:971
 msgid "OK"
 msgstr "确定"
 
@@ -496,140 +496,140 @@ msgid "Extracting files"
 msgstr "提取文件"
 
 # MT: LibreTranslate
-#: app/autoAr.js:224
+#: app/autoAr.js:234
 msgid "Compressing files"
 msgstr "压缩文件"
 
 # MT: LibreTranslate
-#: app/autoAr.js:295 app/autoAr.js:624 app/desktopManager.js:180
-#: app/desktopManager.js:1299 app/dragManager.js:792 app/fileItemMenu.js:915
-#: app/fileItemMenu.js:968 app/showErrorPopup.js:41 app/showErrorPopup.js:58
-#: app/widgetManager.js:2830
+#: app/autoAr.js:305 app/autoAr.js:634 app/desktopManager.js:196
+#: app/desktopManager.js:1322 app/dragManager.js:792 app/fileItemMenu.js:918
+#: app/fileItemMenu.js:971 app/showErrorPopup.js:49 app/showErrorPopup.js:66
+#: app/widgetManager.js:3253
 msgid "Cancel"
 msgstr "取消"
 
 # MT: LibreTranslate
-#: app/autoAr.js:315 app/autoAr.js:612
+#: app/autoAr.js:325 app/autoAr.js:622
 msgid "Enter a password here"
 msgstr "输入密码"
 
 # MT: LibreTranslate
-#: app/autoAr.js:358
+#: app/autoAr.js:368
 msgid "Removing partial file '${outputFile}'"
 msgstr "删除部分文件 “${outputFile}”"
 
 # MT: LibreTranslate
-#: app/autoAr.js:377
+#: app/autoAr.js:387
 msgid "Creating destination folder"
 msgstr "创建目标文件夹"
 
 # MT: LibreTranslate
-#: app/autoAr.js:409
+#: app/autoAr.js:419
 msgid "Extracting files into '${outputPath}'"
 msgstr "将文件提取到 “${outputPath}”"
 
 # MT: LibreTranslate
-#: app/autoAr.js:439
+#: app/autoAr.js:449
 msgid "Extraction completed"
 msgstr "提取完成"
 
 # MT: LibreTranslate
-#: app/autoAr.js:440
+#: app/autoAr.js:450
 msgid "Extracting '${fullPathFile}' has been completed."
 msgstr "提取 “${fullPathFile}” 已完成。"
 
 # MT: LibreTranslate
-#: app/autoAr.js:446
+#: app/autoAr.js:456
 msgid "Extraction cancelled"
 msgstr "提取已取消"
 
 # MT: LibreTranslate
-#: app/autoAr.js:447
+#: app/autoAr.js:457
 msgid "Extracting '${fullPathFile}' has been cancelled by the user."
 msgstr "提取 “${fullPathFile}” 已被用户取消。"
 
 # MT: LibreTranslate
-#: app/autoAr.js:457
+#: app/autoAr.js:467
 msgid "Passphrase required for ${filename}"
 msgstr "${filename} 需要密码"
 
 # MT: LibreTranslate
-#: app/autoAr.js:460
+#: app/autoAr.js:470
 msgid "Error during extraction"
 msgstr "提取过程中出错"
 
 # MT: LibreTranslate
-#: app/autoAr.js:487
+#: app/autoAr.js:497
 msgid "Compressing files into '${outputFile}'"
 msgstr "将文件压缩到 “${outputFile}”"
 
 # MT: LibreTranslate
-#: app/autoAr.js:500
+#: app/autoAr.js:510
 msgid "Compression completed"
 msgstr "压缩已完成"
 
 # MT: LibreTranslate
-#: app/autoAr.js:501
+#: app/autoAr.js:511
 msgid "Compressing files into '${outputFile}' has been completed."
 msgstr "已将文件压缩到 “${outputFile}”。"
 
 # MT: LibreTranslate
-#: app/autoAr.js:505 app/autoAr.js:512
+#: app/autoAr.js:515 app/autoAr.js:522
 msgid "Cancelled compression"
 msgstr "压缩已取消"
 
 # MT: LibreTranslate
-#: app/autoAr.js:506
+#: app/autoAr.js:516
 msgid "The output file '${outputFile}' already exists."
 msgstr "输出文件 “${outputFile}” 已经存在。"
 
 # MT: LibreTranslate
-#: app/autoAr.js:513
+#: app/autoAr.js:523
 msgid "Compressing files into '${outputFile}' has been cancelled by the user."
 msgstr "用户已取消将文件压缩到 “${outputFile}”。"
 
 # MT: LibreTranslate
-#: app/autoAr.js:516
+#: app/autoAr.js:526
 msgid "Error during compression"
 msgstr "压缩时出现错误"
 
 # MT: LibreTranslate
-#: app/autoAr.js:551
+#: app/autoAr.js:561
 msgid "Create archive"
 msgstr "创建归档"
 
 # MT: LibreTranslate
-#: app/autoAr.js:575
+#: app/autoAr.js:585
 msgid "Archive name"
 msgstr "归档文件名称"
 
 # MT: LibreTranslate
-#: app/autoAr.js:608
+#: app/autoAr.js:618
 msgid "Password"
 msgstr "密码"
 
 # MT: LibreTranslate
-#: app/autoAr.js:621
+#: app/autoAr.js:631
 msgid "Create"
 msgstr "创建"
 
 # MT: LibreTranslate
-#: app/autoAr.js:712
+#: app/autoAr.js:722
 msgid "Compatible with all operating systems."
 msgstr "与所有操作系统兼容。"
 
 # MT: LibreTranslate
-#: app/autoAr.js:718
+#: app/autoAr.js:728
 msgid "Password protected .zip, must be installed on Windows and Mac."
 msgstr "受密码保护的 .zip，必须安装在 Windows 和 Mac 上。"
 
 # MT: LibreTranslate
-#: app/autoAr.js:724
+#: app/autoAr.js:734
 msgid "Smaller archives but Linux and Mac only."
 msgstr "较小的归档文件，但仅限 Linux 和 Mac。"
 
 # MT: LibreTranslate
-#: app/autoAr.js:730
+#: app/autoAr.js:740
 msgid "Smaller archives but must be installed on Windows and Mac."
 msgstr "较小的归档，但必须安装在 Windows 和 Mac 上。"
 
@@ -730,25 +730,25 @@ msgid "Desktop Icons"
 msgstr "桌面图标"
 
 # MT: LibreTranslate
-#: app/desktopGrid.js:2587
+#: app/desktopGrid.js:2584
 msgid "Back to Desktop"
 msgstr "回到桌面"
 
-#: app/desktopGrid.js:2588 app/widgetManager.js:1525
+#: app/desktopGrid.js:2585 app/widgetManager.js:1751
 msgid "Toggle Widget Grid"
 msgstr "切换部件网格显示"
 
-#: app/desktopGrid.js:2589
+#: app/desktopGrid.js:2586
 msgid "Add Widget..."
 msgstr "添加小部件..."
 
 # MT: LibreTranslate
-#: app/desktopManager.js:166
+#: app/desktopManager.js:182
 msgid "Monitor Frame Buffer Scaling is not enabled"
 msgstr "监视框架缓冲 未启用缩放"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:167
+#: app/desktopManager.js:183
 msgid ""
 "Multiple monitors with different zoom settings, recommend per monitor "
 "framebuffer scaling.\n"
@@ -760,7 +760,7 @@ msgstr ""
 "请在 Mutter Dconf 设置中启用"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:178
+#: app/desktopManager.js:194
 msgid ""
 "Multiple monitors with different zoom settings.\n"
 "\n"
@@ -771,18 +771,18 @@ msgstr ""
 "在 Mutter Dconf 设置中启用每个显示器帧缓冲器缩放吗 ?"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:181 data/com.desktop.ding.desktop.in:25
+#: app/desktopManager.js:197 data/com.desktop.ding.desktop.in:25
 msgid "Enable"
 msgstr "启用"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:205 app/desktopManager.js:215
+#: app/desktopManager.js:221 app/desktopManager.js:231
 msgid "Can Not Show the Desktop"
 msgstr "无法显示桌面"
 
 # MT: LibreTranslate
 #. TRANSLATORS: {desktop} folder path automatically inserted
-#: app/desktopManager.js:207
+#: app/desktopManager.js:223
 msgid ""
 "The Desktop folder {desktop} is a Symbolic Link\n"
 "\n"
@@ -794,7 +794,7 @@ msgstr ""
 
 # MT: LibreTranslate
 #. TRANSLATORS: {desktop} folder path automatically inserted
-#: app/desktopManager.js:217
+#: app/desktopManager.js:233
 msgid ""
 "The Desktop folder {desktop} does not exist, or is not a Directory\n"
 "\n"
@@ -805,32 +805,32 @@ msgstr ""
 "检查您的 xdg- utils 安装并设置正确的桌面文件夹"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:228
+#: app/desktopManager.js:244
 msgid "GNOME Files not found"
 msgstr "找不到 GNOME 文件"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:229
+#: app/desktopManager.js:245
 msgid "The GNOME Files application is required by Gtk4 Desktop Icons NG."
 msgstr "格诺梅 Gtk4桌面图标NG要求文件应用程序."
 
 # MT: LibreTranslate
-#: app/desktopManager.js:236
+#: app/desktopManager.js:252
 msgid "There is no default File Manager"
 msgstr "没有默认文件管理器"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:237
+#: app/desktopManager.js:253
 msgid "There is no application that handles mimetype \"inode/directory\""
 msgstr "没有处理 mime 类型“ inode/ directory ” 的应用程序"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:244
+#: app/desktopManager.js:260
 msgid "Gnome Files is not registered as a File Manager"
 msgstr "Gnome 文件未注册为文件管理器"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:245
+#: app/desktopManager.js:261
 msgid ""
 "The Gnome Files application is not programmed to open Folders!\n"
 "Check your xdg-utils installation\n"
@@ -841,171 +841,171 @@ msgstr ""
 "检查 Gnome 文件.desktop 文件安装"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:360
+#: app/desktopManager.js:379
 msgid "Clear current selection before new search"
 msgstr "在新搜索之前清除当前选择"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:1301
+#: app/desktopManager.js:1324
 msgid "Find Files on Desktop"
 msgstr "在桌面上查找文件"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:1644 app/desktopMenu.js:1065 app/shortcuts.js:10
+#: app/desktopManager.js:1669 app/desktopMenu.js:1096 app/shortcuts.js:10
 msgid "New Folder"
 msgstr "新建文件夹"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:1678
+#: app/desktopManager.js:1703
 msgid "Folder Creation Failed"
 msgstr "创建文件夹失败"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:1679
+#: app/desktopManager.js:1704
 msgid "Could not create folder"
 msgstr "无法创建文件夹"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:598
+#: app/desktopMenu.js:616
 msgid "Unable to open Desktop in Gnome Files"
 msgstr "无法打开 Gnome 文件的桌面"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:617
+#: app/desktopMenu.js:635
 msgid "Preferences Window is Open"
 msgstr "首选项窗口已打开"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:618
+#: app/desktopMenu.js:636
 msgid "This Window is open. Please switch to the active window."
 msgstr "这个窗口已被打开。请切换到活动窗口。"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:627 app/desktopMenu.js:1118
+#: app/desktopMenu.js:648 app/desktopMenu.js:1149
 msgid "Settings"
 msgstr "设置"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:907
+#: app/desktopMenu.js:938
 msgid "Template Creation Error"
 msgstr "模板创建错误"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:908
+#: app/desktopMenu.js:939
 msgid "Could not create document"
 msgstr "无法创建文档"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1026
+#: app/desktopMenu.js:1057
 msgid "Name"
 msgstr "名称"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1028
+#: app/desktopMenu.js:1059
 msgid "Name Z-A"
 msgstr "名称 Z-A"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1030
+#: app/desktopMenu.js:1061
 msgid "Modified Time"
 msgstr "修改时间"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1032
+#: app/desktopMenu.js:1063
 msgid "Type"
 msgstr "类型"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1034
+#: app/desktopMenu.js:1065
 msgid "Size"
 msgstr "大小"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1039
+#: app/desktopMenu.js:1070
 msgid "Keep Arranged…"
 msgstr "保持排列…"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1044
+#: app/desktopMenu.js:1075
 msgid "Keep Stacked by Type…"
 msgstr "继续按类型堆叠…"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1046
+#: app/desktopMenu.js:1077
 msgid "Sort Home/Drives/Trash…"
 msgstr "排序家/驱动器/回收站…"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1051
+#: app/desktopMenu.js:1082
 msgid "Change Desktop"
 msgstr "更改桌面"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1056
+#: app/desktopMenu.js:1087
 msgid "Restore Default Desktop"
 msgstr "恢复默认桌面"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1060
+#: app/desktopMenu.js:1091
 msgid "Desktop Icon Settings"
 msgstr "桌面图标设置"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1062
+#: app/desktopMenu.js:1093
 msgid "Show Shortcuts"
 msgstr "显示快捷键"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1070 app/shortcuts.js:67
+#: app/desktopMenu.js:1101 app/shortcuts.js:67
 msgid "New Document"
 msgstr "新文档"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1075 app/shortcuts.js:11
+#: app/desktopMenu.js:1106 app/shortcuts.js:11
 msgid "Paste"
 msgstr "粘贴"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1077 app/shortcuts.js:12
+#: app/desktopMenu.js:1108 app/shortcuts.js:12
 msgid "Undo"
 msgstr "撤销"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1079 app/shortcuts.js:13
+#: app/desktopMenu.js:1110 app/shortcuts.js:13
 msgid "Redo"
 msgstr "重做"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1085 app/shortcuts.js:14
+#: app/desktopMenu.js:1116 app/shortcuts.js:14
 msgid "Select All"
 msgstr "全部选择"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1092
+#: app/desktopMenu.js:1123
 msgid "Arrange Icons"
 msgstr "排列图标"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1096
+#: app/desktopMenu.js:1127
 msgid "Arrange By…"
 msgstr "排列…"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1104
+#: app/desktopMenu.js:1135
 msgid "Show Desktop In {0}"
 msgstr "在 {0} 中显示桌面"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1109
+#: app/desktopMenu.js:1140
 msgid "Open In {0}"
 msgstr "在 {0} 中打开"
 
-#: app/desktopMenu.js:1126
+#: app/desktopMenu.js:1157
 msgid "Edit Widgets…"
 msgstr "编辑小部件…"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1133
+#: app/desktopMenu.js:1164
 msgid "Shell Menu…"
 msgstr "Shell 菜单…"
 
@@ -1040,7 +1040,7 @@ msgid "Move"
 msgstr "移动"
 
 # MT: LibreTranslate
-#: app/dragManager.js:792 app/fileItemMenu.js:240
+#: app/dragManager.js:792 app/fileItemMenu.js:242
 msgid "Copy"
 msgstr "复制"
 
@@ -1070,287 +1070,287 @@ msgid "There is no application installed to open \"{fo}\" files."
 msgstr "没有安装打开\"{fo}\"文件的应用程序."
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:104
+#: app/fileItemMenu.js:106
 msgid "New Folder with {0} item"
 msgid_plural "New Folder with {0} items"
 msgstr[0] "使用 {0} 新建文件夹 项目"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:114
+#: app/fileItemMenu.js:116
 msgid "Open All..."
 msgstr "全部打开..."
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:122
+#: app/fileItemMenu.js:124
 msgid "Launch"
 msgstr "运行"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:135
+#: app/fileItemMenu.js:137
 msgid "Open with {foo}"
 msgstr "使用 {foo} 打开"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:138
+#: app/fileItemMenu.js:140
 msgid "Open"
 msgstr "打开"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:156 app/fileItemMenu.js:160
+#: app/fileItemMenu.js:158 app/fileItemMenu.js:162
 msgid "Extract Here"
 msgstr "在此提取"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:162
+#: app/fileItemMenu.js:164
 msgid "Extract To..."
 msgstr "提取到..."
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:170 app/fileItemMenu.js:177
+#: app/fileItemMenu.js:172 app/fileItemMenu.js:179
 msgid "Open With..."
 msgstr "打开方式..."
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:176
+#: app/fileItemMenu.js:178
 msgid "Open All With Other Application..."
 msgstr "打开所有其它应用程序..."
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:184
+#: app/fileItemMenu.js:186
 msgid "Launch using Integrated Graphics Card"
 msgstr "使用集成图形卡启动"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:206
+#: app/fileItemMenu.js:208
 msgid "Stack This Type"
 msgstr "堆叠此类型"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:207
+#: app/fileItemMenu.js:209
 msgid "Unstack This Type"
 msgstr "取消堆叠此类型"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:231
+#: app/fileItemMenu.js:233
 msgid "Run as a Program"
 msgstr "作为程序运行"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:234
+#: app/fileItemMenu.js:236
 msgid "Scripts"
 msgstr "脚本"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:239
+#: app/fileItemMenu.js:241
 msgid "Cut"
 msgstr "剪切"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:244
+#: app/fileItemMenu.js:246
 msgid "Move to..."
 msgstr "移动到..."
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:245
+#: app/fileItemMenu.js:247
 msgid "Copy to..."
 msgstr "复制到..."
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:249
+#: app/fileItemMenu.js:251
 msgid "Rename…"
 msgstr "重命名…"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:254
+#: app/fileItemMenu.js:256
 msgid "Create Link..."
 msgstr "创建链接..."
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:261
+#: app/fileItemMenu.js:263
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] "压缩 {0} 个文件夹"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:269
+#: app/fileItemMenu.js:271
 msgid "Compress {0} file"
 msgid_plural "Compress {0} files"
 msgstr[0] "压缩 {0} 文件"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:276
+#: app/fileItemMenu.js:278
 msgid "Email to..."
 msgstr "以邮件发送..."
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:286
+#: app/fileItemMenu.js:288
 msgid "Send to Mobile Device"
 msgstr "发送到移动设备"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:294
+#: app/fileItemMenu.js:296
 msgid "Move to Trash"
 msgstr "移动到回收站"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:302
+#: app/fileItemMenu.js:304
 msgid "Delete permanently"
 msgstr "永久删除"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:315 app/fileItemMenu.js:329
+#: app/fileItemMenu.js:317 app/fileItemMenu.js:331
 msgid "Don't Allow Launching"
 msgstr "不允许运行"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:339
+#: app/fileItemMenu.js:341
 msgid "Empty Trash"
 msgstr "空回收站"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:345
+#: app/fileItemMenu.js:347
 msgid "Eject"
 msgstr "弹出"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:348
+#: app/fileItemMenu.js:350
 msgid "Unmount"
 msgstr "卸载"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:354
+#: app/fileItemMenu.js:356
 msgid "Common Properties"
 msgstr "常见属性"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:355
+#: app/fileItemMenu.js:357
 msgid "Properties"
 msgstr "属性"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:362
+#: app/fileItemMenu.js:364
 msgid "Show All in {0}"
 msgstr "在 {0} 中全部显示"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:363
+#: app/fileItemMenu.js:365
 msgid "Show in {0}"
 msgstr "在 {0} 中显示"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:374
+#: app/fileItemMenu.js:376
 msgid "Open in {0}"
 msgstr "在 {0} 中打开"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:538
+#: app/fileItemMenu.js:540
 msgid "Open Item"
 msgstr "打开项目"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:820
+#: app/fileItemMenu.js:823
 msgid "Extraction Cancelled"
 msgstr "提取已取消"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:821
+#: app/fileItemMenu.js:824
 msgid "Unable to extract File, no destination folder"
 msgstr "无法提取文件，没有目标文件夹"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:877 app/fileItemMenu.js:906
+#: app/fileItemMenu.js:880 app/fileItemMenu.js:909
 msgid "Select Destination"
 msgstr "选择目标文件夹"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:880 app/fileItemMenu.js:908
+#: app/fileItemMenu.js:883 app/fileItemMenu.js:911
 msgid "Select"
 msgstr "选择"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:964
+#: app/fileItemMenu.js:967
 msgid "Can not email a Directory"
 msgstr "无法发送目录"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:966
+#: app/fileItemMenu.js:969
 msgid "Selection includes a Directory, compress to a .zip file first?"
 msgstr "选择包括目录,先压缩到.zip文件?"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:992 app/fileItemMenu.js:1023 app/fileItemMenu.js:1040
-#: app/fileItemMenu.js:1059
+#: app/fileItemMenu.js:995 app/fileItemMenu.js:1026 app/fileItemMenu.js:1043
+#: app/fileItemMenu.js:1062
 msgid "Mail Error"
 msgstr "邮件出错"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:994
+#: app/fileItemMenu.js:997
 msgid "Unable to find zip command, please install the program"
 msgstr "无法找到zip命令, 请安装程序"
 
 # MT: LibreTranslate
 #. Translators - basename for a zipped archive created for mailing
-#: app/fileItemMenu.js:1000
+#: app/fileItemMenu.js:1003
 msgid "Archive.zip"
 msgstr "存档. zip"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:1024
+#: app/fileItemMenu.js:1027
 msgid "There was an error in creating a zip archive"
 msgstr "创建 zip 归档出错"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:1042
+#: app/fileItemMenu.js:1045
 msgid "Unable to find xdg-email, please install the program"
 msgstr "无法找到 xdg- 电子邮件, 请安装程序"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:1060
+#: app/fileItemMenu.js:1063
 msgid "There was an error in emailing Files"
 msgstr "电子邮件文件出错"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:1175
+#: app/fileItemMenu.js:1174
 msgid "Can Not open the Working Directory"
 msgstr "无法打开工作目录"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:1226
+#: app/fileItemMenu.js:1225
 msgid "Unable to Open in Gnome Console"
 msgstr "无法在 Gnome 控制台打开"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:1228
+#: app/fileItemMenu.js:1227
 msgid "Please Install Gnome Console or other Terminal Program"
 msgstr "请安装 Gnome 控制台或其他终端程序"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:1236
+#: app/fileItemMenu.js:1235
 msgid "Unable to Open {0}"
 msgstr "无法打开 {0}"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:1238
+#: app/fileItemMenu.js:1237
 msgid "Please Install {0}"
 msgstr "请安装 {0}"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:1282
+#: app/fileItemMenu.js:1281
 msgid "Copy Cancelled"
 msgstr "复制已取消"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:1283
+#: app/fileItemMenu.js:1282
 msgid "Unable to copy Files, no destination folder"
 msgstr "无法复制文件，没有目标文件夹"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:1306
+#: app/fileItemMenu.js:1305
 msgid "Move Cancelled"
 msgstr "移动已取消"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:1307
+#: app/fileItemMenu.js:1306
 msgid "Unable to move Files, no destination folder"
 msgstr "无法移动文件，没有目标文件夹"
 
@@ -1360,7 +1360,7 @@ msgid "$appName$ can not open files of this Type!"
 msgstr "$appName$ 无法打开此类型的文件 !"
 
 # MT: LibreTranslate
-#: app/preferences.js:1097
+#: app/preferences.js:1044
 msgid "Console"
 msgstr "控制台"
 
@@ -1542,7 +1542,7 @@ msgstr "切换键盘选择"
 msgid "Toggle Widget Layer"
 msgstr "切换部件图层"
 
-#: app/shortcuts.js:40 app/widgetManager.js:1461
+#: app/shortcuts.js:40 app/widgetManager.js:1687
 msgid "Add Widget"
 msgstr "添加小部件"
 
@@ -1602,7 +1602,7 @@ msgid "Show Or Hide Desktop Icons"
 msgstr "显示或隐藏桌面图标"
 
 # MT: LibreTranslate
-#: app/showErrorPopup.js:42
+#: app/showErrorPopup.js:50
 msgid "More Information"
 msgstr "更多信息"
 
@@ -1643,45 +1643,71 @@ msgid "Drive"
 msgstr "驱动"
 
 # MT: LibreTranslate
-#: app/widgetManager.js:2123
+#: app/widgetManager.js:2417
 msgid "Widget preferences"
 msgstr "小部件首选项"
 
-#: app/widgetManager.js:2135 app/widgetManager.js:2144
+#: app/widgetManager.js:2429 app/widgetManager.js:2438
 #, fuzzy
 msgid "Unpin widget"
 msgstr "GTK 小部件"
 
-#: app/widgetManager.js:2135 app/widgetManager.js:2144
+#: app/widgetManager.js:2429 app/widgetManager.js:2438
 #, fuzzy
 msgid "Pin widget"
 msgstr "GTK 小部件"
 
-#: app/widgetManager.js:2153
+#: app/widgetManager.js:2447
 msgid "Reposition widget"
 msgstr ""
 
-#: app/widgetManager.js:2699
+#: app/widgetManager.js:3051
 msgid "HTML widget"
 msgstr "HTML 小部件"
 
-#: app/widgetManager.js:2701
+#: app/widgetManager.js:3053
 msgid "GTK widget"
 msgstr "GTK 小部件"
 
-#: app/widgetManager.js:2710
-msgid "User"
-msgstr "用户"
+# MT: LibreTranslate
+#: app/widgetManager.js:3059
+#, fuzzy
+msgid "User Installed"
+msgstr "请安装 {0}"
 
-#: app/widgetManager.js:2829
+#: app/widgetManager.js:3059
+msgid "System Installed"
+msgstr ""
+
+#: app/widgetManager.js:3081
+msgid "Download Latest Widgets from Repository?"
+msgstr ""
+
+#: app/widgetManager.js:3083
+msgid "This will overwrite all widgets in your local widgets folder."
+msgstr ""
+
+#: app/widgetManager.js:3156
+msgid "Widgets updated"
+msgstr ""
+
+#: app/widgetManager.js:3157
+msgid "The latest widgets were downloaded and installed."
+msgstr ""
+
+#: app/widgetManager.js:3163
+msgid "Widgets download failed"
+msgstr ""
+
+#: app/widgetManager.js:3252
 msgid "Allow"
 msgstr "允许"
 
-#: app/widgetManager.js:2883
+#: app/widgetManager.js:3306
 msgid "Strict"
 msgstr "严格"
 
-#: app/widgetManager.js:2885
+#: app/widgetManager.js:3308
 msgid ""
 "The widget runs in a tightly sandboxed web environment.\n"
 "\n"
@@ -1699,11 +1725,11 @@ msgstr ""
 "\n"
 "这是最安全的选项并且适用于大部分部件。"
 
-#: app/widgetManager.js:2896
+#: app/widgetManager.js:3319
 msgid "Relaxed"
 msgstr "放松的"
 
-#: app/widgetManager.js:2898
+#: app/widgetManager.js:3321
 msgid ""
 "The widget is allowed broader web capabilities.\n"
 "\n"
@@ -1720,11 +1746,11 @@ msgstr ""
 "\n"
 "只在您信任的部件上使用此选项。"
 
-#: app/widgetManager.js:2908
+#: app/widgetManager.js:3331
 msgid "Development"
 msgstr "发展"
 
-#: app/widgetManager.js:2910
+#: app/widgetManager.js:3333
 msgid ""
 "The widget runs with development-friendly web access.\n"
 "\n"
@@ -1741,11 +1767,11 @@ msgstr ""
 "此模式仅用于开发和调试。"
 
 # MT: LibreTranslate
-#: app/widgetManager.js:2919
+#: app/widgetManager.js:3342
 msgid "Default"
 msgstr "默认值"
 
-#: app/widgetManager.js:2921
+#: app/widgetManager.js:3344
 msgid ""
 "The widget runs with a predefined web security policy.\n"
 "\n"
@@ -1755,12 +1781,12 @@ msgstr ""
 "\n"
 "其网络访问和功能将根据当前生效的策略受到限制。"
 
-#: app/widgetManager.js:2929
+#: app/widgetManager.js:3352
 msgid "Allow web content for {widgetId}?"
 msgstr "是否允许 {widgetId} 加载网络内容？"
 
 #. eslint-disable-next-line prefer-template
-#: app/widgetManager.js:2939
+#: app/widgetManager.js:3365
 msgid ""
 "The widget you are adding may load web content from the internet.\n"
 "\n"
@@ -1768,7 +1794,7 @@ msgstr ""
 "您正在添加的部件可能会从互联网加载网络内容。\n"
 "\n"
 
-#: app/widgetManager.js:2940
+#: app/widgetManager.js:3366
 msgid ""
 "This content is subject to the widget security policy:\n"
 "\n"
@@ -1776,7 +1802,7 @@ msgstr ""
 "此类内容将受部件安全策略的约束：\n"
 "\n"
 
-#: app/widgetManager.js:2974
+#: app/widgetManager.js:3401
 msgid ""
 "This widget, {widgetId} runs a background process on your computer.\n"
 "\n"
@@ -1784,13 +1810,13 @@ msgstr ""
 "此部件 {widgetId} 会在你的计算机上运行一个后台进程。\n"
 "\n"
 
-#: app/widgetManager.js:2976
+#: app/widgetManager.js:3403
 msgid ""
 "The backend runs with your normal user permissions, just like any other "
 "application you start.\n"
 msgstr "该后台进程将以正常的用户权限运行，就像你启动的任何其他应用程序一样。\n"
 
-#: app/widgetManager.js:2977
+#: app/widgetManager.js:3404
 msgid ""
 "It can access your files, system resources, and the network according to "
 "your user account permissions.\n"
@@ -1799,28 +1825,28 @@ msgstr ""
 "它可以根据你的用户账户的权限访问你的文件、系统资源和网络。\n"
 "\n"
 
-#: app/widgetManager.js:2979
+#: app/widgetManager.js:3407
 msgid "Command:"
 msgstr "命令:"
 
-#: app/widgetManager.js:2982
+#: app/widgetManager.js:3415
 msgid "Only allow this for widgets you implicitly trust."
 msgstr "仅在你完全信任的部件上启用此权限。"
 
-#: app/widgetManager.js:2985
+#: app/widgetManager.js:3419
 msgid "Allow widget backend?"
 msgstr "是否允许部件启用后端？"
 
 # MT: LibreTranslate
-#: app/widgetWebContext.js:263
+#: app/widgetWebContext.js:296
 msgid "Widget Preferences"
 msgstr "小部件首选项"
 
-#: app/widgetWebContext.js:792
+#: app/widgetWebContext.js:868
 msgid "Open link in browser?"
 msgstr "在浏览器中打开链接"
 
-#: app/widgetWebContext.js:793
+#: app/widgetWebContext.js:869
 msgid ""
 "The widget wants to open this link in your browser:\n"
 "\n"
@@ -1986,7 +2012,8 @@ msgstr "排序特殊文件夹 - 主目录/回收站驱动器."
 msgid ""
 "When arranging Icons on desktop, to sort and change the position of the "
 "Home, Trash and mounted Network or External Drives"
-msgstr "在桌面上安排图标时, 以排序和更改 Home、 回收站和挂载的网络或外部驱动器的位置"
+msgstr ""
+"在桌面上安排图标时, 以排序和更改 Home、 回收站和挂载的网络或外部驱动器的位置"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:70
@@ -2102,3 +2129,6 @@ msgstr "应用程序快捷键"
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:121
 msgid "Override for default application shortcuts set by the User"
 msgstr "覆盖用户设置的默认应用程序快捷键"
+
+#~ msgid "User"
+#~ msgstr "用户"
