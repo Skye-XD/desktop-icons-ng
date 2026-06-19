@@ -22,6 +22,7 @@ import {FileUtils} from '../dependencies/localFiles.js';
 import {HtmlWidgetHost, HtmlWidgetHostWithBackend} from '../dependencies/localFiles.js';
 import {PinnedWindowManager} from '../dependencies/localFiles.js';
 import {WebWidgetContext} from '../dependencies/localFiles.js';
+import {WebUtils} from '../dependencies/localFiles.js';
 
 /**
  * WidgetManager
@@ -3102,9 +3103,9 @@ const WidgetManager = class {
             await FileUtils.recursivelyMakeDir(tempRootDir);
             await FileUtils.recursivelyMakeDir(extractDir);
 
-            const archiveData = await FileUtils.downloadBytes(archiveUrl, 30);
+            const archiveData = await WebUtils.downloadBytes(archiveUrl, 30);
             const archiveFile = tempRootDir.get_child('widgets.tar.gz');
-            await FileUtils.writeBytesToFile(archiveFile, archiveData.bytes);
+            await WebUtils.writeBytesToFile(archiveFile, archiveData.bytes);
             try {
                 await this._desktopManager.autoAr.extractArchiveToFolder(
                     archiveFile.get_path(),
@@ -3114,7 +3115,7 @@ const WidgetManager = class {
                 if (e?.message !== 'AutoAr is not installed')
                     throw e;
 
-                FileUtils.extractTarGzArchive(archiveFile, extractDir);
+                WebUtils.extractTarGzArchive(archiveFile, extractDir);
             }
 
             const sourceWidgetsDir =
