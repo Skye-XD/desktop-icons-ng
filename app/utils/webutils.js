@@ -55,7 +55,7 @@ export function verifyHttpDownload(message, bytes) {
  * @param timeoutMs
  * @returns {Promise<{message: object, bytes: GLib.Bytes}>}
  */
-export async function downloadBytes(url, timeoutMs = 30) {
+export async function downloadBytes(url, timeoutMs = 30, cancellable = null) {
     if (!Soup)
         throw new Error('Soup is unavailable');
 
@@ -64,29 +64,45 @@ export async function downloadBytes(url, timeoutMs = 30) {
     });
 
     const message = Soup.Message.new('GET', url);
-    const bytes = await new Promise((resolve, reject) => {
-        session.send_and_read_async(
-            message,
-            GLib.PRIORITY_DEFAULT,
-            null,
-            (_soupSession, result) => {
-                try {
-                    resolve(session.send_and_read_finish(result));
-                } catch (e) {
-                    reject(e);
-                }
+        let cancelId = 0;
+
+        try {
+            if (cancellable) {
+                cancelId = cancellable.connect(() => {
+                    session.abort();
+                });
             }
-        );
-    });
 
-    const verification = verifyHttpDownload(message, bytes);
-    if (!verification.ok) {
-        const error = new Error(verification.error);
-        error.status = message.get_status?.() ?? 0;
-        throw error;
+        const bytes = await new Promise((resolve, reject) => {
+            session.send_and_read_async(
+                message,
+                GLib.PRIORITY_DEFAULT,
+                cancellable,
+                (_soupSession, result) => {
+                    try {
+                        resolve(session.send_and_read_finish(result));
+                    } catch (e) {
+                        reject(e);
+                    }
+                }
+            );
+        });
+
+        const verification = verifyHttpDownload(message, bytes);
+        if (!verification.ok) {
+            const error = new Error(verification.error);
+            error.status = message.get_status() ?? 0;
+            throw error;
+        }
+
+        return {message, bytes};
+    } finally {
+        if (!cancellable || !cancellable.is_cancelled())
+            session.abort();
+
+        if (cancelId && cancellable)
+            cancellable.disconnect(cancelId);
     }
-
-    return {message, bytes};
 }
 
 /**

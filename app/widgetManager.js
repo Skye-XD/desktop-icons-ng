@@ -109,6 +109,7 @@ const WidgetManager = class {
         this._selectionChromeSuppressed = false;
         this._pendingPinnedWindowReloadId = 0;
         this._dbusScreenSaverActiveChangedId = 0;
+        this._downloadCancellable = new Gio.Cancellable();
 
         // When true, suppress emitting stateChanged events
         this._suppressStateEvents = false;
@@ -148,6 +149,7 @@ const WidgetManager = class {
     }
 
     stopWidgetDisplay() {
+        this._downloadCancellable?.cancel();
         this._cancelPendingPinnedWindowReload();
 
         for (const surface of this._surfaces.values())
@@ -3078,6 +3080,7 @@ const WidgetManager = class {
     }
 
     async downloadLatestWidgets(parentWindow = null) {
+        const cancellable = this._getDownloadCancellable();
         const confirmed = await this._asyncAskYesNo(
             _('Download Latest Widgets from Repository?'),
             _(
@@ -3100,34 +3103,55 @@ const WidgetManager = class {
         const backupDir = appDataDir.get_child('widgets.backup');
 
         try {
-            await FileUtils.recursivelyMakeDir(tempRootDir);
-            await FileUtils.recursivelyMakeDir(extractDir);
+            await FileUtils.recursivelyMakeDir(tempRootDir, cancellable);
+            await FileUtils.recursivelyMakeDir(extractDir, cancellable);
 
-            const archiveData = await WebUtils.downloadBytes(archiveUrl, 30);
+            const archiveData = await WebUtils.downloadBytes(
+                archiveUrl,
+                30,
+                cancellable
+            );
             const archiveFile = tempRootDir.get_child('widgets.tar.gz');
-            await WebUtils.writeBytesToFile(archiveFile, archiveData.bytes);
+            await WebUtils.writeBytesToFile(
+                archiveFile,
+                archiveData.bytes,
+                cancellable
+            );
             try {
                 await this._desktopManager.autoAr.extractArchiveToFolder(
                     archiveFile.get_path(),
-                    extractDir
+                    extractDir,
+                    cancellable
                 );
             } catch (e) {
                 if (e?.message !== 'AutoAr is not installed')
                     throw e;
 
-                await WebUtils.extractTarGzArchive(archiveFile, extractDir);
+                await WebUtils.extractTarGzArchive(
+                    archiveFile,
+                    extractDir,
+                    cancellable
+                );
             }
 
             const sourceWidgetsDir =
                 await FileUtils.findChildDirRecursive(
                     extractDir,
-                    'widgets'
+                    'widgets',
+                    cancellable
                 );
             if (!sourceWidgetsDir)
                 throw new Error('Downloaded archive did not contain a widgets folder');
 
-            if (await FileUtils.queryExists(backupDir))
-                await FileUtils.recursivelyDeleteDir(backupDir, true);
+            if (await FileUtils.queryExists(backupDir, cancellable))
+                await FileUtils.recursivelyDeleteDir(
+                    backupDir,
+                    true,
+                    cancellable
+                );
+
+            if (cancellable.is_cancelled())
+                return false;
 
             if (await FileUtils.queryExists(liveDir))
                 await FileUtils.moveFile(liveDir, backupDir);
@@ -3159,6 +3183,8 @@ const WidgetManager = class {
             );
             return true;
         } catch (e) {
+            if (e?.matches?.(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
+                return false;
             console.error('downloadLatestWidgets: install failed:', e);
             this._desktopManager.dbusManager?.doNotify(
                 _('Widgets download failed'),
@@ -3173,6 +3199,14 @@ const WidgetManager = class {
                 // ignore cleanup failures
             }
         }
+    }
+
+    _getDownloadCancellable() {
+        if (!this._downloadCancellable?.is_cancelled?.())
+            return this._downloadCancellable;
+
+        this._downloadCancellable = new Gio.Cancellable();
+        return this._downloadCancellable;
     }
 
     _addActions() {
