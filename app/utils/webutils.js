@@ -122,18 +122,44 @@ export async function writeBytesToFile(file, bytes, cancellable = null) {
  *
  * @param archiveFile
  * @param extractDir
+ * @param cancellable
  */
-export function extractTarGzArchive(archiveFile, extractDir) {
-    const command =
-        `tar -xzf ${GLib.shell_quote(String(archiveFile.get_path()))} ` +
-        `-C ${GLib.shell_quote(String(extractDir.get_path()))}`;
+export async function extractTarGzArchive(
+    archiveFile,
+    extractDir,
+    cancellable = null
+) {
+    // Keep the tar fallback async in the app process so extraction does not
+    // block GNOME Shell when AutoAr is unavailable.
+    const subprocess = new Gio.Subprocess({
+        argv: [
+            'tar',
+            '-xzf',
+            String(archiveFile.get_path()),
+            '-C',
+            String(extractDir.get_path()),
+        ],
+        flags:
+            Gio.SubprocessFlags.STDOUT_PIPE |
+            Gio.SubprocessFlags.STDERR_PIPE,
+    });
 
-    const [, , error, status] = GLib.spawn_command_line_sync(command);
-    if (status !== 0) {
-        const decoder = new TextDecoder();
-        const stderr = decoder.decode(error ?? new Uint8Array());
-        throw new Error(
-            stderr.trim() || `Archive extraction failed: exit ${status}`
+    const [, stdout, stderr] = await new Promise((resolve, reject) => {
+        subprocess.communicate_utf8_async(
+            null,
+            cancellable,
+            (_proc, result) => {
+                try {
+                    resolve(subprocess.communicate_utf8_finish(result));
+                } catch (e) {
+                    reject(e);
+                }
+            }
         );
+    });
+
+    if (!subprocess.get_if_exited() || subprocess.get_exit_status() !== 0) {
+        const output = stderr?.trim() || stdout?.trim() || 'Archive extraction failed';
+        throw new Error(output);
     }
 }

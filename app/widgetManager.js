@@ -3115,7 +3115,7 @@ const WidgetManager = class {
                 if (e?.message !== 'AutoAr is not installed')
                     throw e;
 
-                WebUtils.extractTarGzArchive(archiveFile, extractDir);
+                await WebUtils.extractTarGzArchive(archiveFile, extractDir);
             }
 
             const sourceWidgetsDir =
