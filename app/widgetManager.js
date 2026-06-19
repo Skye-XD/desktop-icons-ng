@@ -2890,8 +2890,10 @@ const WidgetManager = class {
         if (Number.isInteger(monitorIndex))
             parentWindow = this.getSurfaceWindow(monitorIndex) ?? parentWindow;
 
+        const cancellable = this._getDownloadCancellable();
+
         const {window, list, addButton, cancelButton, downloadButton} =
-            this._createWidgetPickerWindow(parentWindow, widgets);
+            this._createWidgetPickerWindow(parentWindow, widgets, cancellable);
 
         const resultPromise = new Promise(resolve => {
             let creationInProgress = false;
@@ -2902,13 +2904,21 @@ const WidgetManager = class {
             });
 
             downloadButton.connect('clicked', async () => {
-                const didInstall = await this.downloadLatestWidgets(parentWindow);
-                if (didInstall) {
-                    reopeningAfterDownload = true;
-                    resolve(null);
-                    window.close();
-                    this.openAddWidgetDialog(parentWindow, monitorIndex)
-                        .catch(logError);
+                try {
+                    const didInstall = await this.downloadLatestWidgets(
+                        parentWindow,
+                        cancellable
+                    );
+
+                    if (didInstall) {
+                        reopeningAfterDownload = true;
+                        resolve(null);
+                        window.close();
+                        this.openAddWidgetDialog(parentWindow, monitorIndex)
+                            .catch(logError);
+                    }
+                } catch (e) {
+                    logError(e);
                 }
             });
 
@@ -2948,6 +2958,8 @@ const WidgetManager = class {
 
             // If user closes via window close button / Esc
             window.connect('close-request', () => {
+                cancellable.cancel();
+
                 if (reopeningAfterDownload)
                     return false;
 
@@ -3079,16 +3091,16 @@ const WidgetManager = class {
         return row;
     }
 
-    async downloadLatestWidgets(parentWindow = null) {
-        const cancellable = this._getDownloadCancellable();
+    async downloadLatestWidgets(parentWindow = null, cancellable = null) {
         const confirmed = await this._asyncAskYesNo(
             _('Download Latest Widgets from Repository?'),
             _(
                 'This will overwrite all widgets in your local widgets folder.'
             ),
             false,
-            parentWindow
-        );
+            parentWindow,
+            cancellable
+        ).catch(e => {logError(e); return false;});
 
         if (!confirmed)
             return false;
@@ -3281,7 +3293,16 @@ const WidgetManager = class {
      * Widget Consent UI
      * ===================================================================== */
 
-    _asyncAskYesNo(heading, body, bodyUseMarkup = false, parentWindow = null) {
+    _asyncAskYesNo(
+        heading,
+        body,
+        bodyUseMarkup = false,
+        parentWindow = null,
+        cancellable = null
+    ) {
+        if (cancellable?.is_cancelled())
+            return Promise.resolve(false);
+
         const anchorParent =
             parentWindow ?? this._desktopManager.getDialogParentWindow();
         const yesLabel = _('Allow');
@@ -3289,6 +3310,8 @@ const WidgetManager = class {
 
         return new Promise(resolve => {
             const dlg = new Adw.AlertDialog();
+            let cancelId = 0;
+
             dlg.set_presentation_mode(Adw.DialogPresentationMode.FLOATING);
             dlg.set_follows_content_size(false);
             dlg.set_content_width(500);
@@ -3325,7 +3348,16 @@ const WidgetManager = class {
             }));
             dlg.add_controller(shortcutController);
 
+            if (cancellable) {
+                cancelId = cancellable.connect(() => {
+                    dlg.close();
+                });
+            }
+
             dlg.connect('response', (_d, response) => {
+                if (cancelId && cancellable)
+                    cancellable.disconnect(cancelId);
+
                 resolve(response === 'yes');
             });
 
@@ -3408,7 +3440,8 @@ const WidgetManager = class {
             heading,
             body,
             true,
-            parentWindow
+            parentWindow,
+            this._getDownloadCancellable()
         );
 
         return answer;
@@ -3454,7 +3487,8 @@ const WidgetManager = class {
             _('Allow widget backend?'),
             body,
             true,
-            parentWindow
+            parentWindow,
+            this._getDownloadCancellable()
         );
 
         return answer;
