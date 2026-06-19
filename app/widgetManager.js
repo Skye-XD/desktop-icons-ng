@@ -3100,7 +3100,10 @@ const WidgetManager = class {
             false,
             parentWindow,
             cancellable
-        ).catch(e => {logError(e); return false;});
+        ).catch(e => {
+            logError(e);
+            return false;
+        });
 
         if (!confirmed)
             return false;
@@ -3155,12 +3158,13 @@ const WidgetManager = class {
             if (!sourceWidgetsDir)
                 throw new Error('Downloaded archive did not contain a widgets folder');
 
-            if (await FileUtils.queryExists(backupDir, cancellable))
+            if (await FileUtils.queryExists(backupDir, cancellable)) {
                 await FileUtils.recursivelyDeleteDir(
                     backupDir,
                     true,
                     cancellable
                 );
+            }
 
             if (cancellable.is_cancelled())
                 return false;

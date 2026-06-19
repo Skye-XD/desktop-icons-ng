@@ -53,6 +53,7 @@ export function verifyHttpDownload(message, bytes) {
  *
  * @param url
  * @param timeoutMs
+ * @param cancellable
  * @returns {Promise<{message: object, bytes: GLib.Bytes}>}
  */
 export async function downloadBytes(url, timeoutMs = 30, cancellable = null) {
@@ -64,14 +65,14 @@ export async function downloadBytes(url, timeoutMs = 30, cancellable = null) {
     });
 
     const message = Soup.Message.new('GET', url);
-        let cancelId = 0;
+    let cancelId = 0;
 
-        try {
-            if (cancellable) {
-                cancelId = cancellable.connect(() => {
-                    session.abort();
-                });
-            }
+    try {
+        if (cancellable) {
+            cancelId = cancellable.connect(() => {
+                session.abort();
+            });
+        }
 
         const bytes = await new Promise((resolve, reject) => {
             session.send_and_read_async(
