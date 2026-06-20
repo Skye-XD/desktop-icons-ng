@@ -22,6 +22,7 @@ import {FileUtils} from '../dependencies/localFiles.js';
 import {HtmlWidgetHost, HtmlWidgetHostWithBackend} from '../dependencies/localFiles.js';
 import {PinnedWindowManager} from '../dependencies/localFiles.js';
 import {WebWidgetContext} from '../dependencies/localFiles.js';
+import {WebUtils} from '../dependencies/localFiles.js';
 
 /**
  * WidgetManager
@@ -108,6 +109,7 @@ const WidgetManager = class {
         this._selectionChromeSuppressed = false;
         this._pendingPinnedWindowReloadId = 0;
         this._dbusScreenSaverActiveChangedId = 0;
+        this._downloadCancellable = new Gio.Cancellable();
 
         // When true, suppress emitting stateChanged events
         this._suppressStateEvents = false;
@@ -147,6 +149,7 @@ const WidgetManager = class {
     }
 
     stopWidgetDisplay() {
+        this._downloadCancellable?.cancel();
         this._cancelPendingPinnedWindowReload();
 
         for (const surface of this._surfaces.values())
@@ -2887,8 +2890,10 @@ const WidgetManager = class {
         if (Number.isInteger(monitorIndex))
             parentWindow = this.getSurfaceWindow(monitorIndex) ?? parentWindow;
 
+        const cancellable = this._getDownloadCancellable();
+
         const {window, list, addButton, cancelButton, downloadButton} =
-            this._createWidgetPickerWindow(parentWindow, widgets);
+            this._createWidgetPickerWindow(parentWindow, widgets, cancellable);
 
         const resultPromise = new Promise(resolve => {
             let creationInProgress = false;
@@ -2899,13 +2904,21 @@ const WidgetManager = class {
             });
 
             downloadButton.connect('clicked', async () => {
-                const didInstall = await this.downloadLatestWidgets(parentWindow);
-                if (didInstall) {
-                    reopeningAfterDownload = true;
-                    resolve(null);
-                    window.close();
-                    this.openAddWidgetDialog(parentWindow, monitorIndex)
-                        .catch(logError);
+                try {
+                    const didInstall = await this.downloadLatestWidgets(
+                        parentWindow,
+                        cancellable
+                    );
+
+                    if (didInstall) {
+                        reopeningAfterDownload = true;
+                        resolve(null);
+                        window.close();
+                        this.openAddWidgetDialog(parentWindow, monitorIndex)
+                            .catch(logError);
+                    }
+                } catch (e) {
+                    logError(e);
                 }
             });
 
@@ -2945,6 +2958,8 @@ const WidgetManager = class {
 
             // If user closes via window close button / Esc
             window.connect('close-request', () => {
+                cancellable.cancel();
+
                 if (reopeningAfterDownload)
                     return false;
 
@@ -3076,15 +3091,19 @@ const WidgetManager = class {
         return row;
     }
 
-    async downloadLatestWidgets(parentWindow = null) {
+    async downloadLatestWidgets(parentWindow = null, cancellable = null) {
         const confirmed = await this._asyncAskYesNo(
             _('Download Latest Widgets from Repository?'),
             _(
                 'This will overwrite all widgets in your local widgets folder.'
             ),
             false,
-            parentWindow
-        );
+            parentWindow,
+            cancellable
+        ).catch(e => {
+            logError(e);
+            return false;
+        });
 
         if (!confirmed)
             return false;
@@ -3099,34 +3118,56 @@ const WidgetManager = class {
         const backupDir = appDataDir.get_child('widgets.backup');
 
         try {
-            await FileUtils.recursivelyMakeDir(tempRootDir);
-            await FileUtils.recursivelyMakeDir(extractDir);
+            await FileUtils.recursivelyMakeDir(tempRootDir, cancellable);
+            await FileUtils.recursivelyMakeDir(extractDir, cancellable);
 
-            const archiveData = await FileUtils.downloadBytes(archiveUrl, 30);
+            const archiveData = await WebUtils.downloadBytes(
+                archiveUrl,
+                30,
+                cancellable
+            );
             const archiveFile = tempRootDir.get_child('widgets.tar.gz');
-            await FileUtils.writeBytesToFile(archiveFile, archiveData.bytes);
+            await WebUtils.writeBytesToFile(
+                archiveFile,
+                archiveData.bytes,
+                cancellable
+            );
             try {
                 await this._desktopManager.autoAr.extractArchiveToFolder(
                     archiveFile.get_path(),
-                    extractDir
+                    extractDir,
+                    cancellable
                 );
             } catch (e) {
                 if (e?.message !== 'AutoAr is not installed')
                     throw e;
 
-                FileUtils.extractTarGzArchive(archiveFile, extractDir);
+                await WebUtils.extractTarGzArchive(
+                    archiveFile,
+                    extractDir,
+                    cancellable
+                );
             }
 
             const sourceWidgetsDir =
                 await FileUtils.findChildDirRecursive(
                     extractDir,
-                    'widgets'
+                    'widgets',
+                    cancellable
                 );
             if (!sourceWidgetsDir)
                 throw new Error('Downloaded archive did not contain a widgets folder');
 
-            if (await FileUtils.queryExists(backupDir))
-                await FileUtils.recursivelyDeleteDir(backupDir, true);
+            if (await FileUtils.queryExists(backupDir, cancellable)) {
+                await FileUtils.recursivelyDeleteDir(
+                    backupDir,
+                    true,
+                    cancellable
+                );
+            }
+
+            if (cancellable.is_cancelled())
+                return false;
 
             if (await FileUtils.queryExists(liveDir))
                 await FileUtils.moveFile(liveDir, backupDir);
@@ -3158,6 +3199,8 @@ const WidgetManager = class {
             );
             return true;
         } catch (e) {
+            if (e?.matches?.(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
+                return false;
             console.error('downloadLatestWidgets: install failed:', e);
             this._desktopManager.dbusManager?.doNotify(
                 _('Widgets download failed'),
@@ -3172,6 +3215,14 @@ const WidgetManager = class {
                 // ignore cleanup failures
             }
         }
+    }
+
+    _getDownloadCancellable() {
+        if (!this._downloadCancellable?.is_cancelled?.())
+            return this._downloadCancellable;
+
+        this._downloadCancellable = new Gio.Cancellable();
+        return this._downloadCancellable;
     }
 
     _addActions() {
@@ -3246,7 +3297,16 @@ const WidgetManager = class {
      * Widget Consent UI
      * ===================================================================== */
 
-    _asyncAskYesNo(heading, body, bodyUseMarkup = false, parentWindow = null) {
+    _asyncAskYesNo(
+        heading,
+        body,
+        bodyUseMarkup = false,
+        parentWindow = null,
+        cancellable = null
+    ) {
+        if (cancellable?.is_cancelled())
+            return Promise.resolve(false);
+
         const anchorParent =
             parentWindow ?? this._desktopManager.getDialogParentWindow();
         const yesLabel = _('Allow');
@@ -3254,6 +3314,8 @@ const WidgetManager = class {
 
         return new Promise(resolve => {
             const dlg = new Adw.AlertDialog();
+            let cancelId = 0;
+
             dlg.set_presentation_mode(Adw.DialogPresentationMode.FLOATING);
             dlg.set_follows_content_size(false);
             dlg.set_content_width(500);
@@ -3290,7 +3352,16 @@ const WidgetManager = class {
             }));
             dlg.add_controller(shortcutController);
 
+            if (cancellable) {
+                cancelId = cancellable.connect(() => {
+                    dlg.close();
+                });
+            }
+
             dlg.connect('response', (_d, response) => {
+                if (cancelId && cancellable)
+                    cancellable.disconnect(cancelId);
+
                 resolve(response === 'yes');
             });
 
@@ -3373,7 +3444,8 @@ const WidgetManager = class {
             heading,
             body,
             true,
-            parentWindow
+            parentWindow,
+            this._getDownloadCancellable()
         );
 
         return answer;
@@ -3419,7 +3491,8 @@ const WidgetManager = class {
             _('Allow widget backend?'),
             body,
             true,
-            parentWindow
+            parentWindow,
+            this._getDownloadCancellable()
         );
 
         return answer;
