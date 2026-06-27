@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-06-18 19:30-0400\n"
-"PO-Revision-Date: 2026-06-02 21:27+0000\n"
+"PO-Revision-Date: 2026-06-27 14:03+0000\n"
 "Last-Translator: Sundeep Mediratta <smedius@gmail.com>\n"
 "Language-Team: Esperanto <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/eo/>\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2026.6\n"
+"X-Generator: Weblate 2026.7.dev0\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
@@ -485,8 +485,8 @@ msgid ""
 "To be able to work with compressed files, install file-roller and/or gir-1.2-"
 "gnomeAutoAr"
 msgstr ""
-"Por povi labori kun kunpremitaj dosieroj, instali dosierskribilon kaj/aŭ "
-"ĝi-1.2-gnome Aŭtoj"
+"Por povi labori kun kunpremitaj dosieroj, instali dosierskribilon kaj/aŭ ĝi-"
+"1.2-gnome Aŭtoj"
 
 # MT: LibreTranslate
 #: app/autoAr.js:207
@@ -629,8 +629,7 @@ msgstr "Pli malgrandaj arkivoj sed Linukso kaj Mac nur."
 # MT: LibreTranslate
 #: app/autoAr.js:740
 msgid "Smaller archives but must be installed on Windows and Mac."
-msgstr ""
-"Pli malgrandaj arkivoj sed devas esti instalitaj sur Fenestroj kaj Mac."
+msgstr "Pli malgrandaj arkivoj sed devas esti instalitaj sur Fenestroj kaj Mac."
 
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:125

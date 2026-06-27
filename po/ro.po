@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-06-18 19:30-0400\n"
-"PO-Revision-Date: 2026-06-02 21:30+0000\n"
+"PO-Revision-Date: 2026-06-27 13:57+0000\n"
 "Last-Translator: Sundeep Mediratta <smedius@gmail.com>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/ro/>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 2026.6\n"
+"X-Generator: Weblate 2026.7.dev0\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
@@ -361,8 +361,7 @@ msgstr "Eroare la modificarea aplicației implicite"
 # MT: LibreTranslate
 #: app/appChooser.js:178
 msgid "Error while setting {foo} as default application for {mimetype}"
-msgstr ""
-"Eroare în timpul setării {foo} ca aplicație implicită pentru {mimetype}"
+msgstr "Eroare în timpul setării {foo} ca aplicație implicită pentru {mimetype}"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:57
@@ -469,8 +468,8 @@ msgid ""
 "To be able to work with compressed files, install file-roller and/or gir-1.2-"
 "gnomeAutoAr"
 msgstr ""
-"Pentru a putea lucra cu fișiere comprimate, instalați file-roller și/sau "
-"gir-1.2-gnome AutoAr"
+"Pentru a putea lucra cu fișiere comprimate, instalați file-roller și/sau gir-"
+"1.2-gnome AutoAr"
 
 # MT: LibreTranslate
 #: app/autoAr.js:207
@@ -1045,8 +1044,7 @@ msgstr "Deschiderea fișierului a eșuat"
 # MT: LibreTranslate
 #: app/fileItemIcon.js:292
 msgid "There is no application installed to open \"{fo}\" files."
-msgstr ""
-"Nu există nicio aplicație instalată pentru a deschide fișiere \"{fo}\"."
+msgstr "Nu există nicio aplicație instalată pentru a deschide fișiere \"{fo}\"."
 
 #: app/fileItemMenu.js:106
 msgid "New Folder with {0} item"
@@ -1833,7 +1831,8 @@ msgstr "Afișează pictograme pe biroul GNOME"
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:6
 msgid "desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;"
-msgstr "desktop;icoane;file;dosare;manager;aranjat;ascunde;arată;lansare;scurtături;"
+msgstr ""
+"desktop;icoane;file;dosare;manager;aranjat;ascunde;arată;lansare;scurtături;"
 
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:21

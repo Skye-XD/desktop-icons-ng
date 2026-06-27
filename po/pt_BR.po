@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-06-18 19:30-0400\n"
-"PO-Revision-Date: 2026-06-02 21:30+0000\n"
+"PO-Revision-Date: 2026-06-27 13:54+0000\n"
 "Last-Translator: Lúcia <lucia.hates.proton@proton.me>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/gtk4-"
 "desktop-icons-ng/gtk4-ding-pot/pt_BR/>\n"
@@ -27,7 +27,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2026.6\n"
+"X-Generator: Weblate 2026.7.dev0\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
@@ -562,8 +562,7 @@ msgstr "O arquivo de saída '${outputFile}' já existe."
 # MT: LibreTranslate
 #: app/autoAr.js:523
 msgid "Compressing files into '${outputFile}' has been cancelled by the user."
-msgstr ""
-"A compressão de arquivos em '${outputFile}' foi cancelada pelo usuário."
+msgstr "A compressão de arquivos em '${outputFile}' foi cancelada pelo usuário."
 
 # MT: LibreTranslate
 #: app/autoAr.js:526
@@ -1236,8 +1235,7 @@ msgstr "Não é possível enviar um diretório por email"
 # MT: LibreTranslate
 #: app/fileItemMenu.js:969
 msgid "Selection includes a Directory, compress to a .zip file first?"
-msgstr ""
-"A seleção inclui um diretório, comprimir para um arquivo .zip primeiro?"
+msgstr "A seleção inclui um diretório, comprimir para um arquivo .zip primeiro?"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:995 app/fileItemMenu.js:1026 app/fileItemMenu.js:1043
