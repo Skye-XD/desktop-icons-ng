@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-06-18 19:30-0400\n"
-"PO-Revision-Date: 2026-06-02 21:29+0000\n"
+"PO-Revision-Date: 2026-06-27 14:02+0000\n"
 "Last-Translator: Sundeep Mediratta <smedius@gmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/hu/>\n"
@@ -25,7 +25,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2026.6\n"
+"X-Generator: Weblate 2026.7.dev0\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
@@ -503,8 +503,7 @@ msgstr "A fájl '${outputFile}' már létezik."
 
 #: app/autoAr.js:523
 msgid "Compressing files into '${outputFile}' has been cancelled by the user."
-msgstr ""
-"A fájlok tömörítését ide: '${outputFile}', megszakította a felhasználó."
+msgstr "A fájlok tömörítését ide: '${outputFile}', megszakította a felhasználó."
 
 #: app/autoAr.js:526
 msgid "Error during compression"
@@ -1813,8 +1812,7 @@ msgstr "Az ikonok bárhol elhelyezhetők az asztalon"
 msgid ""
 "Icons are not on a rectangular grid but can be postioned anywhere "
 "independent of grid"
-msgstr ""
-"Az ikonok ne legyenek a rácshoz kötve, bárhol el lehessen helyezni őket"
+msgstr "Az ikonok ne legyenek a rácshoz kötve, bárhol el lehessen helyezni őket"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:110
 msgid "Show Desktop Widgets"

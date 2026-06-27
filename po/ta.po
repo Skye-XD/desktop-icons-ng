@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-06-18 19:30-0400\n"
-"PO-Revision-Date: 2026-06-02 21:35+0000\n"
+"PO-Revision-Date: 2026-06-27 13:56+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/gtk4-desktop-icons-"
 "ng/gtk4-ding-pot/ta/>\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2026.6\n"
+"X-Generator: Weblate 2026.7.dev0\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
@@ -153,7 +153,8 @@ msgstr "கீழ் வலது மூலையில்"
 
 #: app/adwPreferencesWindow.js:720
 msgid "Add new icons to Secondary Monitors first, if available"
-msgstr "இரண்டாம் நிலை மானிட்டர்கள் இருந்தால், முதலில் புதிய ஐகான்களைச் சேர்க்கவும்"
+msgstr ""
+"இரண்டாம் நிலை மானிட்டர்கள் இருந்தால், முதலில் புதிய ஐகான்களைச் சேர்க்கவும்"
 
 #: app/adwPreferencesWindow.js:724
 msgid "Snap icons to grid"
@@ -280,7 +281,8 @@ msgstr "மாற்றங்களைத் திருத்தவும்"
 
 #: app/adwPreferencesWindow.js:850
 msgid "Verify, add or correct translation in your web browser"
-msgstr "உங்கள் இணைய உலாவியில் மொழிபெயர்ப்பைச் சரிபார்க்கவும், சேர்க்கவும் அல்லது திருத்தவும்"
+msgstr ""
+"உங்கள் இணைய உலாவியில் மொழிபெயர்ப்பைச் சரிபார்க்கவும், சேர்க்கவும் அல்லது திருத்தவும்"
 
 #: app/adwPreferencesWindow.js:851
 msgid "Translate"
@@ -515,7 +517,8 @@ msgstr "சிறிய காப்பகங்கள் ஆனால் லி
 
 #: app/autoAr.js:740
 msgid "Smaller archives but must be installed on Windows and Mac."
-msgstr "சிறிய காப்பகங்கள் ஆனால் சாளரங்கள் மற்றும் Mac இல் நிறுவப்பட்டிருக்க வேண்டும்."
+msgstr ""
+"சிறிய காப்பகங்கள் ஆனால் சாளரங்கள் மற்றும் Mac இல் நிறுவப்பட்டிருக்க வேண்டும்."
 
 #: app/desktopFileIcon.js:125
 msgid "The Displayed Desktop is writable by others"
@@ -532,8 +535,8 @@ msgstr ""
 ".பணிமேடை கோப்புறை மற்ற பயனர்களால் எழுதக்கூடியதாக இருப்பதால், பணிமேடை கோப்புகளை இந்தப் "
 "பணிமேடையிலிருந்து தொடங்க முடியாது. \n"
 "\n"
-"இந்தப் பணிமேடை கோப்புறையின் அனுமதிகளைச் சரிபார்த்து, அதை மற்றவர்கள் எழுத முடியாது "
-"என்பதை உறுதிப்படுத்தவும்."
+"இந்தப் பணிமேடை கோப்புறையின் அனுமதிகளைச் சரிபார்த்து, அதை மற்றவர்கள் எழுத முடியாது என்பதை "
+"உறுதிப்படுத்தவும்."
 
 #: app/desktopFileIcon.js:138
 msgid "Broken Desktop File"
@@ -1447,8 +1450,7 @@ msgstr ""
 "\n"
 "• நம்பகமான இணையதளங்களிலிருந்து வெளிப்புற ச்கிரிப்ட்கள், ச்டைல்கள், படங்கள் மற்றும் ஃப்ரேம்கள் "
 "ஏற்றப்படலாம். \n"
-"• HTTPS, WebSockets மற்றும் மீடியா ச்ட்ரீம்கள் மூலம் பிணையம் அணுகல் "
-"அனுமதிக்கப்படுகிறது. \n"
+"• HTTPS, WebSockets மற்றும் மீடியா ச்ட்ரீம்கள் மூலம் பிணையம் அணுகல் அனுமதிக்கப்படுகிறது. \n"
 "\n"
 "நீங்கள் நம்பும் விட்செட்டுகளுக்கு மட்டுமே இதைப் பயன்படுத்தவும்."
 
@@ -1529,8 +1531,8 @@ msgid ""
 "your user account permissions.\n"
 "\n"
 msgstr ""
-"இது உங்கள் பயனர் கணக்கு அனுமதிகளின்படி உங்கள் கோப்புகள், கணினி ஆதாரங்கள் மற்றும் "
-"நெட்வொர்க்கை அணுக முடியும்.\n"
+"இது உங்கள் பயனர் கணக்கு அனுமதிகளின்படி உங்கள் கோப்புகள், கணினி ஆதாரங்கள் மற்றும் நெட்வொர்க்கை "
+"அணுக முடியும்.\n"
 "\n"
 
 #: app/widgetManager.js:3407
@@ -1566,7 +1568,8 @@ msgstr "\"${programName}\" கிடைக்கவில்லை"
 #: app/utils/dbusUtils.js:70
 msgid ""
 "Install \"${programName}\" to enable Desktop Icons to perform these actions."
-msgstr "இந்த செயல்களைச் செய்ய டெச்க்டாப் ஐகான்களை இயக்க \"${programName}\" ஐ நிறுவவும்."
+msgstr ""
+"இந்த செயல்களைச் செய்ய டெச்க்டாப் ஐகான்களை இயக்க \"${programName}\" ஐ நிறுவவும்."
 
 #: app/utils/desktopFolderUtils.js:84
 msgid "Choose Desktop Folder"
@@ -1578,7 +1581,8 @@ msgstr "கட்டளை கிடைக்கவில்லை"
 
 #: data/ui/ding-app-chooser.ui:47
 msgid "Choose an app to open the selected files."
-msgstr "தேர்ந்தெடுக்கப்பட்ட கோப்புகளைத் திறக்க ஒரு பயன்பாட்டைத் தேர்ந்தெடுக்கவும்."
+msgstr ""
+"தேர்ந்தெடுக்கப்பட்ட கோப்புகளைத் திறக்க ஒரு பயன்பாட்டைத் தேர்ந்தெடுக்கவும்."
 
 #: data/ui/ding-app-chooser.ui:81
 msgid "Always use for this file type"
@@ -1599,8 +1603,8 @@ msgstr "க்னோம் டெச்க்டாப்பில் ஐகா�
 #: data/com.desktop.ding.desktop.in:6
 msgid "desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;"
 msgstr ""
-"டெச்க்டாப்;ஐகான்கள்;கோப்புகள்; கோப்புறைகள்; மேலாளர்; ஒழுங்கமைத்தல்; மறைத்தல்; காட்டுதல்; "
-"துவக்கி; குறுக்குவழிகள்;"
+"டெச்க்டாப்;ஐகான்கள்;கோப்புகள்; கோப்புறைகள்; மேலாளர்; ஒழுங்கமைத்தல்; மறைத்தல்; காட்டுதல்; துவக்கி; "
+"குறுக்குவழிகள்;"
 
 #: data/com.desktop.ding.desktop.in:21
 msgid "Show<>Hide"
@@ -1695,8 +1699,8 @@ msgid ""
 "When arranging Icons on desktop, to sort and change the position of the "
 "Home, Trash and mounted Network or External Drives"
 msgstr ""
-"டெச்க்டாப்பில் ஐகான்களை ஒழுங்கமைக்கும்போது, முகப்பு, குப்பை மற்றும் மவுண்டட் செய்யப்பட்ட "
-"பிணையம் அல்லது எக்ச்டர்னல் டிரைவ்களின் நிலையை வரிசைப்படுத்தவும் மாற்றவும்"
+"டெச்க்டாப்பில் ஐகான்களை ஒழுங்கமைக்கும்போது, முகப்பு, குப்பை மற்றும் மவுண்டட் செய்யப்பட்ட பிணையம் "
+"அல்லது எக்ச்டர்னல் டிரைவ்களின் நிலையை வரிசைப்படுத்தவும் மாற்றவும்"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:70
 msgid "Keep Icons Arranged"
@@ -1704,7 +1708,8 @@ msgstr "ஐகான்களை ஒழுங்காக வைத்திர�
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:71
 msgid "Always keep Icons Arranged by the last arranged order"
-msgstr "கடைசியாக ஒழுங்கமைக்கப்பட்ட வரிசையில் எப்போதும் ஐகான்களை வரிசைப்படுத்தவும்"
+msgstr ""
+"கடைசியாக ஒழுங்கமைக்கப்பட்ட வரிசையில் எப்போதும் ஐகான்களை வரிசைப்படுத்தவும்"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:75
 msgid "Arrange Order"
@@ -1720,7 +1725,8 @@ msgstr "ஐகான்களை அடுக்கி வைக்கவும�
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:81
 msgid "Always keep Icons Stacked, Similar types are grouped"
-msgstr "எப்போதும் ஐகான்களை அடுக்கி வைத்திருங்கள், இதே போன்ற வகைகள் குழுவாக இருக்கும்"
+msgstr ""
+"எப்போதும் ஐகான்களை அடுக்கி வைத்திருங்கள், இதே போன்ற வகைகள் குழுவாக இருக்கும்"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:85
 msgid "Type of Files to not Stack"
@@ -1752,15 +1758,15 @@ msgstr ""
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:100
 msgid "Show new icons on non primary monitor if connected"
-msgstr "இணைக்கப்பட்டிருந்தால், முதன்மை அல்லாத மானிட்டரில் புதிய ஐகான்களைக் காட்டு"
+msgstr ""
+"இணைக்கப்பட்டிருந்தால், முதன்மை அல்லாத மானிட்டரில் புதிய ஐகான்களைக் காட்டு"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:101
 msgid ""
 "If a second monitor is connected, new icons are placed on the non primary "
 "monitor"
 msgstr ""
-"இரண்டாவது மானிட்டர் இணைக்கப்பட்டிருந்தால், முதன்மை அல்லாத மானிட்டரில் புதிய ஐகான்கள் "
-"வைக்கப்படும்"
+"இரண்டாவது மானிட்டர் இணைக்கப்பட்டிருந்தால், முதன்மை அல்லாத மானிட்டரில் புதிய ஐகான்கள் வைக்கப்படும்"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
 msgid "Icons can be positioned anywhere on Desktop"
@@ -1770,7 +1776,8 @@ msgstr "ஐகான்களை டெச்க்டாப்பில் எ�
 msgid ""
 "Icons are not on a rectangular grid but can be postioned anywhere "
 "independent of grid"
-msgstr "ஐகான்கள் ஒரு செவ்வக கட்டத்தில் இல்லை, ஆனால் கட்டம் இல்லாமல் எங்கும் நிலைநிறுத்தப்படலாம்"
+msgstr ""
+"ஐகான்கள் ஒரு செவ்வக கட்டத்தில் இல்லை, ஆனால் கட்டம் இல்லாமல் எங்கும் நிலைநிறுத்தப்படலாம்"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:110
 msgid "Show Desktop Widgets"
@@ -1778,7 +1785,8 @@ msgstr "திரைபலக நிரல்பலகைகள்"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:111
 msgid "Displays Widgets in a layer below the icons if installed"
-msgstr "நிறுவப்பட்டிருந்தால், ஐகான்களுக்குக் கீழே ஒரு அடுக்கில் விட்செட்களைக் காட்டுகிறது"
+msgstr ""
+"நிறுவப்பட்டிருந்தால், ஐகான்களுக்குக் கீழே ஒரு அடுக்கில் விட்செட்களைக் காட்டுகிறது"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:115
 msgid "Hide/Show all desktop windows"
@@ -1794,7 +1802,8 @@ msgstr "பயன்பாட்டு குறுக்குவழிகள�
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:121
 msgid "Override for default application shortcuts set by the User"
-msgstr "பயனரால் அமைக்கப்பட்ட இயல்புநிலை பயன்பாட்டு குறுக்குவழிகளுக்கு மேலெழுதவும்"
+msgstr ""
+"பயனரால் அமைக்கப்பட்ட இயல்புநிலை பயன்பாட்டு குறுக்குவழிகளுக்கு மேலெழுதவும்"
 
 #~ msgid "User"
 #~ msgstr "பயனர்"
