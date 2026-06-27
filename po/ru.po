@@ -16,9 +16,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-18 19:30-0400\n"
-"PO-Revision-Date: 2026-06-02 21:37+0000\n"
-"Last-Translator: Sundeep Mediratta <smedius@gmail.com>\n"
+"POT-Creation-Date: 2026-03-30 06:42-0400\n"
+"PO-Revision-Date: 2026-06-26 20:01+0000\n"
+"Last-Translator: Сергей <asvmail.as@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/ru/>\n"
 "Language: ru\n"
@@ -27,7 +27,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 2026.6\n"
+"X-Generator: Weblate 2026.7.dev0\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
@@ -348,9 +348,8 @@ msgstr "Установите разрешения, в"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:62 app/desktopFileIcon.js:156
-#, fuzzy
 msgid "Others Access"
-msgstr "Другие Доступ"
+msgstr "Доступ для других"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:63 app/desktopFileIcon.js:157
