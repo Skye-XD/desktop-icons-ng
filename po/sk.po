@@ -14,8 +14,8 @@ msgstr ""
 "Project-Id-Version: gtk4-ding v100.7\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-06-18 19:30-0400\n"
-"PO-Revision-Date: 2026-06-27 13:59+0000\n"
-"Last-Translator: Peter Michel <michel.peter95@gmail.com>\n"
+"PO-Revision-Date: 2026-06-28 16:01+0000\n"
+"Last-Translator: Jozef Gaal <preklady@mayday.sk>\n"
 "Language-Team: Slovak <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/sk/>\n"
 "Language: sk\n"
@@ -1383,33 +1383,34 @@ msgid "GTK widget"
 msgstr "GTK miniaplikácia"
 
 #: app/widgetManager.js:3059
-#, fuzzy
 msgid "User Installed"
-msgstr "Nainštalujte prosím {0}"
+msgstr "Nainštalované používateľom"
 
 #: app/widgetManager.js:3059
 msgid "System Installed"
-msgstr ""
+msgstr "Nainštalované systémom"
 
 #: app/widgetManager.js:3081
 msgid "Download Latest Widgets from Repository?"
-msgstr ""
+msgstr "Stiahnuť najnovšie miniaplikácie z repozitára?"
 
 #: app/widgetManager.js:3083
 msgid "This will overwrite all widgets in your local widgets folder."
 msgstr ""
+"Týmto sa prepíšu všetky miniaplikácie vo vašej lokálnej zložke s "
+"miniaplikáciami."
 
 #: app/widgetManager.js:3156
 msgid "Widgets updated"
-msgstr ""
+msgstr "Miniaplikácie boli aktualizované"
 
 #: app/widgetManager.js:3157
 msgid "The latest widgets were downloaded and installed."
-msgstr ""
+msgstr "Najnovšie miniaplikácie boli stiahnuté a nainštalované."
 
 #: app/widgetManager.js:3163
 msgid "Widgets download failed"
-msgstr ""
+msgstr "Stiahnutie miniaplikácií sa nepodarilo"
 
 #: app/widgetManager.js:3252
 msgid "Allow"
