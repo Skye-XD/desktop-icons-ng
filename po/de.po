@@ -26,8 +26,8 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-30 06:42-0400\n"
-"PO-Revision-Date: 2026-06-27 13:57+0000\n"
-"Last-Translator: André Wille <Andre.Wille00@web.de>\n"
+"PO-Revision-Date: 2026-07-01 20:01+0000\n"
+"Last-Translator: Captain Falcon <percy@eris23.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/de/>\n"
 "Language: de\n"
@@ -1494,33 +1494,32 @@ msgid "GTK widget"
 msgstr "GTK Widget"
 
 #: app/widgetManager.js:3059
-#, fuzzy
 msgid "User Installed"
-msgstr "Bitte {0} installieren"
+msgstr "Vom Benutzer installiert"
 
 #: app/widgetManager.js:3059
 msgid "System Installed"
-msgstr ""
+msgstr "Systemweit installiert"
 
 #: app/widgetManager.js:3081
 msgid "Download Latest Widgets from Repository?"
-msgstr ""
+msgstr "Neueste Widgets aus dem Repository herunterladen?"
 
 #: app/widgetManager.js:3083
 msgid "This will overwrite all widgets in your local widgets folder."
-msgstr ""
+msgstr "Dies überschreibt alle Widgets in Ihrem lokalen Widgets-Ordner."
 
 #: app/widgetManager.js:3156
 msgid "Widgets updated"
-msgstr ""
+msgstr "Widgets aktualisiert"
 
 #: app/widgetManager.js:3157
 msgid "The latest widgets were downloaded and installed."
-msgstr ""
+msgstr "Die neuesten Widgets wurden heruntergeladen und installiert."
 
 #: app/widgetManager.js:3163
 msgid "Widgets download failed"
-msgstr ""
+msgstr "Herunterladen der Widgets fehlgeschlagen"
 
 #: app/widgetManager.js:3252
 msgid "Allow"
