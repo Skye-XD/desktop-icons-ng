@@ -19,8 +19,8 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-06-18 19:30-0400\n"
-"PO-Revision-Date: 2026-06-27 14:01+0000\n"
-"Last-Translator: Deleted User <noreply+50296@weblate.org>\n"
+"PO-Revision-Date: 2026-07-05 06:01+0000\n"
+"Last-Translator: Adam Lewicki <a.lewicki95@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/pl/>\n"
 "Language: pl\n"
@@ -29,7 +29,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 2026.7.dev0\n"
+"X-Generator: Weblate 2026.7.1.dev0\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
@@ -1413,33 +1413,32 @@ msgid "GTK widget"
 msgstr "Widżet GTK"
 
 #: app/widgetManager.js:3059
-#, fuzzy
 msgid "User Installed"
-msgstr "Proszę zainstalować {0}"
+msgstr "Zainstalowane przez użytkownika"
 
 #: app/widgetManager.js:3059
 msgid "System Installed"
-msgstr ""
+msgstr "Systemowe"
 
 #: app/widgetManager.js:3081
 msgid "Download Latest Widgets from Repository?"
-msgstr ""
+msgstr "Pobrać najnowszy widżet z repozytorium?"
 
 #: app/widgetManager.js:3083
 msgid "This will overwrite all widgets in your local widgets folder."
-msgstr ""
+msgstr "Spowoduje to nadpisanie wszystkich widżetów w Twoim lokalnym folderze."
 
 #: app/widgetManager.js:3156
 msgid "Widgets updated"
-msgstr ""
+msgstr "Zaktualizowano widżety"
 
 #: app/widgetManager.js:3157
 msgid "The latest widgets were downloaded and installed."
-msgstr ""
+msgstr "Najnowsze widżety zostały pobrane i zainstalowane."
 
 #: app/widgetManager.js:3163
 msgid "Widgets download failed"
-msgstr ""
+msgstr "Błąd podczas pobierania widżetów"
 
 #: app/widgetManager.js:3252
 msgid "Allow"
