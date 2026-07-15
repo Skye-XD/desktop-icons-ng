@@ -11,8 +11,9 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-06-18 19:30-0400\n"
-"PO-Revision-Date: 2026-07-14 13:32+0000\n"
-"Last-Translator: Sundeep Mediratta <smedius@gmail.com>\n"
+"PO-Revision-Date: 2026-07-15 14:04+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Greek <https://hosted.weblate.org/projects/gtk4-desktop-icons-"
 "ng/gtk4-ding-pot/el/>\n"
 "Language: el\n"
@@ -1685,13 +1686,12 @@ msgstr ""
 
 # MT: LibreTranslate
 #: app/widgetManager.js:3059
-#, fuzzy
 msgid "User Installed"
-msgstr "Παρακαλώ εγκαταστήστε {0}"
+msgstr "✓ Εγκατεστημένο"
 
 #: app/widgetManager.js:3059
 msgid "System Installed"
-msgstr ""
+msgstr "Ημερομηνία εγκατάστασης"
 
 #: app/widgetManager.js:3081
 msgid "Download Latest Widgets from Repository?"
@@ -1703,7 +1703,7 @@ msgstr ""
 
 #: app/widgetManager.js:3156
 msgid "Widgets updated"
-msgstr ""
+msgstr "Οι γέφυρες ενημερώθηκαν"
 
 #: app/widgetManager.js:3157
 msgid "The latest widgets were downloaded and installed."

@@ -15,8 +15,8 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-06-18 19:30-0400\n"
-"PO-Revision-Date: 2026-07-14 13:31+0000\n"
-"Last-Translator: Sundeep Mediratta <smedius@gmail.com>\n"
+"PO-Revision-Date: 2026-07-15 14:01+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Belarusian <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/be/>\n"
 "Language: be\n"
@@ -1356,9 +1356,8 @@ msgid "Drive"
 msgstr "Дыск"
 
 #: app/widgetManager.js:2417
-#, fuzzy
 msgid "Widget preferences"
-msgstr "Параметры"
+msgstr "Налады сайта"
 
 #: app/widgetManager.js:2429 app/widgetManager.js:2438
 msgid "Unpin widget"
@@ -1382,9 +1381,8 @@ msgid "GTK widget"
 msgstr ""
 
 #: app/widgetManager.js:3059
-#, fuzzy
 msgid "User Installed"
-msgstr "Усталюйце «{0}»"
+msgstr "✓ Усталявана"
 
 #: app/widgetManager.js:3059
 msgid "System Installed"
@@ -1400,7 +1398,7 @@ msgstr ""
 
 #: app/widgetManager.js:3156
 msgid "Widgets updated"
-msgstr ""
+msgstr "Масты абноўлены"
 
 #: app/widgetManager.js:3157
 msgid "The latest widgets were downloaded and installed."

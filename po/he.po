@@ -11,8 +11,9 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-06-18 19:30-0400\n"
-"PO-Revision-Date: 2026-07-14 13:25+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2026-07-15 14:02+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/he/>\n"
 "Language: he\n"
@@ -1636,13 +1637,12 @@ msgstr "יישומון GTK"
 
 # MT: LibreTranslate
 #: app/widgetManager.js:3059
-#, fuzzy
 msgid "User Installed"
-msgstr "נא להתקין את {0}"
+msgstr "✓ מותקן"
 
 #: app/widgetManager.js:3059
 msgid "System Installed"
-msgstr ""
+msgstr "תאריך ההתקנה"
 
 #: app/widgetManager.js:3081
 msgid "Download Latest Widgets from Repository?"
@@ -1654,7 +1654,7 @@ msgstr ""
 
 #: app/widgetManager.js:3156
 msgid "Widgets updated"
-msgstr ""
+msgstr "גשרים עודכנו"
 
 #: app/widgetManager.js:3157
 msgid "The latest widgets were downloaded and installed."
