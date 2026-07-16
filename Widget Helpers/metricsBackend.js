@@ -70,7 +70,6 @@ class MetricsBackendApp extends BackendApp {
         this._upClient = null;
         this._upDisplay = null;
 
-        this._decoder = new TextDecoder('utf-8');
         this._cpuSample = new GTop.glibtop_cpu();
         this._memSample = new GTop.glibtop_mem();
 
@@ -281,7 +280,7 @@ class MetricsBackendApp extends BackendApp {
             const path = `/sys/class/net/${iface}/operstate`;
             const f = Gio.File.new_for_path(path);
             const [, contents] = f.load_contents(null);
-            const s = new TextDecoder('utf-8').decode(contents).trim();
+            const s = this._decoder.decode(contents).trim();
 
             if (s !== 'up')
                 return true;
