@@ -72,6 +72,7 @@ class MetricsBackendApp extends BackendApp {
 
         this._decoder = new TextDecoder('utf-8');
         this._cpuSample = new GTop.glibtop_cpu();
+        this._memSample = new GTop.glibtop_mem();
 
         // Register ONLY the two methods we support
         this.registerMethod('getSnapshot', this._rpcGetSnapshot.bind(this));
@@ -238,13 +239,12 @@ class MetricsBackendApp extends BackendApp {
     // ------------------------------------------------------------
 
     _sampleMem() {
-        const mem = new GTop.glibtop_mem();
-        GTop.glibtop_get_mem(mem);
+        GTop.glibtop_get_mem(this._memSample);
 
-        const totalBytes = Number(mem.total ?? 0);
-        const usedBytes = Number(mem.used ?? 0);
-        const freeBytes = Number(mem.free ?? 0);
-        const cachedBytes = Number(mem.cached ?? 0);
+        const totalBytes = Number(this._memSample.total ?? 0);
+        const usedBytes = Number(this._memSample.used ?? 0);
+        const freeBytes = Number(this._memSample.free ?? 0);
+        const cachedBytes = Number(this._memSample.cached ?? 0);
 
         return {totalBytes, usedBytes, freeBytes, cachedBytes};
     }
