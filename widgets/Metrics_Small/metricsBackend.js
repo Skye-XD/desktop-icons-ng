@@ -71,6 +71,7 @@ class MetricsBackendApp extends BackendApp {
         this._upDisplay = null;
 
         this._decoder = new TextDecoder('utf-8');
+        this._cpuSample = new GTop.glibtop_cpu();
 
         // Register ONLY the two methods we support
         this.registerMethod('getSnapshot', this._rpcGetSnapshot.bind(this));
@@ -200,11 +201,10 @@ class MetricsBackendApp extends BackendApp {
     // ------------------------------------------------------------
 
     _sampleCpuUsagePct() {
-        const cpu = new GTop.glibtop_cpu();
-        GTop.glibtop_get_cpu(cpu);
+        GTop.glibtop_get_cpu(this._cpuSample);
 
-        const total = Number(cpu.total ?? 0);
-        const idle = Number(cpu.idle ?? 0);
+        const total = Number(this._cpuSample.total ?? 0);
+        const idle = Number(this._cpuSample.idle ?? 0);
 
         // First sample: prime, report 0
         if (this._prevCpuTotal === null || this._prevCpuIdle === null) {
