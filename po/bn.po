@@ -10,8 +10,9 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-06-18 19:30-0400\n"
-"PO-Revision-Date: 2026-07-14 13:32+0000\n"
-"Last-Translator: Sundeep Mediratta <smedius@gmail.com>\n"
+"PO-Revision-Date: 2026-07-15 14:03+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Bengali <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/bn/>\n"
 "Language: bn\n"
@@ -1648,9 +1649,8 @@ msgstr "ড্রাইভ"
 
 # MT: LibreTranslate
 #: app/widgetManager.js:2417
-#, fuzzy
 msgid "Widget preferences"
-msgstr "পছন্দ"
+msgstr "সাইট বিষয়ক পছন্দ সমূহ"
 
 #: app/widgetManager.js:2429 app/widgetManager.js:2438
 msgid "Unpin widget"
@@ -1692,7 +1692,7 @@ msgstr ""
 
 #: app/widgetManager.js:3156
 msgid "Widgets updated"
-msgstr ""
+msgstr "সেতু হালনাগাদকৃত"
 
 #: app/widgetManager.js:3157
 msgid "The latest widgets were downloaded and installed."

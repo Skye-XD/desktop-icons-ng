@@ -16,8 +16,9 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-06-18 19:30-0400\n"
-"PO-Revision-Date: 2026-07-14 13:33+0000\n"
-"Last-Translator: Sundeep Mediratta <smedius@gmail.com>\n"
+"PO-Revision-Date: 2026-07-15 14:02+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/hu/>\n"
 "Language: hu\n"
@@ -1404,9 +1405,8 @@ msgid "GTK widget"
 msgstr "GTK widget"
 
 #: app/widgetManager.js:3059
-#, fuzzy
 msgid "User Installed"
-msgstr "Kérjük, telepítsd ezt: {0}"
+msgstr "✓ Telepítve"
 
 #: app/widgetManager.js:3059
 msgid "System Installed"
@@ -1422,7 +1422,7 @@ msgstr ""
 
 #: app/widgetManager.js:3156
 msgid "Widgets updated"
-msgstr ""
+msgstr "Hidak frissítve"
 
 #: app/widgetManager.js:3157
 msgid "The latest widgets were downloaded and installed."

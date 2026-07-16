@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-06-18 19:30-0400\n"
-"PO-Revision-Date: 2026-07-14 13:34+0000\n"
-"Last-Translator: Sundeep Mediratta <smedius@gmail.com>\n"
+"PO-Revision-Date: 2026-07-15 14:04+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Hindi <https://hosted.weblate.org/projects/gtk4-desktop-icons-"
 "ng/gtk4-ding-pot/hi/>\n"
 "Language: hi\n"
@@ -1653,9 +1653,8 @@ msgstr "ड्राइव"
 
 # MT: LibreTranslate
 #: app/widgetManager.js:2417
-#, fuzzy
 msgid "Widget preferences"
-msgstr "प्राथमिकता"
+msgstr "साइट प्राथमिकताएँ"
 
 #: app/widgetManager.js:2429 app/widgetManager.js:2438
 msgid "Unpin widget"
@@ -1686,7 +1685,7 @@ msgstr "{0}]"
 
 #: app/widgetManager.js:3059
 msgid "System Installed"
-msgstr ""
+msgstr "सिस्टम इंस्टालर"
 
 #: app/widgetManager.js:3081
 msgid "Download Latest Widgets from Repository?"
@@ -1698,7 +1697,7 @@ msgstr ""
 
 #: app/widgetManager.js:3156
 msgid "Widgets updated"
-msgstr ""
+msgstr "ब्रिज अपडेट किया गया"
 
 #: app/widgetManager.js:3157
 msgid "The latest widgets were downloaded and installed."
@@ -1729,7 +1728,7 @@ msgstr ""
 
 #: app/widgetManager.js:3319
 msgid "Relaxed"
-msgstr ""
+msgstr "शांतिदायक"
 
 #: app/widgetManager.js:3321
 msgid ""

@@ -11,8 +11,9 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-06-18 19:30-0400\n"
-"PO-Revision-Date: 2026-07-14 13:25+0000\n"
-"Last-Translator: Sundeep Mediratta <smedius@gmail.com>\n"
+"PO-Revision-Date: 2026-07-15 14:04+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Irish <https://hosted.weblate.org/projects/gtk4-desktop-icons-"
 "ng/gtk4-ding-pot/ga/>\n"
 "Language: ga\n"
@@ -1653,9 +1654,8 @@ msgstr "Tiomána"
 
 # MT: LibreTranslate
 #: app/widgetManager.js:2417
-#, fuzzy
 msgid "Widget preferences"
-msgstr "Tosaíochtaí"
+msgstr "Tagairt droichid"
 
 #: app/widgetManager.js:2429 app/widgetManager.js:2438
 msgid "Unpin widget"
@@ -1818,9 +1818,8 @@ msgstr ""
 
 # MT: LibreTranslate
 #: app/widgetWebContext.js:296
-#, fuzzy
 msgid "Widget Preferences"
-msgstr "Tosaíochtaí"
+msgstr "Tagairt droichid"
 
 #: app/widgetWebContext.js:868
 msgid "Open link in browser?"
