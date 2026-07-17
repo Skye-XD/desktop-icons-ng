@@ -1,4 +1,11 @@
 # History of versions #
+* Adw Version 100.25 for Gnome 50
+  * Refactor the metrics widgets to use libgtop for CPU, memory, and network sampling, and reuse shared decoders/samplers to reduce memory overhead. (Sundeep Mediratta)
+  * Tighten widget backend lifecycle handling by improving systemd scope error reporting if slice already exists. (Sundeep Mediratta)
+  * Explicitly tear down the shared WebKit network session when widgets are turned off. (Sundeep Mediratta)
+  * Weblate translation update for Thai, Chinese (Simplified Han script), Polish, German, Russian, Slovak, and Kyrgyz. (Weblate Authors)
+  * Update History.md, update metadata.json, app release note.
+
 * Adw Version 100.24 for Gnome 50
   * Add support for downloading and installing the latest widgets from the Add Widget dialog, with a refreshed chooser and widget registry parsing. (Sundeep Mediratta)
   * Run the main app and HTML widget backend processes in dedicated systemd cgroup slice and scopes under `user.app`, with app-prefixed subprocess names, independent of the gnome shell. (Sundeep Mediratta)
