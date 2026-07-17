@@ -41,10 +41,8 @@ const DEFAULT_PERIOD_MS = 1000;
 const MIN_PERIOD_MS = 250;
 const MAX_PERIOD_MS = 10000;
 
-// Linux netdevice flags (for glibtop_netload.if_flags when available)
-const IFF_UP = 0x1;
-const IFF_RUNNING = 0x40;
-const IFF_LOOPBACK = 0x8;
+// libgtop if_flags are exposed as flag indices, not kernel IFF_* bits.
+const GLIBTOP_IF_FLAG_LOOPBACK = 4;
 
 export const MetricsBackendApp = GObject.registerClass(
 class MetricsBackendApp extends BackendApp {
@@ -59,18 +57,19 @@ class MetricsBackendApp extends BackendApp {
         this._prevCpuTotal = null;
         this._prevCpuIdle = null;
 
-        // Network delta cache: iface -> {rx, tx, tsMs}
+        // Network delta cache: iface -> {bytesIn, bytesOut, tsMs}
         this._netPrev = new Map();
-        this._netWarnedNoIfaces = false;
-        this._netWarnedIfaceFail = new Set();
-        this._netWarnedNoData = false;
-        this._netWarnedSysfsIface = new Set();
+        this._selectedNetworkInterface = null;
+        this._routeRefreshTimerId = 0;
 
         // UPower
         this._upClient = null;
         this._upDisplay = null;
 
-        this._decoder = new TextDecoder('utf-8');
+        this._cpuSample = new GTop.glibtop_cpu();
+        this._memSample = new GTop.glibtop_mem();
+        this._netSample = new GTop.glibtop_netload();
+        this._routeFile = Gio.File.new_for_path('/proc/net/route');
 
         // Register ONLY the two methods we support
         this.registerMethod('getSnapshot', this._rpcGetSnapshot.bind(this));
@@ -80,16 +79,19 @@ class MetricsBackendApp extends BackendApp {
     onHello(_ctx) {
         // Initialize UPowerGlib lazily on hello.
         this._ensureUpower();
+        this._refreshDefaultRoute();
 
         // Emit immediately once on startup (as requested)
         this._sampleAndEmit('startup');
 
         // Start periodic sampling
         this._startTimer();
+        this._startRouteRefreshTimer();
     }
 
     onShutdown() {
         this._stopTimer();
+        this._stopRouteRefreshTimer();
         // Nothing else required; process exits via base class.
     }
 
@@ -146,7 +148,39 @@ class MetricsBackendApp extends BackendApp {
 
     _restartTimer() {
         this._stopTimer();
+        this._stopRouteRefreshTimer();
         this._startTimer();
+        this._startRouteRefreshTimer();
+    }
+
+    _startRouteRefreshTimer() {
+        if (this._routeRefreshTimerId)
+            return;
+
+        this._routeRefreshTimerId = GLib.timeout_add_seconds(
+            GLib.PRIORITY_LOW,
+            30,
+            () => {
+                this._refreshDefaultRoute();
+                return GLib.SOURCE_CONTINUE;
+            }
+        );
+    }
+
+    _stopRouteRefreshTimer() {
+        if (!this._routeRefreshTimerId)
+            return;
+
+        try {
+            GLib.Source.remove(this._routeRefreshTimerId);
+        } catch (e) {
+            this.warn(
+                'Failed to remove route refresh timer:',
+                e?.message ?? e
+            );
+        }
+
+        this._routeRefreshTimerId = 0;
     }
 
     // ------------------------------------------------------------
@@ -200,11 +234,10 @@ class MetricsBackendApp extends BackendApp {
     // ------------------------------------------------------------
 
     _sampleCpuUsagePct() {
-        const cpu = new GTop.glibtop_cpu();
-        GTop.glibtop_get_cpu(cpu);
+        GTop.glibtop_get_cpu(this._cpuSample);
 
-        const total = Number(cpu.total ?? 0);
-        const idle = Number(cpu.idle ?? 0);
+        const total = Number(this._cpuSample.total ?? 0);
+        const idle = Number(this._cpuSample.idle ?? 0);
 
         // First sample: prime, report 0
         if (this._prevCpuTotal === null || this._prevCpuIdle === null) {
@@ -238,178 +271,131 @@ class MetricsBackendApp extends BackendApp {
     // ------------------------------------------------------------
 
     _sampleMem() {
-        const mem = new GTop.glibtop_mem();
-        GTop.glibtop_get_mem(mem);
+        GTop.glibtop_get_mem(this._memSample);
 
-        const totalBytes = Number(mem.total ?? 0);
-        const usedBytes = Number(mem.used ?? 0);
-        const freeBytes = Number(mem.free ?? 0);
-        const cachedBytes = Number(mem.cached ?? 0);
+        const totalBytes = Number(this._memSample.total ?? 0);
+        const usedBytes = Number(this._memSample.used ?? 0);
+        const freeBytes = Number(this._memSample.free ?? 0);
+        const cachedBytes = Number(this._memSample.cached ?? 0);
 
         return {totalBytes, usedBytes, freeBytes, cachedBytes};
     }
 
     // ------------------------------------------------------------
     // Network (libgtop)
-    //  - Exclude loopback
-    //  - Exclude down interfaces
+    //  - Selected interface only
+    //  - Default route chosen from /proc/net/route
     //  - Totals only (v1)
     // ------------------------------------------------------------
 
-    _isIfaceLoopbackOrDown(iface, netload) {
-        // Exclude loopback by name always
+    _hasNetloadFlag(netload, flagIndex) {
+        const ifFlags = Number(netload?.if_flags ?? 0);
+        if (!(ifFlags > 0))
+            return false;
+
+        const bit = 1 << (flagIndex - 1);
+        return (ifFlags & bit) !== 0;
+    }
+
+    _isIfaceLoopback(iface, netload) {
         if (iface === 'lo')
             return true;
 
-        const ifFlags = netload?.if_flags;
-        if (typeof ifFlags === 'number') {
-            if (ifFlags & IFF_LOOPBACK)
-                return true;
-
-            // Treat "down" as either not UP or not RUNNING
-            const up = (ifFlags & IFF_UP) !== 0;
-            const running = (ifFlags & IFF_RUNNING) !== 0;
-            if (!up || !running)
-                return true;
-
-            return false;
-        }
-
-        // Fallback if libgtop doesn't expose flags in this build:
-        // Use /sys/class/net/<iface>/operstate to exclude "down".
-        try {
-            const path = `/sys/class/net/${iface}/operstate`;
-            const f = Gio.File.new_for_path(path);
-            const [, contents] = f.load_contents(null);
-            const s = new TextDecoder('utf-8').decode(contents).trim();
-
-            if (s !== 'up')
-                return true;
-        } catch {
-            // If we can't read operstate, be conservative and keep it.
-        }
-
-        return false;
+        return this._hasNetloadFlag(netload, GLIBTOP_IF_FLAG_LOOPBACK);
     }
 
     _sampleNet(tsMs) {
-        let rxBps = 0;
-        let txBps = 0;
-        let samples = 0;
-        const ifaces = this._listSysfsIfaces();
+        const iface = this._selectedNetworkInterface;
+        if (typeof iface !== 'string' || !iface)
+            return {rxBps: 0, txBps: 0};
 
-        if (!Array.isArray(ifaces) || ifaces.length === 0) {
-            this._netWarnedNoIfaces = true;
-            return {rxBps, txBps};
-        }
+        GTop.glibtop_get_netload(this._netSample, iface);
 
-        for (const iface of ifaces) {
-            if (typeof iface !== 'string' || !iface)
-                continue;
+        if (this._isIfaceLoopback(iface, this._netSample))
+            return {rxBps: 0, txBps: 0};
 
-            const stats = this._sysfsGetRxTx(iface);
-            if (!stats)
-                continue;
+        const bytesIn = Number(this._netSample.bytes_in ?? 0);
+        const bytesOut = Number(this._netSample.bytes_out ?? 0);
 
-            const prev = this._netPrev.get(iface);
-            this._netPrev.set(iface, {rx: stats.rx, tx: stats.tx, tsMs});
+        if (!Number.isFinite(bytesIn) || !Number.isFinite(bytesOut))
+            return {rxBps: 0, txBps: 0};
 
-            if (!prev)
-                continue;
+        const prev = this._netPrev.get(iface);
+        this._netPrev.set(iface, {bytesIn, bytesOut, tsMs});
 
-            const dt = tsMs - prev.tsMs;
+        if (!prev)
+            return {rxBps: 0, txBps: 0};
 
-            if (!(dt > 0))
-                continue;
+        const dt = tsMs - prev.tsMs;
+        if (!(dt > 0))
+            return {rxBps: 0, txBps: 0};
 
-            const drx = stats.rx - prev.rx;
-            const dtx = stats.tx - prev.tx;
+        const drx = bytesIn - prev.bytesIn;
+        const dtx = bytesOut - prev.bytesOut;
 
-            // Convert bytes/ms -> bytes/s
-            const rxRate = (drx > 0 ? drx : 0) * (1000 / dt);
-            const txRate = (dtx > 0 ? dtx : 0) * (1000 / dt);
+        const rxBps = (drx > 0 ? drx : 0) * (1000 / dt);
+        const txBps = (dtx > 0 ? dtx : 0) * (1000 / dt);
 
-            rxBps += rxRate;
-            txBps += txRate;
-            samples += 1;
-        }
-
-        // Cleanup: remove interfaces that disappeared from the system
-        // (bounded state; keeps Map small)
-        if (Array.isArray(ifaces) && ifaces.length) {
-            const live = new Set(ifaces.filter(s => typeof s === 'string'));
-            for (const key of this._netPrev.keys()) {
-                if (!live.has(key))
-                    this._netPrev.delete(key);
-            }
-        }
-
-        if (!samples && rxBps === 0 && txBps === 0 && !this._netWarnedNoData)
-            this._netWarnedNoData = true;
-
-        return {rxBps, txBps};
+        return {
+            rxBps,
+            txBps,
+        };
     }
 
-    _listSysfsIfaces() {
-        const out = [];
-        let en = null;
+    _refreshDefaultRoute() {
+        const nextIface = this._readDefaultRouteInterface();
+        if (!nextIface)
+            return false;
 
-        try {
-            const dir = Gio.File.new_for_path('/sys/class/net');
-            en = dir.enumerate_children(
-                Gio.FILE_ATTRIBUTE_STANDARD_NAME,
-                Gio.FileQueryInfoFlags.NOFOLLOW_SYMLINKS,
-                null
-            );
+        if (nextIface === this._selectedNetworkInterface)
+            return false;
 
-            let info;
-            while ((info = en.next_file(null))) {
-                const name = info.get_name();
-                if (name && name !== 'lo')
-                    out.push(name);
-            }
-        } catch {
-            /* ignore */
-        } finally {
-            try {
-                en?.close(null);
-            } catch {}
-        }
-
-        return out;
+        this._selectedNetworkInterface = nextIface;
+        this._netPrev.clear();
+        return true;
     }
 
-    _sysfsGetRxTx(iface) {
+    _readDefaultRouteInterface() {
         try {
-            const base = `/sys/class/net/${iface}/statistics`;
-            const rx = this._readSysfsNumber(`${base}/rx_bytes`);
-            const tx = this._readSysfsNumber(`${base}/tx_bytes`);
-            if (!Number.isFinite(rx) || !Number.isFinite(tx)) {
-                if (!this._netWarnedSysfsIface.has(iface)) {
-                    this._netWarnedSysfsIface.add(iface);
-                    this.warn(`metrics net: sysfs missing stats for ${iface}`);
-                }
+            const [, contents] = this._routeFile.load_contents(null);
+            const text = contents ? this._decoder.decode(contents) : '';
+            if (!text)
                 return null;
+
+            let bestIface = null;
+            let bestMetric = Number.POSITIVE_INFINITY;
+
+            const lines = text.split(/\r?\n/);
+            for (let i = 1; i < lines.length; i++) {
+                const line = lines[i].trim();
+                if (!line)
+                    continue;
+
+                const parts = line.split(/\s+/);
+                if (parts.length < 8)
+                    continue;
+
+                const iface = parts[0];
+                const destination = parts[1];
+                const mask = parts[7];
+                const metric = Number.parseInt(parts[6], 10);
+
+                if (destination !== '00000000' || mask !== '00000000')
+                    continue;
+
+                if (!iface || !Number.isFinite(metric))
+                    continue;
+
+                if (metric < bestMetric) {
+                    bestMetric = metric;
+                    bestIface = iface;
+                }
             }
-            return {rx, tx};
-        } catch (e) {
-            if (!this._netWarnedSysfsIface.has(iface)) {
-                this._netWarnedSysfsIface.add(iface);
-                this.warn(
-                    `metrics net: sysfs read failed for ${iface}:`,
-                    e?.message ?? e
-                );
-            }
+
+            return bestIface;
+        } catch {
             return null;
         }
-    }
-
-    _readSysfsNumber(path) {
-        const f = Gio.File.new_for_path(path);
-        const [, bytes] = f.load_contents(null);
-        const s = this._decoder.decode(bytes).trim();
-        const n = Number(s);
-        return Number.isFinite(n) ? n : null;
     }
 
     // ------------------------------------------------------------
