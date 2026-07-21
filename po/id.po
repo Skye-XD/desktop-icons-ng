@@ -7,13 +7,14 @@
 # LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023, 2024, 2026.
 # Sundeep Mediratta <smedius@gmail.com>, 2026.
 # Arif Budiman <arifpedia@gmail.com>, 2026.
+# Rizqi Putra <krizki990@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-06-18 19:30-0400\n"
-"PO-Revision-Date: 2026-07-14 13:29+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2026-07-21 12:01+0000\n"
+"Last-Translator: Rizqi Putra <krizki990@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/id/>\n"
 "Language: id\n"
@@ -178,7 +179,7 @@ msgstr "Sudut kanan bawah"
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:720
 msgid "Add new icons to Secondary Monitors first, if available"
-msgstr "Tambahkan ikon baru ke Monitor Second pertama, jika tersedia"
+msgstr "Tambahkan ikon baru ke Monitor Sekunder terlebih dahulu, jika tersedia"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:724
@@ -1643,33 +1644,32 @@ msgstr "Widget GTK"
 
 # MT: LibreTranslate
 #: app/widgetManager.js:3059
-#, fuzzy
 msgid "User Installed"
-msgstr "Silakan Pasang {0}"
+msgstr "Dipasang oleh pengguna"
 
 #: app/widgetManager.js:3059
 msgid "System Installed"
-msgstr ""
+msgstr "Sistem Terpasang"
 
 #: app/widgetManager.js:3081
 msgid "Download Latest Widgets from Repository?"
-msgstr ""
+msgstr "Unduh widget terbaru dari repositori?"
 
 #: app/widgetManager.js:3083
 msgid "This will overwrite all widgets in your local widgets folder."
-msgstr ""
+msgstr "Tindakan ini akan menimpa semua widget di folder widget lokal Anda."
 
 #: app/widgetManager.js:3156
 msgid "Widgets updated"
-msgstr ""
+msgstr "Widget telah diperbarui"
 
 #: app/widgetManager.js:3157
 msgid "The latest widgets were downloaded and installed."
-msgstr ""
+msgstr "Widget terbaru telah diunduh dan dipasang."
 
 #: app/widgetManager.js:3163
 msgid "Widgets download failed"
-msgstr ""
+msgstr "Gagal mengunduh widget"
 
 #: app/widgetManager.js:3252
 msgid "Allow"
@@ -2065,7 +2065,7 @@ msgstr ""
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:100
 msgid "Show new icons on non primary monitor if connected"
-msgstr "Tampilkan ikon baru pada monitor bukan primer bila tersambung"
+msgstr "Tampilkan ikon baru pada monitor non primer jika terhubung"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:101
@@ -2073,7 +2073,7 @@ msgid ""
 "If a second monitor is connected, new icons are placed on the non primary "
 "monitor"
 msgstr ""
-"Bila monitor kedua tersambung, ikon baru ditempatkan pada monitor non primer"
+"Jika monitor kedua terhubung, ikon baru ditempatkan pada monitor non primer"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
