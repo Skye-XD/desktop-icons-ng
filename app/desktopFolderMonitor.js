@@ -342,7 +342,8 @@ const DesktopMonitor = class extends DesktopFolderUtils {
 
                 if (this._forceDraw) {
                     this._fileList = fileList;
-                    this.desktopManager.refreshDesktop();
+                    // eslint-disable-next-line no-await-in-loop
+                    await this.desktopManager.refreshDesktop();
                     this._lastDesktopUpdateRequest = GLib.get_monotonic_time();
                 }
             }
@@ -359,10 +360,10 @@ const DesktopMonitor = class extends DesktopFolderUtils {
                 this._forceDraw = false;
         }
 
-        this._readingDesktopFiles = false;
         this._forceDraw = false;
         this._fileList = fileList;
-        this.desktopManager.refreshDesktop();
+        await this.desktopManager.refreshDesktop();
+        this._readingDesktopFiles = false;
     }
 
     async _doReadAsync() {
@@ -657,4 +658,3 @@ const DesktopMonitor = class extends DesktopFolderUtils {
         return this._desktopDir;
     }
 };
-
