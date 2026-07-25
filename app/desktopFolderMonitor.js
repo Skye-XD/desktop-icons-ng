@@ -366,6 +366,13 @@ const DesktopMonitor = class extends DesktopFolderUtils {
         this._readingDesktopFiles = false;
     }
 
+    _destroyDiscardedFileItems(fileList) {
+        for (const fileItem of fileList)
+            fileItem.onDestroy();
+
+        fileList.length = 0;
+    }
+
     async _doReadAsync() {
         if (this._desktopEnumerateCancellable)
             this._desktopEnumerateCancellable.cancel();
@@ -373,10 +380,9 @@ const DesktopMonitor = class extends DesktopFolderUtils {
 
         const cancellable = new Gio.Cancellable();
         this._desktopEnumerateCancellable = cancellable;
+        const fileList = [];
 
         try {
-            const fileList = [];
-
             const extraFoldersItems =
                 this.DesktopIconsUtil.getExtraFolders().map(
                     async ([newFolder, fileTypeEnum]) => {
@@ -451,6 +457,7 @@ const DesktopMonitor = class extends DesktopFolderUtils {
                                 // only overwrite them if needed
                                 fileItem.savedCoordinates = null;
                             }
+                            fileItem.onDestroy();
                             return;
                         }
 
@@ -521,8 +528,11 @@ const DesktopMonitor = class extends DesktopFolderUtils {
                 ]
             );
 
-            if (this._desktopFilesChanged && !this._forceDraw)
+            if ((this._desktopFilesChanged && !this._forceDraw) ||
+                cancellable.is_cancelled()) {
+                this._destroyDiscardedFileItems(fileList);
                 return null;
+            }
 
             return fileList;
         } catch (e) {
@@ -533,6 +543,7 @@ const DesktopMonitor = class extends DesktopFolderUtils {
                 );
             }
 
+            this._destroyDiscardedFileItems(fileList);
             return null;
         } finally {
             if (cancellable === this._desktopEnumerateCancellable)
