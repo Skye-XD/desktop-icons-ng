@@ -235,12 +235,24 @@ const DesktopIconItem = class {
 
         this._calculateIconRectangle();
         this._calculateLabelRectangle();
-        this.iconPlacedPromiseResolve(true);
+        this._resolveIconPlaced();
     }
 
     iconPlaced = new Promise(resolve => {
         this.iconPlacedPromiseResolve = resolve;
     });
+
+    _resolveIconPlaced() {
+        if (!this.iconPlacedPromiseResolve)
+            return;
+
+        this.iconPlacedPromiseResolve(true);
+        this.iconPlacedPromiseResolve = null;
+    }
+
+    iconCannotBeShown() {
+        this._resolveIconPlaced();
+    }
 
     _calculateIconRectangle() {
         this.iconwidth = this._iconContainer.get_allocated_width();

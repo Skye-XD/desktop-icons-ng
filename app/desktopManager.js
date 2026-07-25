@@ -821,6 +821,7 @@ const DesktopManager = class {
                 .addFileItemCloseTo(fileItem, desktopX, desktopY, storeMode);
             } else {
                 console.log('Not enough space to add icons');
+                fileItem.iconCannotBeShown();
             }
         }
     }
