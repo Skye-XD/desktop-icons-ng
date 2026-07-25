@@ -102,6 +102,8 @@ const DesktopIconItem = class {
         if (this.dragIconSignal)
             this.dragIcon.disconnect(this.dragIconSignal);
 
+        if (this.dragIcon)
+            this.dragIcon.set_widget(null);
         this.dragIcon = null;
 
         if (this._iconStateFlag)

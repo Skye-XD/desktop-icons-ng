@@ -3029,8 +3029,9 @@ const DesktopGrid = class extends WidgetGrid {
                         resolve(snap.to_paintable(size));
                     } catch (ee) {
                         logError(ee);
-                        const gdkpic =
-                            Gtk.WidgetPaintable.new(widget).get_current_image();
+                        const widgetPaintable = Gtk.WidgetPaintable.new(widget);
+                        const gdkpic = widgetPaintable.get_current_image();
+                        widgetPaintable.set_widget(null);
                         resolve(gdkpic);
                     }
                     return GLib.SOURCE_REMOVE;
