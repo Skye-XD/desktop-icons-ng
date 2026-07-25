@@ -121,6 +121,7 @@ const StackItem = class extends DesktopIconItem.DesktopIconItem {
     _createStackTopIcon() {
         const stackIcon = this._createStackedAttributeContentTypeIcon();
         const iconPaintable = this._addEmblemsToIconIfNeeded(stackIcon);
+        this._icon.set_paintable(null);
         this._icon.set_paintable(iconPaintable);
     }
 

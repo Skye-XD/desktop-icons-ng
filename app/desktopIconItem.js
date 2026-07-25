@@ -86,6 +86,12 @@ const DesktopIconItem = class {
         if (this._updateIconCancellable)
             this._updateIconCancellable.cancel();
 
+        if (this._icon)
+            this._icon.set_paintable(null);
+
+        this.thumbnail = null;
+        this.thumbnailFile = null;
+
         /* Container */
         if (this._containerId) {
             this.container.disconnect(this._containerId);
@@ -95,6 +101,8 @@ const DesktopIconItem = class {
         /* DragItem */
         if (this.dragIconSignal)
             this.dragIcon.disconnect(this.dragIconSignal);
+
+        this.dragIcon = null;
 
         if (this._iconStateFlag)
             this._iconContainer.disconnect(this._iconStateFlag);
@@ -740,6 +748,7 @@ const DesktopIconItem = class {
             if (cancellable.is_cancelled())
                 return;
 
+            this._icon.set_paintable(null);
             this._icon.set_paintable(pixbuf);
             return;
         }
@@ -791,6 +800,7 @@ const DesktopIconItem = class {
             if (cancellable.is_cancelled())
                 return;
 
+            this._icon.set_paintable(null);
             this._icon.set_paintable(iconPaintable);
         }
 
@@ -829,6 +839,7 @@ const DesktopIconItem = class {
             let icon = iconPaintableSnapshot.to_paintable(null);
             icon = this._addEmblemsToIconIfNeeded(icon);
 
+            this._icon.set_paintable(null);
             this._icon.set_paintable(icon);
 
             return true;
