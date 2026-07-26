@@ -112,6 +112,22 @@ const DesktopIconItem = class {
         if (this._labelStateFlag)
             this._labelContainer.disconnect(this._labelStateFlag);
 
+        if (this._iconContainerEventController) {
+            if (this._iconContainerEventControllerEnterId) {
+                this._iconContainerEventController.disconnect(
+                    this._iconContainerEventControllerEnterId
+                );
+                this._iconContainerEventControllerEnterId = 0;
+            }
+
+            if (this._iconContainerEventControllerLeaveId) {
+                this._iconContainerEventController.disconnect(
+                    this._iconContainerEventControllerLeaveId
+                );
+                this._iconContainerEventControllerLeaveId = 0;
+            }
+        }
+
         this._destroyToolTip();
     }
 
@@ -180,13 +196,15 @@ const DesktopIconItem = class {
 
         this._icon.add_controller(this._iconContainerEventController);
 
-        this._iconContainerEventController.connect('enter', () => {
-            this._showToolTip();
-        });
+        this._iconContainerEventControllerEnterId =
+            this._iconContainerEventController.connect('enter', () => {
+                this._showToolTip();
+            });
 
-        this._iconContainerEventController.connect('leave', () => {
-            this._destroyToolTip();
-        });
+        this._iconContainerEventControllerLeaveId =
+            this._iconContainerEventController.connect('leave', () => {
+                this._destroyToolTip();
+            });
 
         // This controls how the icons look - Rectangular or skinny trapezoid
 
