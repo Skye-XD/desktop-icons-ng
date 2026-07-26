@@ -59,6 +59,14 @@ const DesktopIconItem = class {
         this._normalCoordinates = null;
         this._monitorIndex = null;
         this._destroyed = false;
+        this._containerId = 0;
+        this._iconStateFlag = 0;
+        this._labelStateFlag = 0;
+        this._iconContainerEventController = null;
+        this._iconContainerEventControllerEnterId = 0;
+        this._iconContainerEventControllerLeaveId = 0;
+        this.dragIcon = null;
+        this.dragIconSignal = 0;
         this.thumbnail = null;
         this.thumbnailFile = null;
     }
@@ -99,18 +107,24 @@ const DesktopIconItem = class {
         }
 
         /* DragItem */
-        if (this.dragIconSignal)
+        if (this.dragIconSignal) {
             this.dragIcon.disconnect(this.dragIconSignal);
+            this.dragIconSignal = 0;
+        }
 
         if (this.dragIcon)
             this.dragIcon.set_widget(null);
         this.dragIcon = null;
 
-        if (this._iconStateFlag)
+        if (this._iconStateFlag) {
             this._iconContainer.disconnect(this._iconStateFlag);
+            this._iconStateFlag = 0;
+        }
 
-        if (this._labelStateFlag)
+        if (this._labelStateFlag) {
             this._labelContainer.disconnect(this._labelStateFlag);
+            this._labelStateFlag = 0;
+        }
 
         if (this._iconContainerEventController) {
             if (this._iconContainerEventControllerEnterId) {
@@ -126,9 +140,20 @@ const DesktopIconItem = class {
                 );
                 this._iconContainerEventControllerLeaveId = 0;
             }
+
+            if (this._icon)
+                this._icon.remove_controller(this._iconContainerEventController);
+
+            this._iconContainerEventController = null;
         }
 
         this._destroyToolTip();
+
+        this._icon = null;
+        this._iconContainer = null;
+        this._label = null;
+        this._labelContainer = null;
+        this.container = null;
     }
 
     onDestroy() {
