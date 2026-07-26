@@ -76,6 +76,9 @@ const FileItemIcon = class extends DesktopIconItem {
         /* Metadata */
         if (this._setMetadataTrustedCancellable)
             this._setMetadataTrustedCancellable.cancel();
+
+        if (this._encryptionCancellable)
+            this._encryptionCancellable.cancel();
     }
 
     /** *********************
@@ -218,60 +221,80 @@ const FileItemIcon = class extends DesktopIconItem {
         if (this.isEncrypted)
             return;
 
-        switch (this._attributeContentType) {
-        case 'application/x-7z-compressed':
-            this._isEncrypted =
-                this.DesktopIconsUtil.checkIf7zEncrypted(this._file);
-            break;
+        if (this._encryptionCancellable)
+            this._encryptionCancellable.cancel();
 
-        case 'application/pdf':
-            // eslint-disable-next-line no-case-declarations
-            const isEncrypted =
-                await this.DesktopIconsUtil.checkIfPdfEncrypted(this._file);
+        const cancellable = new Gio.Cancellable();
+        this._encryptionCancellable = cancellable;
 
-            if (this._destroyed)
-                return;
+        try {
+            switch (this._attributeContentType) {
+            case 'application/x-7z-compressed':
+                this._isEncrypted =
+                    this.DesktopIconsUtil.checkIf7zEncrypted(this._file);
+                break;
 
-            // File may have no password or null password, so we may still be
-            // able to read/display it. It will therefore have a generated
-            // thumbnail. Check by generating the thumbnail if needed.
-            // Don't show the locked item in this case, it is encrypted in pdf
-            // per pdf specification but a user can still read it.
-            if (isEncrypted && !this.thumbnail) {
-                this.thumbnail =
-                    await this.ThumbnailLoader.getThumbnail(
-                        this,
-                        null
+            case 'application/pdf':
+                // eslint-disable-next-line no-case-declarations
+                const isEncrypted =
+                    await this.DesktopIconsUtil.checkIfPdfEncrypted(
+                        this._file,
+                        cancellable
                     );
 
-                if (this._destroyed)
+                if (cancellable.is_cancelled() || this._destroyed)
                     return;
+
+                // File may have no password or null password, so we may still be
+                // able to read/display it. It will therefore have a generated
+                // thumbnail. Check by generating the thumbnail if needed.
+                // Don't show the locked item in this case, it is encrypted in pdf
+                // per pdf specification but a user can still read it.
+                if (isEncrypted && !this.thumbnail) {
+                    this.thumbnail =
+                        await this.ThumbnailLoader.getThumbnail(
+                            this,
+                            cancellable
+                        );
+                }
+
+                this._isEncrypted = isEncrypted && !this.thumbnail;
+                break;
+
+            case 'application/zip':
+                this._isEncrypted =
+                    await this.DesktopIconsUtil.checkIfZipEncrypted(
+                        this._file,
+                        cancellable
+                    );
+                break;
+
+            case 'application/epub+zip':
+                this._isEncrypted =
+                    await this.DesktopIconsUtil.checkIfZipEncrypted(
+                        this._file,
+                        cancellable
+                    );
+                break;
+
+            default:
+                this._isEncrypted = false;
             }
 
-            this._isEncrypted = isEncrypted && !this.thumbnail;
-            break;
+            if (cancellable.is_cancelled() || this._destroyed)
+                return;
 
-        case 'application/zip':
-            this._isEncrypted =
-                await this.DesktopIconsUtil.checkIfZipEncrypted(this._file);
-            break;
+            if (!this._isEncrypted)
+                return;
 
-        case 'application/epub+zip':
-            this._isEncrypted =
-                await this.DesktopIconsUtil.checkIfZipEncrypted(this._file);
-            break;
-
-        default:
-            this._isEncrypted = false;
+            this.updateIcon()
+            .catch(e =>
+                console.error(`Error updating after setting encryption status ${e}`)
+            );
+        } finally {
+            if (this._encryptionCancellable === cancellable)
+                this._encryptionCancellable = null;
         }
-
-        if (!this._isEncrypted)
-            return;
-
-        this.updateIcon()
-        .catch(e =>
-            console.error(`Error updating after setting encryption status ${e}`)
-        );
     }
 
     async _doOpenContext(context = null, fileList) {
