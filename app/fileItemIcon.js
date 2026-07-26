@@ -24,8 +24,6 @@ import {_} from '../dependencies/gettext.js';
 
 export {FileItemIcon};
 
-const Signals = imports.signals;
-
 const FileItemIcon = class extends DesktopIconItem {
     constructor(desktopManager, file, fileInfo, fileTypeEnum, gioMount) {
         super(desktopManager, fileTypeEnum);
@@ -899,4 +897,3 @@ const FileItemIcon = class extends DesktopIconItem {
             return false;
     }
 };
-Signals.addSignalMethods(FileItemIcon.prototype);

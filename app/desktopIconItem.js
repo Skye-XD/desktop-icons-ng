@@ -26,8 +26,6 @@ import {_} from '../dependencies/gettext.js';
 
 export {DesktopIconItem};
 
-const Signals = imports.signals;
-
 const PIXBUF_CONTENT_TYPES = new Set();
 
 GdkPixbuf.Pixbuf
@@ -1140,4 +1138,3 @@ const DesktopIconItem = class {
         this._monitorIndex = index;
     }
 };
-Signals.addSignalMethods(DesktopIconItem.prototype);

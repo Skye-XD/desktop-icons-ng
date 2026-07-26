@@ -24,8 +24,6 @@ import * as DesktopIconItem from './desktopIconItem.js';
 
 export {StackItem};
 
-const Signals = imports.signals;
-
 const StackItem = class extends DesktopIconItem.DesktopIconItem {
     constructor(desktopManager, file, attributeContentType, fileTypeEnum) {
         super(desktopManager, fileTypeEnum);
@@ -234,4 +232,3 @@ const StackItem = class extends DesktopIconItem.DesktopIconItem {
     set savedCoordinates(pos) {
     }
 };
-Signals.addSignalMethods(StackItem.prototype);
