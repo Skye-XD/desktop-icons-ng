@@ -157,8 +157,12 @@ const DesktopIconItem = class {
     }
 
     onDestroy() {
-        this._destroy();
+        if (this._destroyed)
+            return;
+
         this._destroyed = true;
+        this._resolveIconPlaced();
+        this._destroy();
     }
 
     /** *********************
