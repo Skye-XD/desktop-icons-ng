@@ -780,7 +780,7 @@ const DesktopIconItem = class {
                         const loadedImage =
                             await this._loadImageAsIcon(customIconFile, cancellable);
 
-                        if (loadedImage | this._destroyed)
+                        if (loadedImage || this._destroyed)
                             return;
                     }
                 }
