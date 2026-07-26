@@ -70,13 +70,18 @@ const DesktopFileIcon = class extends FileItemIcon {
     }
 
     _getActions() {
+        this.desktopAppInfo = null;
+        this.actionMap = new Map();
+        this._actionmenu = null;
+
         if (!this.trustedDesktopFile)
             return;
 
         this.desktopAppInfo =
             DesktopAppInfo.new_from_filename(this.path);
 
-        this.actionMap = new Map();
+        if (!this.desktopAppInfo)
+            return;
 
         const actions = this.desktopAppInfo.list_actions();
 
@@ -86,6 +91,13 @@ const DesktopFileIcon = class extends FileItemIcon {
 
             this.actionMap.set(actionName, action);
         });
+    }
+
+    _destroy() {
+        this.desktopAppInfo = null;
+        this.actionMap = new Map();
+        this._actionmenu = null;
+        super._destroy();
     }
 
     _makeActionMenu() {
