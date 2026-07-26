@@ -161,7 +161,13 @@ const FileItemIcon = class extends DesktopIconItem {
                     cancellable
                 );
 
+            if (this._destroyed)
+                return;
+
             this._updateMetadataFromFileInfo(newFileInfo);
+
+            if (this._destroyed || !this._icon || !this._label)
+                return;
 
             this._updateName();
         } catch (e) {
@@ -223,6 +229,9 @@ const FileItemIcon = class extends DesktopIconItem {
             const isEncrypted =
                 await this.DesktopIconsUtil.checkIfPdfEncrypted(this._file);
 
+            if (this._destroyed)
+                return;
+
             // File may have no password or null password, so we may still be
             // able to read/display it. It will therefore have a generated
             // thumbnail. Check by generating the thumbnail if needed.
@@ -234,6 +243,9 @@ const FileItemIcon = class extends DesktopIconItem {
                         this,
                         null
                     );
+
+                if (this._destroyed)
+                    return;
             }
 
             this._isEncrypted = isEncrypted && !this.thumbnail;
@@ -456,12 +468,19 @@ const FileItemIcon = class extends DesktopIconItem {
      ***********************/
 
     async _reloadIcon(cancellable) {
+        if (this._destroyed || !this._icon)
+            return;
+
         if (!cancellable)
             cancellable = new Gio.Cancellable();
         this._updatingIconCancellable = cancellable;
         try {
             await this._refreshMetadataAsync(cancellable);
             await this._updateIcon(cancellable);
+
+            if (this._destroyed || !this._icon)
+                return;
+
             this._icon.queue_draw();
         } catch (e) {
             if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED)) {

@@ -771,12 +771,18 @@ const DesktopIconItem = class {
 
                     if (await this._loadImageAsIcon(customIconFile, cancellable))
                         return;
+
+                    if (this._destroyed || !this._icon)
+                        return;
                 }
 
                 if (this.thumbnailFile && (this.thumbnailFile !== '')) {
                     const customIconFile = Gio.File.new_for_path(this.thumbnailFile);
 
                     if (await this.FileUtils.queryExists(customIconFile)) {
+                        if (this._destroyed || !this._icon)
+                            return;
+
                         const loadedImage =
                             await this._loadImageAsIcon(customIconFile, cancellable);
 
@@ -795,7 +801,7 @@ const DesktopIconItem = class {
                 let pixbuf =
                     this._createEmblemedIcon(this._fileInfo.get_icon(), null);
 
-                if (cancellable.is_cancelled())
+                if (cancellable.is_cancelled() || this._destroyed || !this._icon)
                     return;
 
                 this._icon.set_paintable(null);
@@ -813,12 +819,18 @@ const DesktopIconItem = class {
                                 this,
                                 cancellable
                             );
+
+                        if (this._destroyed || !this._icon)
+                            return;
                     }
 
                     if (this.thumbnail !== null) {
                         const thumbnailFile = Gio.File.new_for_path(this.thumbnail);
                         iconSet =
                             await this._loadImageAsIcon(thumbnailFile, cancellable);
+
+                        if (this._destroyed || !this._icon)
+                            return;
                     }
                 } catch (e) {
                     if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
@@ -847,7 +859,7 @@ const DesktopIconItem = class {
                         this._createEmblemedIcon(this._getDefaultIcon(), null);
                 }
 
-                if (cancellable.is_cancelled())
+                if (cancellable.is_cancelled() || this._destroyed || !this._icon)
                     return;
 
                 this._icon.set_paintable(null);
@@ -867,6 +879,10 @@ const DesktopIconItem = class {
         try {
             const [thumbnailData] =
                 await imageFile.load_bytes_async(cancellable);
+
+            if (this._destroyed || !this._icon)
+                return false;
+
             const iconTexture =
                 Gdk.Texture.new_from_bytes(thumbnailData);
 
@@ -887,8 +903,14 @@ const DesktopIconItem = class {
                 Math.floor(height)
             );
 
+            if (this._destroyed || !this._icon)
+                return false;
+
             let icon = iconPaintableSnapshot.to_paintable(null);
             icon = this._addEmblemsToIconIfNeeded(icon);
+
+            if (this._destroyed || !this._icon)
+                return false;
 
             this._icon.set_paintable(null);
             this._icon.set_paintable(icon);
