@@ -2,7 +2,7 @@
 
 /* ADW-DING: Desktop Icons New Generation for GNOME Shell
  *
- * Copyright (C) 2025 Sundeep Mediratta
+ * Copyright (C) 2025, 2026 Sundeep Mediratta
  * Based on code original (C) Carlos Soriano (C) Sergio Costas
  *
  * This program is free software: you can redistribute it and/or modify

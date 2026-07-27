@@ -1,6 +1,6 @@
 /* ADW-DING: Desktop Icons New Generation for GNOME Shell
  *
- * Adw/Gtk4 Port Copyright (C) 2025 Sundeep Mediratta (smedius@gmail.com)
+ * Adw/Gtk4 Port Copyright (C) 2025, 2026 Sundeep Mediratta (smedius@gmail.com)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by

@@ -1,6 +1,6 @@
 /* DING: Desktop Icons New Generation for GNOME Shell
  *
- * Adw-DING Copyright (C) 2022, 2025 Sundeep Mediratta (smedius@gmail.com)
+ * Adw-DING Copyright (C) 2022, 2025, 2026 Sundeep Mediratta (smedius@gmail.com)
  * Based on code original (C) Carlos Soriano and (c) Sergio Costas
  * SwitcherooControl code based on code original from Marsch84
  *
