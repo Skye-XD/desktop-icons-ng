@@ -1,4 +1,8 @@
 # History of versions #
+* Adw Version 100.26 for Gnome 50
+  * Fix memory leak with heavy disc activity and long Adw.Ding uptimes -multiple fixes, main to Gtk.Evencontroller teardown and destruction and preventing async work after destruction. (Sundeep Mediratta)
+  * Update History.md, update metadata.json, app release note.
+
 * Adw Version 100.25 for Gnome 50
   * Refactor the metrics widgets to use libgtop for CPU, memory, and network sampling, and reuse shared decoders/samplers to reduce memory overhead. (Sundeep Mediratta)
   * Tighten widget backend lifecycle handling by improving systemd scope error reporting if slice already exists. (Sundeep Mediratta)
