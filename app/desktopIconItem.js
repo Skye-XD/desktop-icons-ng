@@ -19,7 +19,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-import {Gtk, Gdk, Gio, Graphene, Gsk, GLib, Pango, GdkPixbuf}
+import {GObject, Gtk, Gdk, Gio, Graphene, Gsk, GLib, Pango, GdkPixbuf}
     from '../dependencies/gi.js';
 
 import {_} from '../dependencies/gettext.js';
@@ -27,6 +27,16 @@ import {_} from '../dependencies/gettext.js';
 export {DesktopIconItem};
 
 const PIXBUF_CONTENT_TYPES = new Set();
+
+const DesktopIconContainer = GObject.registerClass(
+class DesktopIconContainer extends Gtk.Box {
+    vfunc_snapshot(snapshot) {
+        super.vfunc_snapshot(snapshot);
+
+        if (this._snapshotCallback)
+            this._snapshotCallback();
+    }
+});
 
 GdkPixbuf.Pixbuf
 .get_formats()
@@ -57,14 +67,12 @@ const DesktopIconItem = class {
         this._monitorIndex = null;
         this._destroying = false;
         this._updateIconCancellable = null;
-        this._containerId = 0;
         this._iconStateFlag = 0;
         this._labelStateFlag = 0;
         this._iconContainerEventController = null;
         this._iconContainerEventControllerEnterId = 0;
         this._iconContainerEventControllerLeaveId = 0;
-        this.dragIcon = null;
-        this.dragIconSignal = 0;
+        this._iconSizeAllocatedCallback = null;
         this.thumbnail = null;
         this.thumbnailFile = null;
     }
@@ -97,21 +105,9 @@ const DesktopIconItem = class {
         this.thumbnail = null;
         this.thumbnailFile = null;
 
-        /* Container */
-        if (this._containerId) {
-            this.container.disconnect(this._containerId);
-            this._containerId = 0;
-        }
-
-        /* DragItem */
-        if (this.dragIconSignal) {
-            this.dragIcon.disconnect(this.dragIconSignal);
-            this.dragIconSignal = 0;
-        }
-
-        if (this.dragIcon)
-            this.dragIcon.set_widget(null);
-        this.dragIcon = null;
+        if (this.container)
+            this.container._snapshotCallback = null;
+        this._iconSizeAllocatedCallback = null;
 
         if (this._iconStateFlag) {
             this._iconContainer.disconnect(this._iconStateFlag);
@@ -170,7 +166,7 @@ const DesktopIconItem = class {
 
     _createIconActor() {
         this.container =
-            new Gtk.Box({
+            new DesktopIconContainer({
                 orientation: Gtk.Orientation.VERTICAL,
                 halign: Gtk.Align.CENTER,
                 focusable: true,
@@ -178,9 +174,9 @@ const DesktopIconItem = class {
                 accessible_role: Gtk.AccessibleRole.LABEL,
             });
         this.container.add_css_class('desktop-icon-container');
-
-        this._containerId =
-            this.container.connect('destroy', () => this.onDestroy());
+        this._iconSizeAllocatedCallback =
+            this._doIconSizeAllocated.bind(this);
+        this.container._snapshotCallback = this._iconSizeAllocatedCallback;
 
         this._icon = new Gtk.Picture({
             can_shrink: false,
@@ -275,20 +271,12 @@ const DesktopIconItem = class {
                 }
             });
 
-        this.dragIcon = Gtk.WidgetPaintable.new(this.container);
-
-        this.dragIconSignal = this.dragIcon.connect('invalidate-size', () => {
-            this._doIconSizeAllocated();
-        });
-
         this.container.show();
     }
 
     _doIconSizeAllocated() {
-        // If icons are hidden during stacking, they are not assigned a grid //
-        if (!this._grid)
+        if (this._destroying || !this._grid)
             return;
-
         this._calculateIconRectangle();
         this._calculateLabelRectangle();
         this._resolveIconPlaced();
