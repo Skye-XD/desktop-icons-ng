@@ -141,6 +141,9 @@ const StackItem = class extends DesktopIconItem.DesktopIconItem {
     }
 
     updateIcon() {
+        if (this._destroying)
+            return;
+
         this._createStackTopIcon();
     }
 
