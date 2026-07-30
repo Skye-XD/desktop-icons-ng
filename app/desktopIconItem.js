@@ -42,7 +42,6 @@ const DesktopIconItem = class {
         this.Enums = desktopManager.Enums;
         this.ThumbnailLoader = desktopManager.ThumbnailLoader;
         this._fileTypeEnum = fileTypeEnum;
-        this._queryFileInfoCancellable = null;
         this._grid = null;
         this._column = null;
         this._row = null;
@@ -86,10 +85,6 @@ const DesktopIconItem = class {
 
     _destroy() {
         this._destroying = true;
-
-        /* Regular file data */
-        if (this._queryFileInfoCancellable)
-            this._queryFileInfoCancellable.cancel();
 
         /* Icons update */
         if (this._updateIconCancellable)
@@ -1110,12 +1105,6 @@ const DesktopIconItem = class {
 
     get dropCoordinates() {
         return this._dropCoordinates;
-    }
-
-    get isEncrypted() {
-        if (this._isEncrypted === undefined)
-            return false;
-        return this._isEncrypted;
     }
 
     get column() {
