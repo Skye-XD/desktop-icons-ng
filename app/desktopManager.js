@@ -484,16 +484,6 @@ const DesktopManager = class {
             return;
         const selectedFiles = this.getCurrentSelectionAsUri();
 
-        // Update the Icon before placing on Desktop prevent flickering Icons //
-        const updateUI = fileList.map(async fileItem => {
-            await fileItem.updateIcon();
-            if (selectedFiles) {
-                if (selectedFiles.includes(fileItem.uri))
-                    fileItem.setSelected();
-            }
-        });
-        await Promise.all([...updateUI]);
-
         //* Remove all files from the grids just before placing new files to
         // prevent flickering icons *//
         if (opts.initialRead)
@@ -504,13 +494,21 @@ const DesktopManager = class {
 
         this._placeAllFilesOnGrids(opts);
 
-        //* Detect all Icon sizes are allocated and Icons are now shown and
-        // placed on Grid. Desktop draw/paint is now complete *//
-        const drawComplete = this._displayList.map(async fileItem => {
+        const drawComplete = fileList.map(async fileItem => {
+            // Start icon loading early so late loads settle before first paint.
+            await fileItem.updateIcon();
+            if (selectedFiles) {
+                if (selectedFiles.includes(fileItem.uri))
+                    fileItem.setSelected();
+            }
+            // Detect all Icon sizes are allocated and Icons are now shown and
+            // placed on the grid.
             await fileItem.iconPlaced;
         });
+
         await Promise.all([...drawComplete]);
 
+        //* Desktop draw/paint is now complete *//
         //* Reposition open Menus, renameFileItem pop up's **//
         //* Any task after complete desktop draw can now be done *//
         this._refreshMenus();
