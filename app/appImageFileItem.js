@@ -34,8 +34,11 @@ const AppImageFileIcon = class extends FileItemIcon {
     }
 
     async onAllowDisallowLaunchingClicked() {
+        if (this._destroying)
+            return;
+
         if (this._isAppImageFile)
-            this.metadataTrusted = !this.trustedAppImageFile;
+            await this.setMetadataTrusted(!this.trustedAppImageFile);
 
         await super.onAllowDisallowLaunchingClicked();
     }
