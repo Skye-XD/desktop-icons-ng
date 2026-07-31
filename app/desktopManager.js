@@ -1096,9 +1096,9 @@ const DesktopManager = class {
             // locale, natural language sort for numbers, ie 10.etc before 2.etc
             // other options for locale are best fit, or by specifying directly
             // in function below for translators
-            return a._label.get_text()
+            return a.labelText
                 .localeCompare(
-                    b._label.get_text(),
+                    b.labelText,
                     {
                         sensitivity: 'accent',
                         numeric: 'true',
@@ -1120,9 +1120,9 @@ const DesktopManager = class {
             return (
                 a.attributeContentType
                     .localeCompare(b.attributeContentType) ||
-                a._label.get_text()
+                a.labelText
                     .localeCompare(
-                        b._label.get_text(),
+                        b.labelText,
                         {
                             sensitivity: 'accent',
                             numeric: 'true',
@@ -1397,8 +1397,7 @@ const DesktopManager = class {
                 this._displayList.filter(
                     f => {
                         const lowerCaseFilename = f.fileName.toLowerCase();
-                        const lowerCaseLabel =
-                            f._label.get_text().toLowerCase();
+                        const lowerCaseLabel = f.labelText.toLowerCase();
 
                         return (
                             lowerCaseFilename.includes(lowerCaseText) ||
