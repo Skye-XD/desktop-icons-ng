@@ -336,8 +336,6 @@ const DesktopIconItem = class {
         this._label.margin_end = margin;
         this._label.margin_bottom = margin;
         this._iconContainer.margin_top = margin;
-        this._calculateIconRectangle();
-        this._calculateLabelRectangle();
     }
 
     getCoordinates() {
