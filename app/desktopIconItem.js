@@ -28,8 +28,8 @@ export {DesktopIconItem};
 
 const PIXBUF_CONTENT_TYPES = new Set();
 
-const DesktopIconContainer = GObject.registerClass(
-class DesktopIconContainer extends Gtk.Box {
+const DesktopIconPicture = GObject.registerClass(
+class DesktopIconPicture extends Gtk.Picture {
     vfunc_snapshot(snapshot) {
         super.vfunc_snapshot(snapshot);
 
@@ -72,7 +72,6 @@ const DesktopIconItem = class {
         this._iconContainerEventController = null;
         this._iconContainerEventControllerEnterId = 0;
         this._iconContainerEventControllerLeaveId = 0;
-        this._iconSizeAllocatedCallback = null;
         this.thumbnail = null;
         this.thumbnailFile = null;
     }
@@ -105,9 +104,8 @@ const DesktopIconItem = class {
         this.thumbnail = null;
         this.thumbnailFile = null;
 
-        if (this.container)
-            this.container._snapshotCallback = null;
-        this._iconSizeAllocatedCallback = null;
+        if (this._icon)
+            this._icon._snapshotCallback = null;
 
         if (this._iconStateFlag) {
             this._iconContainer.disconnect(this._iconStateFlag);
@@ -166,7 +164,7 @@ const DesktopIconItem = class {
 
     _createIconActor() {
         this.container =
-            new DesktopIconContainer({
+            new Gtk.Box({
                 orientation: Gtk.Orientation.VERTICAL,
                 halign: Gtk.Align.CENTER,
                 focusable: true,
@@ -174,15 +172,12 @@ const DesktopIconItem = class {
                 accessible_role: Gtk.AccessibleRole.LABEL,
             });
         this.container.add_css_class('desktop-icon-container');
-        this._iconSizeAllocatedCallback =
-            this._doIconSizeAllocated.bind(this);
-        this.container._snapshotCallback = this._iconSizeAllocatedCallback;
-
-        this._icon = new Gtk.Picture({
+        this._icon = new DesktopIconPicture({
             can_shrink: false,
             keep_aspect_ratio: true,
             halign: Gtk.Align.CENTER,
         });
+        this._icon._snapshotCallback = this._doIconSizeAllocated.bind(this);
 
         this._iconContainer = new Gtk.Box({
             orientation: Gtk.Orientation.HORIZONTAL,
