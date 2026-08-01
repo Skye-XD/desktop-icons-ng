@@ -75,6 +75,11 @@ const DesktopIconItem = class {
         this._iconContainerEventControllerLeaveId = 0;
         this.thumbnail = null;
         this.thumbnailFile = null;
+        // Create the placement promise up front so snapshot and fallback
+        // paths can resolve the same instance later.
+        this.iconPlaced = new Promise(resolve => {
+            this.iconPlacedPromiseResolve = resolve;
+        });
     }
 
     /** *********************
@@ -301,11 +306,8 @@ const DesktopIconItem = class {
         this._resolveIconPlaced();
     }
 
-    iconPlaced = new Promise(resolve => {
-        this.iconPlacedPromiseResolve = resolve;
-    });
-
     _resolveIconPlaced() {
+        // Gtk snapshot is run, icon is painted for the first time.
         if (!this.iconPlacedPromiseResolve)
             return;
 
@@ -314,6 +316,8 @@ const DesktopIconItem = class {
     }
 
     iconCannotBeShown() {
+        // Resolve the placement promise even when the icon never gets a snapshot.
+        // Resolve is done by desktopManager when it determines icon cannot be shown.
         this._resolveIconPlaced();
     }
 

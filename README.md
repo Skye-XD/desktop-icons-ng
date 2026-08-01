@@ -84,6 +84,12 @@ Uses Libretranslate to automatically translate into multiple languages.
  - The media widget now track multiple players and displays the last interacted one automatically.
  - The main application now runs in its own slice, in its own systemd scope in this slice. Backends run under their own scope under this slice. The main application slice runs under user.app slice, independent of the gnome-shell slice/scope, allowing independent CPU, memory, task accounting and future controls and limits.
 
+### Update August 2026
+
+- Desktop icon GTK initialization is now lazy: the icon widget tree is only created once placement geometry exists, which reduces teardown churn and avoids building actors before they can be shown.
+- The placement-ready wait now resolves from the normal snapshot path or the not-shown fallback, so startup can continue even when an item never reaches a visible snapshot.
+- This reduces memory pressure and cleanup work by avoiding unnecessary widget creation until the icon can actually be placed and rendered.
+
 
 ## Security
 

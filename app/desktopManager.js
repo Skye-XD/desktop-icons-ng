@@ -501,8 +501,7 @@ const DesktopManager = class {
                 if (selectedFiles.includes(fileItem.uri))
                     fileItem.setSelected();
             }
-            // Detect all Icon sizes are allocated and Icons are now shown and
-            // placed on the grid.
+            // Wait for either snapshot placement or the not-shown fallback.
             await fileItem.iconPlaced;
         });
 
