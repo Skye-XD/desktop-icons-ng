@@ -10,8 +10,9 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-06-18 19:30-0400\n"
-"PO-Revision-Date: 2026-07-14 13:25+0000\n"
-"Last-Translator: Sundeep Mediratta <smedius@gmail.com>\n"
+"PO-Revision-Date: 2026-08-01 23:33+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Friulian <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/fur/>\n"
 "Language: fur\n"
@@ -263,7 +264,6 @@ msgid "Show a context menu item to delete permanently"
 msgstr ""
 
 #: app/adwPreferencesWindow.js:821
-#, fuzzy
 msgid "Show hidden files"
 msgstr "Mostre in File"
 
@@ -395,9 +395,8 @@ msgid "Folder name"
 msgstr "Gnûf non de cartele"
 
 #: app/askRenamePopup.js:61
-#, fuzzy
 msgid "File name"
-msgstr "Cambie non..."
+msgstr "Non file"
 
 #: app/askRenamePopup.js:75 app/autoAr.js:313 app/desktopManager.js:1320
 #: app/fileItemMenu.js:971
@@ -1273,7 +1272,6 @@ msgid "Update Desktop"
 msgstr "Mostre Scritori in File"
 
 #: app/shortcuts.js:32
-#, fuzzy
 msgid "Show Hidden Files"
 msgstr "Mostre in File"
 
