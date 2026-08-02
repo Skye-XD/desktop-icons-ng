@@ -116,7 +116,7 @@ const DragManager = class {
             if (!['http', 'https', 'ftp', 'rtsp', 'mms'].includes(scheme))
                 return false;
 
-            return uri.get_host() !== null;
+            return !!uri.get_host();
         } catch (e) {
             return false;
         }
