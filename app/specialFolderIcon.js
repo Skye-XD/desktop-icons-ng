@@ -85,6 +85,10 @@ const SpecialFolderIcon = class extends FileItemIcon {
         }
     }
 
+    _onIconActorCreated() {
+        super._onIconActorCreated();
+    }
+
     _updateMetadataFromFileInfo(fileInfo) {
         super._updateMetadataFromFileInfo(fileInfo);
 

@@ -206,6 +206,8 @@ The application functionality and behavior is consistent with the two other very
 
 - [x] Weather widgets now retry temporary Open-Meteo 502/504 failures instead of failing immediately.
 
+- [x] Lazy GTK icon initialization now creates the widget tree only when placement geometry exists, reducing teardown churn and memory pressure while still allowing the placement promise to resolve from the snapshot path or the not-shown fallback.
+
 **FIXES**
 
 - [x] Fix Gtk4 Icon Rendering Code to at least render generic correct icons at the correct size.
@@ -425,3 +427,7 @@ The application functionality and behavior is consistent with the two other very
 - [x] Fix application icon resource naming collisions by namespacing icons with the `ding-` prefix.
 
 - [x] Fix broken widget long-press dragging by removing the long-press path and using grouped click + drag instead. The click sequence now decides selection, pass-through, and drag start in one place, with draggable widget regions and draggable chrome handled from the click sequence rather than a separate long-press gesture.
+
+- [x] Fixed a memory leak in desktopIconItem and optimized destruction with cleanup and refactor of code.
+
+- [x] Fixed memory leak in metricsBackend.js

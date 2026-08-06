@@ -46,8 +46,6 @@ const FileItemIcon = class extends DesktopIconItem {
         this.readSavedCoordinates();
         this.readDropCoordinates();
 
-        this._createIconActor();
-
         /* Set the metadata */
         this._updateMetadataFromFileInfo(fileInfo);
         if (this.Prefs.showLinkEmblem) {
@@ -61,8 +59,6 @@ const FileItemIcon = class extends DesktopIconItem {
             this._execLine = this.file.get_path();
         else
             this._execLine = null;
-
-        this._updateName();
         if (this._dropCoordinates)
             this.setSelected();
     }
@@ -114,11 +110,18 @@ const FileItemIcon = class extends DesktopIconItem {
         return this._fileInfo.get_display_name();
     }
 
+    _onIconActorCreated() {
+        this._updateName();
+    }
+
     _setFileName(text) {
         this._setLabelName(text);
     }
 
     _setAccesibilityName() {
+        if (!this.container)
+            return;
+
         const visibleName = this._getVisibleName();
         const folderName = _('Folder');
         const fileName = _('File');

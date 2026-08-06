@@ -2,8 +2,9 @@ Adw. Desktop Icons
 
 Libadwaita/Gtk4 port of Desktop Icons NG with multiple fixes and new features.
 
-Latest update: GNOME 50 support has been refreshed again with a Mutter 50 cursor fix, updated Sushi quick-preview support via the newer Nautilus Previewer 2 D-Bus interface, and improved Today widget dragging and timezone handling.
+Latest update: Gtk.Widget tree initiation is deferred and is now created lazily once an icon is placed on the grid, reducing memory pressure from icons that can never be displayed. Fixed memory leak in metrics backend, in the app, cleaned up and refactored destruction and all fileItem code.
 
+GNOME 50 support has been refreshed again with a Mutter 50 cursor fix, updated Sushi quick-preview support via the newer Nautilus Previewer 2 D-Bus interface, and improved Today widget dragging and timezone handling. 
 Now has a widget layer that can run widgets- like KDE desklets, they are little HTML display apps that run in Webkit. Icons cover this layer, layers can be moved up or down for editing. Widgets can be snapped to a grid to maintain row/column alignment or free positioned.
 
 Widgets are discovered automatically at startup from specific directories. You can install them manually by downloading the widget folder you want from the GitLab `widgets` directory and placing it in `$XDG_DATA_HOME/com.desktop.ding/widgets/` (typically `~/.local/share/com.desktop.ding/widgets/`). You can also use the Add Widget dialog's `Download Latest` button to automatically fetch and install the current widget set from the repository.
@@ -89,6 +90,7 @@ Multiple fixes and new features-
 * Accessibility support with screen readers
 * Deals correctly with appimage files on desktop.
 * Display GIMP thumbnails, even for snap and flatpack installs.
+* Lazy Gtk.Widget tree creation and further refactoring and cleanup of all icon code.
 
 Please see Readme for full details of new features. Works best on Wayland. However your mileage may vary on X11. Multiple bugs fixed on X11.
 
