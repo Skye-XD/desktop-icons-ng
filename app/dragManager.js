@@ -133,6 +133,10 @@ const DragManager = class {
             return;
         }
 
+        await this._writeDraggedTextToDesktop(text, dropCoordinates);
+    }
+
+    async _writeDraggedTextToDesktop(text, dropCoordinates) {
         const now = Date().valueOf().split(' ').join('').replace(/:/g, '-');
         const filename = `Dragged Text-${now}`;
         await this._DesktopIconsUtil.writeTextFileToPath(
