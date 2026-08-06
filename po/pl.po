@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-18 19:30-0400\n"
+"POT-Creation-Date: 2026-08-06 09:20-0400\n"
 "PO-Revision-Date: 2026-07-14 13:29+0000\n"
 "Last-Translator: Deleted User <noreply+50296@weblate.org>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/gtk4-desktop-"
@@ -77,210 +77,210 @@ msgstr "Możliwa zmiana skrótów klawiszowych tylko po włączeniu rozszerzenia
 msgid "Help translate in your web browser"
 msgstr "Pomóż w tłumaczeniu w swojej przeglądarce internetowej"
 
-#: app/adwPreferencesWindow.js:618 app/adwPreferencesWindow.js:619
+#: app/adwPreferencesWindow.js:624 app/adwPreferencesWindow.js:625
 msgid "Desktop"
 msgstr "Pulpit"
 
-#: app/adwPreferencesWindow.js:624 app/adwPreferencesWindow.js:625
+#: app/adwPreferencesWindow.js:630 app/adwPreferencesWindow.js:631
 msgid "Files"
 msgstr "Pliki"
 
-#: app/adwPreferencesWindow.js:630 app/adwPreferencesWindow.js:631
-#: app/adwPreferencesWindow.js:673
+#: app/adwPreferencesWindow.js:636 app/adwPreferencesWindow.js:637
+#: app/adwPreferencesWindow.js:679
 msgid "Tweaks"
 msgstr "Poprawki"
 
-#: app/adwPreferencesWindow.js:636 app/adwPreferencesWindow.js:637
+#: app/adwPreferencesWindow.js:642 app/adwPreferencesWindow.js:643
 msgid "More"
 msgstr "Więcej"
 
-#: app/adwPreferencesWindow.js:648
+#: app/adwPreferencesWindow.js:654
 msgid "Desktop Settings"
 msgstr "Ustawienia pulpitu"
 
-#: app/adwPreferencesWindow.js:649
+#: app/adwPreferencesWindow.js:655
 msgid "Settings for the Desktop Program"
 msgstr "Ustawienia programu pulpitu"
 
-#: app/adwPreferencesWindow.js:655
+#: app/adwPreferencesWindow.js:661
 msgid "Desktop Folder"
 msgstr "Katalog pulpitu"
 
-#: app/adwPreferencesWindow.js:656
+#: app/adwPreferencesWindow.js:662
 msgid "Current Desktop: "
 msgstr "Aktualny pulpit: "
 
-#: app/adwPreferencesWindow.js:666
+#: app/adwPreferencesWindow.js:672
 msgid "Files Settings"
 msgstr "Ustawienia plików"
 
-#: app/adwPreferencesWindow.js:667
+#: app/adwPreferencesWindow.js:673
 msgid "Settings shared with Gnome Files"
 msgstr "Ustawienia udostępnione plikom GNOME"
 
-#: app/adwPreferencesWindow.js:674
+#: app/adwPreferencesWindow.js:680
 msgid "Miscellaneous Tweaks"
 msgstr "Różne usprawnienia"
 
-#: app/adwPreferencesWindow.js:698
+#: app/adwPreferencesWindow.js:704
 msgid "Size for the desktop icons"
 msgstr "Rozmiar ikon na pulpicie"
 
-#: app/adwPreferencesWindow.js:700
+#: app/adwPreferencesWindow.js:706
 msgid "Tiny"
 msgstr "Malutki"
 
-#: app/adwPreferencesWindow.js:701
+#: app/adwPreferencesWindow.js:707
 msgid "Small"
 msgstr "Mały"
 
-#: app/adwPreferencesWindow.js:702
+#: app/adwPreferencesWindow.js:708
 msgid "Standard"
 msgstr "Standardowy"
 
-#: app/adwPreferencesWindow.js:703
+#: app/adwPreferencesWindow.js:709
 msgid "Large"
 msgstr "Duży"
 
-#: app/adwPreferencesWindow.js:709
+#: app/adwPreferencesWindow.js:715
 msgid "New icons alignment"
 msgstr "Wyrównanie nowych ikon"
 
-#: app/adwPreferencesWindow.js:711
+#: app/adwPreferencesWindow.js:717
 msgid "Top left corner"
 msgstr "Górny lewy róg"
 
-#: app/adwPreferencesWindow.js:712
+#: app/adwPreferencesWindow.js:718
 msgid "Top right corner"
 msgstr "Do prawego górnego rogu"
 
-#: app/adwPreferencesWindow.js:713
+#: app/adwPreferencesWindow.js:719
 msgid "Bottom left corner"
 msgstr "Do lewego dolnego rogu"
 
-#: app/adwPreferencesWindow.js:714
+#: app/adwPreferencesWindow.js:720
 msgid "Bottom right corner"
 msgstr "Do prawego dolnego rogu"
 
-#: app/adwPreferencesWindow.js:720
+#: app/adwPreferencesWindow.js:726
 msgid "Add new icons to Secondary Monitors first, if available"
 msgstr "Najpierw dodaj nowe ikony do monitorów dodatkowych, jeśli są dostępne"
 
-#: app/adwPreferencesWindow.js:724
+#: app/adwPreferencesWindow.js:730
 msgid "Snap icons to grid"
 msgstr "Przyciągaj ikony do siatki"
 
-#: app/adwPreferencesWindow.js:730
+#: app/adwPreferencesWindow.js:736
 msgid "Show desktop widgets"
 msgstr "Widżety pulpitu"
 
-#: app/adwPreferencesWindow.js:735
+#: app/adwPreferencesWindow.js:741
 msgid "New Desktop Folder"
 msgstr "Nowy katalog pulpitu"
 
-#: app/adwPreferencesWindow.js:736
+#: app/adwPreferencesWindow.js:742
 msgid "Set a new folder for the desktop"
 msgstr "Ustaw nowy katalog pulpitu"
 
-#: app/adwPreferencesWindow.js:737 app/utils/desktopFolderUtils.js:85
+#: app/adwPreferencesWindow.js:743 app/utils/desktopFolderUtils.js:85
 msgid "Choose"
 msgstr "Wybierz"
 
-#: app/adwPreferencesWindow.js:742
+#: app/adwPreferencesWindow.js:748
 msgid "Set Desktop back to ~/"
 msgstr "Ustaw ponownie katalog pulpitu na ~/"
 
-#: app/adwPreferencesWindow.js:744
+#: app/adwPreferencesWindow.js:750
 msgid "Restore Default Desktop Folder"
 msgstr "Przywróć domyślny katalog pulpitu"
 
-#: app/adwPreferencesWindow.js:746
+#: app/adwPreferencesWindow.js:752
 msgid "Restore"
 msgstr "Przywróć"
 
-#: app/adwPreferencesWindow.js:755
+#: app/adwPreferencesWindow.js:761
 msgid "Highlight the drop grid"
 msgstr "Podświetl siatkę upuszczeń"
 
-#: app/adwPreferencesWindow.js:765
+#: app/adwPreferencesWindow.js:771
 msgid "Add information emblems for links, encryption"
 msgstr "Dodaj emblematy informacyjne dla odnośników, szyfrowania"
 
-#: app/adwPreferencesWindow.js:769
+#: app/adwPreferencesWindow.js:775
 msgid "Use dark text in icon labels"
 msgstr "Używaj ciemnego tekstu w etykietach ikon"
 
-#: app/adwPreferencesWindow.js:774
+#: app/adwPreferencesWindow.js:780
 msgid "Show the personal folder on the desktop"
 msgstr "Pokaż Katalog domowy na pulpicie"
 
-#: app/adwPreferencesWindow.js:779
+#: app/adwPreferencesWindow.js:785
 msgid "Show the trash icon on the desktop"
 msgstr "Pokaż Kosz na pulpicie"
 
-#: app/adwPreferencesWindow.js:784
+#: app/adwPreferencesWindow.js:790
 msgid "Show external drives on the desktop"
 msgstr "Pokaż napędy zewnętrzne na pulpicie"
 
-#: app/adwPreferencesWindow.js:789
+#: app/adwPreferencesWindow.js:795
 msgid "Show network drives on the desktop"
 msgstr "Pokaż napędy sieciowe na pulpicie"
 
-#: app/adwPreferencesWindow.js:794
+#: app/adwPreferencesWindow.js:800
 msgid "Add new drives to the opposite side of the desktop"
 msgstr "Dodaj nowe dyski po przeciwnej stronie pulpitu"
 
-#: app/adwPreferencesWindow.js:799
+#: app/adwPreferencesWindow.js:805
 msgid "Action to Open Items"
 msgstr "Działanie otwierania elementów"
 
-#: app/adwPreferencesWindow.js:801
+#: app/adwPreferencesWindow.js:807
 msgid "Single click"
 msgstr "Pojedyncze kliknięcie"
 
-#: app/adwPreferencesWindow.js:802
+#: app/adwPreferencesWindow.js:808
 msgid "Double click"
 msgstr "Podwójne kliknięcie"
 
-#: app/adwPreferencesWindow.js:807
+#: app/adwPreferencesWindow.js:813
 msgid "Show image thumbnails"
 msgstr "Pokaż podglądy obrazów"
 
-#: app/adwPreferencesWindow.js:809
+#: app/adwPreferencesWindow.js:815
 msgid "Always"
 msgstr "Zawsze"
 
-#: app/adwPreferencesWindow.js:810
+#: app/adwPreferencesWindow.js:816
 msgid "On this computer only"
 msgstr "Tylko na tym komputerze"
 
-#: app/adwPreferencesWindow.js:811
+#: app/adwPreferencesWindow.js:817
 msgid "Never"
 msgstr "Nigdy"
 
-#: app/adwPreferencesWindow.js:816
+#: app/adwPreferencesWindow.js:822
 msgid "Show a context menu item to delete permanently"
 msgstr "Pokaż w menu kontekstowym element usuń trwale"
 
-#: app/adwPreferencesWindow.js:821
+#: app/adwPreferencesWindow.js:827
 msgid "Show hidden files"
 msgstr "Pokaż ukryte pliki"
 
-#: app/adwPreferencesWindow.js:826
+#: app/adwPreferencesWindow.js:832
 msgid "Open folders on drag hover"
 msgstr "Otwórz katalogi po najechaniu kursorem"
 
-#: app/adwPreferencesWindow.js:830
+#: app/adwPreferencesWindow.js:836
 msgid "About..."
 msgstr "O programie"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:843
+#: app/adwPreferencesWindow.js:849
 msgid "Translation"
 msgstr "Tłumaczenie"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:844
+#: app/adwPreferencesWindow.js:850
 msgid ""
 "Machine translated using LibreTranslate. User verified and edited on Weblate."
 msgstr ""
@@ -288,17 +288,17 @@ msgstr ""
 "edytowany na Weblate."
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:849
+#: app/adwPreferencesWindow.js:855
 msgid "Edit Translations"
 msgstr "Edytuj tłumaczenia"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:850
+#: app/adwPreferencesWindow.js:856
 msgid "Verify, add or correct translation in your web browser"
 msgstr ""
 "Weryfikacja, dodawanie lub poprawne tłumaczenie w przeglądarce internetowej"
 
-#: app/adwPreferencesWindow.js:851
+#: app/adwPreferencesWindow.js:857
 msgid "Translate"
 msgstr "Tłumacz"
 
@@ -326,79 +326,107 @@ msgstr "Błąd podczas zmiany domyślnego programu"
 msgid "Error while setting {foo} as default application for {mimetype}"
 msgstr "Błąd podczas ustawiania {foo} jako domyślnego programu dla {mimetype}"
 
-#: app/appImageFileItem.js:57
+#: app/appImageFileItem.js:63
 msgid "Invalid Permissions on AppImage File"
 msgstr "Nieprawidłowe uprawnienia pliku AppImage"
 
 # MT: LibreTranslate
-#: app/appImageFileItem.js:58
+#: app/appImageFileItem.js:64
 msgid "This AppImage File has incorrect Permissions."
 msgstr "Ten plik AppImage ma nieprawidłowe uprawnienia."
 
 # MT: LibreTranslate
-#: app/appImageFileItem.js:59 app/desktopFileIcon.js:153
+#: app/appImageFileItem.js:65 app/desktopFileIcon.js:167
 msgid "Right Click to edit Properties, then:"
 msgstr ""
 "Kliknij prawym przyciskiem myszy, aby edytować właściwości, a następnie:"
 
 # MT: LibreTranslate
-#: app/appImageFileItem.js:61 app/desktopFileIcon.js:155
+#: app/appImageFileItem.js:67 app/desktopFileIcon.js:169
 msgid "Set Permissions, in"
 msgstr "Ustaw uprawnienia"
 
 # MT: LibreTranslate
-#: app/appImageFileItem.js:62 app/desktopFileIcon.js:156
+#: app/appImageFileItem.js:68 app/desktopFileIcon.js:170
 msgid "Others Access"
 msgstr "Inne Dostęp"
 
 # MT: LibreTranslate
-#: app/appImageFileItem.js:63 app/desktopFileIcon.js:157
+#: app/appImageFileItem.js:69 app/desktopFileIcon.js:171
 msgid "Read Only"
 msgstr "Tylko do odczytu"
 
 # MT: LibreTranslate
-#: app/appImageFileItem.js:64 app/desktopFileIcon.js:158
+#: app/appImageFileItem.js:70 app/desktopFileIcon.js:172
 msgid "or"
 msgstr "lub"
 
-#: app/appImageFileItem.js:65 app/desktopFileIcon.js:159
+#: app/appImageFileItem.js:71 app/desktopFileIcon.js:173
 #: app/shortcutManager.js:58 app/shortcutManager.js:99
 msgid "None"
 msgstr "Brak"
 
 # MT: LibreTranslate
-#: app/appImageFileItem.js:66 app/desktopFileIcon.js:160
+#: app/appImageFileItem.js:72 app/desktopFileIcon.js:174
 msgid "Enable option"
 msgstr "Włącz opcję"
 
 # MT: LibreTranslate
-#: app/appImageFileItem.js:67 app/desktopFileIcon.js:161
+#: app/appImageFileItem.js:73 app/desktopFileIcon.js:175
 msgid "Allow Executing File as a Program"
 msgstr "Pozwól na wykonanie pliku jako programu"
 
-#: app/appImageFileItem.js:79
+#: app/appImageFileItem.js:85
 msgid "Untrusted AppImage File"
 msgstr "Niezaufany plik AppImage"
 
 # MT: LibreTranslate
-#: app/appImageFileItem.js:81
+#: app/appImageFileItem.js:87
 msgid "This AppImage file is not trusted, it can not be launched."
 msgstr "Ta aplikacja Plik nie jest zaufany, nie można go uruchomić."
 
 # MT: LibreTranslate
-#: app/appImageFileItem.js:82 app/desktopFileIcon.js:176
+#: app/appImageFileItem.js:88 app/desktopFileIcon.js:190
 msgid "To enable launching, right-click, then:"
 msgstr "Aby włączyć start, kliknij prawym przyciskiem myszy, a następnie:"
 
 # MT: LibreTranslate
-#: app/appImageFileItem.js:83 app/desktopFileIcon.js:177
+#: app/appImageFileItem.js:89 app/desktopFileIcon.js:191
 msgid "enable"
 msgstr "włącz"
 
-#: app/appImageFileItem.js:84 app/desktopFileIcon.js:178
+#: app/appImageFileItem.js:90 app/desktopFileIcon.js:192
 #: app/fileItemMenu.js:318 app/fileItemMenu.js:332
 msgid "Allow Launching"
 msgstr "Zezwól na uruchamianie"
+
+#: app/appImageFileItem.js:201 app/appImageFileItem.js:231
+msgid "AppImage Launch Failed"
+msgstr ""
+
+#: app/appImageFileItem.js:203
+msgid ""
+"This AppImage may need to be launched without sandboxing on this system.\n"
+"\n"
+"Launch with <b>--no-sandbox</b>?"
+msgstr ""
+
+#: app/appImageFileItem.js:206 app/autoAr.js:305 app/autoAr.js:634
+#: app/desktopManager.js:196 app/desktopManager.js:1320 app/dragManager.js:794
+#: app/fileItemMenu.js:918 app/fileItemMenu.js:971 app/showErrorPopup.js:49
+#: app/showErrorPopup.js:66 app/widgetManager.js:3313
+msgid "Cancel"
+msgstr "Anuluj"
+
+#: app/appImageFileItem.js:207
+msgid "Launch with lesser protections"
+msgstr ""
+
+# MT: LibreTranslate
+#: app/appImageFileItem.js:232
+#, fuzzy
+msgid "This AppImage could not be launched."
+msgstr "Ta aplikacja Plik nie jest zaufany, nie można go uruchomić."
 
 #: app/askRenamePopup.js:61
 msgid "Folder name"
@@ -408,7 +436,7 @@ msgstr "Nazwa katalogu"
 msgid "File name"
 msgstr "Nazwa pliku"
 
-#: app/askRenamePopup.js:75 app/autoAr.js:313 app/desktopManager.js:1320
+#: app/askRenamePopup.js:75 app/autoAr.js:313 app/desktopManager.js:1318
 #: app/fileItemMenu.js:971
 msgid "OK"
 msgstr "OK"
@@ -436,13 +464,6 @@ msgstr "Rozpakowywanie plików"
 #: app/autoAr.js:234
 msgid "Compressing files"
 msgstr "Kompresowanie plików"
-
-#: app/autoAr.js:305 app/autoAr.js:634 app/desktopManager.js:196
-#: app/desktopManager.js:1322 app/dragManager.js:792 app/fileItemMenu.js:918
-#: app/fileItemMenu.js:971 app/showErrorPopup.js:49 app/showErrorPopup.js:66
-#: app/widgetManager.js:3253
-msgid "Cancel"
-msgstr "Anuluj"
 
 #: app/autoAr.js:325 app/autoAr.js:622
 msgid "Enter a password here"
@@ -547,11 +568,11 @@ msgstr "Mniejsze archiwa, ale tylko dla Linux i Mac."
 msgid "Smaller archives but must be installed on Windows and Mac."
 msgstr "Mniejsze archiwa, ale muszą być zainstalowane na Windows i Mac."
 
-#: app/desktopFileIcon.js:125
+#: app/desktopFileIcon.js:139
 msgid "The Displayed Desktop is writable by others"
 msgstr "Możliwa edycja tego pulpitu przez wszystkich"
 
-#: app/desktopFileIcon.js:128
+#: app/desktopFileIcon.js:142
 msgid ""
 ".deskop files cannot be launched from this Desktop as the Desktop Folder is "
 "writable by other users.\n"
@@ -565,11 +586,11 @@ msgstr ""
 "Sprawdź uprawnienia tego katalogu pulpitu i upewnij się, że inni nie mają "
 "dostępu do zapisu."
 
-#: app/desktopFileIcon.js:138
+#: app/desktopFileIcon.js:152
 msgid "Broken Desktop File"
 msgstr "Uszkodzony plik pulpitu"
 
-#: app/desktopFileIcon.js:141
+#: app/desktopFileIcon.js:155
 msgid ""
 "This .desktop file has errors or points to a program without permissions. It "
 "can not be executed.\n"
@@ -581,29 +602,29 @@ msgstr ""
 "\n"
 "Edytuj plik, aby ustawić poprawny program wykonywalny."
 
-#: app/desktopFileIcon.js:151
+#: app/desktopFileIcon.js:165
 msgid "Invalid Permissions on Desktop File"
 msgstr "Nieprawidłowe uprawnienia do pliku pulpitu"
 
 # MT: LibreTranslate
-#: app/desktopFileIcon.js:152
+#: app/desktopFileIcon.js:166
 msgid "This Desktop File has incorrect Permissions."
 msgstr "Ten plik pulpitu ma nieprawidłowe uprawnienia."
 
-#: app/desktopFileIcon.js:173
+#: app/desktopFileIcon.js:187
 msgid "Untrusted Desktop File"
 msgstr "Niezaufany plik pulpitu"
 
 # MT: LibreTranslate
-#: app/desktopFileIcon.js:175
+#: app/desktopFileIcon.js:189
 msgid "This Desktop file is not trusted, it can not be launched."
 msgstr "Ten plik pulpitu nie jest zaufany, nie może być uruchomiony."
 
-#: app/desktopFileIcon.js:204 app/gnomeShellDragDrop.js:355
+#: app/desktopFileIcon.js:218 app/gnomeShellDragDrop.js:355
 msgid "Could not open File"
 msgstr "Nie można otworzyć pliku"
 
-#: app/desktopFileIcon.js:206
+#: app/desktopFileIcon.js:220
 msgid "{appName} can not open files of this Type!"
 msgstr "${appName} nie może otwierać plików tego typu!"
 
@@ -634,15 +655,15 @@ msgstr "Przełączanie na nowy pulpit..."
 msgid "Desktop Icons"
 msgstr "Ikony pulpitu"
 
-#: app/desktopGrid.js:2584
+#: app/desktopGrid.js:2585
 msgid "Back to Desktop"
 msgstr "Wróć do Pulpit"
 
-#: app/desktopGrid.js:2585 app/widgetManager.js:1751
+#: app/desktopGrid.js:2586 app/widgetManager.js:1754
 msgid "Toggle Widget Grid"
 msgstr "Przełącz siatkę widżetów"
 
-#: app/desktopGrid.js:2586
+#: app/desktopGrid.js:2587
 msgid "Add Widget..."
 msgstr "Dodaj widżet..."
 
@@ -737,19 +758,19 @@ msgstr ""
 msgid "Clear current selection before new search"
 msgstr "Usuń bieżący wybór przed nowym wyszukiwaniem"
 
-#: app/desktopManager.js:1324
+#: app/desktopManager.js:1322
 msgid "Find Files on Desktop"
 msgstr "Znajdź pliki na pulpicie"
 
-#: app/desktopManager.js:1669 app/desktopMenu.js:1096 app/shortcuts.js:10
+#: app/desktopManager.js:1666 app/desktopMenu.js:1096 app/shortcuts.js:10
 msgid "New Folder"
 msgstr "Nowy katalog"
 
-#: app/desktopManager.js:1703
+#: app/desktopManager.js:1700
 msgid "Folder Creation Failed"
 msgstr "Utworzenie katalogu nie powiodło się"
 
-#: app/desktopManager.js:1704
+#: app/desktopManager.js:1701
 msgid "Could not create folder"
 msgstr "Nie można utworzyć katalogu"
 
@@ -869,51 +890,51 @@ msgstr "Edytuj widżety…"
 msgid "Shell Menu…"
 msgstr "Menu powłoki…"
 
-#: app/dragManager.js:101 app/dragManager.js:939
+#: app/dragManager.js:101 app/dragManager.js:941
 msgid "Making SymLink Failed"
 msgstr "Tworzenie dowiązania symbolicznego nie powiodło się"
 
-#: app/dragManager.js:102 app/dragManager.js:940
+#: app/dragManager.js:102 app/dragManager.js:942
 msgid "Could not create symbolic link"
 msgstr "Nie można utworzyć dowiązania symbolicznego"
 
-#: app/dragManager.js:748
+#: app/dragManager.js:750
 msgid "Copy/Move Failed"
 msgstr "Błąd kopiowania/przenoszenia"
 
-#: app/dragManager.js:749
+#: app/dragManager.js:751
 msgid "{0} Does not exist"
 msgstr "{0} nie istnieje"
 
-#: app/dragManager.js:791
+#: app/dragManager.js:793
 msgid "Choose Action for Files"
 msgstr "Wybierz działanie dla plików"
 
-#: app/dragManager.js:792
+#: app/dragManager.js:794
 msgid "Move"
 msgstr "Przenieś"
 
-#: app/dragManager.js:792 app/fileItemMenu.js:242
+#: app/dragManager.js:794 app/fileItemMenu.js:242
 msgid "Copy"
 msgstr "Skopiuj"
 
-#: app/dragManager.js:792
+#: app/dragManager.js:794
 msgid "Link"
 msgstr "Odnośnik"
 
-#: app/fileItemIcon.js:95
+#: app/fileItemIcon.js:126
 msgid "Folder"
 msgstr "Katalog"
 
-#: app/fileItemIcon.js:96
+#: app/fileItemIcon.js:127
 msgid "File"
 msgstr "Plik"
 
-#: app/fileItemIcon.js:286
+#: app/fileItemIcon.js:369
 msgid "Opening File Failed"
 msgstr "Otwarcie pliku się nie powiodło"
 
-#: app/fileItemIcon.js:292
+#: app/fileItemIcon.js:375
 msgid "There is no application installed to open \"{fo}\" files."
 msgstr "Nie ma zainstalowanego programu do otwierania plików \"{fo}\"."
 
@@ -1304,7 +1325,7 @@ msgstr "Przełącz wybór klawiatury"
 msgid "Toggle Widget Layer"
 msgstr "Przełącz warstwę widżetów"
 
-#: app/shortcuts.js:40 app/widgetManager.js:1687
+#: app/shortcuts.js:40 app/widgetManager.js:1690
 msgid "Add Widget"
 msgstr "Dodaj widżet"
 
@@ -1349,6 +1370,10 @@ msgid "Show Shortcut Viewer"
 msgstr "Pokaż skróty klawiszowe"
 
 #: app/shortcuts.js:69
+msgid "Force Garbage Collection"
+msgstr ""
+
+#: app/shortcuts.js:70
 msgid "Show Or Hide Desktop Icons"
 msgstr "Pokaż lub ukryj ikony na pulpicie"
 
@@ -1358,97 +1383,93 @@ msgstr "Więcej informacji"
 
 #. TRANSLATORS: "Home" is the text that will be shown in
 #. the user's personal folder
-#: app/specialFolderIcon.js:57 app/specialFolderIcon.js:69
+#: app/specialFolderIcon.js:61 app/specialFolderIcon.js:73
 msgid "Home"
 msgstr "Katalog domowy"
 
-#: app/specialFolderIcon.js:63
+#: app/specialFolderIcon.js:67
 msgid "Trash"
 msgstr "Kosz"
 
-#. * TRANSLATORS: when using a screen reader,
-#. * this is the text read when a stack is
-#. * selected. Example: if a stack named "pictures"
-#. *  is selected, it will say "Stack pictures"
-#: app/stackItem.js:46
+#: app/stackItem.js:153
 msgid "Stack"
 msgstr "Grupowanie"
 
-#: app/symLinkIcon.js:100
+#: app/symLinkIcon.js:108
 msgid "Broken Link"
 msgstr "Uszkodzony odnośnik"
 
-#: app/symLinkIcon.js:102
+#: app/symLinkIcon.js:110
 msgid "Can not open this File because it is a Broken Symlink"
 msgstr ""
 "Nie można otworzyć tego pliku ponieważ jest to uszkodzone dowiązanie "
 "symboliczne"
 
-#: app/volumeIcon.js:58
+#: app/volumeIcon.js:64
 msgid "Drive"
 msgstr "Napęd"
 
-#: app/widgetManager.js:2417
+#: app/widgetManager.js:2420
 msgid "Widget preferences"
 msgstr "Preferencje widżetów"
 
-#: app/widgetManager.js:2429 app/widgetManager.js:2438
+#: app/widgetManager.js:2432 app/widgetManager.js:2441
 msgid "Unpin widget"
 msgstr "Odepnij widżet"
 
-#: app/widgetManager.js:2429 app/widgetManager.js:2438
+#: app/widgetManager.js:2432 app/widgetManager.js:2441
 msgid "Pin widget"
 msgstr "Przypnij widżet"
 
-#: app/widgetManager.js:2447
+#: app/widgetManager.js:2450
 msgid "Reposition widget"
 msgstr "Zmień położenie widżetu"
 
-#: app/widgetManager.js:3051
+#: app/widgetManager.js:3066
 msgid "HTML widget"
 msgstr "Widżet HTML"
 
-#: app/widgetManager.js:3053
+#: app/widgetManager.js:3068
 msgid "GTK widget"
 msgstr "Widżet GTK"
 
-#: app/widgetManager.js:3059
+#: app/widgetManager.js:3074
 msgid "User Installed"
 msgstr "Zainstalowane przez użytkownika"
 
-#: app/widgetManager.js:3059
+#: app/widgetManager.js:3074
 msgid "System Installed"
 msgstr "Systemowe"
 
-#: app/widgetManager.js:3081
+#: app/widgetManager.js:3096
 msgid "Download Latest Widgets from Repository?"
 msgstr "Pobrać najnowszy widżet z repozytorium?"
 
-#: app/widgetManager.js:3083
+#: app/widgetManager.js:3098
 msgid "This will overwrite all widgets in your local widgets folder."
 msgstr "Spowoduje to nadpisanie wszystkich widżetów w Twoim lokalnym folderze."
 
-#: app/widgetManager.js:3156
+#: app/widgetManager.js:3197
 msgid "Widgets updated"
 msgstr "Zaktualizowano widżety"
 
-#: app/widgetManager.js:3157
+#: app/widgetManager.js:3198
 msgid "The latest widgets were downloaded and installed."
 msgstr "Najnowsze widżety zostały pobrane i zainstalowane."
 
-#: app/widgetManager.js:3163
+#: app/widgetManager.js:3206
 msgid "Widgets download failed"
 msgstr "Błąd podczas pobierania widżetów"
 
-#: app/widgetManager.js:3252
+#: app/widgetManager.js:3312
 msgid "Allow"
 msgstr "Zezwól"
 
-#: app/widgetManager.js:3306
+#: app/widgetManager.js:3377
 msgid "Strict"
 msgstr "Ścisłe"
 
-#: app/widgetManager.js:3308
+#: app/widgetManager.js:3379
 msgid ""
 "The widget runs in a tightly sandboxed web environment.\n"
 "\n"
@@ -1466,11 +1487,11 @@ msgstr ""
 "\n"
 "To jest najbezpieczniejsza opcja i zalecana do większości widżetów."
 
-#: app/widgetManager.js:3319
+#: app/widgetManager.js:3390
 msgid "Relaxed"
 msgstr "Zrelaksowany"
 
-#: app/widgetManager.js:3321
+#: app/widgetManager.js:3392
 msgid ""
 "The widget is allowed broader web capabilities.\n"
 "\n"
@@ -1489,11 +1510,11 @@ msgstr ""
 "\n"
 "Używaj tej opcji tylko w przypadku widżetów, którym ufasz."
 
-#: app/widgetManager.js:3331
+#: app/widgetManager.js:3402
 msgid "Development"
 msgstr "Rozwój"
 
-#: app/widgetManager.js:3333
+#: app/widgetManager.js:3404
 msgid ""
 "The widget runs with development-friendly web access.\n"
 "\n"
@@ -1504,18 +1525,18 @@ msgid ""
 msgstr ""
 "Widżet działa z przyjaznym dla programistów dostępem do Internetu.\n"
 "\n"
-"• Dozwolone są połączenia z lokalnymi serwerami programistycznymi (localhost)"
-".\n"
+"• Dozwolone są połączenia z lokalnymi serwerami programistycznymi "
+"(localhost).\n"
 "• Dostęp do protokołu HTTP i WebSocket może być dozwolony na potrzeby "
 "testów.\n"
 "\n"
 "Ten tryb jest przeznaczony wyłącznie do programowania i debugowania."
 
-#: app/widgetManager.js:3342
+#: app/widgetManager.js:3413
 msgid "Default"
 msgstr "Domyślnie"
 
-#: app/widgetManager.js:3344
+#: app/widgetManager.js:3415
 msgid ""
 "The widget runs with a predefined web security policy.\n"
 "\n"
@@ -1525,12 +1546,12 @@ msgstr ""
 "\n"
 "Dostęp do sieci i możliwości są ograniczone zgodnie z aktywną polityką."
 
-#: app/widgetManager.js:3352
+#: app/widgetManager.js:3423
 msgid "Allow web content for {widgetId}?"
 msgstr "Zezwolić na treści internetowe dla {widgetId}?"
 
 #. eslint-disable-next-line prefer-template
-#: app/widgetManager.js:3365
+#: app/widgetManager.js:3436
 msgid ""
 "The widget you are adding may load web content from the internet.\n"
 "\n"
@@ -1538,7 +1559,7 @@ msgstr ""
 "Dodawany widżet może ładować zawartość internetową z Internetu.\n"
 "\n"
 
-#: app/widgetManager.js:3366
+#: app/widgetManager.js:3437
 msgid ""
 "This content is subject to the widget security policy:\n"
 "\n"
@@ -1546,7 +1567,7 @@ msgstr ""
 "Ta treść podlega polityce bezpieczeństwa widgetów:\n"
 "\n"
 
-#: app/widgetManager.js:3401
+#: app/widgetManager.js:3473
 msgid ""
 "This widget, {widgetId} runs a background process on your computer.\n"
 "\n"
@@ -1554,7 +1575,7 @@ msgstr ""
 "Ten widżet, {widgetId}, uruchamia proces w tle na Twoim komputerze.\n"
 "\n"
 
-#: app/widgetManager.js:3403
+#: app/widgetManager.js:3475
 msgid ""
 "The backend runs with your normal user permissions, just like any other "
 "application you start.\n"
@@ -1562,7 +1583,7 @@ msgstr ""
 "Backend działa z normalnymi uprawnieniami użytkownika, tak jak każda inna "
 "uruchamiana aplikacja.\n"
 
-#: app/widgetManager.js:3404
+#: app/widgetManager.js:3476
 msgid ""
 "It can access your files, system resources, and the network according to "
 "your user account permissions.\n"
@@ -1572,27 +1593,27 @@ msgstr ""
 "uprawnieniami konta użytkownika.\n"
 "\n"
 
-#: app/widgetManager.js:3407
+#: app/widgetManager.js:3479
 msgid "Command:"
 msgstr "Polecenie:"
 
-#: app/widgetManager.js:3415
+#: app/widgetManager.js:3487
 msgid "Only allow this for widgets you implicitly trust."
 msgstr "Zezwalaj na to tylko w przypadku widżetów, którym pośrednio ufasz."
 
-#: app/widgetManager.js:3419
+#: app/widgetManager.js:3491
 msgid "Allow widget backend?"
 msgstr "Zezwolić na backend widżetów?"
 
-#: app/widgetWebContext.js:296
+#: app/widgetWebContext.js:297
 msgid "Widget Preferences"
 msgstr "Preferencje widżetów"
 
-#: app/widgetWebContext.js:868
+#: app/widgetWebContext.js:869
 msgid "Open link in browser?"
 msgstr "Otworzyć link w przeglądarce?"
 
-#: app/widgetWebContext.js:869
+#: app/widgetWebContext.js:870
 msgid ""
 "The widget wants to open this link in your browser:\n"
 "\n"
@@ -1615,7 +1636,7 @@ msgstr ""
 msgid "Choose Desktop Folder"
 msgstr "Wybierz katalog pulpitu"
 
-#: app/utils/desktopIconsUtil.js:235
+#: app/utils/desktopIconsUtil.js:238
 msgid "Command not found"
 msgstr "Nie odnaleziono polecenia"
 
@@ -1641,8 +1662,7 @@ msgstr "Wyświetlaj ikony na pulpicie GNOME"
 
 #: data/com.desktop.ding.desktop.in:6
 msgid "desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;"
-msgstr ""
-"desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;"
+msgstr "desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;"
 
 #: data/com.desktop.ding.desktop.in:21
 msgid "Show<>Hide"
@@ -1717,7 +1737,8 @@ msgstr ""
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:60
 msgid "Shows a rectangle in the destination place during DnD"
-msgstr "Pokarz prostokąt w miejscu docelowym podczas Przeciągania i Upuszczania"
+msgstr ""
+"Pokarz prostokąt w miejscu docelowym podczas Przeciągania i Upuszczania"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:61
 msgid ""

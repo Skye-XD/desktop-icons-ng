@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-18 19:30-0400\n"
+"POT-Creation-Date: 2026-08-06 09:20-0400\n"
 "PO-Revision-Date: 2026-07-14 13:24+0000\n"
 "Last-Translator: Sundeep Mediratta <smedius@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/gtk4-"
@@ -75,276 +75,276 @@ msgid "Help translate in your web browser"
 msgstr "Hjelp å oversette i nettleseren din"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:618 app/adwPreferencesWindow.js:619
+#: app/adwPreferencesWindow.js:624 app/adwPreferencesWindow.js:625
 msgid "Desktop"
 msgstr "Skrivebord"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:624 app/adwPreferencesWindow.js:625
+#: app/adwPreferencesWindow.js:630 app/adwPreferencesWindow.js:631
 msgid "Files"
 msgstr "Filer"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:630 app/adwPreferencesWindow.js:631
-#: app/adwPreferencesWindow.js:673
+#: app/adwPreferencesWindow.js:636 app/adwPreferencesWindow.js:637
+#: app/adwPreferencesWindow.js:679
 msgid "Tweaks"
 msgstr "Tweaks"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:636 app/adwPreferencesWindow.js:637
+#: app/adwPreferencesWindow.js:642 app/adwPreferencesWindow.js:643
 msgid "More"
 msgstr "Mer"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:648
+#: app/adwPreferencesWindow.js:654
 msgid "Desktop Settings"
 msgstr "Skrivebordsinnstillinger"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:649
+#: app/adwPreferencesWindow.js:655
 msgid "Settings for the Desktop Program"
 msgstr "Innstillinger for skrivebordsprogrammet"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:655
+#: app/adwPreferencesWindow.js:661
 msgid "Desktop Folder"
 msgstr "Skrivebordsmappe"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:656
+#: app/adwPreferencesWindow.js:662
 msgid "Current Desktop: "
 msgstr "Nåværende skrivebord:"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:666
+#: app/adwPreferencesWindow.js:672
 msgid "Files Settings"
 msgstr "Filinnstillinger"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:667
+#: app/adwPreferencesWindow.js:673
 msgid "Settings shared with Gnome Files"
 msgstr "Innstillinger delt med Gnome-filer"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:674
+#: app/adwPreferencesWindow.js:680
 msgid "Miscellaneous Tweaks"
 msgstr "Diverse Tweaks"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:698
+#: app/adwPreferencesWindow.js:704
 msgid "Size for the desktop icons"
 msgstr "Størrelse på skrivebordsikonene"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:700
+#: app/adwPreferencesWindow.js:706
 msgid "Tiny"
 msgstr "liten"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:701
+#: app/adwPreferencesWindow.js:707
 msgid "Small"
 msgstr "Liten"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:702
+#: app/adwPreferencesWindow.js:708
 msgid "Standard"
 msgstr "Standard"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:703
+#: app/adwPreferencesWindow.js:709
 msgid "Large"
 msgstr "Stor"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:709
+#: app/adwPreferencesWindow.js:715
 msgid "New icons alignment"
 msgstr "Ny ikonjustering"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:711
+#: app/adwPreferencesWindow.js:717
 msgid "Top left corner"
 msgstr "Øverste venstre hjørne"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:712
+#: app/adwPreferencesWindow.js:718
 msgid "Top right corner"
 msgstr "Øverste høyre hjørne"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:713
+#: app/adwPreferencesWindow.js:719
 msgid "Bottom left corner"
 msgstr "Nederste venstre hjørne"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:714
+#: app/adwPreferencesWindow.js:720
 msgid "Bottom right corner"
 msgstr "Nederste høyre hjørne"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:720
+#: app/adwPreferencesWindow.js:726
 msgid "Add new icons to Secondary Monitors first, if available"
 msgstr ""
 "Legg til nye ikoner i sekundære skjermer først, hvis det er tilgjengelig"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:724
+#: app/adwPreferencesWindow.js:730
 msgid "Snap icons to grid"
 msgstr "Snap ikoner til rutenett"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:730
+#: app/adwPreferencesWindow.js:736
 msgid "Show desktop widgets"
 msgstr "Vis skrivebord moduler"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:735
+#: app/adwPreferencesWindow.js:741
 msgid "New Desktop Folder"
 msgstr "Ny skrivebordsmappe"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:736
+#: app/adwPreferencesWindow.js:742
 msgid "Set a new folder for the desktop"
 msgstr "Sett en ny mappe for skrivebordet"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:737 app/utils/desktopFolderUtils.js:85
+#: app/adwPreferencesWindow.js:743 app/utils/desktopFolderUtils.js:85
 msgid "Choose"
 msgstr "Velg"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:742
+#: app/adwPreferencesWindow.js:748
 msgid "Set Desktop back to ~/"
 msgstr "Sett skrivebordet tilbake til ~/"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:744
+#: app/adwPreferencesWindow.js:750
 msgid "Restore Default Desktop Folder"
 msgstr "Gjenopprett standard skrivebordsmappe"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:746
+#: app/adwPreferencesWindow.js:752
 msgid "Restore"
 msgstr "Gjenopprett"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:755
+#: app/adwPreferencesWindow.js:761
 msgid "Highlight the drop grid"
 msgstr "Marker nedtrekksnettet"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:765
+#: app/adwPreferencesWindow.js:771
 msgid "Add information emblems for links, encryption"
 msgstr "Legg til informasjonsmerker for lenker, kryptering"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:769
+#: app/adwPreferencesWindow.js:775
 msgid "Use dark text in icon labels"
 msgstr "Bruk mørk tekst i ikonetiketter"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:774
+#: app/adwPreferencesWindow.js:780
 msgid "Show the personal folder on the desktop"
 msgstr "Vis den personlige mappen på skrivebordet"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:779
+#: app/adwPreferencesWindow.js:785
 msgid "Show the trash icon on the desktop"
 msgstr "Vis papirkurvikonet på skrivebordet"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:784
+#: app/adwPreferencesWindow.js:790
 msgid "Show external drives on the desktop"
 msgstr "Vis eksterne enheter på skrivebordet"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:789
+#: app/adwPreferencesWindow.js:795
 msgid "Show network drives on the desktop"
 msgstr "Vis nettverksstasjoner på skrivebordet"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:794
+#: app/adwPreferencesWindow.js:800
 msgid "Add new drives to the opposite side of the desktop"
 msgstr "Legg nye enheter til motsatt side av skrivebordet"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:799
+#: app/adwPreferencesWindow.js:805
 msgid "Action to Open Items"
 msgstr "Handling for å åpne elementer"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:801
+#: app/adwPreferencesWindow.js:807
 msgid "Single click"
 msgstr "Enkeltklikk"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:802
+#: app/adwPreferencesWindow.js:808
 msgid "Double click"
 msgstr "Dobbeltklikk"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:807
+#: app/adwPreferencesWindow.js:813
 msgid "Show image thumbnails"
 msgstr "Vis miniatyrbildebilder"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:809
+#: app/adwPreferencesWindow.js:815
 msgid "Always"
 msgstr "Alltid"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:810
+#: app/adwPreferencesWindow.js:816
 msgid "On this computer only"
 msgstr "Bare på denne datamaskinen"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:811
+#: app/adwPreferencesWindow.js:817
 msgid "Never"
 msgstr "Aldri"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:816
+#: app/adwPreferencesWindow.js:822
 msgid "Show a context menu item to delete permanently"
 msgstr "Vis en oppføring i kontekstmenyen for å slette for godt"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:821
+#: app/adwPreferencesWindow.js:827
 msgid "Show hidden files"
 msgstr "Vis skjulte filer"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:826
+#: app/adwPreferencesWindow.js:832
 msgid "Open folders on drag hover"
 msgstr "Åpne mapper når du drar sveve"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:830
+#: app/adwPreferencesWindow.js:836
 msgid "About..."
 msgstr "Om..."
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:843
+#: app/adwPreferencesWindow.js:849
 msgid "Translation"
 msgstr "Oversettelse"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:844
+#: app/adwPreferencesWindow.js:850
 msgid ""
 "Machine translated using LibreTranslate. User verified and edited on Weblate."
 msgstr ""
 "Maskin oversatt med LibreTranslate. Bruker verifisert og redigert på Weblate."
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:849
+#: app/adwPreferencesWindow.js:855
 msgid "Edit Translations"
 msgstr "Rediger oversettelser"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:850
+#: app/adwPreferencesWindow.js:856
 msgid "Verify, add or correct translation in your web browser"
 msgstr "Kontroller, legg til eller riktig oversettelse i nettleseren din"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:851
+#: app/adwPreferencesWindow.js:857
 msgid "Translate"
 msgstr "Oversett"
 
@@ -379,81 +379,110 @@ msgid "Error while setting {foo} as default application for {mimetype}"
 msgstr "Feil under innstilling {foo} som standardapplikasjon for {mimetype}]"
 
 # MT: LibreTranslate
-#: app/appImageFileItem.js:57
+#: app/appImageFileItem.js:63
 msgid "Invalid Permissions on AppImage File"
 msgstr "Ugyldige tillatelser på AppImage-fil"
 
 # MT: LibreTranslate
-#: app/appImageFileItem.js:58
+#: app/appImageFileItem.js:64
 msgid "This AppImage File has incorrect Permissions."
 msgstr "Denne AppImage-filen har feil tillatelser."
 
 # MT: LibreTranslate
-#: app/appImageFileItem.js:59 app/desktopFileIcon.js:153
+#: app/appImageFileItem.js:65 app/desktopFileIcon.js:167
 msgid "Right Click to edit Properties, then:"
 msgstr "Høyreklikk for å redigere egenskaper, og deretter:"
 
 # MT: LibreTranslate
-#: app/appImageFileItem.js:61 app/desktopFileIcon.js:155
+#: app/appImageFileItem.js:67 app/desktopFileIcon.js:169
 msgid "Set Permissions, in"
 msgstr "Angi tillatelser, i"
 
 # MT: LibreTranslate
-#: app/appImageFileItem.js:62 app/desktopFileIcon.js:156
+#: app/appImageFileItem.js:68 app/desktopFileIcon.js:170
 msgid "Others Access"
 msgstr "Andre tilgang"
 
 # MT: LibreTranslate
-#: app/appImageFileItem.js:63 app/desktopFileIcon.js:157
+#: app/appImageFileItem.js:69 app/desktopFileIcon.js:171
 msgid "Read Only"
 msgstr "Les kun"
 
 # MT: LibreTranslate
-#: app/appImageFileItem.js:64 app/desktopFileIcon.js:158
+#: app/appImageFileItem.js:70 app/desktopFileIcon.js:172
 msgid "or"
 msgstr "eller"
 
 # MT: LibreTranslate
-#: app/appImageFileItem.js:65 app/desktopFileIcon.js:159
+#: app/appImageFileItem.js:71 app/desktopFileIcon.js:173
 #: app/shortcutManager.js:58 app/shortcutManager.js:99
 msgid "None"
 msgstr "Ingen"
 
 # MT: LibreTranslate
-#: app/appImageFileItem.js:66 app/desktopFileIcon.js:160
+#: app/appImageFileItem.js:72 app/desktopFileIcon.js:174
 msgid "Enable option"
 msgstr "Slå på alternativ"
 
 # MT: LibreTranslate
-#: app/appImageFileItem.js:67 app/desktopFileIcon.js:161
+#: app/appImageFileItem.js:73 app/desktopFileIcon.js:175
 msgid "Allow Executing File as a Program"
 msgstr "Tillat å utføre filen som et program"
 
 # MT: LibreTranslate
-#: app/appImageFileItem.js:79
+#: app/appImageFileItem.js:85
 msgid "Untrusted AppImage File"
 msgstr "Utrusted AppImage fil"
 
 # MT: LibreTranslate
-#: app/appImageFileItem.js:81
+#: app/appImageFileItem.js:87
 msgid "This AppImage file is not trusted, it can not be launched."
 msgstr "Denne appen Bildefilen er ikke pålitelig, den kan ikke lanseres."
 
 # MT: LibreTranslate
-#: app/appImageFileItem.js:82 app/desktopFileIcon.js:176
+#: app/appImageFileItem.js:88 app/desktopFileIcon.js:190
 msgid "To enable launching, right-click, then:"
 msgstr "For å aktivere oppstart, høyreklikk deretter:"
 
 # MT: LibreTranslate
-#: app/appImageFileItem.js:83 app/desktopFileIcon.js:177
+#: app/appImageFileItem.js:89 app/desktopFileIcon.js:191
 msgid "enable"
 msgstr "aktiver"
 
 # MT: LibreTranslate
-#: app/appImageFileItem.js:84 app/desktopFileIcon.js:178
+#: app/appImageFileItem.js:90 app/desktopFileIcon.js:192
 #: app/fileItemMenu.js:318 app/fileItemMenu.js:332
 msgid "Allow Launching"
 msgstr "Tillat oppstart"
+
+#: app/appImageFileItem.js:201 app/appImageFileItem.js:231
+msgid "AppImage Launch Failed"
+msgstr ""
+
+#: app/appImageFileItem.js:203
+msgid ""
+"This AppImage may need to be launched without sandboxing on this system.\n"
+"\n"
+"Launch with <b>--no-sandbox</b>?"
+msgstr ""
+
+# MT: LibreTranslate
+#: app/appImageFileItem.js:206 app/autoAr.js:305 app/autoAr.js:634
+#: app/desktopManager.js:196 app/desktopManager.js:1320 app/dragManager.js:794
+#: app/fileItemMenu.js:918 app/fileItemMenu.js:971 app/showErrorPopup.js:49
+#: app/showErrorPopup.js:66 app/widgetManager.js:3313
+msgid "Cancel"
+msgstr "Avbryt"
+
+#: app/appImageFileItem.js:207
+msgid "Launch with lesser protections"
+msgstr ""
+
+# MT: LibreTranslate
+#: app/appImageFileItem.js:232
+#, fuzzy
+msgid "This AppImage could not be launched."
+msgstr "Denne appen Bildefilen er ikke pålitelig, den kan ikke lanseres."
 
 # MT: LibreTranslate
 #: app/askRenamePopup.js:61
@@ -466,7 +495,7 @@ msgid "File name"
 msgstr "Filnavn"
 
 # MT: LibreTranslate
-#: app/askRenamePopup.js:75 app/autoAr.js:313 app/desktopManager.js:1320
+#: app/askRenamePopup.js:75 app/autoAr.js:313 app/desktopManager.js:1318
 #: app/fileItemMenu.js:971
 msgid "OK"
 msgstr "OK"
@@ -499,14 +528,6 @@ msgstr "Pakke ut filer"
 #: app/autoAr.js:234
 msgid "Compressing files"
 msgstr "Komprimere filer"
-
-# MT: LibreTranslate
-#: app/autoAr.js:305 app/autoAr.js:634 app/desktopManager.js:196
-#: app/desktopManager.js:1322 app/dragManager.js:792 app/fileItemMenu.js:918
-#: app/fileItemMenu.js:971 app/showErrorPopup.js:49 app/showErrorPopup.js:66
-#: app/widgetManager.js:3253
-msgid "Cancel"
-msgstr "Avbryt"
 
 # MT: LibreTranslate
 #: app/autoAr.js:325 app/autoAr.js:622
@@ -635,12 +656,12 @@ msgid "Smaller archives but must be installed on Windows and Mac."
 msgstr "Mindre arkiver, men må installeres på Windows og Mac."
 
 # MT: LibreTranslate
-#: app/desktopFileIcon.js:125
+#: app/desktopFileIcon.js:139
 msgid "The Displayed Desktop is writable by others"
 msgstr "Det viste skrivebordet er skrivelig av andre"
 
 # MT: LibreTranslate
-#: app/desktopFileIcon.js:128
+#: app/desktopFileIcon.js:142
 msgid ""
 ".deskop files cannot be launched from this Desktop as the Desktop Folder is "
 "writable by other users.\n"
@@ -655,12 +676,12 @@ msgstr ""
 "ikke er skrivbar for andre."
 
 # MT: LibreTranslate
-#: app/desktopFileIcon.js:138
+#: app/desktopFileIcon.js:152
 msgid "Broken Desktop File"
 msgstr "Broken skrivebordsfil"
 
 # MT: LibreTranslate
-#: app/desktopFileIcon.js:141
+#: app/desktopFileIcon.js:155
 msgid ""
 "This .desktop file has errors or points to a program without permissions. It "
 "can not be executed.\n"
@@ -673,32 +694,32 @@ msgstr ""
 "Rediger filen for å angi riktig kjørbare program."
 
 # MT: LibreTranslate
-#: app/desktopFileIcon.js:151
+#: app/desktopFileIcon.js:165
 msgid "Invalid Permissions on Desktop File"
 msgstr "Ugyldige tillatelser på skrivebordsfil"
 
 # MT: LibreTranslate
-#: app/desktopFileIcon.js:152
+#: app/desktopFileIcon.js:166
 msgid "This Desktop File has incorrect Permissions."
 msgstr "Denne skrivebordsfilen har feil tillatelser."
 
 # MT: LibreTranslate
-#: app/desktopFileIcon.js:173
+#: app/desktopFileIcon.js:187
 msgid "Untrusted Desktop File"
 msgstr "Utrustad skrivebordsfil"
 
 # MT: LibreTranslate
-#: app/desktopFileIcon.js:175
+#: app/desktopFileIcon.js:189
 msgid "This Desktop file is not trusted, it can not be launched."
 msgstr "Denne skrivebordsfilen er ikke pålitelig, den kan ikke startes."
 
 # MT: LibreTranslate
-#: app/desktopFileIcon.js:204 app/gnomeShellDragDrop.js:355
+#: app/desktopFileIcon.js:218 app/gnomeShellDragDrop.js:355
 msgid "Could not open File"
 msgstr "Kunne ikke åpne Fil"
 
 # MT: LibreTranslate
-#: app/desktopFileIcon.js:206
+#: app/desktopFileIcon.js:220
 msgid "{appName} can not open files of this Type!"
 msgstr "{appName} kan ikke åpne filer av denne typen!"
 
@@ -734,16 +755,16 @@ msgid "Desktop Icons"
 msgstr "Skrivebordsikon"
 
 # MT: LibreTranslate
-#: app/desktopGrid.js:2584
+#: app/desktopGrid.js:2585
 #, fuzzy
 msgid "Back to Desktop"
 msgstr "Oppdater skrivebordet"
 
-#: app/desktopGrid.js:2585 app/widgetManager.js:1751
+#: app/desktopGrid.js:2586 app/widgetManager.js:1754
 msgid "Toggle Widget Grid"
 msgstr "Aktiver/Deaktiver widget-rutenett"
 
-#: app/desktopGrid.js:2586
+#: app/desktopGrid.js:2587
 msgid "Add Widget..."
 msgstr "Legg til miniprogram"
 
@@ -852,22 +873,22 @@ msgid "Clear current selection before new search"
 msgstr "Fjern gjeldende utvalg før nytt søk"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:1324
+#: app/desktopManager.js:1322
 msgid "Find Files on Desktop"
 msgstr "Finn filer på skrivebordet"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:1669 app/desktopMenu.js:1096 app/shortcuts.js:10
+#: app/desktopManager.js:1666 app/desktopMenu.js:1096 app/shortcuts.js:10
 msgid "New Folder"
 msgstr "Ny mappe"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:1703
+#: app/desktopManager.js:1700
 msgid "Folder Creation Failed"
 msgstr "Oppretting av mappe mislyktes"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:1704
+#: app/desktopManager.js:1701
 msgid "Could not create folder"
 msgstr "Kunne ikke opprette mappe"
 
@@ -1016,62 +1037,62 @@ msgid "Shell Menu…"
 msgstr "Skal-menyen.."
 
 # MT: LibreTranslate
-#: app/dragManager.js:101 app/dragManager.js:939
+#: app/dragManager.js:101 app/dragManager.js:941
 msgid "Making SymLink Failed"
 msgstr "Gjøring av SymLink mislyktes"
 
 # MT: LibreTranslate
-#: app/dragManager.js:102 app/dragManager.js:940
+#: app/dragManager.js:102 app/dragManager.js:942
 msgid "Could not create symbolic link"
 msgstr "Kunne ikke opprette symbolsk lenke"
 
 # MT: LibreTranslate
-#: app/dragManager.js:748
+#: app/dragManager.js:750
 msgid "Copy/Move Failed"
 msgstr "Kopiering/bevegelse mislyktes"
 
 # MT: LibreTranslate
-#: app/dragManager.js:749
+#: app/dragManager.js:751
 msgid "{0} Does not exist"
 msgstr "{0} eksisterer ikke"
 
 # MT: LibreTranslate
-#: app/dragManager.js:791
+#: app/dragManager.js:793
 msgid "Choose Action for Files"
 msgstr "Velg handling for filer"
 
 # MT: LibreTranslate
-#: app/dragManager.js:792
+#: app/dragManager.js:794
 msgid "Move"
 msgstr "Flytt"
 
 # MT: LibreTranslate
-#: app/dragManager.js:792 app/fileItemMenu.js:242
+#: app/dragManager.js:794 app/fileItemMenu.js:242
 msgid "Copy"
 msgstr "Kopier"
 
 # MT: LibreTranslate
-#: app/dragManager.js:792
+#: app/dragManager.js:794
 msgid "Link"
 msgstr "Link"
 
 # MT: LibreTranslate
-#: app/fileItemIcon.js:95
+#: app/fileItemIcon.js:126
 msgid "Folder"
 msgstr "Mappe"
 
 # MT: LibreTranslate
-#: app/fileItemIcon.js:96
+#: app/fileItemIcon.js:127
 msgid "File"
 msgstr "Fil"
 
 # MT: LibreTranslate
-#: app/fileItemIcon.js:286
+#: app/fileItemIcon.js:369
 msgid "Opening File Failed"
 msgstr "Feil ved åpning av fil"
 
 # MT: LibreTranslate
-#: app/fileItemIcon.js:292
+#: app/fileItemIcon.js:375
 msgid "There is no application installed to open \"{fo}\" files."
 msgstr "Det er ingen applikasjon installert for å åpne \"{fo}\" filer."
 
@@ -1551,7 +1572,7 @@ msgstr "Aktiver/Deaktiver Tastatur Valg"
 msgid "Toggle Widget Layer"
 msgstr "Aktivere/Deaktivere Modul Laget"
 
-#: app/shortcuts.js:40 app/widgetManager.js:1687
+#: app/shortcuts.js:40 app/widgetManager.js:1690
 msgid "Add Widget"
 msgstr "Legg til miniprogram"
 
@@ -1605,8 +1626,12 @@ msgstr "Tekstoppføring Akselerer slå av"
 msgid "Show Shortcut Viewer"
 msgstr "Vis snarvei Seer"
 
-# MT: LibreTranslate
 #: app/shortcuts.js:69
+msgid "Force Garbage Collection"
+msgstr ""
+
+# MT: LibreTranslate
+#: app/shortcuts.js:70
 msgid "Show Or Hide Desktop Icons"
 msgstr "Vis eller skjul skrivebordsikon"
 
@@ -1618,105 +1643,101 @@ msgstr "Mer informasjon"
 # MT: LibreTranslate
 #. TRANSLATORS: "Home" is the text that will be shown in
 #. the user's personal folder
-#: app/specialFolderIcon.js:57 app/specialFolderIcon.js:69
+#: app/specialFolderIcon.js:61 app/specialFolderIcon.js:73
 msgid "Home"
 msgstr "Hjem"
 
 # MT: LibreTranslate
-#: app/specialFolderIcon.js:63
+#: app/specialFolderIcon.js:67
 msgid "Trash"
 msgstr "Papirkurv"
 
 # MT: LibreTranslate
-#. * TRANSLATORS: when using a screen reader,
-#. * this is the text read when a stack is
-#. * selected. Example: if a stack named "pictures"
-#. *  is selected, it will say "Stack pictures"
-#: app/stackItem.js:46
+#: app/stackItem.js:153
 msgid "Stack"
 msgstr "Stack"
 
 # MT: LibreTranslate
-#: app/symLinkIcon.js:100
+#: app/symLinkIcon.js:108
 msgid "Broken Link"
 msgstr "Broken lenke"
 
 # MT: LibreTranslate
-#: app/symLinkIcon.js:102
+#: app/symLinkIcon.js:110
 msgid "Can not open this File because it is a Broken Symlink"
 msgstr "Kan ikke åpne filen fordi den er en Broken Symlink"
 
 # MT: LibreTranslate
-#: app/volumeIcon.js:58
+#: app/volumeIcon.js:64
 msgid "Drive"
 msgstr "Drive"
 
 # MT: LibreTranslate
-#: app/widgetManager.js:2417
+#: app/widgetManager.js:2420
 #, fuzzy
 msgid "Widget preferences"
 msgstr "Innstillinger"
 
-#: app/widgetManager.js:2429 app/widgetManager.js:2438
+#: app/widgetManager.js:2432 app/widgetManager.js:2441
 msgid "Unpin widget"
 msgstr ""
 
-#: app/widgetManager.js:2429 app/widgetManager.js:2438
+#: app/widgetManager.js:2432 app/widgetManager.js:2441
 #, fuzzy
 msgid "Pin widget"
 msgstr "Legg til miniprogram"
 
-#: app/widgetManager.js:2447
+#: app/widgetManager.js:2450
 msgid "Reposition widget"
 msgstr ""
 
-#: app/widgetManager.js:3051
+#: app/widgetManager.js:3066
 msgid "HTML widget"
 msgstr "HTML miniprogram"
 
-#: app/widgetManager.js:3053
+#: app/widgetManager.js:3068
 msgid "GTK widget"
 msgstr "GTK miniprogram"
 
 # MT: LibreTranslate
-#: app/widgetManager.js:3059
+#: app/widgetManager.js:3074
 #, fuzzy
 msgid "User Installed"
 msgstr "Vennligst installer {0}"
 
-#: app/widgetManager.js:3059
+#: app/widgetManager.js:3074
 msgid "System Installed"
 msgstr ""
 
-#: app/widgetManager.js:3081
+#: app/widgetManager.js:3096
 msgid "Download Latest Widgets from Repository?"
 msgstr ""
 
-#: app/widgetManager.js:3083
+#: app/widgetManager.js:3098
 msgid "This will overwrite all widgets in your local widgets folder."
 msgstr ""
 
-#: app/widgetManager.js:3156
+#: app/widgetManager.js:3197
 msgid "Widgets updated"
 msgstr ""
 
-#: app/widgetManager.js:3157
+#: app/widgetManager.js:3198
 msgid "The latest widgets were downloaded and installed."
 msgstr ""
 
-#: app/widgetManager.js:3163
+#: app/widgetManager.js:3206
 msgid "Widgets download failed"
 msgstr ""
 
-#: app/widgetManager.js:3252
+#: app/widgetManager.js:3312
 msgid "Allow"
 msgstr "Tillat"
 
-#: app/widgetManager.js:3306
+#: app/widgetManager.js:3377
 msgid "Strict"
 msgstr "Streng"
 
-#: app/widgetManager.js:3308
+#: app/widgetManager.js:3379
 msgid ""
 "The widget runs in a tightly sandboxed web environment.\n"
 "\n"
@@ -1734,11 +1755,11 @@ msgstr ""
 "\n"
 "Dette er det sikreste alternativet og anbefales for de fleste widgeter."
 
-#: app/widgetManager.js:3319
+#: app/widgetManager.js:3390
 msgid "Relaxed"
 msgstr "Avslappet"
 
-#: app/widgetManager.js:3321
+#: app/widgetManager.js:3392
 msgid ""
 "The widget is allowed broader web capabilities.\n"
 "\n"
@@ -1756,11 +1777,11 @@ msgstr ""
 "\n"
 "Bruk dette kun for widgeter du stoler på."
 
-#: app/widgetManager.js:3331
+#: app/widgetManager.js:3402
 msgid "Development"
 msgstr "Utvikling"
 
-#: app/widgetManager.js:3333
+#: app/widgetManager.js:3404
 msgid ""
 "The widget runs with development-friendly web access.\n"
 "\n"
@@ -1777,11 +1798,11 @@ msgstr ""
 "Denne modusen er kun ment for utvikling og feilsøking."
 
 # MT: LibreTranslate
-#: app/widgetManager.js:3342
+#: app/widgetManager.js:3413
 msgid "Default"
 msgstr "Standard"
 
-#: app/widgetManager.js:3344
+#: app/widgetManager.js:3415
 msgid ""
 "The widget runs with a predefined web security policy.\n"
 "\n"
@@ -1791,12 +1812,12 @@ msgstr ""
 "\n"
 "Nettilgang og -funksjoner er begrenset i henhold til den aktive policyen."
 
-#: app/widgetManager.js:3352
+#: app/widgetManager.js:3423
 msgid "Allow web content for {widgetId}?"
 msgstr "Tillate nettinnhold for {widgetId}?"
 
 #. eslint-disable-next-line prefer-template
-#: app/widgetManager.js:3365
+#: app/widgetManager.js:3436
 msgid ""
 "The widget you are adding may load web content from the internet.\n"
 "\n"
@@ -1804,7 +1825,7 @@ msgstr ""
 "Miniprogrammet du legger til kan laste inn nettinnhold fra internett.\n"
 "\n"
 
-#: app/widgetManager.js:3366
+#: app/widgetManager.js:3437
 msgid ""
 "This content is subject to the widget security policy:\n"
 "\n"
@@ -1812,7 +1833,7 @@ msgstr ""
 "Dette innholdet er underlagt sikkerhetspolicyen for miniprogrammet:\n"
 "\n"
 
-#: app/widgetManager.js:3401
+#: app/widgetManager.js:3473
 msgid ""
 "This widget, {widgetId} runs a background process on your computer.\n"
 "\n"
@@ -1821,7 +1842,7 @@ msgstr ""
 "din.\n"
 "\n"
 
-#: app/widgetManager.js:3403
+#: app/widgetManager.js:3475
 msgid ""
 "The backend runs with your normal user permissions, just like any other "
 "application you start.\n"
@@ -1829,7 +1850,7 @@ msgstr ""
 "Programmet kjøres i bakgrunn med dine vanlige brukerrettigheter, akkurat som "
 "alle andre applikasjoner du starter.\n"
 
-#: app/widgetManager.js:3404
+#: app/widgetManager.js:3476
 msgid ""
 "It can access your files, system resources, and the network according to "
 "your user account permissions.\n"
@@ -1839,29 +1860,29 @@ msgstr ""
 "til brukerkontotillatelsene dine.\n"
 "\n"
 
-#: app/widgetManager.js:3407
+#: app/widgetManager.js:3479
 msgid "Command:"
 msgstr "Kommando:"
 
-#: app/widgetManager.js:3415
+#: app/widgetManager.js:3487
 msgid "Only allow this for widgets you implicitly trust."
 msgstr "Tillat dette bare for miniprogram du stoler 100% på."
 
-#: app/widgetManager.js:3419
+#: app/widgetManager.js:3491
 msgid "Allow widget backend?"
 msgstr "Tillat miniprogrammet å kjøre i backgrunnen?"
 
 # MT: LibreTranslate
-#: app/widgetWebContext.js:296
+#: app/widgetWebContext.js:297
 #, fuzzy
 msgid "Widget Preferences"
 msgstr "Innstillinger"
 
-#: app/widgetWebContext.js:868
+#: app/widgetWebContext.js:869
 msgid "Open link in browser?"
 msgstr "Åpne lenken i nettleseren"
 
-#: app/widgetWebContext.js:869
+#: app/widgetWebContext.js:870
 msgid ""
 "The widget wants to open this link in your browser:\n"
 "\n"
@@ -1886,7 +1907,7 @@ msgid "Choose Desktop Folder"
 msgstr "Velg skrivebordsmappe"
 
 # MT: LibreTranslate
-#: app/utils/desktopIconsUtil.js:235
+#: app/utils/desktopIconsUtil.js:238
 msgid "Command not found"
 msgstr "Kommandoen ble ikke funnet"
 

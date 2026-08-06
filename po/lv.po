@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-18 19:30-0400\n"
+"POT-Creation-Date: 2026-08-06 09:20-0400\n"
 "PO-Revision-Date: 2026-07-15 14:04+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
@@ -73,259 +73,260 @@ msgid "Help translate in your web browser"
 msgstr "Palīdzība tulkot jūsu tīmekļa pārlūkā"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:618 app/adwPreferencesWindow.js:619
+#: app/adwPreferencesWindow.js:624 app/adwPreferencesWindow.js:625
 msgid "Desktop"
 msgstr "Darbvirsma"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:624 app/adwPreferencesWindow.js:625
+#: app/adwPreferencesWindow.js:630 app/adwPreferencesWindow.js:631
 msgid "Files"
 msgstr "Faili"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:630 app/adwPreferencesWindow.js:631
-#: app/adwPreferencesWindow.js:673
+#: app/adwPreferencesWindow.js:636 app/adwPreferencesWindow.js:637
+#: app/adwPreferencesWindow.js:679
 msgid "Tweaks"
 msgstr "Traucējumi"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:636 app/adwPreferencesWindow.js:637
+#: app/adwPreferencesWindow.js:642 app/adwPreferencesWindow.js:643
 msgid "More"
 msgstr "Vairāk"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:648
+#: app/adwPreferencesWindow.js:654
 msgid "Desktop Settings"
 msgstr "Darbvirsmas iestatījumi"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:649
+#: app/adwPreferencesWindow.js:655
 msgid "Settings for the Desktop Program"
 msgstr "Darbvirsmas programmas iestatījumi"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:655
+#: app/adwPreferencesWindow.js:661
 msgid "Desktop Folder"
 msgstr "Darbvirsmas mape"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:656
+#: app/adwPreferencesWindow.js:662
 msgid "Current Desktop: "
 msgstr "Aktīvā darbvirsma:"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:666
+#: app/adwPreferencesWindow.js:672
 msgid "Files Settings"
 msgstr "Failu iestatījumi"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:667
+#: app/adwPreferencesWindow.js:673
 msgid "Settings shared with Gnome Files"
 msgstr "Koplietošanas iestatījumi ar Gnome failiem"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:674
+#: app/adwPreferencesWindow.js:680
 msgid "Miscellaneous Tweaks"
 msgstr "Dažādi Traucējumi"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:698
+#: app/adwPreferencesWindow.js:704
 msgid "Size for the desktop icons"
 msgstr "Darbvirsmas ikonu izmērs"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:700
+#: app/adwPreferencesWindow.js:706
 msgid "Tiny"
 msgstr "Mazs"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:701
+#: app/adwPreferencesWindow.js:707
 msgid "Small"
 msgstr "Mazs"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:702
+#: app/adwPreferencesWindow.js:708
 msgid "Standard"
 msgstr "Standarta"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:703
+#: app/adwPreferencesWindow.js:709
 msgid "Large"
 msgstr "Liels"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:709
+#: app/adwPreferencesWindow.js:715
 msgid "New icons alignment"
 msgstr "Jauna ikonu izlīdzināšana"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:711
+#: app/adwPreferencesWindow.js:717
 msgid "Top left corner"
 msgstr "Augšējais kreisais stūris"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:712
+#: app/adwPreferencesWindow.js:718
 msgid "Top right corner"
 msgstr "Augšējā labajā stūrī"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:713
+#: app/adwPreferencesWindow.js:719
 msgid "Bottom left corner"
 msgstr "Apakšējais kreisajā stūrī"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:714
+#: app/adwPreferencesWindow.js:720
 msgid "Bottom right corner"
 msgstr "Apakšējā labajā stūrī"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:720
+#: app/adwPreferencesWindow.js:726
 msgid "Add new icons to Secondary Monitors first, if available"
-msgstr "Vispirms pievienot jaunas ikonas sekundārajiem monitoriem, ja pieejamas"
+msgstr ""
+"Vispirms pievienot jaunas ikonas sekundārajiem monitoriem, ja pieejamas"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:724
+#: app/adwPreferencesWindow.js:730
 msgid "Snap icons to grid"
 msgstr "Ikonas uz režģu"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:730
+#: app/adwPreferencesWindow.js:736
 #, fuzzy
 msgid "Show desktop widgets"
 msgstr "Rādīt darbvirsmu failos"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:735
+#: app/adwPreferencesWindow.js:741
 msgid "New Desktop Folder"
 msgstr "Jauna darbvirsmas mape"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:736
+#: app/adwPreferencesWindow.js:742
 msgid "Set a new folder for the desktop"
 msgstr "Iestatīt jaunu darbvirsmas mapi"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:737 app/utils/desktopFolderUtils.js:85
+#: app/adwPreferencesWindow.js:743 app/utils/desktopFolderUtils.js:85
 msgid "Choose"
 msgstr "Izvēlēties"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:742
+#: app/adwPreferencesWindow.js:748
 msgid "Set Desktop back to ~/"
 msgstr "Uzstādīt darbvirsmu atpakaļ uz ~/"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:744
+#: app/adwPreferencesWindow.js:750
 msgid "Restore Default Desktop Folder"
 msgstr "Atjaunot noklusēto darbvirsmas mapi"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:746
+#: app/adwPreferencesWindow.js:752
 msgid "Restore"
 msgstr "Atjaunot"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:755
+#: app/adwPreferencesWindow.js:761
 msgid "Highlight the drop grid"
 msgstr "Izcelt nomešanas režģi"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:765
+#: app/adwPreferencesWindow.js:771
 msgid "Add information emblems for links, encryption"
 msgstr "Pievienot informācijas emblēmas saitēm, šifrēšanai"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:769
+#: app/adwPreferencesWindow.js:775
 msgid "Use dark text in icon labels"
 msgstr "Lietot tumšo tekstu ikonu etiķetēs"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:774
+#: app/adwPreferencesWindow.js:780
 msgid "Show the personal folder on the desktop"
 msgstr "Rādīt personisko mapi uz darbvirsmas"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:779
+#: app/adwPreferencesWindow.js:785
 msgid "Show the trash icon on the desktop"
 msgstr "Rādīt miskastes ikonu uz darbvirsmas"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:784
+#: app/adwPreferencesWindow.js:790
 msgid "Show external drives on the desktop"
 msgstr "Parādīt uz darbvirsmas ārējos diskus"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:789
+#: app/adwPreferencesWindow.js:795
 msgid "Show network drives on the desktop"
 msgstr "Rādīt tīkla diskus uz darbvirsmas"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:794
+#: app/adwPreferencesWindow.js:800
 msgid "Add new drives to the opposite side of the desktop"
 msgstr "Pievienot jaunus diskus darbvirsmas pretējā pusē"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:799
+#: app/adwPreferencesWindow.js:805
 msgid "Action to Open Items"
 msgstr "Darbība, lai atvērtu ierakstus"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:801
+#: app/adwPreferencesWindow.js:807
 msgid "Single click"
 msgstr "Viens klikšķis"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:802
+#: app/adwPreferencesWindow.js:808
 msgid "Double click"
 msgstr "Dubultklikšķis"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:807
+#: app/adwPreferencesWindow.js:813
 msgid "Show image thumbnails"
 msgstr "Rādīt attēla sīktēlus"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:809
+#: app/adwPreferencesWindow.js:815
 msgid "Always"
 msgstr "Vienmēr"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:810
+#: app/adwPreferencesWindow.js:816
 msgid "On this computer only"
 msgstr "Tikai šajā datorā"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:811
+#: app/adwPreferencesWindow.js:817
 msgid "Never"
 msgstr "Nekad"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:816
+#: app/adwPreferencesWindow.js:822
 msgid "Show a context menu item to delete permanently"
 msgstr "Rādīt konteksta izvēlnes ierakstu, ko dzēst neatgriezeniski"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:821
+#: app/adwPreferencesWindow.js:827
 msgid "Show hidden files"
 msgstr "Rādīt slēptos failus"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:826
+#: app/adwPreferencesWindow.js:832
 msgid "Open folders on drag hover"
 msgstr "Atvērt mapes, kad uzkavējas"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:830
+#: app/adwPreferencesWindow.js:836
 msgid "About..."
 msgstr "Par..."
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:843
+#: app/adwPreferencesWindow.js:849
 msgid "Translation"
 msgstr "Tulkojums"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:844
+#: app/adwPreferencesWindow.js:850
 msgid ""
 "Machine translated using LibreTranslate. User verified and edited on Weblate."
 msgstr ""
@@ -333,17 +334,17 @@ msgstr ""
 "Weblate."
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:849
+#: app/adwPreferencesWindow.js:855
 msgid "Edit Translations"
 msgstr "Rediģēt tulkojumus"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:850
+#: app/adwPreferencesWindow.js:856
 msgid "Verify, add or correct translation in your web browser"
 msgstr "Pārbaudīt, pievienot vai labot tulkojumu tīmekļa pārlūkprogrammā"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:851
+#: app/adwPreferencesWindow.js:857
 msgid "Translate"
 msgstr "Tulkot"
 
@@ -377,81 +378,110 @@ msgid "Error while setting {foo} as default application for {mimetype}"
 msgstr ""
 
 # MT: LibreTranslate
-#: app/appImageFileItem.js:57
+#: app/appImageFileItem.js:63
 msgid "Invalid Permissions on AppImage File"
 msgstr "Nederīgas atļaujas lietotnes failam"
 
 # MT: LibreTranslate
-#: app/appImageFileItem.js:58
+#: app/appImageFileItem.js:64
 msgid "This AppImage File has incorrect Permissions."
 msgstr "Šai lietotnei ir nepareizas atļaujas."
 
 # MT: LibreTranslate
-#: app/appImageFileItem.js:59 app/desktopFileIcon.js:153
+#: app/appImageFileItem.js:65 app/desktopFileIcon.js:167
 msgid "Right Click to edit Properties, then:"
 msgstr "Tiesības Noklikšķiniet, lai rediģētu īpašības, tad:"
 
 # MT: LibreTranslate
-#: app/appImageFileItem.js:61 app/desktopFileIcon.js:155
+#: app/appImageFileItem.js:67 app/desktopFileIcon.js:169
 msgid "Set Permissions, in"
 msgstr "Iestatīt atļaujas, iekš"
 
 # MT: LibreTranslate
-#: app/appImageFileItem.js:62 app/desktopFileIcon.js:156
+#: app/appImageFileItem.js:68 app/desktopFileIcon.js:170
 msgid "Others Access"
 msgstr "Citi piekļūt"
 
 # MT: LibreTranslate
-#: app/appImageFileItem.js:63 app/desktopFileIcon.js:157
+#: app/appImageFileItem.js:69 app/desktopFileIcon.js:171
 msgid "Read Only"
 msgstr "Tikai lasīt"
 
 # MT: LibreTranslate
-#: app/appImageFileItem.js:64 app/desktopFileIcon.js:158
+#: app/appImageFileItem.js:70 app/desktopFileIcon.js:172
 msgid "or"
 msgstr "vai"
 
 # MT: LibreTranslate
-#: app/appImageFileItem.js:65 app/desktopFileIcon.js:159
+#: app/appImageFileItem.js:71 app/desktopFileIcon.js:173
 #: app/shortcutManager.js:58 app/shortcutManager.js:99
 msgid "None"
 msgstr "Nav"
 
 # MT: LibreTranslate
-#: app/appImageFileItem.js:66 app/desktopFileIcon.js:160
+#: app/appImageFileItem.js:72 app/desktopFileIcon.js:174
 msgid "Enable option"
 msgstr "Ieslēgt"
 
 # MT: LibreTranslate
-#: app/appImageFileItem.js:67 app/desktopFileIcon.js:161
+#: app/appImageFileItem.js:73 app/desktopFileIcon.js:175
 msgid "Allow Executing File as a Program"
 msgstr "Atļaut darbināt failu kā programmu"
 
 # MT: LibreTranslate
-#: app/appImageFileItem.js:79
+#: app/appImageFileItem.js:85
 msgid "Untrusted AppImage File"
 msgstr "Neuzticams AppImage fails"
 
 # MT: LibreTranslate
-#: app/appImageFileItem.js:81
+#: app/appImageFileItem.js:87
 msgid "This AppImage file is not trusted, it can not be launched."
 msgstr "Šī programma Attēla fails nav uzticams, to nevar palaist."
 
 # MT: LibreTranslate
-#: app/appImageFileItem.js:82 app/desktopFileIcon.js:176
+#: app/appImageFileItem.js:88 app/desktopFileIcon.js:190
 msgid "To enable launching, right-click, then:"
 msgstr "Lai atļautu palaišanu ar peles labo pogu, tad:"
 
 # MT: LibreTranslate
-#: app/appImageFileItem.js:83 app/desktopFileIcon.js:177
+#: app/appImageFileItem.js:89 app/desktopFileIcon.js:191
 msgid "enable"
 msgstr "ieslēgt"
 
 # MT: LibreTranslate
-#: app/appImageFileItem.js:84 app/desktopFileIcon.js:178
+#: app/appImageFileItem.js:90 app/desktopFileIcon.js:192
 #: app/fileItemMenu.js:318 app/fileItemMenu.js:332
 msgid "Allow Launching"
 msgstr "Atļaut palaišanu"
+
+#: app/appImageFileItem.js:201 app/appImageFileItem.js:231
+msgid "AppImage Launch Failed"
+msgstr ""
+
+#: app/appImageFileItem.js:203
+msgid ""
+"This AppImage may need to be launched without sandboxing on this system.\n"
+"\n"
+"Launch with <b>--no-sandbox</b>?"
+msgstr ""
+
+# MT: LibreTranslate
+#: app/appImageFileItem.js:206 app/autoAr.js:305 app/autoAr.js:634
+#: app/desktopManager.js:196 app/desktopManager.js:1320 app/dragManager.js:794
+#: app/fileItemMenu.js:918 app/fileItemMenu.js:971 app/showErrorPopup.js:49
+#: app/showErrorPopup.js:66 app/widgetManager.js:3313
+msgid "Cancel"
+msgstr "Atcelt"
+
+#: app/appImageFileItem.js:207
+msgid "Launch with lesser protections"
+msgstr ""
+
+# MT: LibreTranslate
+#: app/appImageFileItem.js:232
+#, fuzzy
+msgid "This AppImage could not be launched."
+msgstr "Šī programma Attēla fails nav uzticams, to nevar palaist."
 
 # MT: LibreTranslate
 #: app/askRenamePopup.js:61
@@ -464,7 +494,7 @@ msgid "File name"
 msgstr "Faila nosaukums"
 
 # MT: LibreTranslate
-#: app/askRenamePopup.js:75 app/autoAr.js:313 app/desktopManager.js:1320
+#: app/askRenamePopup.js:75 app/autoAr.js:313 app/desktopManager.js:1318
 #: app/fileItemMenu.js:971
 msgid "OK"
 msgstr "LABI"
@@ -485,8 +515,8 @@ msgid ""
 "To be able to work with compressed files, install file-roller and/or gir-1.2-"
 "gnomeAutoAr"
 msgstr ""
-"Lai varētu strādāt ar saspiestu failus, instalēt failu roller un / vai gir-"
-"1,2-Gnome AutoAr"
+"Lai varētu strādāt ar saspiestu failus, instalēt failu roller un / vai "
+"gir-1,2-Gnome AutoAr"
 
 # MT: LibreTranslate
 #: app/autoAr.js:207
@@ -497,14 +527,6 @@ msgstr "Dzēš failus"
 #: app/autoAr.js:234
 msgid "Compressing files"
 msgstr "Saspiešanas faili"
-
-# MT: LibreTranslate
-#: app/autoAr.js:305 app/autoAr.js:634 app/desktopManager.js:196
-#: app/desktopManager.js:1322 app/dragManager.js:792 app/fileItemMenu.js:918
-#: app/fileItemMenu.js:971 app/showErrorPopup.js:49 app/showErrorPopup.js:66
-#: app/widgetManager.js:3253
-msgid "Cancel"
-msgstr "Atcelt"
 
 # MT: LibreTranslate
 #: app/autoAr.js:325 app/autoAr.js:622
@@ -632,12 +654,12 @@ msgid "Smaller archives but must be installed on Windows and Mac."
 msgstr "Mazāki arhīvi, bet tie jāuzstāda uz Windows un Mac."
 
 # MT: LibreTranslate
-#: app/desktopFileIcon.js:125
+#: app/desktopFileIcon.js:139
 msgid "The Displayed Desktop is writable by others"
 msgstr "Attēloto darbvirsmu raksta citi"
 
 # MT: LibreTranslate
-#: app/desktopFileIcon.js:128
+#: app/desktopFileIcon.js:142
 msgid ""
 ".deskop files cannot be launched from this Desktop as the Desktop Folder is "
 "writable by other users.\n"
@@ -652,12 +674,12 @@ msgstr ""
 "to nav rakstījuši."
 
 # MT: LibreTranslate
-#: app/desktopFileIcon.js:138
+#: app/desktopFileIcon.js:152
 msgid "Broken Desktop File"
 msgstr "Bojāts darbvirsmas fails"
 
 # MT: LibreTranslate
-#: app/desktopFileIcon.js:141
+#: app/desktopFileIcon.js:155
 msgid ""
 "This .desktop file has errors or points to a program without permissions. It "
 "can not be executed.\n"
@@ -670,32 +692,32 @@ msgstr ""
 "Rediģēt failu, lai iestatītu pareizo izpildāmo programmu."
 
 # MT: LibreTranslate
-#: app/desktopFileIcon.js:151
+#: app/desktopFileIcon.js:165
 msgid "Invalid Permissions on Desktop File"
 msgstr "Nederīgas atļaujas darbvirsmas failā"
 
 # MT: LibreTranslate
-#: app/desktopFileIcon.js:152
+#: app/desktopFileIcon.js:166
 msgid "This Desktop File has incorrect Permissions."
 msgstr "Darbvirsmas failam ir nepareizas atļaujas."
 
 # MT: LibreTranslate
-#: app/desktopFileIcon.js:173
+#: app/desktopFileIcon.js:187
 msgid "Untrusted Desktop File"
 msgstr "Neuzticams darbvirsmas fails"
 
 # MT: LibreTranslate
-#: app/desktopFileIcon.js:175
+#: app/desktopFileIcon.js:189
 msgid "This Desktop file is not trusted, it can not be launched."
 msgstr "Šis darbvirsmas fails nav uzticams, to nevar palaist."
 
 # MT: LibreTranslate
-#: app/desktopFileIcon.js:204 app/gnomeShellDragDrop.js:355
+#: app/desktopFileIcon.js:218 app/gnomeShellDragDrop.js:355
 msgid "Could not open File"
 msgstr "Neizdevās atvērt Fails"
 
 # MT: LibreTranslate
-#: app/desktopFileIcon.js:206
+#: app/desktopFileIcon.js:220
 msgid "{appName} can not open files of this Type!"
 msgstr "{appName} nevar atvērt šī tipa failus!"
 
@@ -731,16 +753,16 @@ msgid "Desktop Icons"
 msgstr "Darbvirsmas ikonas"
 
 # MT: LibreTranslate
-#: app/desktopGrid.js:2584
+#: app/desktopGrid.js:2585
 #, fuzzy
 msgid "Back to Desktop"
 msgstr "Atjaunināt darbvirsmu"
 
-#: app/desktopGrid.js:2585 app/widgetManager.js:1751
+#: app/desktopGrid.js:2586 app/widgetManager.js:1754
 msgid "Toggle Widget Grid"
 msgstr ""
 
-#: app/desktopGrid.js:2586
+#: app/desktopGrid.js:2587
 msgid "Add Widget..."
 msgstr "Pievienot logrīku"
 
@@ -849,22 +871,22 @@ msgid "Clear current selection before new search"
 msgstr "Notīrīt izvēlēto pirms jaunas meklēšanas"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:1324
+#: app/desktopManager.js:1322
 msgid "Find Files on Desktop"
 msgstr "Meklēt failus darbvirsmā"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:1669 app/desktopMenu.js:1096 app/shortcuts.js:10
+#: app/desktopManager.js:1666 app/desktopMenu.js:1096 app/shortcuts.js:10
 msgid "New Folder"
 msgstr "Jauna mape"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:1703
+#: app/desktopManager.js:1700
 msgid "Folder Creation Failed"
 msgstr "Neizdevās izveidot mapi"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:1704
+#: app/desktopManager.js:1701
 msgid "Could not create folder"
 msgstr "Neizdevās izveidot mapi"
 
@@ -1013,62 +1035,62 @@ msgid "Shell Menu…"
 msgstr "Čaulas izvēlne.."
 
 # MT: LibreTranslate
-#: app/dragManager.js:101 app/dragManager.js:939
+#: app/dragManager.js:101 app/dragManager.js:941
 msgid "Making SymLink Failed"
 msgstr "Neizdevās padarīt SymLink"
 
 # MT: LibreTranslate
-#: app/dragManager.js:102 app/dragManager.js:940
+#: app/dragManager.js:102 app/dragManager.js:942
 msgid "Could not create symbolic link"
 msgstr "Neizdevās izveidot simbolisku saiti"
 
 # MT: LibreTranslate
-#: app/dragManager.js:748
+#: app/dragManager.js:750
 msgid "Copy/Move Failed"
 msgstr "Neizdevās kopēt/ pārvietot"
 
 # MT: LibreTranslate
-#: app/dragManager.js:749
+#: app/dragManager.js:751
 msgid "{0} Does not exist"
 msgstr "{0} Nav"
 
 # MT: LibreTranslate
-#: app/dragManager.js:791
+#: app/dragManager.js:793
 msgid "Choose Action for Files"
 msgstr "Izvēlieties darbību failiem"
 
 # MT: LibreTranslate
-#: app/dragManager.js:792
+#: app/dragManager.js:794
 msgid "Move"
 msgstr "Pārvietot"
 
 # MT: LibreTranslate
-#: app/dragManager.js:792 app/fileItemMenu.js:242
+#: app/dragManager.js:794 app/fileItemMenu.js:242
 msgid "Copy"
 msgstr "Kopēt"
 
 # MT: LibreTranslate
-#: app/dragManager.js:792
+#: app/dragManager.js:794
 msgid "Link"
 msgstr "Saikne"
 
 # MT: LibreTranslate
-#: app/fileItemIcon.js:95
+#: app/fileItemIcon.js:126
 msgid "Folder"
 msgstr "Mape"
 
 # MT: LibreTranslate
-#: app/fileItemIcon.js:96
+#: app/fileItemIcon.js:127
 msgid "File"
 msgstr "Fails"
 
 # MT: LibreTranslate
-#: app/fileItemIcon.js:286
+#: app/fileItemIcon.js:369
 msgid "Opening File Failed"
 msgstr "Neizdevās atvērt failu"
 
 # MT: LibreTranslate
-#: app/fileItemIcon.js:292
+#: app/fileItemIcon.js:375
 msgid "There is no application installed to open \"{fo}\" files."
 msgstr "Nav instalēta neviena programma, lai atvērtu \"{fo}\" failus."
 
@@ -1551,7 +1573,7 @@ msgstr ""
 msgid "Toggle Widget Layer"
 msgstr ""
 
-#: app/shortcuts.js:40 app/widgetManager.js:1687
+#: app/shortcuts.js:40 app/widgetManager.js:1690
 msgid "Add Widget"
 msgstr "Pievienot logrīku"
 
@@ -1605,8 +1627,12 @@ msgstr "Teksta ievades akceleri izslēgti"
 msgid "Show Shortcut Viewer"
 msgstr "Rādīt īsceļu Skatītājs"
 
-# MT: LibreTranslate
 #: app/shortcuts.js:69
+msgid "Force Garbage Collection"
+msgstr ""
+
+# MT: LibreTranslate
+#: app/shortcuts.js:70
 msgid "Show Or Hide Desktop Icons"
 msgstr "Rādīt vai slēpt darbvirsmas ikonas"
 
@@ -1618,105 +1644,101 @@ msgstr "Vairāk informācijas"
 # MT: LibreTranslate
 #. TRANSLATORS: "Home" is the text that will be shown in
 #. the user's personal folder
-#: app/specialFolderIcon.js:57 app/specialFolderIcon.js:69
+#: app/specialFolderIcon.js:61 app/specialFolderIcon.js:73
 msgid "Home"
 msgstr "Mājas"
 
 # MT: LibreTranslate
-#: app/specialFolderIcon.js:63
+#: app/specialFolderIcon.js:67
 msgid "Trash"
 msgstr "Miskaste"
 
 # MT: LibreTranslate
-#. * TRANSLATORS: when using a screen reader,
-#. * this is the text read when a stack is
-#. * selected. Example: if a stack named "pictures"
-#. *  is selected, it will say "Stack pictures"
-#: app/stackItem.js:46
+#: app/stackItem.js:153
 msgid "Stack"
 msgstr "Steks"
 
 # MT: LibreTranslate
-#: app/symLinkIcon.js:100
+#: app/symLinkIcon.js:108
 msgid "Broken Link"
 msgstr "Salauzta saite"
 
 # MT: LibreTranslate
-#: app/symLinkIcon.js:102
+#: app/symLinkIcon.js:110
 msgid "Can not open this File because it is a Broken Symlink"
 msgstr "Nevar atvērt šo failu, jo tas ir bojāta Symlink"
 
 # MT: LibreTranslate
-#: app/volumeIcon.js:58
+#: app/volumeIcon.js:64
 msgid "Drive"
 msgstr "Disks"
 
 # MT: LibreTranslate
-#: app/widgetManager.js:2417
+#: app/widgetManager.js:2420
 #, fuzzy
 msgid "Widget preferences"
 msgstr "Iestatījumi"
 
-#: app/widgetManager.js:2429 app/widgetManager.js:2438
+#: app/widgetManager.js:2432 app/widgetManager.js:2441
 msgid "Unpin widget"
 msgstr ""
 
-#: app/widgetManager.js:2429 app/widgetManager.js:2438
+#: app/widgetManager.js:2432 app/widgetManager.js:2441
 #, fuzzy
 msgid "Pin widget"
 msgstr "Pievienot logrīku"
 
-#: app/widgetManager.js:2447
+#: app/widgetManager.js:2450
 msgid "Reposition widget"
 msgstr ""
 
-#: app/widgetManager.js:3051
+#: app/widgetManager.js:3066
 msgid "HTML widget"
 msgstr ""
 
-#: app/widgetManager.js:3053
+#: app/widgetManager.js:3068
 msgid "GTK widget"
 msgstr ""
 
 # MT: LibreTranslate
-#: app/widgetManager.js:3059
+#: app/widgetManager.js:3074
 #, fuzzy
 msgid "User Installed"
 msgstr "Lūdzu, instalējiet {0}"
 
-#: app/widgetManager.js:3059
+#: app/widgetManager.js:3074
 msgid "System Installed"
 msgstr "Uzstādīšanas datums"
 
-#: app/widgetManager.js:3081
+#: app/widgetManager.js:3096
 msgid "Download Latest Widgets from Repository?"
 msgstr ""
 
-#: app/widgetManager.js:3083
+#: app/widgetManager.js:3098
 msgid "This will overwrite all widgets in your local widgets folder."
 msgstr ""
 
-#: app/widgetManager.js:3156
+#: app/widgetManager.js:3197
 msgid "Widgets updated"
 msgstr "Tilti ir atjaunināti"
 
-#: app/widgetManager.js:3157
+#: app/widgetManager.js:3198
 msgid "The latest widgets were downloaded and installed."
 msgstr ""
 
-#: app/widgetManager.js:3163
+#: app/widgetManager.js:3206
 msgid "Widgets download failed"
 msgstr ""
 
-#: app/widgetManager.js:3252
+#: app/widgetManager.js:3312
 msgid "Allow"
 msgstr "Atļaut"
 
-#: app/widgetManager.js:3306
+#: app/widgetManager.js:3377
 msgid "Strict"
 msgstr "Strikts"
 
-#: app/widgetManager.js:3308
+#: app/widgetManager.js:3379
 msgid ""
 "The widget runs in a tightly sandboxed web environment.\n"
 "\n"
@@ -1727,11 +1749,11 @@ msgid ""
 "This is the safest option and is recommended for most widgets."
 msgstr ""
 
-#: app/widgetManager.js:3319
+#: app/widgetManager.js:3390
 msgid "Relaxed"
 msgstr "Brīvāks"
 
-#: app/widgetManager.js:3321
+#: app/widgetManager.js:3392
 msgid ""
 "The widget is allowed broader web capabilities.\n"
 "\n"
@@ -1742,11 +1764,11 @@ msgid ""
 "Use this only for widgets you trust."
 msgstr ""
 
-#: app/widgetManager.js:3331
+#: app/widgetManager.js:3402
 msgid "Development"
 msgstr "Attīstība"
 
-#: app/widgetManager.js:3333
+#: app/widgetManager.js:3404
 msgid ""
 "The widget runs with development-friendly web access.\n"
 "\n"
@@ -1757,76 +1779,76 @@ msgid ""
 msgstr ""
 
 # MT: LibreTranslate
-#: app/widgetManager.js:3342
+#: app/widgetManager.js:3413
 msgid "Default"
 msgstr "Nepildīt"
 
-#: app/widgetManager.js:3344
+#: app/widgetManager.js:3415
 msgid ""
 "The widget runs with a predefined web security policy.\n"
 "\n"
 "Web access and capabilities are restricted according to the active policy."
 msgstr ""
 
-#: app/widgetManager.js:3352
+#: app/widgetManager.js:3423
 msgid "Allow web content for {widgetId}?"
 msgstr ""
 
 #. eslint-disable-next-line prefer-template
-#: app/widgetManager.js:3365
+#: app/widgetManager.js:3436
 msgid ""
 "The widget you are adding may load web content from the internet.\n"
 "\n"
 msgstr ""
 
-#: app/widgetManager.js:3366
+#: app/widgetManager.js:3437
 msgid ""
 "This content is subject to the widget security policy:\n"
 "\n"
 msgstr ""
 
-#: app/widgetManager.js:3401
+#: app/widgetManager.js:3473
 msgid ""
 "This widget, {widgetId} runs a background process on your computer.\n"
 "\n"
 msgstr ""
 
-#: app/widgetManager.js:3403
+#: app/widgetManager.js:3475
 msgid ""
 "The backend runs with your normal user permissions, just like any other "
 "application you start.\n"
 msgstr ""
 
-#: app/widgetManager.js:3404
+#: app/widgetManager.js:3476
 msgid ""
 "It can access your files, system resources, and the network according to "
 "your user account permissions.\n"
 "\n"
 msgstr ""
 
-#: app/widgetManager.js:3407
+#: app/widgetManager.js:3479
 msgid "Command:"
 msgstr "Komanda:"
 
-#: app/widgetManager.js:3415
+#: app/widgetManager.js:3487
 msgid "Only allow this for widgets you implicitly trust."
 msgstr ""
 
-#: app/widgetManager.js:3419
+#: app/widgetManager.js:3491
 msgid "Allow widget backend?"
 msgstr ""
 
 # MT: LibreTranslate
-#: app/widgetWebContext.js:296
+#: app/widgetWebContext.js:297
 #, fuzzy
 msgid "Widget Preferences"
 msgstr "Iestatījumi"
 
-#: app/widgetWebContext.js:868
+#: app/widgetWebContext.js:869
 msgid "Open link in browser?"
 msgstr "Atvērt saiti pārlūkā"
 
-#: app/widgetWebContext.js:869
+#: app/widgetWebContext.js:870
 msgid ""
 "The widget wants to open this link in your browser:\n"
 "\n"
@@ -1851,7 +1873,7 @@ msgid "Choose Desktop Folder"
 msgstr "Izvēlieties darbvirsmas mapi"
 
 # MT: LibreTranslate
-#: app/utils/desktopIconsUtil.js:235
+#: app/utils/desktopIconsUtil.js:238
 msgid "Command not found"
 msgstr "Komanda nav atrasta"
 
@@ -1883,8 +1905,7 @@ msgstr "Rādīt GNOME darbvirsmas ikonas"
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:6
 msgid "desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;"
-msgstr ""
-"darbvirsma;icons;files;folders;manager;arange;hide;show;palaišana;shortcuts;"
+msgstr "darbvirsma;icons;files;folders;manager;arange;hide;show;palaišana;shortcuts;"
 
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:21

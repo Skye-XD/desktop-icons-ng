@@ -1,4 +1,12 @@
 # History of versions #
+* Adw Version 100.27 for Gnome 50
+  * Fix AppImage launch fallback and final AppImage launch failure handling. (Sundeep Mediratta)
+  * Tighten URL validation with `GLib.Uri`. (Sundeep Mediratta)
+  * Further clean up desktopIconItem, removing invalidate-size signals and dragIcon. (Sundeep Mediratta)
+  * Lazy Gtk actor tree creation if we can actully place the file on the desktop. Reduces memory footprint of the application. (Sundeep Mediratta)
+  * Weblate translation update. (Weblate Authors)
+  * Update History.md, update metadata.json, app release note.
+
 * Adw Version 100.26 for Gnome 50
   * Fix memory leak with heavy disc activity and long Adw.Ding uptimes -multiple fixes, main to Gtk.Evencontroller teardown and destruction and preventing async work after destruction. (Sundeep Mediratta)
   * Update History.md, update metadata.json, app release note.

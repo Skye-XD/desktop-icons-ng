@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-18 19:30-0400\n"
+"POT-Creation-Date: 2026-08-06 09:20-0400\n"
 "PO-Revision-Date: 2026-08-01 23:33+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Bengali <https://hosted.weblate.org/projects/gtk4-desktop-"
@@ -71,276 +71,276 @@ msgid "Help translate in your web browser"
 msgstr "ওয়েব ব্রাউজারের মধ্যে অনুবাদ করুন"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:618 app/adwPreferencesWindow.js:619
+#: app/adwPreferencesWindow.js:624 app/adwPreferencesWindow.js:625
 msgid "Desktop"
 msgstr "ডেস্কটপ"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:624 app/adwPreferencesWindow.js:625
+#: app/adwPreferencesWindow.js:630 app/adwPreferencesWindow.js:631
 msgid "Files"
 msgstr "ফাইল"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:630 app/adwPreferencesWindow.js:631
-#: app/adwPreferencesWindow.js:673
+#: app/adwPreferencesWindow.js:636 app/adwPreferencesWindow.js:637
+#: app/adwPreferencesWindow.js:679
 msgid "Tweaks"
 msgstr "ভুল"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:636 app/adwPreferencesWindow.js:637
+#: app/adwPreferencesWindow.js:642 app/adwPreferencesWindow.js:643
 msgid "More"
 msgstr "মডেল"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:648
+#: app/adwPreferencesWindow.js:654
 msgid "Desktop Settings"
 msgstr "ডেস্কটপের বৈশিষ্ট্য"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:649
+#: app/adwPreferencesWindow.js:655
 msgid "Settings for the Desktop Program"
 msgstr "ডেস্কটপের প্রোগ্রাম সংক্রান্ত বৈশিষ্ট্য"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:655
+#: app/adwPreferencesWindow.js:661
 msgid "Desktop Folder"
 msgstr "ডেস্কটপ ফোল্ডার"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:656
+#: app/adwPreferencesWindow.js:662
 msgid "Current Desktop: "
 msgstr "বর্তমান ডেস্কটপ:"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:666
+#: app/adwPreferencesWindow.js:672
 msgid "Files Settings"
 msgstr "ফাইল সংক্রান্ত বৈশিষ্ট্য"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:667
+#: app/adwPreferencesWindow.js:673
 msgid "Settings shared with Gnome Files"
 msgstr "Gnome ফাইলের যৌথরূপে ব্যবহৃত বৈশিষ্ট্য"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:674
+#: app/adwPreferencesWindow.js:680
 msgid "Miscellaneous Tweaks"
 msgstr "বিবিধ ভুল"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:698
+#: app/adwPreferencesWindow.js:704
 msgid "Size for the desktop icons"
 msgstr "ডেস্কটপের আইকনের মাপ"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:700
+#: app/adwPreferencesWindow.js:706
 msgid "Tiny"
 msgstr "ক্ষুদ্র"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:701
+#: app/adwPreferencesWindow.js:707
 msgid "Small"
 msgstr "ক্ষুদ্র"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:702
+#: app/adwPreferencesWindow.js:708
 msgid "Standard"
 msgstr "আদর্শ"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:703
+#: app/adwPreferencesWindow.js:709
 msgid "Large"
 msgstr "বড়"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:709
+#: app/adwPreferencesWindow.js:715
 msgid "New icons alignment"
 msgstr "নতুন আইকনের প্রস্থ"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:711
+#: app/adwPreferencesWindow.js:717
 msgid "Top left corner"
 msgstr "উপরে বাঁদিকের কোণায়"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:712
+#: app/adwPreferencesWindow.js:718
 msgid "Top right corner"
 msgstr "উপরে ডানদিকের কোণায়"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:713
+#: app/adwPreferencesWindow.js:719
 msgid "Bottom left corner"
 msgstr "নীচে বাঁদিকের কোণায়"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:714
+#: app/adwPreferencesWindow.js:720
 msgid "Bottom right corner"
 msgstr "নীচে ডানদিকের কোণায়"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:720
+#: app/adwPreferencesWindow.js:726
 msgid "Add new icons to Secondary Monitors first, if available"
 msgstr "উপলব্ধ হলে, দ্বিতীয় মনিটরের মধ্যে নতুন আইকন যোগ করা হবে"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:724
+#: app/adwPreferencesWindow.js:730
 msgid "Snap icons to grid"
 msgstr "গ্রীডের জন্য আইকনের সংখ্যা"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:730
+#: app/adwPreferencesWindow.js:736
 msgid "Show desktop widgets"
 msgstr "ডেস্কটপের উইজেট"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:735
+#: app/adwPreferencesWindow.js:741
 msgid "New Desktop Folder"
 msgstr "নতুন ডেস্কটপ ফোল্ডার"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:736
+#: app/adwPreferencesWindow.js:742
 msgid "Set a new folder for the desktop"
 msgstr "ডেস্কটপের জন্য নতুন ফোল্ডার নির্মাণ করুন"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:737 app/utils/desktopFolderUtils.js:85
+#: app/adwPreferencesWindow.js:743 app/utils/desktopFolderUtils.js:85
 msgid "Choose"
 msgstr "নির্বাচন করুন"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:742
+#: app/adwPreferencesWindow.js:748
 msgid "Set Desktop back to ~/"
 msgstr "ডেস্কটপের মধ্যে পুনরায় নির্ধারণ করুন"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:744
+#: app/adwPreferencesWindow.js:750
 msgid "Restore Default Desktop Folder"
 msgstr "ডিফল্ট ডেস্কটপের বৈশিষ্ট্য পুনরায় স্থাপন করা হবে"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:746
+#: app/adwPreferencesWindow.js:752
 msgid "Restore"
 msgstr "পুনুদ্ধার করুন"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:755
+#: app/adwPreferencesWindow.js:761
 msgid "Highlight the drop grid"
 msgstr "মূল অংশ হাইলাইট করা হবে"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:765
+#: app/adwPreferencesWindow.js:771
 msgid "Add information emblems for links, encryption"
 msgstr "লিংক, এনক্রিপশনের জন্য প্রোফাইল সংক্রান্ত তথ্য যোগ করুন"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:769
+#: app/adwPreferencesWindow.js:775
 msgid "Use dark text in icon labels"
 msgstr "আইকনের মধ্যে গাঢ় টেক্সট ব্যবহার করা হবে"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:774
+#: app/adwPreferencesWindow.js:780
 msgid "Show the personal folder on the desktop"
 msgstr "ডেস্কটপের মধ্যে ব্যক্তিগত ফোল্ডার প্রদর্শন করা হবে"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:779
+#: app/adwPreferencesWindow.js:785
 msgid "Show the trash icon on the desktop"
 msgstr "আবর্জনার বাক্সের আইকন ডেস্কটপে প্রদর্শন করা হবে"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:784
+#: app/adwPreferencesWindow.js:790
 msgid "Show external drives on the desktop"
 msgstr "ডেস্কটপের মধ্যে বহিস্থিত ড্রাইভ প্রদর্শন করা হবে"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:789
+#: app/adwPreferencesWindow.js:795
 msgid "Show network drives on the desktop"
 msgstr "ডেস্কটপে নেটওয়ার্ক ড্রাইভ প্রদর্শন করা হবে"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:794
+#: app/adwPreferencesWindow.js:800
 msgid "Add new drives to the opposite side of the desktop"
 msgstr "ডেস্কটপে নতুন ড্রাইভ যোগ করুন"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:799
+#: app/adwPreferencesWindow.js:805
 msgid "Action to Open Items"
 msgstr "যে কোনো বস্তু খোলা হবে"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:801
+#: app/adwPreferencesWindow.js:807
 msgid "Single click"
 msgstr "একটি ক্লিক"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:802
+#: app/adwPreferencesWindow.js:808
 msgid "Double click"
 msgstr "দুইবার ক্লিক"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:807
+#: app/adwPreferencesWindow.js:813
 msgid "Show image thumbnails"
 msgstr "ছবির থাম্ব-নেইল প্রদর্শন করা হবে"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:809
+#: app/adwPreferencesWindow.js:815
 msgid "Always"
 msgstr "সর্বদা"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:810
+#: app/adwPreferencesWindow.js:816
 msgid "On this computer only"
 msgstr "এই কম্পিউটারের মধ্যে"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:811
+#: app/adwPreferencesWindow.js:817
 msgid "Never"
 msgstr "কখনো নয়"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:816
+#: app/adwPreferencesWindow.js:822
 msgid "Show a context menu item to delete permanently"
 msgstr "মেনুর বস্তুটি মুছে ফেলা হবে"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:821
+#: app/adwPreferencesWindow.js:827
 msgid "Show hidden files"
 msgstr "আড়াল করা ফাইল প্রদর্শন করা হবে"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:826
+#: app/adwPreferencesWindow.js:832
 msgid "Open folders on drag hover"
 msgstr "ঊর্ধ্বস্থ উইন্ডোর মধ্যে খোলা হবে"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:830
+#: app/adwPreferencesWindow.js:836
 msgid "About..."
 msgstr "কোন ব্যাপারে..."
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:843
+#: app/adwPreferencesWindow.js:849
 msgid "Translation"
 msgstr "অনুবাদ"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:844
+#: app/adwPreferencesWindow.js:850
 msgid ""
 "Machine translated using LibreTranslate. User verified and edited on Weblate."
 msgstr ""
-"লিব্রাস্ট্রেট ব্যবহার করে মেশিন অনুবাদ করা হয়েছে। ব্যবহারকারী যাচাই করেছেন এবং ওয়েবলেটে "
-"সম্পাদনা করেছেন।."
+"লিব্রাস্ট্রেট ব্যবহার করে মেশিন অনুবাদ করা হয়েছে। ব্যবহারকারী যাচাই করেছেন এবং "
+"ওয়েবলেটে সম্পাদনা করেছেন।."
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:849
+#: app/adwPreferencesWindow.js:855
 msgid "Edit Translations"
 msgstr "অনুবাদ সম্পাদন করো"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:850
+#: app/adwPreferencesWindow.js:856
 msgid "Verify, add or correct translation in your web browser"
 msgstr "আপনার ওয়েব ব্রাউজারের মধ্যে সঠিক অনুবাদ অথবা সঠিক অনুবাদ যোগ করুন"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:851
+#: app/adwPreferencesWindow.js:857
 msgid "Translate"
 msgstr "অনুবাদ"
 
@@ -375,81 +375,110 @@ msgid "Error while setting {foo} as default application for {mimetype}"
 msgstr ""
 
 # MT: LibreTranslate
-#: app/appImageFileItem.js:57
+#: app/appImageFileItem.js:63
 msgid "Invalid Permissions on AppImage File"
 msgstr "ফাইলের মধ্যে অবৈধ অনুমতি"
 
 # MT: LibreTranslate
-#: app/appImageFileItem.js:58
+#: app/appImageFileItem.js:64
 msgid "This AppImage File has incorrect Permissions."
 msgstr "এই আই- আর- সি- কিউ অবৈধ অনুমতি আছে ।."
 
 # MT: LibreTranslate
-#: app/appImageFileItem.js:59 app/desktopFileIcon.js:153
+#: app/appImageFileItem.js:65 app/desktopFileIcon.js:167
 msgid "Right Click to edit Properties, then:"
 msgstr "বৈশিষ্ট্যাবলী সম্পাদন করার জন্য ডানদিকের ক্লিক করুন:"
 
 # MT: LibreTranslate
-#: app/appImageFileItem.js:61 app/desktopFileIcon.js:155
+#: app/appImageFileItem.js:67 app/desktopFileIcon.js:169
 msgid "Set Permissions, in"
 msgstr "অনুমতি নির্ধারণ করুন"
 
 # MT: LibreTranslate
-#: app/appImageFileItem.js:62 app/desktopFileIcon.js:156
+#: app/appImageFileItem.js:68 app/desktopFileIcon.js:170
 msgid "Others Access"
 msgstr "অন্যান্য ব্যবহার"
 
 # MT: LibreTranslate
-#: app/appImageFileItem.js:63 app/desktopFileIcon.js:157
+#: app/appImageFileItem.js:69 app/desktopFileIcon.js:171
 msgid "Read Only"
 msgstr "শুধুমাত্র পাঠযোগ্য"
 
 # MT: LibreTranslate
-#: app/appImageFileItem.js:64 app/desktopFileIcon.js:158
+#: app/appImageFileItem.js:70 app/desktopFileIcon.js:172
 msgid "or"
 msgstr "অথবা"
 
 # MT: LibreTranslate
-#: app/appImageFileItem.js:65 app/desktopFileIcon.js:159
+#: app/appImageFileItem.js:71 app/desktopFileIcon.js:173
 #: app/shortcutManager.js:58 app/shortcutManager.js:99
 msgid "None"
 msgstr "শূণ্য"
 
 # MT: LibreTranslate
-#: app/appImageFileItem.js:66 app/desktopFileIcon.js:160
+#: app/appImageFileItem.js:72 app/desktopFileIcon.js:174
 msgid "Enable option"
 msgstr "বিকল্প সক্রিয় করুন"
 
 # MT: LibreTranslate
-#: app/appImageFileItem.js:67 app/desktopFileIcon.js:161
+#: app/appImageFileItem.js:73 app/desktopFileIcon.js:175
 msgid "Allow Executing File as a Program"
 msgstr "প্রোগ্রাম রূপে Execut ফাইল সঞ্চালনের অনুমতি প্রদান করা হচ্ছে"
 
 # MT: LibreTranslate
-#: app/appImageFileItem.js:79
+#: app/appImageFileItem.js:85
 msgid "Untrusted AppImage File"
 msgstr "আই. এস. টি. চিত্র ফাইল"
 
 # MT: LibreTranslate
-#: app/appImageFileItem.js:81
+#: app/appImageFileItem.js:87
 msgid "This AppImage file is not trusted, it can not be launched."
 msgstr "এপিপি ছবি বিশ্বস্ত নয়, এটি চালু করা যাবে না।."
 
 # MT: LibreTranslate
-#: app/appImageFileItem.js:82 app/desktopFileIcon.js:176
+#: app/appImageFileItem.js:88 app/desktopFileIcon.js:190
 msgid "To enable launching, right-click, then:"
 msgstr "আরম্ভের সময় ডানদিকের ক্লিক সক্রিয় করা হবে:"
 
 # MT: LibreTranslate
-#: app/appImageFileItem.js:83 app/desktopFileIcon.js:177
+#: app/appImageFileItem.js:89 app/desktopFileIcon.js:191
 msgid "enable"
 msgstr "সক্রিয় করুন"
 
 # MT: LibreTranslate
-#: app/appImageFileItem.js:84 app/desktopFileIcon.js:178
+#: app/appImageFileItem.js:90 app/desktopFileIcon.js:192
 #: app/fileItemMenu.js:318 app/fileItemMenu.js:332
 msgid "Allow Launching"
 msgstr "আরম্ভ করার অনুমতি প্রদান করা হবে"
+
+#: app/appImageFileItem.js:201 app/appImageFileItem.js:231
+msgid "AppImage Launch Failed"
+msgstr ""
+
+#: app/appImageFileItem.js:203
+msgid ""
+"This AppImage may need to be launched without sandboxing on this system.\n"
+"\n"
+"Launch with <b>--no-sandbox</b>?"
+msgstr ""
+
+# MT: LibreTranslate
+#: app/appImageFileItem.js:206 app/autoAr.js:305 app/autoAr.js:634
+#: app/desktopManager.js:196 app/desktopManager.js:1320 app/dragManager.js:794
+#: app/fileItemMenu.js:918 app/fileItemMenu.js:971 app/showErrorPopup.js:49
+#: app/showErrorPopup.js:66 app/widgetManager.js:3313
+msgid "Cancel"
+msgstr "বাতিল"
+
+#: app/appImageFileItem.js:207
+msgid "Launch with lesser protections"
+msgstr ""
+
+# MT: LibreTranslate
+#: app/appImageFileItem.js:232
+#, fuzzy
+msgid "This AppImage could not be launched."
+msgstr "এপিপি ছবি বিশ্বস্ত নয়, এটি চালু করা যাবে না।."
 
 # MT: LibreTranslate
 #: app/askRenamePopup.js:61
@@ -462,7 +491,7 @@ msgid "File name"
 msgstr "ফাইমের নাম"
 
 # MT: LibreTranslate
-#: app/askRenamePopup.js:75 app/autoAr.js:313 app/desktopManager.js:1320
+#: app/askRenamePopup.js:75 app/autoAr.js:313 app/desktopManager.js:1318
 #: app/fileItemMenu.js:971
 msgid "OK"
 msgstr "ঠিক আছে"
@@ -494,14 +523,6 @@ msgstr "ফাইল সম্প্রসারণ করা হচ্ছে"
 #: app/autoAr.js:234
 msgid "Compressing files"
 msgstr "ফাইল সংকুচন করা হচ্ছে"
-
-# MT: LibreTranslate
-#: app/autoAr.js:305 app/autoAr.js:634 app/desktopManager.js:196
-#: app/desktopManager.js:1322 app/dragManager.js:792 app/fileItemMenu.js:918
-#: app/fileItemMenu.js:971 app/showErrorPopup.js:49 app/showErrorPopup.js:66
-#: app/widgetManager.js:3253
-msgid "Cancel"
-msgstr "বাতিল"
 
 # MT: LibreTranslate
 #: app/autoAr.js:325 app/autoAr.js:622
@@ -582,7 +603,8 @@ msgstr "আউটপুট ফাইল '${outputFile}' ইতিমধ্যে
 #: app/autoAr.js:523
 msgid "Compressing files into '${outputFile}' has been cancelled by the user."
 msgstr ""
-"'${outputFile}' ব্যবহারকারীর মধ্যে সংকোচন করা হচ্ছে ব্যবহারকারী দ্বারা বাতিল করা হয়েছে।."
+"'${outputFile}' ব্যবহারকারীর মধ্যে সংকোচন করা হচ্ছে ব্যবহারকারী দ্বারা বাতিল করা "
+"হয়েছে।."
 
 # MT: LibreTranslate
 #: app/autoAr.js:526
@@ -630,12 +652,12 @@ msgid "Smaller archives but must be installed on Windows and Mac."
 msgstr "আর্কাইভ ছোট/ বড় মাপের কিন্তু Windows ও Mac-র মধ্যে ইনস্টল করা আবশ্যক।."
 
 # MT: LibreTranslate
-#: app/desktopFileIcon.js:125
+#: app/desktopFileIcon.js:139
 msgid "The Displayed Desktop is writable by others"
 msgstr "প্রদর্শিত ডেস্কটপ দ্বারা পরিবর্তনযোগ্য"
 
 # MT: LibreTranslate
-#: app/desktopFileIcon.js:128
+#: app/desktopFileIcon.js:142
 msgid ""
 ".deskop files cannot be launched from this Desktop as the Desktop Folder is "
 "writable by other users.\n"
@@ -645,16 +667,16 @@ msgid ""
 msgstr ""
 "অন্যান্য ব্যবহারকারীদেরকে এই ডেস্কটপ ফোল্ডার থেকে ফাইল স্থানান্তর করতে ব্যর্থ।\n"
 "\n"
-"অনুগ্রহ করে এই ফোল্ডারের অনুমতি পরীক্ষা করুন, এবং অন্যান্য ব্যবহারকারীদেরকে এটি লিখনযোগ্য নয়"
-"।."
+"অনুগ্রহ করে এই ফোল্ডারের অনুমতি পরীক্ষা করুন, এবং অন্যান্য ব্যবহারকারীদেরকে এটি "
+"লিখনযোগ্য নয়।."
 
 # MT: LibreTranslate
-#: app/desktopFileIcon.js:138
+#: app/desktopFileIcon.js:152
 msgid "Broken Desktop File"
 msgstr "ক্ষতিগ্রস্ত ডেস্কটপ ফাইল"
 
 # MT: LibreTranslate
-#: app/desktopFileIcon.js:141
+#: app/desktopFileIcon.js:155
 msgid ""
 "This .desktop file has errors or points to a program without permissions. It "
 "can not be executed.\n"
@@ -666,32 +688,32 @@ msgstr ""
 "এক্সিকিউটেবল প্রোগ্রাম সঞ্চালনের জন্য মান নির্ধারণ করুন ।."
 
 # MT: LibreTranslate
-#: app/desktopFileIcon.js:151
+#: app/desktopFileIcon.js:165
 msgid "Invalid Permissions on Desktop File"
 msgstr "ডেস্কটপ ফাইলের মধ্যে অবৈধ অনুমতি"
 
 # MT: LibreTranslate
-#: app/desktopFileIcon.js:152
+#: app/desktopFileIcon.js:166
 msgid "This Desktop File has incorrect Permissions."
 msgstr "ডেস্কটপ ফাইলের অনুমতি সঠিক নয়।."
 
 # MT: LibreTranslate
-#: app/desktopFileIcon.js:173
+#: app/desktopFileIcon.js:187
 msgid "Untrusted Desktop File"
 msgstr "ডেস্কটপ ফাইলের মধ্যে ক্ষতিগ্রস্ত ফাইল"
 
 # MT: LibreTranslate
-#: app/desktopFileIcon.js:175
+#: app/desktopFileIcon.js:189
 msgid "This Desktop file is not trusted, it can not be launched."
 msgstr "এই ডেস্কটপ ফাইল বিশ্বস্ত নয়, এটি চালু করা যাবে না।."
 
 # MT: LibreTranslate
-#: app/desktopFileIcon.js:204 app/gnomeShellDragDrop.js:355
+#: app/desktopFileIcon.js:218 app/gnomeShellDragDrop.js:355
 msgid "Could not open File"
 msgstr "লিংক খোলা যায়নি ফাইল"
 
 # MT: LibreTranslate
-#: app/desktopFileIcon.js:206
+#: app/desktopFileIcon.js:220
 msgid "{appName} can not open files of this Type!"
 msgstr "{appName} এই ধরনের ফাইল খোলা যাচ্ছে না!"
 
@@ -727,16 +749,16 @@ msgid "Desktop Icons"
 msgstr "ডেস্কটপ আইকন"
 
 # MT: LibreTranslate
-#: app/desktopGrid.js:2584
+#: app/desktopGrid.js:2585
 #, fuzzy
 msgid "Back to Desktop"
 msgstr "ডেস্কটপ আপডেট করুন"
 
-#: app/desktopGrid.js:2585 app/widgetManager.js:1751
+#: app/desktopGrid.js:2586 app/widgetManager.js:1754
 msgid "Toggle Widget Grid"
 msgstr ""
 
-#: app/desktopGrid.js:2586
+#: app/desktopGrid.js:2587
 msgid "Add Widget..."
 msgstr "উইজেট যোগ করুন"
 
@@ -844,22 +866,22 @@ msgid "Clear current selection before new search"
 msgstr "নতুন অনুসন্ধানের জন্য চিহ্নিত পংক্তি মুছে ফেলুন"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:1324
+#: app/desktopManager.js:1322
 msgid "Find Files on Desktop"
 msgstr "ডেস্কটপে অনুসন্ধান করুন"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:1669 app/desktopMenu.js:1096 app/shortcuts.js:10
+#: app/desktopManager.js:1666 app/desktopMenu.js:1096 app/shortcuts.js:10
 msgid "New Folder"
 msgstr "নতুন ফোল্ডার"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:1703
+#: app/desktopManager.js:1700
 msgid "Folder Creation Failed"
 msgstr "ফোল্ডার তৈরি করতে ব্যর্থ"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:1704
+#: app/desktopManager.js:1701
 msgid "Could not create folder"
 msgstr "ফোল্ডার নির্মাণ করতে ব্যর্থ"
 
@@ -1008,66 +1030,66 @@ msgid "Shell Menu…"
 msgstr "শেল মেনু.."
 
 # MT: LibreTranslate
-#: app/dragManager.js:101 app/dragManager.js:939
+#: app/dragManager.js:101 app/dragManager.js:941
 msgid "Making SymLink Failed"
 msgstr "Sym লিঙ্ক নির্মাণ করতে ব্যর্থ"
 
 # MT: LibreTranslate
-#: app/dragManager.js:102 app/dragManager.js:940
+#: app/dragManager.js:102 app/dragManager.js:942
 msgid "Could not create symbolic link"
 msgstr "সিম্বলিক লিঙ্ক নির্মাণ করতে ব্যর্থ"
 
 # MT: LibreTranslate
-#: app/dragManager.js:748
+#: app/dragManager.js:750
 msgid "Copy/Move Failed"
 msgstr "ফাইল কপি করতে ব্যর্থ"
 
 # MT: LibreTranslate
-#: app/dragManager.js:749
+#: app/dragManager.js:751
 msgid "{0} Does not exist"
 msgstr "{0} অনুপস্থিত"
 
 # MT: LibreTranslate
-#: app/dragManager.js:791
+#: app/dragManager.js:793
 msgid "Choose Action for Files"
 msgstr "কর্ম নির্বাচন করুন"
 
 # MT: LibreTranslate
-#: app/dragManager.js:792
+#: app/dragManager.js:794
 msgid "Move"
 msgstr "সরাও"
 
 # MT: LibreTranslate
-#: app/dragManager.js:792 app/fileItemMenu.js:242
+#: app/dragManager.js:794 app/fileItemMenu.js:242
 msgid "Copy"
 msgstr "কপি করুন"
 
 # MT: LibreTranslate
-#: app/dragManager.js:792
+#: app/dragManager.js:794
 msgid "Link"
 msgstr "লিংক"
 
 # MT: LibreTranslate
-#: app/fileItemIcon.js:95
+#: app/fileItemIcon.js:126
 msgid "Folder"
 msgstr "ফোল্ডার"
 
 # MT: LibreTranslate
-#: app/fileItemIcon.js:96
+#: app/fileItemIcon.js:127
 msgid "File"
 msgstr "ফাইল"
 
 # MT: LibreTranslate
-#: app/fileItemIcon.js:286
+#: app/fileItemIcon.js:369
 msgid "Opening File Failed"
 msgstr "ফাইল খুলতে ব্যর্থ"
 
 # MT: LibreTranslate
-#: app/fileItemIcon.js:292
+#: app/fileItemIcon.js:375
 msgid "There is no application installed to open \"{fo}\" files."
 msgstr ""
-"ইনস্টল করার জন্য কোনো অ্যাপ্লিকেশন ইনস্টল করা হয়নি \"{fo}\" ফাইল খোলার জন্য [FP0] ব্যবহার "
-"করুন ।."
+"ইনস্টল করার জন্য কোনো অ্যাপ্লিকেশন ইনস্টল করা হয়নি \"{fo}\" ফাইল খোলার জন্য [FP0] "
+"ব্যবহার করুন ।."
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:106
@@ -1278,8 +1300,7 @@ msgstr "একটি ডিরেক্টরির উপর অন্য ড�
 # MT: LibreTranslate
 #: app/fileItemMenu.js:969
 msgid "Selection includes a Directory, compress to a .zip file first?"
-msgstr ""
-"নির্বাচনের মধ্যে একটি ডিরেক্টরি উপস্থিত রয়েছে, প্রথমে ফাইল খোলা হবে কি?"
+msgstr "নির্বাচনের মধ্যে একটি ডিরেক্টরি উপস্থিত রয়েছে, প্রথমে ফাইল খোলা হবে কি?"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:995 app/fileItemMenu.js:1026 app/fileItemMenu.js:1043
@@ -1546,7 +1567,7 @@ msgstr ""
 msgid "Toggle Widget Layer"
 msgstr ""
 
-#: app/shortcuts.js:40 app/widgetManager.js:1687
+#: app/shortcuts.js:40 app/widgetManager.js:1690
 msgid "Add Widget"
 msgstr "উইজেট যোগ করুন"
 
@@ -1600,8 +1621,12 @@ msgstr "টেক্সট এনট্রি বন্ধ করা হয়"
 msgid "Show Shortcut Viewer"
 msgstr "শর্ট-কাট প্রদর্শক"
 
-# MT: LibreTranslate
 #: app/shortcuts.js:69
+msgid "Force Garbage Collection"
+msgstr ""
+
+# MT: LibreTranslate
+#: app/shortcuts.js:70
 msgid "Show Or Hide Desktop Icons"
 msgstr "ডেস্কটপ অথবা আড়াল করা হবে"
 
@@ -1613,103 +1638,99 @@ msgstr "অতিরিক্ত তথ্য"
 # MT: LibreTranslate
 #. TRANSLATORS: "Home" is the text that will be shown in
 #. the user's personal folder
-#: app/specialFolderIcon.js:57 app/specialFolderIcon.js:69
+#: app/specialFolderIcon.js:61 app/specialFolderIcon.js:73
 msgid "Home"
 msgstr "হোম"
 
 # MT: LibreTranslate
-#: app/specialFolderIcon.js:63
+#: app/specialFolderIcon.js:67
 msgid "Trash"
 msgstr "আবর্জনা"
 
 # MT: LibreTranslate
-#. * TRANSLATORS: when using a screen reader,
-#. * this is the text read when a stack is
-#. * selected. Example: if a stack named "pictures"
-#. *  is selected, it will say "Stack pictures"
-#: app/stackItem.js:46
+#: app/stackItem.js:153
 msgid "Stack"
 msgstr "স্ট্যাক-ওভারফ্লো"
 
 # MT: LibreTranslate
-#: app/symLinkIcon.js:100
+#: app/symLinkIcon.js:108
 msgid "Broken Link"
 msgstr "ক্ষতিগ্রস্ত লিংক"
 
 # MT: LibreTranslate
-#: app/symLinkIcon.js:102
+#: app/symLinkIcon.js:110
 msgid "Can not open this File because it is a Broken Symlink"
 msgstr "এই ফাইলটি খোলা যাচ্ছে না কারণ এটি একটি ব্রোকেন সিম-লিংক"
 
 # MT: LibreTranslate
-#: app/volumeIcon.js:58
+#: app/volumeIcon.js:64
 msgid "Drive"
 msgstr "ড্রাইভ"
 
 # MT: LibreTranslate
-#: app/widgetManager.js:2417
+#: app/widgetManager.js:2420
 msgid "Widget preferences"
 msgstr "সাইট বিষয়ক পছন্দ সমূহ"
 
-#: app/widgetManager.js:2429 app/widgetManager.js:2438
+#: app/widgetManager.js:2432 app/widgetManager.js:2441
 msgid "Unpin widget"
 msgstr ""
 
-#: app/widgetManager.js:2429 app/widgetManager.js:2438
+#: app/widgetManager.js:2432 app/widgetManager.js:2441
 msgid "Pin widget"
 msgstr ""
 
-#: app/widgetManager.js:2447
+#: app/widgetManager.js:2450
 msgid "Reposition widget"
 msgstr ""
 
-#: app/widgetManager.js:3051
+#: app/widgetManager.js:3066
 msgid "HTML widget"
 msgstr ""
 
-#: app/widgetManager.js:3053
+#: app/widgetManager.js:3068
 msgid "GTK widget"
 msgstr ""
 
 # MT: LibreTranslate
-#: app/widgetManager.js:3059
+#: app/widgetManager.js:3074
 #, fuzzy
 msgid "User Installed"
 msgstr "দয়া করে {0}"
 
-#: app/widgetManager.js:3059
+#: app/widgetManager.js:3074
 msgid "System Installed"
 msgstr ""
 
-#: app/widgetManager.js:3081
+#: app/widgetManager.js:3096
 msgid "Download Latest Widgets from Repository?"
 msgstr ""
 
-#: app/widgetManager.js:3083
+#: app/widgetManager.js:3098
 msgid "This will overwrite all widgets in your local widgets folder."
 msgstr ""
 
-#: app/widgetManager.js:3156
+#: app/widgetManager.js:3197
 msgid "Widgets updated"
 msgstr "সেতু হালনাগাদকৃত"
 
-#: app/widgetManager.js:3157
+#: app/widgetManager.js:3198
 msgid "The latest widgets were downloaded and installed."
 msgstr ""
 
-#: app/widgetManager.js:3163
+#: app/widgetManager.js:3206
 msgid "Widgets download failed"
 msgstr ""
 
-#: app/widgetManager.js:3252
+#: app/widgetManager.js:3312
 msgid "Allow"
 msgstr "অনুমতি দিন"
 
-#: app/widgetManager.js:3306
+#: app/widgetManager.js:3377
 msgid "Strict"
 msgstr "কড়া"
 
-#: app/widgetManager.js:3308
+#: app/widgetManager.js:3379
 msgid ""
 "The widget runs in a tightly sandboxed web environment.\n"
 "\n"
@@ -1720,11 +1741,11 @@ msgid ""
 "This is the safest option and is recommended for most widgets."
 msgstr ""
 
-#: app/widgetManager.js:3319
+#: app/widgetManager.js:3390
 msgid "Relaxed"
 msgstr ""
 
-#: app/widgetManager.js:3321
+#: app/widgetManager.js:3392
 msgid ""
 "The widget is allowed broader web capabilities.\n"
 "\n"
@@ -1735,11 +1756,11 @@ msgid ""
 "Use this only for widgets you trust."
 msgstr ""
 
-#: app/widgetManager.js:3331
+#: app/widgetManager.js:3402
 msgid "Development"
 msgstr "Development"
 
-#: app/widgetManager.js:3333
+#: app/widgetManager.js:3404
 msgid ""
 "The widget runs with development-friendly web access.\n"
 "\n"
@@ -1750,75 +1771,75 @@ msgid ""
 msgstr ""
 
 # MT: LibreTranslate
-#: app/widgetManager.js:3342
+#: app/widgetManager.js:3413
 msgid "Default"
 msgstr "পূর্বনির্ধারিত"
 
-#: app/widgetManager.js:3344
+#: app/widgetManager.js:3415
 msgid ""
 "The widget runs with a predefined web security policy.\n"
 "\n"
 "Web access and capabilities are restricted according to the active policy."
 msgstr ""
 
-#: app/widgetManager.js:3352
+#: app/widgetManager.js:3423
 msgid "Allow web content for {widgetId}?"
 msgstr ""
 
 #. eslint-disable-next-line prefer-template
-#: app/widgetManager.js:3365
+#: app/widgetManager.js:3436
 msgid ""
 "The widget you are adding may load web content from the internet.\n"
 "\n"
 msgstr ""
 
-#: app/widgetManager.js:3366
+#: app/widgetManager.js:3437
 msgid ""
 "This content is subject to the widget security policy:\n"
 "\n"
 msgstr ""
 
-#: app/widgetManager.js:3401
+#: app/widgetManager.js:3473
 msgid ""
 "This widget, {widgetId} runs a background process on your computer.\n"
 "\n"
 msgstr ""
 
-#: app/widgetManager.js:3403
+#: app/widgetManager.js:3475
 msgid ""
 "The backend runs with your normal user permissions, just like any other "
 "application you start.\n"
 msgstr ""
 
-#: app/widgetManager.js:3404
+#: app/widgetManager.js:3476
 msgid ""
 "It can access your files, system resources, and the network according to "
 "your user account permissions.\n"
 "\n"
 msgstr ""
 
-#: app/widgetManager.js:3407
+#: app/widgetManager.js:3479
 msgid "Command:"
 msgstr "কমান্ড"
 
-#: app/widgetManager.js:3415
+#: app/widgetManager.js:3487
 msgid "Only allow this for widgets you implicitly trust."
 msgstr ""
 
-#: app/widgetManager.js:3419
+#: app/widgetManager.js:3491
 msgid "Allow widget backend?"
 msgstr ""
 
 # MT: LibreTranslate
-#: app/widgetWebContext.js:296
+#: app/widgetWebContext.js:297
 msgid "Widget Preferences"
 msgstr "সাইট বিষয়ক পছন্দ সমূহ"
 
-#: app/widgetWebContext.js:868
+#: app/widgetWebContext.js:869
 msgid "Open link in browser?"
 msgstr "ব্রাউজারে চালু করুন"
 
-#: app/widgetWebContext.js:869
+#: app/widgetWebContext.js:870
 msgid ""
 "The widget wants to open this link in your browser:\n"
 "\n"
@@ -1841,7 +1862,7 @@ msgid "Choose Desktop Folder"
 msgstr "ডেস্কটপ ফোল্ডার নির্বাচন করুন"
 
 # MT: LibreTranslate
-#: app/utils/desktopIconsUtil.js:235
+#: app/utils/desktopIconsUtil.js:238
 msgid "Command not found"
 msgstr "কমান্ড পাওয়া যায়নি"
 
@@ -1975,8 +1996,8 @@ msgid ""
 "When doing a Drag'n'Drop operation, marks the place in the grid where the "
 "icon will be put with a semitransparent rectangle."
 msgstr ""
-"ড্রাগোডিং অপারেশন করার সময়, গ্রিডে যে স্থান চিহ্নিত করা হবে তা নির্বাচন করে অর্ধ- রেখার "
-"মাধ্যমে আইকনের সাথে স্বচ্ছ করা হবে।."
+"ড্রাগোডিং অপারেশন করার সময়, গ্রিডে যে স্থান চিহ্নিত করা হবে তা নির্বাচন করে অর্ধ- "
+"রেখার মাধ্যমে আইকনের সাথে স্বচ্ছ করা হবে।."
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:65
@@ -2052,8 +2073,8 @@ msgid ""
 "Paint the label text in black instead of white. Useful when using light "
 "backgrounds."
 msgstr ""
-"সাদা রংয়ের পরিবর্তে সাদা রং আঁকার জন্য চিহ্নিত করো । হালকা পটভূমি ব্যবহার করার সময় সুবিধাজনক "
-"।."
+"সাদা রংয়ের পরিবর্তে সাদা রং আঁকার জন্য চিহ্নিত করো । হালকা পটভূমি ব্যবহার করার সময় "
+"সুবিধাজনক ।."
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:100
@@ -2077,8 +2098,7 @@ msgstr "ডেস্কটপের মধ্যে আইকন স্থাপ
 msgid ""
 "Icons are not on a rectangular grid but can be postioned anywhere "
 "independent of grid"
-msgstr ""
-"আইকন কোন আয়তাকার গ্রিডে নেই, কিন্তু যেকোন গ্রিডে পুনরায় পোস্ট করা যাবে"
+msgstr "আইকন কোন আয়তাকার গ্রিডে নেই, কিন্তু যেকোন গ্রিডে পুনরায় পোস্ট করা যাবে"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:110
