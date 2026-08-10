@@ -46,8 +46,6 @@ const WindowManager = class {
         this._scaleFactorChanged = false;
         this._priorScaleFactor = null;
         this._hidden = false;
-        this._gridWindowsUpdateInProgress = false;
-        this._pendingDesktopList = null;
 
         this._registerWidgetLayerAction();
         this._dbusAdvertiseUpdate();
@@ -107,38 +105,39 @@ const WindowManager = class {
     }
 
     async updateGridWindows(newdesktoplist) {
-        if (this._gridWindowsUpdateInProgress) {
-            this._pendingDesktopList = newdesktoplist;
-            return;
-        }
+        // `runSerializedDesktopUpdate()` returns a promise for the queued work,
+        // so callers can await this method and handle any rejection here. The
+        // diff check below also skips no-op updates when nothing changed.
+        await this._desktopManager.runSerializedDesktopUpdate(async () => {
+            const changeInfo =
+                this._computeDesktopChangeInfo(newdesktoplist);
 
-        const changeInfo =
-            this._computeDesktopChangeInfo(newdesktoplist);
+            const {
+                firstDesktop,
+                monitorCountChanged,
+                monitorschangedList,
+                gridschangedList,
+                monitorschanged,
+                gridschanged,
+                redisplay,
+            } = changeInfo;
 
-        const {
-            firstDesktop,
-            monitorCountChanged,
-            monitorschangedList,
-            gridschangedList,
-            monitorschanged,
-            gridschanged,
-            redisplay,
-        } = changeInfo;
+            // Allow initial startup if no desktops defined on initiation
+            if (firstDesktop) {
+                await this._handleFirstDesktop();
+                return;
+            }
 
-        // Allow initial startup if no desktops defined on initiation
-        if (firstDesktop) {
-            await this._handleFirstDesktop();
-            return;
-        }
+            // If any new monitors plugged in or removed
+            // by creating new desktops
+            if (monitorCountChanged) {
+                await this._handleMonitorCountChange();
+                return;
+            }
 
-        // If any new monitors plugged in or removed
-        // by creating new desktops
-        if (monitorCountChanged) {
-            await this._handleMonitorCountChange();
-            return;
-        }
+            if (!redisplay)
+                return;
 
-        if (redisplay) {
             await this._handleRedisplay({
                 monitorschangedList,
                 gridschangedList,
@@ -146,19 +145,10 @@ const WindowManager = class {
                 gridschanged,
                 redisplay,
             });
-        }
-    }
-
-    async _handleFirstDesktop() {
-        this._desktopManager.clearAllLayersFromGrids();
-        await this.createGridWindows();
-
-        // sanity checks and icons placement on grid will be done by
-        // desktopManager in sync startup
+        });
     }
 
     async _handleMonitorCountChange() {
-        this._gridWindowsUpdateInProgress = true;
         // monitor has been plugged in or removed.
         this._desktopManager.clearAllLayersFromGrids();
         await this.createGridWindows();
@@ -169,21 +159,15 @@ const WindowManager = class {
             gridschanged: true,
         });
 
-        this._gridWindowsUpdateInProgress = false;
-        await this._drainPendingUpdates();
+        this.queue_draw();
     }
 
-    async _drainPendingUpdates() {
-        if (this._gridWindowsUpdateInProgress)
-            return;
+    async _handleFirstDesktop() {
+        this._desktopManager.clearAllLayersFromGrids();
+        await this.createGridWindows();
 
-        const next = this._pendingDesktopList;
-        this._pendingDesktopList = null;
-
-        if (next != null)
-            await this.updateGridWindows(next);
-
-        this.queue_draw();
+        // sanity checks and icons placement on grid will be done by
+        // desktopManager in sync startup
     }
 
     async _handleRedisplay({
@@ -196,7 +180,6 @@ const WindowManager = class {
         if (!redisplay)
             return;
 
-        this._gridWindowsUpdateInProgress = true;
         await this._displayDesktopSnapShots();
         this._desktopManager.clearAllLayersFromGrids({
             redisplay,
@@ -240,9 +223,6 @@ const WindowManager = class {
         // force a queue draw of all windows now that we have drawn the desktop,
         // and poke mutter to map the meta window.
         this._displayAnimationToLive();
-
-        this._gridWindowsUpdateInProgress = false;
-        await this._drainPendingUpdates();
     }
 
 

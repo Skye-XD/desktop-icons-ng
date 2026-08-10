@@ -91,6 +91,7 @@ const DesktopManager = class {
         this._clickY = null;
         this._compositeStackList = null;
         this._displayList = [];
+        this._desktopUpdateQueue = Promise.resolve();
         // Track last seen keyboard modifier state so accelerators can query it
         this._lastModifierState = 0;
         this.ignoreKeys = this.Enums.IgnoreKeys.map(_k => Gdk[_k]);
@@ -128,6 +129,21 @@ const DesktopManager = class {
         return activeWindow;
     }
 
+    runSerializedDesktopUpdate(updateFn) {
+        // Run desktop updates one at a time. Each call keeps its own turn, so
+        // this serializes updates but does not merge them into a single call.
+        const nextUpdate = this._desktopUpdateQueue.then(
+            () => updateFn(),
+            () => updateFn()
+        );
+
+        // Keep the queue chain alive even if one update fails; callers still
+        // get the rejection from `nextUpdate`.
+        this._desktopUpdateQueue = nextUpdate.catch(() => {});
+
+        return nextUpdate;
+    }
+
     async _syncStartupDesktop() {
         // startup in a particular order
         // First create and make sure windows are created
@@ -160,7 +176,11 @@ const DesktopManager = class {
         // This is no longer needed, if true it blocks and all updates.
         this.windowsPromiseResolve = null;
 
-        await this._drawDesktop(fileList, {initialRead}).catch(e => logError(e));
+        await this.runSerializedDesktopUpdate(async () => {
+            await this._drawDesktop(fileList, {initialRead}).catch(e => {
+                logError(e);
+            });
+        });
         // First intitiation complete, valid file read from
         // desktopdir, even if a prior fileList was read, the
         // forced new read will recalculate and resave new
@@ -1721,15 +1741,17 @@ const DesktopManager = class {
     }
 
     async redrawDesktop() {
-        // fileList is not changed, we just need to render the desktop again
-        // with changes in icon color, emblem, appearance, theme change etc.
-        const opts = {initialRead: false, redisplay: true};
-        const fileList = this.desktopMonitor.fileList;
+        await this.runSerializedDesktopUpdate(async () => {
+            // fileList is not changed, we just need to render the desktop again
+            // with changes in icon color, emblem, appearance, theme change etc.
+            const opts = {initialRead: false, redisplay: true};
+            const fileList = this.desktopMonitor.fileList;
 
-        await this._drawDesktop(fileList, opts).catch(e => {
-            console.error(
-                `Error while redrawing desktop: ${e.message}\n${e.stack}`
-            );
+            await this._drawDesktop(fileList, opts).catch(e => {
+                console.error(
+                    `Error while redrawing desktop: ${e.message}\n${e.stack}`
+                );
+            });
         });
     }
 
@@ -1738,14 +1760,16 @@ const DesktopManager = class {
     }
 
     async refreshDesktop() {
-        // fileList is changed, we need to render the desktop again
-        // with latest fileList from the desktopMonitor. The position of the
-        // icons is also recomputed from the normalized coordinates.
-        const opts = {initialRead: true};
-        const fileList = this.desktopMonitor.fileList;
+        await this.runSerializedDesktopUpdate(async () => {
+            // fileList is changed, we need to render the desktop again
+            // with latest fileList from the desktopMonitor. The position of the
+            // icons is also recomputed from the normalized coordinates.
+            const opts = {initialRead: true};
+            const fileList = this.desktopMonitor.fileList;
 
-        await this._drawDesktop(fileList, opts).catch(e => {
-            console.error(`Error while refreshing desktop: ${e.message}`);
+            await this._drawDesktop(fileList, opts).catch(e => {
+                console.error(`Error while refreshing desktop: ${e.message}`);
+            });
         });
     }
 
