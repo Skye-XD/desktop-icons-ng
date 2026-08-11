@@ -596,26 +596,39 @@ const DragManager = class {
             deltaY = yDestination - yOrigin - this.localDragOffset[1];
         }
 
-        const fileItems = [];
-        this._displayList.filter(item => item.isSelected).forEach(item => {
-            if (!keepArranged || item.isSpecial) {
-                fileItems.push(item);
-                item.removeFromGrid({callOnDestroy: false});
-                let [x, y] = item.getCoordinates().slice(0, 3);
-                item.temporarySavedPosition = [x + deltaX, y + deltaY];
-            }
+        this._desktopManager.runSerializedDesktopUpdate(() => {
+            const fileItems = [];
+
+            this._displayList.filter(item => item.isSelected).forEach(item => {
+                if (!keepArranged || item.isSpecial) {
+                    fileItems.push(item);
+                    item.removeFromGrid({callOnDestroy: false});
+                    const [x, y] = item.getCoordinates().slice(0, 3);
+                    item.temporarySavedPosition = [x + deltaX, y + deltaY];
+                }
+            });
+
+            // Force the drag update onto the same serialized desktop mutation
+            // queue as geometry and file-list updates.
+            this._desktopManager._addFilesToDesktop(
+                fileItems,
+                this._Enums.StoredCoordinates.OVERWRITE
+            );
+        }).catch(e => {
+            console.log(
+                'Exception while doing move with drag and drop: ' +
+                `${e.message}\n${e.stack}`
+            );
         });
 
-        // force to store the new coordinates
-        this._desktopManager._addFilesToDesktop(fileItems,
-            this._Enums.StoredCoordinates.OVERWRITE);
-        if (keepArranged) {
-            this._desktopManager.redrawDesktop().catch(e => {
-                console.log(
-                    'Exception while doing move with drag and drop and' +
-                    `"Keep arranged…": ${e.message}\n${e.stack}`);
-            });
-        }
+        if (!keepArranged)
+            return;
+
+        this._desktopManager.redrawDesktop().catch(e => {
+            console.log(
+                'Exception while doing move with drag and drop and' +
+                `"Keep arranged…": ${e.message}\n${e.stack}`);
+        });
     }
 
     onTextDrop(dropData, [xGlobalDestination, yGlobalDestination]) {
