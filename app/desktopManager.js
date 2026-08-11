@@ -843,31 +843,35 @@ const DesktopManager = class {
         }
     }
 
-    _unstack() {
-        if (this.stackInitialCoordinates && this._compositeStackList) {
-            this._displayList.forEach(f => {
-                f.removeFromGrid();
-                if (f.isStackMarker)
-                    f.onDestroy();
-            });
-            this._restoreStackInitialCoordinates();
-            this._displayList = this._compositeStackList;
-            this._compositeStackList = null;
+    async _unstack() {
+        await this.runSerializedDesktopUpdate(() => {
+            if (this.stackInitialCoordinates && this._compositeStackList) {
+                this._displayList.forEach(f => {
+                    f.removeFromGrid();
+                    if (f.isStackMarker)
+                        f.onDestroy();
+                });
+                this._restoreStackInitialCoordinates();
+                this._displayList = this._compositeStackList;
+                this._compositeStackList = null;
 
-            if (this.sortingSubMenu && this.sortingMenu) {
-                this.sortingSubMenu.prepend_item(this.keepArrangedMenuItem);
-                this.sortingMenu.prepend_item(this.cleanUpMenuItem);
-            }
+                if (this.sortingSubMenu && this.sortingMenu) {
+                    this.sortingSubMenu.prepend_item(
+                        this.keepArrangedMenuItem
+                    );
+                    this.sortingMenu.prepend_item(this.cleanUpMenuItem);
+                }
 
-            if (this.Prefs.keepArranged) {
-                this.doSorts();
-            } else {
-                this._addFilesToDesktop(
-                    this._displayList,
-                    this.Enums.StoredCoordinates.OVERWRITE
-                );
+                if (this.Prefs.keepArranged) {
+                    this.doSorts();
+                } else {
+                    this._addFilesToDesktop(
+                        this._displayList,
+                        this.Enums.StoredCoordinates.OVERWRITE
+                    );
+                }
             }
-        }
+        });
     }
 
     _saveStackInitialCoordinates() {
@@ -1443,13 +1447,17 @@ const DesktopManager = class {
         }
     }
 
-    sortAllFilesFromGridsByPosition() {
+    async sortAllFilesFromGridsByPosition() {
         if (this.Prefs.keepArranged)
             return;
 
-        this._displayList.map(f => f.removeFromGrid({callOnDestroy: false}));
-        this._sortByCurrentPosition();
-        this._reassignFilesToDesktop();
+        await this.runSerializedDesktopUpdate(() => {
+            this._displayList.map(f => f.removeFromGrid({
+                callOnDestroy: false,
+            }));
+            this._sortByCurrentPosition();
+            this._reassignFilesToDesktop();
+        });
     }
 
     _sortAllFilesFromGridsByModifiedTime() {
@@ -1791,46 +1799,62 @@ const DesktopManager = class {
     }
 
     async onGtkSettingsChanged() {
-        await this.desktopMonitor.getFileList();
-        await this.reLoadDesktop().catch(e => {
-            console.log('Exception while updating desktop after the hidden ' +
-                `settings changed: ${e.message}\n${e.stack}`);
-        });
+        // No serializer here. The actual desktop mutation is serialized later
+        // when the reload reaches refreshDesktop().
+        await this.reLoadDesktop();
         this.desktopMenuManager.updateTemplates();
     }
 
-    onKeepArrangedChanged() {
-        if (this.Prefs.keepArranged)
-            this.doSorts({redisplay: true});
+    async onKeepArrangedChanged() {
+        if (this.Prefs.keepArranged) {
+            await this.runSerializedDesktopUpdate(() => {
+                this.doSorts({redisplay: true});
+            });
+        }
     }
 
-    onUnstackedTypesChanged() {
-        if (this.Prefs.keepStacked)
-            this.doStacks({redisplay: true});
+    async onUnstackedTypesChanged() {
+        if (this.Prefs.keepStacked) {
+            await this.runSerializedDesktopUpdate(() => {
+                this.doStacks({redisplay: true});
+            });
+        }
     }
 
-    onkeepStackedChanged() {
-        if (!this.Prefs.keepStacked)
-            this._unstack();
-        else
-            this.doStacks({redisplay: true});
+    async onkeepStackedChanged() {
+        if (!this.Prefs.keepStacked) {
+            await this._unstack();
+        } else {
+            await this.runSerializedDesktopUpdate(() => {
+                this.doStacks({redisplay: true});
+            });
+        }
     }
 
-    onSortOrderChanged() {
-        if (this.Prefs.keepStacked)
-            this.doStacks({redisplay: true});
-        else
-            this.doSorts({redisplay: true});
+    async onSortOrderChanged() {
+        await this.runSerializedDesktopUpdate(() => {
+            if (this.Prefs.keepStacked)
+                this.doStacks({redisplay: true});
+            else
+                this.doSorts({redisplay: true});
+        });
     }
 
-    onIconSizeChanged() {
-        this._displayList.forEach(x => x.removeFromGrid());
-        for (let desktop of this._desktops)
-            desktop.resizeGrid();
-        this.reLoadDesktop().catch(e => {
+    async onIconSizeChanged() {
+        await this.runSerializedDesktopUpdate(() => {
+            this._applyIconSizeChange();
+        });
+
+        await this.reLoadDesktop().catch(e => {
             console.log('Exception while reloading desktop after icon ' +
                 `size change: ${e.message}\n${e.stack}`);
         });
+    }
+
+    _applyIconSizeChange() {
+        this._displayList.forEach(x => x.removeFromGrid());
+        for (let desktop of this._desktops)
+            desktop.resizeGrid();
     }
 
     onDarkModeChanged() {
