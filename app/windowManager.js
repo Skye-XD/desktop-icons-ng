@@ -123,7 +123,7 @@ const WindowManager = class {
             // Drain the newest pending request one at a time so bursty
             // geometry changes collapse down to the latest state.
             while (this._pendingGridWindowsUpdate != null) {
-                const nextUpdate = this._pendingGridWindowsUpdate;
+                const nextUpdate = [...this._pendingGridWindowsUpdate];
                 this._pendingGridWindowsUpdate = null;
 
                 try {

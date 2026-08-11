@@ -503,6 +503,7 @@ const DesktopManager = class {
         if (this.windowsPromiseResolve || !fileList)
             return;
         const selectedFiles = this.getCurrentSelectionAsUri();
+        const displayList = [...fileList];
 
         //* Remove all files from the grids just before placing new files to
         // prevent flickering icons *//
@@ -510,11 +511,11 @@ const DesktopManager = class {
             this._removeAllFilesFromGrids();
         else
             this._clearAllFilesFromGrids();
-        this._displayList = fileList;
+        this._displayList = displayList;
 
         this._placeAllFilesOnGrids(opts);
 
-        const drawComplete = fileList.map(async fileItem => {
+        const drawComplete = displayList.map(async fileItem => {
             // Start icon loading early so late loads settle before first paint.
             await fileItem.updateIcon();
             if (selectedFiles) {
@@ -1753,7 +1754,7 @@ const DesktopManager = class {
             // fileList is not changed, we just need to render the desktop again
             // with changes in icon color, emblem, appearance, theme change etc.
             const opts = {initialRead: false, redisplay: true};
-            const fileList = this.desktopMonitor.fileList;
+            const fileList = [...this.desktopMonitor.fileList];
 
             await this._drawDesktop(fileList, opts).catch(e => {
                 console.error(
@@ -1773,7 +1774,7 @@ const DesktopManager = class {
             // with latest fileList from the desktopMonitor. The position of the
             // icons is also recomputed from the normalized coordinates.
             const opts = {initialRead: true};
-            const fileList = this.desktopMonitor.fileList;
+            const fileList = [...this.desktopMonitor.fileList];
 
             await this._drawDesktop(fileList, opts).catch(e => {
                 console.error(`Error while refreshing desktop: ${e.message}`);
@@ -1787,7 +1788,7 @@ const DesktopManager = class {
         // We need to recompute the position of the icons
         // from the normalized coordinates and redraw the desktop and reassign
         // the icons to the correct grid and monitors
-        const fileList = this.desktopMonitor.fileList;
+        const fileList = [...this.desktopMonitor.fileList];
 
         await this._drawDesktop(fileList, opts).catch(e => {
             console.error(`Error while reframing desktop: ${e.message}`);
