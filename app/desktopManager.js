@@ -468,7 +468,7 @@ const DesktopManager = class {
         this._performSanityChecks();
 
         // Icons first
-        await this.reFrameDesktop({
+        await this._reFrameDesktop({
             redisplay,
             monitorschanged,
             gridschanged,
@@ -1782,7 +1782,7 @@ const DesktopManager = class {
         });
     }
 
-    async reFrameDesktop(opts) {
+    async _reFrameDesktop(opts) {
         // fileList is not changed, grids changed, monitor added, removed,
         // monitor geometry, zoom, or index changed.
         // We need to recompute the position of the icons
