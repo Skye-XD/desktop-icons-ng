@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-06 09:20-0400\n"
-"PO-Revision-Date: 2026-07-14 13:26+0000\n"
+"PO-Revision-Date: 2026-08-17 12:05+0000\n"
 "Last-Translator: Sundeep Mediratta <smedius@gmail.com>\n"
 "Language-Team: Tagalog <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/tl/>\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 == 4 "
 "|| n % 10 == 6 || n % 10 == 9);\n"
-"X-Generator: Weblate 2026.8.dev0\n"
+"X-Generator: Weblate 2026.9.dev0\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
@@ -304,8 +304,7 @@ msgstr "Huwag"
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:822
 msgid "Show a context menu item to delete permanently"
-msgstr ""
-"Ipakita ang isang balita sa menu ng konteksto na permanenteng buburahin"
+msgstr "Ipakita ang isang balita sa menu ng konteksto na permanenteng buburahin"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:827
@@ -864,8 +863,7 @@ msgstr "Walang aplikasyon na humahawak sa mimetype na \"inode/directory\""
 # MT: LibreTranslate
 #: app/desktopManager.js:260
 msgid "Gnome Files is not registered as a File Manager"
-msgstr ""
-"Ang Gnome Files ay hindi nakarehistro bilang Isang Tagapamahala ng File"
+msgstr "Ang Gnome Files ay hindi nakarehistro bilang Isang Tagapamahala ng File"
 
 # MT: LibreTranslate
 #: app/desktopManager.js:261
@@ -2015,8 +2013,7 @@ msgstr ""
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:60
 msgid "Shows a rectangle in the destination place during DnD"
-msgstr ""
-"Ipinakikita ang isang parihaba sa patutunguhang lugar sa panahon ng DnD"
+msgstr "Ipinakikita ang isang parihaba sa patutunguhang lugar sa panahon ng DnD"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:61

@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-06 09:20-0400\n"
-"PO-Revision-Date: 2026-07-14 13:32+0000\n"
+"PO-Revision-Date: 2026-08-17 12:04+0000\n"
 "Last-Translator: Sundeep Mediratta <smedius@gmail.com>\n"
 "Language-Team: Urdu <https://hosted.weblate.org/projects/gtk4-desktop-icons-"
 "ng/gtk4-ding-pot/ur/>\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2026.8.dev0\n"
+"X-Generator: Weblate 2026.9.dev0\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
@@ -514,8 +514,8 @@ msgid ""
 "To be able to work with compressed files, install file-roller and/or gir-1.2-"
 "gnomeAutoAr"
 msgstr ""
-"نصب شدہ فائلیں کے ساتھ کام کرنے کے قابل ہو سکتے ہیں، فائل-رولر اور/یا "
-"Gir-1.2-Mobile خود کار"
+"نصب شدہ فائلیں کے ساتھ کام کرنے کے قابل ہو سکتے ہیں، فائل-رولر اور/یا Gir-"
+"1.2-Mobile خود کار"
 
 # MT: LibreTranslate
 #: app/autoAr.js:207
@@ -846,8 +846,7 @@ msgstr "فائل رولر نہیں پائے گا"
 #: app/desktopManager.js:253
 msgid "There is no application that handles mimetype \"inode/directory\""
 msgstr ""
-"کوئی بھی اطلاق نہیں ہوتا جس میں ممی ٹائپ \"انود/ سمتیہ\" کو ہینڈل کیا جاتا "
-"ہے۔"
+"کوئی بھی اطلاق نہیں ہوتا جس میں ممی ٹائپ \"انود/ سمتیہ\" کو ہینڈل کیا جاتا ہے۔"
 
 # MT: LibreTranslate
 #: app/desktopManager.js:260
@@ -2097,8 +2096,8 @@ msgid ""
 "If a second monitor is connected, new icons are placed on the non primary "
 "monitor"
 msgstr ""
-"اگر کوئی دوسرا مینار متصل ہو تو غیر بنیادی مانیٹر پر نئی تصاویر رکھی جاتی "
-"ہیں۔"
+"اگر کوئی دوسرا مینار متصل ہو تو غیر بنیادی مانیٹر پر نئی تصاویر رکھی جاتی ہیں"
+"۔"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105

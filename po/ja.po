@@ -11,14 +11,14 @@
 # Makoto Sakaguchi <ycco34vx@gmail.com>, 2026.
 # Sundeep Mediratta <smedius@gmail.com>, 2026.
 # LittleFox2024 <btdefores@outlook.com>, 2026.
+# xiezhihai <xiezhihai7321@outlook.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-06 09:20-0400\n"
-"PO-Revision-Date: 2026-07-15 14:02+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
+"PO-Revision-Date: 2026-08-17 12:09+0000\n"
+"Last-Translator: Sundeep Mediratta <smedius@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/ja/>\n"
 "Language: ja\n"
@@ -26,7 +26,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2026.8.dev0\n"
+"X-Generator: Weblate 2026.9.dev0\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
@@ -318,8 +318,7 @@ msgstr "コンテンツ"
 #: app/adwPreferencesWindow.js:850
 msgid ""
 "Machine translated using LibreTranslate. User verified and edited on Weblate."
-msgstr ""
-"LibreTranslate を使用して翻訳されたマシン。 Weblate でユーザー検証と編集."
+msgstr "LibreTranslate を使用して翻訳されたマシン。 Weblate でユーザー検証と編集."
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:855
@@ -364,6 +363,8 @@ msgstr "デフォルトのアプリケーションを変更するエラー"
 #: app/appChooser.js:178
 msgid "Error while setting {foo} as default application for {mimetype}"
 msgstr ""
+"{mimetype} の既定のアプリケーションとして {foo} を設定中にエラーが発生しまし"
+"た"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:63
@@ -739,7 +740,7 @@ msgstr "デスクトップ更新"
 
 #: app/desktopGrid.js:2586 app/widgetManager.js:1754
 msgid "Toggle Widget Grid"
-msgstr ""
+msgstr "ウィジェットグリッドを切り替え"
 
 #: app/desktopGrid.js:2587
 msgid "Add Widget..."
@@ -1064,8 +1065,7 @@ msgstr "ファイルを開く 失敗"
 # MT: LibreTranslate
 #: app/fileItemIcon.js:375
 msgid "There is no application installed to open \"{fo}\" files."
-msgstr ""
-"[\"{fo}\"]ファイルを開くためのアプリケーションはインストールされていません."
+msgstr "[\"{fo}\"]ファイルを開くためのアプリケーションはインストールされていません."
 
 #: app/fileItemMenu.js:106
 msgid "New Folder with {0} item"
@@ -1300,8 +1300,7 @@ msgstr "Gnome Consoleで開くことができません"
 # MT: LibreTranslate
 #: app/fileItemMenu.js:1227
 msgid "Please Install Gnome Console or other Terminal Program"
-msgstr ""
-"Gnome Consoleまたはその他のターミナルプログラムをインストールしてください"
+msgstr "Gnome Consoleまたはその他のターミナルプログラムをインストールしてください"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:1235
@@ -1514,11 +1513,11 @@ msgstr "プレビュー"
 
 #: app/shortcuts.js:36
 msgid "Toggle Keyboard Selection"
-msgstr ""
+msgstr "キーボード選択を切り替える"
 
 #: app/shortcuts.js:39
 msgid "Toggle Widget Layer"
-msgstr ""
+msgstr "ウィジェットレイヤーを切り替え"
 
 #: app/shortcuts.js:40 app/widgetManager.js:1690
 msgid "Add Widget"
@@ -1625,7 +1624,7 @@ msgstr "リファレンス"
 
 #: app/widgetManager.js:2432 app/widgetManager.js:2441
 msgid "Unpin widget"
-msgstr ""
+msgstr "ウィジェットの固定を解除"
 
 #: app/widgetManager.js:2432 app/widgetManager.js:2441
 #, fuzzy
@@ -1634,15 +1633,15 @@ msgstr "ウィジェットを追加"
 
 #: app/widgetManager.js:2450
 msgid "Reposition widget"
-msgstr ""
+msgstr "ウィジェットを再配置"
 
 #: app/widgetManager.js:3066
 msgid "HTML widget"
-msgstr ""
+msgstr "HTMLウィジェット"
 
 #: app/widgetManager.js:3068
 msgid "GTK widget"
-msgstr ""
+msgstr "GTKウィジェット"
 
 # MT: LibreTranslate
 #: app/widgetManager.js:3074
@@ -1652,15 +1651,17 @@ msgstr "インストールしてください {0}"
 
 #: app/widgetManager.js:3074
 msgid "System Installed"
-msgstr ""
+msgstr "システムのインストールが完了しました"
 
 #: app/widgetManager.js:3096
 msgid "Download Latest Widgets from Repository?"
-msgstr ""
+msgstr "リポジトリから最新のウィジェットをダウンロードしますか？"
 
 #: app/widgetManager.js:3098
 msgid "This will overwrite all widgets in your local widgets folder."
 msgstr ""
+"これにより、ローカルのウィジェットフォルダー内のすべてのウィジェットが上書き"
+"されます。"
 
 #: app/widgetManager.js:3197
 msgid "Widgets updated"
@@ -1668,11 +1669,11 @@ msgstr "ブリッジを更新しました"
 
 #: app/widgetManager.js:3198
 msgid "The latest widgets were downloaded and installed."
-msgstr ""
+msgstr "最新のウィジェットがダウンロードされ、インストールされました。"
 
 #: app/widgetManager.js:3206
 msgid "Widgets download failed"
-msgstr ""
+msgstr "ウィジェットのダウンロードに失敗しました"
 
 #: app/widgetManager.js:3312
 msgid "Allow"
@@ -1680,7 +1681,7 @@ msgstr "許可"
 
 #: app/widgetManager.js:3377
 msgid "Strict"
-msgstr "Strict"
+msgstr "厳しい"
 
 #: app/widgetManager.js:3379
 msgid ""
@@ -1692,6 +1693,13 @@ msgid ""
 "\n"
 "This is the safest option and is recommended for most widgets."
 msgstr ""
+"ウィジェットは厳重にサンドボックス化されたウェブ環境で実行されます。\n"
+"\n"
+"• 外部のスクリプトやフレームは許可されていません。\n"
+"• ネットワークアクセスは安全な（HTTPS）リクエストに限定されます。\n"
+"• ウィジェット自身のファイルとインラインコードのみが実行できます。\n"
+"\n"
+"これは最も安全なオプションであり、ほとんどのウィジェットに推奨されます。"
 
 #: app/widgetManager.js:3390
 msgid "Relaxed"
@@ -1707,6 +1715,14 @@ msgid ""
 "\n"
 "Use this only for widgets you trust."
 msgstr ""
+"ウィジェットには、より広範なウェブ機能が許可されています。\n"
+"\n"
+"• 信頼できるウェブサイトからの外部スクリプト、スタイル、画像、およびフレーム"
+"の読み込みが可能です。\n"
+"• HTTPS、WebSocket、およびメディアストリームを介したネットワークアクセスが許"
+"可されます。\n"
+"\n"
+"これは、信頼できるウィジェットにのみ使用してください。"
 
 #: app/widgetManager.js:3402
 msgid "Development"
@@ -1721,6 +1737,12 @@ msgid ""
 "\n"
 "This mode is intended for development and debugging only."
 msgstr ""
+"ウィジェットは開発向けのウェブアクセスで動作します。\n"
+"\n"
+"• ローカル開発サーバー（localhost）への接続が許可されています。\n"
+"• テストのためにHTTPおよびWebSocketアクセスが許可される場合があります。\n"
+"\n"
+"このモードは開発およびデバッグ専用です。"
 
 # MT: LibreTranslate
 #: app/widgetManager.js:3413
@@ -1733,10 +1755,14 @@ msgid ""
 "\n"
 "Web access and capabilities are restricted according to the active policy."
 msgstr ""
+"ウィジェットは、あらかじめ定義されたウェブセキュリティポリシーで動作します"
+"。\n"
+"\n"
+"ウェブアクセスと機能は、適用されているポリシーに従って制限されます。"
 
 #: app/widgetManager.js:3423
 msgid "Allow web content for {widgetId}?"
-msgstr ""
+msgstr "{widgetId}のウェブコンテンツを許可しますか？"
 
 #. eslint-disable-next-line prefer-template
 #: app/widgetManager.js:3436
@@ -1744,24 +1770,34 @@ msgid ""
 "The widget you are adding may load web content from the internet.\n"
 "\n"
 msgstr ""
+"追加するウィジェットは、インターネットからウェブコンテンツを読み込む可能性が"
+"あります。\n"
+"\n"
 
 #: app/widgetManager.js:3437
 msgid ""
 "This content is subject to the widget security policy:\n"
 "\n"
 msgstr ""
+"このコンテンツはウィジェットのセキュリティポリシーの対象です：\n"
+"\n"
 
 #: app/widgetManager.js:3473
 msgid ""
 "This widget, {widgetId} runs a background process on your computer.\n"
 "\n"
 msgstr ""
+"このウィジェット、{widgetId} は、あなたのコンピュータで"
+"バックグラウンドプロセスを実行します。\n"
+"\n"
 
 #: app/widgetManager.js:3475
 msgid ""
 "The backend runs with your normal user permissions, just like any other "
 "application you start.\n"
 msgstr ""
+"バックエンドは、他のアプリケーションを起動するのと同じように、通常のユーザー"
+"権限で動作します。\n"
 
 #: app/widgetManager.js:3476
 msgid ""
@@ -1769,6 +1805,9 @@ msgid ""
 "your user account permissions.\n"
 "\n"
 msgstr ""
+"それは、ユーザーアカウントの権限に従って、ファイル、システムリソース、"
+"ネットワークにアクセスすることができます。\n"
+"\n"
 
 #: app/widgetManager.js:3479
 msgid "Command:"
@@ -1776,11 +1815,11 @@ msgstr "コマンド:"
 
 #: app/widgetManager.js:3487
 msgid "Only allow this for widgets you implicitly trust."
-msgstr ""
+msgstr "これは、暗黙的に信頼しているウィジェットにのみ許可してください。"
 
 #: app/widgetManager.js:3491
 msgid "Allow widget backend?"
-msgstr ""
+msgstr "ウィジェットのバックエンドを許可しますか？"
 
 # MT: LibreTranslate
 #: app/widgetWebContext.js:297
@@ -1790,13 +1829,15 @@ msgstr "リファレンス"
 
 #: app/widgetWebContext.js:869
 msgid "Open link in browser?"
-msgstr "ブラウザでリンクを開く"
+msgstr "ブラウザでリンクを開く？"
 
 #: app/widgetWebContext.js:870
 msgid ""
 "The widget wants to open this link in your browser:\n"
 "\n"
 msgstr ""
+"ウィジェットはこのリンクをブラウザで開きたいと考えています。\n"
+"\n"
 
 # MT: LibreTranslate
 #: app/utils/dbusUtils.js:67
@@ -1808,8 +1849,8 @@ msgstr "[\"${programName}\"]は利用できません"
 msgid ""
 "Install \"${programName}\" to enable Desktop Icons to perform these actions."
 msgstr ""
-"デスクトップアイコンを有効にするには、[\"${programName}\"]をインストールし"
-"て、これらのアクションを実行します."
+"デスクトップアイコンを有効にするには、[\"${programName}\"]をインストールして"
+"、これらのアクションを実行します."
 
 # MT: LibreTranslate
 #: app/utils/desktopFolderUtils.js:84
@@ -1849,8 +1890,8 @@ msgstr "GNOMEデスクトップにアイコンを表示"
 #: data/com.desktop.ding.desktop.in:6
 msgid "desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;"
 msgstr ""
-"デスクトップ;アイコン;ファイル;フォルダ;マネージャー;範囲;非表示;ショー;ラン"
-"チャー;ショートカット;"
+"デスクトップ;アイコン;ファイル;フォルダ;マネージャー;範囲;非表"
+"示;ショー;ランチャー;ショートカット;"
 
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:21
@@ -2058,8 +2099,7 @@ msgstr "ユーザーアプリケーションショートカット"
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:121
 msgid "Override for default application shortcuts set by the User"
-msgstr ""
-"ユーザが設定したデフォルトのアプリケーションショートカットのオーバーライド"
+msgstr "ユーザが設定したデフォルトのアプリケーションショートカットのオーバーライド"
 
 #~ msgid "User"
 #~ msgstr "利用者"

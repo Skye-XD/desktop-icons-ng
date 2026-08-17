@@ -14,12 +14,13 @@
 # French Fries <sikaxor989@euleina.com>, 2025, 2026.
 # Sundeep Mediratta <smedius@gmail.com>, 2026.
 # Quentin PAGÈS <quentinantonin@free.fr>, 2026.
+# xiezhihai <xiezhihai7321@outlook.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-06 09:20-0400\n"
-"PO-Revision-Date: 2026-07-14 13:30+0000\n"
+"PO-Revision-Date: 2026-08-17 12:00+0000\n"
 "Last-Translator: \"Alexandre G. Raymond\" <alex@ndre.gr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/fr/>\n"
@@ -28,31 +29,31 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2026.8.dev0\n"
+"X-Generator: Weblate 2026.9.dev0\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
-msgstr "Remplacer"
+msgstr "Remplacement CSS"
 
 #: app/adwPreferencesWindow.js:162
 msgid "Customise the appearance of desktop icons with CSS"
-msgstr ""
+msgstr "Personnalisez l'apparence des icônes du bureau avec CSS"
 
 #: app/adwPreferencesWindow.js:166
 msgid "Warning: This can break the extension if done incorrectly"
-msgstr ""
+msgstr "Avertissement : Une mauvaise manipulation peut endommager l'extension."
 
 #: app/adwPreferencesWindow.js:172
 msgid "Edit CSS Override File..."
-msgstr ""
+msgstr "Modifier le fichier de remplacement CSS..."
 
 #: app/adwPreferencesWindow.js:180
 msgid "Apply CSS Changes Now"
-msgstr ""
+msgstr "Appliquer les modifications CSS maintenant"
 
 #: app/adwPreferencesWindow.js:181
 msgid "Reload the CSS to apply changes immediately"
-msgstr ""
+msgstr "Rechargez le CSS pour appliquer les modifications immédiatement"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:248 data/com.desktop.ding.desktop.in:29
@@ -349,6 +350,8 @@ msgstr "Erreur lors de la modification de l'application par défaut"
 #: app/appChooser.js:178
 msgid "Error while setting {foo} as default application for {mimetype}"
 msgstr ""
+"Erreur lors de la définition de {foo} comme application par défaut pour "
+"{mimetype}"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:63
@@ -726,7 +729,7 @@ msgstr "Mettre à jour le bureau"
 
 #: app/desktopGrid.js:2586 app/widgetManager.js:1754
 msgid "Toggle Widget Grid"
-msgstr ""
+msgstr "Basculer la grille des widgets"
 
 #: app/desktopGrid.js:2587
 msgid "Add Widget..."
@@ -1035,8 +1038,7 @@ msgstr "Ouverture du fichier échoué"
 # MT: LibreTranslate
 #: app/fileItemIcon.js:375
 msgid "There is no application installed to open \"{fo}\" files."
-msgstr ""
-"Il n'y a pas d'application installée pour ouvrir les fichiers \"{fo}\"."
+msgstr "Il n'y a pas d'application installée pour ouvrir les fichiers \"{fo}\"."
 
 #: app/fileItemMenu.js:106
 msgid "New Folder with {0} item"
@@ -1481,11 +1483,11 @@ msgstr "Aperçu"
 
 #: app/shortcuts.js:36
 msgid "Toggle Keyboard Selection"
-msgstr ""
+msgstr "Basculer la sélection du clavier"
 
 #: app/shortcuts.js:39
 msgid "Toggle Widget Layer"
-msgstr ""
+msgstr "Basculer la couche du widget"
 
 #: app/shortcuts.js:40 app/widgetManager.js:1690
 msgid "Add Widget"
@@ -1659,6 +1661,14 @@ msgid ""
 "\n"
 "This is the safest option and is recommended for most widgets."
 msgstr ""
+"Le widget fonctionne dans un environnement Web fortement restreint.\n"
+"\n"
+"• Aucun script ou cadre externe n'est autorisé.\n"
+"• L'accès au réseau est limité aux requêtes sécurisées (HTTPS).\n"
+"• Seuls les fichiers du widget et le code intégré peuvent s'exécuter.\n"
+"\n"
+"C'est l'option la plus sûre et elle est recommandée pour la plupart des "
+"widgets."
 
 #: app/widgetManager.js:3390
 msgid "Relaxed"
@@ -1815,7 +1825,8 @@ msgstr "Affiche les icônes sur le bureau GNOME"
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:6
 msgid "desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;"
-msgstr "bureau;icônes;fichiers;dossiers;manager;dispositif;show;lanceur;shortcuts;"
+msgstr ""
+"bureau;icônes;fichiers;dossiers;manager;dispositif;show;lanceur;shortcuts;"
 
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:21
@@ -1862,8 +1873,7 @@ msgstr "Coin de référence des nouvelles icônes"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:41
 msgid "Set the corner from where the icons will start to be placed."
-msgstr ""
-"Définit le coin à partir duquel les icônes commenceront à être placées."
+msgstr "Définit le coin à partir duquel les icônes commenceront à être placées."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:45
 msgid "Show external drives in the desktop"
@@ -1896,8 +1906,8 @@ msgstr ""
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:60
 msgid "Shows a rectangle in the destination place during DnD"
 msgstr ""
-"Affiche un rectangle sur l’emplacement de destination lors d’un "
-"glisser‑déposer"
+"Affiche un rectangle sur l’emplacement de destination lors d’un glisser‑"
+"déposer"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:61
 msgid ""

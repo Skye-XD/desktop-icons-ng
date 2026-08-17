@@ -4,14 +4,14 @@
 # Baurzhan Muftakhidinov <baurthefirst@gmail.com>, 2026.
 # Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2026.
 # Weblate <noreply-mt-weblate@weblate.org>, 2026.
+# xiezhihai <xiezhihai7321@outlook.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-06 09:20-0400\n"
-"PO-Revision-Date: 2026-07-14 13:27+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
+"PO-Revision-Date: 2026-08-17 12:01+0000\n"
+"Last-Translator: xiezhihai <xiezhihai7321@outlook.com>\n"
 "Language-Team: Kazakh <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/kk/>\n"
 "Language: kk\n"
@@ -19,31 +19,31 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2026.8.dev0\n"
+"X-Generator: Weblate 2026.9.dev0\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
-msgstr ""
+msgstr "CSS үстемелеу"
 
 #: app/adwPreferencesWindow.js:162
 msgid "Customise the appearance of desktop icons with CSS"
-msgstr ""
+msgstr "Десктоптағы белгілердің көрінісін CSS арқылы баптаңыз"
 
 #: app/adwPreferencesWindow.js:166
 msgid "Warning: This can break the extension if done incorrectly"
-msgstr ""
+msgstr "Ескерту: Егер дұрыс жасалмаса, бұл кеңейтуді бұзуы мүмкін"
 
 #: app/adwPreferencesWindow.js:172
 msgid "Edit CSS Override File..."
-msgstr ""
+msgstr "CSS өзгеріс файлын өңдеу..."
 
 #: app/adwPreferencesWindow.js:180
 msgid "Apply CSS Changes Now"
-msgstr ""
+msgstr "CSS өзгертулерін қазір қолданыңыз"
 
 #: app/adwPreferencesWindow.js:181
 msgid "Reload the CSS to apply changes immediately"
-msgstr ""
+msgstr "Өзгерістерді дереу қолдану үшін CSS-ті қайта жүктеңіз"
 
 #: app/adwPreferencesWindow.js:248 data/com.desktop.ding.desktop.in:29
 msgid "Shortcuts"
@@ -51,7 +51,7 @@ msgstr "Жарлықтар"
 
 #: app/adwPreferencesWindow.js:251
 msgid "Edit Shortcuts..."
-msgstr ""
+msgstr "Қысқартуларды өңдеу..."
 
 #: app/adwPreferencesWindow.js:266
 msgid "Edit Application Shortcuts"

@@ -26,8 +26,8 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-06 09:20-0400\n"
-"PO-Revision-Date: 2026-07-14 13:33+0000\n"
-"Last-Translator: André Wille <Andre.Wille00@web.de>\n"
+"PO-Revision-Date: 2026-08-17 13:04+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/de/>\n"
 "Language: de\n"
@@ -35,7 +35,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2026.8.dev0\n"
+"X-Generator: Weblate 2026.9.dev0\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
@@ -242,8 +242,7 @@ msgstr "Netzwerk-Laufwerke auf dem Desktop anzeigen"
 
 #: app/adwPreferencesWindow.js:800
 msgid "Add new drives to the opposite side of the desktop"
-msgstr ""
-"Neue Laufwerke auf der gegenüberliegenden Seite des Desktops hinzufügen"
+msgstr "Neue Laufwerke auf der gegenüberliegenden Seite des Desktops hinzufügen"
 
 #: app/adwPreferencesWindow.js:805
 msgid "Action to Open Items"
@@ -653,8 +652,7 @@ msgstr "Nicht vertrauenswürdige Desktop-Datei"
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:189
 msgid "This Desktop file is not trusted, it can not be launched."
-msgstr ""
-"Diese Desktop-Datei ist nicht vertraut, es kann nicht gestartet werden."
+msgstr "Diese Desktop-Datei ist nicht vertraut, es kann nicht gestartet werden."
 
 #: app/desktopFileIcon.js:218 app/gnomeShellDragDrop.js:355
 msgid "Could not open File"
@@ -1451,7 +1449,7 @@ msgstr "Kurzbeschreibung Blick"
 
 #: app/shortcuts.js:69
 msgid "Force Garbage Collection"
-msgstr ""
+msgstr "Garbage Collection"
 
 #: app/shortcuts.js:70
 msgid "Show Or Hide Desktop Icons"
@@ -1683,8 +1681,7 @@ msgstr "Befehl:"
 
 #: app/widgetManager.js:3487
 msgid "Only allow this for widgets you implicitly trust."
-msgstr ""
-"Erlauben Sie dies nur für Widgets, denen Sie uneingeschränkt vertrauen."
+msgstr "Erlauben Sie dies nur für Widgets, denen Sie uneingeschränkt vertrauen."
 
 #: app/widgetManager.js:3491
 msgid "Allow widget backend?"
@@ -1749,7 +1746,8 @@ msgstr "Symbole auf dem Desktop anzeigen"
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:6
 msgid "desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;"
-msgstr "desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;"
+msgstr ""
+"desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;"
 
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:21

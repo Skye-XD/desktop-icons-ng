@@ -15,8 +15,8 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-06 09:20-0400\n"
-"PO-Revision-Date: 2026-07-15 14:03+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2026-08-17 12:00+0000\n"
+"Last-Translator: João Mota <joao.mota.200810@gmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/pt/>\n"
 "Language: pt\n"
@@ -24,7 +24,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2026.8.dev0\n"
+"X-Generator: Weblate 2026.9.dev0\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
@@ -181,8 +181,7 @@ msgstr "Canto inferior direito"
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:726
 msgid "Add new icons to Secondary Monitors first, if available"
-msgstr ""
-"Adicione novos ícones aos monitores secundários primeiro, se disponível"
+msgstr "Adicione novos ícones aos monitores secundários primeiro, se disponível"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:730
@@ -517,8 +516,8 @@ msgid ""
 "To be able to work with compressed files, install file-roller and/or gir-1.2-"
 "gnomeAutoAr"
 msgstr ""
-"Para poder trabalhar com ficheiros compactados, instale file-roller e/ou "
-"gir-1.2-gnomeAutoAr"
+"Para poder trabalhar com ficheiros compactados, instale file-roller e/ou gir-"
+"1.2-gnomeAutoAr"
 
 # MT: LibreTranslate
 #: app/autoAr.js:207
@@ -1309,8 +1308,7 @@ msgstr "Não é possível enviar um diretório por email"
 # MT: LibreTranslate
 #: app/fileItemMenu.js:969
 msgid "Selection includes a Directory, compress to a .zip file first?"
-msgstr ""
-"A seleção inclui um diretório, comprimir para um arquivo .zip primeiro?"
+msgstr "A seleção inclui um diretório, comprimir para um arquivo .zip primeiro?"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:995 app/fileItemMenu.js:1026 app/fileItemMenu.js:1043
@@ -2084,8 +2082,7 @@ msgstr "Tipo de ficheiros para não empilhar"
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:86
 msgid "An Array of strings types, Don't Stack these types of files"
-msgstr ""
-"Uma variedade de tipos de cadeias, não empilhe estes tipos de ficheiros"
+msgstr "Uma variedade de tipos de cadeias, não empilhe estes tipos de ficheiros"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90

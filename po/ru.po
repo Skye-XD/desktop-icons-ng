@@ -17,8 +17,8 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-06 09:20-0400\n"
-"PO-Revision-Date: 2026-07-14 13:31+0000\n"
-"Last-Translator: Sundeep Mediratta <smedius@gmail.com>\n"
+"PO-Revision-Date: 2026-08-17 13:04+0000\n"
+"Last-Translator: Сергей <asvmail.as@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/ru/>\n"
 "Language: ru\n"
@@ -27,7 +27,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 2026.8.dev0\n"
+"X-Generator: Weblate 2026.9.dev0\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
@@ -163,8 +163,7 @@ msgstr "Нижний правый угол"
 
 #: app/adwPreferencesWindow.js:726
 msgid "Add new icons to Secondary Monitors first, if available"
-msgstr ""
-"Сначала добавлять новые значки на вторичные мониторы, если они доступны"
+msgstr "Сначала добавлять новые значки на вторичные мониторы, если они доступны"
 
 #: app/adwPreferencesWindow.js:730
 msgid "Snap icons to grid"
@@ -402,7 +401,7 @@ msgstr "Разрешить запуск"
 
 #: app/appImageFileItem.js:201 app/appImageFileItem.js:231
 msgid "AppImage Launch Failed"
-msgstr ""
+msgstr "Не удалось запустить AppImage"
 
 #: app/appImageFileItem.js:203
 msgid ""
@@ -577,8 +576,8 @@ msgid ""
 "Please check the permissions of this Desktop Folder, and make sure it is not "
 "writable by others."
 msgstr ""
-".desktop-файлы не могут быть запущены с этого рабочего стола, так как папка "
-"«Рабочий стол» доступна для записи другим пользователям.\n"
+".desktop-файлы не могут быть запущены с этого рабочего стола, так как папка «"
+"Рабочий стол» доступна для записи другим пользователям.\n"
 "\n"
 "Пожалуйста, проверьте права доступа к этой папке рабочего стола и убедитесь, "
 "что она недоступна для записи другим пользователям."
