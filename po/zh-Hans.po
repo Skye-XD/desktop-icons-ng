@@ -14,13 +14,15 @@
 # 0xarch <alanqa-ops@outlook.com>, 2026.
 # "Adam C." <adam701212@gmail.com>, 2026.
 # chenaou <2744735540@qq.com>, 2026.
+# Rockytkg <2696916846@qq.com>, 2026.
+# xiezhihai <xiezhihai7321@outlook.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-06 09:20-0400\n"
-"PO-Revision-Date: 2026-07-14 13:34+0000\n"
-"Last-Translator: \"Adam C.\" <adam701212@gmail.com>\n"
+"PO-Revision-Date: 2026-08-17 12:09+0000\n"
+"Last-Translator: xiezhihai <xiezhihai7321@outlook.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/gtk4-desktop-icons-ng/gtk4-ding-pot/zh_Hans/>\n"
 "Language: zh-Hans\n"
@@ -28,7 +30,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2026.8.dev0\n"
+"X-Generator: Weblate 2026.9.dev0\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
@@ -143,12 +145,12 @@ msgstr "桌面图标大小"
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:706
 msgid "Tiny"
-msgstr "小声"
+msgstr "极小"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:707
 msgid "Small"
-msgstr "小型"
+msgstr "小号"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:708
@@ -158,7 +160,7 @@ msgstr "标准"
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:709
 msgid "Large"
-msgstr "大块"
+msgstr "大号"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:715
@@ -979,7 +981,7 @@ msgstr "显示快捷键"
 # MT: LibreTranslate
 #: app/desktopMenu.js:1101 app/shortcuts.js:67
 msgid "New Document"
-msgstr "新文档"
+msgstr "新建文档"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:1106 app/shortcuts.js:11
@@ -1226,7 +1228,7 @@ msgstr "不允许运行"
 # MT: LibreTranslate
 #: app/fileItemMenu.js:341
 msgid "Empty Trash"
-msgstr "空回收站"
+msgstr "清空回收站"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:347
@@ -1669,18 +1671,16 @@ msgid "Widget preferences"
 msgstr "小部件首选项"
 
 #: app/widgetManager.js:2432 app/widgetManager.js:2441
-#, fuzzy
 msgid "Unpin widget"
-msgstr "GTK 小部件"
+msgstr "取消固定小组件"
 
 #: app/widgetManager.js:2432 app/widgetManager.js:2441
-#, fuzzy
 msgid "Pin widget"
-msgstr "GTK 小部件"
+msgstr "固定小部件"
 
 #: app/widgetManager.js:2450
 msgid "Reposition widget"
-msgstr ""
+msgstr "重设组件位置"
 
 #: app/widgetManager.js:3066
 msgid "HTML widget"
@@ -1692,33 +1692,32 @@ msgstr "GTK 小部件"
 
 # MT: LibreTranslate
 #: app/widgetManager.js:3074
-#, fuzzy
 msgid "User Installed"
-msgstr "请安装 {0}"
+msgstr "用户已安装"
 
 #: app/widgetManager.js:3074
 msgid "System Installed"
-msgstr ""
+msgstr "系统已安装"
 
 #: app/widgetManager.js:3096
 msgid "Download Latest Widgets from Repository?"
-msgstr ""
+msgstr "是否从仓库下载最新小部件？"
 
 #: app/widgetManager.js:3098
 msgid "This will overwrite all widgets in your local widgets folder."
-msgstr ""
+msgstr "将覆盖本地小部件文件夹内的所有小部件。"
 
 #: app/widgetManager.js:3197
 msgid "Widgets updated"
-msgstr ""
+msgstr "小部件已更新"
 
 #: app/widgetManager.js:3198
 msgid "The latest widgets were downloaded and installed."
-msgstr ""
+msgstr "已下载并安装最新小部件。"
 
 #: app/widgetManager.js:3206
 msgid "Widgets download failed"
-msgstr ""
+msgstr "小部件下载失败"
 
 #: app/widgetManager.js:3312
 msgid "Allow"
@@ -1872,6 +1871,8 @@ msgid ""
 "The widget wants to open this link in your browser:\n"
 "\n"
 msgstr ""
+"该小部件想要在您的浏览器中打开此链接：\n"
+"\n"
 
 # MT: LibreTranslate
 #: app/utils/dbusUtils.js:67
@@ -2033,8 +2034,7 @@ msgstr "排序特殊文件夹 - 主目录/回收站驱动器."
 msgid ""
 "When arranging Icons on desktop, to sort and change the position of the "
 "Home, Trash and mounted Network or External Drives"
-msgstr ""
-"在桌面上安排图标时, 以排序和更改 Home、 回收站和挂载的网络或外部驱动器的位置"
+msgstr "在桌面上安排图标时, 以排序和更改 Home、 回收站和挂载的网络或外部驱动器的位置"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:70

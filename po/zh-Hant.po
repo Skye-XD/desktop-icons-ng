@@ -7,12 +7,13 @@
 # Weblate <noreply-mt-weblate@weblate.org>, 2025, 2026.
 # Victor Tseng <palatis@gmail.com>, 2026.
 # LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2026.
+# xiezhihai <xiezhihai7321@outlook.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-06 09:20-0400\n"
-"PO-Revision-Date: 2026-07-14 13:27+0000\n"
+"PO-Revision-Date: 2026-08-17 12:11+0000\n"
 "Last-Translator: LibreTranslate <noreply-mt-libretranslate@weblate.org>\n"
 "Language-Team: Chinese (Traditional Han script) <https://hosted.weblate.org/"
 "projects/gtk4-desktop-icons-ng/gtk4-ding-pot/zh_Hant/>\n"
@@ -21,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2026.8.dev0\n"
+"X-Generator: Weblate 2026.9.dev0\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
@@ -29,23 +30,23 @@ msgstr "覆蓋"
 
 #: app/adwPreferencesWindow.js:162
 msgid "Customise the appearance of desktop icons with CSS"
-msgstr ""
+msgstr "使用 CSS 自訂桌面圖示的外觀"
 
 #: app/adwPreferencesWindow.js:166
 msgid "Warning: This can break the extension if done incorrectly"
-msgstr ""
+msgstr "警告：如果操作不當，可能會導致擴展功能損壞"
 
 #: app/adwPreferencesWindow.js:172
 msgid "Edit CSS Override File..."
-msgstr ""
+msgstr "編輯 CSS 覆蓋檔案..."
 
 #: app/adwPreferencesWindow.js:180
 msgid "Apply CSS Changes Now"
-msgstr ""
+msgstr "立即套用 CSS 變更"
 
 #: app/adwPreferencesWindow.js:181
 msgid "Reload the CSS to apply changes immediately"
-msgstr ""
+msgstr "重新載入 CSS 以立即應用更改"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:248 data/com.desktop.ding.desktop.in:29
@@ -111,7 +112,7 @@ msgstr "桌面資料夾"
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:662
 msgid "Current Desktop: "
-msgstr "目前桌面 :"
+msgstr "當前桌面：· "
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:672
@@ -758,11 +759,11 @@ msgstr "更新桌面"
 
 #: app/desktopGrid.js:2586 app/widgetManager.js:1754
 msgid "Toggle Widget Grid"
-msgstr ""
+msgstr "切換小工具網格"
 
 #: app/desktopGrid.js:2587
 msgid "Add Widget..."
-msgstr "新增小工具"
+msgstr "新增小工具..."
 
 # MT: LibreTranslate
 #: app/desktopManager.js:182
@@ -777,15 +778,9 @@ msgid ""
 "\n"
 "Please enable in Mutter Dconf Settings"
 msgstr ""
-"有相關相關相關相關相關相關相關相關相關相關相關相關相關相關相關相關相關相關相"
-"關相關相關相關相關相關相關相關相關相關相關相關相關相關相關相關相關相關相關相"
-"關相關相關相關相關相關相關相關相關相關相關相關相關相關相關相關相關相關相關相"
-"關相關相關相關相關相關相關相關相關相關相關相關相關相關相關相關相關相關相關相"
-"關相關相關相關相關相關相關相關相關相關相關相相關相關相相相關相關相關相關相關"
-"相關相關相關相關相關相相關相相關相關相關相相相相相相相相相相相相相相相相相相"
-"相相關相相相相相相相相相相相相相相相相相相相相相相相相相\n"
+"多個顯示器有不同的縮放設置，建議每個顯示器使用單獨的幀緩衝縮放。\n"
 "\n"
-"請在 Mutter Dconf 設定中開啟"
+"請在 Mutter Dconf 設置中啟用"
 
 # MT: LibreTranslate
 #: app/desktopManager.js:194
@@ -794,15 +789,9 @@ msgid ""
 "\n"
 "Enable per monitor framebuffer scaling in Mutter Dconf Settings?"
 msgstr ""
-"有多個相關相關相關相關相關相關相關相關相關相關相關相關相關相\n"
+"多個顯示器具有不同的縮放設置。\n"
 "\n"
-"在 Mutter Dconf 設定中開啟相關相關相關相關相關相關相關相關相關相關相關相關相"
-"關相關相關相關相關相關相關相關相關相關相關相關相關相關相關相關相關相關相關相"
-"關相關相關相關相關相關相關相關相關相關相關相關相關相關相關相關相關相關相關相"
-"關相關相關相關相關相關相關相關相關相關相關相關相關相關相關相關相關相關相關相"
-"關相關相關相關相關相關相關相關相關相關相關相關相關相關相關相關相關相關相關相"
-"關相關相關相關相關相相關相相相相關相相相相關相相相相相相相相相相相相相相相相"
-"相相相相關相關相相相相相相相相相相相相相相相相相相相相相相相?"
+"在 Mutter Dconf 設置中啟用每個顯示器的幀緩衝區縮放？"
 
 # MT: LibreTranslate
 #: app/desktopManager.js:197 data/com.desktop.ding.desktop.in:25
@@ -1570,11 +1559,11 @@ msgstr "預覽"
 
 #: app/shortcuts.js:36
 msgid "Toggle Keyboard Selection"
-msgstr ""
+msgstr "切換鍵盤選擇"
 
 #: app/shortcuts.js:39
 msgid "Toggle Widget Layer"
-msgstr ""
+msgstr "切換小工具圖層"
 
 #: app/shortcuts.js:40 app/widgetManager.js:1690
 msgid "Add Widget"
@@ -1684,7 +1673,7 @@ msgstr "首选项"
 
 #: app/widgetManager.js:2432 app/widgetManager.js:2441
 msgid "Unpin widget"
-msgstr ""
+msgstr "取消固定小工具"
 
 #: app/widgetManager.js:2432 app/widgetManager.js:2441
 #, fuzzy
@@ -1751,6 +1740,13 @@ msgid ""
 "\n"
 "This is the safest option and is recommended for most widgets."
 msgstr ""
+"這個小工具在一個高度沙盒化的網頁環境中運行。\n"
+"\n"
+"• 不允許使用外部腳本或框架。\n"
+"• 網路訪問僅限於安全的（HTTPS）請求。\n"
+"• 只有小工具自己的文件和內嵌代碼可以運行。\n"
+"\n"
+"這是最安全的選項，建議大多數小工具使用。"
 
 #: app/widgetManager.js:3390
 msgid "Relaxed"
@@ -1766,6 +1762,12 @@ msgid ""
 "\n"
 "Use this only for widgets you trust."
 msgstr ""
+"此小工具允許更廣泛的網路功能。\n"
+"\n"
+"• 可以從受信任的網站加載外部腳本、樣式、圖片和框架。\n"
+"• 允許透過 HTTPS、WebSockets 及媒體串流進行網路存取。\n"
+"\n"
+"僅對您信任的小工具使用此功能。"
 
 #: app/widgetManager.js:3402
 msgid "Development"
@@ -1780,6 +1782,12 @@ msgid ""
 "\n"
 "This mode is intended for development and debugging only."
 msgstr ""
+"這個小工具可以用開發者友善的網頁方式運行。\n"
+"\n"
+"• 允許連接到本地開發伺服器（localhost）。\n"
+"• 可能允許 HTTP 和 WebSocket 存取以進行測試。\n"
+"\n"
+"這個模式僅供開發和除錯使用。"
 
 # MT: LibreTranslate
 #: app/widgetManager.js:3413
@@ -1792,6 +1800,9 @@ msgid ""
 "\n"
 "Web access and capabilities are restricted according to the active policy."
 msgstr ""
+"此小工具依照預先定義的網路安全政策運行。\n"
+"\n"
+"網路存取和功能會依照啟用的政策受到限制。"
 
 #: app/widgetManager.js:3423
 msgid "Allow web content for {widgetId}?"
@@ -1856,6 +1867,8 @@ msgid ""
 "The widget wants to open this link in your browser:\n"
 "\n"
 msgstr ""
+"這個小工具想在你的瀏覽器中打開此連結：\n"
+"\n"
 
 # MT: LibreTranslate
 #: app/utils/dbusUtils.js:67

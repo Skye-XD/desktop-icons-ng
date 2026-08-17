@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-06 09:20-0400\n"
-"PO-Revision-Date: 2026-07-14 13:25+0000\n"
+"PO-Revision-Date: 2026-08-17 12:08+0000\n"
 "Last-Translator: Sundeep Mediratta <smedius@gmail.com>\n"
 "Language-Team: Finnish <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/fi/>\n"
@@ -23,7 +23,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2026.8.dev0\n"
+"X-Generator: Weblate 2026.9.dev0\n"
 "X-Launchpad-Export-Date: 2021-04-08 06:16+0000\n"
 
 #: app/adwPreferencesWindow.js:161
@@ -178,8 +178,7 @@ msgstr "Oikea alakulma"
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:726
 msgid "Add new icons to Secondary Monitors first, if available"
-msgstr ""
-"Lisää uudet kuvakkeet Sekundaarisiin Monitoreihin ensin, jos saatavilla"
+msgstr "Lisää uudet kuvakkeet Sekundaarisiin Monitoreihin ensin, jos saatavilla"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:730
@@ -2002,8 +2001,7 @@ msgstr ""
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:100
 msgid "Show new icons on non primary monitor if connected"
-msgstr ""
-"Näytä uudet kuvakkeet ei-ensisijaisella monitorilla, jos ne on liitetty"
+msgstr "Näytä uudet kuvakkeet ei-ensisijaisella monitorilla, jos ne on liitetty"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:101

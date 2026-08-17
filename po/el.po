@@ -11,9 +11,8 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-06 09:20-0400\n"
-"PO-Revision-Date: 2026-07-15 14:04+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
+"PO-Revision-Date: 2026-08-17 12:06+0000\n"
+"Last-Translator: Sundeep Mediratta <smedius@gmail.com>\n"
 "Language-Team: Greek <https://hosted.weblate.org/projects/gtk4-desktop-icons-"
 "ng/gtk4-ding-pot/el/>\n"
 "Language: el\n"
@@ -21,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2026.8.dev0\n"
+"X-Generator: Weblate 2026.9.dev0\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
@@ -912,8 +911,7 @@ msgstr "Το παράθυρο προτιμήσεων είναι ανοιχτό"
 # MT: LibreTranslate
 #: app/desktopMenu.js:636
 msgid "This Window is open. Please switch to the active window."
-msgstr ""
-"Αυτό το παράθυρο είναι ανοιχτό. Παρακαλώ μεταβείτε στο ενεργό παράθυρο."
+msgstr "Αυτό το παράθυρο είναι ανοιχτό. Παρακαλώ μεταβείτε στο ενεργό παράθυρο."
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:648 app/desktopMenu.js:1149
@@ -2062,8 +2060,7 @@ msgstr "Διατήρηση στοιβαγμένων εικονιδίων"
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:81
 msgid "Always keep Icons Stacked, Similar types are grouped"
-msgstr ""
-"Διατηρείτε πάντα στοίβα εικονίδια, Παρόμοιοι τύποι είναι ομαδοποιημένοι"
+msgstr "Διατηρείτε πάντα στοίβα εικονίδια, Παρόμοιοι τύποι είναι ομαδοποιημένοι"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:85
@@ -2116,8 +2113,7 @@ msgstr ""
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
 msgid "Icons can be positioned anywhere on Desktop"
-msgstr ""
-"Τα εικονίδια μπορούν να τοποθετηθούν οπουδήποτε στην επιφάνεια εργασίας"
+msgstr "Τα εικονίδια μπορούν να τοποθετηθούν οπουδήποτε στην επιφάνεια εργασίας"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:106

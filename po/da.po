@@ -11,9 +11,8 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-06 09:20-0400\n"
-"PO-Revision-Date: 2026-07-15 14:01+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
+"PO-Revision-Date: 2026-08-17 12:08+0000\n"
+"Last-Translator: Sundeep Mediratta <smedius@gmail.com>\n"
 "Language-Team: Danish <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/da/>\n"
 "Language: da\n"
@@ -21,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2026.8.dev0\n"
+"X-Generator: Weblate 2026.9.dev0\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
@@ -599,8 +598,7 @@ msgstr "Outputfilen '${outputFile}' eksisterer allerede."
 # MT: LibreTranslate
 #: app/autoAr.js:523
 msgid "Compressing files into '${outputFile}' has been cancelled by the user."
-msgstr ""
-"Komprimering af filer til '${outputFile}' er blevet aflyst af brugeren."
+msgstr "Komprimering af filer til '${outputFile}' er blevet aflyst af brugeren."
 
 # MT: LibreTranslate
 #: app/autoAr.js:526
