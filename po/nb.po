@@ -14,8 +14,9 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-06 09:20-0400\n"
-"PO-Revision-Date: 2026-08-17 12:04+0000\n"
-"Last-Translator: Sundeep Mediratta <smedius@gmail.com>\n"
+"PO-Revision-Date: 2026-08-18 04:16+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/gtk4-"
 "desktop-icons-ng/gtk4-ding-pot/nb_NO/>\n"
 "Language: nb\n"
@@ -1701,13 +1702,12 @@ msgstr "GTK miniprogram"
 
 # MT: LibreTranslate
 #: app/widgetManager.js:3074
-#, fuzzy
 msgid "User Installed"
-msgstr "Vennligst installer {0}"
+msgstr "✓ Installert"
 
 #: app/widgetManager.js:3074
 msgid "System Installed"
-msgstr ""
+msgstr "Dato installert"
 
 #: app/widgetManager.js:3096
 msgid "Download Latest Widgets from Repository?"
@@ -1719,7 +1719,7 @@ msgstr ""
 
 #: app/widgetManager.js:3197
 msgid "Widgets updated"
-msgstr ""
+msgstr "Broer oppdatert"
 
 #: app/widgetManager.js:3198
 msgid "The latest widgets were downloaded and installed."

@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-06 09:20-0400\n"
-"PO-Revision-Date: 2026-08-17 13:04+0000\n"
+"PO-Revision-Date: 2026-08-18 04:16+0000\n"
 "Last-Translator: Сергей <asvmail.as@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/ru/>\n"
@@ -382,7 +382,7 @@ msgstr "Недоверенный AppImage-файл"
 # MT: LibreTranslate
 #: app/appImageFileItem.js:87
 msgid "This AppImage file is not trusted, it can not be launched."
-msgstr "Этот AppImage-файл не доверен, он не может быть запущен."
+msgstr "Этот AppImage-файл не является доверенным, он не может быть запущен."
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:88 app/desktopFileIcon.js:190
@@ -401,7 +401,7 @@ msgstr "Разрешить запуск"
 
 #: app/appImageFileItem.js:201 app/appImageFileItem.js:231
 msgid "AppImage Launch Failed"
-msgstr "Не удалось запустить AppImage"
+msgstr "Не удалось запустить файл AppImage"
 
 #: app/appImageFileItem.js:203
 msgid ""
@@ -409,6 +409,10 @@ msgid ""
 "\n"
 "Launch with <b>--no-sandbox</b>?"
 msgstr ""
+"Вероятно, на этой системе данный файл AppImage потребуется запустить без "
+"песочницы.\n"
+"\n"
+"Запустить с параметром <b>--no-sandbox</b>?"
 
 #: app/appImageFileItem.js:206 app/autoAr.js:305 app/autoAr.js:634
 #: app/desktopManager.js:196 app/desktopManager.js:1320 app/dragManager.js:794
@@ -419,13 +423,12 @@ msgstr "Отмена"
 
 #: app/appImageFileItem.js:207
 msgid "Launch with lesser protections"
-msgstr ""
+msgstr "Запуск с пониженными мерами безопасности"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:232
-#, fuzzy
 msgid "This AppImage could not be launched."
-msgstr "Этот AppImage-файл не доверен, он не может быть запущен."
+msgstr "Не удалось запустить этот файл AppImage."
 
 #: app/askRenamePopup.js:61
 msgid "Folder name"
@@ -1370,7 +1373,7 @@ msgstr "Показать комбинации клавиш"
 
 #: app/shortcuts.js:69
 msgid "Force Garbage Collection"
-msgstr ""
+msgstr "Принудительный запуск сборщика мусора"
 
 #: app/shortcuts.js:70
 msgid "Show Or Hide Desktop Icons"

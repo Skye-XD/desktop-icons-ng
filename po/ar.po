@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-06 09:20-0400\n"
-"PO-Revision-Date: 2026-08-17 12:06+0000\n"
+"PO-Revision-Date: 2026-08-18 04:16+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/ar/>\n"
@@ -736,7 +736,6 @@ msgid "Back to Desktop"
 msgstr "الرجوع لسطح المكتب"
 
 #: app/desktopGrid.js:2586 app/widgetManager.js:1754
-#, fuzzy
 msgid "Toggle Widget Grid"
 msgstr "تبديل طبقة العنصر"
 
@@ -1667,9 +1666,8 @@ msgid "Widget preferences"
 msgstr "تفضيلات العناصر"
 
 #: app/widgetManager.js:2432 app/widgetManager.js:2441
-#, fuzzy
 msgid "Unpin widget"
-msgstr "الغاء تثبيت الويدجت"
+msgstr "ثبّت الويدجت"
 
 #: app/widgetManager.js:2432 app/widgetManager.js:2441
 msgid "Pin widget"
@@ -1690,13 +1688,12 @@ msgstr "عنصر GTK"
 
 # MT: LibreTranslate
 #: app/widgetManager.js:3074
-#, fuzzy
 msgid "User Installed"
-msgstr "يرجى تثبيت {0}"
+msgstr "✓ ثُبت"
 
 #: app/widgetManager.js:3074
 msgid "System Installed"
-msgstr ""
+msgstr "مثبت النظام"
 
 #: app/widgetManager.js:3096
 msgid "Download Latest Widgets from Repository?"
@@ -1708,7 +1705,7 @@ msgstr ""
 
 #: app/widgetManager.js:3197
 msgid "Widgets updated"
-msgstr ""
+msgstr "حُدِّثت الجسور"
 
 #: app/widgetManager.js:3198
 msgid "The latest widgets were downloaded and installed."
