@@ -10,8 +10,9 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-06 09:20-0400\n"
-"PO-Revision-Date: 2026-08-17 12:01+0000\n"
-"Last-Translator: xiezhihai <xiezhihai7321@outlook.com>\n"
+"PO-Revision-Date: 2026-08-18 04:16+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Kazakh <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/kk/>\n"
 "Language: kk\n"
@@ -180,7 +181,7 @@ msgstr ""
 
 #: app/adwPreferencesWindow.js:750
 msgid "Restore Default Desktop Folder"
-msgstr ""
+msgstr "Әдепкілерді қалпына келтіру"
 
 #: app/adwPreferencesWindow.js:752
 msgid "Restore"
@@ -260,7 +261,7 @@ msgstr ""
 
 #: app/adwPreferencesWindow.js:836
 msgid "About..."
-msgstr ""
+msgstr "Осы туралы..."
 
 #: app/adwPreferencesWindow.js:849
 msgid "Translation"
@@ -342,7 +343,7 @@ msgstr "Жоқ"
 
 #: app/appImageFileItem.js:72 app/desktopFileIcon.js:174
 msgid "Enable option"
-msgstr ""
+msgstr "%(option)s опциясын іске қосу"
 
 #: app/appImageFileItem.js:73 app/desktopFileIcon.js:175
 msgid "Allow Executing File as a Program"
@@ -440,7 +441,7 @@ msgstr ""
 
 #: app/autoAr.js:387
 msgid "Creating destination folder"
-msgstr ""
+msgstr "Мақсатты буманы таңдау"
 
 #: app/autoAr.js:419
 msgid "Extracting files into '${outputPath}'"
@@ -573,7 +574,7 @@ msgstr ""
 
 #: app/desktopFileIcon.js:218 app/gnomeShellDragDrop.js:355
 msgid "Could not open File"
-msgstr ""
+msgstr "Файлды ашу мүмкін емес: {0}"
 
 #: app/desktopFileIcon.js:220
 msgid "{appName} can not open files of this Type!"
@@ -602,7 +603,7 @@ msgstr ""
 #: app/desktopGrid.js:66 data/com.desktop.ding.desktop.in:3
 #: data/com.desktop.ding.desktop.in:4
 msgid "Desktop Icons"
-msgstr ""
+msgstr "жұмыс үстелінің таңбашасы"
 
 #: app/desktopGrid.js:2585
 msgid "Back to Desktop"
@@ -836,7 +837,7 @@ msgstr ""
 
 #: app/dragManager.js:751
 msgid "{0} Does not exist"
-msgstr ""
+msgstr "Табылмады"
 
 #: app/dragManager.js:793
 msgid "Choose Action for Files"
@@ -1338,7 +1339,7 @@ msgstr "Жетек"
 
 #: app/widgetManager.js:2420
 msgid "Widget preferences"
-msgstr ""
+msgstr "Сайт баптаулары"
 
 #: app/widgetManager.js:2432 app/widgetManager.js:2441
 msgid "Unpin widget"

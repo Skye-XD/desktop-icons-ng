@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-06 09:20-0400\n"
-"PO-Revision-Date: 2026-08-17 12:09+0000\n"
+"PO-Revision-Date: 2026-08-18 04:16+0000\n"
 "Last-Translator: xiezhihai <xiezhihai7321@outlook.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/gtk4-desktop-icons-ng/gtk4-ding-pot/zh_Hans/>\n"
@@ -461,7 +461,7 @@ msgstr "允许运行"
 
 #: app/appImageFileItem.js:201 app/appImageFileItem.js:231
 msgid "AppImage Launch Failed"
-msgstr ""
+msgstr "AppImage 启动失败"
 
 #: app/appImageFileItem.js:203
 msgid ""
@@ -469,6 +469,9 @@ msgid ""
 "\n"
 "Launch with <b>--no-sandbox</b>?"
 msgstr ""
+"这个 AppImage 可能需要在此系统上不使用沙箱启动。\n"
+"\n"
+"要使用 <b>--no-sandbox</b> 启动吗？"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:206 app/autoAr.js:305 app/autoAr.js:634
@@ -480,13 +483,12 @@ msgstr "取消"
 
 #: app/appImageFileItem.js:207
 msgid "Launch with lesser protections"
-msgstr ""
+msgstr "以较少保护启动"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:232
-#, fuzzy
 msgid "This AppImage could not be launched."
-msgstr "此AppImage应用程序不可信, 无法启动 ."
+msgstr "无法启动此 AppImage。"
 
 # MT: LibreTranslate
 #: app/askRenamePopup.js:61
@@ -1621,7 +1623,7 @@ msgstr "显示快捷键 查看器"
 
 #: app/shortcuts.js:69
 msgid "Force Garbage Collection"
-msgstr ""
+msgstr "强制垃圾回收"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:70

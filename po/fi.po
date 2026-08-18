@@ -14,8 +14,9 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-06 09:20-0400\n"
-"PO-Revision-Date: 2026-08-17 12:08+0000\n"
-"Last-Translator: Sundeep Mediratta <smedius@gmail.com>\n"
+"PO-Revision-Date: 2026-08-18 04:15+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Finnish <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/fi/>\n"
 "Language: fi\n"
@@ -1642,9 +1643,8 @@ msgstr ""
 
 # MT: LibreTranslate
 #: app/widgetManager.js:3074
-#, fuzzy
 msgid "User Installed"
-msgstr "Asenna {0}"
+msgstr "✓ Asennettu"
 
 #: app/widgetManager.js:3074
 msgid "System Installed"
@@ -1660,7 +1660,7 @@ msgstr ""
 
 #: app/widgetManager.js:3197
 msgid "Widgets updated"
-msgstr ""
+msgstr "Sillat päivitetty"
 
 #: app/widgetManager.js:3198
 msgid "The latest widgets were downloaded and installed."
