@@ -128,10 +128,8 @@ const WindowManager = class {
 
                 try {
                     // eslint-disable-next-line no-await-in-loop
-                    await this._desktopManager.runSerializedDesktopUpdate(
-                        async () => {
-                            await this._applyGridWindowsUpdate(nextUpdate);
-                        }
+                    await this._desktopManager.runSerializedDesktopMutation(
+                        this._applyGridWindowsUpdate.bind(this, nextUpdate)
                     );
                 } catch (e) {
                     lastError = e;
@@ -197,6 +195,8 @@ const WindowManager = class {
         this._desktopManager.clearAllLayersFromGrids();
         await this.createGridWindows();
 
+        // WindowManager owns the serialized geometry update flow; desktopManager
+        // only applies the resulting desktop mutations.
         await this._desktopManager.applyDesktopLayoutChange({
             redisplay: true,
             monitorschanged: true,
@@ -257,6 +257,9 @@ const WindowManager = class {
         // For keep arranged new coordinates are automatically written to
         // grid. However for stacked co-ordinates- we will neeed to redo the
         // old coordinates seperately in do stacks with nonitorschanged info
+        //
+        // WindowManager owns the serialized geometry update flow; desktopManager
+        // only applies the resulting desktop mutations
         await this._desktopManager.applyDesktopLayoutChange({
             redisplay,
             monitorschanged,

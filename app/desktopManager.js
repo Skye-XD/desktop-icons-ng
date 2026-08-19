@@ -129,19 +129,25 @@ const DesktopManager = class {
         return activeWindow;
     }
 
-    runSerializedDesktopUpdate(updateFn) {
+    runSerializedDesktopMutation(updateFn) {
         // Run desktop updates one at a time. Each call keeps its own turn, so
         // this serializes updates but does not merge them into a single call.
-        const nextUpdate = this._desktopUpdateQueue.then(
-            () => updateFn(),
-            () => updateFn()
-        );
+        //
+        // Callers must pass a function with the correct `this` binding already
+        // applied; `then()` invokes it directly.
+        const nextUpdate = this._desktopUpdateQueue.then(updateFn);
 
         // Keep the queue chain alive even if one update fails; callers still
         // get the rejection from `nextUpdate`.
         this._desktopUpdateQueue = nextUpdate.catch(() => {});
 
         return nextUpdate;
+    }
+
+    _runSerializedDrawDesktop(fileList, opts) {
+        return this.runSerializedDesktopMutation(
+            this._drawDesktop.bind(this, fileList, opts)
+        );
     }
 
     async _syncStartupDesktop() {
@@ -176,10 +182,11 @@ const DesktopManager = class {
         // This is no longer needed, if true it blocks and all updates.
         this.windowsPromiseResolve = null;
 
-        await this.runSerializedDesktopUpdate(async () => {
-            await this._drawDesktop(fileList, {initialRead}).catch(e => {
-                logError(e);
-            });
+        await this._runSerializedDrawDesktop(
+            fileList,
+            {initialRead}
+        ).catch(e => {
+            logError(e);
         });
         // First intitiation complete, valid file read from
         // desktopdir, even if a prior fileList was read, the
@@ -275,7 +282,7 @@ const DesktopManager = class {
             await errorDialog.run();
         }
 
-        if (!inodeHandlers.map(a => a.get_id()).includes('org.gnome.Nautilus.desktop')) {
+        if (!inodeHandlers.some(a => a.get_id() === 'org.gnome.Nautilus.desktop')) {
             const helpURL = 'https://gitlab.com/smedius/desktop-icons-ng/-/issues/73';
             const header = _('Gnome Files is not registered as a File Manager');
             const text = _('The Gnome Files application is not programmed to open Folders!\nCheck your xdg-utils installation\nCheck Gnome Files .desktop File installation');
@@ -464,7 +471,11 @@ const DesktopManager = class {
         this.widgetManager.clearFromGrids(layoutChange);
     }
 
-    async applyDesktopLayoutChange({redisplay, monitorschanged, gridschanged}) {
+    async applyDesktopLayoutChange({
+        redisplay,
+        monitorschanged,
+        gridschanged,
+    } = {}) {
         this._performSanityChecks();
 
         // Icons first
@@ -573,11 +584,11 @@ const DesktopManager = class {
 
     _placeAllFilesOnGrids(opts = {redisplay: false}) {
         if (this.Prefs.keepStacked) {
-            this.doStacks(opts);
+            this._doStacks(opts);
             return;
         }
         if (this.Prefs.keepArranged) {
-            this.doSorts(opts);
+            this._doSorts(opts);
             return;
         }
         let storeMode = this.Enums.StoredCoordinates.PRESERVE;
@@ -844,35 +855,33 @@ const DesktopManager = class {
         }
     }
 
-    async _unstack() {
-        await this.runSerializedDesktopUpdate(() => {
-            if (this.stackInitialCoordinates && this._compositeStackList) {
-                this._displayList.forEach(f => {
-                    f.removeFromGrid();
-                    if (f.isStackMarker)
-                        f.onDestroy();
-                });
-                this._restoreStackInitialCoordinates();
-                this._displayList = this._compositeStackList;
-                this._compositeStackList = null;
+    _unstack() {
+        if (this.stackInitialCoordinates && this._compositeStackList) {
+            this._displayList.forEach(f => {
+                f.removeFromGrid();
+                if (f.isStackMarker)
+                    f.onDestroy();
+            });
+            this._restoreStackInitialCoordinates();
+            this._displayList = this._compositeStackList;
+            this._compositeStackList = null;
 
-                if (this.sortingSubMenu && this.sortingMenu) {
-                    this.sortingSubMenu.prepend_item(
-                        this.keepArrangedMenuItem
-                    );
-                    this.sortingMenu.prepend_item(this.cleanUpMenuItem);
-                }
-
-                if (this.Prefs.keepArranged) {
-                    this.doSorts();
-                } else {
-                    this._addFilesToDesktop(
-                        this._displayList,
-                        this.Enums.StoredCoordinates.OVERWRITE
-                    );
-                }
+            if (this.sortingSubMenu && this.sortingMenu) {
+                this.sortingSubMenu.prepend_item(
+                    this.keepArrangedMenuItem
+                );
+                this.sortingMenu.prepend_item(this.cleanUpMenuItem);
             }
-        });
+
+            if (this.Prefs.keepArranged) {
+                this._doSorts();
+            } else {
+                this._addFilesToDesktop(
+                    this._displayList,
+                    this.Enums.StoredCoordinates.OVERWRITE
+                );
+            }
+        }
     }
 
     _saveStackInitialCoordinates() {
@@ -1452,13 +1461,17 @@ const DesktopManager = class {
         if (this.Prefs.keepArranged)
             return;
 
-        await this.runSerializedDesktopUpdate(() => {
-            this._displayList.map(f => f.removeFromGrid({
-                callOnDestroy: false,
-            }));
-            this._sortByCurrentPosition();
-            this._reassignFilesToDesktop();
-        });
+        await this.runSerializedDesktopMutation(
+            this._sortAllFilesFromGridsByPosition.bind(this)
+        );
+    }
+
+    _sortAllFilesFromGridsByPosition() {
+        this._displayList.forEach(f => f.removeFromGrid({
+            callOnDestroy: false,
+        }));
+        this._sortByCurrentPosition();
+        this._reassignFilesToDesktop();
     }
 
     _sortAllFilesFromGridsByModifiedTime() {
@@ -1522,9 +1535,9 @@ const DesktopManager = class {
         this._reassignFilesToDesktop();
     }
 
-    doSorts(opts = {redisplay: false}) {
+    _doSorts(opts = {redisplay: false}) {
         if (opts.redisplay)
-            this._displayList.map(f => f.removeFromGrid());
+            this._displayList.forEach(f => f.removeFromGrid());
 
         switch (this.Prefs.sortOrder) {
         case this.Enums.SortOrder.NAME:
@@ -1552,7 +1565,7 @@ const DesktopManager = class {
         }
     }
 
-    doStacks(opts = {redisplay: false}) {
+    _doStacks(opts = {redisplay: false}) {
         if (opts.redisplay) {
             for (let fileItem of this._displayList)
                 fileItem.removeFromGrid();
@@ -1750,17 +1763,15 @@ const DesktopManager = class {
     }
 
     async redrawDesktop() {
-        await this.runSerializedDesktopUpdate(async () => {
-            // fileList is not changed, we just need to render the desktop again
-            // with changes in icon color, emblem, appearance, theme change etc.
-            const opts = {initialRead: false, redisplay: true};
-            const fileList = [...this.desktopMonitor.fileList];
+        // fileList is not changed, we just need to render the desktop again
+        // with changes in icon color, emblem, appearance, theme change etc.
+        const opts = {initialRead: false, redisplay: true};
+        const fileList = [...this.desktopMonitor.fileList];
 
-            await this._drawDesktop(fileList, opts).catch(e => {
-                console.error(
-                    `Error while redrawing desktop: ${e.message}\n${e.stack}`
-                );
-            });
+        await this._runSerializedDrawDesktop(fileList, opts).catch(e => {
+            console.error(
+                `Error while redrawing desktop: ${e.message}\n${e.stack}`
+            );
         });
     }
 
@@ -1769,16 +1780,14 @@ const DesktopManager = class {
     }
 
     async refreshDesktop() {
-        await this.runSerializedDesktopUpdate(async () => {
-            // fileList is changed, we need to render the desktop again
-            // with latest fileList from the desktopMonitor. The position of the
-            // icons is also recomputed from the normalized coordinates.
-            const opts = {initialRead: true};
-            const fileList = [...this.desktopMonitor.fileList];
+        // fileList is changed, we need to render the desktop again
+        // with latest fileList from the desktopMonitor. The position of the
+        // icons is also recomputed from the normalized coordinates.
+        const opts = {initialRead: true};
+        const fileList = [...this.desktopMonitor.fileList];
 
-            await this._drawDesktop(fileList, opts).catch(e => {
-                console.error(`Error while refreshing desktop: ${e.message}`);
-            });
+        await this._runSerializedDrawDesktop(fileList, opts).catch(e => {
+            console.error(`Error while refreshing desktop: ${e.message}`);
         });
     }
 
@@ -1808,43 +1817,36 @@ const DesktopManager = class {
 
     async onKeepArrangedChanged() {
         if (this.Prefs.keepArranged) {
-            await this.runSerializedDesktopUpdate(() => {
-                this.doSorts({redisplay: true});
-            });
+            await this.runSerializedDesktopMutation(
+                this._doSorts.bind(this, {redisplay: true})
+            );
         }
     }
 
     async onUnstackedTypesChanged() {
         if (this.Prefs.keepStacked) {
-            await this.runSerializedDesktopUpdate(() => {
-                this.doStacks({redisplay: true});
-            });
+            await this.runSerializedDesktopMutation(
+                this._doStacks.bind(this, {redisplay: true})
+            );
         }
     }
 
     async onkeepStackedChanged() {
-        if (!this.Prefs.keepStacked) {
-            await this._unstack();
-        } else {
-            await this.runSerializedDesktopUpdate(() => {
-                this.doStacks({redisplay: true});
-            });
-        }
+        await this.runSerializedDesktopMutation(
+            this._applyKeepStackedChange.bind(this)
+        );
     }
 
     async onSortOrderChanged() {
-        await this.runSerializedDesktopUpdate(() => {
-            if (this.Prefs.keepStacked)
-                this.doStacks({redisplay: true});
-            else
-                this.doSorts({redisplay: true});
-        });
+        await this.runSerializedDesktopMutation(
+            this._applySortOrderChange.bind(this)
+        );
     }
 
     async onIconSizeChanged() {
-        await this.runSerializedDesktopUpdate(() => {
-            this._applyIconSizeChange();
-        });
+        await this.runSerializedDesktopMutation(
+            this._applyIconSizeChange.bind(this)
+        );
 
         await this.reLoadDesktop().catch(e => {
             console.log('Exception while reloading desktop after icon ' +
@@ -1856,6 +1858,20 @@ const DesktopManager = class {
         this._displayList.forEach(x => x.removeFromGrid());
         for (let desktop of this._desktops)
             desktop.resizeGrid();
+    }
+
+    _applySortOrderChange() {
+        if (this.Prefs.keepStacked)
+            this._doStacks({redisplay: true});
+        else
+            this._doSorts({redisplay: true});
+    }
+
+    _applyKeepStackedChange() {
+        if (this.Prefs.keepStacked)
+            this._doStacks({redisplay: true});
+        else
+            this._unstack();
     }
 
     onDarkModeChanged() {
