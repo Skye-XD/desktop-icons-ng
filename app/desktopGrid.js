@@ -168,7 +168,8 @@ const DisplayGrid = class {
         if (this._allocPromise)
             return this._allocPromise;
 
-        const w = this._container;
+        const container = this._container;
+        const overlay = this._overlay;
 
         this._allocPromise = new Promise(resolve => {
             let tickId = 0;
@@ -176,25 +177,29 @@ const DisplayGrid = class {
 
             const cleanup = () => {
                 if (tickId)
-                    w.remove_tick_callback(tickId);
+                    container.remove_tick_callback(tickId);
                 this._allocPromise = null;
             };
 
-            const isAllocated = () => {
-                const aw = w.get_allocated_width();
-                const ah = w.get_allocated_height();
+            const isAllocated = widget => {
+                const aw = widget.get_allocated_width();
+                const ah = widget.get_allocated_height();
                 return aw > 0 && ah > 0;
             };
 
-            if (isAllocated()) {
+            const isLayoutReady = () => {
+                return isAllocated(container) && isAllocated(overlay);
+            };
+
+            if (isLayoutReady()) {
                 this._overlay.queue_draw();
                 resolve();
                 cleanup();
                 return;
             }
 
-            tickId = w.add_tick_callback(() => {
-                if (isAllocated())
+            tickId = container.add_tick_callback(() => {
+                if (isLayoutReady())
                     stableFrames++;
                 else
                     stableFrames = 0;
