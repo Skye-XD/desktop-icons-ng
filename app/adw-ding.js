@@ -112,8 +112,10 @@ const adWDingApp = GObject.registerClass(
                 this._removeFile(this.appIcon);
                 this._refreshIconCache(false).catch(e => logError(e));
             }
-            if (this.appDesktopFile)
+            if (this.appDesktopFile) {
                 this._removeFile(this.appDesktopFile);
+                this._refreshDesktopDatabase(false).catch(e => logError(e));
+            }
         }
 
         // eslint-disable-next-line consistent-return
@@ -596,14 +598,23 @@ const adWDingApp = GObject.registerClass(
                 // However it takes a long time to update the cache
                 // and we need to do it manually for the app to be
                 // available sooner
-                const updated = await GLib.spawn_command_line_async(
-                    'update-desktop-database -q ' +
-                    `${GLib.path_get_dirname(appDesktopFile)}`
-                );
-
-                if (updated)
-                    console.log('Updated desktop database');
+                await this._refreshDesktopDatabase();
             }
+        }
+
+        async _refreshDesktopDatabase(logUpdate = true) {
+            const applicationsPath = GLib.build_filenamev([
+                GLib.get_user_data_dir(),
+                'applications',
+            ]);
+
+            const updated = await GLib.spawn_command_line_async(
+                'update-desktop-database -q ' +
+                `${applicationsPath}`
+            );
+
+            if (updated && logUpdate)
+                console.log('Updated desktop database');
         }
 
         _memcmp(a, b) {
