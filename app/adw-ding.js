@@ -108,8 +108,10 @@ const adWDingApp = GObject.registerClass(
             if (this.systemInstall)
                 return;
 
-            if (this.appIcon)
+            if (this.appIcon) {
                 this._removeFile(this.appIcon);
+                this._refreshIconCache(false).catch(e => logError(e));
+            }
             if (this.appDesktopFile)
                 this._removeFile(this.appDesktopFile);
         }
@@ -553,22 +555,25 @@ const adWDingApp = GObject.registerClass(
 
             if (written) {
                 this.appIcon = appIcon;
-
-                const iconCachePath = GLib.build_filenamev([
-                    GLib.get_user_data_dir(),
-                    'icons',
-                    'hicolor',
-                ]);
-
-                const updated = await GLib.spawn_command_line_async(
-                    'gtk-update-icon-cache ' +
-                    '-q -t -f ' +
-                    `${iconCachePath}`
-                );
-
-                if (updated)
-                    console.log('Updated icon cache');
+                await this._refreshIconCache();
             }
+        }
+
+        async _refreshIconCache(logUpdate = true) {
+            const iconCachePath = GLib.build_filenamev([
+                GLib.get_user_data_dir(),
+                'icons',
+                'hicolor',
+            ]);
+
+            const updated = await GLib.spawn_command_line_async(
+                'gtk-update-icon-cache ' +
+                '-q -t -f ' +
+                `${iconCachePath}`
+            );
+
+            if (updated && logUpdate)
+                console.log('Updated icon cache');
         }
 
         async _updateAppInfoCache() {
