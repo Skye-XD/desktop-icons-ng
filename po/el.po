@@ -6,13 +6,14 @@
 # Weblate <noreply-mt-weblate@weblate.org>, 2024, 2025, 2026.
 # LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2024, 2026.
 # Sundeep Mediratta <smedius@gmail.com>, 2026.
+# Sofoklis Trigkas-Chatziandreou <sofoklis326@outlook.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-06 09:20-0400\n"
-"PO-Revision-Date: 2026-08-17 12:06+0000\n"
-"Last-Translator: Sundeep Mediratta <smedius@gmail.com>\n"
+"PO-Revision-Date: 2026-08-24 19:32+0000\n"
+"Last-Translator: Sofoklis Trigkas-Chatziandreou <sofoklis326@outlook.com>\n"
 "Language-Team: Greek <https://hosted.weblate.org/projects/gtk4-desktop-icons-"
 "ng/gtk4-ding-pot/el/>\n"
 "Language: el\n"
@@ -28,23 +29,25 @@ msgstr "Παράκαμψη"
 
 #: app/adwPreferencesWindow.js:162
 msgid "Customise the appearance of desktop icons with CSS"
-msgstr ""
+msgstr "Διαμόρφωση της εμφάνισης των εικονιδίων της επιφάνειας εργασίας με CSS"
 
 #: app/adwPreferencesWindow.js:166
 msgid "Warning: This can break the extension if done incorrectly"
 msgstr ""
+"Προειδοποίηση: Αν γίνει με λάθος τρόπο, μπορεί να προκληθεί βλάβη στην "
+"επέκταση"
 
 #: app/adwPreferencesWindow.js:172
 msgid "Edit CSS Override File..."
-msgstr ""
+msgstr "Επεξεργασία CSS αρχείου παράκαμψης"
 
 #: app/adwPreferencesWindow.js:180
 msgid "Apply CSS Changes Now"
-msgstr ""
+msgstr "Εφαρμογή των CSS αλλαγών τώρα"
 
 #: app/adwPreferencesWindow.js:181
 msgid "Reload the CSS to apply changes immediately"
-msgstr ""
+msgstr "Ανανέωσε το CSS για άμεση εφαρμογή των αλλαγών"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:248 data/com.desktop.ding.desktop.in:29
