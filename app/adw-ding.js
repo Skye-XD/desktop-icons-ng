@@ -108,8 +108,10 @@ const adWDingApp = GObject.registerClass(
             if (this.systemInstall)
                 return;
 
-            if (this.appIcon)
+            if (this.appIcon) {
                 this._removeFile(this.appIcon);
+                this._refreshIconCache(false).catch(e => logError(e));
+            }
             if (this.appDesktopFile)
                 this._removeFile(this.appDesktopFile);
         }
@@ -131,7 +133,7 @@ const adWDingApp = GObject.registerClass(
                 if (commandLine.get_is_remote()) {
                     this.desktops = this.newdesktops;
                     const windowManager = this.desktopManager.windowManager;
-                    windowManager.updateGridWindows(this.desktops);
+                    windowManager.updateGridWindows(this.desktops).catch(e => logError(e));
                 // If testing Dbus activations, comment the above
                 // and uncomment the following -
                 // or get remote actions from the app and activate
@@ -538,8 +540,10 @@ const adWDingApp = GObject.registerClass(
 
         async _updateIconCache() {
             const appPath = `/${appID.split('.').join('/')}`;
-            const iconPath = '/icons/scalable/apps';
-            const iconResrc = `resource://${appPath}${iconPath}/${appID}.svg`;
+            const iconResourcePath = '/icons/scalable/apps';
+            const iconPath = '/icons/hicolor/scalable/apps';
+            const iconResrc =
+                `resource://${appPath}${iconResourcePath}/${appID}.svg`;
 
             const appIcon = GLib.build_filenamev([
                 GLib.get_user_data_dir(),
@@ -551,22 +555,25 @@ const adWDingApp = GObject.registerClass(
 
             if (written) {
                 this.appIcon = appIcon;
-
-                const iconCachePath = GLib.build_filenamev([
-                    GLib.get_user_data_dir(),
-                    'icons',
-                    'hicolor',
-                ]);
-
-                const updated = await GLib.spawn_command_line_async(
-                    'gtk-update-icon-cache ' +
-                    '-q -t -f ' +
-                    `${iconCachePath}`
-                );
-
-                if (updated)
-                    console.log('Updated icon cache');
+                await this._refreshIconCache();
             }
+        }
+
+        async _refreshIconCache(logUpdate = true) {
+            const iconCachePath = GLib.build_filenamev([
+                GLib.get_user_data_dir(),
+                'icons',
+                'hicolor',
+            ]);
+
+            const updated = await GLib.spawn_command_line_async(
+                'gtk-update-icon-cache ' +
+                '-q -t -f ' +
+                `${iconCachePath}`
+            );
+
+            if (updated && logUpdate)
+                console.log('Updated icon cache');
         }
 
         async _updateAppInfoCache() {
