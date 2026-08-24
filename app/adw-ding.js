@@ -538,8 +538,10 @@ const adWDingApp = GObject.registerClass(
 
         async _updateIconCache() {
             const appPath = `/${appID.split('.').join('/')}`;
-            const iconPath = '/icons/scalable/apps';
-            const iconResrc = `resource://${appPath}${iconPath}/${appID}.svg`;
+            const iconResourcePath = '/icons/scalable/apps';
+            const iconPath = '/icons/hicolor/scalable/apps';
+            const iconResrc =
+                `resource://${appPath}${iconResourcePath}/${appID}.svg`;
 
             const appIcon = GLib.build_filenamev([
                 GLib.get_user_data_dir(),
