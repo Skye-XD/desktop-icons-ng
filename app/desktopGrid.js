@@ -143,6 +143,7 @@ const DisplayGrid = class {
         this._overlay = new Gtk.Overlay();
         this._overlay.set_hexpand(true);
         this._overlay.set_vexpand(true);
+        this._overlay.set_size_request(this._windowWidth, this._windowHeight);
         this._overlay.set_child(this._rootFixed);
 
         this._window.set_child(this._overlay);
@@ -3019,30 +3020,41 @@ const DesktopGrid = class extends WidgetGrid {
 
     _captureSnapshotPaintable(widget) {
         return new Promise(resolve => {
-            const width = widget.get_width();
-            const height = widget.get_height();
-            const size = new Graphene.Size({width, height});
-            try {
+            const capture = () => {
+                const width = widget.get_width();
+                const height = widget.get_height();
+                if (width <= 0 || height <= 0)
+                    return null;
+
+                const size = new Graphene.Size({width, height});
                 const snap = Gtk.Snapshot.new();
                 widget.vfunc_snapshot(snap);
-                resolve(snap.to_paintable(size));
-            } catch (e) {
-                logError(e);
-                GLib.idle_add(GLib.PRIORITY_DEFAULT_IDLE, () => {
-                    try {
-                        const snap = Gtk.Snapshot.new();
-                        widget.vfunc_snapshot(snap);
-                        resolve(snap.to_paintable(size));
-                    } catch (ee) {
-                        logError(ee);
-                        const widgetPaintable = Gtk.WidgetPaintable.new(widget);
-                        const gdkpic = widgetPaintable.get_current_image();
-                        widgetPaintable.set_widget(null);
-                        resolve(gdkpic);
+                return snap.to_paintable(size);
+            };
+
+            const retry = () => {
+                try {
+                    const paintable = capture();
+                    if (paintable) {
+                        resolve(paintable);
+                        return GLib.SOURCE_REMOVE;
                     }
+                } catch (e) {
+                    logError(e);
+                    const widgetPaintable = Gtk.WidgetPaintable.new(widget);
+                    const gdkpic = widgetPaintable.get_current_image();
+                    widgetPaintable.set_widget(null);
+                    resolve(gdkpic);
                     return GLib.SOURCE_REMOVE;
-                });
-            }
+                }
+
+                return GLib.SOURCE_CONTINUE;
+            };
+
+            if (retry() === GLib.SOURCE_REMOVE)
+                return;
+
+            GLib.idle_add(GLib.PRIORITY_DEFAULT_IDLE, retry);
         });
     }
 
