@@ -1,4 +1,13 @@
 # History of versions #
+* Adw Version 100.28 for Gnome 50
+  * Run all desktop-state mutations through a single FIFO async serialization queue, while independently coalescing file and geometry updates before they enter the queue, so each mutation observes a stable state and failures do not stop subsequent work. (Sundeep Mediratta)
+  * Stabilize GTK layout and snapshot handling by sizing the desktop overlay at startup, waiting for main-container and overlay allocations, guarding zero-sized icon pictures, and retrying manual snapshots with fresh valid dimensions. (Sundeep Mediratta)
+  * Separating proxy wrapper constructors from new proxy creation. (Sundeep Mediratta)
+  * Ensuring the desktop database updates when desktop files are removed on shutdown. (Sundeep Mediratta)
+  * Clean up icon cache updates, missing-directory handling, `GError` matching, icon resource paths, user-dirs error messages, and window grid error logging. (Sundeep Mediratta)
+  * Weblate translation updates for Greek, Polish, Maori, and Slovak. (Weblate Authors)
+  * Update History.md, update metadata.json, app release note.
+
 * Adw Version 100.27 for Gnome 50
   * Fix AppImage launch fallback and final AppImage launch failure handling. (Sundeep Mediratta)
   * Tighten URL validation with `GLib.Uri`. (Sundeep Mediratta)

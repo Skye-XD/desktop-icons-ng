@@ -89,6 +89,10 @@ Uses Libretranslate to automatically translate into multiple languages.
 - Desktop icon GTK initialization is now lazy: the icon widget tree is only created once placement geometry exists, which reduces teardown churn and avoids building actors before they can be shown.
 - The placement-ready wait now resolves from the normal snapshot path or the not-shown fallback, so startup can continue even when an item never reaches a visible snapshot.
 - This reduces memory pressure and cleanup work by avoiding unnecessary widget creation until the icon can actually be placed and rendered.
+- Desktop-state mutations now run through a single FIFO async queue, covering file updates, geometry changes, preferences, drag and drop, sorting, and other user-driven actions.
+- File and geometry updates remain independently coalesced before entering the queue, preventing concurrent state races and stale icon positions while keeping the queue alive when a mutation fails.
+- Serialized updates prevent stale desktop objects, signal handlers, callbacks, and other references from being retained, improving memory footprint and lifecycle management.
+- GTK layout and snapshot handling are stabilized by explicitly sizing the desktop overlay, waiting for valid allocations, guarding zero-sized icon pictures, and retrying manual snapshots with fresh dimensions.
 
 
 ## Security

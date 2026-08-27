@@ -208,6 +208,9 @@ The application functionality and behavior is consistent with the two other very
 
 - [x] Lazy GTK icon initialization now creates the widget tree only when placement geometry exists, reducing teardown churn and memory pressure while still allowing the placement promise to resolve from the snapshot path or the not-shown fallback.
 
+- [x] Run all desktop-state mutations through a single FIFO async serialization queue, independently coalescing file and geometry updates before they enter the queue so each mutation observes a consistent state and a failed mutation does not stop subsequent work. This prevents stale desktop objects, signal handlers, callbacks, and other references from being retained by overlapping mutations, improving memory footprint and lifecycle management.
+
+
 **FIXES**
 
 - [x] Fix Gtk4 Icon Rendering Code to at least render generic correct icons at the correct size.
@@ -431,3 +434,11 @@ The application functionality and behavior is consistent with the two other very
 - [x] Fixed a memory leak in desktopIconItem and optimized destruction with cleanup and refactor of code.
 
 - [x] Fixed memory leak in metricsBackend.js
+
+- [x] Fix desktop-state race conditions by serializing file updates, geometry changes, preference changes, drag and drop, sorting, and other user-driven mutations through a single FIFO async queue, with file and geometry updates coalesced independently before serialization.
+
+- [x] Fix stale desktop-state and object-retention issues caused by overlapping mutations, ensuring updates complete before the next mutation begins and allowing failed mutations to reject their callers without stopping the queue.
+
+- [x] Fix GTK startup and rendering races by sizing the desktop overlay explicitly, waiting for the main container and overlay allocations, guarding zero-sized icon pictures, and retrying manual snapshots with fresh valid dimensions.
+
+- [x] Fix desktop cleanup and update reliability by preventing array mutation races, separating proxy wrapper constructors, updating the desktop database when files are removed, and improving icon-cache and missing-directory handling.

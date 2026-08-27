@@ -2,9 +2,10 @@ Adw. Desktop Icons
 
 Libadwaita/Gtk4 port of Desktop Icons NG with multiple fixes and new features.
 
-Latest update: Gtk.Widget tree initiation is deferred and is now created lazily once an icon is placed on the grid, reducing memory pressure from icons that can never be displayed. Fixed memory leak in metrics backend, in the app, cleaned up and refactored destruction and all fileItem code.
+Latest update: Desktop-state mutations now run through a FIFO async queue, preventing race conditions and stale object retention while improving memory management. GTK startup layout and snapshot handling are also stabilized.
 
-GNOME 50 support has been refreshed again with a Mutter 50 cursor fix, updated Sushi quick-preview support via the newer Nautilus Previewer 2 D-Bus interface, and improved Today widget dragging and timezone handling. 
+GNOME 50 support has been refreshed again with a Mutter 50 cursor fix, updated Sushi quick-preview support via the newer Nautilus Previewer 2 D-Bus interface, and improved Today widget dragging and timezone handling.
+
 Now has a widget layer that can run widgets- like KDE desklets, they are little HTML display apps that run in Webkit. Icons cover this layer, layers can be moved up or down for editing. Widgets can be snapped to a grid to maintain row/column alignment or free positioned.
 
 Widgets are discovered automatically at startup from specific directories. You can install them manually by downloading the widget folder you want from the GitLab `widgets` directory and placing it in `$XDG_DATA_HOME/com.desktop.ding/widgets/` (typically `~/.local/share/com.desktop.ding/widgets/`). You can also use the Add Widget dialog's `Download Latest` button to automatically fetch and install the current widget set from the repository.
