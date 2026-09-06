@@ -770,6 +770,14 @@ const AdwPreferencesWindow = class extends DingPreferencesWindow {
 
         tweaksGroup.add(dropPlaceRow);
 
+        const pinnedWidgetsRow = this.addActionRowSwitch(this.desktopSettings,
+            'keep-pinned-widgets-below-apps',
+            _('Keep pinned widgets below application windows'));
+        pinnedWidgetsRow.set_subtitle(
+            _('Interact with pinned widgets on the desktop without covering applications.'));
+        pinnedWidgetsRow.set_sensitive(DesktopWidgetCapability);
+        tweaksGroup.add(pinnedWidgetsRow);
+
         tweaksGroup.add(this.addActionRowSwitch(this.desktopSettings,
             'show-link-emblem',
             _('Add information emblems for links, encryption')));

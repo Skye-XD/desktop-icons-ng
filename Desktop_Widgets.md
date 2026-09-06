@@ -136,7 +136,7 @@ Widgets:
 - Widgets can freely consume CORS-enabled APIs (weather, JSON REST services, etc.).
 - Widgets cannot bypass server-defined security restriction
 
-In normal operation, desktop icons are always on top of widgets and can be freely moved over them. This ensures that widgets never interfere with standard icon interaction or file management.
+In normal operation, desktop icons are on top of unpinned widgets and can be freely moved over them. Pinned widgets use separate interactive windows and, by default, stay above application windows. Enable **Keep pinned widgets below application windows** in **Settings → Tweaks** to keep them above desktop icons but below normal applications, with their controls accessible without entering widget edit mode. This option is disabled by default and takes effect immediately for existing pinned windows. With the option enabled, pinned widgets remain visible on all workspaces. Editing a pinned widget temporarily raises its window above applications regardless of this setting; leaving edit mode restores the selected behavior.
 
 My personal design philosophy for widgets is that they should be small, clean, and visually restrained. They should not occupy the entire desktop or dominate the user’s workspace. Instead, widgets are meant to live quietly in a corner or in unused areas of the desktop, away from icons when possible, while still allowing the user to position them anywhere they choose.
 
