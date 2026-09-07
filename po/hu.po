@@ -16,8 +16,8 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-06 09:20-0400\n"
-"PO-Revision-Date: 2026-08-17 12:03+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2026-09-07 17:51+0000\n"
+"Last-Translator: Hunor János <hunorjani17@gmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/hu/>\n"
 "Language: hu\n"
@@ -25,7 +25,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2026.9.dev0\n"
+"X-Generator: Weblate 2026.9.1.dev0\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
@@ -399,7 +399,7 @@ msgstr "Indítás engedélyezése"
 
 #: app/appImageFileItem.js:201 app/appImageFileItem.js:231
 msgid "AppImage Launch Failed"
-msgstr ""
+msgstr "Az AppImage indítása nem sikerült"
 
 #: app/appImageFileItem.js:203
 msgid ""
@@ -407,6 +407,10 @@ msgid ""
 "\n"
 "Launch with <b>--no-sandbox</b>?"
 msgstr ""
+"Ezt az AppImage-et lehet, hogy sandboxing nélkül kell elindítani ezen a "
+"rendszeren.\n"
+"\n"
+"Indítás <b>--no-sandbox</b>-al?"
 
 #: app/appImageFileItem.js:206 app/autoAr.js:305 app/autoAr.js:634
 #: app/desktopManager.js:196 app/desktopManager.js:1320 app/dragManager.js:794
@@ -417,13 +421,12 @@ msgstr "Mégse"
 
 #: app/appImageFileItem.js:207
 msgid "Launch with lesser protections"
-msgstr ""
+msgstr "Indítás kisebb védelemmel"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:232
-#, fuzzy
 msgid "This AppImage could not be launched."
-msgstr "Ez az alkalmazás A képfájl nem megbízható, nem lehet elindítani."
+msgstr "Ezt az AppImage fájlt nem sikerült elindítani."
 
 #: app/askRenamePopup.js:61
 msgid "Folder name"
@@ -1363,7 +1366,7 @@ msgstr "Gyorsbillentyűk megjelenítése"
 
 #: app/shortcuts.js:69
 msgid "Force Garbage Collection"
-msgstr ""
+msgstr "Memóriafelszabadítás kényszerítése"
 
 #: app/shortcuts.js:70
 msgid "Show Or Hide Desktop Icons"
@@ -1430,15 +1433,15 @@ msgstr "✓ Telepítve"
 
 #: app/widgetManager.js:3074
 msgid "System Installed"
-msgstr ""
+msgstr "Rendszer telepítve"
 
 #: app/widgetManager.js:3096
 msgid "Download Latest Widgets from Repository?"
-msgstr ""
+msgstr "Le akarja tölteni a legújabb widgeteket az adattárból?"
 
 #: app/widgetManager.js:3098
 msgid "This will overwrite all widgets in your local widgets folder."
-msgstr ""
+msgstr "Ez felül fogja írni az összes meglévő widgetet a helyi widget mappában."
 
 #: app/widgetManager.js:3197
 msgid "Widgets updated"
@@ -1446,11 +1449,11 @@ msgstr "Hidak frissítve"
 
 #: app/widgetManager.js:3198
 msgid "The latest widgets were downloaded and installed."
-msgstr ""
+msgstr "A legújabb widgetek letöltve és telepítve."
 
 #: app/widgetManager.js:3206
 msgid "Widgets download failed"
-msgstr ""
+msgstr "A widgetek letöltése meghiúsult"
 
 #: app/widgetManager.js:3312
 msgid "Allow"
