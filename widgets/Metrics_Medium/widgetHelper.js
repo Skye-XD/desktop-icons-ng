@@ -95,6 +95,12 @@ export class DingClient {
     }
 
     destroy() {
+        // Host-side cleanup already clears regions on reload/destroy.
+        // This is an extra best-effort precaution during widget teardown.
+        try {
+            this.clearDraggable();
+        } catch (e) {}
+
         if (this._unsubHostState) {
             try {
                 this._unsubHostState();
@@ -117,9 +123,6 @@ export class DingClient {
         this._hostStateHandlers.clear();
         this._configHandlers.clear();
         this._backendEventHandlers.clear();
-        // Host-side cleanup already clears regions on reload/destroy.
-        // This is an extra best-effort precaution during widget teardown.
-        this.clearDraggable();
     }
 
     // -----------------------------------------------------------------
@@ -278,9 +281,14 @@ export class DingClient {
     //  - next best: a narrow #id selector
     //  - avoid broad descendant selectors unless necessary because they
     //    scan more of the DOM and can match more nodes than needed
-    setDraggable(target) {
+    setDraggable(target, options = {}) {
         const regions = this._collectDraggableRegions(target);
-        this._postDraggableRegions(regions);
+        const excluded = this._collectDraggableRegions(options.exclude);
+        const draggableRegions = this._subtractDraggableRegions(
+            regions,
+            excluded
+        );
+        this._postDraggableRegions(draggableRegions);
     }
 
     clearDraggable() {
@@ -532,6 +540,67 @@ export class DingClient {
         return regions;
     }
 
+    _subtractDraggableRegions(regions, excluded) {
+        let remaining = regions.map(region => ({...region}));
+
+        for (const cut of excluded) {
+            const next = [];
+            for (const region of remaining) {
+                const left = Math.max(region.x, cut.x);
+                const top = Math.max(region.y, cut.y);
+                const right = Math.min(
+                    region.x + region.width,
+                    cut.x + cut.width
+                );
+                const bottom = Math.min(
+                    region.y + region.height,
+                    cut.y + cut.height
+                );
+
+                if (left >= right || top >= bottom) {
+                    next.push(region);
+                    continue;
+                }
+
+                if (top > region.y) {
+                    next.push({
+                        x: region.x,
+                        y: region.y,
+                        width: region.width,
+                        height: top - region.y,
+                    });
+                }
+                if (bottom < region.y + region.height) {
+                    next.push({
+                        x: region.x,
+                        y: bottom,
+                        width: region.width,
+                        height: region.y + region.height - bottom,
+                    });
+                }
+                if (left > region.x) {
+                    next.push({
+                        x: region.x,
+                        y: top,
+                        width: left - region.x,
+                        height: bottom - top,
+                    });
+                }
+                if (right < region.x + region.width) {
+                    next.push({
+                        x: right,
+                        y: top,
+                        width: region.x + region.width - right,
+                        height: bottom - top,
+                    });
+                }
+            }
+            remaining = next;
+        }
+
+        return remaining;
+    }
+
     _visitDraggableTarget(value, doc, regions, seen) {
         // Ignore empty inputs.
         if (value === null || value === undefined || value === false)
@@ -613,6 +682,10 @@ export class DingClient {
     }
 
     _appendDraggableRegion(regions, seen, normalized) {
+        normalized = this._normalizeRectLike(normalized);
+        if (!normalized)
+            return;
+
         const key =
             `${normalized.x}|${normalized.y}|${normalized.width}|${normalized.height}`;
         if (seen.has(key))

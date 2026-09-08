@@ -33,12 +33,20 @@ class MediaPlayerWidget {
         this._pendingVolume = null;
         this._isVisible = true;
         this._titleSpacingObserver = null;
+        this._dragRegionObserver = null;
         this._pinnedMoveCleanup = null;
         this._beforeUnloadHandler = this._handleBeforeUnload.bind(this);
         this._syncConfig = this._readSyncConfig();
         this._client = new DingClient({mode: 'widget'});
         this._cacheUi();
-        this._client.setDraggable('#media-root');
+        this._client.onHostState(() => {
+            this._client.setDraggable('#media-root', {
+                exclude: '.mp-controls-overlay button, .mp-controls-overlay input',
+            });
+        });
+        this._client.setDraggable('#media-root', {
+            exclude: '.mp-controls-overlay button, .mp-controls-overlay input',
+        });
         this._pinnedMoveCleanup = this._client.attachPinnedMoveHandle(
             this._ui?.root ?? this._root,
             {
@@ -48,6 +56,7 @@ class MediaPlayerWidget {
         );
         this._bindControlButtons();
         this._watchTitleSpacing();
+        this._watchDragRegion();
         window.addEventListener('pagehide', this._beforeUnloadHandler);
         window.addEventListener('beforeunload', this._beforeUnloadHandler);
         this._init();
@@ -296,6 +305,23 @@ class MediaPlayerWidget {
             this._syncControlOverlayPosition();
         });
         this._titleSpacingObserver.observe(this._ui.info);
+    }
+
+    _watchDragRegion() {
+        if (!this._ui?.root || !window.ResizeObserver ||
+            this._dragRegionObserver)
+            return;
+
+        this._dragRegionObserver = new ResizeObserver(() => {
+            this._syncDragRegion();
+        });
+        this._dragRegionObserver.observe(this._ui.root);
+    }
+
+    _syncDragRegion() {
+        this._client.setDraggable('#media-root', {
+            exclude: '.mp-controls-overlay button, .mp-controls-overlay input',
+        });
     }
 
     _updateStaticFields(snapshot) {
@@ -767,6 +793,8 @@ class MediaPlayerWidget {
         this._flushVolumeWrite();
         this._titleSpacingObserver?.disconnect?.();
         this._titleSpacingObserver = null;
+        this._dragRegionObserver?.disconnect?.();
+        this._dragRegionObserver = null;
         this._pinnedMoveCleanup?.();
         this._pinnedMoveCleanup = null;
         this._client?.destroy?.();
