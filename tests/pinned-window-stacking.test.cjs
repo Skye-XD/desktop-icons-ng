@@ -112,7 +112,7 @@ test('pinned title selects the desktop policy, editing retains the top policy', 
     assert.equal(host.buildPinnedTitle({x: 3, y: 4}), '@!3,4;KH;I=widget-id');
     assert.equal(host.buildPinnedTitle({x: 3, y: 4}, true), '@!3,4;TH;I=widget-id');
     host._widgetManager.keepPinnedWidgetsBelowApps = true;
-    assert.equal(host.buildPinnedTitle({x: 3, y: 4}), '@!3,4;PDH;I=widget-id');
+    assert.equal(host.buildPinnedTitle({x: 3, y: 4}), '@!3,4;BDH;I=widget-id');
     assert.equal(host.buildPinnedTitle({x: 3, y: 4}, true), '@!3,4;TH;I=widget-id');
 });
 

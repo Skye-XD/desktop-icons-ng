@@ -358,9 +358,15 @@ class ManageWindow {
         else
             this._makeWindowTypeNormal();
 
-        if (this._pinnedDesktopWindow) {
-            this._keepWindowUnFullScreen();
-            this._keepPinnedWindowBelowApplications();
+        if (this._desktopWindow && !this.windowInstanceId &&
+            !this._raiseDesktopAsDock) {
+            this._signalIDs.push(
+                this._window.connect_after('raised', () => {
+                    if (this._desktopWindow && !this.windowInstanceId &&
+                        !this._raiseDesktopAsDock)
+                        this._syncToBottomOfStack();
+                })
+            );
         }
 
         if (this.windowInstanceId)

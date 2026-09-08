@@ -171,7 +171,7 @@ const WidgetWindow = class {
         if (widgetEditMode)
             return `@!${x},${y};TH;I=${instanceId}`;
 
-        const flags = this._widgetManager.keepPinnedWidgetsBelowApps ? 'PDH' : 'KH';
+        const flags = this._widgetManager.keepPinnedWidgetsBelowApps ? 'BDH' : 'KH';
         return `@!${x},${y};${flags};I=${instanceId}`;
     }
 
