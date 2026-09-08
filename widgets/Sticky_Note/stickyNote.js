@@ -801,10 +801,15 @@ class StickyNoteWidget {
         this.noteShell.classList.toggle('widget-selected', !!hostState.selected);
         this._updatePinButton();
 
-        if (enteredEditMode)
+        if (enteredEditMode) {
             this._setEditing(true);
-        else if (exitedEditMode)
+        } else if (exitedEditMode) {
+            // Edit mode can end from host-side deselection or layer changes,
+            // not only from the edit button. Persist the live editor content
+            // before making the DOM read-only.
+            this._commit();
             this._setEditing(false);
+        }
 
         if (enteredEditMode)
             this._focusEditorAtEnd();
