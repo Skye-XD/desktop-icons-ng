@@ -774,8 +774,18 @@ const AdwPreferencesWindow = class extends DingPreferencesWindow {
             'keep-pinned-widgets-below-apps',
             _('Keep pinned widgets below application windows'));
         pinnedWidgetsRow.set_subtitle(
-            _('Interact with pinned widgets on the desktop without covering applications.'));
-        pinnedWidgetsRow.set_sensitive(DesktopWidgetCapability);
+            _('Interactive pinned widgets without covering applications.'));
+        const syncPinnedWidgetsSensitivity = () => {
+            pinnedWidgetsRow.set_sensitive(
+                DesktopWidgetCapability &&
+                this.desktopSettings.get_boolean('show-desktop-widgets')
+            );
+        };
+        syncPinnedWidgetsSensitivity();
+        this.desktopSettings.connect(
+            'changed::show-desktop-widgets',
+            syncPinnedWidgetsSensitivity
+        );
         tweaksGroup.add(pinnedWidgetsRow);
 
         tweaksGroup.add(this.addActionRowSwitch(this.desktopSettings,
