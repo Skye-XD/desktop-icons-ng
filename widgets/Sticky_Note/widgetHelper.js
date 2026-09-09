@@ -32,10 +32,10 @@
  * Common widget-author conveniences exposed here include:
  *  - host state accessors: getHostState(), isPinned(), isPinnable(),
  *    isSelected(), isEditMode(), isWidgetEditMode()
+ *  - draggable regions: setDraggable(target, options), clearDraggable()
  *  - pinned-window helpers: beginPinnedWindowMove(event),
  *    attachPinnedMoveHandle(element, options),
  *    bindPinnedHoverChrome(element, options)
- *  - draggable regions: setDraggable(target), clearDraggable()
  *  - host actions: createWidget(widgetId, options), removeWidget()
  *
  * createWidget(widgetId) inherits pinned state from the source instance
@@ -95,6 +95,8 @@ export class DingClient {
     }
 
     destroy() {
+        // Host-side cleanup already clears regions on reload/destroy.
+        // This is an extra best-effort precaution during widget teardown.
         try {
             this.clearDraggable();
         } catch (e) {}
@@ -279,9 +281,14 @@ export class DingClient {
     //  - next best: a narrow #id selector
     //  - avoid broad descendant selectors unless necessary because they
     //    scan more of the DOM and can match more nodes than needed
-    setDraggable(target) {
+    setDraggable(target, options = {}) {
         const regions = this._collectDraggableRegions(target);
-        this._postDraggableRegions(regions);
+        const excluded = this._collectDraggableRegions(options.exclude);
+        const draggableRegions = this._subtractDraggableRegions(
+            regions,
+            excluded
+        );
+        this._postDraggableRegions(draggableRegions);
     }
 
     clearDraggable() {
@@ -533,10 +540,73 @@ export class DingClient {
         return regions;
     }
 
+    _subtractDraggableRegions(regions, excluded) {
+        let remaining = regions.map(region => ({...region}));
+
+        for (const cut of excluded) {
+            const next = [];
+            for (const region of remaining) {
+                const left = Math.max(region.x, cut.x);
+                const top = Math.max(region.y, cut.y);
+                const right = Math.min(
+                    region.x + region.width,
+                    cut.x + cut.width
+                );
+                const bottom = Math.min(
+                    region.y + region.height,
+                    cut.y + cut.height
+                );
+
+                if (left >= right || top >= bottom) {
+                    next.push(region);
+                    continue;
+                }
+
+                if (top > region.y) {
+                    next.push({
+                        x: region.x,
+                        y: region.y,
+                        width: region.width,
+                        height: top - region.y,
+                    });
+                }
+                if (bottom < region.y + region.height) {
+                    next.push({
+                        x: region.x,
+                        y: bottom,
+                        width: region.width,
+                        height: region.y + region.height - bottom,
+                    });
+                }
+                if (left > region.x) {
+                    next.push({
+                        x: region.x,
+                        y: top,
+                        width: left - region.x,
+                        height: bottom - top,
+                    });
+                }
+                if (right < region.x + region.width) {
+                    next.push({
+                        x: right,
+                        y: top,
+                        width: region.x + region.width - right,
+                        height: bottom - top,
+                    });
+                }
+            }
+            remaining = next;
+        }
+
+        return remaining;
+    }
+
     _visitDraggableTarget(value, doc, regions, seen) {
+        // Ignore empty inputs.
         if (value === null || value === undefined || value === false)
             return;
 
+        // CSS selector string: resolve matching elements.
         if (typeof value === 'string') {
             const selector = value.trim();
             if (!selector || !doc)
@@ -550,23 +620,27 @@ export class DingClient {
         }
 
         const normalized = this._normalizeRectLike(value);
+        // Rect-like object: use it directly.
         if (normalized) {
             this._appendDraggableRegion(regions, seen, normalized);
             return;
         }
 
+        // DOM element: measure its rendered client rects.
         if (value?.nodeType === 1 &&
             typeof value.getClientRects === 'function') {
             this._collectElementRegions(value, regions, seen);
             return;
         }
 
+        // Array-like collection: recurse into each entry.
         if (typeof value?.length === 'number' && typeof value !== 'function') {
             for (const item of Array.from(value))
                 this._visitDraggableTarget(item, doc, regions, seen);
             return;
         }
 
+        // Iterable collection: recurse into each entry.
         if (typeof value?.[Symbol.iterator] === 'function' &&
             typeof value !== 'string') {
             for (const item of value)
@@ -578,12 +652,14 @@ export class DingClient {
         if (!element)
             return;
 
+        // Rect-like object already passed through as an element-like value.
         const normalized = this._normalizeRectLike(element);
         if (normalized) {
             this._appendDraggableRegion(regions, seen, normalized);
             return;
         }
 
+        // DOM element: use rendered client rects.
         if (element?.nodeType !== 1 ||
             typeof element.getClientRects !== 'function')
             return;
@@ -606,6 +682,10 @@ export class DingClient {
     }
 
     _appendDraggableRegion(regions, seen, normalized) {
+        normalized = this._normalizeRectLike(normalized);
+        if (!normalized)
+            return;
+
         const key =
             `${normalized.x}|${normalized.y}|${normalized.width}|${normalized.height}`;
         if (seen.has(key))

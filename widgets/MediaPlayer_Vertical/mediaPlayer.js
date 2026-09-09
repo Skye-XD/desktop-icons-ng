@@ -36,6 +36,7 @@ class MediaPlayerWidget {
         this._syncConfig = this._readSyncConfig();
         this._client = new DingClient({mode: 'widget'});
         this._cacheUi();
+        this._client.onHostState(() => this._syncDragRegion());
         this._watchDragRegion();
         this._pinnedMoveCleanup = this._client.attachPinnedMoveHandle(
             this._ui?.root ?? this._root,
@@ -294,7 +295,9 @@ class MediaPlayerWidget {
         if (!this._root)
             return;
 
-        this._client?.setDraggable?.(this._root);
+        this._client?.setDraggable?.(this._root, {
+            exclude: '.mp-controls-overlay button, .mp-controls-overlay input',
+        });
     }
 
     _updateStaticFields(snapshot) {
