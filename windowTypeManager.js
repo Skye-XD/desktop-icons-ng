@@ -46,6 +46,7 @@ class ManageWindow {
        * D : show this window in all desktops
        * H : hide this window from the window list
        * K : make this window a dock window (takes precedence over desktop flags)
+       * P : keep a pinned widget above the desktop and below normal windows
        * F : keep the window in the same position, even if it is moved by the
              user or by the system (for example when changing screen resolution)
 
@@ -141,14 +142,14 @@ class ManageWindow {
        @!<x>,<y>;<flags>[;KEY=VALUE ...]
 
        Examples:
-       - @!120,340;KH
+       - @!120,340;PDH;I=550e8400-e29b-41d4-a716-446655440000
        - @!120,340;TH;I=550e8400-e29b-41d4-a716-446655440000
 
        Grammar:
        - @! introduces a DING-managed window directive
        - <x>,<y> are integer global coordinates
        - <flags> is a compact string of zero or more of:
-         B, T, D, H, F, K
+         B, T, D, H, F, K, P
        - optional metadata segments follow as ;KEY=VALUE
        - multiple metadata segments are allowed for forward compatibility
        - unknown metadata keys are ignored
@@ -229,7 +230,7 @@ class ManageWindow {
 
     _parseManagedWindowFlags(flagSegment, parsed) {
         for (const char of flagSegment) {
-            if ('BTDHFK'.includes(char))
+            if ('BTDHFKP'.includes(char))
                 parsed.flags.add(char);
         }
     }
@@ -263,6 +264,8 @@ class ManageWindow {
         this._hideFromWindowList = parsed.flags.has('H');
         this._fixed = parsed.flags.has('F');
         this._dockWindow = parsed.flags.has('K');
+        this._pinnedDesktopWindow = parsed.flags.has('P') &&
+            !this._keepAtTop && !this._keepAtBottom && !this._dockWindow;
         this._desktopWindow =
             this._keepAtBottom &&
             !this._keepAtTop &&
@@ -354,6 +357,11 @@ class ManageWindow {
             this._makeWindowTypeDesktop();
         else
             this._makeWindowTypeNormal();
+
+        if (this._pinnedDesktopWindow) {
+            this._keepWindowUnFullScreen();
+            this._keepPinnedWindowBelowApplications();
+        }
 
         if (this.windowInstanceId)
             this._trackWindowPosition();
@@ -543,6 +551,45 @@ class ManageWindow {
     _unhideWindow() {
         if (this._waylandClient)
             this._waylandClient.show_in_window_list(this._window);
+    }
+
+    _keepPinnedWindowBelowApplications() {
+        this._signalIDs.push(
+            this._window.connect('notify::above', () => {
+                if (this._window.above)
+                    this._window.unmake_above();
+            })
+        );
+
+        this._restackedBottomID = global.display.connect('restacked',
+            this._syncPinnedWindowStack.bind(this)
+        );
+        this._syncPinnedWindowStack();
+    }
+
+    _syncPinnedWindowStack() {
+        const workspace = global.workspace_manager.get_active_workspace();
+        const windowStack = global.display.sort_windows_by_stacking(
+            workspace.list_windows()
+        );
+        const index = windowStack.indexOf(this._window);
+        if (index < 0)
+            return;
+
+        // NORMAL windows remain above the DESKTOP layer even when lowered.
+        // Lower only when an application in our layer is underneath us:
+        // pinned windows must not continually lower each other on restacked.
+        // Other layers cannot be reordered by lower(), so ignore them.
+        const layer = this._window.get_layer();
+        for (let i = 0; i < index; i++) {
+            const window = windowStack[i];
+            if (window.get_layer() !== layer ||
+                window.customJS_ding?.pinnedDesktopWindow)
+                continue;
+
+            this._window.lower();
+            return;
+        }
     }
 
     _keepWindowAtBottom() {
@@ -807,6 +854,10 @@ class ManageWindow {
 
     get desktopWindow() {
         return this._desktopWindow;
+    }
+
+    get pinnedDesktopWindow() {
+        return this._pinnedDesktopWindow;
     }
 }
 

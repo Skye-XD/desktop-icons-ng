@@ -4,7 +4,7 @@
   "description": "<p style=\"text-align: center;\">     <a href=\"https://extensions.gnome.org/extension/5263/gtk4-desktop-icons-ng-ding/\" style=\"margin-left: 20px\">         <img src=\"media/Screenshot7.png\" width=\"800px\"/>     </a> </p>",
   "main": "desktopIconsIntegration.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node --test tests/*.test.cjs"
   },
   "repository": {
     "type": "git",
