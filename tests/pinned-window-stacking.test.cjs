@@ -112,62 +112,39 @@ test('pinned title selects the desktop policy, editing retains the top policy', 
     assert.equal(host.buildPinnedTitle({x: 3, y: 4}), '@!3,4;KH;I=widget-id');
     assert.equal(host.buildPinnedTitle({x: 3, y: 4}, true), '@!3,4;TH;I=widget-id');
     host._widgetManager.keepPinnedWidgetsBelowApps = true;
-    assert.equal(host.buildPinnedTitle({x: 3, y: 4}), '@!3,4;PDH;I=widget-id');
+    assert.equal(host.buildPinnedTitle({x: 3, y: 4}), '@!3,4;BDH;I=widget-id');
     assert.equal(host.buildPinnedTitle({x: 3, y: 4}, true), '@!3,4;TH;I=widget-id');
 });
 
-test('pinned windows stay above icons and below apps on mapping, focus and app lowering', () => {
+test('pinned windows use the desktop policy without pinned restacking', () => {
     const f = fixture();
-    const desktop = f.makeWindow('desktop', '', f.types.DESKTOP);
-    const app = f.makeWindow('app');
-    const first = f.makeWindow('first', '@!0,0;PDH;I=first');
-    const second = f.makeWindow('second', '@!0,0;PDH;I=second');
-    assert.equal(f.order()[0], 'desktop');
-    assert.equal(f.order().at(-1), 'app');
-    first.raise();
-    assert.deepEqual(f.order(), ['desktop', 'first', 'second', 'app']);
-    app.lower();
-    assert.equal(f.order()[0], 'desktop');
-    assert.equal(f.order().at(-1), 'app');
-    f.restack([desktop, app, second, first]);
-    assert.equal(f.order()[0], 'desktop');
-    assert.equal(f.order().at(-1), 'app');
-    assert.equal(first.on_all_workspaces, true);
-    assert.equal(first.customJS_ding.desktopWindow, false);
-});
-
-test('widgets do not lower each other or fight windows in other compositor layers', () => {
-    const f = fixture();
-    const desktop = f.makeWindow('desktop', '', f.types.DESKTOP);
-    const first = f.makeWindow('first', '@!0,0;PDH;I=first');
-    const second = f.makeWindow('second', '@!0,0;PDH;I=second');
-    first.raise();
-    assert.deepEqual(f.order(), ['desktop', 'second', 'first']);
-    const below = f.makeWindow('below');
-    below.get_layer = () => 1;
-    f.restack([desktop, below, second, first]);
-    assert.deepEqual(f.order(), ['desktop', 'below', 'second', 'first']);
+    f.makeWindow('desktop', '', f.types.DESKTOP);
+    const first = f.makeWindow('first', '@!0,0;BDH;I=first');
+    const second = f.makeWindow('second', '@!0,0;BDH;I=second');
+    assert.equal(first.type, f.types.DESKTOP);
+    assert.equal(second.type, f.types.DESKTOP);
+    assert.equal(first.customJS_ding.desktopWindow, true);
+    assert.equal(second.customJS_ding.desktopWindow, true);
+    assert.equal(f.listeners.size, 0);
+    assert.equal(first.on_all_workspaces, false);
 });
 
 test('editing, returning to pinned mode, refresh and cleanup replace controllers', () => {
     const f = fixture();
     f.makeWindow('desktop', '', f.types.DESKTOP);
     f.makeWindow('app');
-    const widget = f.makeWindow('widget', '@!0,0;PDH;I=widget');
+    const widget = f.makeWindow('widget', '@!0,0;BDH;I=widget');
     widget.title = '@!0,0;TH;I=widget';
     widget.emit('notify::title');
     assert.equal(widget.above, true);
-    assert.equal(f.order().at(-1), 'widget');
+    assert.equal(widget.type, f.types.NORMAL);
     assert.equal(f.listeners.size, 1);
-    widget.title = '@!0,0;PDH;I=widget';
+    widget.title = '@!0,0;BDH;I=widget';
     widget.emit('notify::title');
     assert.equal(widget.above, false);
-    assert.deepEqual(f.order(), ['desktop', 'widget', 'app']);
+    assert.equal(widget.type, f.types.DESKTOP);
     widget.customJS_ding.refreshProperties(true);
-    assert.equal(f.listeners.size, 1);
-    widget.above = true;
-    widget.emit('notify::above');
-    assert.equal(widget.above, false);
+    assert.equal(f.listeners.size, 0);
     widget.customJS_ding.disconnect();
     assert.equal(f.listeners.size, 0);
 });
@@ -179,11 +156,10 @@ test('changing the preference switches an existing window between dock and deskt
     const widget = f.makeWindow('widget', '@!0,0;KH;I=widget');
     assert.equal(widget.type, f.types.DOCK);
     assert.equal(f.listeners.size, 0);
-    widget.title = '@!0,0;PDH;I=widget';
+    widget.title = '@!0,0;BDH;I=widget';
     widget.emit('notify::title');
-    assert.equal(widget.type, f.types.NORMAL);
-    assert.deepEqual(f.order(), ['desktop', 'widget', 'app']);
-    assert.equal(f.listeners.size, 1);
+    assert.equal(widget.type, f.types.DESKTOP);
+    assert.equal(f.listeners.size, 0);
     widget.title = '@!0,0;KH;I=widget';
     widget.emit('notify::title');
     assert.equal(widget.type, f.types.DOCK);
