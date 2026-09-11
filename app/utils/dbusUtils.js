@@ -962,7 +962,6 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
         this.gnomeNautilusPreviewManager = GnomeNautilusPreview;
         this._platformDataManager = new PlatformDataManager();
         this.fileOperationsManager.createPlatformData = this.createPlatformData.bind(this);
-        this._eventsStack = [];
         this._previewRequest = 0;
         this.previewParentHandle = null;
         GnomeNautilusPreview.connectToProxy('g-properties-changed', proxy => {
@@ -985,32 +984,11 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
         });
     }
 
-    pushEvent(params = {}) {
-        let parentWindow = params.parentWindow;
-        if (!parentWindow) {
-            if (this.mainApp && this.mainApp.getDialogParentWindow)
-                parentWindow = this.mainApp.getDialogParentWindow();
-        }
-
-        const currentEventTime =
-            params.timestamp
-                ? params.timestamp
-                : Gdk.CURRENT_TIME;
-
-        this._eventsStack
-        .unshift({
-            parentWindow,
-            'timestamp': currentEventTime,
-        });
-    }
-
-    createPlatformData() {
-        const eventParameters = this._eventsStack.pop() || {
-            parentWindow: this.mainApp.getDialogParentWindow?.() ?? null,
-            timestamp: Gdk.CURRENT_TIME,
-        };
-        return this._platformDataManager.acquire(
-            eventParameters.parentWindow, eventParameters.timestamp);
+    createPlatformData(event = null) {
+        const parentWindow = event?.parentWindow ??
+            this.mainApp.getDialogParentWindow?.() ?? null;
+        const timestamp = event?.timestamp ?? Gdk.CURRENT_TIME;
+        return this._platformDataManager.acquire(parentWindow, timestamp);
     }
 
     _releasePreviewHandle() {
@@ -1027,7 +1005,7 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
             this._releasePreviewHandle();
     }
 
-    async ShowFileRemote(uri, activationToken = '', boolean, callback = null) {
+    async ShowFileRemote(uri, activationToken = '', boolean, event = null, callback = null) {
         const request = ++this._previewRequest;
         const proxy = this.gnomeNautilusPreviewManager.proxy;
         if (!proxy) {
@@ -1036,7 +1014,7 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
             return;
         }
 
-        const platformData = await this.createPlatformData();
+        const platformData = await this.createPlatformData(event);
         if (request !== this._previewRequest) {
             platformData.freePlatformData();
             return;
@@ -1077,7 +1055,7 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
         }
     }
 
-    async MoveURIsRemote(fileList, uri, callback) {
+    async MoveURIsRemote(fileList, uri, event = null, callback = null) {
         let platformData;
         try {
             if (!this.fileOperationsManager.proxy) {
@@ -1086,7 +1064,7 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
                 return;
             }
 
-            platformData = await this.createPlatformData();
+            platformData = await this.createPlatformData(event);
 
             this.fileOperationsManager.proxy.MoveURIsRemote(
                 fileList,
@@ -1107,7 +1085,7 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
         }
     }
 
-    async CopyURIsRemote(fileList, uri, callback = null) {
+    async CopyURIsRemote(fileList, uri, event = null, callback = null) {
         let platformData;
         try {
             if (!this.fileOperationsManager.proxy) {
@@ -1116,7 +1094,7 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
                 return;
             }
 
-            platformData = await this.createPlatformData();
+            platformData = await this.createPlatformData(event);
 
             this.fileOperationsManager.proxy.CopyURIsRemote(
                 fileList,
@@ -1137,7 +1115,7 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
         }
     }
 
-    async RenameURIRemote(fileList, uri, callback = null) {
+    async RenameURIRemote(fileList, uri, event = null, callback = null) {
         let platformData;
         try {
             if (!this.fileOperationsManager.proxy) {
@@ -1146,7 +1124,7 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
                 return;
             }
 
-            platformData = await this.createPlatformData();
+            platformData = await this.createPlatformData(event);
 
             this.fileOperationsManager.proxy.RenameURIRemote(
                 fileList,
@@ -1167,7 +1145,7 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
         }
     }
 
-    async TrashURIsRemote(fileList, callback = null) {
+    async TrashURIsRemote(fileList, event = null, callback = null) {
         let platformData;
         try {
             if (!this.fileOperationsManager.proxy) {
@@ -1176,7 +1154,7 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
                 return;
             }
 
-            platformData = await this.createPlatformData();
+            platformData = await this.createPlatformData(event);
 
             this.fileOperationsManager.proxy.TrashURIsRemote(
                 fileList,
@@ -1196,7 +1174,7 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
         }
     }
 
-    async DeleteURIsRemote(fileList, callback = null) {
+    async DeleteURIsRemote(fileList, event = null, callback = null) {
         let platformData;
         try {
             if (!this.fileOperationsManager.proxy) {
@@ -1205,7 +1183,7 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
                 return;
             }
 
-            platformData = await this.createPlatformData();
+            platformData = await this.createPlatformData(event);
 
             this.fileOperationsManager.proxy.DeleteURIsRemote(
                 fileList,
@@ -1229,7 +1207,7 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
         }
     }
 
-    async EmptyTrashRemote(askConfirmation, callback = null) {
+    async EmptyTrashRemote(askConfirmation, event = null, callback = null) {
         let platformData;
         try {
             if (!this.fileOperationsManager.proxy) {
@@ -1238,7 +1216,7 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
                 return;
             }
 
-            platformData = await this.createPlatformData();
+            platformData = await this.createPlatformData(event);
 
             this.fileOperationsManager.proxy.EmptyTrashRemote(
                 askConfirmation,
@@ -1262,7 +1240,7 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
         }
     }
 
-    async UndoRemote(callback = null) {
+    async UndoRemote(event = null, callback = null) {
         let platformData;
         try {
             if (!this.fileOperationsManager.proxy) {
@@ -1271,7 +1249,7 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
                 return;
             }
 
-            platformData = await this.createPlatformData();
+            platformData = await this.createPlatformData(event);
             this.fileOperationsManager.proxy.UndoRemote(
                 platformData.data,
                 (result, error) => {
@@ -1289,7 +1267,7 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
         }
     }
 
-    async RedoRemote(callback = null) {
+    async RedoRemote(event = null, callback = null) {
         let platformData;
         try {
             if (!this.fileOperationsManager.proxy) {
@@ -1298,7 +1276,7 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
                 return;
             }
 
-            platformData = await this.createPlatformData();
+            platformData = await this.createPlatformData(event);
 
             this.fileOperationsManager.proxy.RedoRemote(
                 platformData.data,
@@ -1336,7 +1314,7 @@ class LegacyRemoteFileOperationsManager extends DbusOperationsManager {
         this.fileOperationsManager = fileOperationsManager;
     }
 
-    MoveURIsRemote(fileList, uri, callback) {
+    MoveURIsRemote(fileList, uri, _event = null, callback = null) {
         if (!this.fileOperationsManager.proxy) {
             this._sendNoProxyError(callback);
 
@@ -1356,7 +1334,7 @@ class LegacyRemoteFileOperationsManager extends DbusOperationsManager {
         );
     }
 
-    CopyURIsRemote(fileList, uri, callback = null) {
+    CopyURIsRemote(fileList, uri, _event = null, callback = null) {
         if (!this.fileOperationsManager.proxy) {
             this._sendNoProxyError(callback);
 
@@ -1376,7 +1354,7 @@ class LegacyRemoteFileOperationsManager extends DbusOperationsManager {
         );
     }
 
-    RenameURIRemote(fileList, uri, callback = null) {
+    RenameURIRemote(fileList, uri, _event = null, callback = null) {
         if (!this.fileOperationsManager.proxy) {
             this._sendNoProxyError(callback);
 
@@ -1396,7 +1374,7 @@ class LegacyRemoteFileOperationsManager extends DbusOperationsManager {
         );
     }
 
-    TrashURIsRemote(fileList, callback = null) {
+    TrashURIsRemote(fileList, _event = null, callback = null) {
         if (!this.fileOperationsManager.proxy) {
             this._sendNoProxyError(callback);
 
@@ -1415,7 +1393,7 @@ class LegacyRemoteFileOperationsManager extends DbusOperationsManager {
         );
     }
 
-    DeleteURIsRemote(fileList, callback = null) {
+    DeleteURIsRemote(fileList, _event = null, callback = null) {
         if (!this.fileOperationsManager.proxy) {
             this._sendNoProxyError(callback);
 
@@ -1435,7 +1413,7 @@ class LegacyRemoteFileOperationsManager extends DbusOperationsManager {
         );
     }
 
-    EmptyTrashRemote(callback = null) {
+    EmptyTrashRemote(_askConfirmation = true, _event = null, callback = null) {
         if (!this.fileOperationsManager.proxy) {
             this._sendNoProxyError(callback);
 
@@ -1453,7 +1431,7 @@ class LegacyRemoteFileOperationsManager extends DbusOperationsManager {
         );
     }
 
-    UndoRemote(callback = null) {
+    UndoRemote(_event = null, callback = null) {
         if (!this.fileOperationsManager.proxy) {
             this._sendNoProxyError(callback);
 
@@ -1471,7 +1449,7 @@ class LegacyRemoteFileOperationsManager extends DbusOperationsManager {
         );
     }
 
-    RedoRemote(callback = null) {
+    RedoRemote(_event = null, callback = null) {
         if (!this.fileOperationsManager.proxy) {
             this._sendNoProxyError(callback);
 

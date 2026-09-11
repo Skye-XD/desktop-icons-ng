@@ -290,3 +290,47 @@ test('different surfaces have independent exports and reference counts', async (
     second.freePlatformData();
     assert.deepEqual(b.surface.dropped, ['handle-0']);
 });
+
+test('overlapping operations keep their own event even when exports complete in reverse order', async () => {
+    const f = fixture();
+    const pending = [];
+    const received = [];
+    f.manager._platformDataManager.acquire = (parentWindow, timestamp) =>
+        new Promise(resolve => pending.push({parentWindow, timestamp, resolve}));
+    f.fileOperations.proxy.CopyURIsRemote = (files, uri, data, callback) => {
+        received.push({uri, data});
+        callback(null, null);
+    };
+    const a = {parentWindow: {}, timestamp: 123};
+    const b = {parentWindow: {}, timestamp: 456};
+    const first = f.manager.CopyURIsRemote([], 'file:///a', a);
+    const second = f.manager.CopyURIsRemote([], 'file:///b', b);
+    assert.equal(pending[0].parentWindow, a.parentWindow);
+    assert.equal(pending[1].parentWindow, b.parentWindow);
+    for (const i of [1, 0]) {
+        pending[i].resolve({data: pending[i].timestamp, freePlatformData() {}});
+        await (i === 0 ? first : second);
+    }
+    assert.deepEqual(received, [
+        {uri: 'file:///b', data: 456},
+        {uri: 'file:///a', data: 123},
+    ]);
+});
+
+test('unavailable operation cannot leave its event for the next request', async () => {
+    const f = fixture();
+    const received = [];
+    f.manager._sendNoProxyError = () => {};
+    f.fileOperations.proxy = null;
+    await f.manager.CopyURIsRemote([], 'file:///a',
+        {parentWindow: {}, timestamp: 123});
+    f.manager._platformDataManager.acquire = (parentWindow, timestamp) => {
+        received.push({parentWindow, timestamp});
+        return Promise.resolve({data: {}, freePlatformData() {}});
+    };
+    f.fileOperations.proxy = {CopyURIsRemote: (...args) => args.at(-1)(null, null)};
+    await f.manager.CopyURIsRemote([], 'file:///b');
+    assert.equal(received.length, 1);
+    assert.equal(received[0].timestamp, 0);
+    assert.equal(received[0].parentWindow.get_surface(), f.surface);
+});
