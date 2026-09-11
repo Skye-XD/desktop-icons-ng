@@ -1301,177 +1301,6 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
 }
 
 
-class LegacyRemoteFileOperationsManager extends DbusOperationsManager {
-    constructor(fileOperationsManager,
-        FreeDesktopFileManager,
-        GnomeNautilusPreview,
-        GnomeArchiveManager
-    ) {
-        super(
-            FreeDesktopFileManager, GnomeNautilusPreview, GnomeArchiveManager
-        );
-
-        this.fileOperationsManager = fileOperationsManager;
-    }
-
-    MoveURIsRemote(fileList, uri, _event = null, callback = null) {
-        if (!this.fileOperationsManager.proxy) {
-            this._sendNoProxyError(callback);
-
-            return;
-        }
-
-        this.fileOperationsManager.proxy.MoveURIsRemote(
-            fileList,
-            uri,
-            (result, error) => {
-                if (callback)
-                    callback(result, error);
-
-                if (error)
-                    console.log(`Error moving files: ${error.message}`);
-            }
-        );
-    }
-
-    CopyURIsRemote(fileList, uri, _event = null, callback = null) {
-        if (!this.fileOperationsManager.proxy) {
-            this._sendNoProxyError(callback);
-
-            return;
-        }
-
-        this.fileOperationsManager.proxy.CopyURIsRemote(
-            fileList,
-            uri,
-            (result, error) => {
-                if (callback)
-                    callback(result, error);
-
-                if (error)
-                    console.log(`Error copying files: ${error.message}`);
-            }
-        );
-    }
-
-    RenameURIRemote(fileList, uri, _event = null, callback = null) {
-        if (!this.fileOperationsManager.proxy) {
-            this._sendNoProxyError(callback);
-
-            return;
-        }
-
-        this.fileOperationsManager.proxy.RenameFileRemote(
-            fileList,
-            uri,
-            (result, error) => {
-                if (callback)
-                    callback(result, error);
-
-                if (error)
-                    console.log(`Error renaming files: ${error.message}`);
-            }
-        );
-    }
-
-    TrashURIsRemote(fileList, _event = null, callback = null) {
-        if (!this.fileOperationsManager.proxy) {
-            this._sendNoProxyError(callback);
-
-            return;
-        }
-
-        this.fileOperationsManager.proxy.TrashFilesRemote(
-            fileList,
-            (result, error) => {
-                if (callback)
-                    callback(result, error);
-
-                if (error)
-                    console.log(`Error moving files: ${error.message}`);
-            }
-        );
-    }
-
-    DeleteURIsRemote(fileList, _event = null, callback = null) {
-        if (!this.fileOperationsManager.proxy) {
-            this._sendNoProxyError(callback);
-
-            return;
-        }
-
-        this.fileOperationsManager.proxy.TrashFilesRemote(
-            fileList,
-            (source, error) => {
-                this.EmptyTrashRemote();
-                if (callback)
-                    callback(source, error);
-
-                if (error)
-                    console.log(`Error deleting files on the desktop: ${error.message}`);
-            }
-        );
-    }
-
-    EmptyTrashRemote(_askConfirmation = true, _event = null, callback = null) {
-        if (!this.fileOperationsManager.proxy) {
-            this._sendNoProxyError(callback);
-
-            return;
-        }
-
-        this.fileOperationsManager.proxy.EmptyTrashRemote(
-            (source, error) => {
-                if (callback)
-                    callback(source, error);
-
-                if (error)
-                    console.log(`Error trashing files on the desktop: ${error.message}`);
-            }
-        );
-    }
-
-    UndoRemote(_event = null, callback = null) {
-        if (!this.fileOperationsManager.proxy) {
-            this._sendNoProxyError(callback);
-
-            return;
-        }
-
-        this.fileOperationsManager.proxy.UndoRemote(
-            (result, error) => {
-                if (callback)
-                    callback(result, error);
-
-                if (error)
-                    console.log(`Error performing undo: ${error.message}`);
-            }
-        );
-    }
-
-    RedoRemote(_event = null, callback = null) {
-        if (!this.fileOperationsManager.proxy) {
-            this._sendNoProxyError(callback);
-
-            return;
-        }
-
-        this.fileOperationsManager.proxy.RedoRemote(
-            (result, error) => {
-                if (callback)
-                    callback(result, error);
-
-                if (error)
-                    console.log(`Error performing redo: ${error.message}`);
-            }
-        );
-    }
-
-    UndoStatus() {
-        return this.fileOperationsManager.proxy.UndoStatus;
-    }
-}
-
 // eslint-disable-next-line no-unused-vars
 const DBusUtils = class {
     constructor(mainApp) {
@@ -1483,38 +1312,15 @@ const DBusUtils = class {
         const insSytembus = true;
         const insSessionBus = !insSytembus;
 
-        let data = this.dbusManagerObject.getIntrospectionData(
+        this.NautilusFileOperations2 = new ProxyManager(
+            this.dbusManagerObject,
             'org.gnome.Nautilus',
             '/org/gnome/Nautilus/FileOperations2',
-            false);
-
-        if (data) {
-            // NautilusFileOperations2
-            this.NautilusFileOperations2 = new ProxyManager(
-                this.dbusManagerObject,
-                'org.gnome.Nautilus',
-                '/org/gnome/Nautilus/FileOperations2',
-                'org.gnome.Nautilus.FileOperations2',
-                insSessionBus,
-                'Nautilus',
-                makeAsync
-            );
-        } else {
-            console.log(
-                'Emulating NautilusFileOperations2 with the old ' +
-                'NautilusFileOperations interface'
-            );
-            // Emulate NautilusFileOperations2 with the old interface
-            this.NautilusFileOperations2 = new ProxyManager(
-                this.dbusManagerObject,
-                'org.gnome.Nautilus',
-                '/org/gnome/Nautilus',
-                'org.gnome.Nautilus.FileOperations',
-                insSessionBus,
-                'Nautilus',
-                makeAsync
-            );
-        }
+            'org.gnome.Nautilus.FileOperations2',
+            insSessionBus,
+            'Nautilus',
+            makeAsync
+        );
 
         this.FreeDesktopFileManager = new ProxyManager(
             this.dbusManagerObject,
@@ -1570,22 +1376,13 @@ const DBusUtils = class {
             this.discreteGpuAvailable = newStatus;
         });
 
-        if (data) {
-            this.RemoteFileOperations = new RemoteFileOperationsManager(
-                this.NautilusFileOperations2,
-                this.FreeDesktopFileManager,
-                this.GnomeNautilusPreview,
-                this.GnomeArchiveManager,
-                this.mainApp
-            );
-        } else {
-            this.RemoteFileOperations = new LegacyRemoteFileOperationsManager(
-                this.NautilusFileOperations2,
-                this.FreeDesktopFileManager,
-                this.GnomeNautilusPreview,
-                this.GnomeArchiveManager
-            );
-        }
+        this.RemoteFileOperations = new RemoteFileOperationsManager(
+            this.NautilusFileOperations2,
+            this.FreeDesktopFileManager,
+            this.GnomeNautilusPreview,
+            this.GnomeArchiveManager,
+            this.mainApp
+        );
 
         this.GsConnectManager = new ProxyManager(
             this.dbusManagerObject,
