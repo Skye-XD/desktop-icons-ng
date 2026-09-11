@@ -69,15 +69,17 @@ function fixture() {
     return {manager, surface, signals, shutdown, proxy, calls, reply, fileOperations};
 }
 
-test('each export releases its own raw handle exactly once', async () => {
+test('shared export is released exactly once by the last user', async () => {
     const f = fixture();
-    const a = await f.manager.platformData();
-    const b = await f.manager.platformData();
-    assert.notEqual(a.parentHandle, b.parentHandle);
+    const a = await f.manager.createPlatformData();
+    const b = await f.manager.createPlatformData();
+    assert.equal(a.parentHandle, b.parentHandle);
     b.freePlatformData();
+    b.freePlatformData();
+    assert.deepEqual(f.surface.dropped, []);
     a.freePlatformData();
     a.freePlatformData();
-    assert.deepEqual(f.surface.dropped, ['handle-1', 'handle-0']);
+    assert.deepEqual(f.surface.dropped, ['handle-0']);
 });
 
 test('failed exports and missing parent windows produce harmless cleanup', async () => {
@@ -86,11 +88,11 @@ test('failed exports and missing parent windows produce harmless cleanup', async
         queueMicrotask(() => callback(f.surface, null));
         return true;
     };
-    const a = await f.manager.platformData();
+    const a = await f.manager.createPlatformData();
     assert.equal(a.parentHandle, '');
     a.freePlatformData();
     f.manager.mainApp.getDialogParentWindow = () => null;
-    const b = await f.manager.platformData();
+    const b = await f.manager.createPlatformData();
     assert.equal(b.parentHandle, '');
     b.freePlatformData();
     assert.deepEqual(f.surface.dropped, []);
@@ -137,7 +139,7 @@ test('method replies before queued properties retain the handle for preview navi
     }
     f.proxy.Visible = false;
     f.signals['g-properties-changed'](f.proxy);
-    assert.deepEqual(f.surface.dropped, ['handle-0', 'handle-1']);
+    assert.deepEqual(f.surface.dropped, ['handle-0']);
 });
 
 test('replacement and late failed replies do not release the current preview', async () => {
@@ -146,8 +148,8 @@ test('replacement and late failed replies do not release the current preview', a
     await f.manager.ShowFileRemote('file:///b', '', true);
     f.reply(1);
     f.calls[0][4](null, new Error('old failure'));
-    assert.deepEqual(f.surface.dropped, ['handle-0']);
-    assert.equal(f.manager.previewParentHandle, 'wayland:handle-1');
+    assert.deepEqual(f.surface.dropped, []);
+    assert.equal(f.manager.previewParentHandle, 'wayland:handle-0');
 });
 
 test('preview errors release exports, including synchronous errors', async () => {
@@ -161,7 +163,7 @@ test('preview errors release exports, including synchronous errors', async () =>
     assert.deepEqual(f.surface.dropped, ['handle-0', 'handle-1']);
 });
 
-test('exports completing after shutdown or a newer request are released without opening a preview', async () => {
+test('pending export is shared; superseded requests and shutdown release their claims', async () => {
     for (const shutdown of [false, true]) {
         const f = fixture();
         const exports = [];
@@ -170,18 +172,19 @@ test('exports completing after shutdown or a newer request are released without 
             return true;
         };
         const first = f.manager.ShowFileRemote('file:///a', '', true);
-        if (shutdown) {
+        const second = f.manager.ShowFileRemote('file:///b', '', true);
+        assert.equal(exports.length, 1);
+        if (shutdown)
             f.shutdown.shutdown();
-        } else {
-            const second = f.manager.ShowFileRemote('file:///b', '', true);
-            exports[1](f.surface, 'new');
-            await second;
-            f.reply();
-        }
-        exports[0](f.surface, 'old');
-        await first;
-        assert.deepEqual(f.surface.dropped, ['old']);
+        exports[0](f.surface, 'shared');
+        await Promise.all([first, second]);
+        assert.deepEqual(f.surface.dropped, shutdown ? ['shared'] : []);
         assert.equal(f.calls.length, shutdown ? 0 : 1);
+        if (!shutdown) {
+            f.reply();
+            f.shutdown.shutdown();
+            assert.deepEqual(f.surface.dropped, ['shared']);
+        }
     }
 });
 
@@ -208,4 +211,82 @@ test('all file operations release exports on replies and synchronous errors', as
             assert.deepEqual(f.surface.dropped, ['handle-0'], `${method}: ${outcome}`);
         }
     }
+});
+
+test('preview and file operations share exports on both GTK cleanup APIs', async () => {
+    for (const legacy of [false, true]) {
+        for (const previewFinishesFirst of [false, true]) {
+            const f = fixture();
+            if (legacy) {
+                f.surface.drop_exported_handle = undefined;
+                f.surface.unexport_handle = () => f.surface.dropped.push('legacy');
+            }
+            await f.manager.ShowFileRemote('file:///a', '', true);
+            f.reply();
+            let finishCopy;
+            f.fileOperations.proxy.CopyURIsRemote = (...args) => {
+                finishCopy = args.at(-1);
+            };
+            await f.manager.CopyURIsRemote([], 'file:///destination');
+            assert.equal(f.surface.handles.length, 1);
+            const finishPreview = () => {
+                f.proxy.Visible = false;
+                f.signals['g-properties-changed'](f.proxy);
+            };
+            if (previewFinishesFirst)
+                finishPreview();
+            else
+                finishCopy(null, null);
+            assert.deepEqual(f.surface.dropped, []);
+            if (previewFinishesFirst)
+                finishCopy(null, null);
+            else
+                finishPreview();
+            finishCopy(null, null);
+            finishPreview();
+            assert.deepEqual(f.surface.dropped, [legacy ? 'legacy' : 'handle-0']);
+            const next = await f.manager.createPlatformData();
+            assert.equal(f.surface.handles.length, 2);
+            next.freePlatformData();
+            assert.equal(f.surface.dropped.length, 2);
+        }
+    }
+});
+
+test('concurrent failed exports release all claims and allow a fresh attempt', async () => {
+    for (const throws of [false, true]) {
+        const f = fixture();
+        let attempts = 0;
+        f.surface.export_handle = callback => {
+            attempts++;
+            if (throws)
+                throw new Error('export failed');
+            queueMicrotask(() => callback(f.surface, null));
+            return true;
+        };
+        const failed = await Promise.all([f.manager.createPlatformData(), f.manager.createPlatformData()]);
+        assert.equal(attempts, 1);
+        for (const data of failed) {
+            assert.equal(data.parentHandle, '');
+            data.freePlatformData();
+        }
+        assert.deepEqual(f.surface.dropped, []);
+        f.surface.export_handle = Surface.prototype.export_handle;
+        const next = await f.manager.createPlatformData();
+        assert.equal(next.parentHandle, 'wayland:handle-0');
+        next.freePlatformData();
+        assert.deepEqual(f.surface.dropped, ['handle-0']);
+    }
+});
+
+test('different surfaces have independent exports and reference counts', async () => {
+    const a = fixture();
+    const b = fixture();
+    const first = await a.manager.createPlatformData();
+    const second = await b.manager.createPlatformData();
+    first.freePlatformData();
+    assert.deepEqual(a.surface.dropped, ['handle-0']);
+    assert.deepEqual(b.surface.dropped, []);
+    second.freePlatformData();
+    assert.deepEqual(b.surface.dropped, ['handle-0']);
 });

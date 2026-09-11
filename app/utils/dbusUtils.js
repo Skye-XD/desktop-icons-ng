@@ -862,6 +862,88 @@ class DbusOperationsManager {
 }
 
 
+// All users of a surface share one export, including while export is pending.
+// This also supports GTK before 4.12, which can only track one export per surface.
+class PlatformDataManager {
+    constructor() {
+        this._surfaces = new WeakMap();
+    }
+
+    async acquire(parentWindow, timestamp = Gdk.CURRENT_TIME) {
+        let parentHandle = '';
+        let freePlatformData = () => {};
+        try {
+            const surface = parentWindow?.get_surface();
+            if (surface instanceof GdkWayland.WaylandToplevel) {
+                const lease = await this._acquireHandle(surface);
+                parentHandle = `wayland:${lease.handle}`;
+                freePlatformData = lease.release;
+            }
+        } catch (error) {
+            console.error(error, 'Impossible to determine the parent window');
+        }
+
+        try {
+            return {
+                data: {
+                    'parent-handle': new GLib.Variant('s', parentHandle),
+                    'timestamp': new GLib.Variant('u', timestamp),
+                    'window-position': new GLib.Variant('s', 'center'),
+                },
+                parentHandle,
+                freePlatformData,
+            };
+        } catch (error) {
+            freePlatformData();
+            throw error;
+        }
+    }
+
+    async _acquireHandle(surface) {
+        let entry = this._surfaces.get(surface);
+        if (!entry) {
+            entry = {users: 0, handle: null};
+            this._surfaces.set(surface, entry);
+            entry.ready = new Promise((resolve, reject) => {
+                surface.export_handle((_surface, handle) => {
+                    if (handle) {
+                        entry.handle = handle;
+                        resolve();
+                    } else {
+                        reject(new Error('Could not export Wayland surface'));
+                    }
+                });
+            });
+        }
+
+        entry.users++;
+        let released = false;
+        const release = () => {
+            if (released)
+                return;
+            released = true;
+            if (--entry.users !== 0)
+                return;
+
+            this._surfaces.delete(surface);
+            if (!entry.handle)
+                return;
+            if (typeof surface.drop_exported_handle === 'function')
+                surface.drop_exported_handle(entry.handle);
+            else
+                surface.unexport_handle();
+        };
+
+        try {
+            await entry.ready;
+            return {handle: entry.handle, release};
+        } catch (error) {
+            release();
+            throw error;
+        }
+    }
+}
+
 class RemoteFileOperationsManager extends DbusOperationsManager {
     constructor(
         fileOperationsManager,
@@ -878,7 +960,8 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
         this.mainApp = mainApp;
         this.fileOperationsManager = fileOperationsManager;
         this.gnomeNautilusPreviewManager = GnomeNautilusPreview;
-        this._createPlatformData();
+        this._platformDataManager = new PlatformDataManager();
+        this.fileOperationsManager.createPlatformData = this.createPlatformData.bind(this);
         this._eventsStack = [];
         this._previewRequest = 0;
         this.previewParentHandle = null;
@@ -921,85 +1004,13 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
         });
     }
 
-    _createPlatformData() {
-        this.getWaylandParentHandle =
-            this.fileOperationsManager.getWaylandParentHandle = topLevel => {
-                return new Promise(resolve => {
-                    try {
-                        topLevel.export_handle((actor, handle) => {
-                            if (handle)
-                                resolve(handle);
-                            else
-                                resolve(false);
-                        });
-                    } catch (e) {
-                        console.log(
-                            `Failed with "${e.message}" while getting` +
-                            ' wayland parent handle, WaylandHandle'
-                        );
-
-                        resolve(false);
-                    }
-                });
-            };
-
-        this.platformData =
-            this.fileOperationsManager.platformData = async () => {
-                const eventParameters =
-                    this._eventsStack.pop() ||
-                    {
-                        'parentWindow':
-                            this.mainApp.getDialogParentWindow
-                                ? this.mainApp.getDialogParentWindow()
-                                : null,
-                        'timestamp': Gdk.CURRENT_TIME,
-                    };
-
-                const parentWindow = eventParameters.parentWindow;
-                const topLevel = parentWindow?.get_surface();
-                const windowPosition = 'center';
-                const timestamp = eventParameters.timestamp;
-
-                let parentHandle = '';
-                let freePlatformData = () => {};
-
-                if (parentWindow) {
-                    try {
-                        if (topLevel instanceof GdkWayland.WaylandToplevel) {
-                            let handle =
-                                await this.getWaylandParentHandle(topLevel);
-
-                            if (handle)
-                                parentHandle = `wayland:${handle}`;
-
-                            freePlatformData = () => {
-                                if (!handle)
-                                    return;
-                                // GTK 4.12 exports a distinct handle per call.
-                                if (typeof topLevel.drop_exported_handle === 'function')
-                                    topLevel.drop_exported_handle(handle);
-                                else
-                                    topLevel.unexport_handle();
-                                handle = null;
-                            };
-                        }
-                    } catch (e) {
-                        console.error(e,
-                            'Impossible to determine the parent window'
-                        );
-                    }
-                }
-
-                return {
-                    'data': {
-                        'parent-handle': new GLib.Variant('s', parentHandle),
-                        'timestamp': new GLib.Variant('u', timestamp),
-                        'window-position': new GLib.Variant('s', windowPosition),
-                    },
-                    parentHandle,
-                    freePlatformData,
-                };
-            };
+    createPlatformData() {
+        const eventParameters = this._eventsStack.pop() || {
+            parentWindow: this.mainApp.getDialogParentWindow?.() ?? null,
+            timestamp: Gdk.CURRENT_TIME,
+        };
+        return this._platformDataManager.acquire(
+            eventParameters.parentWindow, eventParameters.timestamp);
     }
 
     _releasePreviewHandle() {
@@ -1025,7 +1036,7 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
             return;
         }
 
-        const platformData = await this.platformData();
+        const platformData = await this.createPlatformData();
         if (request !== this._previewRequest) {
             platformData.freePlatformData();
             return;
@@ -1075,7 +1086,7 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
                 return;
             }
 
-            platformData = await this.platformData();
+            platformData = await this.createPlatformData();
 
             this.fileOperationsManager.proxy.MoveURIsRemote(
                 fileList,
@@ -1105,7 +1116,7 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
                 return;
             }
 
-            platformData = await this.platformData();
+            platformData = await this.createPlatformData();
 
             this.fileOperationsManager.proxy.CopyURIsRemote(
                 fileList,
@@ -1135,7 +1146,7 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
                 return;
             }
 
-            platformData = await this.platformData();
+            platformData = await this.createPlatformData();
 
             this.fileOperationsManager.proxy.RenameURIRemote(
                 fileList,
@@ -1165,7 +1176,7 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
                 return;
             }
 
-            platformData = await this.platformData();
+            platformData = await this.createPlatformData();
 
             this.fileOperationsManager.proxy.TrashURIsRemote(
                 fileList,
@@ -1194,7 +1205,7 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
                 return;
             }
 
-            platformData = await this.platformData();
+            platformData = await this.createPlatformData();
 
             this.fileOperationsManager.proxy.DeleteURIsRemote(
                 fileList,
@@ -1227,7 +1238,7 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
                 return;
             }
 
-            platformData = await this.platformData();
+            platformData = await this.createPlatformData();
 
             this.fileOperationsManager.proxy.EmptyTrashRemote(
                 askConfirmation,
@@ -1260,7 +1271,7 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
                 return;
             }
 
-            platformData = await this.platformData();
+            platformData = await this.createPlatformData();
             this.fileOperationsManager.proxy.UndoRemote(
                 platformData.data,
                 (result, error) => {
@@ -1287,7 +1298,7 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
                 return;
             }
 
-            platformData = await this.platformData();
+            platformData = await this.createPlatformData();
 
             this.fileOperationsManager.proxy.RedoRemote(
                 platformData.data,
