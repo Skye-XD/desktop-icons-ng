@@ -78,6 +78,10 @@ const WindowManager = class {
                       <arg name="type" type="s"/>
                       <arg name="value" type="b"/>
                     </signal>
+                    <signal name="desktopclick">
+                      <arg name="x" type="d"/>
+                      <arg name="y" type="d"/>
+                    </signal>
                   </interface>
                 </node>`;
 
@@ -87,6 +91,30 @@ const WindowManager = class {
         this._dbusGeometryIface.export(
             connection,
             busObjectPath
+        );
+    }
+
+    /**
+     * Tell the shell that a plain click landed on empty desktop.
+     *
+     * The desktop window covers the shell's background actor, so a shell
+     * extension cannot see this press at all, and only we know that it missed
+     * every icon. Consumers bind it to whatever they like; nothing here
+     * depends on anyone listening.
+     *
+     * @param {number} x global X of the click
+     * @param {number} y global Y of the click
+     */
+    notifyDesktopClick(x, y) {
+        const busObjectPath = this.mainApp.get_dbus_object_path();
+        const busName = this.mainApp.get_application_id();
+
+        Gio.DBus.session.emit_signal(
+            null,
+            busObjectPath,
+            busName,
+            'desktopclick',
+            new GLib.Variant('(dd)', [x, y])
         );
     }
 

@@ -1475,8 +1475,12 @@ const ControlGrid = class extends DrawGrid {
     }
 
     _doGesturePress(actor, nPress, x, y) {
-        if (this._desktopManager.closePopUps())
+        if (this._desktopManager.closePopUps()) {
+            this._clickStart = null;
             return;
+        }
+
+        this._clickStart = [x, y];
 
         const button = actor.get_current_button();
         const timestamp = actor.get_current_event_time();
@@ -1521,7 +1525,21 @@ const ControlGrid = class extends DrawGrid {
             return;
         }
 
+        // A press on bare desktop always begins a rubber band, even when the
+        // pointer never moves, so the flag cannot tell a click from a drag.
+        // Distance travelled can.
+        const CLICK_SLOP_PX = 6;
+        const start = this._clickStart;
+        this._clickStart = null;
+        const moved = start
+            ? Math.hypot(x - start[0], y - start[1])
+            : Number.POSITIVE_INFINITY;
+
         this._dragManager.onReleaseButton(this);
+
+        if (!clickItem && moved <= CLICK_SLOP_PX && nPress === 1 && !isShift &&
+            !isCtrl && button === Gdk.BUTTON_PRIMARY)
+            this._desktopManager.windowManager.notifyDesktopClick(X, Y);
 
         await this._desktopManager
             .onReleaseButton(X, Y, x, y, button, isShift, isCtrl, grid)
