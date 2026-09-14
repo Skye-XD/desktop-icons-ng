@@ -4,7 +4,7 @@ project('gtk4-ding',
 )
 
 app_id = 'com.desktop.ding'
-extension_id = 'gtk4-ding@smedius.gitlab.com'
+extension_id = 'gtk4-ding@skye-xd.github.io'
 app_dir = 'app'
 
 gnome = import ('gnome')
