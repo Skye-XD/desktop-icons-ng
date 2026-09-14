@@ -1,4 +1,11 @@
 # History of versions #
+* Adw Version 100.29 for Gnome 50
+  * Add support for pinned desktop widgets below applications, with configurable shortcut to move them from this layer back to default above all applications. (Mauro Castaldo)
+  * Enable navigation of desktop icons with arrow keys in Gnome Sushi. (Sundeep Mediratta)
+  * Upadate DbusUtils to use wayland parent-handle for Gtk >= 4.12, refactor wayland platform data code with cleanups, remove legacy remote file operations code. (Sundeep Mediratta)
+  * Weblate translation updates (Weblate Authors)
+  * Update History.md, update metadata.json, app release note.
+
 * Adw Version 100.28 for Gnome 50
   * Run all desktop-state mutations through a single FIFO async serialization queue, while independently coalescing file and geometry updates before they enter the queue, so each mutation observes a stable state and failures do not stop subsequent work. (Sundeep Mediratta)
   * Stabilize GTK layout and snapshot handling by sizing the desktop overlay at startup, waiting for main-container and overlay allocations, guarding zero-sized icon pictures, and retrying manual snapshots with fresh valid dimensions. (Sundeep Mediratta)

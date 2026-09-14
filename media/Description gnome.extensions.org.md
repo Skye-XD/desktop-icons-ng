@@ -2,9 +2,7 @@ Adw. Desktop Icons
 
 Libadwaita/Gtk4 port of Desktop Icons NG with multiple fixes and new features.
 
-Latest update: Desktop-state mutations now run through a FIFO async queue, preventing race conditions and stale object retention while improving memory management. GTK startup layout and snapshot handling are also stabilized.
-
-GNOME 50 support has been refreshed again with a Mutter 50 cursor fix, updated Sushi quick-preview support via the newer Nautilus Previewer 2 D-Bus interface, and improved Today widget dragging and timezone handling.
+Latest update: Pinned widgets can now be positioned below all applications. Enable **Keep pinned widgets below application windows** in **Settings → Tweaks** to keep them above desktop icons but below normal applications, with their controls accessible without entering widget edit mode. Configurable keyboard shortcut available for toggling this mode.
 
 Now has a widget layer that can run widgets- like KDE desklets, they are little HTML display apps that run in Webkit. Icons cover this layer, layers can be moved up or down for editing. Widgets can be snapped to a grid to maintain row/column alignment or free positioned.
 

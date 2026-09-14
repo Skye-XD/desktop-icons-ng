@@ -94,6 +94,11 @@ Uses Libretranslate to automatically translate into multiple languages.
 - Serialized updates prevent stale desktop objects, signal handlers, callbacks, and other references from being retained, improving memory footprint and lifecycle management.
 - GTK layout and snapshot handling are stabilized by explicitly sizing the desktop overlay, waiting for valid allocations, guarding zero-sized icon pictures, and retrying manual snapshots with fresh dimensions.
 
+### Update Septembr 2026
+
+- Add an option in Settings/Tweaks, to keep pinned widgets in windows below all applications, directly over the icon layer instead of floating dock like windows. Added Gio.Action and configurable shortcut to move pinned windows between the two layers.
+- Fix keyboard navigation with Sushi, arrow keys can navigate icons on desktop while Sushi is open.
+- DbusUtils cleanup to support wayland parent-handle with Gtk > 4.12, remove legacy file operation manager support.
 
 ## Security
 

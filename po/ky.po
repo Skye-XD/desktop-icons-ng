@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-06 09:20-0400\n"
+"POT-Creation-Date: 2026-09-13 18:34-0400\n"
 "PO-Revision-Date: 2026-08-17 12:09+0000\n"
 "Last-Translator: Sundeep Mediratta <smedius@gmail.com>\n"
 "Language-Team: Kyrgyz <https://hosted.weblate.org/projects/gtk4-desktop-"
@@ -71,259 +71,268 @@ msgid "Help translate in your web browser"
 msgstr "Веб-браузериңизди которууга жардам бериңиз"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:624 app/adwPreferencesWindow.js:625
+#: app/adwPreferencesWindow.js:628 app/adwPreferencesWindow.js:629
 msgid "Desktop"
 msgstr "Десктоп"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:630 app/adwPreferencesWindow.js:631
+#: app/adwPreferencesWindow.js:634 app/adwPreferencesWindow.js:635
 msgid "Files"
 msgstr "Файлдар"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:636 app/adwPreferencesWindow.js:637
-#: app/adwPreferencesWindow.js:679
+#: app/adwPreferencesWindow.js:640 app/adwPreferencesWindow.js:641
+#: app/adwPreferencesWindow.js:683
 msgid "Tweaks"
 msgstr "Өзгөртүүлөр"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:642 app/adwPreferencesWindow.js:643
+#: app/adwPreferencesWindow.js:646 app/adwPreferencesWindow.js:647
 msgid "More"
 msgstr "Көбүрөөк көбүрөөк көбүрөөк"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:654
+#: app/adwPreferencesWindow.js:658
 msgid "Desktop Settings"
 msgstr "Десктоптун орнотуулары"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:655
+#: app/adwPreferencesWindow.js:659
 msgid "Settings for the Desktop Program"
 msgstr "Desktop программасынын орнотуулары"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:661
+#: app/adwPreferencesWindow.js:665
 msgid "Desktop Folder"
 msgstr "Desktop Folder"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:662
+#: app/adwPreferencesWindow.js:666
 msgid "Current Desktop: "
 msgstr "Учурдагы жумушчу стол:"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:672
+#: app/adwPreferencesWindow.js:676
 msgid "Files Settings"
 msgstr "Файлдарды орнотуу"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:673
+#: app/adwPreferencesWindow.js:677
 msgid "Settings shared with Gnome Files"
 msgstr "Гном файлдары менен бөлүшүлгөн орнотуулар"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:680
+#: app/adwPreferencesWindow.js:684
 msgid "Miscellaneous Tweaks"
 msgstr "Ар кандай Өзгөртүүлөр"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:704
+#: app/adwPreferencesWindow.js:708
 msgid "Size for the desktop icons"
 msgstr "Десктоптун иконаларынын өлчөмү"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:706
+#: app/adwPreferencesWindow.js:710
 msgid "Tiny"
 msgstr "Кичинекей"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:707
+#: app/adwPreferencesWindow.js:711
 msgid "Small"
 msgstr "Кичинекей чакан"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:708
+#: app/adwPreferencesWindow.js:712
 msgid "Standard"
 msgstr "Стандарттык стандарт"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:709
+#: app/adwPreferencesWindow.js:713
 msgid "Large"
 msgstr "Чоң чоң чоң"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:715
+#: app/adwPreferencesWindow.js:719
 msgid "New icons alignment"
 msgstr "Жаңы иконалардын жайгаштырылышы"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:717
+#: app/adwPreferencesWindow.js:721
 msgid "Top left corner"
 msgstr "Жогорку сол бурч"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:718
+#: app/adwPreferencesWindow.js:722
 msgid "Top right corner"
 msgstr "Жогорку оң бурч"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:719
+#: app/adwPreferencesWindow.js:723
 msgid "Bottom left corner"
 msgstr "Төмөнкү сол бурч"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:720
+#: app/adwPreferencesWindow.js:724
 msgid "Bottom right corner"
 msgstr "Төмөнкү оң бурч"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:726
+#: app/adwPreferencesWindow.js:730
 msgid "Add new icons to Secondary Monitors first, if available"
 msgstr "Эгер бар болсо, адегенде экинчи мониторлорго жаңы иконаларды кошуңуз"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:730
+#: app/adwPreferencesWindow.js:734
 msgid "Snap icons to grid"
 msgstr "Иконаларды тармакка туташтырыңыз"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:736
+#: app/adwPreferencesWindow.js:740
 #, fuzzy
 msgid "Show desktop widgets"
 msgstr "Файлдардагы үстөлдү көрсөтүңүз"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:741
+#: app/adwPreferencesWindow.js:745
 msgid "New Desktop Folder"
 msgstr "Жаңы жумушчу столдун фолдери"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:742
+#: app/adwPreferencesWindow.js:746
 msgid "Set a new folder for the desktop"
 msgstr "Десктопко жаңы папканы орнотуңуз"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:743 app/utils/desktopFolderUtils.js:85
+#: app/adwPreferencesWindow.js:747 app/utils/desktopFolderUtils.js:85
 msgid "Choose"
 msgstr "Тандоо"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:748
+#: app/adwPreferencesWindow.js:752
 msgid "Set Desktop back to ~/"
 msgstr "Десктопту кайра ~/"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:750
+#: app/adwPreferencesWindow.js:754
 msgid "Restore Default Desktop Folder"
 msgstr "Default Desktop Folder дүкөнүн калыбына келтирүү"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:752
+#: app/adwPreferencesWindow.js:756
 msgid "Restore"
 msgstr "Кайра сактоо"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:761
+#: app/adwPreferencesWindow.js:765
 msgid "Highlight the drop grid"
 msgstr "Капкак торду баса белгилөө"
 
+#: app/adwPreferencesWindow.js:775
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:110
+msgid "Keep pinned widgets below application windows"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:777
+msgid "Interactive pinned widgets without covering applications."
+msgstr ""
+
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:771
+#: app/adwPreferencesWindow.js:793
 msgid "Add information emblems for links, encryption"
 msgstr "Байланыштар үчүн маалымат эмблемаларын кошуу, шифрлөө"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:775
+#: app/adwPreferencesWindow.js:797
 msgid "Use dark text in icon labels"
 msgstr "Икона этикеткаларында караңгы текстти колдонуңуз"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:780
+#: app/adwPreferencesWindow.js:802
 msgid "Show the personal folder on the desktop"
 msgstr "Жеке папканы үстөлдүн үстүндө көрсөтүңүз"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:785
+#: app/adwPreferencesWindow.js:807
 msgid "Show the trash icon on the desktop"
 msgstr "Таштандыларды үстөлдүн үстүндө көрсөткүлө"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:790
+#: app/adwPreferencesWindow.js:812
 msgid "Show external drives on the desktop"
 msgstr "Сырткы дисктерди үстөлдө көрсөтүңүз"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:795
+#: app/adwPreferencesWindow.js:817
 msgid "Show network drives on the desktop"
 msgstr "Тармактык дисктерди үстөлдө көрсөтүңүз"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:800
+#: app/adwPreferencesWindow.js:822
 msgid "Add new drives to the opposite side of the desktop"
 msgstr "Десктоптун карама-каршы жагына жаңы дисктерди кошуңуз"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:805
+#: app/adwPreferencesWindow.js:827
 msgid "Action to Open Items"
 msgstr "Темаларды ачуу боюнча иш-аракеттер"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:807
+#: app/adwPreferencesWindow.js:829
 msgid "Single click"
 msgstr "Бир чыкылдатуу"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:808
+#: app/adwPreferencesWindow.js:830
 msgid "Double click"
 msgstr "Эки жолу чыкылдатуу"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:813
+#: app/adwPreferencesWindow.js:835
 msgid "Show image thumbnails"
 msgstr "Сүрөттүн баш бармагын көрсөтүңүз"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:815
+#: app/adwPreferencesWindow.js:837
 msgid "Always"
 msgstr "Ар дайым"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:816
+#: app/adwPreferencesWindow.js:838
 msgid "On this computer only"
 msgstr "Бул компьютерде гана"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:817
+#: app/adwPreferencesWindow.js:839
 msgid "Never"
 msgstr "Эч"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:822
+#: app/adwPreferencesWindow.js:844
 msgid "Show a context menu item to delete permanently"
 msgstr "Контекст менюсун биротоло жок кылуу үчүн көрсөтүңүз"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:827
+#: app/adwPreferencesWindow.js:849
 msgid "Show hidden files"
 msgstr "Жашыруун файлдарды көрсөтүңүз"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:832
+#: app/adwPreferencesWindow.js:854
 msgid "Open folders on drag hover"
 msgstr "Ачылган папкалар"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:836
+#: app/adwPreferencesWindow.js:858
 msgid "About..."
 msgstr "Болжол менен..."
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:849
+#: app/adwPreferencesWindow.js:871
 msgid "Translation"
 msgstr "Котормо"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:850
+#: app/adwPreferencesWindow.js:872
 msgid ""
 "Machine translated using LibreTranslate. User verified and edited on Weblate."
 msgstr ""
@@ -331,17 +340,17 @@ msgstr ""
 "текшерилип, редакцияланган."
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:855
+#: app/adwPreferencesWindow.js:877
 msgid "Edit Translations"
 msgstr "Редакциялык котормолор"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:856
+#: app/adwPreferencesWindow.js:878
 msgid "Verify, add or correct translation in your web browser"
 msgstr "Веб-браузердеги котормону текшерүү, кошуу же оңдоо"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:857
+#: app/adwPreferencesWindow.js:879
 msgid "Translate"
 msgstr "Котормо"
 
@@ -466,9 +475,9 @@ msgstr ""
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:206 app/autoAr.js:305 app/autoAr.js:634
-#: app/desktopManager.js:196 app/desktopManager.js:1320 app/dragManager.js:794
+#: app/desktopManager.js:223 app/desktopManager.js:1354 app/dragManager.js:817
 #: app/fileItemMenu.js:918 app/fileItemMenu.js:971 app/showErrorPopup.js:49
-#: app/showErrorPopup.js:66 app/widgetManager.js:3313
+#: app/showErrorPopup.js:66 app/widgetManager.js:3321
 msgid "Cancel"
 msgstr "Канцлер"
 
@@ -494,7 +503,7 @@ msgid "File name"
 msgstr "Файлдын аталышы"
 
 # MT: LibreTranslate
-#: app/askRenamePopup.js:75 app/autoAr.js:313 app/desktopManager.js:1318
+#: app/askRenamePopup.js:75 app/autoAr.js:313 app/desktopManager.js:1352
 #: app/fileItemMenu.js:971
 msgid "OK"
 msgstr "OK"
@@ -659,7 +668,8 @@ msgstr "Бардык операциялык системалар менен ша
 # MT: LibreTranslate
 #: app/autoAr.js:728
 msgid "Password protected .zip, must be installed on Windows and Mac."
-msgstr "Password корголгон.zip Windows жана Mac системаларына орнотулушу керек."
+msgstr ""
+"Password корголгон.zip Windows жана Mac системаларына орнотулушу керек."
 
 # MT: LibreTranslate
 #: app/autoAr.js:734
@@ -772,26 +782,26 @@ msgid "Desktop Icons"
 msgstr "Десктоптун иконалары"
 
 # MT: LibreTranslate
-#: app/desktopGrid.js:2585
+#: app/desktopGrid.js:2591
 #, fuzzy
 msgid "Back to Desktop"
 msgstr "Жаңыртылган жумушчу стол"
 
-#: app/desktopGrid.js:2586 app/widgetManager.js:1754
+#: app/desktopGrid.js:2592 app/widgetManager.js:1762
 msgid "Toggle Widget Grid"
 msgstr ""
 
-#: app/desktopGrid.js:2587
+#: app/desktopGrid.js:2593
 msgid "Add Widget..."
 msgstr ""
 
 # MT: LibreTranslate
-#: app/desktopManager.js:182
+#: app/desktopManager.js:209
 msgid "Monitor Frame Buffer Scaling is not enabled"
 msgstr "Монитор каркас буфер Масштабдоо мүмкүн эмес"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:183
+#: app/desktopManager.js:210
 msgid ""
 "Multiple monitors with different zoom settings, recommend per monitor "
 "framebuffer scaling.\n"
@@ -804,7 +814,7 @@ msgstr ""
 "Сураныч, Mutter Dconf орнотууларын ишке ашырыңыз"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:194
+#: app/desktopManager.js:221
 msgid ""
 "Multiple monitors with different zoom settings.\n"
 "\n"
@@ -816,18 +826,18 @@ msgstr ""
 "камсыз кылуу?"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:197 data/com.desktop.ding.desktop.in:25
+#: app/desktopManager.js:224 data/com.desktop.ding.desktop.in:25
 msgid "Enable"
 msgstr "Мүмкүн"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:221 app/desktopManager.js:231
+#: app/desktopManager.js:248 app/desktopManager.js:258
 msgid "Can Not Show the Desktop"
 msgstr "Десктопту көрсөтө албайт"
 
 # MT: LibreTranslate
 #. TRANSLATORS: {desktop} folder path automatically inserted
-#: app/desktopManager.js:223
+#: app/desktopManager.js:250
 msgid ""
 "The Desktop folder {desktop} is a Symbolic Link\n"
 "\n"
@@ -839,7 +849,7 @@ msgstr ""
 
 # MT: LibreTranslate
 #. TRANSLATORS: {desktop} folder path automatically inserted
-#: app/desktopManager.js:233
+#: app/desktopManager.js:260
 msgid ""
 "The Desktop folder {desktop} does not exist, or is not a Directory\n"
 "\n"
@@ -850,32 +860,32 @@ msgstr ""
 "Xdg-util орнотууңузду текшериңиз жана туура Desktop Folder орнотуңуз"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:244
+#: app/desktopManager.js:271
 msgid "GNOME Files not found"
 msgstr "ГНО Табылбаган файлдар"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:245
+#: app/desktopManager.js:272
 msgid "The GNOME Files application is required by Gtk4 Desktop Icons NG."
 msgstr "Гном Файлдар Gtk4 Desktop Icons NG тарабынан талап кылынат."
 
 # MT: LibreTranslate
-#: app/desktopManager.js:252
+#: app/desktopManager.js:279
 msgid "There is no default File Manager"
 msgstr "Демейки файл менеджери жок"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:253
+#: app/desktopManager.js:280
 msgid "There is no application that handles mimetype \"inode/directory\""
 msgstr "\"Иноддук же багыттуу\" миметипти колдонгон колдонмо жок"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:260
+#: app/desktopManager.js:287
 msgid "Gnome Files is not registered as a File Manager"
 msgstr "Gnome файлдары файл менеджери катары катталган эмес"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:261
+#: app/desktopManager.js:288
 msgid ""
 "The Gnome Files application is not programmed to open Folders!\n"
 "Check your xdg-utils installation\n"
@@ -886,211 +896,211 @@ msgstr ""
 "Gnome файлдарын текшериңиз. Файл орнотуу орнотуу"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:379
+#: app/desktopManager.js:406
 msgid "Clear current selection before new search"
 msgstr "Жаңы издөөдөн мурун учурдагы так тандоо"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:1322
+#: app/desktopManager.js:1356
 msgid "Find Files on Desktop"
 msgstr "Файлдарды үстөлдөн табуу"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:1666 app/desktopMenu.js:1096 app/shortcuts.js:10
+#: app/desktopManager.js:1708 app/desktopMenu.js:1130 app/shortcuts.js:10
 msgid "New Folder"
 msgstr "Жаңы фол"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:1700
+#: app/desktopManager.js:1742
 msgid "Folder Creation Failed"
 msgstr "Фолдер жаратуунун ийгиликсиздиги"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:1701
+#: app/desktopManager.js:1743
 msgid "Could not create folder"
 msgstr "Папканы түзө албайт"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:616
+#: app/desktopMenu.js:650
 msgid "Unable to open Desktop in Gnome Files"
 msgstr "Гном файлдарында жумушчу столду ача албай калуу"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:635
+#: app/desktopMenu.js:669
 msgid "Preferences Window is Open"
 msgstr "Преференциялар терезеси ачык"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:636
+#: app/desktopMenu.js:670
 msgid "This Window is open. Please switch to the active window."
 msgstr "Бул терезе ачык. Сураныч, активдүү терезеге өтүңүз."
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:648 app/desktopMenu.js:1149
+#: app/desktopMenu.js:682 app/desktopMenu.js:1183
 msgid "Settings"
 msgstr "Орнотуулар"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:938
+#: app/desktopMenu.js:972
 msgid "Template Creation Error"
 msgstr "Үлгү жаратуу катасы"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:939
+#: app/desktopMenu.js:973
 msgid "Could not create document"
 msgstr "Документти түзө албайт"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1057
+#: app/desktopMenu.js:1091
 msgid "Name"
 msgstr "Аты"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1059
+#: app/desktopMenu.js:1093
 msgid "Name Z-A"
 msgstr "Z-A аталышы"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1061
+#: app/desktopMenu.js:1095
 msgid "Modified Time"
 msgstr "Өзгөртүлгөн убакыт"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1063
+#: app/desktopMenu.js:1097
 msgid "Type"
 msgstr "Тип түрү"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1065
+#: app/desktopMenu.js:1099
 msgid "Size"
 msgstr "Анын өлчөмү"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1070
+#: app/desktopMenu.js:1104
 msgid "Keep Arranged…"
 msgstr "Сак болгула.."
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1075
+#: app/desktopMenu.js:1109
 msgid "Keep Stacked by Type…"
 msgstr "Типке жараша топтолуңуз.."
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1077
+#: app/desktopMenu.js:1111
 msgid "Sort Home/Drives/Trash…"
 msgstr "Үйдү сорттоо, айдоочулар, жол жүрүү."
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1082
+#: app/desktopMenu.js:1116
 msgid "Change Desktop"
 msgstr "Өзгөрүү үстөлү"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1087
+#: app/desktopMenu.js:1121
 msgid "Restore Default Desktop"
 msgstr "Default Desktop дүкөнүн кайра орнотуу"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1091
+#: app/desktopMenu.js:1125
 msgid "Desktop Icon Settings"
 msgstr "Desktop Icon орнотуулары"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1093
+#: app/desktopMenu.js:1127
 msgid "Show Shortcuts"
 msgstr "Кыска жолдорду көрсөткүлө"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1101 app/shortcuts.js:67
+#: app/desktopMenu.js:1135 app/shortcuts.js:72
 msgid "New Document"
 msgstr "Жаңы документ"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1106 app/shortcuts.js:11
+#: app/desktopMenu.js:1140 app/shortcuts.js:11
 msgid "Paste"
 msgstr "Паст"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1108 app/shortcuts.js:12
+#: app/desktopMenu.js:1142 app/shortcuts.js:12
 msgid "Undo"
 msgstr "Ундо"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1110 app/shortcuts.js:13
+#: app/desktopMenu.js:1144 app/shortcuts.js:13
 msgid "Redo"
 msgstr "Редо"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1116 app/shortcuts.js:14
+#: app/desktopMenu.js:1150 app/shortcuts.js:14
 msgid "Select All"
 msgstr "Баарын тандагыла"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1123
+#: app/desktopMenu.js:1157
 msgid "Arrange Icons"
 msgstr "Иконаларды жайгаштыруу"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1127
+#: app/desktopMenu.js:1161
 msgid "Arrange By…"
 msgstr "Келишимди.."
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1135
+#: app/desktopMenu.js:1169
 msgid "Show Desktop In {0}"
 msgstr "Иш үстөлүн көрсөтүү {0}"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1140
+#: app/desktopMenu.js:1174
 msgid "Open In {0}"
 msgstr "Ачык {0}"
 
-#: app/desktopMenu.js:1157
+#: app/desktopMenu.js:1191
 msgid "Edit Widgets…"
 msgstr ""
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1164
+#: app/desktopMenu.js:1198
 msgid "Shell Menu…"
 msgstr "Shell Menu.."
 
 # MT: LibreTranslate
-#: app/dragManager.js:101 app/dragManager.js:941
+#: app/dragManager.js:101 app/dragManager.js:964
 msgid "Making SymLink Failed"
 msgstr "SymLink программасын ишке ашыруу"
 
 # MT: LibreTranslate
-#: app/dragManager.js:102 app/dragManager.js:942
+#: app/dragManager.js:102 app/dragManager.js:965
 msgid "Could not create symbolic link"
 msgstr "Символикалык байланышты түзө албайт"
 
 # MT: LibreTranslate
-#: app/dragManager.js:750
+#: app/dragManager.js:773
 msgid "Copy/Move Failed"
 msgstr "Копия же кыймыл ийгиликсиз"
 
 # MT: LibreTranslate
-#: app/dragManager.js:751
+#: app/dragManager.js:774
 msgid "{0} Does not exist"
 msgstr "{0} Жок"
 
 # MT: LibreTranslate
-#: app/dragManager.js:793
+#: app/dragManager.js:816
 msgid "Choose Action for Files"
 msgstr "Файлдарды тандоо"
 
 # MT: LibreTranslate
-#: app/dragManager.js:794
+#: app/dragManager.js:817
 msgid "Move"
 msgstr "Кыймыл-аракет"
 
 # MT: LibreTranslate
-#: app/dragManager.js:794 app/fileItemMenu.js:242
+#: app/dragManager.js:817 app/fileItemMenu.js:242
 msgid "Copy"
 msgstr "Копия"
 
 # MT: LibreTranslate
-#: app/dragManager.js:794
+#: app/dragManager.js:817
 msgid "Link"
 msgstr "Байланыш шилтемеси"
 
@@ -1358,47 +1368,47 @@ msgid "There was an error in emailing Files"
 msgstr "Файлдарды электрондук почта аркылуу жөнөтүүдө ката бар болчу"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:1174
+#: app/fileItemMenu.js:1173
 msgid "Can Not open the Working Directory"
 msgstr "Жумушчу каталогду ача албайт"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:1225
+#: app/fileItemMenu.js:1224
 msgid "Unable to Open in Gnome Console"
 msgstr "Гном консолунда ачылбай калды"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:1227
+#: app/fileItemMenu.js:1226
 msgid "Please Install Gnome Console or other Terminal Program"
 msgstr "Сураныч, Gnome Console же башка терминалдык программаны орнотуңуз"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:1235
+#: app/fileItemMenu.js:1234
 msgid "Unable to Open {0}"
 msgstr "Ачылбай {0}"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:1237
+#: app/fileItemMenu.js:1236
 msgid "Please Install {0}"
 msgstr "Сураныч, орнотуңуз {0}"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:1281
+#: app/fileItemMenu.js:1280
 msgid "Copy Cancelled"
 msgstr "Копия жокко чыгарылган"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:1282
+#: app/fileItemMenu.js:1281
 msgid "Unable to copy Files, no destination folder"
 msgstr "Файлдарды көчүрө албай, бара турган папка жок"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:1305
+#: app/fileItemMenu.js:1304
 msgid "Move Cancelled"
 msgstr "Кыймыл жокко чыгарылган"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:1306
+#: app/fileItemMenu.js:1305
 msgid "Unable to move Files, no destination folder"
 msgstr "Файлдарды жылдырууга мүмкүн эмес, максаттуу папка жок"
 
@@ -1408,7 +1418,7 @@ msgid "$appName$ can not open files of this Type!"
 msgstr "$AppNam $ бул типтеги файлдарды ача албайт!"
 
 # MT: LibreTranslate
-#: app/preferences.js:1044
+#: app/preferences.js:1065
 msgid "Console"
 msgstr "Консол"
 
@@ -1468,22 +1478,22 @@ msgid "System Keyboard Shortcuts"
 msgstr "Системалык клавиатуранын кыска жолдору"
 
 # MT: LibreTranslate
-#: app/shortcutManager.js:669
+#: app/shortcutManager.js:693
 msgid "Keyboard Shortcuts"
 msgstr "Keyboard Кыска жолдор"
 
 # MT: LibreTranslate
-#: app/shortcutManager.js:681
+#: app/shortcutManager.js:705
 msgid "Reset Shortcuts"
 msgstr "Кыска жолдорду калыбына келтирүү"
 
 # MT: LibreTranslate
-#: app/shortcutManager.js:682
+#: app/shortcutManager.js:706
 msgid "Reset all shortcuts to Defaults"
 msgstr "Бардык кыска жолдорду Defaults үчүн калыбына келтирүү"
 
 # MT: LibreTranslate
-#: app/shortcutManager.js:685
+#: app/shortcutManager.js:709
 msgid "Reset All..."
 msgstr "Баарын калыбына келтирүү..."
 
@@ -1590,66 +1600,70 @@ msgstr ""
 msgid "Toggle Widget Layer"
 msgstr ""
 
-#: app/shortcuts.js:40 app/widgetManager.js:1690
+#: app/shortcuts.js:41
+msgid "Toggle Pinned Widgets Below Applications"
+msgstr ""
+
+#: app/shortcuts.js:45 app/widgetManager.js:1698
 msgid "Add Widget"
 msgstr ""
 
 # MT: LibreTranslate
-#: app/shortcuts.js:43
+#: app/shortcuts.js:48
 msgid "Choose Icon Left"
 msgstr "Икона солго тандаңыз"
 
 # MT: LibreTranslate
-#: app/shortcuts.js:48
+#: app/shortcuts.js:53
 msgid "Choose Icon Right"
 msgstr "Туура икона тандаңыз"
 
 # MT: LibreTranslate
-#: app/shortcuts.js:53
+#: app/shortcuts.js:58
 msgid "Choose Icon Up"
 msgstr "Иконаны тандаңыз"
 
 # MT: LibreTranslate
-#: app/shortcuts.js:58
+#: app/shortcuts.js:63
 msgid "Choose Icon Down"
 msgstr "Икон Даун тандаңыз"
 
 # MT: LibreTranslate
-#: app/shortcuts.js:62
+#: app/shortcuts.js:67
 msgid "Show Menu"
 msgstr "Менюну көрсөткүлө"
 
 # MT: LibreTranslate
-#: app/shortcuts.js:63
+#: app/shortcuts.js:68
 msgid "Display Shell Background Menu"
 msgstr "Shell фондук менюсу"
 
 # MT: LibreTranslate
-#: app/shortcuts.js:64
+#: app/shortcuts.js:69
 msgid "Create Desktop Shortcut"
 msgstr "Desktop Shortcut түзүү"
 
 # MT: LibreTranslate
-#: app/shortcuts.js:65
+#: app/shortcuts.js:70
 msgid "Text Entry Accels Turn On"
 msgstr "Текстке кирүү ылдамдашы"
 
 # MT: LibreTranslate
-#: app/shortcuts.js:66
+#: app/shortcuts.js:71
 msgid "Text Entry Accels Turn Off"
 msgstr "Текстке кирүү ылдамдыгы өчүрүлдү"
 
 # MT: LibreTranslate
-#: app/shortcuts.js:68
+#: app/shortcuts.js:73
 msgid "Show Shortcut Viewer"
 msgstr "Кыска жолду көрсөтүңүз Көрүүчү"
 
-#: app/shortcuts.js:69
+#: app/shortcuts.js:74
 msgid "Force Garbage Collection"
 msgstr ""
 
 # MT: LibreTranslate
-#: app/shortcuts.js:70
+#: app/shortcuts.js:75
 msgid "Show Or Hide Desktop Icons"
 msgstr "Көрсөтүү же жашыруун үстөл иконалары"
 
@@ -1691,70 +1705,70 @@ msgid "Drive"
 msgstr "Айдоочулук"
 
 # MT: LibreTranslate
-#: app/widgetManager.js:2420
+#: app/widgetManager.js:2428
 #, fuzzy
 msgid "Widget preferences"
 msgstr "Преференциялар"
 
-#: app/widgetManager.js:2432 app/widgetManager.js:2441
+#: app/widgetManager.js:2440 app/widgetManager.js:2449
 msgid "Unpin widget"
 msgstr ""
 
-#: app/widgetManager.js:2432 app/widgetManager.js:2441
+#: app/widgetManager.js:2440 app/widgetManager.js:2449
 msgid "Pin widget"
 msgstr ""
 
-#: app/widgetManager.js:2450
+#: app/widgetManager.js:2458
 msgid "Reposition widget"
 msgstr ""
 
-#: app/widgetManager.js:3066
+#: app/widgetManager.js:3074
 msgid "HTML widget"
 msgstr ""
 
-#: app/widgetManager.js:3068
+#: app/widgetManager.js:3076
 msgid "GTK widget"
 msgstr ""
 
 # MT: LibreTranslate
-#: app/widgetManager.js:3074
+#: app/widgetManager.js:3082
 #, fuzzy
 msgid "User Installed"
 msgstr "Сураныч, орнотуңуз {0}"
 
-#: app/widgetManager.js:3074
+#: app/widgetManager.js:3082
 msgid "System Installed"
 msgstr ""
 
-#: app/widgetManager.js:3096
+#: app/widgetManager.js:3104
 msgid "Download Latest Widgets from Repository?"
 msgstr ""
 
-#: app/widgetManager.js:3098
+#: app/widgetManager.js:3106
 msgid "This will overwrite all widgets in your local widgets folder."
 msgstr ""
 
-#: app/widgetManager.js:3197
+#: app/widgetManager.js:3205
 msgid "Widgets updated"
 msgstr ""
 
-#: app/widgetManager.js:3198
+#: app/widgetManager.js:3206
 msgid "The latest widgets were downloaded and installed."
 msgstr ""
 
-#: app/widgetManager.js:3206
+#: app/widgetManager.js:3214
 msgid "Widgets download failed"
 msgstr ""
 
-#: app/widgetManager.js:3312
+#: app/widgetManager.js:3320
 msgid "Allow"
 msgstr ""
 
-#: app/widgetManager.js:3377
+#: app/widgetManager.js:3385
 msgid "Strict"
 msgstr ""
 
-#: app/widgetManager.js:3379
+#: app/widgetManager.js:3387
 msgid ""
 "The widget runs in a tightly sandboxed web environment.\n"
 "\n"
@@ -1765,11 +1779,11 @@ msgid ""
 "This is the safest option and is recommended for most widgets."
 msgstr ""
 
-#: app/widgetManager.js:3390
+#: app/widgetManager.js:3398
 msgid "Relaxed"
 msgstr ""
 
-#: app/widgetManager.js:3392
+#: app/widgetManager.js:3400
 msgid ""
 "The widget is allowed broader web capabilities.\n"
 "\n"
@@ -1780,11 +1794,11 @@ msgid ""
 "Use this only for widgets you trust."
 msgstr ""
 
-#: app/widgetManager.js:3402
+#: app/widgetManager.js:3410
 msgid "Development"
 msgstr ""
 
-#: app/widgetManager.js:3404
+#: app/widgetManager.js:3412
 msgid ""
 "The widget runs with development-friendly web access.\n"
 "\n"
@@ -1795,62 +1809,62 @@ msgid ""
 msgstr ""
 
 # MT: LibreTranslate
-#: app/widgetManager.js:3413
+#: app/widgetManager.js:3421
 msgid "Default"
 msgstr "Default"
 
-#: app/widgetManager.js:3415
+#: app/widgetManager.js:3423
 msgid ""
 "The widget runs with a predefined web security policy.\n"
 "\n"
 "Web access and capabilities are restricted according to the active policy."
 msgstr ""
 
-#: app/widgetManager.js:3423
+#: app/widgetManager.js:3431
 msgid "Allow web content for {widgetId}?"
 msgstr ""
 
 #. eslint-disable-next-line prefer-template
-#: app/widgetManager.js:3436
+#: app/widgetManager.js:3444
 msgid ""
 "The widget you are adding may load web content from the internet.\n"
 "\n"
 msgstr ""
 
-#: app/widgetManager.js:3437
+#: app/widgetManager.js:3445
 msgid ""
 "This content is subject to the widget security policy:\n"
 "\n"
 msgstr ""
 
-#: app/widgetManager.js:3473
+#: app/widgetManager.js:3481
 msgid ""
 "This widget, {widgetId} runs a background process on your computer.\n"
 "\n"
 msgstr ""
 
-#: app/widgetManager.js:3475
+#: app/widgetManager.js:3483
 msgid ""
 "The backend runs with your normal user permissions, just like any other "
 "application you start.\n"
 msgstr ""
 
-#: app/widgetManager.js:3476
+#: app/widgetManager.js:3484
 msgid ""
 "It can access your files, system resources, and the network according to "
 "your user account permissions.\n"
 "\n"
 msgstr ""
 
-#: app/widgetManager.js:3479
+#: app/widgetManager.js:3487
 msgid "Command:"
 msgstr "Команда"
 
-#: app/widgetManager.js:3487
+#: app/widgetManager.js:3495
 msgid "Only allow this for widgets you implicitly trust."
 msgstr ""
 
-#: app/widgetManager.js:3491
+#: app/widgetManager.js:3499
 msgid "Allow widget backend?"
 msgstr ""
 
@@ -2135,33 +2149,40 @@ msgstr ""
 "Иконалар төрт бурчтуу тордо эмес, бирок тордон көз карандысыз каалаган жерде "
 "жайгаштырылышы мүмкүн"
 
-# MT: LibreTranslate
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:110
-#, fuzzy
-msgid "Show Desktop Widgets"
-msgstr "Файлдардагы үстөлдү көрсөтүңүз"
-
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:111
-msgid "Displays Widgets in a layer below the icons if installed"
+msgid ""
+"Keep pinned widgets above desktop icons but below normal application "
+"windows. When disabled, pinned widgets stay above applications. Editing a "
+"pinned widget temporarily raises it regardless of this setting."
 msgstr ""
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:115
+#, fuzzy
+msgid "Show Desktop Widgets"
+msgstr "Файлдардагы үстөлдү көрсөтүңүз"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:116
+msgid "Displays Widgets in a layer below the icons if installed"
+msgstr ""
+
+# MT: LibreTranslate
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:120
 msgid "Hide/Show all desktop windows"
 msgstr "Бардык үстөл терезелерин көрсөтүңүз"
 
 # MT: LibreTranslate
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:116
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:121
 msgid "Show the icons on the desktop, or hide them all"
 msgstr "Иконаларды үстөлдүн үстүнө көрсөтүңүз же алардын баарын жашырыңыз"
 
 # MT: LibreTranslate
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:120
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:125
 msgid "User Application Shortcuts"
 msgstr "Колдонуучунун колдонмосунун кыска жолдору"
 
 # MT: LibreTranslate
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:121
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:126
 msgid "Override for default application shortcuts set by the User"
 msgstr ""
 "Колдонуучу тарабынан белгиленген демейки өтүнмө кыска жолдору үчүн үстөмдүк"
