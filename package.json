@@ -21,5 +21,8 @@
   "devDependencies": {
     "eslint": "^8.57.1",
     "eslint-plugin-jsdoc": "^62.9.0"
+  },
+  "dependencies": {
+    "test": "^3.3.0"
   }
 }
