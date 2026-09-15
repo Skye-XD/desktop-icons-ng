@@ -6,13 +6,14 @@
 # Weblate <noreply-mt-weblate@weblate.org>, 2025, 2026.
 # Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2025, 2026.
 # Sundeep Mediratta <smedius@gmail.com>, 2026.
+# Xosé Calvo <xosecalvo@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-09-13 18:34-0400\n"
-"PO-Revision-Date: 2026-08-17 12:06+0000\n"
-"Last-Translator: Sundeep Mediratta <smedius@gmail.com>\n"
+"PO-Revision-Date: 2026-09-14 15:44+0000\n"
+"Last-Translator: Xosé Calvo <xosecalvo@gmail.com>\n"
 "Language-Team: Galician <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/gl/>\n"
 "Language: gl\n"
@@ -20,11 +21,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2026.9.dev0\n"
+"X-Generator: Weblate 2026.10.dev0\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
-msgstr "Sobreescribir"
+msgstr "Substituír"
 
 #: app/adwPreferencesWindow.js:162
 msgid "Customise the appearance of desktop icons with CSS"
@@ -49,27 +50,27 @@ msgstr ""
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:248 data/com.desktop.ding.desktop.in:29
 msgid "Shortcuts"
-msgstr "Shortcuts"
+msgstr "Atallos"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:251
 msgid "Edit Shortcuts..."
-msgstr "Editando Shortcuts."
+msgstr "Editar atallos..."
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:266
 msgid "Edit Application Shortcuts"
-msgstr "Editar aplicación Shortcuts"
+msgstr "Editar atallos de aplicacións"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:271
 msgid "Shortcuts Editable only when Extension Enabled..."
-msgstr "Shortcuts Só se pode editar cando a extensión ..."
+msgstr "Atallos só editábeis coa extensión activada..."
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:376
 msgid "Help translate in your web browser"
-msgstr "Axuda a traducir no teu navegador web"
+msgstr "Axude a traducir no seu navegador web"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:628 app/adwPreferencesWindow.js:629
@@ -79,13 +80,13 @@ msgstr "Escritorio"
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:634 app/adwPreferencesWindow.js:635
 msgid "Files"
-msgstr "Arquivos"
+msgstr "Ficheiros"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:640 app/adwPreferencesWindow.js:641
 #: app/adwPreferencesWindow.js:683
 msgid "Tweaks"
-msgstr "Tweak"
+msgstr "Axustes"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:646 app/adwPreferencesWindow.js:647
@@ -95,37 +96,37 @@ msgstr "Máis"
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:658
 msgid "Desktop Settings"
-msgstr "Configuración de escritorio"
+msgstr "Configuración do escritorio"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:659
 msgid "Settings for the Desktop Program"
-msgstr "Configuración do programa de escritorio"
+msgstr "Configuración do Programa de escritorio"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:665
 msgid "Desktop Folder"
-msgstr "Desktop Folder"
+msgstr "Cartafol do escritorio"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:666
 msgid "Current Desktop: "
-msgstr "Escritorio actual:"
+msgstr "Escritorio actual: "
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:676
 msgid "Files Settings"
-msgstr "Configuración de arquivos"
+msgstr "Configuración dos ficheiros"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:677
 msgid "Settings shared with Gnome Files"
-msgstr "Configuración compartida con ficheiros Gnome"
+msgstr "Configuración compartida co Files de Gnome"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:684
 msgid "Miscellaneous Tweaks"
-msgstr "Misceláneos Tweak"
+msgstr "Axustes diversos"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:708
@@ -135,12 +136,12 @@ msgstr "Tamaño das iconas de escritorio"
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:710
 msgid "Tiny"
-msgstr "Tiny"
+msgstr "Diminutas"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:711
 msgid "Small"
-msgstr "Pequeno"
+msgstr "Pequenas"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:712
@@ -150,42 +151,43 @@ msgstr "Estándar"
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:713
 msgid "Large"
-msgstr "Grande"
+msgstr "Grandes"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:719
 msgid "New icons alignment"
-msgstr "Aliñación de iconas"
+msgstr "Aliñamento das iconas novas"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:721
 msgid "Top left corner"
-msgstr "Arriba á esquerda"
+msgstr "Recanto superior esquerdo"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:722
 msgid "Top right corner"
-msgstr "Arriba á dereita"
+msgstr "Recanto superior dereito"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:723
 msgid "Bottom left corner"
-msgstr "Parte inferior esquerda"
+msgstr "Recanto inferior esquerdo"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:724
 msgid "Bottom right corner"
-msgstr "Parte inferior dereita"
+msgstr "Recanto inferior dereito"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:730
 msgid "Add new icons to Secondary Monitors first, if available"
-msgstr "Engadir iconas aos monitores secundarios, se está dispoñible"
+msgstr ""
+"Engadir iconas aos monitores secundarios primeiro, de estaren dispoñíbeis"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:734
 msgid "Snap icons to grid"
-msgstr "Snap icons para a rede"
+msgstr "Axustar iconas á grade"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:740
@@ -196,7 +198,7 @@ msgstr "Mostrar escritorio en arquivos"
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:745
 msgid "New Desktop Folder"
-msgstr "Novo Desktop Folder"
+msgstr "Novo cartafol de escritorio"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:746
@@ -211,12 +213,12 @@ msgstr "Escoller"
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:752
 msgid "Set Desktop back to ~/"
-msgstr "Configurar o escritorio de volta a ~/"
+msgstr "Restaurar o escritorio como ~/"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:754
 msgid "Restore Default Desktop Folder"
-msgstr "Restaurar o cartafol de escritorio por defecto"
+msgstr "Restaurar o cartafol de escritorio por omisión"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:756
@@ -226,7 +228,7 @@ msgstr "Restaurar"
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:765
 msgid "Highlight the drop grid"
-msgstr "Baixar drop grid"
+msgstr "Realzar a grade suspensa"
 
 #: app/adwPreferencesWindow.js:775
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:110
@@ -240,12 +242,12 @@ msgstr ""
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:793
 msgid "Add information emblems for links, encryption"
-msgstr "Engadir emblemas de información para enlaces, cifrado"
+msgstr "Engadir emblemas de información para ligazóns, cifrado"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:797
 msgid "Use dark text in icon labels"
-msgstr "Usar texto escuro en etiquetas de iconas"
+msgstr "Usar texto escuro nas etiquetas das iconas"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:802
@@ -265,32 +267,32 @@ msgstr "Mostrar unidades externas no escritorio"
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:817
 msgid "Show network drives on the desktop"
-msgstr "Mostrar as unidades de rede no escritorio"
+msgstr "Mostrar unidades de rede no escritorio"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:822
 msgid "Add new drives to the opposite side of the desktop"
-msgstr "Engadir novas unidades ao lado oposto do escritorio"
+msgstr "Engadir novas unidades no lado oposto do escritorio"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:827
 msgid "Action to Open Items"
-msgstr "Acción para abrir artigos"
+msgstr "Acción para abrir elementos"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:829
 msgid "Single click"
-msgstr "Só click"
+msgstr "Un único clic"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:830
 msgid "Double click"
-msgstr "Doble click"
+msgstr "Clic duplo"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:835
 msgid "Show image thumbnails"
-msgstr "Mostrar miniaturas de imaxes"
+msgstr "Mostrar miniaturas das imaxes"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:837
@@ -305,12 +307,12 @@ msgstr "Só neste ordenador"
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:839
 msgid "Never"
-msgstr "Nunca nunca nunca"
+msgstr "Nunca"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:844
 msgid "Show a context menu item to delete permanently"
-msgstr "Mostrar un elemento de menú de contexto para borrar permanentemente"
+msgstr "Mostrar un elemento de menú de contexto para eliminar permanentemente"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:849
@@ -320,7 +322,7 @@ msgstr "Mostrar ficheiros ocultos"
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:854
 msgid "Open folders on drag hover"
-msgstr "Abrir carpetas en drag hover"
+msgstr "Abrir cartafoles ao pasar o rato por riba"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:858
@@ -362,17 +364,17 @@ msgstr "out {foo}"
 # MT: LibreTranslate
 #: app/appChooser.js:100
 msgid "Open Items"
-msgstr "Artigos abertos"
+msgstr "Elementos abertos"
 
 # MT: LibreTranslate
 #: app/appChooser.js:102
 msgid "Open Folder"
-msgstr "Open Folder"
+msgstr "Abrir cartafol"
 
 # MT: LibreTranslate
 #: app/appChooser.js:104 data/ui/ding-app-chooser.ui:6
 msgid "Open File"
-msgstr "Open File"
+msgstr "Abrir ficheiro"
 
 # MT: LibreTranslate
 #: app/appChooser.js:175
@@ -2158,8 +2160,7 @@ msgstr "Aplicación de usuario Shortcuts"
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:126
 msgid "Override for default application shortcuts set by the User"
-msgstr ""
-"Eliminar os atallos de aplicación por defecto establecidos polo usuario"
+msgstr "Eliminar os atallos de aplicación por defecto establecidos polo usuario"
 
 #~ msgid "User"
 #~ msgstr "Usuario"
