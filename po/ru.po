@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-09-13 18:34-0400\n"
-"PO-Revision-Date: 2026-08-18 04:16+0000\n"
+"PO-Revision-Date: 2026-09-15 16:51+0000\n"
 "Last-Translator: Сергей <asvmail.as@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/ru/>\n"
@@ -27,7 +27,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 2026.9.dev0\n"
+"X-Generator: Weblate 2026.10.dev0\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
@@ -163,8 +163,7 @@ msgstr "Нижний правый угол"
 
 #: app/adwPreferencesWindow.js:730
 msgid "Add new icons to Secondary Monitors first, if available"
-msgstr ""
-"Сначала добавлять новые значки на вторичные мониторы, если они доступны"
+msgstr "Сначала добавлять новые значки на вторичные мониторы, если они доступны"
 
 #: app/adwPreferencesWindow.js:734
 msgid "Snap icons to grid"
@@ -205,11 +204,11 @@ msgstr "Выделять сетку при перетаскивании"
 #: app/adwPreferencesWindow.js:775
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:110
 msgid "Keep pinned widgets below application windows"
-msgstr ""
+msgstr "Размещать закреплённые виджеты ниже окон приложений"
 
 #: app/adwPreferencesWindow.js:777
 msgid "Interactive pinned widgets without covering applications."
-msgstr ""
+msgstr "Интерактивные закреплённые виджеты, не закрывающие приложения."
 
 #: app/adwPreferencesWindow.js:793
 msgid "Add information emblems for links, encryption"
@@ -589,8 +588,8 @@ msgid ""
 "Please check the permissions of this Desktop Folder, and make sure it is not "
 "writable by others."
 msgstr ""
-".desktop-файлы не могут быть запущены с этого рабочего стола, так как папка "
-"«Рабочий стол» доступна для записи другим пользователям.\n"
+".desktop-файлы не могут быть запущены с этого рабочего стола, так как папка «"
+"Рабочий стол» доступна для записи другим пользователям.\n"
 "\n"
 "Пожалуйста, проверьте права доступа к этой папке рабочего стола и убедитесь, "
 "что она недоступна для записи другим пользователям."
@@ -1339,7 +1338,7 @@ msgstr "Переключиться на слой виджетов"
 
 #: app/shortcuts.js:41
 msgid "Toggle Pinned Widgets Below Applications"
-msgstr ""
+msgstr "Показать/Скрыть закреплённые виджеты ниже окон приложениями"
 
 #: app/shortcuts.js:45 app/widgetManager.js:1698
 msgid "Add Widget"
@@ -1860,6 +1859,10 @@ msgid ""
 "windows. When disabled, pinned widgets stay above applications. Editing a "
 "pinned widget temporarily raises it regardless of this setting."
 msgstr ""
+"Закреплённые виджеты должны располагаться выше значков рабочего стола, но "
+"ниже обычных окон приложений. Если эта функция отключена, закрепленные "
+"виджеты размещаются выше окон приложений. Редактирование закреплённого "
+"виджета временно переместит его вверх независимо от этой настройки."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:115
 msgid "Show Desktop Widgets"
