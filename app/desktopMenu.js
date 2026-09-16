@@ -1191,10 +1191,12 @@ const DesktopBackgroundMenu = class {
             Gtk.PopoverMenu.new_from_model(this.desktopBackgroundGioMenu);
         this.popupmenu.set_parent(grid._container);
         const menuLocation = new Gdk.Rectangle({x, y, width: 1, height: 1});
-        this.popupmenu.set_pointing_to(menuLocation);
+        // Resolved from the cursor point, before the rectangle is widened to
+        // anchor the corner -- the margin checks want where the click was.
         const menuGtkPosition = grid.getIntelligentPosition(menuLocation);
         if (menuGtkPosition !== null)
             this.popupmenu.set_position(menuGtkPosition);
+        grid.anchorMenuToCursor(this.popupmenu, menuLocation, menuGtkPosition);
         this.popupmenu.set_has_arrow(false);
         this.popupmenu.popup();
         this.popupmenu.connect('closed', () => {

@@ -400,11 +400,25 @@ const FileItemMenu = class {
 
         this.popupmenu = Gtk.PopoverMenu.new_from_model(this._menu);
         this.popupmenu.set_parent(fileItem._grid._container);
-        this.popupmenu.set_pointing_to(menulocation);
         const menuGtkPosition =
             fileItem._grid.getIntelligentPosition(menulocation);
         if (menuGtkPosition !== null)
             this.popupmenu.set_position(menuGtkPosition);
+        // No arrow, as the desktop menu does. It was pointing at the icon
+        // back when the menu was centred on it; anchored to the cursor there
+        // is nothing for it to point at, and a context menu does not carry one
+        // anywhere else on this desktop.
+        this.popupmenu.set_has_arrow(false);
+
+        // Only a pointer press anchors to the cursor. Reached from the menu
+        // key, menulocation is the icon's own rectangle, and centring the menu
+        // on the icon is right.
+        if (X) {
+            fileItem._grid.anchorMenuToCursor(
+                this.popupmenu, menulocation, menuGtkPosition);
+        } else {
+            this.popupmenu.set_pointing_to(menulocation);
+        }
         this.popupmenu.popup();
         this.popupmenu.connect('closed', () => {
             GLib.idle_add(GLib.PRIORITY_DEFAULT_IDLE, () => {

@@ -426,6 +426,58 @@ const DisplayGrid = class {
     // Compute correct position for pop up menus relative to
     // margins to prevent going under/over margins
 
+    /**
+     * Put a menu's corner on the cursor instead of its middle.
+     *
+     * GTK centres a popover along the axis it does not open on, so a
+     * one-pixel rectangle at the pointer leaves the menu's middle under the
+     * cursor -- not how a context menu behaves anywhere else. Making the
+     * rectangle as large as the menu along that axis moves the middle back
+     * onto the cursor, putting the leading edge exactly there.
+     *
+     * The size is only knowable once the menu has been allocated. measure()
+     * answers 0 before popup, and so do the `map` and `notify::visible`
+     * handlers -- all three were tried. The allocation exists by the first
+     * idle after popup.
+     *
+     * The measurement is the *content* child, not the popover: the popover's
+     * own width includes an 8px shadow margin on each side, and centring on
+     * that leaves the visible menu that far right of the cursor.
+     *
+     * The menu is popped up transparent and shown once positioned, so the
+     * correction is not visible as a jump.
+     *
+     * @param {Gtk.Popover} popover the menu about to be shown
+     * @param {Gdk.Rectangle} at one-pixel rectangle at the pointer
+     * @param {number|null} position resolved side, or null for the default
+     */
+    anchorMenuToCursor(popover, at, position) {
+        popover.set_pointing_to(at);
+        popover.set_opacity(0);
+
+        // LEFT and RIGHT open sideways and so centre vertically; every other
+        // side centres horizontally.
+        const sideways = position === Gtk.PositionType.LEFT ||
+            position === Gtk.PositionType.RIGHT;
+
+        GLib.idle_add(GLib.PRIORITY_DEFAULT_IDLE, () => {
+            const content = popover.get_first_child();
+            const alloc = content ? content.get_allocation() : null;
+            const size = alloc ? (sideways ? alloc.height : alloc.width) : 0;
+
+            if (size > 0) {
+                popover.set_pointing_to(sideways
+                    ? new Gdk.Rectangle({x: at.x, y: at.y, width: 1, height: size})
+                    : new Gdk.Rectangle({x: at.x, y: at.y, width: size, height: 1}));
+            }
+
+            // Always restored, even when the size could not be read: an
+            // invisible menu is worse than a centred one.
+            popover.set_opacity(1);
+            return GLib.SOURCE_REMOVE;
+        });
+    }
+
     getIntelligentPosition(gdkRectangle) {
         if (!this._marginLeftHiddenObject &&
             !this._marginRightHiddenObject &&
