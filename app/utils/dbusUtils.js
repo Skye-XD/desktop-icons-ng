@@ -606,19 +606,20 @@ class DBusManager {
         let data = null;
 
         try {
-            let wraper =
-                new Gio.DBusProxy
-                .makeProxyWrapper(
+            const IntrospectionProxy =
+                Gio.DBusProxy.makeProxyWrapper(
                     DBusInterfaces
                     .DBusInterfaces['org.freedesktop.DBus.Introspectable']
-                )(
+                );
+            const wrapper =
+                new IntrospectionProxy(
                     inSystemBus ? Gio.DBus.system : Gio.DBus.session,
                     serviceName,
                     objectName,
                     null
                 );
 
-            data = wraper.IntrospectSync()[0];
+            data = wrapper.IntrospectSync()[0];
         } catch (e) {
             let message = e.message;
 
