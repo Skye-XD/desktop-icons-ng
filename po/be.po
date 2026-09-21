@@ -15,8 +15,8 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-09-13 18:34-0400\n"
-"PO-Revision-Date: 2026-09-14 15:39+0000\n"
-"Last-Translator: Sundeep Mediratta <smedius@gmail.com>\n"
+"PO-Revision-Date: 2026-09-21 17:51+0000\n"
+"Last-Translator: Yauhen <bugomol@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Belarusian <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/be/>\n"
 "Language: be\n"
@@ -29,27 +29,27 @@ msgstr ""
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
-msgstr "Перавызначыць"
+msgstr "Змена CSS"
 
 #: app/adwPreferencesWindow.js:162
 msgid "Customise the appearance of desktop icons with CSS"
-msgstr ""
+msgstr "Змяненне выгляду значкоў праз CSS"
 
 #: app/adwPreferencesWindow.js:166
 msgid "Warning: This can break the extension if done incorrectly"
-msgstr ""
+msgstr "Увага! Памылковыя дзеянні могуць парушыць працу пашырэння"
 
 #: app/adwPreferencesWindow.js:172
 msgid "Edit CSS Override File..."
-msgstr ""
+msgstr "Рэдагаваць файл змен CSS..."
 
 #: app/adwPreferencesWindow.js:180
 msgid "Apply CSS Changes Now"
-msgstr ""
+msgstr "Ужыць змены CSS"
 
 #: app/adwPreferencesWindow.js:181
 msgid "Reload the CSS to apply changes immediately"
-msgstr ""
+msgstr "Перазагрузіць файл CSS, каб неадкладна ўжыць змены"
 
 #: app/adwPreferencesWindow.js:248 data/com.desktop.ding.desktop.in:29
 msgid "Shortcuts"
@@ -286,10 +286,12 @@ msgstr "Пераклад"
 msgid ""
 "Machine translated using LibreTranslate. User verified and edited on Weblate."
 msgstr ""
+"Машынны пераклад праз LibreTranslate. Праверка і праўкі ад карыстальнікаў "
+"Weblate."
 
 #: app/adwPreferencesWindow.js:877
 msgid "Edit Translations"
-msgstr "Пераклады"
+msgstr "Рэдагаванне перакладаў"
 
 #: app/adwPreferencesWindow.js:878
 msgid "Verify, add or correct translation in your web browser"
@@ -343,7 +345,7 @@ msgstr ""
 
 #: app/appImageFileItem.js:68 app/desktopFileIcon.js:170
 msgid "Others Access"
-msgstr ""
+msgstr "Іншы доступ"
 
 #: app/appImageFileItem.js:69 app/desktopFileIcon.js:171
 msgid "Read Only"
@@ -376,7 +378,7 @@ msgstr "Гэты файл AppImage не давераны, яго нельга в
 
 #: app/appImageFileItem.js:88 app/desktopFileIcon.js:190
 msgid "To enable launching, right-click, then:"
-msgstr ""
+msgstr "Каб уключыць запуск, правая кнопка мышы, затым:"
 
 #: app/appImageFileItem.js:89 app/desktopFileIcon.js:191
 msgid "enable"
@@ -410,9 +412,8 @@ msgid "Launch with lesser protections"
 msgstr ""
 
 #: app/appImageFileItem.js:232
-#, fuzzy
 msgid "This AppImage could not be launched."
-msgstr "Гэты файл AppImage не давераны, яго нельга выканаць."
+msgstr "Не ўдалося запусціць AppImage."
 
 #: app/askRenamePopup.js:61
 msgid "Folder name"
@@ -637,17 +638,16 @@ msgid "Desktop Icons"
 msgstr "Значкі працоўнага стала"
 
 #: app/desktopGrid.js:2591
-#, fuzzy
 msgid "Back to Desktop"
-msgstr "Абнавіць працоўны стол"
+msgstr "Вярнуцца на працоўны стол"
 
 #: app/desktopGrid.js:2592 app/widgetManager.js:1762
 msgid "Toggle Widget Grid"
-msgstr ""
+msgstr "Пераключыцца на віджэты"
 
 #: app/desktopGrid.js:2593
 msgid "Add Widget..."
-msgstr "Дадаць віджэт"
+msgstr "Дадаць віджэт..."
 
 #: app/desktopManager.js:209
 msgid "Monitor Frame Buffer Scaling is not enabled"
@@ -1390,56 +1390,55 @@ msgstr "Дыск"
 
 #: app/widgetManager.js:2428
 msgid "Widget preferences"
-msgstr "Налады сайта"
+msgstr "Параметры віджэта"
 
 #: app/widgetManager.js:2440 app/widgetManager.js:2449
 msgid "Unpin widget"
-msgstr ""
+msgstr "Адмацаваць віджэт"
 
 #: app/widgetManager.js:2440 app/widgetManager.js:2449
-#, fuzzy
 msgid "Pin widget"
-msgstr "Дадаць віджэт"
+msgstr "Прымацаваць віджэт"
 
 #: app/widgetManager.js:2458
 msgid "Reposition widget"
-msgstr ""
+msgstr "Перамясціць віджэт"
 
 #: app/widgetManager.js:3074
 msgid "HTML widget"
-msgstr ""
+msgstr "Віджэт HTML"
 
 #: app/widgetManager.js:3076
 msgid "GTK widget"
-msgstr ""
+msgstr "Віджэт GTK"
 
 #: app/widgetManager.js:3082
 msgid "User Installed"
-msgstr "✓ Усталявана"
+msgstr "Усталявана карыстальнікам"
 
 #: app/widgetManager.js:3082
 msgid "System Installed"
-msgstr ""
+msgstr "Усталявана сістэмай"
 
 #: app/widgetManager.js:3104
 msgid "Download Latest Widgets from Repository?"
-msgstr ""
+msgstr "Спампаваць апошнія версіі віджэтаў з рэпазіторыя?"
 
 #: app/widgetManager.js:3106
 msgid "This will overwrite all widgets in your local widgets folder."
-msgstr ""
+msgstr "Пры гэтым дзеянні будуць перазапісаны ўсе віджэты ў лакальнай папцы."
 
 #: app/widgetManager.js:3205
 msgid "Widgets updated"
-msgstr "Масты абноўлены"
+msgstr "Віджэты абноўлены"
 
 #: app/widgetManager.js:3206
 msgid "The latest widgets were downloaded and installed."
-msgstr ""
+msgstr "Апошнія версіі віджэтаў спампаваны і ўсталяваны."
 
 #: app/widgetManager.js:3214
 msgid "Widgets download failed"
-msgstr ""
+msgstr "Не ўдалося спампаваць віджэты"
 
 #: app/widgetManager.js:3320
 msgid "Allow"
@@ -1447,7 +1446,7 @@ msgstr "Дазволіць"
 
 #: app/widgetManager.js:3385
 msgid "Strict"
-msgstr "Суворы"
+msgstr "Строгі"
 
 #: app/widgetManager.js:3387
 msgid ""
@@ -1550,17 +1549,19 @@ msgstr ""
 
 #: app/widgetWebContext.js:297
 msgid "Widget Preferences"
-msgstr "Налады сайта"
+msgstr "Параметры віджэта"
 
 #: app/widgetWebContext.js:869
 msgid "Open link in browser?"
-msgstr "Адчыніць ссылку ў новым браўзеры"
+msgstr "Адкрыць спасылку ў браўзеры?"
 
 #: app/widgetWebContext.js:870
 msgid ""
 "The widget wants to open this link in your browser:\n"
 "\n"
 msgstr ""
+"Віджэт намагаецца адкрыць гэту спасылку ў браўзеры:\n"
+"\n"
 
 #: app/utils/dbusUtils.js:67
 msgid "\"${programName}\" is not available"
@@ -1787,7 +1788,7 @@ msgstr ""
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:115
 msgid "Show Desktop Widgets"
-msgstr "Віджэты стальніцы"
+msgstr "Віджэты працоўнага стала"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:116
 msgid "Displays Widgets in a layer below the icons if installed"

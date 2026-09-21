@@ -21,8 +21,8 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-09-13 18:34-0400\n"
-"PO-Revision-Date: 2026-09-14 15:42+0000\n"
-"Last-Translator: \"Adam C.\" <adam701212@gmail.com>\n"
+"PO-Revision-Date: 2026-09-21 17:51+0000\n"
+"Last-Translator: xiezhihai <xiezhihai7321@outlook.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/gtk4-desktop-icons-ng/gtk4-ding-pot/zh_Hans/>\n"
 "Language: zh-Hans\n"
@@ -240,11 +240,11 @@ msgstr "突出显示投放网格"
 #: app/adwPreferencesWindow.js:775
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:110
 msgid "Keep pinned widgets below application windows"
-msgstr ""
+msgstr "将固定小部件保持在应用窗口下方"
 
 #: app/adwPreferencesWindow.js:777
 msgid "Interactive pinned widgets without covering applications."
-msgstr ""
+msgstr "交互式固定小部件而不覆盖应用程序。"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:793
@@ -1578,7 +1578,7 @@ msgstr "切换部件图层"
 
 #: app/shortcuts.js:41
 msgid "Toggle Pinned Widgets Below Applications"
-msgstr ""
+msgstr "切换应用下方的固定小部件"
 
 #: app/shortcuts.js:45 app/widgetManager.js:1698
 msgid "Add Widget"
@@ -1879,7 +1879,7 @@ msgstr "小部件首选项"
 
 #: app/widgetWebContext.js:869
 msgid "Open link in browser?"
-msgstr "在浏览器中打开链接"
+msgstr "在浏览器中打开链接？"
 
 #: app/widgetWebContext.js:870
 msgid ""
@@ -2143,6 +2143,8 @@ msgid ""
 "windows. When disabled, pinned widgets stay above applications. Editing a "
 "pinned widget temporarily raises it regardless of this setting."
 msgstr ""
+"将固定的小部件保持在桌面图标之上，但在普通应用窗口之下。禁用时，固定的小部件"
+"会保持在应用程序之上。编辑固定的小部件时，无论此设置如何，它都会暂时置顶。"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:115

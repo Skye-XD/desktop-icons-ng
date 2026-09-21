@@ -12,13 +12,14 @@
 # Maksim_220 Кабанов <law820314@gmail.com>, 2025.
 # Sundeep Mediratta <smedius@gmail.com>, 2026.
 # Кирилл <09plf5@gmail.com>, 2026.
+# Kosadeath <kosadeath@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-09-13 18:34-0400\n"
-"PO-Revision-Date: 2026-09-15 16:51+0000\n"
-"Last-Translator: Сергей <asvmail.as@gmail.com>\n"
+"PO-Revision-Date: 2026-09-18 16:51+0000\n"
+"Last-Translator: Kosadeath <kosadeath@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/ru/>\n"
 "Language: ru\n"
@@ -772,7 +773,7 @@ msgstr "Поиск файлов на рабочем столе"
 
 #: app/desktopManager.js:1708 app/desktopMenu.js:1130 app/shortcuts.js:10
 msgid "New Folder"
-msgstr "Создать папку"
+msgstr "Новая папка"
 
 #: app/desktopManager.js:1742
 msgid "Folder Creation Failed"

@@ -19,8 +19,8 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-09-13 18:34-0400\n"
-"PO-Revision-Date: 2026-09-14 15:41+0000\n"
-"Last-Translator: Deleted User <noreply+50296@weblate.org>\n"
+"PO-Revision-Date: 2026-09-18 16:51+0000\n"
+"Last-Translator: Adam Lewicki <a.lewicki95@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/pl/>\n"
 "Language: pl\n"
@@ -205,11 +205,11 @@ msgstr "Podświetl siatkę upuszczeń"
 #: app/adwPreferencesWindow.js:775
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:110
 msgid "Keep pinned widgets below application windows"
-msgstr ""
+msgstr "Utrzymuj przypięte widżety poniżej okien programów"
 
 #: app/adwPreferencesWindow.js:777
 msgid "Interactive pinned widgets without covering applications."
-msgstr ""
+msgstr "Interaktywne przypięte widżety bez zakrywania aplikacji."
 
 #: app/adwPreferencesWindow.js:793
 msgid "Add information emblems for links, encryption"
@@ -1339,7 +1339,7 @@ msgstr "Przełącz warstwę widżetów"
 
 #: app/shortcuts.js:41
 msgid "Toggle Pinned Widgets Below Applications"
-msgstr ""
+msgstr "Przełącz przypięte widżety poniżej aplikacji"
 
 #: app/shortcuts.js:45 app/widgetManager.js:1698
 msgid "Add Widget"
@@ -1858,6 +1858,10 @@ msgid ""
 "windows. When disabled, pinned widgets stay above applications. Editing a "
 "pinned widget temporarily raises it regardless of this setting."
 msgstr ""
+"Trzymaj przypięte widżety nad ikonami pulpitu, ale poniżej normalnych okien "
+"programów. Po wyłączeniu przypięte widżety pozostają nad programami. Edycja "
+"przypiętego widżetu powoduje jego tymczasowe podniesienie niezależnie od "
+"tego ustawienia."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:115
 msgid "Show Desktop Widgets"
