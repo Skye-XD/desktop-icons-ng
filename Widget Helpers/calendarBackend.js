@@ -29,12 +29,14 @@
 //  - Tracking current time (“now”)
 //  - UI timing, animation, or presentation logic
 //
-// Time-based updates are handled entirely by the widget frontend.
+// The backend refreshes today's events periodically.
+// The widget frontend handles live time labels and active-event highlighting.
 
 import GLib from 'gi://GLib';
 import GObject from 'gi://GObject';
 import EDataServer from 'gi://EDataServer';
 import ECal from 'gi://ECal';
+import ICal from 'gi://ICalGLib';
 
 import {BackendApp, runBackend} from './backEndApp.js';
 
@@ -201,13 +203,21 @@ class CalendarBackend extends BackendApp {
             return 0;
 
         try {
+            // DATE values are calendar dates, not UTC instants. Floating
+            // DATE-TIME values use the user's local wall clock as well.
+            const allDay = icalTime.is_date();
             const zone = icalTime.get_timezone();
-            if (zone)
-                return icalTime.as_timet_with_zone(zone) ?? 0;
-        } catch {}
-
-        try {
-            return icalTime.as_timet() ?? 0;
+            if (allDay || !zone) {
+                return GLib.DateTime.new_local(
+                    icalTime.get_year(),
+                    icalTime.get_month(),
+                    icalTime.get_day(),
+                    allDay ? 0 : icalTime.get_hour(),
+                    allDay ? 0 : icalTime.get_minute(),
+                    allDay ? 0 : icalTime.get_second()
+                ).to_unix();
+            }
+            return icalTime.as_timet_with_zone(zone) ?? 0;
         } catch {}
 
         return 0;
@@ -238,6 +248,12 @@ class CalendarBackend extends BackendApp {
             const calColor = info.color;
 
             try {
+                const zoneId = GLib.TimeZone.new_local().get_identifier();
+                const localZone = ICal.Timezone.get_builtin_timezone(zoneId) ??
+                    ICal.Timezone.get_builtin_timezone_from_tzid(zoneId);
+                if (!localZone)
+                    throw new Error(`Unable to resolve local calendar timezone: ${zoneId}`);
+                info.client.set_default_timezone(localZone);
                 info.client.generate_instances_sync(
                     dayStartUnix,
                     dayEndUnix,
@@ -272,7 +288,13 @@ class CalendarBackend extends BackendApp {
                             endUnix = this._icalTimeToUnix(instanceEnd);
                         } catch {}
 
-                        // Safety: clamp to today window if backend gives oddities
+                        // Use a half-open day window, retaining point events today.
+                        if (startUnix >= dayEndUnix || endUnix < dayStartUnix ||
+                            (endUnix === dayStartUnix && startUnix < dayStartUnix) ||
+                            endUnix < startUnix)
+                            return true;
+
+                        // Clip overlapping events only after checking their dates.
                         if (startUnix < dayStartUnix)
                             startUnix = dayStartUnix;
                         if (endUnix > dayEndUnix)
