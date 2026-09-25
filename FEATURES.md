@@ -210,6 +210,9 @@ The application functionality and behavior is consistent with the two other very
 
 - [x] Run all desktop-state mutations through a single FIFO async serialization queue, independently coalescing file and geometry updates before they enter the queue so each mutation observes a consistent state and a failed mutation does not stop subsequent work. This prevents stale desktop objects, signal handlers, callbacks, and other references from being retained by overlapping mutations, improving memory footprint and lifecycle management.
 
+- [x] Added option and simple action with configurable shortcut to switch pinned widgets from dock type above all applications to desktop type below all applications but above the desktop icons layer.
+
+- [x] Gnome preview navigation with arrow keys on desktop
 
 **FIXES**
 
@@ -442,3 +445,5 @@ The application functionality and behavior is consistent with the two other very
 - [x] Fix GTK startup and rendering races by sizing the desktop overlay explicitly, waiting for the main container and overlay allocations, guarding zero-sized icon pictures, and retrying manual snapshots with fresh valid dimensions.
 
 - [x] Fix desktop cleanup and update reliability by preventing array mutation races, separating proxy wrapper constructors, updating the desktop database when files are removed, and improving icon-cache and missing-directory handling.
+
+- [x] Update dbusUtils for Gtk >= 4.12 for wayland parent-handle and remove legacy code.

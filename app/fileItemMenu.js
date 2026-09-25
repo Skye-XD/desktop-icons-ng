@@ -1139,9 +1139,8 @@ const FileItemActions = class {
 
         this._desktopManager.unselectAll();
         clickedItem.removeFromGrid({callOnDestroy: false});
-        this._DBusUtils.RemoteFileOperations.pushEvent(event);
         const remoteOp = this._DBusUtils.RemoteFileOperations;
-        remoteOp.MoveURIsRemote(newFolderFileItems, newFolder);
+        remoteOp.MoveURIsRemote(newFolderFileItems, newFolder, event);
     }
 
     _onPropertiesClicked() {
@@ -1354,10 +1353,7 @@ const FileItemActions = class {
             selectionURIs.push(f.file.get_uri());
         });
 
-        if (event)
-            this._DBusUtils.RemoteFileOperations.pushEvent(event);
-
-        this._DBusUtils.RemoteFileOperations.TrashURIsRemote(selectionURIs);
+        this._DBusUtils.RemoteFileOperations.TrashURIsRemote(selectionURIs, event);
     }
 
     doDeletePermanently() {
