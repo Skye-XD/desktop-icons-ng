@@ -8,13 +8,14 @@
 # Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024, 2025, 2026.
 # LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023, 2024, 2026.
 # Sundeep Mediratta <smedius@gmail.com>, 2026.
+# Daniel Östervall <daniel@livsbygget.se>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-09-13 18:34-0400\n"
-"PO-Revision-Date: 2026-09-14 15:42+0000\n"
-"Last-Translator: Sundeep Mediratta <smedius@gmail.com>\n"
+"PO-Revision-Date: 2026-10-02 06:51+0000\n"
+"Last-Translator: Daniel Östervall <daniel@livsbygget.se>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/sv/>\n"
 "Language: sv\n"
@@ -22,19 +23,19 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2026.10.dev0\n"
+"X-Generator: Weblate 2026.10\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
-msgstr "Åsidosätta"
+msgstr "Åsidosätt CSS"
 
 #: app/adwPreferencesWindow.js:162
 msgid "Customise the appearance of desktop icons with CSS"
-msgstr ""
+msgstr "Anpassa utseendet på skrivbordsikoner med CSS"
 
 #: app/adwPreferencesWindow.js:166
 msgid "Warning: This can break the extension if done incorrectly"
-msgstr ""
+msgstr "Varning: Det här kan förstöra tillägget om det görs felaktigt"
 
 #: app/adwPreferencesWindow.js:172
 msgid "Edit CSS Override File..."
@@ -42,11 +43,11 @@ msgstr ""
 
 #: app/adwPreferencesWindow.js:180
 msgid "Apply CSS Changes Now"
-msgstr ""
+msgstr "Tillämpa CSS-ändringarna nu"
 
 #: app/adwPreferencesWindow.js:181
 msgid "Reload the CSS to apply changes immediately"
-msgstr ""
+msgstr "Ladda om CSS för att verkställa ändringar"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:248 data/com.desktop.ding.desktop.in:29
@@ -61,12 +62,12 @@ msgstr "Redigera genvägar..."
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:266
 msgid "Edit Application Shortcuts"
-msgstr "Edit Application Shortcuts"
+msgstr "Redigera programgenvägar"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:271
 msgid "Shortcuts Editable only when Extension Enabled..."
-msgstr "Genvägar Redigerbart endast när Extension Enabled."
+msgstr "Genvägar redigerbara endast när tillägget är aktiverat..."
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:376
@@ -85,7 +86,7 @@ msgstr "Filer"
 #: app/adwPreferencesWindow.js:640 app/adwPreferencesWindow.js:641
 #: app/adwPreferencesWindow.js:683
 msgid "Tweaks"
-msgstr "Tweaks"
+msgstr "Justeringar"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:646 app/adwPreferencesWindow.js:647
@@ -95,7 +96,7 @@ msgstr "Mer"
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:658
 msgid "Desktop Settings"
-msgstr "Desktop Inställningar"
+msgstr "Skrivbordsinställningar"
 
 # TODO: *ON* the desktop?
 # MT: LibreTranslate
@@ -106,7 +107,7 @@ msgstr "Inställningar för skrivbordsprogrammet"
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:665
 msgid "Desktop Folder"
-msgstr "Desktop Folder"
+msgstr "Skrivbordsmapp"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:666
@@ -116,33 +117,33 @@ msgstr "Nuvarande skrivbord:"
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:676
 msgid "Files Settings"
-msgstr "Filer Inställningar"
+msgstr "Filinställningar"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:677
 msgid "Settings shared with Gnome Files"
-msgstr "Inställningar som delas med Gnome Files"
+msgstr "Inställningar delade med Gnome Filer"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:684
 msgid "Miscellaneous Tweaks"
-msgstr "Miscellan Tweaks"
+msgstr "Diverse justeringar"
 
 # TODO: *ON* the desktop?
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:708
 msgid "Size for the desktop icons"
-msgstr "Storlek för desktop ikonerna"
+msgstr "Skrivbordsikonernas storlek"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:710
 msgid "Tiny"
-msgstr "Tiny"
+msgstr "Mycket liten"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:711
 msgid "Small"
-msgstr "Lite liten"
+msgstr "Liten"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:712
@@ -157,54 +158,53 @@ msgstr "Stor"
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:719
 msgid "New icons alignment"
-msgstr "Nya ikoner anpassning"
+msgstr "Justering för nya ikoner"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:721
 msgid "Top left corner"
-msgstr "Top vänster hörn"
+msgstr "Övre vänstra hörnet"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:722
 msgid "Top right corner"
-msgstr "Top höger hörn"
+msgstr "Övre högra hörnet"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:723
 msgid "Bottom left corner"
-msgstr "Bottom vänster hörn"
+msgstr "Nedre vänstra hörnet"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:724
 msgid "Bottom right corner"
-msgstr "Bottom höger hörn"
+msgstr "Nedre högra hörnet"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:730
 msgid "Add new icons to Secondary Monitors first, if available"
-msgstr ""
-"Lägg till nya ikoner till sekundära övervakare först, om de är tillgängliga"
+msgstr "Lägg till nya ikoner till sekundära bildskärmar först, om tillgängliga"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:734
 msgid "Snap icons to grid"
-msgstr "Snap ikoner att rutnät"
+msgstr "Fäst ikoner vid rutnät"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:740
 msgid "Show desktop widgets"
-msgstr "Skrivbordsgränssnittskomponenter"
+msgstr "Visa skrivbordskomponenter"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:745
 msgid "New Desktop Folder"
-msgstr "Ny skrivbordsmappar"
+msgstr "Ny skrivbordsmapp"
 
 # TODO: *ON* the desktop?
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:746
 msgid "Set a new folder for the desktop"
-msgstr "Ställ en ny mapp för skrivbordet"
+msgstr "Välj mapp för skrivbordet"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:747 app/utils/desktopFolderUtils.js:85
@@ -214,12 +214,12 @@ msgstr "Välj"
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:752
 msgid "Set Desktop back to ~/"
-msgstr "Ställ in skrivbordet tillbaka till ~/"
+msgstr "Återställ skrivbordet till ~/"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:754
 msgid "Restore Default Desktop Folder"
-msgstr "Återställ Default Desktop Folder"
+msgstr "Återställ skrivbordsmappen"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:756
@@ -229,7 +229,7 @@ msgstr "Återställ"
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:765
 msgid "Highlight the drop grid"
-msgstr "Highlight drop grid"
+msgstr "Markera rutnätet"
 
 #: app/adwPreferencesWindow.js:775
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:110
@@ -260,7 +260,7 @@ msgstr "Visa den personliga mappen på skrivbordet"
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:807
 msgid "Show the trash icon on the desktop"
-msgstr "Visa skräp ikonen på skrivbordet"
+msgstr "Visa papperskorgen på skrivbordet"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:812
@@ -275,7 +275,7 @@ msgstr "Visa nätverksenheter på skrivbordet"
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:822
 msgid "Add new drives to the opposite side of the desktop"
-msgstr "Lägg till nya enheter till den motsatta sidan av skrivbordet"
+msgstr "Lägg till nya enheter på den motsatta sidan av skrivbordet"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:827
@@ -285,37 +285,37 @@ msgstr "Åtgärder för att öppna objekt"
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:829
 msgid "Single click"
-msgstr "Single Click"
+msgstr "Enkelklick"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:830
 msgid "Double click"
-msgstr "Dubbelklicka"
+msgstr "Dubbelklick"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:835
 msgid "Show image thumbnails"
-msgstr "Visa bild miniatyrer"
+msgstr "Visa miniatyrbilder"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:837
 msgid "Always"
-msgstr "Alltid alltid"
+msgstr "Alltid"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:838
 msgid "On this computer only"
-msgstr "På denna dator endast"
+msgstr "Endast på denna dator"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:839
 msgid "Never"
-msgstr "Aldrig aldrig"
+msgstr "Aldrig"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:844
 msgid "Show a context menu item to delete permanently"
-msgstr "Visa ett kontextmenyalternativ för att radera permanent"
+msgstr "Visa ett menyalternativ för att radera permanent"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:849
@@ -486,7 +486,7 @@ msgstr "Avbryt"
 
 #: app/appImageFileItem.js:207
 msgid "Launch with lesser protections"
-msgstr ""
+msgstr "Kör med lägre säkerhet"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:232
@@ -532,7 +532,7 @@ msgstr "Extrahera filer"
 # MT: LibreTranslate
 #: app/autoAr.js:234
 msgid "Compressing files"
-msgstr "Komprimera filer"
+msgstr "Komprimerar filer"
 
 # MT: LibreTranslate
 #: app/autoAr.js:325 app/autoAr.js:622
@@ -547,12 +547,12 @@ msgstr "Ta bort partiell fil '${outputFile}']"
 # MT: LibreTranslate
 #: app/autoAr.js:387
 msgid "Creating destination folder"
-msgstr "Skapa destination mapp"
+msgstr "Skapar målmapp"
 
 # MT: LibreTranslate
 #: app/autoAr.js:419
 msgid "Extracting files into '${outputPath}'"
-msgstr "Extrahera filer i '${outputPath}']"
+msgstr "Extraherar filer till '${outputPath}'"
 
 # MT: LibreTranslate
 #: app/autoAr.js:449
@@ -567,17 +567,17 @@ msgstr "Utdrag '${fullPathFile}'] har slutförts."
 # MT: LibreTranslate
 #: app/autoAr.js:456
 msgid "Extraction cancelled"
-msgstr "Extraktion inställd"
+msgstr "Extraktion avbruten"
 
 # MT: LibreTranslate
 #: app/autoAr.js:457
 msgid "Extracting '${fullPathFile}' has been cancelled by the user."
-msgstr "Utdrag '${fullPathFile}'] har annullerats av användaren."
+msgstr "Att extrahera '${fullPathFile}' har avbrutits av användaren."
 
 # MT: LibreTranslate
 #: app/autoAr.js:467
 msgid "Passphrase required for ${filename}"
-msgstr "Passfras krävs för ${filename}]"
+msgstr "Lösenfras krävs för ${filename}"
 
 # MT: LibreTranslate
 #: app/autoAr.js:470
@@ -587,37 +587,37 @@ msgstr "Fel under extraktion"
 # MT: LibreTranslate
 #: app/autoAr.js:497
 msgid "Compressing files into '${outputFile}'"
-msgstr "Komprimera filer i '${outputFile}']"
+msgstr "Komprimerar filer till '${outputFile}'"
 
 # MT: LibreTranslate
 #: app/autoAr.js:510
 msgid "Compression completed"
-msgstr "Kompression färdig"
+msgstr "Kompressionen klar"
 
 # MT: LibreTranslate
 #: app/autoAr.js:511
 msgid "Compressing files into '${outputFile}' has been completed."
-msgstr "Komprimera filer till '${outputFile}'] har slutförts."
+msgstr "Komprimeringen av filer till '${outputFile}' har slutförts."
 
 # MT: LibreTranslate
 #: app/autoAr.js:515 app/autoAr.js:522
 msgid "Cancelled compression"
-msgstr "Avbokad kompression"
+msgstr "Avbruten komprimering"
 
 # MT: LibreTranslate
 #: app/autoAr.js:516
 msgid "The output file '${outputFile}' already exists."
-msgstr "Utgångsfilen '${outputFile}']] finns redan."
+msgstr "Utdatafilen '${outputFile}' finns redan."
 
 # MT: LibreTranslate
 #: app/autoAr.js:523
 msgid "Compressing files into '${outputFile}' has been cancelled by the user."
-msgstr "Komprimera filer i '${outputFile}'] har annullerats av användaren."
+msgstr "Att komprimera filer till '${outputFile}' har avbrutits av användaren."
 
 # MT: LibreTranslate
 #: app/autoAr.js:526
 msgid "Error during compression"
-msgstr "Fel under kompression"
+msgstr "Fel under komprimering"
 
 # MT: LibreTranslate
 #: app/autoAr.js:561
@@ -647,7 +647,7 @@ msgstr "Kompatibel med alla operativsystem."
 # MT: LibreTranslate
 #: app/autoAr.js:728
 msgid "Password protected .zip, must be installed on Windows and Mac."
-msgstr "Lösenordsskyddat .zip måste installeras på Windows och Mac."
+msgstr "Lösenordsskyddad .zip, måste installeras på Windows och Mac."
 
 # MT: LibreTranslate
 #: app/autoAr.js:734
@@ -718,7 +718,7 @@ msgstr "Den här skrivbordsfilen är inte betrodd, den kan inte startas."
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:218 app/gnomeShellDragDrop.js:355
 msgid "Could not open File"
-msgstr "Kunde inte öppna Fil"
+msgstr "Kunde inte öppna filen"
 
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:220
@@ -758,9 +758,8 @@ msgstr "Desktop Icons"
 
 # MT: LibreTranslate
 #: app/desktopGrid.js:2591
-#, fuzzy
 msgid "Back to Desktop"
-msgstr "Update Desktop"
+msgstr "Tillbaka till skrivbordet"
 
 #: app/desktopGrid.js:2592 app/widgetManager.js:1762
 msgid "Toggle Widget Grid"
@@ -836,7 +835,7 @@ msgstr ""
 # MT: LibreTranslate
 #: app/desktopManager.js:271
 msgid "GNOME Files not found"
-msgstr "GNOME Filer som inte hittats"
+msgstr "GNOME Filer hittades inte"
 
 # MT: LibreTranslate
 #: app/desktopManager.js:272
@@ -872,7 +871,7 @@ msgstr ""
 # MT: LibreTranslate
 #: app/desktopManager.js:406
 msgid "Clear current selection before new search"
-msgstr "Tydligt aktuellt val före ny sökning"
+msgstr "Rensa aktuellt val innan ny sökning"
 
 #: app/desktopManager.js:1356
 msgid "Find Files on Desktop"
@@ -885,12 +884,12 @@ msgstr "Ny mapp"
 # MT: LibreTranslate
 #: app/desktopManager.js:1742
 msgid "Folder Creation Failed"
-msgstr "Mamma skapelse misslyckades"
+msgstr "Det gick inte att skapa mappar"
 
 # MT: LibreTranslate
 #: app/desktopManager.js:1743
 msgid "Could not create folder"
-msgstr "Kunde inte skapa mapp"
+msgstr "Det gick inte att skapa mappen"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:650
@@ -900,7 +899,7 @@ msgstr "Kan öppna skrivbordet i Gnome-filer"
 # MT: LibreTranslate
 #: app/desktopMenu.js:669
 msgid "Preferences Window is Open"
-msgstr "Föreställningar fönster är öppet"
+msgstr "Inställningsfönstret är öppet"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:670
@@ -914,7 +913,7 @@ msgstr "Inställningar"
 # MT: LibreTranslate
 #: app/desktopMenu.js:972
 msgid "Template Creation Error"
-msgstr "Mallar Skapelse Fel"
+msgstr "Fel vid skapande av mall"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:973
@@ -924,7 +923,7 @@ msgstr "Kunde inte skapa dokument"
 # MT: LibreTranslate
 #: app/desktopMenu.js:1091
 msgid "Name"
-msgstr "Namnnamn"
+msgstr "Namn"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:1093
@@ -959,7 +958,7 @@ msgstr "Håll fast vid typ.."
 # MT: LibreTranslate
 #: app/desktopMenu.js:1111
 msgid "Sort Home/Drives/Trash…"
-msgstr "Sort Home/Drives/Trash.."
+msgstr "Sortera hem/enheter/papperskorgen…"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:1116
@@ -974,7 +973,7 @@ msgstr "Återställ Default Desktop"
 # MT: LibreTranslate
 #: app/desktopMenu.js:1125
 msgid "Desktop Icon Settings"
-msgstr "Desktop Icon Inställningar"
+msgstr "Skrivbordsikoninställningar"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:1127
@@ -1008,7 +1007,7 @@ msgstr "Arrangera ikonerna"
 # MT: LibreTranslate
 #: app/desktopMenu.js:1161
 msgid "Arrange By…"
-msgstr "Arrangera av.."
+msgstr "Ordna efter…"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:1169
@@ -1195,7 +1194,7 @@ msgstr "Email till..."
 # MT: LibreTranslate
 #: app/fileItemMenu.js:288
 msgid "Send to Mobile Device"
-msgstr "Skicka till Mobile Device"
+msgstr "Skicka till mobil enhet"
 
 #: app/fileItemMenu.js:296
 msgid "Move to Trash"

@@ -15,8 +15,9 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-09-13 18:34-0400\n"
-"PO-Revision-Date: 2026-09-21 17:51+0000\n"
-"Last-Translator: Yauhen <bugomol@users.noreply.hosted.weblate.org>\n"
+"PO-Revision-Date: 2026-10-02 06:51+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Belarusian <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/be/>\n"
 "Language: be\n"
@@ -25,7 +26,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 2026.10.dev0\n"
+"X-Generator: Weblate 2026.10\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
@@ -1300,7 +1301,7 @@ msgstr ""
 
 #: app/shortcuts.js:39
 msgid "Toggle Widget Layer"
-msgstr ""
+msgstr "Пераключыцца на віджэты"
 
 #: app/shortcuts.js:41
 msgid "Toggle Pinned Widgets Below Applications"
