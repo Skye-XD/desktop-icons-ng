@@ -557,10 +557,10 @@ const DesktopIconItem = class {
             return true;
 
         if (this.Prefs.CLICK_POLICY_SINGLE) {
-            let window = this._grid._window;
+            const window = this._grid._window;
 
             if (window)
-                window.set_cursor(Gdk.Cursor.new_from_name('hand', null));
+                window.set_cursor(Gdk.Cursor.new_from_name('pointer', null));
         }
 
         return false;
@@ -571,7 +571,7 @@ const DesktopIconItem = class {
             return true;
 
         if (this.Prefs.CLICK_POLICY_SINGLE) {
-            let window = this._grid._window;
+            const window = this._grid._window;
 
             if (window)
                 window.set_cursor(Gdk.Cursor.new_from_name('default', null));
