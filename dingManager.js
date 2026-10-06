@@ -165,7 +165,7 @@ const DingManager = class {
                     this._activateDelayedLaunch.bind(this)
                 );
         } else {
-            this.startupPrepareId = null;
+            this.startupPreparedId = null;
             this._activateDelayedLaunch();
         }
     }
@@ -191,7 +191,7 @@ const DingManager = class {
             return;
         }
 
-        if (this.startupPrepareId) {
+        if (this.startupPreparedId) {
             Main.layoutManager.disconnect(this.startupPreparedId);
             this.startupPreparedId = null;
         }
