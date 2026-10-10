@@ -173,9 +173,45 @@ try {
         equal(operations, [[operation, files, destination.get_uri()]]);
     }
 
+    for (const contents of [
+        provider('text/plain', 'Ordinary clipboard text'),
+        provider('text/plain', 'http://example.com/'),
+        Gdk.ContentProvider.new_for_value(textureValue),
+        provider('x-special/gnome-copied-files', 'cut\nfile:///one'),
+        provider('text/uri-list', 'sftp://host/file'),
+    ]) {
+        clipboard.set_content(contents);
+        await manager.updatePasteAsLink();
+        equal(linkAction.enabled, false);
+        equal(await manager.paste(true), false);
+    }
     const source = destination.get_parent().get_child('source.txt');
     source.replace_contents('Source file', null, false,
         Gio.FileCreateFlags.NONE, null);
+    for (const contents of [
+        provider('x-special/gnome-copied-files', `copy\n${source.get_uri()}`),
+        provider('text/uri-list', source.get_uri()),
+        provider('text/plain',
+            `x-special/nautilus-clipboard\ncopy\n${source.get_uri()}`),
+    ]) {
+        clipboard.set_content(contents);
+        await manager.updatePasteAsLink();
+        equal(linkAction.enabled, true);
+        equal(await manager.paste(true), true);
+    }
+    const links = destination.enumerate_children(
+        'standard::is-symlink,standard::symlink-target',
+        Gio.FileQueryInfoFlags.NOFOLLOW_SYMLINKS, null
+    );
+    let linkCount = 0;
+    for (let info = links.next_file(null); info; info = links.next_file(null)) {
+        assert(info.get_is_symlink(), 'Paste as Link must create a symlink');
+        equal(info.get_symlink_target(), source.get_path());
+        linkCount++;
+    }
+    links.close(null);
+    equal(linkCount, 3);
+
     selectedFiles = [source];
     for (const copy of [true, false]) {
         operations.length = 0;

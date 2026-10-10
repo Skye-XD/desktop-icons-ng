@@ -83,6 +83,19 @@ const DesktopActions = class {
         );
         this._mainApp.add_action(this.doPasteSimpleAction);
 
+        const pasteAsLink = Gio.SimpleAction.new('doPasteAsLink', null);
+        pasteAsLink.set_enabled(false);
+        pasteAsLink.connect(
+            'activate',
+            async () => {
+                try {
+                    await this._clipboardManager.paste(true);
+                } catch (e) {
+                    console.error(e, 'Paste as Link failed');
+                }
+            }
+        );
+        this._mainApp.add_action(pasteAsLink);
         this._clipboardManager.updateClipboard();
 
         this.doUndoSimpleAction = Gio.SimpleAction.new('doUndo', null);
@@ -831,8 +844,9 @@ const DesktopActions = class {
         );
     }
 
-    updateClipboard() {
+    async updateClipboard() {
         this._clipboardManager.updateClipboard();
+        await this._clipboardManager.updatePasteAsLink();
     }
 
     get currentSelection() {
@@ -976,6 +990,8 @@ const DesktopBackgroundMenu = class {
         const pasteUndoRedoMenu = Gio.Menu.new();
         if (this._mainApp.lookup_action('doPaste').get_enabled())
             pasteUndoRedoMenu.append(_('Paste'), 'app.doPaste');
+        if (this._mainApp.lookup_action('doPasteAsLink').get_enabled())
+            pasteUndoRedoMenu.append(_('Paste as Link'), 'app.doPasteAsLink');
         if (this._mainApp.lookup_action('doUndo').get_enabled())
             pasteUndoRedoMenu.append(_('Undo'), 'app.doUndo');
         if (this._mainApp.lookup_action('doRedo').get_enabled())

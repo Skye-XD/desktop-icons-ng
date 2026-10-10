@@ -547,3 +547,4 @@ const ContentReader = class {
         return mimeTypes.some(mime => this._offersMime(mime));
     }
 };
+

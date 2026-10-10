@@ -222,3 +222,18 @@ test('copy and cut offer typed files with GNOME and text providers', () => {
         }
     }
 });
+
+
+test('clipboard change cancels an eligibility read and hides Paste as Link', async () => {
+    let finishRead;
+    const {manager, clipboard, reads} = fixture('text/plain',
+        () => new Promise(resolve => {
+            finishRead = resolve;
+        }));
+    const pending = manager.updatePasteAsLink();
+    clipboard.changed();
+    assert.equal(reads[0].cancellable.is_cancelled(), true);
+    finishRead(fileContents(false));
+    await pending;
+    assert.equal(clipboard.linkEnabled, false);
+});

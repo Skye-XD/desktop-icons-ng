@@ -13,6 +13,7 @@ const ClipboardManager = class {
         this._Enums = desktopManager.Enums;
         this._canPaste = false;
         this._pasteCancellable = null;
+        this._linkCancellable = null;
         this._clipboard = Gdk.Display.get_default().get_clipboard();
 
         this._clipboardChangedId = this._clipboard.connect(
@@ -30,6 +31,43 @@ const ClipboardManager = class {
 
         this._desktopManager.mainApp.lookup_action('doPaste')
             .set_enabled(this._canPaste);
+
+        this._desktopManager.mainApp.lookup_action('doPasteAsLink')
+            .set_enabled(false);
+    }
+
+    async updatePasteAsLink() {
+        if (this._linkCancellable)
+            this._linkCancellable.cancel();
+
+        const cancellable = new Gio.Cancellable();
+        this._linkCancellable = cancellable;
+
+        try {
+            const formats = this._clipboard.get_formats();
+            const targets = this._Enums.DndTargetInfo;
+            const mimes = formats.get_mime_types();
+
+            if (!mimes.includes('x-special/gnome-copied-files') &&
+                !mimes.includes(targets.URI_LIST) &&
+                !formats.contain_gtype(Gdk.FileList.$gtype) &&
+                !formats.contain_gtype(Gio.File.$gtype) &&
+                !targets.TEXT_FORMATS.some(mime => mimes.includes(mime)))
+                return;
+
+            const contents = await this._readClipboardContents(cancellable);
+
+            if (!cancellable.is_cancelled()) {
+                this._desktopManager.mainApp.lookup_action('doPasteAsLink')
+                    .set_enabled(!!this._getLinkableFileURIs(contents));
+            }
+        } catch (e) {
+            if (!cancellable.is_cancelled())
+                console.error(e, 'Error checking clipboard files for links');
+        } finally {
+            if (this._linkCancellable === cancellable)
+                this._linkCancellable = null;
+        }
     }
 
     // Clipboard management
@@ -138,7 +176,7 @@ const ClipboardManager = class {
         clipboard.set_content(clipboardContentProvider);
     }
 
-    async paste() {
+    async paste(asLink = false) {
         // Capture the desktop anchor [globalX, globalY] before reading.
         const position = [
             this._desktopManager._clickX,
@@ -167,6 +205,21 @@ const ClipboardManager = class {
             if (cancellable.is_cancelled())
                 return false;
 
+            if (asLink) {
+                const files = this._getLinkableFileURIs(contents);
+
+                if (!files)
+                    return false;
+
+                await this._dropOperations.createSymbolicLinks(
+                    files,
+                    this._desktopManager.desktopDir.get_uri(),
+                    pastePosition
+                );
+
+                return true;
+            }
+
             const types = this._Enums.DropContentsType;
 
             if (contents.type === types.UNSUPPORTED)
@@ -192,7 +245,9 @@ const ClipboardManager = class {
 
     destroy() {
         this._pasteCancellable?.cancel();
+        this._linkCancellable?.cancel();
         this._pasteCancellable = null;
+        this._linkCancellable = null;
 
         if (this._clipboardChangedId) {
             this._clipboard.disconnect(this._clipboardChangedId);
@@ -204,6 +259,7 @@ const ClipboardManager = class {
 
     _onClipboardChanged() {
         this._pasteCancellable?.cancel();
+        this._linkCancellable?.cancel();
         this.updateClipboard();
     }
 
@@ -277,6 +333,22 @@ const ClipboardManager = class {
         );
 
         return reader.readClipboardContents();
+    }
+
+    // Returns ['file:///path', ...] for copied local files, otherwise null.
+    _getLinkableFileURIs(contents) {
+        if (contents.type !== this._Enums.DropContentsType.FILE_REFERENCES ||
+            contents.isCut)
+            return null;
+
+        const files = this._dropOperations.fileURIsFromReferences(
+            contents.references, contents.format
+        );
+
+        return files?.length && files.every(uri =>
+            Gio.File.new_for_uri(uri).get_path() !== null)
+            ? files
+            : null;
     }
 
     _pasteFiles(contents, position) {
