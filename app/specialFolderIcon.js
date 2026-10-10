@@ -133,16 +133,16 @@ const SpecialFolderIcon = class extends FileItemIcon {
         x, y,
         fileList,
         gdkDropAction,
-        localDrop,
+        isInAppDrag,
         event
     ) {
         const forceCopy = gdkDropAction === Gdk.DragAction.COPY;
 
         if (this._fileTypeEnum === this.Enums.FileType.USER_DIRECTORY_TRASH) {
-            if (localDrop) {
+            if (isInAppDrag) {
                 this._desktopManager
                 .fileItemActions
-                .doTrash(localDrop, event);
+                .doTrash(isInAppDrag, event);
             } else {
                 this.DBusUtils.RemoteFileOperations.TrashURIsRemote(fileList, event);
             }
@@ -158,7 +158,7 @@ const SpecialFolderIcon = class extends FileItemIcon {
             x, y,
             fileList,
             gdkDropAction,
-            localDrop,
+            isInAppDrag,
             event
         );
 

@@ -95,11 +95,50 @@ export const DndTargetInfo = {
     URI_LIST: 'text/uri-list',
     TEXT_PLAIN: 'text/plain',
     TEXT_PLAIN_UTF8: 'text/plain;charset=utf-8',
+    TEXT_PLAIN_UTF8_SPACED: 'text/plain; charset=utf-8',
+    MOZ_URL: 'text/x-moz-url',
+    MOZ_URL_DATA: 'text/x-moz-url-data',
+    MOZ_URL_DESC: 'text/x-moz-url-desc',
+    NETSCAPE_URL: '_NETSCAPE_URL',
+    HTML: 'text/html',
+    HTML_UTF8: 'text/html;charset=utf-8',
+    OCTET_STREAM: 'application/octet-stream',
     GDKFILELIST: 'GdkFileList',
     GCHARARRAY: 'gchararray',
     GFILE: 'GFile',
-    MIME_TYPES: ['x-special/ding-icon-list', 'x-special/gnome-icon-list', 'text/uri-list', 'text/plain', 'text/plain;charset=utf-8'],
 };
+
+export const DndOfferRoute = {
+    INTERNAL_DESKTOP_ITEMS: 'internal-desktop-items',
+    FILE_OPERATION: 'file-operation',
+    INSPECT_URI_LIST: 'inspect-uri-list',
+    READ_FILE_CONTENT: 'read-file-content',
+    READ_TEXT_OR_WEB_LINK: 'read-text-or-web-link',
+    UNSUPPORTED: 'unsupported',
+};
+
+export const DropContentsType = {
+    FILE_REFERENCES: 'file-references',
+    WEB_LINKS: 'web-links',
+    TEXT: 'text',
+    FILE_CONTENT: 'file-content',
+    UNSUPPORTED: 'unsupported',
+};
+
+// Ordered by read preference: try the first advertised format, then fall back
+// to later entries if it does not provide usable URL/title data.
+DndTargetInfo.URL_FORMATS = [
+    DndTargetInfo.MOZ_URL,
+    DndTargetInfo.MOZ_URL_DATA,
+    DndTargetInfo.NETSCAPE_URL,
+];
+
+// Ordered by read preference: try UTF-8 variants before plain text.
+DndTargetInfo.TEXT_FORMATS = [
+    DndTargetInfo.TEXT_PLAIN_UTF8,
+    DndTargetInfo.TEXT_PLAIN_UTF8_SPACED,
+    DndTargetInfo.TEXT_PLAIN,
+];
 
 // Since Gnome Shell 48 the enumeration of the cursor is different,
 // the name has changed, althugh the value is the same;
@@ -133,6 +172,8 @@ export const NAUTILUS_SCRIPTS_DIR = '.local/share/nautilus/scripts';
 export const THUMBNAILS_DIR = '.cache/thumbnails';
 export const DND_HOVER_TIMEOUT = 1500; // In milliseconds
 export const DND_SHELL_HOVER_POLL = 200; // In milliseconds
+export const DND_DATA_TRANSFER_TIMEOUT = 3000; // In milliseconds
+export const TRANSFER_TEXT_FILENAME_WORDS = 5;
 export const TOOLTIP_HOVER_TIMEOUT = 1000; // In milliseconds
 export const XDG_EMAIL_CMD = 'xdg-email';
 export const XDG_EMAIL_CMD_OPTIONS = '--attach';

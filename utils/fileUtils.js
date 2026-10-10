@@ -1,3 +1,4 @@
+/* eslint-disable no-control-regex -- Sanitize untrusted filenames. */
 /* eslint-disable jsdoc/require-param-type */
 /* DING: Desktop Icons New Generation for GNOME Shell
  *
@@ -153,6 +154,8 @@ export async function queryExists(file, cancellable = null,
 }
 
 /**
+ * Create missing parents before the requested directory. An already-existing
+ * target still raises EXISTS, preserving the contract used by existing callers.
  *
  * @param dir
  * @param cancellable
@@ -162,35 +165,217 @@ export async function recursivelyMakeDir(dir, cancellable = null,
     priority = GLib.PRIORITY_DEFAULT) {
     try {
         await dir.make_directory_async(priority, cancellable);
+        return;
     } catch (e) {
         if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.NOT_FOUND))
             throw e;
     }
 
-    const missingDirs = [dir];
-    for (let parent = dir.get_parent(); parent; parent = parent.get_parent()) {
+    const parent = dir.get_parent();
+    if (!parent)
+        throw new GLib.Error(Gio.IOErrorEnum, Gio.IOErrorEnum.NOT_FOUND, 'Directory has no parent');
+    try {
+        await recursivelyMakeDir(parent, cancellable, priority);
+    } catch (e) {
+        if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.EXISTS))
+            throw e;
+    }
+    try {
+        await dir.make_directory_async(priority, cancellable);
+    } catch (e) {
+        // Another creator may have completed this directory while we awaited its parent.
+        if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.EXISTS))
+            throw e;
+    }
+}
+
+/**
+ * Split a filename, preserving the project's compound archive extensions.
+ *
+ * @param filename
+ * @param opts
+ */
+export function getFileExtensionOffset(filename, opts = {isDirectory: false}) {
+    let offset = filename.length;
+    let extension = '';
+    if (!opts.isDirectory) {
+        for (const suffix of ['.gz', '.bz2', '.sit', '.Z', '.bz', '.xz']) {
+            if (filename.endsWith(suffix)) {
+                offset -= suffix.length;
+                extension = filename.substring(offset);
+                filename = filename.substring(0, offset);
+                break;
+            }
+        }
+        const lastDot = filename.lastIndexOf('.');
+        if (lastDot > 0) {
+            offset = lastDot;
+            extension = filename.substring(offset) + extension;
+            filename = filename.substring(0, offset);
+        }
+    }
+    return {offset, basename: filename, extension};
+}
+
+/**
+ * Generate a collision candidate using the desktop's existing numbered suffix.
+ *
+ * @param filename
+ * @param index
+ */
+export function collisionName(filename, index) {
+    if (!index)
+        return filename;
+    const {basename, extension} = getFileExtensionOffset(filename);
+    return `${basename} ${index}${extension}`;
+}
+
+/**
+ * Create without overwriting; keep owned GBytes alive through partial writes.
+ *
+ * @param file
+ * @param bytes
+ * @param cancellable
+ */
+export async function writeExclusive(file, bytes, cancellable = null) {
+    const stream = await file.create_async(Gio.FileCreateFlags.PRIVATE, GLib.PRIORITY_DEFAULT, cancellable);
+    try {
+        let offset = 0;
+        const size = bytes.get_size();
+        while (offset < size) {
+            const remaining = GLib.Bytes.new_from_bytes(bytes, offset, size - offset);
+            // eslint-disable-next-line no-await-in-loop
+            const written = await stream.write_bytes_async(remaining, GLib.PRIORITY_DEFAULT, cancellable);
+            if (written <= 0 || written > size - offset)
+                throw new Error('Incomplete file write');
+            offset += written;
+        }
+        await stream.close_async(GLib.PRIORITY_DEFAULT, cancellable);
+    } catch (e) {
+        // Cleanup must still run if the operation was cancelled.
+        try {
+            await stream.close_async(GLib.PRIORITY_DEFAULT, null);
+        } catch (_closeError) {
+            // Preserve the original write/close error.
+        }
+        await file.delete_async(GLib.PRIORITY_DEFAULT, null).catch(error => console.error(error));
+        throw e;
+    }
+}
+
+/**
+ * Create a file with a safe single-component name, retrying atomic collisions.
+ * The caller remains responsible for sanitizing untrusted display names.
+ *
+ * @param directory
+ * @param filename
+ * @param bytes
+ * @param cancellable
+ * @param creationObserver optional callbacks for collision candidates.
+ * `beforeCreate(file)` runs before exclusive creation and returns an ownership
+ * marker. If that candidate fails, `creationFailed(file, marker)` receives the
+ * same marker so the caller can undo only that attempt's registration.
+ * @returns {Promise<Gio.File>} created file
+ */
+export async function createUniqueFile(
+    directory,
+    filename,
+    bytes,
+    cancellable = null,
+    creationObserver = null
+) {
+    if (!filename || filename === '.' || filename === '..' || filename.includes('/') || filename.includes('\0'))
+        throw new Error('Expected a single filename');
+    try {
+        await recursivelyMakeDir(directory, cancellable);
+    } catch (e) {
+        if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.EXISTS))
+            throw e;
+    }
+    for (let index = 0; ; index++) {
+        const file = directory.get_child(collisionName(filename, index));
+        const creationRegistration = creationObserver?.beforeCreate(file);
         try {
             // eslint-disable-next-line no-await-in-loop
-            await parent.make_directory_async(priority, cancellable);
+            await writeExclusive(file, bytes, cancellable);
+            return file;
         } catch (e) {
-            if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.EXISTS))
-                break;
-            else if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.NOT_FOUND))
-                missingDirs.unshift(parent);
-            else
+            // A collision may be a basename already registered by an earlier
+            // file in this batch. Only undo what this attempt registered.
+            creationObserver?.creationFailed(file, creationRegistration);
+            if (!e.matches?.(Gio.IOErrorEnum, Gio.IOErrorEnum.EXISTS))
                 throw e;
         }
     }
+}
 
-    // Sadly we must be sequential here, so we can't use Promise.all
-    missingDirs.forEach(async direct => {
+/**
+ * Create a symbolic link without overwriting, retrying atomic collisions.
+ *
+ * @param directory destination directory
+ * @param source source Gio.File
+ * @param cancellable
+ * @param creationObserver optional callbacks matching createUniqueFile()
+ * @returns {Gio.File} created symbolic link
+ */
+export function createUniqueSymbolicLink(
+    directory,
+    source,
+    cancellable = null,
+    creationObserver = null
+) {
+    const sourcePath = source.get_path();
+    if (!sourcePath)
+        throw new Error('Symbolic links require a local source file');
+
+    const filename = source.get_basename();
+    for (let index = 0; ; index++) {
+        const file = directory.get_child(collisionName(filename, index));
+        const creationRegistration = creationObserver?.beforeCreate(file);
         try {
-            await direct.make_directory_async(priority, cancellable);
-        } catch (e) {
-            if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.EXISTS))
-                throw e;
+            file.make_symbolic_link(sourcePath, cancellable);
+            return file;
+        } catch (error) {
+            creationObserver?.creationFailed(file, creationRegistration);
+            if (!error.matches?.(Gio.IOErrorEnum, Gio.IOErrorEnum.EXISTS))
+                throw error;
         }
-    });
+    }
+}
+
+/**
+ * Write a string attribute and verify its per-attribute result.
+ *
+ * @param file
+ * @param attribute
+ * @param value
+ * @param cancellable
+ * @param priority
+ * @param queryFlags
+ */
+export async function setStringAttribute(file, attribute, value, cancellable = null,
+    priority = GLib.PRIORITY_DEFAULT,
+    queryFlags = Gio.FileQueryInfoFlags.NONE) {
+    const info = new Gio.FileInfo();
+    info.set_attribute_string(attribute, value);
+    const [result] = await file.set_attributes_async(info, queryFlags, priority, cancellable);
+    if (result.get_attribute_status(attribute) !== Gio.FileAttributeStatus.SET)
+        throw new Error(`Could not set ${attribute}`);
+}
+
+/**
+ * Store the initial drop position for a newly created file; null leaves it unset.
+ *
+ * @param file
+ * @param coordinates
+ * @param cancellable
+ * @param priority
+ */
+export async function setDropPosition(file, coordinates, cancellable = null,
+    priority = GLib.PRIORITY_DEFAULT) {
+    if (!coordinates)
+        return;
+    await setStringAttribute(file, 'metadata::nautilus-drop-position', coordinates.join(','), cancellable, priority);
 }
 
 /**
@@ -309,4 +494,32 @@ export async function findChildDirRecursive(
     }
 
     return null;
+}
+
+/**
+ * Sanitize an untrusted filename with space for collision suffixes.
+ *
+ * @param value
+ * @param fallback
+ */
+export function sanitizeFilename(value, fallback = 'File') {
+    const clean = text => text.normalize('NFC')
+        .replace(/[\u0000-\u001f\u007f/\\:*?"<>|]/gu, ' ')
+        .replace(/\s+/gu, ' ').trim().replace(/^[. ]+|[. ]+$/g, '');
+    let name = clean(value || '');
+    if (!name)
+        name = clean(fallback);
+    if (/^(con|prn|aux|nul|com[1-9]|lpt[1-9])(?:\.|$)/i.test(name))
+        name = `_${name}`;
+    // Leave room below NAME_MAX for the extension and collision suffix in UTF-8.
+    let result = '';
+    let length = 0;
+    const encoder = new TextEncoder();
+    for (const character of name) {
+        length += encoder.encode(character).length;
+        if (length > 200)
+            break;
+        result += character;
+    }
+    return result.trim().replace(/[. ]+$/g, '') || 'Link';
 }

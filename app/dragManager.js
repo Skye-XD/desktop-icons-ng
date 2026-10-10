@@ -15,25 +15,18 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import {Gtk, Gdk, Gio, GLib} from '../dependencies/gi.js';
-import {_} from '../dependencies/gettext.js';
+import {Gdk, Gtk, Graphene, Gsk} from '../dependencies/gi.js';
 
 
 export {DragManager};
 
+
 const DragManager = class {
     constructor(desktopManager) {
         this._desktopManager = desktopManager;
-        this._mainApp = this._desktopManager.mainApp;
-        this._FileUtils = desktopManager.FileUtils;
-        this._DesktopIconsUtil = desktopManager.DesktopIconsUtil;
-        this._DBusUtils = desktopManager.DBusUtils;
         this._Prefs = desktopManager.Prefs;
         this._GnomeShellDragDrop = this._desktopManager.GnomeShellDragDrop;
         this._Enums = this._desktopManager.Enums;
-        this._dbusManager = this._desktopManager.dbusManager;
-        this._pendingDropFiles = {};
-        this._pendingSelfCopyFiles = {};
         this.pointerX = 0;
         this.pointerY = 0;
         this._dragList = null;
@@ -42,143 +35,14 @@ const DragManager = class {
         this.localDragOffset = [0, 0];
     }
 
+    destroy() {
+        this._stopGnomeShellDrag();
+    }
+
     // Drag and Drop local Methods
 
-    _saveCurrentFileCoordinatesForUndo(fileList = null) {
-        if (this._Prefs.keepArranged || this._Prefs.keepStacked)
-            return;
-
-        this._pendingDropFiles = {};
-        this._pendingSelfCopyFiles = {};
-
-        fileList = fileList ? fileList : this.currentSelection;
-
-        if (!fileList)
-            return;
-
-        fileList.forEach(f => {
-            const savedCoordinates = [
-                ...f.savedCoordinates,
-                ...f.normalCoordinates,
-                f.monitorIndex,
-            ];
-            this._pendingSelfCopyFiles[f.fileName] = savedCoordinates;
-        });
-    }
-
-    _makeFileSystemLinks(fileList, destination) {
-        let gioDestination = Gio.File.new_for_uri(destination);
-        fileList.forEach(file => {
-            const fileGio = Gio.File.new_for_uri(file);
-            const baseNameParts =
-                this._DesktopIconsUtil.getFileExtensionOffset(
-                    fileGio.get_basename()
-                );
-            let i = 0;
-            let newSymlinkName = fileGio.get_basename();
-            let checkSymlinkGio;
-
-            do {
-                checkSymlinkGio =
-                    Gio.File.new_build_filenamev(
-                        [gioDestination.get_path(), newSymlinkName]
-                    );
-
-                try {
-                    checkSymlinkGio.make_symbolic_link(
-                        GLib.build_filenamev([fileGio.get_path()]),
-                        null
-                    );
-                    break;
-                } catch (e) {
-                    if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.EXISTS)) {
-                        i += 1;
-                        newSymlinkName =
-                            `${baseNameParts.basename}` +
-                            `${i}${baseNameParts.extension}`;
-                    } else {
-                        console.error(e, 'Error making file-system links');
-                        const header = _('Making SymLink Failed');
-                        const text = _('Could not create symbolic link');
-                        this._dbusManager.doNotify(header, text);
-                        break;
-                    }
-                }
-            } while (true);
-        });
-    }
-
-    _isValidURL(text) {
-        try {
-            const uri = GLib.Uri.parse(text, GLib.UriFlags.NONE);
-            const scheme = uri.get_scheme()?.toLowerCase();
-
-            if (!['http', 'https', 'ftp', 'rtsp', 'mms'].includes(scheme))
-                return false;
-
-            return !!uri.get_host();
-        } catch (e) {
-            return false;
-        }
-    }
-
-    async _detectURLorText(dropData, dropCoordinates) {
-        const text = dropData.toString();
-
-        if (text === '')
-            return;
-
-        if (this._isValidURL(text)) {
-            await this._writeURLlinktoDesktop(text, dropCoordinates);
-            return;
-        }
-
-        await this._writeDraggedTextToDesktop(text, dropCoordinates);
-    }
-
-    async _writeDraggedTextToDesktop(text, dropCoordinates) {
-        const now = Date().valueOf().split(' ').join('').replace(/:/g, '-');
-        const filename = `Dragged Text-${now}`;
-        await this._DesktopIconsUtil.writeTextFileToPath(
-            text,
-            this._desktopDir,
-            filename,
-            dropCoordinates
-        );
-    }
-
-    async _writeURLlinktoDesktop(link, dropCoordinates) {
-        let filename = link.split('?')[0];
-        filename = filename.split('//')[1];
-        filename = filename.split('/')[0];
-        const now = Date().valueOf().split(' ').join('').replace(/:/g, '-');
-        filename = `${filename}-${now}`;
-        await this._writeHTMLTypeLink(filename, link, dropCoordinates);
-    }
-
-
-    async _writeHTMLTypeLink(filename, link, dropCoordinates) {
-        filename += '.html';
-        let body = [
-            '<html>',
-            '    <head>',
-            `        <meta http-equiv="refresh" content="0; url=${link}" />`,
-            '    </head>',
-            '    <body>',
-            '    </body>',
-            '</html>',
-        ];
-        body = body.join('\n');
-        await this._DesktopIconsUtil.writeTextFileToPath(
-            body,
-            this._desktopDir,
-            filename,
-            dropCoordinates
-        );
-    }
-
     _startGnomeShellDrag() {
-        if (!this.localDrag &&
+        if (!this._localDrag &&
             this.dragItem &&
             !this.gnomeShellDrag
         ) {
@@ -193,86 +57,6 @@ const DragManager = class {
         this.gnomeShellDrag = null;
     }
 
-    _localDrag() {
-        let localDrag = false;
-        this._desktops.forEach(d => {
-            if (d.localDrag)
-                localDrag = true;
-        });
-        return localDrag;
-    }
-
-    _positiveOffsetGridAim(xGlobalDestination, yGlobalDestination) {
-    // Find the grid where the destination lies and aim towards the positive
-    // side, middle of grid to ensure drop in the grid
-        let xbias = 0;
-        let ybias = 0;
-        for (let desktop of this._desktops) {
-            if (desktop.coordinatesBelongToThisGrid(
-                xGlobalDestination,
-                yGlobalDestination)) {
-                xbias = desktop._elementWidth / 2;
-                ybias = desktop._elementHeight / 2;
-                break;
-            }
-        }
-        return [xGlobalDestination + xbias, yGlobalDestination + ybias];
-    }
-
-    async _getFsId(file) {
-    /**
-     * Returns filesystem id of file or null if file does not exist
-     *
-     * @param {file} Gio.File
-     * @returns {str} filesystem ID of file or null
-     */
-        const info =
-            await file.query_info_async(
-                'id::filesystem',
-                Gio.FileQueryInfoFlags.NONE,
-                GLib.PRIORITY_DEFAULT,
-                null
-            ).catch(
-                e => {
-                    if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.NOT_FOUND))
-                        return null;
-                    throw e;
-                }
-            );
-
-        if (info == null)
-            return null;
-
-        return info.get_attribute_string('id::filesystem');
-    }
-
-    async _desktopFsId() {
-        const desktopFsId = await this._getFsId(this._desktopDir);
-
-        return desktopFsId;
-    }
-
-    async _fileIsOnDesktopFileSystem(file) {
-    /**
-     * Checks to see if file is on the same filesystem as the Desktop Folder
-     * Consider trash:// URI to be in the same folder as the Desktop
-     * This forces a move from Trash instead of copy
-     *
-     * @param {file} Gio.File
-     * @returns {boolean} if the file is on the same filesystem as Desktop
-     * @returns {null} if the file does not exist
-     */
-        const fileSystemID = await this._getFsId(file);
-        if (fileSystemID == null)
-            return null;
-        if (fileSystemID.startsWith('trash'))
-            return true;
-        const desktopFileSystemID = await this._desktopFsId();
-        if (fileSystemID === desktopFileSystemID)
-            return true;
-        return false;
-    }
-
     _drawRubberBand() {
         for (let grid of this._desktops)
             grid.updateOverlay();
@@ -283,8 +67,197 @@ const DragManager = class {
 
     // Drag Preperation
 
-    fillDragDataGet(target) {
-        const fileList = this.currentSelection;
+    prepareDrag(controller, item, hotspot) {
+        if (this.rubberBand)
+            return null;
+
+        controller.set_actions(this._sourceActionsForCurrentSelection);
+        this.localDragOffset = hotspot;
+        controller.set_icon(this._createStackedDragIcon(item), ...hotspot);
+        item.dragSourceOffset = hotspot;
+
+        return this._createDragContentProvider();
+    }
+
+    _createDragContentProvider() {
+        const textCoder = new TextEncoder();
+
+        const uriList =
+            this.getSelectionData(
+                this._Enums.DndTargetInfo.DING_ICON_LIST);
+
+        if (!uriList)
+            return null;
+
+        const encodedUriList = textCoder.encode(uriList);
+
+        const dingContentProvider =
+            Gdk.ContentProvider.new_for_bytes(
+                this._Enums.DndTargetInfo.DING_ICON_LIST,
+                encodedUriList
+            );
+
+        if (this._desktopManager.checkIfSpecialFilesAreSelected())
+            return dingContentProvider;
+
+        const selectedFiles = this._desktopManager.getCurrentSelection()
+            .map(fileItem => fileItem.file);
+        const fileList = Gdk.FileList.new_from_array(selectedFiles);
+        const fileListContentProvider =
+            Gdk.ContentProvider.new_for_value(fileList);
+
+        const gnomeUriList =
+            this.getSelectionData(
+                this._Enums.DndTargetInfo.GNOME_ICON_LIST);
+
+        if (!gnomeUriList)
+            return null;
+
+        const gnomeContentProvider =
+            Gdk.ContentProvider.new_for_bytes(
+                this._Enums.DndTargetInfo.GNOME_ICON_LIST,
+                textCoder.encode(gnomeUriList)
+            );
+
+        const textPathList =
+            this.getSelectionData(
+                this._Enums.DndTargetInfo.TEXT_PLAIN
+            );
+
+        if (!textPathList)
+            return null;
+
+        const encodedPathList = textCoder.encode(textPathList);
+
+        const textUriListContentProvider =
+            Gdk.ContentProvider.new_for_bytes(
+                this._Enums.DndTargetInfo.URI_LIST,
+                encodedUriList
+            );
+
+        const textListContentProvider =
+            Gdk.ContentProvider.new_for_bytes(
+                this._Enums.DndTargetInfo.TEXT_PLAIN,
+                encodedPathList
+            );
+
+        const textUtf8ListContentProvider =
+            Gdk.ContentProvider.new_for_bytes(
+                this._Enums.DndTargetInfo.TEXT_PLAIN_UTF8,
+                encodedPathList
+            );
+
+        return Gdk.ContentProvider.new_union([
+            fileListContentProvider,
+            dingContentProvider,
+            gnomeContentProvider,
+            textUriListContentProvider,
+            textListContentProvider,
+            textUtf8ListContentProvider,
+        ]);
+    }
+
+    // The following code is translated from Nautilus C to Javascript
+    //  to form the similar stack of items
+
+    _createStackedDragIcon(draggedItem) {
+        const  selectionArray = this._desktopManager.getCurrentSelection();
+        selectionArray.sort(
+            // eslint-disable-next-line no-nested-ternary
+            (a, b) => a.uri === draggedItem.uri
+                ? -1
+                : b.uri === draggedItem.uri
+                    ? 1
+                    : 0
+        );
+
+        const dragIconArray = selectionArray.map(f => f._icon.get_paintable());
+        const numberOfIcons = dragIconArray.length;
+
+        const dragIcon = Gtk.Snapshot.new();
+
+        /* A wide shadow for the pile of icons gives a sense of floating. */
+        const stackShadow =
+            {
+                color: {red: 0, green: 0, blue: 0, alpha: 0.15},
+                dx: 0,
+                dy: 2,
+                radius: 10,
+            };
+
+        /* A slight shadow swhich makes each icon in the stack look separate. */
+        const iconShadow =
+            {
+                color: {red: 0, green: 0, blue: 0, alpha: 0.30},
+                dx: 0,
+                dy: 1,
+                radius: 1,
+            };
+
+        let xOffset = numberOfIcons % 2 === 1 ? 6 : -6;
+        let yOffset;
+
+        switch (numberOfIcons) {
+        case 1:
+            yOffset = 0;
+            break;
+        case 2:
+            yOffset = 10;
+            break;
+        case 3:
+            yOffset = 6;
+            break;
+        default:
+            yOffset = 4;
+        }
+
+        dragIcon.translate(
+            new Graphene.Point(
+                {
+                    x: 10 + (xOffset / 2),
+                    y: yOffset * numberOfIcons,
+                }
+            )
+        );
+
+        const shadow = new Gsk.Shadow(stackShadow);
+        dragIcon.push_shadow([shadow]);
+
+        dragIconArray.reverse().forEach(
+            paintableWidget => {
+                const w = paintableWidget.get_intrinsic_width();
+                const h = paintableWidget.get_intrinsic_height();
+                const X = Math.floor((this._Prefs.IconSize - w) / 2);
+                const Y = Math.floor((this._Prefs.IconSize - h) / 2);
+
+                dragIcon.translate(
+                    new Graphene.Point(
+                        {
+                            x: -xOffset,
+                            y: -yOffset,
+                        }
+                    )
+                );
+
+                xOffset = -xOffset;
+
+                dragIcon.translate(new Graphene.Point({x: X, y: Y}));
+                dragIcon.push_shadow([new Gsk.Shadow(iconShadow)]);
+
+                paintableWidget.snapshot(dragIcon, w, h);
+
+                dragIcon.pop();
+
+                dragIcon.translate(new Graphene.Point({x: -X, y: -Y}));
+            }
+        );
+        dragIcon.pop();
+
+        return dragIcon.to_paintable(null);
+    }
+
+    getSelectionData(target) {
+        const fileList = this._currentSelection;
         if (!fileList)
             return null;
 
@@ -319,111 +292,6 @@ const DragManager = class {
         return null;
     }
 
-    makeFileListFromSelection(dropData, acceptFormat) {
-        if (!dropData)
-            return null;
-        if (acceptFormat === this._Enums.DndTargetInfo.TEXT_PLAIN)
-            return null;
-
-        let fileList;
-
-        if (acceptFormat === this._Enums.DndTargetInfo.GNOME_ICON_LIST) {
-            fileList = GLib.Uri.list_extract_uris(dropData);
-        } else if (acceptFormat === this._Enums.DndTargetInfo.DING_ICON_LIST) {
-            fileList = dropData.get_files().map(f => f.get_uri());
-        } else {
-            fileList = dropData.split('\n').map(f => {
-                if (GLib.Uri.peek_scheme(f))
-                    return f;
-                else
-                    return GLib.filename_to_uri(f, null);
-            });
-        }
-
-        // filename_to_uri can return null
-        fileList = fileList.filter(f => {
-            if (!f)
-                return false;
-            return true;
-        });
-
-        if (fileList && fileList.length)
-            return fileList;
-        else
-            return null;
-    }
-
-    saveCurrentFileCoordinatesForUndo(fileList) {
-        this._saveCurrentFileCoordinatesForUndo(fileList);
-    }
-
-    async clearFileCoordinates(fileList,
-        dropCoordinates,
-        opts = {doCopy: false}) {
-        if (this._Prefs.keepArranged || this._Prefs.keepStacked)
-            return;
-
-        this.pendingDropFiles = {};
-        this.pendingSelfCopyFiles = {};
-
-        await Promise.all(fileList.map(async element => {
-            const file = Gio.File.new_for_uri(element);
-
-            if (!file.is_native()) {
-                this.setPendingDropCoordinates(file, dropCoordinates);
-                return;
-            }
-
-            const info = new Gio.FileInfo();
-            info.set_attribute_string('metadata::desktop-icon-position', '');
-
-            if (dropCoordinates !== null) {
-                if (!opts.doCopy) {
-                    info.set_attribute_string(
-                        'metadata::nautilus-drop-position',
-                        `${dropCoordinates[0]},${dropCoordinates[1]}`
-                    );
-                } else {
-                    this.setPendingDropCoordinates(file, dropCoordinates);
-                    return;
-                }
-            }
-
-            try {
-                await file.set_attributes_async(info,
-                    Gio.FileQueryInfoFlags.NONE,
-                    GLib.PRIORITY_LOW,
-                    null);
-            } catch (e) {
-                if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.NOT_FOUND))
-                    this.setPendingDropCoordinates(file, dropCoordinates);
-            }
-        }));
-    }
-
-    setPendingDropCoordinates(file, dropCoordinates) {
-        if (!dropCoordinates)
-            return;
-        const basename = file.get_basename();
-
-        this._pendingDropFiles = {};
-        this._pendingSelfCopyFiles = {};
-
-        let selfCopy = false;
-        this.currentWorkingList.forEach(fileItem => {
-            if (fileItem.fileName === basename) {
-                this._pendingDropFiles[`${basename}COPYEXPECTED`] =
-                    dropCoordinates;
-                this._pendingSelfCopyFiles[basename] =
-                    fileItem.savedCoordinates;
-                selfCopy = true;
-            }
-        });
-
-        if (!selfCopy)
-            this._pendingDropFiles[basename] = dropCoordinates;
-    }
-
     // Drag Methods
 
     startRubberband(X, Y) {
@@ -435,7 +303,8 @@ const DragManager = class {
     }
 
     onDragBegin(item) {
-        this._saveCurrentFileCoordinatesForUndo();
+        this.onReleaseButton();
+        this._desktopManager.dropOperations.rememberSelectedFilePositionsForUndo();
         this.dragItem = item;
         this._stopGnomeShellDrag();
     }
@@ -475,107 +344,27 @@ const DragManager = class {
         this._startGnomeShellDrag();
     }
 
-    onDragEnd() {
-        this.dragItem = null;
-        this._stopGnomeShellDrag();
+    onDragCancel(reason) {
+        if (reason === Gdk.DragCancelReason.NO_TARGET ||
+            reason === Gdk.DragCancelReason.ERROR) {
+            const shellDropHandled =
+                this.gnomeShellDrag?.completeGnomeShellDrop() ?? false;
+
+            if (shellDropHandled) {
+                // GTK accepts that we handled the failed drag, but on
+                // Wayland the compositor has already cancelled it, so
+                // this cannot prevent the return animation.
+                return true;
+            }
+        }
+
+        return false;
     }
 
-    async onDragDataReceived(
-        xGlobalDestination,
-        yGlobalDestination,
-        xlocalDestination,
-        ylocalDestination,
-        dropData,
-        acceptFormat,
-        gdkDropAction,
-        localDrop,
-        event,
-        dragItem
-    ) {
-        this.onDragLeave();
-
-        let dropCoordinates;
-        let xOrigin;
-        let yOrigin;
-        const forceCopy = gdkDropAction === Gdk.DragAction.COPY;
-        const fileList = this.makeFileListFromSelection(dropData, acceptFormat);
-
-        if (!this._Prefs.freePositionIcons) {
-            [xGlobalDestination, yGlobalDestination] =
-                this._positiveOffsetGridAim(
-                    xGlobalDestination,
-                    yGlobalDestination
-                );
-        }
-
-        let returnAction;
-
-        switch (acceptFormat) {
-        case this._Enums.DndTargetInfo.DING_ICON_LIST:
-            [xOrigin, yOrigin] = dragItem.getCoordinates().slice(0, 3);
-            if (gdkDropAction === Gdk.DragAction.MOVE) {
-                this.doMoveWithDragAndDrop(
-                    xOrigin,
-                    yOrigin,
-                    xGlobalDestination,
-                    yGlobalDestination
-                );
-                returnAction = Gdk.DragAction.MOVE;
-                break;
-            }
-            // eslint-disable-next-line no-fallthrough
-        case this._Enums.DndTargetInfo.GNOME_ICON_LIST:
-        case this._Enums.DndTargetInfo.URI_LIST:
-            if (!fileList)
-                return;
-            if (gdkDropAction === Gdk.DragAction.MOVE ||
-                gdkDropAction === Gdk.DragAction.COPY) {
-                try {
-                    if (!localDrop) {
-                        await this.clearFileCoordinates(
-                            fileList,
-                            [xGlobalDestination, yGlobalDestination],
-                            {doCopy: forceCopy}
-                        );
-                    }
-
-                    returnAction = await this.copyOrMoveUris(
-                        fileList,
-                        this._desktopDir.get_uri(),
-                        event,
-                        {forceCopy}
-                    );
-                } catch (e) {
-                    console.error(e);
-                }
-            } else {
-                if (gdkDropAction >= Gdk.DragAction.LINK)
-                    returnAction = Gdk.DragAction.LINK;
-                else
-                    returnAction = Gdk.DragAction.COPY;
-
-                this.askWhatToDoWithFiles(
-                    fileList,
-                    this._desktopDir.get_uri(),
-                    xGlobalDestination,
-                    yGlobalDestination,
-                    xlocalDestination,
-                    ylocalDestination,
-                    event
-                )
-                .catch(e => logError(e));
-            }
-            break;
-        case this._Enums.DndTargetInfo.TEXT_PLAIN:
-            returnAction = Gdk.DragAction.COPY;
-            dropCoordinates = [xGlobalDestination, yGlobalDestination];
-            this._detectURLorText(dropData, dropCoordinates).catch(e => logError(e));
-            break;
-        default:
-            returnAction = Gdk.DragAction.COPY;
-        }
-        // eslint-disable-next-line consistent-return
-        return returnAction;
+    onDragEnd(item) {
+        this.dragItem = null;
+        this._stopGnomeShellDrag();
+        this.updateSelection(item, this._Enums.Selection.RELEASE);
     }
 
     doMoveWithDragAndDrop(xOrigin, yOrigin, xDestination, yDestination) {
@@ -641,13 +430,6 @@ const DragManager = class {
         );
     }
 
-    onTextDrop(dropData, [xGlobalDestination, yGlobalDestination]) {
-        this._detectURLorText(
-            dropData,
-            [xGlobalDestination, yGlobalDestination]
-        );
-    }
-
     // Drag Motion
 
     onMotion(X, Y) {
@@ -694,11 +476,11 @@ const DragManager = class {
 
     // Selection HighLighting
 
-    unHighLightDropTarget() {
+    clearDropTargetHighlight() {
         this._displayList.forEach(item => item.unHighLightDropTarget());
     }
 
-    selected(fileItem, action) {
+    updateSelection(fileItem, action) {
         this._clearKeyboardSelection();
         switch (action) {
         case this._Enums.Selection.ALONE:
@@ -747,251 +529,32 @@ const DragManager = class {
         this._desktopManager.desktopActions.lastAnchorSelected = null;
     }
 
-    // File Copy Move Link Methods
-
-    async copyOrMoveUris(uriList, destinationUri, event, params = {}) {
-        if (params.forceCopy) {
-            this._DBusUtils.RemoteFileOperations.CopyURIsRemote(
-                uriList,
-                destinationUri,
-                event
-            );
-            return Gdk.DragAction.COPY;
-        }
-
-        const moveFiles = [];
-        const copyFiles = [];
-
-        await Promise.all(uriList.map(async uri => {
-            const f = Gio.File.new_for_uri(uri);
-            const localFile = await this._fileIsOnDesktopFileSystem(f);
-
-            // localFile is null if it does not exist, false if on different
-            // fileystem, true if on the same filesystem as the Desktop Folder
-            if (localFile == null) {
-                console.error(`Cannot Copy/Move, ${uri} does not exist`);
-                const header = _('Copy/Move Failed');
-                const text = _('{0} Does not exist').replace('{0}', uri);
-                this._dbusManager.doNotify(header, text);
-                return;
-            }
-            if (localFile)
-                moveFiles.push(uri);
-            else
-                copyFiles.push(uri);
-        }));
-
-        if (moveFiles.length) {
-            this._DBusUtils.RemoteFileOperations.MoveURIsRemote(
-                moveFiles,
-                destinationUri,
-                event
-            );
-        }
-
-        if (copyFiles.length) {
-            this._DBusUtils.RemoteFileOperations.CopyURIsRemote(
-                copyFiles,
-                destinationUri,
-                event
-            );
-        }
-
-        return moveFiles.length ? Gdk.DragAction.MOVE : Gdk.DragAction.COPY;
-    }
-
-    async askWhatToDoWithFiles(
-        fileList,
-        destinationuri,
-        X,
-        Y,
-        x,
-        y,
-        event,
-        opts = {desktopactions: true}
-    ) {
-        const window = this._desktopManager.getDialogParentWindow();
-        this._mainApp.activate_action('textEntryAccelsTurnOff', null);
-        const chooser = new Gtk.AlertDialog();
-        chooser.set_message(_('Choose Action for Files'));
-        chooser.buttons = [_('Move'), _('Copy'), _('Link'), _('Cancel')];
-        chooser.set_modal(false);
-        chooser.set_cancel_button(3);
-        chooser.set_default_button(3);
-        const cancellable = Gio.Cancellable.new();
-        if (this.dialogCancellable)
-            this.dialogCancellable.cancel();
-        this.dialogCancellable = cancellable;
-        const showdialog = new Promise(resolve => {
-            chooser.choose(window, cancellable, async (actor, choice) => {
-                let retval = Gtk.ResponseType.CANCEL;
-                try {
-                    const buttonpress = actor.choose_finish(choice);
-                    switch (buttonpress) {
-                    case 0:
-                        retval = Gdk.DragAction.MOVE;
-                        try {
-                            if (opts.desktopactions) {
-                                await this.clearFileCoordinates(
-                                    fileList,
-                                    [X, Y]
-                                );
-                            }
-
-                            let forceCopy = false;
-
-                            await this.copyOrMoveUris(
-                                fileList,
-                                destinationuri,
-                                event,
-                                {forceCopy}
-                            );
-                        } catch {
-                            console.error('Error moving files');
-                        }
-                        break;
-                    case 1:
-                        retval = Gdk.DragAction.COPY;
-                        try {
-                            if (opts.desktopactions) {
-                                await this.clearFileCoordinates(
-                                    fileList,
-                                    [X, Y],
-                                    {dopCopy: true}
-                                );
-                            }
-
-                            let forceCopy = true;
-
-                            await this.copyOrMoveUris(fileList,
-                                destinationuri, event, {forceCopy});
-                        } catch {
-                            console.error('Error copying files');
-                        }
-                        break;
-                    case 2:
-                        retval = Gdk.DragAction.LINK;
-                        try {
-                            if (opts.desktopactions) {
-                                await this.makeLinks(
-                                    fileList,
-                                    destinationuri,
-                                    X,
-                                    Y
-                                );
-                            } else {
-                                this._makeFileSystemLinks(
-                                    fileList,
-                                    destinationuri
-                                );
-                            }
-                        } catch {
-                            console.error('Error making links');
-                        }
-                        break;
-                    default:
-                        retval = Gtk.ResponseType.CANCEL;
-                    }
-                    resolve(retval);
-                } catch (e) {
-                    if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED)) {
-                        console.error(
-                            e,
-                            'Error asking choosing what to do with Files ' +
-                            `${e.message}`
-                        );
-                    }
-                    resolve(retval);
-                }
-            });
-        });
-        const retval = await showdialog.catch(e => logError(e));
-        this.dialogCancellable = null;
-        this._mainApp.activate_action('textEntryAccelsTurnOn', null);
-        return retval;
-    }
-
-    async makeLinks(fileList, destination, X, Y) {
-        const gioDestination = Gio.File.new_for_uri(destination);
-
-        await Promise.all(fileList.map(async file => {
-            const fileGio = Gio.File.new_for_uri(file);
-
-            const newSymlinkName =
-                this._desktopManager.desktopMonitor
-                .getDesktopUniqueFileName(
-                    fileGio.get_basename()
-                );
-
-            const symlinkGio =
-                Gio.File.new_build_filenamev(
-                    [gioDestination.get_path(), newSymlinkName]
-                );
-
-            try {
-                const linkMade =
-                    symlinkGio.make_symbolic_link(
-                        GLib.build_filenamev([fileGio.get_path()]),
-                        null
-                    );
-
-                if (linkMade) {
-                    const info = new Gio.FileInfo();
-
-                    info.set_attribute_string(
-                        'metadata::nautilus-drop-position',
-                        `${X},${Y}`
-                    );
-
-                    info.set_attribute_string(
-                        'metadata::desktop-icon-position',
-                        ''
-                    );
-
-                    try {
-                        await symlinkGio.set_attributes_async(
-                            info,
-                            Gio.FileQueryInfoFlags.NONE,
-                            GLib.PRIORITY_LOW,
-                            null
-                        );
-                    } catch (e) {
-                        console.error(e, 'Error setting link FileInfo');
-                    }
-                }
-            } catch {
-                console.error('Error making desktop links');
-                const header = _('Making SymLink Failed');
-                const text = _('Could not create symbolic link');
-                this._dbusManager.doNotify(header, text);
-            }
-        }));
-    }
-
     // Getters and Setters
 
-    get pendingDropFiles() {
-        return this._pendingDropFiles;
-    }
-
-    set pendingDropFiles(object) {
-        this._pendingDropFiles = object;
-    }
-
-    get pendingSelfCopyFiles() {
-        return this._pendingSelfCopyFiles;
-    }
-
-    set pendingSelfCopyFiles(object) {
-        this._pendingSelfCopyFiles = object;
-    }
-
-    get currentSelection() {
+    get _currentSelection() {
         return this._desktopManager.getCurrentSelection();
     }
 
-    get currentWorkingList() {
-        return this._desktopManager.currentWorkingList;
+    get _sourceActionsForCurrentSelection() {
+        const selection = this._currentSelection;
+        const noAction = Gdk.DragAction.NONE ?? 0;
+
+        if (!selection?.length)
+            return noAction;
+
+        // Special icons only expose DING's private format. MOVE means
+        // repositioning those icons on the desktop, not moving their files.
+        if (selection.some(fileItem => fileItem.isSpecial))
+            return Gdk.DragAction.MOVE;
+
+        let actions = Gdk.DragAction.COPY |
+            Gdk.DragAction.LINK |
+            Gdk.DragAction.ASK;
+
+        if (selection.every(fileItem => fileItem.canDelete))
+            actions |= Gdk.DragAction.MOVE;
+
+        return actions;
     }
 
     get _displayList() {
@@ -1002,11 +565,7 @@ const DragManager = class {
         return this._desktopManager._desktops;
     }
 
-    get _desktopDir() {
-        return this._desktopManager._desktopDir;
-    }
-
-    get localDrag() {
-        return this._localDrag();
+    get _localDrag() {
+        return this._desktops.some(grid => grid.dragIsOverGrid);
     }
 };

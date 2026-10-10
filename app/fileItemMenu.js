@@ -510,6 +510,8 @@ const FileItemActions = class {
         this._appChooser = this._desktopManager.appChooser;
         this._dbusManager = this._desktopManager.dbusManager;
         this._dragManager = this._desktopManager.dragManager;
+        this._dropOperations = this._desktopManager.dropOperations;
+        this._clipboardManager = desktopManager.clipboardManager;
         this._createFileItemMenuActions();
     }
 
@@ -1244,18 +1246,24 @@ const FileItemActions = class {
 
         const desktopFolderUri = this._desktopDir.get_uri();
         const [X, Y] = this.activeFileItem.getCoordinates().slice(0, 2);
-        this._dragManager.makeLinks(toLink, desktopFolderUri, X, Y)
+        const dropPosition =
+            this._dropOperations.desktopPositionForDrop([X, Y]);
+        this._dropOperations.createSymbolicLinks(
+            toLink,
+            desktopFolderUri,
+            dropPosition
+        )
         .catch(e => logError(e));
     }
 
     _doCopy() {
         const copy = true;
-        this._manageCutCopy(copy);
+        this._clipboardManager.copyOrCutSelection(copy);
     }
 
     _doCut() {
         const cut = false;
-        this._manageCutCopy(cut);
+        this._clipboardManager.copyOrCutSelection(cut);
     }
 
     async _bulkCopy() {
@@ -1294,7 +1302,7 @@ const FileItemActions = class {
             .catch(e => console.error(e));
 
         if (folder) {
-            this._dragManager.saveCurrentFileCoordinatesForUndo();
+            this._dropOperations.rememberSelectedFilePositionsForUndo();
             this._DBusUtils
                 .RemoteFileOperations
                 .MoveURIsRemote(moveList, folder.get_uri());
@@ -1330,8 +1338,11 @@ const FileItemActions = class {
         if (!selectionItems || !selectionItems.length)
             return;
 
-        if (!localDrag)
-            this._dragManager.saveCurrentFileCoordinatesForUndo(selectionItems);
+        if (!localDrag) {
+            this._dropOperations.rememberSelectedFilePositionsForUndo(
+                selectionItems
+            );
+        }
 
         const selectionURIs = [];
 
@@ -1390,94 +1401,8 @@ const FileItemActions = class {
         this._DesktopIconsUtil.trySpawn(null, params, environ);
     }
 
-    // Clipboard management
-    // ************************************************************************ */
-    /*
-     * Before Gnome Shell 40, St API couldn't access binary data in the clipboard,
-     * only text data. Also, the original Desktop Icons was a pure extension, so it
-     * was limited to what Clutter and St offered. That was the reason why Nautilus
-     * accepted a text format for CUT and COPY operations in the form:
-     *
-     *     x-special/nautilus-clipboard
-     *     OPERATION
-     *     FILE_URI
-     *     [FILE_URI]
-     *     [...]
-     *
-     * In Gnome Shell 40, St was enhanced and now it supports binary data; that's
-     * why Nautilus migrated to a binary format identified by the atom
-     * 'x-special/gnome-copied-files', where the CUT or COPY operation is shared.
-     *
-     * To maintain compatibility, in the past, we checked the current Gnome Shell
-     * version and, based on that, set the binary or the text clipboards.
-     *
-     * With the newer versions of gtk4-ding, we only set the binary version and add
-     * other composite providers for the plain text versions like the newer
-     * Nautilus/Files.
-     */
-
-    _manageCutCopy(action) {
-        const uriList =
-            this._dragManager
-            .fillDragDataGet(this._Enums.DndTargetInfo.TEXT_URI_LIST);
-
-        if (!uriList?.length)
-            return;
-
-        const pathList =
-            this._dragManager
-            .fillDragDataGet(this._Enums.DndTargetInfo.TEXT_PLAIN);
-
-        const clipboard = Gdk.Display.get_default().get_clipboard();
-        const textCoder = new TextEncoder();
-
-        let content = action ? 'copy\n' : 'cut\n';
-        content += uriList?.replaceAll('\r', '').trim();
-
-        const encodedUriList = textCoder.encode(uriList);
-        const encodedPathList = textCoder.encode(pathList);
-
-        const gnomeContentProvider =
-            Gdk.ContentProvider.new_for_bytes(
-                'x-special/gnome-copied-files',
-                textCoder.encode(content)
-            );
-
-        const textUriListContentProvider =
-            Gdk.ContentProvider
-            .new_for_bytes(
-                this._Enums.DndTargetInfo.URI_LIST,
-                encodedUriList
-            );
-
-        const textListContentProvider =
-            Gdk.ContentProvider
-                .new_for_bytes(
-                    this._Enums.DndTargetInfo.TEXT_PLAIN,
-                    encodedPathList
-                );
-
-        const textUtf8ListContentProvider =
-            Gdk.ContentProvider
-            .new_for_bytes(
-                this._Enums.DndTargetInfo.TEXT_PLAIN_UTF8,
-                encodedPathList
-            );
-
-        const clipboardContentProvider =
-            Gdk.ContentProvider.new_union([
-                gnomeContentProvider,
-                textUriListContentProvider,
-                textListContentProvider,
-                textUtf8ListContentProvider,
-            ]);
-
-        clipboard.set_content(clipboardContentProvider);
-    }
-
-
     get _desktopDir() {
-        return this._desktopManager._desktopDir;
+        return this._desktopManager.desktopDir;
     }
 
     get activeFileItem() {

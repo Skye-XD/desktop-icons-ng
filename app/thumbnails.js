@@ -82,6 +82,108 @@ const ThumbnailLoader = class {
         this.textCoder = new TextEncoder();
     }
 
+    /**
+     * Render untrusted dropped bytes through the desktop thumbnail pipeline.
+     * The temporary source is removed and no thumbnail is cached for its URI.
+     *
+     * @param {GLib.Bytes} bytes dropped representation
+     * @param {?string} suggestedName source-supplied filename
+     * @param {?string} suppliedContentType advertised content type
+     * @param {Gio.Cancellable} cancellable drop cancellable
+     * @returns {Promise<?GdkPixbuf.Pixbuf>} rendered thumbnail
+     */
+    async createThumbnailForDroppedBytes(bytes, suggestedName,
+        suppliedContentType, cancellable) {
+        const directory = Gio.File.new_for_path(
+            GLib.Dir.make_tmp('ding-drop-thumbnail-XXXXXX')
+        );
+        const filename = this.FileUtils.sanitizeFilename(
+            suggestedName,
+            'Dropped content'
+        );
+        const file = directory.get_child(filename);
+
+        try {
+            await this.FileUtils.writeExclusive(file, bytes, cancellable);
+            const [guessedContentType] = Gio.content_type_guess(
+                filename,
+                bytes.get_data()
+            );
+            const contentType = suppliedContentType &&
+                suppliedContentType !== 'application/octet-stream'
+                ? suppliedContentType
+                : guessedContentType;
+            const info = await file.query_info_async(
+                'standard::size,time::modified',
+                Gio.FileQueryInfoFlags.NONE,
+                GLib.PRIORITY_DEFAULT,
+                cancellable
+            );
+            const temporaryFile = {
+                file,
+                uri: file.get_uri(),
+                path: file.get_path(),
+                displayName: filename,
+                fileSize: info.get_size(),
+                modifiedTime: info.get_attribute_uint64('time::modified'),
+                attributeContentType: contentType,
+            };
+
+            if (this.canThumbnail(temporaryFile)) {
+                try {
+                    return await this._thumbnailFactory.generate_thumbnail_async(
+                        temporaryFile.uri,
+                        contentType,
+                        cancellable
+                    );
+                } catch (e) {
+                    if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
+                        throw e;
+                }
+            }
+
+            return this._createThumbnailLocally(temporaryFile, cancellable);
+        } finally {
+            await file.delete_async(GLib.PRIORITY_DEFAULT, null)
+                .catch(() => {});
+            await directory.delete_async(GLib.PRIORITY_DEFAULT, null)
+                .catch(() => {});
+        }
+    }
+
+    /**
+     * Persist a generated pixbuf as content-addressed custom-icon data.
+     *
+     * @param {GdkPixbuf.Pixbuf} icon generated link icon
+     * @param {Gio.File} directory application-owned XDG data directory
+     * @param {?Gio.Cancellable} cancellable operation cancellable
+     * @returns {Promise<string>} custom-icon file URI
+     */
+    async saveCustomIcon(icon, directory, cancellable = null) {
+        try {
+            await this.FileUtils.recursivelyMakeDir(directory, cancellable);
+        } catch (e) {
+            if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.EXISTS))
+                throw e;
+        }
+
+        const bytes = Gdk.Texture.new_for_pixbuf(icon).save_to_png_bytes();
+        const digest = GLib.compute_checksum_for_bytes(
+            GLib.ChecksumType.SHA256,
+            bytes
+        );
+        const file = directory.get_child(`${digest}.png`);
+
+        try {
+            await this.FileUtils.writeExclusive(file, bytes, cancellable);
+        } catch (e) {
+            if (!e.matches?.(Gio.IOErrorEnum, Gio.IOErrorEnum.EXISTS))
+                throw e;
+        }
+
+        return file.get_uri();
+    }
+
     async _generateThumbnail(file, cancellable) {
         if (!await this.FileUtils.queryExists(file.file))
             return null;

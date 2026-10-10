@@ -18,6 +18,7 @@
  */
 import {Gio, GLib, DesktopAppInfo} from '../../dependencies/gi.js';
 import {_} from '../../dependencies/gettext.js';
+import {WebUtils} from '../../dependencies/localFiles.js';
 
 export {DesktopIconsUtil};
 
@@ -26,6 +27,7 @@ const DesktopIconsUtil = class {
         this.mainApp = Data.mainApp;
         this.Enums = Data.Enums;
         this.FileUtils = Utils.FileUtils;
+        this.ThumbnailLoader = Utils.ThumbnailLoader;
         this.Prefs = Utils.Preferences;
     }
 
@@ -367,32 +369,32 @@ const DesktopIconsUtil = class {
      * @param {object} opts Oject with boolean option keys
      */
     getFileExtensionOffset(filename, opts = {'isDirectory': false}) {
-        let offset = filename.length;
-        let extension = '';
+        return this.FileUtils.getFileExtensionOffset(filename, opts);
+    }
 
-        if (!opts.isDirectory) {
-            const doubleExtensions =
-                ['.gz', '.bz2', '.sit', '.Z', '.bz', '.xz'];
+    /**
+     * Extracts the original basename prefix from a Nautilus collision name.
+     * Nautilus builds duplicate names from the unchanged basename, a
+     * localized parenthesized copy tag, and the original file extension:
+     * "Example" + " (copy)" + ".txt". The words and ordinal forms inside
+     * the parentheses vary by locale, so this deliberately recognizes the
+     * parenthesized structure instead of matching translated text.
+     * For example, "Example (copy).txt" returns "Example".
+     * An ordinary filename can have the same structure, so this is only a
+     * placement heuristic. A false match cannot affect file names or data;
+     * at worst, the pending drop position is lost and normal icon placement
+     * is used, as it would be when no collision name can be recognized.
+     *
+     * @param {string} basename name chosen by Nautilus for the copied file
+     * @returns {?string} basename before the copy suffix, or null when absent
+     */
+    getBasenameBeforeCopySuffix(basename) {
+        const copySuffix = /\(.*\)[^()]*$/;
+        const suffixPosition = basename.search(copySuffix);
+        if (suffixPosition <= 1)
+            return null;
 
-            for (const item of doubleExtensions) {
-                if (filename.endsWith(item)) {
-                    offset -= item.length;
-                    extension = filename.substring(offset);
-                    filename = filename.substring(0, offset);
-                    break;
-                }
-            }
-
-            let lastDot = filename.lastIndexOf('.');
-
-            if (lastDot > 0) {
-                offset = lastDot;
-                extension = filename.substring(offset) + extension;
-                filename = filename.substring(0, offset);
-            }
-        }
-
-        return {offset, 'basename': filename, extension};
+        return basename.slice(0, suffixPosition - 1);
     }
 
 
@@ -777,18 +779,7 @@ const DesktopIconsUtil = class {
 
         await this.replaceFileContentsAsync(file, text, cancellable);
 
-        if (dropCoordinates !== null) {
-            const info = new Gio.FileInfo();
-            info.set_attribute_string('metadata::nautilus-drop-position',
-                `${dropCoordinates.join(',')}`);
-
-            await file.set_attributes_async(
-                info,
-                Gio.FileQueryInfoFlags.NONE,
-                GLib.PRIORITY_LOW,
-                cancellable
-            );
-        }
+        await this.FileUtils.setDropPosition(file, dropCoordinates, cancellable, GLib.PRIORITY_LOW);
     }
 
     /**
@@ -1028,5 +1019,181 @@ const DesktopIconsUtil = class {
         }
 
         await this.replaceFileContentsAsync(file, text, cancellable);
+    }
+
+    /**
+     * Keep a descriptive title, otherwise name the link from its URL.
+     *
+     * @param {string} title page title
+     * @param {?string} url fallback URL
+     * @returns {string} safe basename
+     */
+    linkBasename(title, url) {
+        const fallback = url
+            ? WebUtils.filenameFromURL(url) ?? 'Link'
+            : 'File';
+        const descriptiveTitle = WebUtils.webURL(title) ? '' : title;
+        return this.FileUtils.sanitizeFilename(descriptiveTitle, fallback);
+    }
+
+    /**
+     * Save supplied file contents without overwriting or trusting executable data.
+     *
+     * @param {Gio.File} directory desktop directory
+     * @param {object} data suggested name and owned bytes
+     * @param {?object} pendingPlacement callbacks that register the candidate
+     * basename with its pending desktop position
+     * @returns {Promise<Gio.File>} created file
+     */
+    createContentFile(directory, data, pendingPlacement = null) {
+        const name = this.linkBasename(data.name, null);
+        return this.FileUtils.createUniqueFile(
+            directory,
+            name,
+            data.bytes,
+            null,
+            pendingPlacement
+        );
+    }
+
+    transferTextFilename(text) {
+        const firstWords = text.trim()
+            .split(/\s+/u)
+            .slice(0, this.Enums.TRANSFER_TEXT_FILENAME_WORDS)
+            .join(' ');
+        return this.FileUtils.sanitizeFilename(firstWords, 'Dragged Text');
+    }
+
+    createTransferTextFile(directory, text, pendingPlacement = null) {
+        const filename = this.transferTextFilename(text);
+        const bytes = new GLib.Bytes(new TextEncoder().encode(text));
+        return this.FileUtils.createUniqueFile(
+            directory,
+            filename,
+            bytes,
+            null,
+            pendingPlacement
+        );
+    }
+
+    /**
+     * Persist normalized contents produced by ContentReader.
+     *
+     * @param {Gio.File} directory target desktop directory
+     * @param {DropContents} contents decoded transfer contents
+     * @param {object} pendingPlacement callbacks that register each candidate
+     * basename with its pending desktop position before the folder monitor can
+     * observe the created file
+     * @returns {Promise<boolean>} whether supported contents were written
+     */
+    async writeTransferContentToDesktop(
+        directory,
+        contents,
+        pendingPlacement
+    ) {
+        const types = this.Enums.DropContentsType;
+
+        if (contents.type === types.FILE_CONTENT) {
+            await this.createContentFile(
+                directory,
+                contents,
+                pendingPlacement
+            );
+            return true;
+        }
+
+        if (contents.type === types.WEB_LINKS) {
+            let customIconURI = null;
+            if (contents.customIcon && this.ThumbnailLoader) {
+                const customIconsDirectory = this.getAppUserDataDir()
+                    .get_child('link-icons');
+                customIconURI = await this.ThumbnailLoader.saveCustomIcon(
+                    contents.customIcon,
+                    customIconsDirectory
+                ).catch(() => null);
+            }
+
+            for (const link of contents.links) {
+                // Serialize writes so duplicate titles get predictable suffixes.
+                // eslint-disable-next-line no-await-in-loop
+                await this.createLinkFile(
+                    directory,
+                    link,
+                    pendingPlacement,
+                    customIconURI
+                );
+            }
+            return true;
+        }
+
+        if (contents.type === types.TEXT) {
+            await this.createTransferTextFile(
+                directory,
+                contents.text,
+                pendingPlacement
+            );
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * Create collision-free symbolic links for a file-reference operation.
+     *
+     * @param {Gio.File} directory destination directory
+     * @param {string[]} fileReferences source URIs
+     * @param {?object} pendingPlacement optional desktop placement callbacks
+     * @returns {Promise<Gio.File[]>} created symbolic links
+     */
+    createSymbolicLinks(
+        directory,
+        fileReferences,
+        pendingPlacement = null
+    ) {
+        return Promise.all(fileReferences.map(reference => {
+            const source = Gio.File.new_for_uri(reference);
+            return this.FileUtils.createUniqueSymbolicLink(
+                directory,
+                source,
+                null,
+                pendingPlacement
+            );
+        }));
+    }
+
+    /**
+     * Create a uniquely named HTML link; optional metadata failures are nonfatal.
+     *
+     * @param {Gio.File} directory target desktop directory
+     * @param {object} link validated URL and title
+     * @param {?object} pendingPlacement callbacks that register the candidate
+     * basename with its pending desktop position
+     * @param {?string} customIconURI persistent custom-icon URI
+     * @returns {Promise<Gio.File>} created file
+     */
+    async createLinkFile(
+        directory,
+        link,
+        pendingPlacement = null,
+        customIconURI = null
+    ) {
+        const basename = this.linkBasename(link.title, link.url);
+        const bytes = new GLib.Bytes(new TextEncoder().encode(WebUtils.linkHTML(link.url, link.title)));
+        const file = await this.FileUtils.createUniqueFile(
+            directory,
+            `${basename}.html`,
+            bytes,
+            null,
+            pendingPlacement
+        );
+        if (customIconURI) {
+            await this.FileUtils.setStringAttribute(
+                file,
+                'metadata::custom-icon',
+                customIconURI
+            ).catch(() => {});
+        }
+        return file;
     }
 };
