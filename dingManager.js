@@ -922,9 +922,11 @@ var DingExtensionService = class {
         this.geometryUpdate = updateDesktopGeometryCB;
         this.setWidgetLayerRaisedCB = setWidgetLayerRaisedCB;
         this.synthesizeHover = new SynthesizeHover();
+        this._shellDragCursorActorRef = null;
     }
 
     disable() {
+        this.setDragCursor('default');
         this.synthesizeHover.disable();
     }
 
@@ -996,23 +998,45 @@ var DingExtensionService = class {
     }
 
     setDragCursor(cursor) {
-        const actor = global.get_stage().get_grab_actor?.();
+        const currentGrabActor = global.get_stage().get_grab_actor();
         const CursorType = Clutter.CursorType;
+        let cursorType;
 
         switch (cursor) {
         case 'dndMoveCursor':
-            actor?.set_cursor_type(CursorType.MOVE);
+            cursorType = CursorType.MOVE;
             break;
         case 'dndCopyCursor':
-            actor?.set_cursor_type(CursorType.COPY);
+            cursorType = CursorType.COPY;
             break;
         case 'dndNoDropCursor':
-            actor?.set_cursor_type(CursorType.NO_DROP);
+            cursorType = CursorType.NO_DROP;
             break;
         default:
-            actor?.set_cursor_type(CursorType.DEFAULT);
-            break;
+            cursorType = CursorType.DEFAULT;
         }
+
+        if (cursorType === CursorType.DEFAULT) {
+            const ownedActor = this._shellDragCursorActorRef?.deref();
+            this._shellDragCursorActorRef = null;
+
+            // Mutter resets and destroys its drag actor when the grab ends.
+            // Only reset our override while that same grab is still current;
+            // never call methods on an actor retained from an earlier grab.
+            if (currentGrabActor && currentGrabActor === ownedActor)
+                currentGrabActor.set_cursor_type(cursorType);
+            return;
+        }
+
+        // Workspace animations grab the persistent Shell stage. Never put a
+        // drag cursor on that actor, or on another Shell modal grab: it can
+        // outlive the drag and leave the cursor stuck across the desktop.
+        if (!currentGrabActor || currentGrabActor === global.stage ||
+            Main.modalCount > 0)
+            return;
+
+        this._shellDragCursorActorRef = new WeakRef(currentGrabActor);
+        currentGrabActor.set_cursor_type(cursorType);
     }
 
     getShellGlobalCoordinates() {

@@ -344,11 +344,18 @@ const DragManager = class {
         this._startGnomeShellDrag();
     }
 
-    async onDragCancel(reason) {
+    onDragCancel(reason) {
         if (reason === Gdk.DragCancelReason.NO_TARGET ||
             reason === Gdk.DragCancelReason.ERROR) {
-            return await this.gnomeShellDrag?.completeGnomeShellDrop()
-                .catch(e => console.error(e)) ?? false;
+            const shellDropHandled =
+                this.gnomeShellDrag?.completeGnomeShellDrop() ?? false;
+
+            if (shellDropHandled) {
+                // GTK accepts that we handled the failed drag, but on
+                // Wayland the compositor has already cancelled it, so
+                // this cannot prevent the return animation.
+                return true;
+            }
         }
 
         return false;
