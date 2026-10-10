@@ -299,12 +299,6 @@ const DingManager = class {
     disable() {
         this.isEnabled = false;
         this.DesktopIconsUsableArea = null;
-        this._killCurrentProcess();
-        this.GnomeShellOverride.disable();
-        this.windowTypeManager.disable();
-        this.visibleArea.disable();
-        this.ShortcutManager.disable();
-
         if (this.startupProcessKillWaitId) {
             GLib.source_remove(this.startupProcessKillWaitId);
             this.startupProcessKillWaitId = 0;
@@ -313,6 +307,7 @@ const DingManager = class {
             Main.layoutManager.disconnect(this.startupPreparedId);
             this.startupPreparedId = 0;
         }
+        this._killCurrentProcess();
         if (this.monitorsChangedId) {
             Main.layoutManager.disconnect(this.monitorsChangedId);
             this.monitorsChangedId = 0;
@@ -322,7 +317,7 @@ const DingManager = class {
             this.workareasChangedId = 0;
         }
         if (this.visibleAreaId) {
-            this.visibleArea.disconnect(this.visibleAreaId);
+            this.visibleArea?.disconnect(this.visibleAreaId);
             this.visibleAreaId = 0;
         }
         if (this.scaleFactorId) {
@@ -344,6 +339,15 @@ const DingManager = class {
             this.remoteGeometryUpdateRequestedId = 0;
         }
 
+        this.ShortcutManager?.disable();
+        this.ShortcutManager = null;
+        this.visibleArea?.disable();
+        this.visibleArea = null;
+        this.windowTypeManager?.disable();
+        this.windowTypeManager = null;
+        this.GnomeShellOverride?.disable();
+        this.GnomeShellOverride = null;
+        this.remoteDingActions = null;
         this.settings = null;
 
         console.log('Adw-DING disabled.');
@@ -506,7 +510,7 @@ const DingManager = class {
         }
 
         this.waylandClient = null;
-        this.windowTypeManager.set_wayland_client(null);
+        this.windowTypeManager?.set_wayland_client(null);
     }
 
     /**
@@ -566,7 +570,7 @@ const DingManager = class {
      */
     _doRelaunch(reloadTime) {
         this.waylandClient = null;
-        this.windowTypeManager.set_wayland_client(null);
+        this.windowTypeManager?.set_wayland_client(null);
         if (this.isEnabled) {
             if (this.launchDesktop)
                 GLib.source_remove(this.launchDesktop);
