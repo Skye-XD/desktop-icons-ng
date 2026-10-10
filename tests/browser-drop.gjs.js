@@ -3,6 +3,7 @@
 import {Gio, GLib, Gdk, GdkPixbuf} from '../dependencies/gi.js';
 import {WebUtils, DesktopIconsUtil, FileUtils, Enums, Thumbnails} from '../dependencies/localFiles.js';
 import {DropSession} from '../app/dropSession.js';
+import {ContentReader} from '../app/contentReader.js';
 
 const {decodeText, linkHTML, parseHTMLLink, parseURLTitle, webURL} = WebUtils;
 const thumbnailLoader = new Thumbnails.ThumbnailLoader(FileUtils);
@@ -116,6 +117,90 @@ const startSession = drop => {
     session.accept(drop);
     return session;
 };
+
+// Clipboard sources need only transfer APIs, without drop negotiation methods.
+const clipboardReaders = ['First clipboard text', 'Second clipboard text']
+    .map(text => {
+        const offered = fakeDrop({'text/plain': text});
+        return new ContentReader({
+            read_async: offered.read_async.bind(offered),
+        }, {
+            mimeTypes: ['text/plain'],
+            route: Enums.DndOfferRoute.READ_TEXT_OR_WEB_LINK,
+            cancellable: new Gio.Cancellable(),
+        }, thumbnailLoader);
+    });
+const clipboardContents = await Promise.all(
+    clipboardReaders.map(reader => reader.readContents())
+);
+equal(clipboardContents, [
+    {type: 'text', text: 'First clipboard text'},
+    {type: 'text', text: 'Second clipboard text'},
+]);
+
+const readClipboardContents = (representations, route) => {
+    const source = fakeDrop(representations);
+    return new ContentReader(source, {
+        formats: source.get_formats(),
+        mimeTypes: Object.keys(representations),
+        route,
+        cancellable: new Gio.Cancellable(),
+    }, thumbnailLoader).readClipboardContents();
+};
+for (const isCut of [false, true]) {
+    const operation = isCut ? 'cut' : 'copy';
+    const expected = {
+        type: 'file-references', references: 'file:///one\r\nfile:///two',
+        format: 'text/uri-list', isCut,
+    };
+    equal(await readClipboardContents({
+        'x-special/gnome-copied-files': `${operation}\nfile:///one\nfile:///two`,
+        'text/plain': 'ignored fallback',
+    }, Enums.DndOfferRoute.READ_TEXT_OR_WEB_LINK), expected);
+    equal(await readClipboardContents({
+        'text/plain':
+            `x-special/nautilus-clipboard\n${operation}\nfile:///one\nfile:///two`,
+    }, Enums.DndOfferRoute.READ_TEXT_OR_WEB_LINK), expected);
+}
+const manyFiles = Array.from({length: 1000}, (_, i) => `file:///file-${i}`);
+const manyContents = await readClipboardContents({
+    'x-special/gnome-copied-files': `copy\n${manyFiles.join('\n')}`,
+}, Enums.DndOfferRoute.READ_TEXT_OR_WEB_LINK);
+equal(manyContents.references.split('\r\n'), manyFiles);
+equal((await readClipboardContents({
+    'x-special/gnome-copied-files': 'copy\ninvalid reference',
+}, Enums.DndOfferRoute.READ_TEXT_OR_WEB_LINK)).type, 'unsupported');
+equal(await readClipboardContents({
+    'text/plain': 'Paragraph containing https://example.com remains text.',
+}, Enums.DndOfferRoute.READ_TEXT_OR_WEB_LINK), {
+    type: 'text', text: 'Paragraph containing https://example.com remains text.',
+});
+equal(await readClipboardContents({
+    'text/uri-list': 'file:///one\r\nfile:///two',
+}, Enums.DndOfferRoute.INSPECT_URI_LIST), {
+    type: 'file-references', references: 'file:///one\r\nfile:///two',
+    format: 'text/uri-list', isCut: false,
+});
+const typedFileReader = new ContentReader({
+    read_value_async: () => Promise.resolve(Gdk.FileList.new_from_array([
+        Gio.File.new_for_uri('file:///one'),
+    ])),
+}, {
+    formats: {contain_gtype: type => type === Gdk.FileList.$gtype},
+    mimeTypes: [],
+    route: Enums.DndOfferRoute.FILE_OPERATION,
+    cancellable: new Gio.Cancellable(),
+}, thumbnailLoader);
+const typedReferences = {
+    type: 'file-references', references: 'file:///one', format: 'text/uri-list',
+};
+equal(await typedFileReader.readContents(), typedReferences);
+equal(await typedFileReader.readClipboardContents(), {
+    ...typedReferences, isCut: false,
+});
+equal((await readClipboardContents({
+    'text/uri-list': 'https://example.com/',
+}, Enums.DndOfferRoute.INSPECT_URI_LIST)).type, 'web-links');
 
 const offerRoute = mimes => {
     const drop = fakeDrop(Object.fromEntries(mimes.map(mime => [mime, ''])));
@@ -309,6 +394,23 @@ equal(cancelledFallback.reads, ['text/x-moz-url']);
 const pixbuf = GdkPixbuf.Pixbuf.new(GdkPixbuf.Colorspace.RGB, true, 8, 16, 16);
 pixbuf.fill(0x22aa55ff);
 const png = Gdk.Texture.new_for_pixbuf(pixbuf).save_to_png_bytes();
+for (const representation of [
+    {'text/x-moz-url': payload},
+    {'text/plain': 'http://example.com/'},
+]) {
+    const clipboardLink = await readClipboardContents({
+        ...representation,
+        'image/png': png.get_data(),
+    }, Enums.DndOfferRoute.READ_TEXT_OR_WEB_LINK);
+    equal(clipboardLink.type, 'web-links');
+    assert(clipboardLink.customIcon?.get_width() > 0,
+        'Clipboard URL images must become link icons');
+}
+const clipboardImage = await readClipboardContents({
+    'image/png': png.get_data(),
+}, Enums.DndOfferRoute.READ_FILE_CONTENT);
+equal(clipboardImage.name, 'Image.png');
+equal(Array.from(clipboardImage.bytes.get_data()), Array.from(png.get_data()));
 const linkWithIcon = fakeDrop({
     'text/x-moz-url': payload,
     'image/png': png.get_data(),

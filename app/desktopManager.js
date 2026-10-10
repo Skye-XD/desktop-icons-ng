@@ -20,6 +20,7 @@ import {
     AppChooser,
     AskRenamePopup,
     AutoAr,
+    ClipboardManager,
     DesktopDropOperations,
     DesktopMenu,
     DesktopMonitor,
@@ -74,6 +75,7 @@ const DesktopManager = class {
         this.dropOperations =
             new DesktopDropOperations.DesktopDropOperations(this);
         this.dragManager = new DragManager.DragManager(this);
+        this.clipboardManager = new ClipboardManager(this);
         this.windowManager = new WindowManager.WindowManager(this,
             desktopList,
             asDesktop,
@@ -320,6 +322,7 @@ const DesktopManager = class {
 
     terminateProgram() {
         this.windowManager.stopDragHandling();
+        this.clipboardManager.destroy();
         this.dragManager.destroy();
         this.dropOperations.destroy();
         this.desktopMonitor.stopMonitoring();

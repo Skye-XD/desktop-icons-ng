@@ -45,6 +45,8 @@ Gio._promisify(Gio.OutputStream.prototype, 'write_bytes_async');
 Gio._promisify(Gio.OutputStream.prototype, 'close_async');
 Gio._promisify(Gdk.Drop.prototype, 'read_async');
 Gio._promisify(Gdk.Drop.prototype, 'read_value_async');
+Gio._promisify(Gdk.Clipboard.prototype, 'read_async');
+Gio._promisify(Gdk.Clipboard.prototype, 'read_value_async');
 
 const fileProto = imports.system.version >= 17200
     ? Gio.File.prototype : Gio._LocalFilePrototype;

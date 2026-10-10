@@ -1,6 +1,6 @@
 /* DING: Desktop Icons New Generation for GNOME Shell
  *
- * Adw/Gtk4 Port Copyright (C) 2025 Sundeep Mediratta (smedius@gmail.com)
+ * Adw/Gtk4 Port Copyright (C) 2025, 2026 Sundeep Mediratta (smedius@gmail.com)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -36,8 +36,7 @@ const DesktopActions = class {
         this._desktopMonitor = desktopManager.desktopMonitor;
         this._windowManager = desktopManager.windowManager;
         this.lastAnchorSelected = null;
-        this._isCut = false;
-        this._clipboardFiles = null;
+        this._clipboardManager = desktopManager.clipboardManager;
         this._intDBusSignalMonitoring();
         this._createMenuActionGroup();
     }
@@ -45,7 +44,8 @@ const DesktopActions = class {
     _getSushiActivationToken(file) {
         try {
             const display = Gdk.Display.get_default();
-            const appInfo = DesktopAppInfo.new('org.gnome.NautilusPreviewer.desktop') ??
+            const appInfo =
+                DesktopAppInfo.new('org.gnome.NautilusPreviewer.desktop') ??
                 DesktopAppInfo.new('org.gnome.Sushi.desktop');
 
             const ctx = display.get_app_launch_context();
@@ -70,21 +70,20 @@ const DesktopActions = class {
         this._mainApp.add_action(newFolder);
 
         this.doPasteSimpleAction = Gio.SimpleAction.new('doPaste', null);
+        this.doPasteSimpleAction.set_enabled(this._clipboardManager.canPaste);
         this.doPasteSimpleAction.connect(
             'activate',
             async () => {
                 try {
-                    if (!(this._desktopManager.popupmenu ||
-                        this._desktopManager.fileItemMenu.popupmenu))
-                        await this._updateClipboard().catch(e => logError(e));
-
-                    this._doPaste();
+                    await this._clipboardManager.paste();
                 } catch (e) {
                     console.error(e, 'Paste action failed');
                 }
             }
         );
         this._mainApp.add_action(this.doPasteSimpleAction);
+
+        this._clipboardManager.updateClipboard();
 
         this.doUndoSimpleAction = Gio.SimpleAction.new('doUndo', null);
         this.doUndoSimpleAction.connect(
@@ -115,7 +114,8 @@ const DesktopActions = class {
         );
         this._mainApp.add_action(showDesktopInFiles);
 
-        const openDesktopInTerminal = Gio.SimpleAction.new('openDesktopInTerminal', null);
+        const openDesktopInTerminal =
+            Gio.SimpleAction.new('openDesktopInTerminal', null);
         openDesktopInTerminal.connect(
             'activate',
             this._onOpenTerminalClicked.bind(this)
@@ -295,10 +295,15 @@ const DesktopActions = class {
                 this._desktopManager.fileItemMenu.popupmenu ||
                 !this.activeFileItem)
                 return;
+
             this._setKeyboardSelected(this.activeFileItem);
+
             const RemoteOperation =
                 this._DBusUtils.RemoteFileOperations;
-            const activationToken = this._getSushiActivationToken(this.activeFileItem.file);
+
+            const activationToken =
+            this._getSushiActivationToken(this.activeFileItem.file);
+
             RemoteOperation
                 .ShowFileRemote(this.activeFileItem.uri, activationToken, true)
                 .catch(e => console.error(e));
@@ -375,120 +380,6 @@ const DesktopActions = class {
         this._mainApp.add_action(toggleVisibility);
     }
 
-    _updateClipboard() {
-        return new Promise(resolve => {
-            const clipboard = Gdk.Display.get_default().get_clipboard();
-            this._isCut = false;
-            this._clipboardFiles = null;
-            /*
-             * Before Gnome Shell 40, St API couldn't access binary data in the
-             * clipboard, only text data. Also, the original Desktop Icons was a
-             * pure extension, so it was limited to what Clutter and St offered.
-             * That was the reason why Nautilus accepted a text format for CUT
-             *  and COPY operations in the form
-             *
-             *     x-special/nautilus-clipboard
-             *     OPERATION
-             *     FILE_URI
-             *     [FILE_URI]
-             *     [...]
-             *
-             * In Gnome Shell 40, St was enhanced and now it supports binary
-             * data; that's why Nautilus migrated to a binary format identified
-             * by the atom 'x-special/gnome-copied-files', where the CUT or COPY
-             *  operation is shared.
-             *
-             * To maintain compatibility, we first check if there's binary data
-             * in that atom, and if not, we check if there is text data in the
-             *  old format.
-             */
-            let text = null;
-            const textDecoder = new TextDecoder();
-            if (clipboard.get_formats()) {
-                const mimetypes = clipboard.get_formats().to_string();
-                if (mimetypes.includes('x-special/gnome-copied-files')) {
-                    try {
-                        clipboard.read_async(['x-special/gnome-copied-files'],
-                            GLib.PRIORITY_DEFAULT,
-                            null, (actor, result) => {
-                                try {
-                                    const success = actor.read_finish(result);
-
-                                    const bytes =
-                                        success[0].read_bytes(8192, null);
-
-                                    text = textDecoder.decode(bytes.get_data());
-
-                                    text =
-                                        'x-special/nautilus-clipboard\n' +
-                                        `${text}\n`;
-
-                                    this._setClipboardContent(text);
-                                    resolve(true);
-                                } catch (e) {
-                                    console.log(
-                                        'Exception while reading clipboard:' +
-                                        `${e.message}\n${e.stack}`
-                                    );
-
-                                    this._setClipboardContent(text);
-                                    resolve(false);
-                                }
-                            });
-                    } catch (e) {
-                        console.log(
-                            `Exception while reading clipboard mimetype
-                            x-special/gnome-copied-files:
-                            ${e.message}\n${e.stack}`
-                        );
-
-                        this._setClipboardContent(text);
-                        resolve(false);
-                    }
-                } else if (mimetypes.includes('text/plain')) {
-                    try {
-                        clipboard.read_async(['text/plain'],
-                            GLib.PRIORITY_DEFAULT,
-                            null,
-                            (actor, result) => {
-                                try {
-                                    const success = actor.read_finish(result);
-
-                                    const bytes =
-                                        success[0].read_bytes(8192, null);
-
-                                    text = textDecoder.decode(bytes.get_data());
-
-                                    if (text && !text.endsWith('\n'))
-                                        text += '\n';
-
-                                    this._setClipboardContent(text);
-                                    resolve(true);
-                                } catch (e) {
-                                    this._setClipboardContent(text);
-                                    resolve(false);
-                                }
-                            });
-                    } catch (e) {
-                        console.log(
-                            'Exception while reading clipboard media-type ' +
-                            `"text/plain": ${e.message}\n${e.stack}`
-                        );
-
-                        this._setClipboardContent(text);
-                        resolve(false);
-                    }
-                } else {
-                    this._setClipboardContent(text);
-                    resolve(false);
-                }
-            } else {
-                this._setClipboardContent(text);
-                resolve(false);
-            }
-        });
-    }
-
     _intDBusSignalMonitoring() {
         this._DBusUtils.GnomeNautilusPreview.connectToProxy(
             'g-signal', this._onPreviewSignal.bind(this));
@@ -543,37 +434,6 @@ const DesktopActions = class {
             });
     }
 
-    _setClipboardContent(text) {
-        const [valid, isCut, files] = this._parseClipboardText(text);
-        if (valid) {
-            this._isCut = isCut;
-            this._clipboardFiles = files;
-        }
-        this.doPasteSimpleAction.set_enabled(valid);
-    }
-
-    _parseClipboardText(text) {
-        if (text === null)
-            return [false, false, null];
-
-        const lines = text.split('\n');
-        const [mime, action, ...files] = lines;
-
-        if (mime !== 'x-special/nautilus-clipboard')
-            return [false, false, null];
-        if (!['copy', 'cut'].includes(action))
-            return [false, false, null];
-        const isCut = action === 'cut';
-
-        /* Last line is empty due to the split */
-        if (files.length <= 1)
-            return [false, false, null];
-        /* Remove last line */
-        files.pop();
-
-        return [true, isCut, files];
-    }
-
     _syncUndoRedo(hide = false) {
         if (hide) {
             this.doUndoSimpleAction.set_enabled(false);
@@ -608,28 +468,6 @@ const DesktopActions = class {
 
     _doRedo() {
         this._DBusUtils.RemoteFileOperations.RedoRemote();
-    }
-
-    _doPaste() {
-        if (this._clipboardFiles === null)
-            return;
-        if (!this._clickX && !this._clickY)
-            return;
-        const pasteCoordinates = [this._clickX, this._clickY];
-        const desktopDir = this._desktopDir.get_uri();
-        const remoteOperations = this._DBusUtils.RemoteFileOperations;
-
-        if (this._isCut) {
-            // This pops up GNOME Files error dialog, which is what we want.
-            remoteOperations.MoveURIsRemote(this._clipboardFiles, desktopDir);
-        } else {
-            this._dropOperations.prepareIncomingFilePlacement(
-                this._clipboardFiles,
-                pasteCoordinates,
-                {filesWillBeCopied: true}
-            );
-            remoteOperations.CopyURIsRemote(this._clipboardFiles, desktopDir);
-        }
     }
 
     _selectAll() {
@@ -993,9 +831,8 @@ const DesktopActions = class {
         );
     }
 
-    async updateClipboard() {
-        await this._updateClipboard()
-            .catch(e => console.error(e, 'Error updating Clipboard'));
+    updateClipboard() {
+        this._clipboardManager.updateClipboard();
     }
 
     get currentSelection() {

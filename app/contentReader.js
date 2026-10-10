@@ -7,11 +7,21 @@ import {Enums, WebUtils} from '../dependencies/localFiles.js';
 export {ContentReader};
 
 /**
+ * Clipboard reads always add isCut: true for Cut, false for Copy.
+ * Drop reads omit it and use the negotiated Gdk.DragAction instead.
+ *
+ * references and format describe the same representation:
+ * - text/uri-list: a string of newline-separated file URIs.
+ * - x-special/gnome-icon-list: a string of URIs with icon coordinates.
+ * - x-special/ding-icon-list: a Gdk.FileList for internal desktop drags.
+ * format uses the corresponding Enums.DndTargetInfo value.
+ *
  * @typedef {{
  *   type: 'file-references',
  *   references: string | Gdk.FileList,
  *   format: 'text/uri-list' | 'x-special/gnome-icon-list' |
- *     'x-special/ding-icon-list'
+ *     'x-special/ding-icon-list',
+ *   isCut?: boolean
  * }} FileReferenceContents
  *
  * @typedef {{
@@ -54,6 +64,31 @@ const ContentReader = class {
     }
 
     // Public methods
+
+    // Clipboard file references extend the shared shape with an isCut boolean.
+    // Copy/cut metadata supplies its value; references without it use false.
+    // Drops use readContents() and obtain their action from Gdk.DragAction.
+    async readClipboardContents() {
+        if (this._offersMime('x-special/gnome-copied-files')) {
+            const text = await this._readText('x-special/gnome-copied-files');
+            return this._parseCopiedFiles(text);
+        }
+
+        const contents = await this.readContents();
+        const legacyHeader = 'x-special/nautilus-clipboard\n';
+
+        if (contents.type === Enums.DropContentsType.TEXT &&
+            contents.text.startsWith(legacyHeader)) {
+            return this._parseCopiedFiles(
+                contents.text.slice(legacyHeader.length)
+            );
+        }
+
+        if (contents.type === Enums.DropContentsType.FILE_REFERENCES)
+            return {...contents, isCut: false};
+
+        return contents;
+    }
 
     async readContents() {
         const {
@@ -245,6 +280,19 @@ const ContentReader = class {
     _rethrowIfCancelled(error) {
         if (this._context.cancellable.is_cancelled())
             throw error;
+    }
+
+    _parseCopiedFiles(text) {
+        const [action, ...files] = text.trim().split(/\r?\n/u);
+        if (!['copy', 'cut'].includes(action) || !files.length ||
+            files.some(file => !GLib.Uri.peek_scheme(file)))
+            return this._unsupportedContents();
+        return {
+            type: Enums.DropContentsType.FILE_REFERENCES,
+            references: files.join('\r\n'),
+            format: Enums.DndTargetInfo.URI_LIST,
+            isCut: action === 'cut',
+        };
     }
 
     _unsupportedContents() {

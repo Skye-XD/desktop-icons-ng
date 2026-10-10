@@ -44,4 +44,5 @@ export * as WidgetApi from '../app/widgetApi.js';
 export {WebWidgetContext} from '../app/widgetWebContext.js';
 export {WidgetWindow} from '../app/widgetWindow.js';
 export {PinnedWindowManager} from '../app/pinnedWindowManager.js';
+export {ClipboardManager} from '../app/clipboardManager.js';
 export {ContentReader} from '../app/contentReader.js';
