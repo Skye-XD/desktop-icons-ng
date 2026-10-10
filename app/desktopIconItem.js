@@ -389,6 +389,12 @@ const DesktopIconItem = class {
         this._parseSavedCoordinates([]);
     }
 
+    forgetSavedCoordinates() {
+        // Update only the in-memory state. Drop placement will immediately
+        // replace it and persist the resulting desktop position.
+        this._parseSavedCoordinates(null);
+    }
+
     readDropCoordinates() {
         this._parseDropCoordinates([]);
     }

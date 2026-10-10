@@ -154,6 +154,68 @@ const Grid = vm.runInNewContext(`${controlSource}\nControlGrid`, {
 });
 const settle = () => new Promise(resolve => setImmediate(resolve));
 
+test('movable file selections advertise every supported source action', () => {
+    const manager = new DragManager({
+        Enums,
+        getCurrentSelection: () => [
+            {isSpecial: false, canDelete: true},
+            {isSpecial: false, canDelete: true},
+        ],
+    });
+
+    assert.equal(
+        manager._sourceActionsForCurrentSelection,
+        actions.COPY | actions.MOVE | actions.LINK | actions.ASK
+    );
+});
+
+test('a non-deletable file removes MOVE from the source actions', () => {
+    const manager = new DragManager({
+        Enums,
+        getCurrentSelection: () => [
+            {isSpecial: false, canDelete: true},
+            {isSpecial: false, canDelete: false},
+        ],
+    });
+
+    assert.equal(
+        manager._sourceActionsForCurrentSelection,
+        actions.COPY | actions.LINK | actions.ASK
+    );
+});
+
+test('special icon selections retain internal repositioning', () => {
+    const manager = new DragManager({
+        Enums,
+        getCurrentSelection: () => [
+            {isSpecial: true, canDelete: false},
+        ],
+    });
+
+    assert.equal(
+        manager._sourceActionsForCurrentSelection,
+        actions.MOVE
+    );
+});
+
+test('ordinary outgoing drags offer a typed file list first', () => {
+    const files = [{uri: 'file:///one'}, {uri: 'file:///two'}];
+    const manager = new DragManager({
+        Enums,
+        checkIfSpecialFilesAreSelected: () => false,
+        getCurrentSelection: () => files.map(file => ({file})),
+    });
+    manager.getSelectionData = target => target === Enums.DndTargetInfo.TEXT_PLAIN
+        ? '/one\n/two\n'
+        : 'file:///one\r\nfile:///two\r\n';
+
+    const contentProvider = manager._createDragContentProvider();
+
+    assert.equal(contentProvider.kind, 'union');
+    assert.equal(contentProvider.providers[0].kind, 'value');
+    assert.deepEqual(contentProvider.providers[0].value.files, files);
+});
+
 function fixture(mimes, logical, sourceActions = actions.COPY | actions.MOVE) {
     const grid = Object.create(Grid.prototype);
     const results = [];

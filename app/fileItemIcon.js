@@ -752,14 +752,20 @@ const FileItemIcon = class extends DesktopIconItem {
     }
 
     async _storeCoordinates(name, coords, cancellable = null) {
-        const info = new Gio.FileInfo();
-        info.set_attribute_string(
+        await this.FileUtils.setStringAttribute(
+            this._file,
             `metadata::${name}`,
-            `${coords ? coords.join(',') : ''}`
+            coords ? coords.join(',') : '',
+            cancellable,
+            GLib.PRIORITY_LOW,
+            Gio.FileQueryInfoFlags.NOFOLLOW_SYMLINKS
         );
 
-        const updateIcon = true;
-        await this._setFileAttributes(info, cancellable, !updateIcon);
+        if (cancellable && cancellable.is_cancelled()) {
+            throw new GLib.Error(Gio.IOErrorEnum,
+                Gio.IOErrorEnum.CANCELLED,
+                'Operation was cancelled');
+        }
     }
 
     writeSavedCoordinates(pos) {
@@ -871,6 +877,12 @@ const FileItemIcon = class extends DesktopIconItem {
     get canRename() {
         return !this.trustedDesktopFile &&
             (this._fileTypeEnum === this.Enums.FileType.NONE);
+    }
+
+    get canDelete() {
+        return this._fileInfo.get_attribute_boolean(
+            Gio.FILE_ATTRIBUTE_ACCESS_CAN_DELETE
+        );
     }
 
     get displayName() {

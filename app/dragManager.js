@@ -71,9 +71,7 @@ const DragManager = class {
         if (this.rubberBand)
             return null;
 
-        controller.set_actions(
-            Gdk.DragAction.MOVE | Gdk.DragAction.COPY | Gdk.DragAction.ASK
-        );
+        controller.set_actions(this._sourceActionsForCurrentSelection);
         this.localDragOffset = hotspot;
         controller.set_icon(this._createStackedDragIcon(item), ...hotspot);
         item.dragSourceOffset = hotspot;
@@ -101,6 +99,12 @@ const DragManager = class {
 
         if (this._desktopManager.checkIfSpecialFilesAreSelected())
             return dingContentProvider;
+
+        const selectedFiles = this._desktopManager.getCurrentSelection()
+            .map(fileItem => fileItem.file);
+        const fileList = Gdk.FileList.new_from_array(selectedFiles);
+        const fileListContentProvider =
+            Gdk.ContentProvider.new_for_value(fileList);
 
         const gnomeUriList =
             this.getSelectionData(
@@ -144,6 +148,7 @@ const DragManager = class {
             );
 
         return Gdk.ContentProvider.new_union([
+            fileListContentProvider,
             dingContentProvider,
             gnomeContentProvider,
             textUriListContentProvider,
@@ -521,6 +526,28 @@ const DragManager = class {
 
     get _currentSelection() {
         return this._desktopManager.getCurrentSelection();
+    }
+
+    get _sourceActionsForCurrentSelection() {
+        const selection = this._currentSelection;
+        const noAction = Gdk.DragAction.NONE ?? 0;
+
+        if (!selection?.length)
+            return noAction;
+
+        // Special icons only expose DING's private format. MOVE means
+        // repositioning those icons on the desktop, not moving their files.
+        if (selection.some(fileItem => fileItem.isSpecial))
+            return Gdk.DragAction.MOVE;
+
+        let actions = Gdk.DragAction.COPY |
+            Gdk.DragAction.LINK |
+            Gdk.DragAction.ASK;
+
+        if (selection.every(fileItem => fileItem.canDelete))
+            actions |= Gdk.DragAction.MOVE;
+
+        return actions;
     }
 
     get _displayList() {

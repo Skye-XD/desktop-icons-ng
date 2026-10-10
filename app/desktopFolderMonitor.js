@@ -235,6 +235,24 @@ const DesktopMonitor = class extends DesktopFolderUtils {
         );
     }
 
+    async _clearInheritedDesktopPosition(file) {
+        // Finish before enumeration so a late clear cannot erase coordinates
+        // saved during placement. Never follow a link to its target.
+        const info = new Gio.FileInfo();
+        info.set_attribute_string('metadata::desktop-icon-position', '');
+
+        try {
+            await file.set_attributes_async(
+                info,
+                Gio.FileQueryInfoFlags.NOFOLLOW_SYMLINKS,
+                GLib.PRIORITY_LOW,
+                null
+            );
+        } catch (e) {
+            // The file may have been removed before its metadata was cleared.
+        }
+    }
+
     async _updateFileListIfChanged(file, otherFile, eventType) {
         if (eventType === Gio.FileMonitorEvent.CHANGED) {
             // use only CHANGES_DONE_HINT
@@ -251,25 +269,12 @@ const DesktopMonitor = class extends DesktopFolderUtils {
         switch (eventType) {
         case Gio.FileMonitorEvent.MOVED_IN:
         case Gio.FileMonitorEvent.MOVED_CREATED:
-            /* Remove the coordinates that could exist to avoid conflicts
-            between files that are already in the desktop and the new one
-            */
-            try {
-                const info = new Gio.FileInfo();
-
-                info.set_attribute_string(
-                    'metadata::desktop-icon-position', ''
-                );
-
-                file.set_attributes_async(
-                    info,
-                    Gio.FileQueryInfoFlags.NONE,
-                    GLib.PRIORITY_LOW,
-                    null
-                );
-            } catch (e) {
-                // can happen if a file is created and deleted very fast
-            }
+            // Pending placement already discards inherited coordinates for
+            // DING-managed copies, moves, and links. Only files arriving from
+            // an out-of-band filesystem operation need generic cleanup.
+            if (!this.desktopManager.dropOperations
+                .isPlacementManagedFor(file.get_basename()))
+                await this._clearInheritedDesktopPosition(file);
             break;
         case Gio.FileMonitorEvent.ATTRIBUTE_CHANGED:
             /* The desktop is what changed, and not a file inside it */
@@ -563,28 +568,30 @@ const DesktopMonitor = class extends DesktopFolderUtils {
         }
 
         if (basename in this._positionsForNewFiles) {
+            // This file was created by the current drop. Copies and symbolic
+            // links can expose desktop-position metadata from their source;
+            // discard it so the current drop position takes precedence.
+            fileItem.forgetSavedCoordinates();
             fileItem.dropCoordinates = this._positionsForNewFiles[basename];
             delete this._positionsForNewFiles[basename];
             return;
         }
 
-        const regex = /\(.*\)[^()]*$/;
-        let basenameStart;
-        const lastParenthesisPosition = basename.search(regex);
+        const basenameBeforeCopySuffix = this.DesktopIconsUtil
+            .getBasenameBeforeCopySuffix(basename);
+        if (basenameBeforeCopySuffix === null)
+            return;
 
-        if (lastParenthesisPosition > 1) {
-            basenameStart = basename.slice(0, lastParenthesisPosition - 1);
-            if (basenameStart) {
-                for (let fileName of Object.keys(this._positionsForNewFiles)) {
-                    if (fileName.startsWith(basenameStart)) {
-                        fileItem.dropCoordinates =
-                            this._positionsForNewFiles[fileName];
+        const expectedCopyName = Object.keys(this._positionsForNewFiles)
+            .find(fileName => fileName.endsWith('COPYEXPECTED') &&
+                fileName.startsWith(basenameBeforeCopySuffix));
+        if (expectedCopyName === undefined)
+            return;
 
-                        delete this._positionsForNewFiles[fileName];
-                    }
-                }
-            }
-        }
+        fileItem.forgetSavedCoordinates();
+        fileItem.dropCoordinates =
+            this._positionsForNewFiles[expectedCopyName];
+        delete this._positionsForNewFiles[expectedCopyName];
     }
 
     _metadataChanged(proxy, nameOwner, args) {
@@ -628,13 +635,12 @@ const DesktopMonitor = class extends DesktopFolderUtils {
     }
 
     getDesktopUniqueFileName(fileName) {
-        let fileParts = this.DesktopIconsUtil.getFileExtensionOffset(fileName);
         let i = 0;
         let newName = fileName;
 
         while (this.fileExistsOnDesktop(newName)) {
             i += 1;
-            newName = `${fileParts.basename} ${i}${fileParts.extension}`;
+            newName = this.FileUtils.collisionName(fileName, i);
         }
         return newName;
     }
@@ -657,12 +663,12 @@ const DesktopMonitor = class extends DesktopFolderUtils {
         return this.windowManager.desktops;
     }
 
-    get _positionsForNewFiles() {
-        return this.desktopManager.positionsForNewFiles;
-    }
-
     get _positionsForExistingFiles() {
         return this.desktopManager.positionsForExistingFiles;
+    }
+
+    get _positionsForNewFiles() {
+        return this.desktopManager.positionsForNewFiles;
     }
 
     get desktopDir() {
