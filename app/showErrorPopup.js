@@ -104,8 +104,8 @@ const ShowErrorPopup = class {
 
     async _timeoutClose(time) {
         await this._waitDelayMs(time);
-        this._dialog.set_response_enabled('0', false);
-        this.close();
+        this._dialog.set_default_response('0');
+        this._dialog.get_default_widget().activate();
     }
 
     _launchUri(uri) {
