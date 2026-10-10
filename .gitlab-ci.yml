@@ -29,6 +29,14 @@ build:
     - meson setup build --wipe
     - meson compile -C build
 
+test:
+  stage: check
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+    - if: '$CI_COMMIT_BRANCH'
+  script:
+    - node --test tests/*.test.cjs
+
 package:
   stage: package
   needs:
