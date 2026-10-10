@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-import {Gio} from '../dependencies/gi.js';
+import {Gio, GLib} from '../dependencies/gi.js';
 
 import {_} from '../dependencies/gettext.js';
 
@@ -133,6 +133,37 @@ const SymLinkIcon = class {
                     'changed',
                     this._updateSymlinkIcon.bind(this)
                 );
+            }
+
+            async _queryFileInfoForRefresh(cancellable) {
+                try {
+                    return await super._queryFileInfoForRefresh(cancellable);
+                } catch (error) {
+                    if (!error.matches(
+                        Gio.IOErrorEnum,
+                        Gio.IOErrorEnum.NOT_FOUND
+                    ))
+                        throw error;
+
+                    // A followed query fails when the target disappears. Read
+                    // the link itself so its icon becomes a broken-link icon.
+                    try {
+                        return await this._file.query_info_async(
+                            this.Enums.DEFAULT_ATTRIBUTES,
+                            Gio.FileQueryInfoFlags.NOFOLLOW_SYMLINKS,
+                            GLib.PRIORITY_DEFAULT,
+                            cancellable
+                        );
+                    } catch (linkError) {
+                        if (linkError.matches(
+                            Gio.IOErrorEnum,
+                            Gio.IOErrorEnum.NOT_FOUND
+                        ))
+                            return null;
+
+                        throw linkError;
+                    }
+                }
             }
 
             async _updateSymlinkIcon() {

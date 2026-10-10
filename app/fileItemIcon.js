@@ -169,6 +169,15 @@ const FileItemIcon = class extends DesktopIconItem {
         return null;
     }
 
+    _queryFileInfoForRefresh(cancellable) {
+        return this._file.query_info_async(
+            this.Enums.DEFAULT_ATTRIBUTES,
+            Gio.FileQueryInfoFlags.NONE,
+            GLib.PRIORITY_DEFAULT,
+            cancellable
+        );
+    }
+
     async _refreshMetadataAsync(cancellable) {
         if (!this._file)
             return false;
@@ -183,14 +192,9 @@ const FileItemIcon = class extends DesktopIconItem {
 
         try {
             const newFileInfo =
-                await this._file.query_info_async(
-                    this.Enums.DEFAULT_ATTRIBUTES,
-                    Gio.FileQueryInfoFlags.NONE,
-                    GLib.PRIORITY_DEFAULT,
-                    cancellable
-                );
+                await this._queryFileInfoForRefresh(cancellable);
 
-            if (cancellable.is_cancelled())
+            if (!newFileInfo || cancellable.is_cancelled())
                 return false;
 
             this._updateMetadataFromFileInfo(newFileInfo);
