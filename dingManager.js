@@ -91,7 +91,6 @@ const DingManager = class {
      * Inits the Class
      */
     _init() {
-        this.isEnabled = false;
         this.launchDesktop = 0;
         this.waylandClient = null;
         this.DesktopIconsUsableArea = null;
@@ -251,7 +250,6 @@ const DingManager = class {
                 this._onActiveChanged.bind(this)
             );
 
-        this.isEnabled = true;
 
         if (this.launchDesktop)
             GLib.source_remove(this.launchDesktop);
@@ -297,7 +295,6 @@ const DingManager = class {
      * This will hapen on log out.
      */
     disable() {
-        this.isEnabled = false;
         this.DesktopIconsUsableArea = null;
         if (this.startupProcessKillWaitId) {
             GLib.source_remove(this.startupProcessKillWaitId);
@@ -567,25 +564,27 @@ const DingManager = class {
     /**
      *
      * @param {integer} reloadTime Relaunch time after crash in ms
+     * @param {LaunchSubprocess} client Process owner requesting the relaunch
      */
-    _doRelaunch(reloadTime) {
-        this.waylandClient = null;
-        this.windowTypeManager?.set_wayland_client(null);
-        if (this.isEnabled) {
-            if (this.launchDesktop)
-                GLib.source_remove(this.launchDesktop);
+    _doRelaunch(reloadTime, client) {
+        if (!client || this.waylandClient !== client)
+            return;
 
-            this.launchDesktop =
-                GLib.timeout_add(
-                    GLib.PRIORITY_DEFAULT,
-                    reloadTime,
-                    () => {
-                        this.launchDesktop = 0;
-                        this._launchDesktop().catch(e => console.error(e));
-                        return false;
-                    }
-                );
-        }
+        this.waylandClient = null;
+        this.windowTypeManager.set_wayland_client(null);
+        if (this.launchDesktop)
+            GLib.source_remove(this.launchDesktop);
+
+        this.launchDesktop =
+            GLib.timeout_add(
+                GLib.PRIORITY_DEFAULT,
+                reloadTime,
+                () => {
+                    this.launchDesktop = 0;
+                    this._launchDesktop().catch(e => console.error(e));
+                    return false;
+                }
+            );
     }
 
     /**
@@ -611,22 +610,26 @@ const DingManager = class {
         argv.push('-U');
         argv.push(`${this.uuid}`);
 
-        this.waylandClient = new LaunchSubprocess(0, 'Adw-DING');
-        this.waylandClient.set_cwd(GLib.get_home_dir());
-        this.windowTypeManager.set_wayland_client(this.waylandClient);
+        const client = new LaunchSubprocess(0, 'Adw-DING');
+        this.waylandClient = client;
+        client.set_cwd(GLib.get_home_dir());
+        this.windowTypeManager.set_wayland_client(client);
 
         const launchTime = GLib.get_monotonic_time();
 
         let subprocess;
 
         try {
-            subprocess = await this.waylandClient.spawnv(argv);
+            subprocess = await client.spawnv(argv);
         } catch (e) {
+            if (this.waylandClient !== client)
+                return;
+
             if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED)) {
                 console.error(
                     e, `Error while trying to launch DING process: ${e.message}`
                 );
-                this._doRelaunch(1000);
+                this._doRelaunch(1000, client);
             }
 
             return;
@@ -652,8 +655,8 @@ const DingManager = class {
             reloadTime = 1;
         }
 
-        if (!this.waylandClient ||
-            subprocess !== this.waylandClient.subprocess
+        if (this.waylandClient !== client ||
+            subprocess !== client.subprocess
         )
             return;
 
@@ -661,7 +664,7 @@ const DingManager = class {
         if (subprocess.get_if_exited())
             subprocess.get_exit_status();
 
-        this._doRelaunch(reloadTime);
+        this._doRelaunch(reloadTime, client);
     }
 };
 

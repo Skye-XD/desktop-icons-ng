@@ -261,3 +261,55 @@ test('disable before initialization and late relaunch cleanup tolerate absent ma
     assert.equal(manager.launchDesktop, 0);
 });
 
+
+for (const outcome of ['resolve', 'reject']) {
+    for (const replaced of [false, true]) {
+        test(`late process ${outcome} after ${replaced ? 'replacement' : 'disable'} cannot relaunch`, async () => {
+            const f = await startActiveManager();
+            const old = f.clients[0];
+            let replacement;
+            if (replaced)
+                replacement = f.manager._launchDesktop();
+            else
+                f.manager.disable();
+
+            await settleClient(old, outcome);
+            assert.equal(f.sources.size, 0);
+            assert.equal(f.manager.waylandClient, replaced ? f.clients[1] : null);
+            if (replaced) {
+                f.manager.disable();
+                f.clients[1].resolve();
+                await replacement;
+            }
+        });
+    }
+
+    test(`current process ${outcome} queues a relaunch that disable cancels`, async () => {
+        const f = await startActiveManager();
+        await settleClient(f.clients[0], outcome);
+        assert.equal(f.sources.size, 1);
+        assert.equal(f.manager.waylandClient, null);
+        f.manager.disable();
+        assert.equal(f.sources.size, 0);
+        assert.equal(f.manager.launchDesktop, 0);
+    });
+
+    test(`current process ${outcome} relaunches a new client when the timeout runs`, async () => {
+        const f = await startActiveManager();
+        assert.equal(f.clients.length, 1);
+        const old = f.clients[0];
+
+        await settleClient(old, outcome);
+        assert.equal(f.sources.size, 1);
+        f.runSource(f.manager.launchDesktop);
+        assert.equal(f.sources.size, 0);
+        assert.equal(f.manager.launchDesktop, 0);
+        assert.equal(f.clients.length, 2);
+        assert.notEqual(f.clients[1], old);
+        assert.equal(f.manager.waylandClient, f.clients[1]);
+
+        f.manager.disable();
+        await settleClient(f.clients[1]);
+        assert.equal(f.sources.size + f.signals.size, 0);
+    });
+}
