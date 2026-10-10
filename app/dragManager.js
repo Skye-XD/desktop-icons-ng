@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import {Gdk, Gtk, Graphene, Gsk} from '../dependencies/gi.js';
+import {Gdk, Gtk, Graphene, Gsk, Pango} from '../dependencies/gi.js';
 
 
 export {DragManager};
@@ -171,7 +171,8 @@ const DragManager = class {
                     : 0
         );
 
-        const dragIconArray = selectionArray.map(f => f._icon.get_paintable());
+        const dragIconArray = selectionArray.slice(0, 4)
+            .map(f => f._icon.get_paintable());
         const numberOfIcons = dragIconArray.length;
 
         const dragIcon = Gtk.Snapshot.new();
@@ -187,12 +188,12 @@ const DragManager = class {
 
         /* A slight shadow swhich makes each icon in the stack look separate. */
         const iconShadow =
-            {
+            new Gsk.Shadow({
                 color: {red: 0, green: 0, blue: 0, alpha: 0.30},
                 dx: 0,
                 dy: 1,
                 radius: 1,
-            };
+            });
 
         let xOffset = numberOfIcons % 2 === 1 ? 6 : -6;
         let yOffset;
@@ -214,8 +215,8 @@ const DragManager = class {
         dragIcon.translate(
             new Graphene.Point(
                 {
-                    x: 10 + (xOffset / 2),
-                    y: yOffset * numberOfIcons,
+                    x: stackShadow.radius + (xOffset / 2),
+                    y: stackShadow.radius + yOffset * numberOfIcons,
                 }
             )
         );
@@ -242,7 +243,7 @@ const DragManager = class {
                 xOffset = -xOffset;
 
                 dragIcon.translate(new Graphene.Point({x: X, y: Y}));
-                dragIcon.push_shadow([new Gsk.Shadow(iconShadow)]);
+                dragIcon.push_shadow([iconShadow]);
 
                 paintableWidget.snapshot(dragIcon, w, h);
 
@@ -253,7 +254,54 @@ const DragManager = class {
         );
         dragIcon.pop();
 
+        this._drawDragCountBadge(
+            dragIcon,
+            draggedItem._icon,
+            selectionArray.length
+        );
+
         return dragIcon.to_paintable(null);
+    }
+
+    _drawDragCountBadge(snapshot, widget, count) {
+        if (count <= 1)
+            return;
+
+        const badgeHeight = 22;
+        const layout = widget.create_pango_layout(
+            count > 9999
+                ? '9999+'
+                : `${count}`
+        );
+        const attrs = new Pango.AttrList();
+        attrs.insert(Pango.attr_weight_new(Pango.Weight.SEMIBOLD));
+        attrs.insert(Pango.attr_size_new_absolute(
+            Math.round(badgeHeight * 0.55 * Pango.SCALE)
+        ));
+        layout.set_attributes(attrs);
+
+        const [inkRect] = layout.get_pixel_extents();
+        const badgeWidth = Math.max(badgeHeight, inkRect.width + 8);
+        const x = this._Prefs.IconSize - badgeWidth;
+        const y = this._Prefs.IconSize - badgeHeight;
+        const rect = new Graphene.Rect();
+        rect.init(x, y, badgeWidth, badgeHeight);
+        const roundedRect = new Gsk.RoundedRect();
+        roundedRect.init_from_rect(rect, badgeHeight / 2);
+
+        snapshot.push_rounded_clip(roundedRect);
+        snapshot.append_color(this._Prefs.selectColor, rect);
+        snapshot.pop();
+
+        snapshot.save();
+        snapshot.translate(new Graphene.Point({
+            x: x + (badgeWidth - inkRect.width) / 2 - inkRect.x,
+            y: y + (badgeHeight - inkRect.height) / 2 - inkRect.y,
+        }));
+        snapshot.append_layout(layout, new Gdk.RGBA({
+            red: 1, green: 1, blue: 1, alpha: 1,
+        }));
+        snapshot.restore();
     }
 
     getSelectionData(target) {
