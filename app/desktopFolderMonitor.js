@@ -552,19 +552,19 @@ const DesktopMonitor = class extends DesktopFolderUtils {
     }
 
     _checkBasenameInPending(fileItem, basename) {
-        if (basename in this._pendingSelfCopyFiles) {
+        if (basename in this._positionsForExistingFiles) {
             if (fileItem.savedCoordinates === null) {
                 fileItem.savedCoordinates =
-                    this._pendingSelfCopyFiles[basename];
+                    this._positionsForExistingFiles[basename];
             }
 
-            delete this._pendingSelfCopyFiles[basename];
+            delete this._positionsForExistingFiles[basename];
             return;
         }
 
-        if (basename in this._pendingDropFiles) {
-            fileItem.dropCoordinates = this._pendingDropFiles[basename];
-            delete this._pendingDropFiles[basename];
+        if (basename in this._positionsForNewFiles) {
+            fileItem.dropCoordinates = this._positionsForNewFiles[basename];
+            delete this._positionsForNewFiles[basename];
             return;
         }
 
@@ -575,12 +575,12 @@ const DesktopMonitor = class extends DesktopFolderUtils {
         if (lastParenthesisPosition > 1) {
             basenameStart = basename.slice(0, lastParenthesisPosition - 1);
             if (basenameStart) {
-                for (let fileName of Object.keys(this._pendingDropFiles)) {
+                for (let fileName of Object.keys(this._positionsForNewFiles)) {
                     if (fileName.startsWith(basenameStart)) {
                         fileItem.dropCoordinates =
-                            this._pendingDropFiles[fileName];
+                            this._positionsForNewFiles[fileName];
 
-                        delete this._pendingDropFiles[fileName];
+                        delete this._positionsForNewFiles[fileName];
                     }
                 }
             }
@@ -657,12 +657,12 @@ const DesktopMonitor = class extends DesktopFolderUtils {
         return this.windowManager.desktops;
     }
 
-    get _pendingDropFiles() {
-        return this.desktopManager.pendingDropFiles;
+    get _positionsForNewFiles() {
+        return this.desktopManager.positionsForNewFiles;
     }
 
-    get _pendingSelfCopyFiles() {
-        return this.desktopManager.pendingSelfCopyFiles;
+    get _positionsForExistingFiles() {
+        return this.desktopManager.positionsForExistingFiles;
     }
 
     get desktopDir() {

@@ -18,7 +18,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import {Gio, GLib, Adw, GObject} from '../dependencies/gi.js';
+import {Gio, GLib, Adw, GObject, Gdk} from '../dependencies/gi.js';
 import * as Gettext from 'gettext';
 import {
     Preferences,
@@ -38,6 +38,13 @@ Gio._promisify(Gio.FileEnumerator.prototype, 'close_async');
 Gio._promisify(Gio.FileEnumerator.prototype, 'next_files_async');
 Gio._promisify(Gio.Subprocess.prototype, 'wait_check_async');
 Gio._promisify(Gio.DataInputStream.prototype, 'read_line_async', 'read_line_finish');
+Gio._promisify(Gio.BufferedInputStream.prototype, 'fill_async');
+Gio._promisify(Gio.InputStream.prototype, 'read_bytes_async');
+Gio._promisify(Gio.InputStream.prototype, 'close_async');
+Gio._promisify(Gio.OutputStream.prototype, 'write_bytes_async');
+Gio._promisify(Gio.OutputStream.prototype, 'close_async');
+Gio._promisify(Gdk.Drop.prototype, 'read_async');
+Gio._promisify(Gdk.Drop.prototype, 'read_value_async');
 
 const fileProto = imports.system.version >= 17200
     ? Gio.File.prototype : Gio._LocalFilePrototype;
@@ -50,6 +57,8 @@ Gio._promisify(fileProto, 'query_info_async');
 Gio._promisify(fileProto, 'set_attributes_async');
 Gio._promisify(fileProto, 'replace_contents_async');
 Gio._promisify(fileProto, 'load_contents_async');
+Gio._promisify(fileProto, 'create_async');
+Gio._promisify(fileProto, 'replace_contents_bytes_async', 'replace_contents_finish');
 
 const getTextDomain = 'gtk4-ding';
 const appID = 'com.desktop.ding';

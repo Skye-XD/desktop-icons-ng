@@ -242,7 +242,7 @@ const DesktopFileIcon = class extends FileItemIcon {
         x, y,
         fileList,
         _gdkDropAction,
-        _localDrop,
+        _isInAppDrag,
         _event
     ) {
         if (this._isValidDesktopFile) {

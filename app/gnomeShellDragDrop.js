@@ -334,7 +334,7 @@ const GnomeShellDrag = class {
         if (this._currentDesktopFileAppPath.startsWith('file:///') ||
              this._currentDesktopFileAppPath.startsWith('davs://')
         ) {
-            await this._desktopManager.copyOrMoveUris(
+            await this._desktopManager.dropOperations.copyOrMoveUris(
                 this._selectedFilesURI,
                 this._currentDesktopFileAppPath,
                 {},

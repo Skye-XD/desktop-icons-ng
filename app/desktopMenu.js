@@ -29,6 +29,7 @@ const DesktopActions = class {
         this._DBusUtils = desktopManager.DBusUtils;
         this._dbusManager = desktopManager.dbusManager;
         this._dragManager = desktopManager.dragManager;
+        this._dropOperations = desktopManager.dropOperations;
         this._DesktopIconsUtil = desktopManager.DesktopIconsUtil;
         this._fileItemMenu = desktopManager.fileItemMenu;
         this._Enums = desktopManager.Enums;
@@ -622,10 +623,10 @@ const DesktopActions = class {
             // This pops up GNOME Files error dialog, which is what we want.
             remoteOperations.MoveURIsRemote(this._clipboardFiles, desktopDir);
         } else {
-            this._dragManager.clearFileCoordinates(
+            this._dropOperations.prepareIncomingFilePlacement(
                 this._clipboardFiles,
                 pasteCoordinates,
-                {doCopy: true}
+                {filesWillBeCopied: true}
             );
             remoteOperations.CopyURIsRemote(this._clipboardFiles, desktopDir);
         }
@@ -980,10 +981,10 @@ const DesktopActions = class {
         const X = parseInt(shortcutinfo.X);
         const Y = parseInt(shortcutinfo.Y);
 
-        await this._dragManager.clearFileCoordinates(
+        await this._dropOperations.prepareIncomingFilePlacement(
             fileList,
             [X, Y],
-            {doCopy: true}
+            {filesWillBeCopied: true}
         );
 
         await this._DesktopIconsUtil.copyDesktopFileToDesktop(

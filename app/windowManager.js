@@ -650,6 +650,10 @@ const WindowManager = class {
         return this._desktops[0];
     }
 
+    stopDragHandling() {
+        this._desktops.forEach(desktop => desktop.stopDragHandling());
+    }
+
     destroyDesktops() {
         this._desktops.forEach(desktop => desktop.destroy());
         this._desktops = [];

@@ -36,6 +36,7 @@ const DisplayGrid = class {
         this._desktopManager = desktopManager;
         this._mainapp = desktopManager.mainApp;
         this._dragManager = desktopManager.dragManager;
+        this._dropOperations = desktopManager.dropOperations;
         this.Prefs = this._desktopManager.Prefs;
         this.DesktopIconsUtil = this._desktopManager.DesktopIconsUtil;
         this.DBusUtils = this._desktopManager.DBusUtils;
@@ -734,20 +735,11 @@ const DisplayGrid = class {
 
         if (this.coordinatesBelongToThisGrid(X, Y)) {
             const [x, y] = this._coordinatesGlobalToLocal(X, Y);
+            const [localX, localY] = this._getGridLocalCoordinates(x, y);
 
-            if (globalCoordinates) {
-                const a =
-                    this._elementWidth *
-                    Math.floor((x / this._elementWidth) + 0.5);
-
-                const b =
-                    this._elementHeight *
-                    Math.floor((y / this._elementHeight) + 0.5);
-
-                return this.coordinatesLocalToGlobal(a, b);
-            } else {
-                return this._getGridLocalCoordinates(x, y);
-            }
+            return globalCoordinates
+                ? this.coordinatesLocalToGlobal(localX, localY)
+                : [localX, localY];
         } else {
             return null;
         }
@@ -1376,8 +1368,118 @@ const DrawGrid =  class extends DisplayGrid {
 const ControlGrid = class extends DrawGrid {
     constructor(params) {
         super(params);
+        this.dragIsOverGrid = false;
         this._addDragControllers();
     }
+
+    destroy() {
+        this.stopDragHandling();
+        super.destroy();
+    }
+
+    stopDragHandling() {
+        this._stopSpringLoadedTimer();
+        this.dragIsOverGrid = false;
+
+        if (this._dragPrepareId) {
+            this.gridDragController.disconnect(this._dragPrepareId);
+            this.gridDragController.disconnect(this._dragBeginId);
+            this.gridDragController.disconnect(this._dragCancelId);
+            this.gridDragController.disconnect(this._dragEndId);
+            this._dragPrepareId = 0;
+            this._dragBeginId = 0;
+            this._dragCancelId = 0;
+            this._dragEndId = 0;
+        }
+        if (this._dropAcceptId) {
+            this.gridDropController.disconnect(this._dropAcceptId);
+            this.gridDropController.disconnect(this._dropEnterId);
+            this.gridDropController.disconnect(this._dropMotionId);
+            this.gridDropController.disconnect(this._dropLeaveId);
+            this.gridDropController.disconnect(this._dropId);
+            this._dropAcceptId = 0;
+            this._dropEnterId = 0;
+            this._dropMotionId = 0;
+            this._dropLeaveId = 0;
+            this._dropId = 0;
+        }
+        if (this._dropControllerMotionId) {
+            this.gridDropControllerMotion.disconnect(this._dropControllerMotionId);
+            this._dropControllerMotionId = 0;
+        }
+
+        this._dropSession?.destroy();
+        this._dropSession = null;
+    }
+
+    receiveLeave() {
+        this._stopSpringLoadedTimer();
+        this._window.queue_draw();
+        this._dragManager.onDragLeave();
+    }
+
+    receiveMotion(x, y, global) {
+        let X;
+        let Y;
+        if (!global) {
+            x = this._elementWidth * Math.floor(x / this._elementWidth);
+            y = this._elementHeight * Math.floor(y / this._elementHeight);
+            [X, Y] = this.coordinatesLocalToGlobal(x, y);
+        }
+        this._dragManager.onDragMotion(X, Y);
+    }
+
+    refreshDrag(selectedList, ox, oy) {
+        if (!this.Prefs.showDropPlace)
+            return;
+
+        if (selectedList === null) {
+            this._selectedList = null;
+            this.updateOverlay();
+
+            return;
+        }
+
+        let newSelectedList = [];
+
+        for (let [x, y] of selectedList) {
+            x += this._elementWidth / 2;
+            y += this._elementHeight / 2;
+            x += ox;
+            y += oy;
+
+            const r = this.getCoordinatesOfGridContaining(x, y);
+
+            if (r &&
+                !isNaN(r[0]) &&
+                !isNaN(r[1]) &&
+                (!this._gridInUse(r[0], r[1]) ||
+                this._fileAt(r[0], r[1])?.isSelected)
+            )
+                newSelectedList.push(r);
+        }
+
+        if (newSelectedList.length === 0) {
+            if (this._selectedList !== null) {
+                this._selectedList = null;
+                this.updateOverlay();
+            }
+
+            return;
+        }
+
+        if (this._selectedList !== null) {
+            if ((newSelectedList[0][0] === this._selectedList[0][0]) &&
+                (newSelectedList[0][1] === this._selectedList[0][1])
+            )
+                return;
+        }
+
+        this._selectedList = newSelectedList;
+        this.updateOverlay();
+    }
+
+    // Private methods
 
     _addDragControllers() {
         // Bubble-phase controller: delivers key events to DesktopManager for actions
@@ -1450,7 +1552,7 @@ const ControlGrid = class extends DrawGrid {
             if (this._longHandled)
                 this._longHandled = false;
 
-            this._doGestureRelease(actor, nPress, x, y, this);
+            this._doGestureRelease(actor, nPress, x, y);
         });
 
         this._setDropDestination(this._container);
@@ -1472,60 +1574,6 @@ const ControlGrid = class extends DrawGrid {
 
     _onModifierClear() {
         this._desktopManager.clearModifierState();
-    }
-
-    _doGesturePress(actor, nPress, x, y) {
-        if (this._desktopManager.closePopUps())
-            return;
-
-        const button = actor.get_current_button();
-        const timestamp = actor.get_current_event_time();
-        const state = this._buttonClick.get_current_event_state();
-        const isCtrl = (state & Gdk.ModifierType.CONTROL_MASK) !== 0;
-        const isShift = (state & Gdk.ModifierType.SHIFT_MASK) !== 0;
-        const [X, Y] = this.coordinatesLocalToGlobal(x, y);
-
-        const clickItem = this._fileAt(x, y);
-
-        if (clickItem && this._clickItemClickable(clickItem, X, Y)) {
-            clickItem
-                ._onPressButton(
-                    actor,
-                    nPress,
-                    X, Y,
-                    x, y,
-                    isShift,
-                    isCtrl,
-                    timestamp
-                );
-            return;
-        }
-
-        this._desktopManager
-            .onPressButton(X, Y, x, y, button, isShift, isCtrl, this, timestamp);
-    }
-
-    async _doGestureRelease(actor, nPress, x, y, grid) {
-        const button = actor.get_current_button();
-        const state = this._buttonClick.get_current_event_state();
-        const isCtrl = (state & Gdk.ModifierType.CONTROL_MASK) !== 0;
-        const isShift = (state & Gdk.ModifierType.SHIFT_MASK) !== 0;
-        const [X, Y] = this.coordinatesLocalToGlobal(x, y);
-
-        const clickItem = this._fileAt(x, y);
-        const clickItemClickable = this._clickItemClickable(clickItem, X, Y);
-
-        if (clickItemClickable && !this._dragManager.rubberBand) {
-            clickItem._onReleaseButton(
-                actor, nPress, X, Y, x, y, isShift, isCtrl);
-            return;
-        }
-
-        this._dragManager.onReleaseButton(this);
-
-        await this._desktopManager
-            .onReleaseButton(X, Y, x, y, button, isShift, isCtrl, grid)
-            .catch(logError);
     }
 
     _doGestureLongPress(actor, x, y) {
@@ -1559,699 +1607,329 @@ const ControlGrid = class extends DrawGrid {
             clickRectangle.intersect(clickedItem.labelRectangle)[0];
     }
 
+    _doGesturePress(actor, nPress, x, y) {
+        if (this._desktopManager.closePopUps())
+            return;
+
+        const button = actor.get_current_button();
+        const timestamp = actor.get_current_event_time();
+        const state = this._buttonClick.get_current_event_state();
+        const isCtrl = (state & Gdk.ModifierType.CONTROL_MASK) !== 0;
+        const isShift = (state & Gdk.ModifierType.SHIFT_MASK) !== 0;
+        const [X, Y] = this.coordinatesLocalToGlobal(x, y);
+
+        const clickItem = this._fileAt(x, y);
+
+        if (clickItem && this._clickItemClickable(clickItem, X, Y)) {
+            clickItem
+                ._onPressButton(
+                    actor,
+                    nPress,
+                    X, Y,
+                    x, y,
+                    isShift,
+                    isCtrl,
+                    timestamp
+                );
+            return;
+        }
+
+        this._desktopManager
+            .onPressButton(X, Y, x, y, button, isShift, isCtrl, this, timestamp);
+    }
+
+    async _doGestureRelease(actor, nPress, x, y) {
+        const button = actor.get_current_button();
+        const state = this._buttonClick.get_current_event_state();
+        const isCtrl = (state & Gdk.ModifierType.CONTROL_MASK) !== 0;
+        const isShift = (state & Gdk.ModifierType.SHIFT_MASK) !== 0;
+        const [X, Y] = this.coordinatesLocalToGlobal(x, y);
+
+        const clickItem = this._fileAt(x, y);
+        const clickItemClickable = this._clickItemClickable(clickItem, X, Y);
+
+        if (clickItemClickable && !this._dragManager.rubberBand) {
+            clickItem._onReleaseButton(
+                actor, nPress, X, Y, x, y, isShift, isCtrl);
+            return;
+        }
+
+        this._dragManager.onReleaseButton();
+
+        await this._desktopManager
+            .onReleaseButton(X, Y, x, y, button, isShift, isCtrl, this)
+            .catch(logError);
+    }
+
     _setDropDestination(widget) {
         this.gridDropController = new Gtk.DropTargetAsync();
+        this._dropSession = new this._desktopManager.DropSession(
+            this.gridDropController,
+            this._desktopManager
+        );
         this.gridDropController.set_actions(
-            Gdk.DragAction.MOVE |
-            Gdk.DragAction.COPY |
-            Gdk.DragAction.ASK
+            this._dropSession.supportedDropActions
         );
-        const desktopAcceptFormats =
-            Gdk.ContentFormats.new(this.Enums.DndTargetInfo.MIME_TYPES);
-        const fileItemAcceptFormats =
-            Gdk.ContentFormats.new([
-                this.Enums.DndTargetInfo.GNOME_ICON_LIST,
-                this.Enums.DndTargetInfo.URI_LIST,
-            ]);
-        const desktopMoveIconsFormat =
-            Gdk.ContentFormats.new([this.Enums.DndTargetInfo.DING_ICON_LIST]);
-        const textDropFormat =
-            Gdk.ContentFormats.new([this.Enums.DndTargetInfo.TEXT_PLAIN]);
-        const oldNautilusDropFormat =
-            Gdk.ContentFormats.new([this.Enums.DndTargetInfo.GNOME_ICON_LIST]);
-        this.gridDropController.set_formats(desktopAcceptFormats);
 
-        let acceptFormat = null;
-        let dropData = null;
+        // Parameterized MIME names cannot be enumerated ahead of time.
+        // The accept handler filters all offers, including exact
+        // source-supplied filename tokens.
+        this.gridDropController.set_formats(null);
 
-        this.gridDropController.connect(
+        this._dropAcceptId = this.gridDropController.connect(
             'accept',
-            (actor, drop) => {
-                if (drop.get_formats().match(desktopAcceptFormats))
-                    return true;
-                else
-                    return false;
-            }
+            (_actor, drop) => this._dropSession.accept(drop)
         );
 
-        this.gridDropController.connect(
+        this._dropEnterId = this.gridDropController.connect(
             'drag-enter',
-            (actor, drop) => {
-                this.localDrag = true;
-                drop.status(
-                    Gdk.DragAction.COPY |
-                        Gdk.DragAction.MOVE |
-                        Gdk.DragAction.LINK,
-                    Gdk.DragAction.MOVE
-                );
-
-                return Gdk.DragAction.MOVE;
-            }
+            (_actor, drop) => this._beginDropHover(drop)
         );
 
-        this.gridDropController.connect(
+        this._dropMotionId = this.gridDropController.connect(
             'drag-motion',
-            (actor, drop, x, y) => {
-                let desktopDropZone = false;
-                let fileItemDropZone = false;
-                const fileItem = this._fileAt(x, y);
-                const [X, Y] = this.coordinatesLocalToGlobal(x, y);
-                const dropRectangle =
-                    new Gdk.Rectangle({x: X, y: Y, width: 1, height: 1});
-                const desktopMove =
-                    drop.get_formats().match(desktopMoveIconsFormat);
-                const filesMove =
-                    drop.get_formats().match(fileItemAcceptFormats);
+            (_actor, drop, x, y) => this._updateDropHover(drop, x, y)
+        );
 
-                if (fileItem) {
-                    if (!this.Prefs.freePositionIcons)
-                        fileItemDropZone = true;
+        this._dropLeaveId = this.gridDropController.connect(
+            'drag-leave',
+            (_actor, drop) => this._endDropHover(drop)
+        );
 
-                    else if (dropRectangle
-                            .intersect(fileItem.iconRectangle)[0] ||
-                        dropRectangle
-                        .intersect(fileItem.labelRectangle)[0])
-                        fileItemDropZone = true;
-
-                    if (desktopMove && fileItem._hasToRouteDragToGrid())
-                        fileItemDropZone = false;
-                }
-
-                desktopDropZone = !fileItemDropZone;
-
-                this.receiveMotion(x, y, false);
-
-                if (fileItemDropZone && !fileItem.dropCapable)
-                    return false;
-
-                if (fileItemDropZone && fileItem.dropCapable) {
-                    if (!filesMove)
-                        return false;
-
-                    if (fileItem._fileExtra !==
-                        this.Enums.FileType.EXTERNAL_DRIVE)
-                        return Gdk.DragAction.MOVE;
-
-                    if (fileItem._fileExtra ===
-                        this.Enums.FileType.EXTERNAL_DRIVE)
-                        return Gdk.DragAction.COPY;
-                }
-
-                if (desktopDropZone) {
-                    if (desktopMove) {
-                        if (this.Prefs.keepArranged ||
-                            this.Prefs.keepStacked) {
-                            if (this.Prefs.sortSpecialFolders)
-                                return false;
-                            else if (this._desktopManager
-                                .getCurrentSelection()
-                                ?.filter(f => !f.isSpecial).length >= 1)
-                                return false;
-                        }
-                    }
-
-                    return Gdk.DragAction.MOVE;
-                }
-
-                return false;
-            });
-
-        this.gridDropController.connect('drag-leave', () => {
-            this.localDrag = false;
-            this._receiveLeave();
-        });
-
-        this.gridDropController.connect('drop', (actor, drop, x, y) => {
-            const event = {
-                'parentWindow': this._window,
-                'timestamp': Gdk.CURRENT_TIME,
-            };
-
-            let desktopDropZone = false;
-            let fileItemDropZone = false;
-            const fileItem = this._fileAt(x, y);
-            const [X, Y] = this.coordinatesLocalToGlobal(x, y);
-            const dropRectangle =
-                new Gdk.Rectangle({x: X, y: Y, width: 1, height: 1});
-            const desktopMove =
-                drop.get_formats().match(desktopMoveIconsFormat);
-            const filesMove =
-                drop.get_formats().match(fileItemAcceptFormats);
-            const oldNautilusMove =
-                drop.get_formats().match(oldNautilusDropFormat);
-            let readFormat = Gdk.FileList.$gtype;
-
-            if (fileItem) {
-                if (!this.Prefs.freePositionIcons)
-                    fileItemDropZone = true;
-                else if (dropRectangle.intersect(fileItem.iconRectangle)[0] ||
-                    dropRectangle.intersect(fileItem.labelRectangle)[0])
-                    fileItemDropZone = true;
-                if (desktopMove && fileItem._hasToRouteDragToGrid())
-                    fileItemDropZone = false;
-            }
-
-            desktopDropZone = !fileItemDropZone;
-
-            const textDrop =
-                drop.get_formats().match(textDropFormat) &&
-                    !desktopMove &&
-                    !filesMove;
-
-            if (textDrop) {
-                acceptFormat = this.Enums.DndTargetInfo.TEXT_PLAIN;
-                readFormat = String.$gtype;
-            }
-
-            if (desktopMove)
-                acceptFormat = this.Enums.DndTargetInfo.DING_ICON_LIST;
-
-            if (filesMove && !desktopMove) {
-                if (oldNautilusMove) {
-                    acceptFormat = this.Enums.DndTargetInfo.GNOME_ICON_LIST;
-                    readFormat = String.$gtype;
-                } else {
-                    acceptFormat = this.Enums.DndTargetInfo.URI_LIST;
-                    readFormat = String.$gtype;
-                }
-            }
-
-            let gdkDropAction = drop.get_actions();
-
-            if (!Gdk.DragAction.is_unique(gdkDropAction)) {
-                if (gdkDropAction >
-                        (Gdk.DragAction.COPY | Gdk.DragAction.MOVE))
-                    gdkDropAction = Gdk.DragAction.ASK;
-            }
-
-            let gdkReturnAction = Gdk.DragAction.COPY;
-
-            if (desktopMove &&
-                desktopDropZone &&
-                (gdkDropAction === Gdk.DragAction.MOVE)
-            ) {
-                let [xOrigin, yOrigin] =
-                    this._dragManager.dragItem.getCoordinates()
-                    .slice(0, 3);
-
-                this._dragManager.doMoveWithDragAndDrop(xOrigin, yOrigin, X, Y);
-
-                this._receiveLeave();
-                drop.finish(gdkDropAction);
-
-                return true;
-            }
-
-            try {
-                drop.read_value_async(
-                    readFormat,
-                    GLib.PRIORITY_DEFAULT,
-                    null,
-                    async (dropactor, result) => {
-                        dropData = dropactor.read_value_finish(result);
-
-                        if (!dropData || !acceptFormat) {
-                            drop.finish(0);
-                            this._receiveLeave();
-                            return false;
-                        }
-
-                        if (dropData && textDrop) {
-                            gdkReturnAction = Gdk.DragAction.COPY;
-                            this._dragManager.onTextDrop(dropData, [X, Y]);
-                            drop.finish(gdkReturnAction);
-                            this._receiveLeave();
-                            return true;
-                        }
-
-                        gdkReturnAction =
-                            await this._completeDrop(
-                                X, Y,
-                                x, y,
-                                drop,
-                                dropData,
-                                gdkDropAction,
-                                fileItem,
-                                acceptFormat,
-                                fileItemDropZone,
-                                desktopDropZone,
-                                desktopMove,
-                                filesMove,
-                                textDrop,
-                                event
-                            ).catch(e => console.error(e));
-
-                        if (gdkReturnAction) {
-                            drop.finish(gdkReturnAction);
-                            this._receiveLeave();
-                            return true;
-                        } else {
-                            drop.finish(0);
-                            this._receiveLeave();
-                            return false;
-                        }
-                    }
-                );
-            } catch (e) {
-                console.error(e);
-                drop.finish(0);
-                this._receiveLeave();
-            }
-            return false;
-        });
+        this._dropId = this.gridDropController.connect(
+            'drop',
+            (_actor, drop, x, y) => this._routeDroppedData(drop, x, y)
+        );
 
         widget.add_controller(this.gridDropController);
 
         this.gridDropControllerMotion = new Gtk.DropControllerMotion();
 
-        this.gridDropControllerMotion.connect(
+        this._dropControllerMotionId = this.gridDropControllerMotion.connect(
             'motion',
             (actor, x, y) => {
                 if (!this.gridDropControllerMotion.is_pointer) {
                     const fileItem = this._fileAt(x, y);
-                    const [X, Y] = this.coordinatesLocalToGlobal(x, y);
-                    const pointerRectangle =
-                        new Gdk.Rectangle({x: X, y: Y, width: 1, height: 1});
 
                     if (fileItem && fileItem.dropCapable) {
-                        this._dragManager.unHighLightDropTarget();
-
-                        if (!this.Prefs.freePositionIcons)
-                            fileItem.highLightDropTarget();
-
-                        else if (
-                            pointerRectangle
-                            .intersect(fileItem.iconRectangle)[0] ||
-                            pointerRectangle
-                            .intersect(fileItem.labelRectangle)[0])
-                            fileItem.highLightDropTarget();
+                        this._dragManager.clearDropTargetHighlight();
+                        fileItem.highLightDropTarget();
                     }
 
                     if (fileItem && (fileItem.isDirectory || fileItem.isDrive))
                         this._startSpringLoadedTimer(fileItem);
                 } else {
-                    this._dragManager.unHighLightDropTarget();
+                    this._dragManager.clearDropTargetHighlight();
                     this._stopSpringLoadedTimer();
                 }
-            });
+            }
+        );
 
         widget.add_controller(this.gridDropControllerMotion);
     }
 
-    async _completeDrop(
-        X, Y,
-        x, y,
-        drop,
-        dropData,
-        gdkDropAction,
-        fileItem,
-        acceptFormat,
-        fileItemDropZone,
-        desktopDropZone,
-        desktopMove,
-        filesMove,
-        textDrop,
-        event
-    ) {
-        let returnAction = Gdk.DragAction.COPY;
-        const localDrop = !!drop.get_drag();
+    _beginDropHover(drop) {
+        this.dragIsOverGrid = true;
+        return this._dropSession.enter(drop);
+    }
 
-        if (fileItemDropZone && (desktopMove || filesMove)) {
-            returnAction =
-                await fileItem.receiveDrop(
-                    X, Y,
-                    x, y,
-                    dropData,
-                    acceptFormat,
-                    gdkDropAction,
-                    localDrop,
-                    event,
-                    this._dragManager.dragItem
-                ).catch(e => console.error(e));
+    _updateDropHover(drop, x, y) {
+        const destination = this._findDropDestination(x, y);
 
-            return returnAction;
+        this.receiveMotion(x, y, false);
+        return this._dropSession.motion(drop, destination);
+    }
+
+    _findDropDestination(x, y) {
+        const fileItem = this._fileAt(x, y);
+        const globalCoordinates = this.coordinatesLocalToGlobal(x, y);
+
+        return {
+            fileItem,
+            localPosition: [x, y],
+            globalPosition: globalCoordinates,
+        };
+    }
+
+    _endDropHover(drop) {
+        this._dropSession.leave(drop);
+        this.dragIsOverGrid = false;
+        this.receiveLeave();
+    }
+
+    _routeDroppedData(drop, x, y) {
+        const session = this._dropSession;
+        const pointerDestination = this._findDropDestination(x, y);
+        const effectiveDestination = session.resolveEffectiveDestination(
+            drop,
+            pointerDestination
+        );
+
+        if (!session.canDropOn(effectiveDestination)) {
+            this._dropSession.release(drop);
+            return false;
         }
 
-        if (desktopDropZone && (desktopMove || filesMove)) {
-            returnAction = await this._receiveDrop(
-                x, y,
-                dropData,
-                acceptFormat,
-                gdkDropAction,
-                localDrop,
-                event,
-                this._dragManager.dragItem
+        const selectedAction = session.selectedAction;
+        if (session.route ===
+            this.Enums.DndOfferRoute.INTERNAL_DESKTOP_ITEMS &&
+            !effectiveDestination.fileItem &&
+            selectedAction === Gdk.DragAction.MOVE) {
+            return this._moveDroppedDesktopIcons(
+                drop,
+                effectiveDestination,
+                selectedAction
+            );
+        }
+
+        const dropContext = session.dropContext;
+
+        // Start the asynchronous read → selected action → native finish chain.
+        // `void` explicitly discards the returned Promise; the GTK handler
+        // returns without awaiting its completion.
+        void this._completeAcceptedDrop(dropContext);
+
+        // True means that we accepted responsibility for finishing the drop;
+        // it does not mean that the asynchronous operation has finished yet.
+        return true;
+    }
+
+    _moveDroppedDesktopIcons(drop, destination, selectedAction) {
+        const [xOrigin, yOrigin] =
+            this._dragManager.dragItem.getCoordinates().slice(0, 3);
+        const [X, Y] = this._dropOperations.desktopPositionForDrop(
+            destination.globalPosition
+        );
+
+        this._dragManager.doMoveWithDragAndDrop(xOrigin, yOrigin, X, Y);
+        this._dropSession.completeDrop(drop, selectedAction);
+        this.receiveLeave();
+        return true;
+    }
+
+    async _completeAcceptedDrop(dropContext) {
+        const session = this._dropSession;
+        const noAction = Gdk.DragAction.NONE ?? 0;
+        let performedAction = noAction;
+        try {
+            const dropContents = await session.readDropContents(dropContext);
+            performedAction = await this._performSelectedDropAction(
+                dropContext,
+                dropContents
+            ) ?? noAction;
+        } catch (e) {
+            session.reportDropError(dropContext, e);
+        } finally {
+            const ownsDropFeedback = !session.drop ||
+                session.drop === dropContext.drop;
+            try {
+                session.completeDrop(dropContext.drop, performedAction);
+            } finally {
+                if (ownsDropFeedback && this._dropSession === session)
+                    this._clearDropFeedback();
+            }
+        }
+    }
+
+    _performSelectedDropAction(dropContext, dropContents) {
+        if (dropContext.cancellable.is_cancelled())
+            return Gdk.DragAction.NONE ?? 0;
+
+        const {drop, effectiveDestination, selectedAction} = dropContext;
+
+        if (dropContents.type ===
+            this.Enums.DropContentsType.FILE_REFERENCES) {
+            return this._routeFileReferences(
+                drop,
+                dropContents,
+                effectiveDestination,
+                selectedAction
+            );
+        }
+
+        return this._dropOperations.createDroppedContent(
+            dropContents,
+            effectiveDestination
+        );
+    }
+
+    _routeFileReferences(drop, fileReferences, destination, selectedAction) {
+        const {fileItem, localPosition, globalPosition} = destination;
+        const [x, y] = localPosition;
+        const [X, Y] = globalPosition;
+        const event = {
+            parentWindow: this._window,
+            timestamp: Gdk.CURRENT_TIME,
+        };
+        const isInAppDrag = drop.get_drag() !== null;
+        const sharedArguments = [
+            fileReferences.references,
+            fileReferences.format,
+            selectedAction,
+            isInAppDrag,
+            event,
+            this._dragManager.dragItem,
+        ];
+
+        if (fileItem) {
+            return fileItem.receiveDrop(
+                X,
+                Y,
+                x,
+                y,
+                ...sharedArguments
             ).catch(e => console.error(e));
-
-            return returnAction;
         }
 
-        // Finally if all above does not work, catchall-
-        return false;
-    }
-
-
-    _setDragSource(widget) {
-        const widgetDragController = Gtk.DragSource.new();
-        let clickItem;
-
-        widgetDragController.set_actions(
-            Gdk.DragAction.MOVE | Gdk.DragAction.COPY | Gdk.DragAction.ASK);
-
-        widgetDragController.connect(
-            'prepare',
-            // eslint-disable-next-line consistent-return
-            (actor, x, y) => {
-                const draggedItem = this._fileAt(x, y);
-
-                if (draggedItem && !this._dragManager.rubberBand) {
-                    clickItem = draggedItem;
-                    const [a, b] =
-                        this._coordinatesWidgetToWidget(
-                            x, y,
-                            this._container,
-                            clickItem._icon
-                        )
-                        .map(f => Math.floor(Math.max(f)));
-
-                    this._dragManager.localDragOffset = [a, b];
-
-                    const dragIcon = this._createStackedDragIcon(clickItem);
-
-                    widgetDragController.set_icon(dragIcon, a, b);
-                    clickItem.dragSourceOffset = [a, b];
-
-                    this._loadDragData();
-
-                    if (this.contentProvider)
-                        return this.contentProvider;
-                }
-            }
-        );
-
-        widgetDragController.connect('drag-begin', () => {
-            this._dragManager.onReleaseButton(this);
-            this._dragManager.onDragBegin(clickItem);
-        });
-
-        widgetDragController.connect(
-            'drag-cancel',
-            async (actor, drag, reason) => {
-                if (reason === Gdk.DragCancelReason.NO_TARGET ||
-                    reason === Gdk.DragCancelReason.ERROR) {
-                    const gnomedropDetected =
-                        await this._dragManager.gnomeShellDrag
-                        ?.completeGnomeShellDrop()
-                        .catch(e => console.error(e));
-
-                    if (gnomedropDetected)
-                        return true;
-                    else
-                        return false;
-                } else {
-                    return false;
-                }
-            }
-        );
-
-        widgetDragController.connect('drag-end', () => {
-            this._dragManager.onDragEnd();
-            this._dragManager.selected(clickItem, this.Enums.Selection.RELEASE);
-        });
-
-        widget.add_controller(widgetDragController);
-    }
-
-    _loadDragData() {
-        this.contentProvider = null;
-        const textCoder = new TextEncoder();
-
-        const uriList =
-            this._dragManager.fillDragDataGet(
-                this.Enums.DndTargetInfo.DING_ICON_LIST);
-
-        if (!uriList)
-            return;
-
-        const encodedUriList = textCoder.encode(uriList);
-
-        const dingContentProvider =
-            Gdk.ContentProvider.new_for_bytes(
-                this.Enums.DndTargetInfo.DING_ICON_LIST,
-                encodedUriList
-            );
-
-        if (this._desktopManager.checkIfSpecialFilesAreSelected()) {
-            this.contentProvider = dingContentProvider;
-            return;
-        }
-
-        const gnomeUriList =
-            this._dragManager.fillDragDataGet(
-                this.Enums.DndTargetInfo.GNOME_ICON_LIST);
-
-        if (!gnomeUriList)
-            return;
-
-        const gnomeContentProvider =
-            Gdk.ContentProvider.new_for_bytes(
-                this.Enums.DndTargetInfo.GNOME_ICON_LIST,
-                textCoder.encode(gnomeUriList)
-            );
-
-        const textPathList =
-            this._dragManager.fillDragDataGet(
-                this.Enums.DndTargetInfo.TEXT_PLAIN
-            );
-
-        if (!textPathList)
-            return;
-
-        const encodedPathList = textCoder.encode(textPathList);
-
-        const textUriListContentProvider =
-            Gdk.ContentProvider.new_for_bytes(
-                this.Enums.DndTargetInfo.URI_LIST,
-                encodedUriList
-            );
-
-        const textListContentProvider =
-            Gdk.ContentProvider.new_for_bytes(
-                this.Enums.DndTargetInfo.TEXT_PLAIN,
-                encodedPathList
-            );
-
-        const textUtf8ListContentProvider =
-            Gdk.ContentProvider.new_for_bytes(
-                this.Enums.DndTargetInfo.TEXT_PLAIN_UTF8,
-                encodedPathList
-            );
-
-        this.contentProvider = Gdk.ContentProvider.new_union([
-            dingContentProvider,
-            gnomeContentProvider,
-            textUriListContentProvider,
-            textListContentProvider,
-            textUtf8ListContentProvider,
-        ]);
-    }
-
-    // The following code is translated from Nautilus C to Javascript
-    //  to form the similar stack of items
-
-    _createStackedDragIcon(draggedItem) {
-        const  selectionArray = this._desktopManager.getCurrentSelection();
-        selectionArray.sort(
-            // eslint-disable-next-line no-nested-ternary
-            (a, b) => a.uri === draggedItem.uri
-                ? -1
-                : b.uri === draggedItem.uri
-                    ? 1
-                    : 0
-        );
-
-        const dragIconArray = selectionArray.map(f => f._icon.get_paintable());
-        const numberOfIcons = dragIconArray.length;
-
-        const dragIcon = Gtk.Snapshot.new();
-
-        /* A wide shadow for the pile of icons gives a sense of floating. */
-        const stackShadow =
-            {
-                color: {red: 0, green: 0, blue: 0, alpha: 0.15},
-                dx: 0,
-                dy: 2,
-                radius: 10,
-            };
-
-        /* A slight shadow swhich makes each icon in the stack look separate. */
-        const iconShadow =
-            {
-                color: {red: 0, green: 0, blue: 0, alpha: 0.30},
-                dx: 0,
-                dy: 1,
-                radius: 1,
-            };
-
-        let xOffset = numberOfIcons % 2 === 1 ? 6 : -6;
-        let yOffset;
-
-        switch (numberOfIcons) {
-        case 1:
-            yOffset = 0;
-            break;
-        case 2:
-            yOffset = 10;
-            break;
-        case 3:
-            yOffset = 6;
-            break;
-        default:
-            yOffset = 4;
-        }
-
-        dragIcon.translate(
-            new Graphene.Point(
-                {
-                    x: 10 + (xOffset / 2),
-                    y: yOffset * numberOfIcons,
-                }
-            )
-        );
-
-        const shadow = new Gsk.Shadow(stackShadow);
-        dragIcon.push_shadow([shadow]);
-
-        dragIconArray.reverse().forEach(
-            paintableWidget => {
-                const w = paintableWidget.get_intrinsic_width();
-                const h = paintableWidget.get_intrinsic_height();
-                const X = Math.floor((this.Prefs.IconSize - w) / 2);
-                const Y = Math.floor((this.Prefs.IconSize - h) / 2);
-
-                dragIcon.translate(
-                    new Graphene.Point(
-                        {
-                            x: -xOffset,
-                            y: -yOffset,
-                        }
-                    )
-                );
-
-                xOffset = -xOffset;
-
-                dragIcon.translate(new Graphene.Point({x: X, y: Y}));
-                dragIcon.push_shadow([new Gsk.Shadow(iconShadow)]);
-
-                paintableWidget.snapshot(dragIcon, w, h);
-
-                dragIcon.pop();
-
-                dragIcon.translate(new Graphene.Point({x: -X, y: -Y}));
-            }
-        );
-        dragIcon.pop();
-
-        return dragIcon.to_paintable(null);
-    }
-
-    _receiveLeave() {
-        this._stopSpringLoadedTimer();
-        this._window.queue_draw();
-        this._dragManager.onDragLeave();
-    }
-
-    receiveLeave() {
-        this._receiveLeave();
-    }
-
-    receiveMotion(x, y, global) {
-        let X;
-        let Y;
-        if (!global) {
-            x = this._elementWidth * Math.floor(x / this._elementWidth);
-            y = this._elementHeight * Math.floor(y / this._elementHeight);
-            [X, Y] = this.coordinatesLocalToGlobal(x, y);
-        }
-        this._dragManager.onDragMotion(X, Y);
+        return this._receiveDrop(
+            x,
+            y,
+            ...sharedArguments
+        ).catch(e => console.error(e));
     }
 
     async _receiveDrop(
         x, y,
-        selection,
-        info,
+        fileReferences,
+        referenceFormat,
         gdkDropAction,
-        localDrop,
+        isInAppDrag,
         event,
         dragItem
     ) {
-        x = this._elementWidth * Math.floor(x / this._elementWidth);
-        y = this._elementHeight * Math.floor(y / this._elementHeight);
         const [X, Y] = this.coordinatesLocalToGlobal(x, y);
+        this._dragManager.onDragLeave();
+
+        if (referenceFormat === this.Enums.DndTargetInfo.DING_ICON_LIST &&
+            gdkDropAction === Gdk.DragAction.MOVE) {
+            const [originX, originY] = dragItem.getCoordinates().slice(0, 3);
+            const [dropX, dropY] =
+                this._dropOperations.desktopPositionForDrop([X, Y]);
+            this._dragManager.doMoveWithDragAndDrop(
+                originX,
+                originY,
+                dropX,
+                dropY
+            );
+            return Gdk.DragAction.MOVE;
+        }
+
         const returnAction =
-            await this._dragManager
-                .onDragDataReceived(
-                    X, Y,
-                    x, y,
-                    selection,
-                    info,
+            await this._dropOperations
+                .handleFileDrop(
+                    [X, Y],
+                    fileReferences,
+                    referenceFormat,
                     gdkDropAction,
-                    localDrop,
-                    event,
-                    dragItem
+                    isInAppDrag,
+                    event
                 )
                 .catch(e => console.error(e));
         return returnAction;
     }
 
-    refreshDrag(selectedList, ox, oy) {
-        if (!this.Prefs.showDropPlace)
-            return;
-
-        if (selectedList === null) {
-            this._selectedList = null;
-            this.updateOverlay();
-
-            return;
-        }
-
-        let newSelectedList = [];
-
-        for (let [x, y] of selectedList) {
-            x += this._elementWidth / 2;
-            y += this._elementHeight / 2;
-            x += ox;
-            y += oy;
-
-            const r = this.getCoordinatesOfGridContaining(x, y);
-
-            if (r &&
-                !isNaN(r[0]) &&
-                !isNaN(r[1]) &&
-                (!this._gridInUse(r[0], r[1]) ||
-                this._fileAt(r[0], r[1])?.isSelected)
-            )
-                newSelectedList.push(r);
-        }
-
-        if (newSelectedList.length === 0) {
-            if (this._selectedList !== null) {
-                this._selectedList = null;
-                this.updateOverlay();
-            }
-
-            return;
-        }
-
-        if (this._selectedList !== null) {
-            if ((newSelectedList[0][0] === this._selectedList[0][0]) &&
-                (newSelectedList[0][1] === this._selectedList[0][1])
-            )
-                return;
-        }
-
-        this._selectedList = newSelectedList;
-        this.updateOverlay();
+    _clearDropFeedback() {
+        this.receiveLeave();
     }
 
     _startSpringLoadedTimer(fileItem) {
@@ -2293,6 +1971,48 @@ const ControlGrid = class extends DrawGrid {
             GLib.Source.remove(this.directoryOpenTimer);
 
         this.directoryOpenTimer = 0;
+    }
+
+    _setDragSource(widget) {
+        const widgetDragController = Gtk.DragSource.new();
+        this.gridDragController = widgetDragController;
+        let clickItem;
+
+        this._dragPrepareId = widgetDragController.connect(
+            'prepare',
+            (_actor, x, y) => {
+                clickItem = this._fileAt(x, y);
+                if (!clickItem)
+                    return null;
+
+                const hotspot = this._coordinatesWidgetToWidget(
+                    x, y,
+                    this._container,
+                    clickItem._icon
+                ).map(f => Math.floor(Math.max(f)));
+
+                return this._dragManager.prepareDrag(
+                    widgetDragController, clickItem, hotspot
+                );
+            }
+        );
+
+        this._dragBeginId = widgetDragController.connect(
+            'drag-begin',
+            () => this._dragManager.onDragBegin(clickItem)
+        );
+
+        this._dragCancelId = widgetDragController.connect(
+            'drag-cancel',
+            (_actor, _drag, reason) => this._dragManager.onDragCancel(reason)
+        );
+
+        this._dragEndId = widgetDragController.connect(
+            'drag-end',
+            () => this._dragManager.onDragEnd(clickItem)
+        );
+
+        widget.add_controller(widgetDragController);
     }
 };
 

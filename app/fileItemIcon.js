@@ -435,23 +435,26 @@ const FileItemIcon = class extends DesktopIconItem {
     async receiveDrop(
         X, Y,
         x, y,
-        dropData,
-        acceptFormat,
+        fileReferences,
+        referenceFormat,
         gdkDropAction,
-        localDrop,
+        isInAppDrag,
         event,
         dragItem
     ) {
         if (!this.dropCapable)
             return false;
 
-        if (acceptFormat !== this.Enums.DndTargetInfo.DING_ICON_LIST &&
-            acceptFormat !== this.Enums.DndTargetInfo.GNOME_ICON_LIST &&
-            acceptFormat !== this.Enums.DndTargetInfo.URI_LIST)
+        if (referenceFormat !== this.Enums.DndTargetInfo.DING_ICON_LIST &&
+            referenceFormat !== this.Enums.DndTargetInfo.GNOME_ICON_LIST &&
+            referenceFormat !== this.Enums.DndTargetInfo.URI_LIST)
             return false;
 
         const fileList =
-            this._dragManager.makeFileListFromSelection(dropData, acceptFormat);
+            this._dropOperations.fileURIsFromReferences(
+                fileReferences,
+                referenceFormat
+            );
 
         if (!fileList)
             return false;
@@ -464,11 +467,11 @@ const FileItemIcon = class extends DesktopIconItem {
         }
 
         const dropReturnValue = await this._handleDroppedUris(
-            X, Y,
-            x, y,
+            X,
+            Y,
             fileList,
             gdkDropAction,
-            localDrop,
+            isInAppDrag,
             event
         );
 
@@ -476,11 +479,11 @@ const FileItemIcon = class extends DesktopIconItem {
     }
 
     async _handleDroppedUris(
-        X, Y,
-        x, y,
+        X,
+        Y,
         fileList,
         gdkDropAction,
-        localDrop,
+        isInAppDrag,
         event
     ) {
         const forceCopy = gdkDropAction === Gdk.DragAction.COPY;
@@ -489,11 +492,11 @@ const FileItemIcon = class extends DesktopIconItem {
         if (gdkDropAction === Gdk.DragAction.MOVE ||
             gdkDropAction === Gdk.DragAction.COPY
         ) {
-            if (localDrop)
-                this._dragManager.saveCurrentFileCoordinatesForUndo();
+            if (isInAppDrag)
+                this._dropOperations.rememberSelectedFilePositionsForUndo();
             try {
                 returnAction =
-                    await this._dragManager.copyOrMoveUris(
+                    await this._dropOperations.copyOrMoveUris(
                         fileList, this._file.get_uri(), event, {forceCopy}
                     );
             } catch (e) {
@@ -506,11 +509,11 @@ const FileItemIcon = class extends DesktopIconItem {
             else
                 returnAction = Gdk.DragAction.COPY;
 
-            this._dragManager.askWhatToDoWithFiles(
+            this._dropOperations.askWhatToDoWithFiles(
                 fileList,
                 this._file.get_uri(),
-                X, Y,
-                x, y,
+                X,
+                Y,
                 event,
                 {desktopActions: false}
             );

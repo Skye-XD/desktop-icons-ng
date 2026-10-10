@@ -510,6 +510,7 @@ const FileItemActions = class {
         this._appChooser = this._desktopManager.appChooser;
         this._dbusManager = this._desktopManager.dbusManager;
         this._dragManager = this._desktopManager.dragManager;
+        this._dropOperations = this._desktopManager.dropOperations;
         this._createFileItemMenuActions();
     }
 
@@ -1244,7 +1245,13 @@ const FileItemActions = class {
 
         const desktopFolderUri = this._desktopDir.get_uri();
         const [X, Y] = this.activeFileItem.getCoordinates().slice(0, 2);
-        this._dragManager.makeLinks(toLink, desktopFolderUri, X, Y)
+        const dropPosition =
+            this._dropOperations.desktopPositionForDrop([X, Y]);
+        this._dropOperations.createSymbolicLinks(
+            toLink,
+            desktopFolderUri,
+            dropPosition
+        )
         .catch(e => logError(e));
     }
 
@@ -1294,7 +1301,7 @@ const FileItemActions = class {
             .catch(e => console.error(e));
 
         if (folder) {
-            this._dragManager.saveCurrentFileCoordinatesForUndo();
+            this._dropOperations.rememberSelectedFilePositionsForUndo();
             this._DBusUtils
                 .RemoteFileOperations
                 .MoveURIsRemote(moveList, folder.get_uri());
@@ -1330,8 +1337,11 @@ const FileItemActions = class {
         if (!selectionItems || !selectionItems.length)
             return;
 
-        if (!localDrag)
-            this._dragManager.saveCurrentFileCoordinatesForUndo(selectionItems);
+        if (!localDrag) {
+            this._dropOperations.rememberSelectedFilePositionsForUndo(
+                selectionItems
+            );
+        }
 
         const selectionURIs = [];
 
@@ -1419,14 +1429,14 @@ const FileItemActions = class {
     _manageCutCopy(action) {
         const uriList =
             this._dragManager
-            .fillDragDataGet(this._Enums.DndTargetInfo.TEXT_URI_LIST);
+            .getSelectionData(this._Enums.DndTargetInfo.TEXT_URI_LIST);
 
         if (!uriList?.length)
             return;
 
         const pathList =
             this._dragManager
-            .fillDragDataGet(this._Enums.DndTargetInfo.TEXT_PLAIN);
+            .getSelectionData(this._Enums.DndTargetInfo.TEXT_PLAIN);
 
         const clipboard = Gdk.Display.get_default().get_clipboard();
         const textCoder = new TextEncoder();
@@ -1477,7 +1487,7 @@ const FileItemActions = class {
 
 
     get _desktopDir() {
-        return this._desktopManager._desktopDir;
+        return this._desktopManager.desktopDir;
     }
 
     get activeFileItem() {

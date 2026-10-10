@@ -20,9 +20,11 @@ import {
     AppChooser,
     AskRenamePopup,
     AutoAr,
+    DesktopDropOperations,
     DesktopMenu,
     DesktopMonitor,
     DragManager,
+    DropSession,
     FileItemMenu,
     GnomeShellDragDrop,
     ShortcutManager,
@@ -64,10 +66,13 @@ const DesktopManager = class {
         this.showErrorPopup = ShowErrorPopup;
         this.templatesScriptsManager = TemplatesScriptsManager;
         this.GnomeShellDragDrop = GnomeShellDragDrop;
+        this.DropSession = DropSession;
         this.appChooser = AppChooser;
         this.ThumbnailLoader = Utils.ThumbnailLoader;
 
         // init methods
+        this.dropOperations =
+            new DesktopDropOperations.DesktopDropOperations(this);
         this.dragManager = new DragManager.DragManager(this);
         this.windowManager = new WindowManager.WindowManager(this,
             desktopList,
@@ -241,7 +246,7 @@ const DesktopManager = class {
             await runDialog;
         }
 
-        const fileType = this._desktopDir.query_file_type(
+        const fileType = this.desktopDir.query_file_type(
             Gio.FileQueryInfoFlags.NOFOLLOW_SYMLINKS,
             null);
         if (fileType === Gio.FileType.SYMBOLIC_LINK) {
@@ -250,7 +255,7 @@ const DesktopManager = class {
             const text = _('The Desktop folder {desktop} is a Symbolic Link\n\nPlease set the Desktop Folder to a real Folder');
             const errorDialog = this.showError(
                 header,
-                text.replace('{desktop}', this._desktopDir.get_path())
+                text.replace('{desktop}', this.desktopDir.get_path())
             );
             await errorDialog.run();
             this._desktops.forEach(d => d.setErrorState());
@@ -260,7 +265,7 @@ const DesktopManager = class {
             const text = _('The Desktop folder {desktop} does not exist, or is not a Directory\n\nCheck your xdg-utils installation and set the correct Desktop Folder');
             const errorDialog = this.showError(
                 header,
-                text.replace('{desktop}', this._desktopDir.get_path())
+                text.replace('{desktop}', this.desktopDir.get_path())
             );
             await errorDialog.run();
             this._desktops.forEach(d => d.setErrorState());
@@ -314,6 +319,9 @@ const DesktopManager = class {
     }
 
     terminateProgram() {
+        this.windowManager.stopDragHandling();
+        this.dragManager.destroy();
+        this.dropOperations.destroy();
         this.desktopMonitor.stopMonitoring();
 
         if (this._dbusGeometryIface)
@@ -1586,7 +1594,6 @@ const DesktopManager = class {
             this.stackInitialCoordinates)
             this._transformSavedStackInitialCoordinates();
 
-
         this._sortAllFilesFromGridsByKindStacked(opts);
 
         this._reassignFilesToDesktop();
@@ -1600,6 +1607,16 @@ const DesktopManager = class {
         });
         this.desktopActions.lastAnchorSelected = null;
         this.fileItemMenu.activeFileItem = null;
+    }
+
+    selectionCanBeRepositioned() {
+        if (!this.Prefs.keepArranged && !this.Prefs.keepStacked)
+            return true;
+        if (this.Prefs.sortSpecialFolders)
+            return false;
+        const movableSelection = this.getCurrentSelection()
+            ?.filter(file => !file.isSpecial) ?? [];
+        return movableSelection.length < 1;
     }
 
     getCurrentSelection() {
@@ -1684,7 +1701,9 @@ const DesktopManager = class {
                         this.newItemDoRename.delete(fileItem.fileName);
                     this._renameWindow = null;
                 },
-                this.dragManager.setPendingDropCoordinates.bind(this),
+                this.dropOperations.setPendingFilePosition.bind(
+                    this.dropOperations
+                ),
                 {
                     FileUtils: this.FileUtils,
                     DesktopIconsUtil: this.DesktopIconsUtil,
@@ -1709,7 +1728,7 @@ const DesktopManager = class {
         let newName = this.desktopMonitor.getDesktopUniqueFileName(baseName);
 
         if (newName) {
-            const dir = this._desktopDir.get_child(newName);
+            const dir = this.desktopDir.get_child(newName);
 
             try {
                 await dir.make_directory_async(GLib.PRIORITY_DEFAULT, null);
@@ -1884,7 +1903,7 @@ const DesktopManager = class {
 
     // Getters and Setters
 
-    get _desktopDir() {
+    get desktopDir() {
         return this.desktopMonitor.desktopDir;
     }
 
@@ -1934,20 +1953,12 @@ const DesktopManager = class {
         this.fileItemMenu.activeFileItem = fileItem;
     }
 
-    get pendingDropFiles() {
-        return this.dragManager.pendingDropFiles;
+    get positionsForNewFiles() {
+        return this.dropOperations.positionsForNewFiles;
     }
 
-    set pendingDropFiles(object) {
-        this.dragManager.pendingDropFiles = object;
-    }
-
-    get pendingSelfCopyFiles() {
-        return this.dragManager.pendingSelfCopyFiles;
-    }
-
-    set pendingSelfCopyFiles(object) {
-        this.dragManager.pendingSelfCopyFiles = object;
+    get positionsForExistingFiles() {
+        return this.dropOperations.positionsForExistingFiles;
     }
 
     get writableByOthers() {
