@@ -362,6 +362,26 @@ const FileItemIcon = class extends DesktopIconItem {
             return;
         }
 
+        if (this.isDirectory) {
+            try {
+                await new Promise((resolve, reject) => {
+                    this.DBusUtils.RemoteFileOperations.ShowFolderRemote(
+                        this.file.get_uri(),
+                        Gdk.CURRENT_TIME,
+                        (result, error) => {
+                            if (error)
+                                reject(error);
+                            else
+                                resolve(result);
+                        }
+                    );
+                });
+                return;
+            } catch (e) {
+                // Keep the default URI handler available if D-Bus fails.
+            }
+        }
+
         try {
             await Gio.AppInfo.launch_default_for_uri_async(
                 this.file.get_uri(),
