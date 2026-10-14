@@ -91,7 +91,6 @@ const DingManager = class {
      * Inits the Class
      */
     _init() {
-        this.isEnabled = false;
         this.launchDesktop = 0;
         this.waylandClient = null;
         this.DesktopIconsUsableArea = null;
@@ -165,7 +164,7 @@ const DingManager = class {
                     this._activateDelayedLaunch.bind(this)
                 );
         } else {
-            this.startupPrepareId = null;
+            this.startupPreparedId = null;
             this._activateDelayedLaunch();
         }
     }
@@ -191,7 +190,7 @@ const DingManager = class {
             return;
         }
 
-        if (this.startupPrepareId) {
+        if (this.startupPreparedId) {
             Main.layoutManager.disconnect(this.startupPreparedId);
             this.startupPreparedId = null;
         }
@@ -251,7 +250,6 @@ const DingManager = class {
                 this._onActiveChanged.bind(this)
             );
 
-        this.isEnabled = true;
 
         if (this.launchDesktop)
             GLib.source_remove(this.launchDesktop);
@@ -297,14 +295,7 @@ const DingManager = class {
      * This will hapen on log out.
      */
     disable() {
-        this.isEnabled = false;
         this.DesktopIconsUsableArea = null;
-        this._killCurrentProcess();
-        this.GnomeShellOverride.disable();
-        this.windowTypeManager.disable();
-        this.visibleArea.disable();
-        this.ShortcutManager.disable();
-
         if (this.startupProcessKillWaitId) {
             GLib.source_remove(this.startupProcessKillWaitId);
             this.startupProcessKillWaitId = 0;
@@ -313,6 +304,7 @@ const DingManager = class {
             Main.layoutManager.disconnect(this.startupPreparedId);
             this.startupPreparedId = 0;
         }
+        this._killCurrentProcess();
         if (this.monitorsChangedId) {
             Main.layoutManager.disconnect(this.monitorsChangedId);
             this.monitorsChangedId = 0;
@@ -322,7 +314,7 @@ const DingManager = class {
             this.workareasChangedId = 0;
         }
         if (this.visibleAreaId) {
-            this.visibleArea.disconnect(this.visibleAreaId);
+            this.visibleArea?.disconnect(this.visibleAreaId);
             this.visibleAreaId = 0;
         }
         if (this.scaleFactorId) {
@@ -344,6 +336,15 @@ const DingManager = class {
             this.remoteGeometryUpdateRequestedId = 0;
         }
 
+        this.ShortcutManager?.disable();
+        this.ShortcutManager = null;
+        this.visibleArea?.disable();
+        this.visibleArea = null;
+        this.windowTypeManager?.disable();
+        this.windowTypeManager = null;
+        this.GnomeShellOverride?.disable();
+        this.GnomeShellOverride = null;
+        this.remoteDingActions = null;
         this.settings = null;
 
         console.log('Adw-DING disabled.');
@@ -506,7 +507,7 @@ const DingManager = class {
         }
 
         this.waylandClient = null;
-        this.windowTypeManager.set_wayland_client(null);
+        this.windowTypeManager?.set_wayland_client(null);
     }
 
     /**
@@ -563,25 +564,27 @@ const DingManager = class {
     /**
      *
      * @param {integer} reloadTime Relaunch time after crash in ms
+     * @param {LaunchSubprocess} client Process owner requesting the relaunch
      */
-    _doRelaunch(reloadTime) {
+    _doRelaunch(reloadTime, client) {
+        if (!client || this.waylandClient !== client)
+            return;
+
         this.waylandClient = null;
         this.windowTypeManager.set_wayland_client(null);
-        if (this.isEnabled) {
-            if (this.launchDesktop)
-                GLib.source_remove(this.launchDesktop);
+        if (this.launchDesktop)
+            GLib.source_remove(this.launchDesktop);
 
-            this.launchDesktop =
-                GLib.timeout_add(
-                    GLib.PRIORITY_DEFAULT,
-                    reloadTime,
-                    () => {
-                        this.launchDesktop = 0;
-                        this._launchDesktop().catch(e => console.error(e));
-                        return false;
-                    }
-                );
-        }
+        this.launchDesktop =
+            GLib.timeout_add(
+                GLib.PRIORITY_DEFAULT,
+                reloadTime,
+                () => {
+                    this.launchDesktop = 0;
+                    this._launchDesktop().catch(e => console.error(e));
+                    return false;
+                }
+            );
     }
 
     /**
@@ -607,22 +610,26 @@ const DingManager = class {
         argv.push('-U');
         argv.push(`${this.uuid}`);
 
-        this.waylandClient = new LaunchSubprocess(0, 'Adw-DING');
-        this.waylandClient.set_cwd(GLib.get_home_dir());
-        this.windowTypeManager.set_wayland_client(this.waylandClient);
+        const client = new LaunchSubprocess(0, 'Adw-DING');
+        this.waylandClient = client;
+        client.set_cwd(GLib.get_home_dir());
+        this.windowTypeManager.set_wayland_client(client);
 
         const launchTime = GLib.get_monotonic_time();
 
         let subprocess;
 
         try {
-            subprocess = await this.waylandClient.spawnv(argv);
+            subprocess = await client.spawnv(argv);
         } catch (e) {
+            if (this.waylandClient !== client)
+                return;
+
             if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED)) {
                 console.error(
                     e, `Error while trying to launch DING process: ${e.message}`
                 );
-                this._doRelaunch(1000);
+                this._doRelaunch(1000, client);
             }
 
             return;
@@ -648,8 +655,8 @@ const DingManager = class {
             reloadTime = 1;
         }
 
-        if (!this.waylandClient ||
-            subprocess !== this.waylandClient.subprocess
+        if (this.waylandClient !== client ||
+            subprocess !== client.subprocess
         )
             return;
 
@@ -657,7 +664,7 @@ const DingManager = class {
         if (subprocess.get_if_exited())
             subprocess.get_exit_status();
 
-        this._doRelaunch(reloadTime);
+        this._doRelaunch(reloadTime, client);
     }
 };
 
@@ -915,9 +922,11 @@ var DingExtensionService = class {
         this.geometryUpdate = updateDesktopGeometryCB;
         this.setWidgetLayerRaisedCB = setWidgetLayerRaisedCB;
         this.synthesizeHover = new SynthesizeHover();
+        this._shellDragCursorActorRef = null;
     }
 
     disable() {
+        this.setDragCursor('default');
         this.synthesizeHover.disable();
     }
 
@@ -989,23 +998,45 @@ var DingExtensionService = class {
     }
 
     setDragCursor(cursor) {
-        const actor = global.get_stage().get_grab_actor?.();
+        const currentGrabActor = global.get_stage().get_grab_actor();
         const CursorType = Clutter.CursorType;
+        let cursorType;
 
         switch (cursor) {
         case 'dndMoveCursor':
-            actor?.set_cursor_type(CursorType.MOVE);
+            cursorType = CursorType.MOVE;
             break;
         case 'dndCopyCursor':
-            actor?.set_cursor_type(CursorType.COPY);
+            cursorType = CursorType.COPY;
             break;
         case 'dndNoDropCursor':
-            actor?.set_cursor_type(CursorType.NO_DROP);
+            cursorType = CursorType.NO_DROP;
             break;
         default:
-            actor?.set_cursor_type(CursorType.DEFAULT);
-            break;
+            cursorType = CursorType.DEFAULT;
         }
+
+        if (cursorType === CursorType.DEFAULT) {
+            const ownedActor = this._shellDragCursorActorRef?.deref();
+            this._shellDragCursorActorRef = null;
+
+            // Mutter resets and destroys its drag actor when the grab ends.
+            // Only reset our override while that same grab is still current;
+            // never call methods on an actor retained from an earlier grab.
+            if (currentGrabActor && currentGrabActor === ownedActor)
+                currentGrabActor.set_cursor_type(cursorType);
+            return;
+        }
+
+        // Workspace animations grab the persistent Shell stage. Never put a
+        // drag cursor on that actor, or on another Shell modal grab: it can
+        // outlive the drag and leave the cursor stuck across the desktop.
+        if (!currentGrabActor || currentGrabActor === global.stage ||
+            Main.modalCount > 0)
+            return;
+
+        this._shellDragCursorActorRef = new WeakRef(currentGrabActor);
+        currentGrabActor.set_cursor_type(cursorType);
     }
 
     getShellGlobalCoordinates() {
