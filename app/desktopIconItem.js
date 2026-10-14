@@ -49,6 +49,7 @@ const DesktopIconItem = class {
     constructor(desktopManager, fileTypeEnum) {
         this._desktopManager = desktopManager;
         this._dragManager = desktopManager.dragManager;
+        this._dropOperations = desktopManager.dropOperations;
         this.DesktopIconsUtil = desktopManager.DesktopIconsUtil;
         this.FileUtils = desktopManager.FileUtils;
         this.Prefs = desktopManager.Prefs;
@@ -388,6 +389,12 @@ const DesktopIconItem = class {
         this._parseSavedCoordinates([]);
     }
 
+    forgetSavedCoordinates() {
+        // Update only the in-memory state. Drop placement will immediately
+        // replace it and persist the resulting desktop position.
+        this._parseSavedCoordinates(null);
+    }
+
     readDropCoordinates() {
         this._parseDropCoordinates([]);
     }
@@ -510,7 +517,7 @@ const DesktopIconItem = class {
         button, nPress, X, Y, x, y, shiftPressed, controlPressed, timestamp
     ) {
         if (!this._isSelected)
-            this._dragManager.selected(this, this.Enums.Selection.RIGHT_BUTTON);
+            this._dragManager.updateSelection(this, this.Enums.Selection.RIGHT_BUTTON);
 
         this._destroyToolTip();
 
@@ -530,12 +537,12 @@ const DesktopIconItem = class {
     ) {
         if (nPress === 1) {
             if (shiftPressed || controlPressed) {
-                this._dragManager.selected(
+                this._dragManager.updateSelection(
                     this,
                     this.Enums.Selection.WITH_SHIFT
                 );
             } else {
-                this._dragManager.selected(
+                this._dragManager.updateSelection(
                     this,
                     this.Enums.Selection.ALONE
                 );
@@ -557,10 +564,10 @@ const DesktopIconItem = class {
             return true;
 
         if (this.Prefs.CLICK_POLICY_SINGLE) {
-            let window = this._grid._window;
+            const window = this._grid._window;
 
             if (window)
-                window.set_cursor(Gdk.Cursor.new_from_name('hand', null));
+                window.set_cursor(Gdk.Cursor.new_from_name('pointer', null));
         }
 
         return false;
@@ -571,7 +578,7 @@ const DesktopIconItem = class {
             return true;
 
         if (this.Prefs.CLICK_POLICY_SINGLE) {
-            let window = this._grid._window;
+            const window = this._grid._window;
 
             if (window)
                 window.set_cursor(Gdk.Cursor.new_from_name('default', null));

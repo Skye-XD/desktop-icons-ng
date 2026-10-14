@@ -72,6 +72,14 @@ const Preferences = class {
             DesktopAppInfo.new('org.gnome.Nautilus.desktop');
 
 
+        this._fileManagerMonitor = Gio.AppInfoMonitor.get();
+
+        this._fileManagerMonitor.connect('changed', () => {
+            this._updateFileManager();
+        });
+
+        this._updateFileManager();
+
         // Compression
         const compressionSchema =
             schemaSource.lookup(this._Enums.SCHEMA_NAUTILUS_COMPRESSION, true);
@@ -247,6 +255,14 @@ const Preferences = class {
     }
 
     // Monitoring
+    _updateFileManager() {
+        this._fileManagerAppInfo =
+            Gio.AppInfo.get_default_for_type('inode/directory', false);
+
+        this._mainApp.lookup_action('openInNewWindow')
+            ?.set_enabled(this.isGnomeFiles);
+    }
+
     init(desktopManager) {
         this._desktopManager = desktopManager;
         this._desktopIconsUtil = desktopManager.DesktopIconsUtil;
@@ -1034,6 +1050,15 @@ const Preferences = class {
     }
 
     // Getters
+    get fileManagerAppInfo() {
+        return this._fileManagerAppInfo;
+    }
+
+    get isGnomeFiles() {
+        return this._fileManagerAppInfo?.get_id() ===
+            'org.gnome.Nautilus.desktop';
+    }
+
     get StartCorner() {
         // Return a shallow copy that can be mutated without affecting other
         //  icons with cornerinversion in DesktopGrid

@@ -76,6 +76,9 @@ export const DefaultShortcuts = {
     // FileItem Menu Actions
     openMultipleFileAction: {Hint: 'Open All', Accel: '<Control>Return', Edit: true},
     openOneFileAction: {Hint: 'Open Item', Accel: 'Return', Edit: true},
+    openInNewWindow: {
+        Hint: _('Open Folder in New Window'), Accel: '<Shift>Return', Edit: true,
+    },
     stackunstack: {Hint: 'Stack/Unstack', Accel: ''},
     doopenwith: {Hint: 'Open With', Accel: '', Edit: true},
     graphicslaunch: {Hint: 'Launch using Integrated Graphics Card', Accel: ''},

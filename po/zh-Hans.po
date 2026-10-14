@@ -16,13 +16,14 @@
 # chenaou <2744735540@qq.com>, 2026.
 # Rockytkg <2696916846@qq.com>, 2026.
 # xiezhihai <xiezhihai7321@outlook.com>, 2026.
+# jywondf <99643089+JoyWonderful@users.noreply.github.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-09-13 18:34-0400\n"
-"PO-Revision-Date: 2026-09-21 17:51+0000\n"
-"Last-Translator: xiezhihai <xiezhihai7321@outlook.com>\n"
+"PO-Revision-Date: 2026-10-10 14:51+0000\n"
+"Last-Translator: jywondf <99643089+JoyWonderful@users.noreply.github.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/gtk4-desktop-icons-ng/gtk4-ding-pot/zh_Hans/>\n"
 "Language: zh-Hans\n"
@@ -30,7 +31,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2026.10.dev0\n"
+"X-Generator: Weblate 2026.10.1.dev0\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
@@ -79,7 +80,7 @@ msgstr "快捷键 仅在扩展启用时才能编辑..."
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:376
 msgid "Help translate in your web browser"
-msgstr "帮助翻译您的网页浏览器"
+msgstr "在你的浏览器里帮助翻译这个项目"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:628 app/adwPreferencesWindow.js:629

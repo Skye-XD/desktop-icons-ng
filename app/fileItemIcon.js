@@ -169,6 +169,15 @@ const FileItemIcon = class extends DesktopIconItem {
         return null;
     }
 
+    _queryFileInfoForRefresh(cancellable) {
+        return this._file.query_info_async(
+            this.Enums.DEFAULT_ATTRIBUTES,
+            Gio.FileQueryInfoFlags.NONE,
+            GLib.PRIORITY_DEFAULT,
+            cancellable
+        );
+    }
+
     async _refreshMetadataAsync(cancellable) {
         if (!this._file)
             return false;
@@ -183,14 +192,9 @@ const FileItemIcon = class extends DesktopIconItem {
 
         try {
             const newFileInfo =
-                await this._file.query_info_async(
-                    this.Enums.DEFAULT_ATTRIBUTES,
-                    Gio.FileQueryInfoFlags.NONE,
-                    GLib.PRIORITY_DEFAULT,
-                    cancellable
-                );
+                await this._queryFileInfoForRefresh(cancellable);
 
-            if (cancellable.is_cancelled())
+            if (!newFileInfo || cancellable.is_cancelled())
                 return false;
 
             this._updateMetadataFromFileInfo(newFileInfo);
@@ -435,23 +439,26 @@ const FileItemIcon = class extends DesktopIconItem {
     async receiveDrop(
         X, Y,
         x, y,
-        dropData,
-        acceptFormat,
+        fileReferences,
+        referenceFormat,
         gdkDropAction,
-        localDrop,
+        isInAppDrag,
         event,
         dragItem
     ) {
         if (!this.dropCapable)
             return false;
 
-        if (acceptFormat !== this.Enums.DndTargetInfo.DING_ICON_LIST &&
-            acceptFormat !== this.Enums.DndTargetInfo.GNOME_ICON_LIST &&
-            acceptFormat !== this.Enums.DndTargetInfo.URI_LIST)
+        if (referenceFormat !== this.Enums.DndTargetInfo.DING_ICON_LIST &&
+            referenceFormat !== this.Enums.DndTargetInfo.GNOME_ICON_LIST &&
+            referenceFormat !== this.Enums.DndTargetInfo.URI_LIST)
             return false;
 
         const fileList =
-            this._dragManager.makeFileListFromSelection(dropData, acceptFormat);
+            this._dropOperations.fileURIsFromReferences(
+                fileReferences,
+                referenceFormat
+            );
 
         if (!fileList)
             return false;
@@ -464,11 +471,11 @@ const FileItemIcon = class extends DesktopIconItem {
         }
 
         const dropReturnValue = await this._handleDroppedUris(
-            X, Y,
-            x, y,
+            X,
+            Y,
             fileList,
             gdkDropAction,
-            localDrop,
+            isInAppDrag,
             event
         );
 
@@ -476,11 +483,11 @@ const FileItemIcon = class extends DesktopIconItem {
     }
 
     async _handleDroppedUris(
-        X, Y,
-        x, y,
+        X,
+        Y,
         fileList,
         gdkDropAction,
-        localDrop,
+        isInAppDrag,
         event
     ) {
         const forceCopy = gdkDropAction === Gdk.DragAction.COPY;
@@ -489,11 +496,11 @@ const FileItemIcon = class extends DesktopIconItem {
         if (gdkDropAction === Gdk.DragAction.MOVE ||
             gdkDropAction === Gdk.DragAction.COPY
         ) {
-            if (localDrop)
-                this._dragManager.saveCurrentFileCoordinatesForUndo();
+            if (isInAppDrag)
+                this._dropOperations.rememberSelectedFilePositionsForUndo();
             try {
                 returnAction =
-                    await this._dragManager.copyOrMoveUris(
+                    await this._dropOperations.copyOrMoveUris(
                         fileList, this._file.get_uri(), event, {forceCopy}
                     );
             } catch (e) {
@@ -506,11 +513,11 @@ const FileItemIcon = class extends DesktopIconItem {
             else
                 returnAction = Gdk.DragAction.COPY;
 
-            this._dragManager.askWhatToDoWithFiles(
+            this._dropOperations.askWhatToDoWithFiles(
                 fileList,
                 this._file.get_uri(),
-                X, Y,
-                x, y,
+                X,
+                Y,
                 event,
                 {desktopActions: false}
             );
@@ -749,14 +756,20 @@ const FileItemIcon = class extends DesktopIconItem {
     }
 
     async _storeCoordinates(name, coords, cancellable = null) {
-        const info = new Gio.FileInfo();
-        info.set_attribute_string(
+        await this.FileUtils.setStringAttribute(
+            this._file,
             `metadata::${name}`,
-            `${coords ? coords.join(',') : ''}`
+            coords ? coords.join(',') : '',
+            cancellable,
+            GLib.PRIORITY_LOW,
+            Gio.FileQueryInfoFlags.NOFOLLOW_SYMLINKS
         );
 
-        const updateIcon = true;
-        await this._setFileAttributes(info, cancellable, !updateIcon);
+        if (cancellable && cancellable.is_cancelled()) {
+            throw new GLib.Error(Gio.IOErrorEnum,
+                Gio.IOErrorEnum.CANCELLED,
+                'Operation was cancelled');
+        }
     }
 
     writeSavedCoordinates(pos) {
@@ -868,6 +881,12 @@ const FileItemIcon = class extends DesktopIconItem {
     get canRename() {
         return !this.trustedDesktopFile &&
             (this._fileTypeEnum === this.Enums.FileType.NONE);
+    }
+
+    get canDelete() {
+        return this._fileInfo.get_attribute_boolean(
+            Gio.FILE_ATTRIBUTE_ACCESS_CAN_DELETE
+        );
     }
 
     get displayName() {

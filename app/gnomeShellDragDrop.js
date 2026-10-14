@@ -22,6 +22,8 @@ export {GnomeShellDrag};
 const GnomeShellDrag = class {
     constructor(desktopManager) {
         this._DBusUtils = desktopManager.DBusUtils;
+        this._destroyed = false;
+        this._ownsShellCursor = false;
 
         if (!this._DBusUtils.RemoteExtensionControl.isAvailable)
             return;
@@ -42,7 +44,12 @@ const GnomeShellDrag = class {
     }
 
     destroy() {
+        if (this._destroyed)
+            return;
+
+        this._destroyed = true;
         this._stopMonitoringDockUriNavigation();
+        this._releaseShellDropCursor();
     }
 
     _startMonitoringDockUriNavigation() {
@@ -65,7 +72,8 @@ const GnomeShellDrag = class {
     }
 
     async _lookOffLeftEdgeForDrop(shellDropCoordinates) {
-        let leftEdge = shellDropCoordinates;
+        const leftEdge = [...shellDropCoordinates];
+        let shellDropTarget = null;
 
         // look upto 50 pixels away for a drop target,
         // off the drag cursor to the left, increment 10
@@ -73,20 +81,33 @@ const GnomeShellDrag = class {
         for (let i = 0; i <= 50; i += 10) {
             leftEdge[0] -= i;
 
-            this._currentDesktopFileAppPath =
+            shellDropTarget =
             // eslint-disable-next-line no-await-in-loop
                 await this._DBusUtils.RemoteExtensionControl
                     .getDropTargetAppInfoDesktopFile(leftEdge)
                     .catch(e => console.error(e));
 
-            if (this._currentDesktopFileAppPath)
+            if (shellDropTarget === 'null')
+                shellDropTarget = null;
+
+            if (this._destroyed)
+                return;
+
+            if (shellDropTarget)
                 break;
         }
 
+        if (this._destroyed)
+            return;
+
+        this._currentDesktopFileAppPath = shellDropTarget;
         this._setShellDropCursor();
     }
 
     async _dockUriSpringTimerFunction() {
+        if (this._destroyed)
+            return GLib.SOURCE_REMOVE;
+
         // Failsafe kill the function - remove the timer if going on for
         // too long, default 30 seconds
         if (!this._dragItem ||
@@ -95,7 +116,7 @@ const GnomeShellDrag = class {
         ) {
             const stopID = this._dockUriSpringTimerID;
             this._dockUriSpringTimerID = 0;
-            this._setShellDropCursor(this._Enums.ShellDropCursor.DEFAULT);
+            this._releaseShellDropCursor();
 
             if (stopID)
                 GLib.Source.remove(stopID);
@@ -107,7 +128,13 @@ const GnomeShellDrag = class {
                 .getDropTargetCoordinates()
                 .catch(e => console.error(e));
 
-        this._lookOffLeftEdgeForDrop(shellDropCoordinates);
+        if (this._destroyed)
+            return GLib.SOURCE_REMOVE;
+
+        await this._lookOffLeftEdgeForDrop(shellDropCoordinates);
+
+        if (this._destroyed)
+            return GLib.SOURCE_REMOVE;
 
         if (!this._currentDesktopFileAppPath ||
             !(this._currentDesktopFileAppPath.endsWith('Nautilus.desktop') ||
@@ -172,13 +199,12 @@ const GnomeShellDrag = class {
     }
 
     _stopMonitoringDockUriNavigation() {
-        if (this._dockUriSpringTimerID) {
-            GLib.Source.remove(this._dockUriSpringTimerID);
-            this._currentDesktopFileAppPath = null;
-            this._setShellDropCursor(this._Enums.ShellDropCursor.DEFAULT);
-        }
-
+        const timerID = this._dockUriSpringTimerID;
         this._dockUriSpringTimerID = 0;
+        this._currentDesktopFileAppPath = null;
+
+        if (timerID)
+            GLib.Source.remove(timerID);
     }
 
     _setShellDropCursor(cursor = null) {
@@ -186,14 +212,16 @@ const GnomeShellDrag = class {
             return;
 
         if (cursor) {
-            this._DBusUtils.RemoteExtensionControl.setDragCursor(cursor);
+            if (cursor === this._Enums.ShellDropCursor.DEFAULT)
+                this._releaseShellDropCursor();
+            else
+                this._applyShellDropCursor(cursor);
 
             return;
         }
 
         if (!this._currentDesktopFileAppPath) {
-            this._DBusUtils.RemoteExtensionControl
-            .setDragCursor(this._Enums.ShellDropCursor.NODROP);
+            this._releaseShellDropCursor();
 
             return;
         }
@@ -213,8 +241,9 @@ const GnomeShellDrag = class {
                         ' cannot set shell cursor'
                     );
 
-                    this._DBusUtils.RemoteExtensionControl
-                    .setDragCursor(this._Enums.ShellDropCursor.NODROP);
+                    this._applyShellDropCursor(
+                        this._Enums.ShellDropCursor.NODROP
+                    );
 
                     return;
                 }
@@ -228,8 +257,9 @@ const GnomeShellDrag = class {
                     );
 
                 if (object.canopenFile) {
-                    this._DBusUtils.RemoteExtensionControl
-                    .setDragCursor(this._Enums.ShellDropCursor.COPY);
+                    this._applyShellDropCursor(
+                        this._Enums.ShellDropCursor.COPY
+                    );
 
                     return;
                 } else if (
@@ -237,26 +267,30 @@ const GnomeShellDrag = class {
                     .endsWith('Nautilus.desktop') &&
                     this._Prefs.openFolderOnDndHover
                 ) {
-                    this._DBusUtils.RemoteExtensionControl
-                    .setDragCursor(this._Enums.ShellDropCursor.MOVE);
+                    this._applyShellDropCursor(
+                        this._Enums.ShellDropCursor.MOVE
+                    );
 
                     return;
                 } else {
-                    this._DBusUtils.RemoteExtensionControl
-                    .setDragCursor(this._Enums.ShellDropCursor.NODROP);
+                    this._applyShellDropCursor(
+                        this._Enums.ShellDropCursor.NODROP
+                    );
                 }
             } else if (
                 this._currentDesktopFileAppPath.startsWith('file://') ||
                 this._currentDesktopFileAppPath.startsWith('davs://') ||
                 this._currentDesktopFileAppPath.startsWith('trash://')
             ) {
-                this._DBusUtils.RemoteExtensionControl
-                .setDragCursor(this._Enums.ShellDropCursor.MOVE);
+                this._applyShellDropCursor(
+                    this._Enums.ShellDropCursor.MOVE
+                );
 
                 return;
             } else {
-                this._DBusUtils.RemoteExtensionControl
-                .setDragCursor(this._Enums.ShellDropCursor.NODROP);
+                this._applyShellDropCursor(
+                    this._Enums.ShellDropCursor.NODROP
+                );
 
                 return;
             }
@@ -266,20 +300,36 @@ const GnomeShellDrag = class {
             );
         }
 
-        this._DBusUtils.RemoteExtensionControl
-        .setDragCursor(this._Enums.ShellDropCursor.NODROP);
+        this._applyShellDropCursor(this._Enums.ShellDropCursor.NODROP);
     }
 
-    async completeGnomeShellDrop() {
-        if  (!this._currentDesktopFileAppPath)
+    _applyShellDropCursor(cursor) {
+        this._DBusUtils.RemoteExtensionControl.setDragCursor(cursor);
+        this._ownsShellCursor = true;
+    }
+
+    _releaseShellDropCursor() {
+        if (!this._ownsShellCursor)
+            return;
+
+        this._DBusUtils.RemoteExtensionControl.setDragCursor(
+            this._Enums.ShellDropCursor.DEFAULT
+        );
+        this._ownsShellCursor = false;
+    }
+
+    completeGnomeShellDrop() {
+        const shellDropTarget = this._currentDesktopFileAppPath;
+
+        if (this._destroyed || !shellDropTarget)
             return false;
 
-        if (this._currentDesktopFileAppPath.endsWith('.desktop')) {
+        if (shellDropTarget.endsWith('.desktop')) {
             try {
                 const desktopFile =
                     DesktopAppInfo
                     .new_from_filename(
-                        GLib.build_filenamev([this._currentDesktopFileAppPath])
+                        GLib.build_filenamev([shellDropTarget])
                     );
 
                 if (!desktopFile) {
@@ -310,6 +360,9 @@ const GnomeShellDrag = class {
                         null
                     );
 
+                    this._setShellDropCursor(
+                        this._Enums.ShellDropCursor.DEFAULT
+                    );
                     return true;
                 } else {
                     this._showAppCannotOpenError(object.Appname);
@@ -325,22 +378,24 @@ const GnomeShellDrag = class {
             }
         }
 
-        if (this._currentDesktopFileAppPath === 'trash:///') {
+        if (shellDropTarget === 'trash:///') {
             this._desktopManager.mainApp.activate_action('movetotrash', null);
+            this._setShellDropCursor(this._Enums.ShellDropCursor.DEFAULT);
 
             return true;
         }
 
-        if (this._currentDesktopFileAppPath.startsWith('file:///') ||
-             this._currentDesktopFileAppPath.startsWith('davs://')
+        if (shellDropTarget.startsWith('file:///') ||
+             shellDropTarget.startsWith('davs://')
         ) {
-            await this._desktopManager.copyOrMoveUris(
+            void this._desktopManager.dropOperations.copyOrMoveUris(
                 this._selectedFilesURI,
-                this._currentDesktopFileAppPath,
+                shellDropTarget,
                 {},
                 {}
             )
             .catch(e => console.error(e));
+            this._setShellDropCursor(this._Enums.ShellDropCursor.DEFAULT);
 
             return true;
         }
@@ -363,6 +418,6 @@ const GnomeShellDrag = class {
     }
 
     get _desktopDir() {
-        return this._desktopManager._desktopDir;
+        return this._desktopManager.desktopDir;
     }
 };

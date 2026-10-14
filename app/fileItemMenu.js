@@ -15,7 +15,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-import {Gtk, Gdk, Gio, GLib} from '../dependencies/gi.js';
+import {Gtk, Gdk, Gio, GLib, DesktopAppInfo} from '../dependencies/gi.js';
 import {_, Gettext} from '../dependencies/gettext.js';
 
 export {FileItemMenu};
@@ -163,6 +163,14 @@ const FileItemMenu = class {
 
                 openMenu.append(_('Extract To...'), 'app.extractto');
             }
+        }
+
+        if (fileItem.isDirectory &&
+            selectedItemsNum === 1 &&
+            !fileItem.isStackMarker &&
+            this._Prefs.isGnomeFiles) {
+            openMenu.append(
+                _('Open in New Window'), 'app.openInNewWindow');
         }
 
         if (fileItem.isDirectory &&
@@ -524,6 +532,8 @@ const FileItemActions = class {
         this._appChooser = this._desktopManager.appChooser;
         this._dbusManager = this._desktopManager.dbusManager;
         this._dragManager = this._desktopManager.dragManager;
+        this._dropOperations = this._desktopManager.dropOperations;
+        this._clipboardManager = desktopManager.clipboardManager;
         this._createFileItemMenuActions();
     }
 
@@ -562,6 +572,16 @@ const FileItemActions = class {
                 this._onToggleStackUnstackThisTypeClicked(paramenter.unpack());
             });
         this._mainApp.add_action(stackunstack);
+
+        const openInNewWindow = Gio.SimpleAction.new('openInNewWindow', null);
+        openInNewWindow.set_enabled(this._Prefs.isGnomeFiles);
+
+        openInNewWindow.connect('activate', () => {
+            this._doOpenInNewWindow(this.activeFileItem)
+                .catch(e => console.error(e));
+        });
+
+        this._mainApp.add_action(openInNewWindow);
 
         const doopenwith = Gio.SimpleAction.new('doopenwith', null);
         doopenwith.connect('activate', () => {
@@ -786,6 +806,41 @@ const FileItemActions = class {
             unstackList.push(type);
         }
         this._Prefs.UnstackList = unstackList;
+    }
+
+    async _doOpenInNewWindow(fileItem) {
+        if (!fileItem?.isDirectory)
+            return;
+
+        const context = Gdk.Display.get_default().get_app_launch_context();
+        context.set_timestamp(Gdk.CURRENT_TIME);
+
+        if (this._Prefs.isGnomeFiles) {
+            try {
+                const installedApp = this._Prefs.fileManagerAppInfo;
+                const keyFile = new GLib.KeyFile();
+
+                keyFile.load_from_file(
+                    installedApp.get_filename(),
+                    GLib.KeyFileFlags.KEEP_TRANSLATIONS);
+
+                // Override the in-memory copy, preserving launch metadata.
+                keyFile.set_string(
+                    'Desktop Entry', 'Exec', 'nautilus --new-window %U');
+
+                // Use Exec; Nautilus forwards it to the running instance.
+                keyFile.set_boolean('Desktop Entry', 'DBusActivatable', false);
+                const launcher = DesktopAppInfo.new_from_keyfile(keyFile);
+
+                if (launcher.launch_uris([fileItem.file.get_uri()], context))
+                    return;
+            } catch (e) {
+                // Fall back to the default URI handler if launch fails.
+            }
+        }
+
+        await Gio.AppInfo.launch_default_for_uri_async(
+            fileItem.file.get_uri(), context, null);
     }
 
     async _doOpenWith() {
@@ -1258,18 +1313,24 @@ const FileItemActions = class {
 
         const desktopFolderUri = this._desktopDir.get_uri();
         const [X, Y] = this.activeFileItem.getCoordinates().slice(0, 2);
-        this._dragManager.makeLinks(toLink, desktopFolderUri, X, Y)
+        const dropPosition =
+            this._dropOperations.desktopPositionForDrop([X, Y]);
+        this._dropOperations.createSymbolicLinks(
+            toLink,
+            desktopFolderUri,
+            dropPosition
+        )
         .catch(e => logError(e));
     }
 
     _doCopy() {
         const copy = true;
-        this._manageCutCopy(copy);
+        this._clipboardManager.copyOrCutSelection(copy);
     }
 
     _doCut() {
         const cut = false;
-        this._manageCutCopy(cut);
+        this._clipboardManager.copyOrCutSelection(cut);
     }
 
     async _bulkCopy() {
@@ -1308,7 +1369,7 @@ const FileItemActions = class {
             .catch(e => console.error(e));
 
         if (folder) {
-            this._dragManager.saveCurrentFileCoordinatesForUndo();
+            this._dropOperations.rememberSelectedFilePositionsForUndo();
             this._DBusUtils
                 .RemoteFileOperations
                 .MoveURIsRemote(moveList, folder.get_uri());
@@ -1344,8 +1405,11 @@ const FileItemActions = class {
         if (!selectionItems || !selectionItems.length)
             return;
 
-        if (!localDrag)
-            this._dragManager.saveCurrentFileCoordinatesForUndo(selectionItems);
+        if (!localDrag) {
+            this._dropOperations.rememberSelectedFilePositionsForUndo(
+                selectionItems
+            );
+        }
 
         const selectionURIs = [];
 
@@ -1404,94 +1468,8 @@ const FileItemActions = class {
         this._DesktopIconsUtil.trySpawn(null, params, environ);
     }
 
-    // Clipboard management
-    // ************************************************************************ */
-    /*
-     * Before Gnome Shell 40, St API couldn't access binary data in the clipboard,
-     * only text data. Also, the original Desktop Icons was a pure extension, so it
-     * was limited to what Clutter and St offered. That was the reason why Nautilus
-     * accepted a text format for CUT and COPY operations in the form:
-     *
-     *     x-special/nautilus-clipboard
-     *     OPERATION
-     *     FILE_URI
-     *     [FILE_URI]
-     *     [...]
-     *
-     * In Gnome Shell 40, St was enhanced and now it supports binary data; that's
-     * why Nautilus migrated to a binary format identified by the atom
-     * 'x-special/gnome-copied-files', where the CUT or COPY operation is shared.
-     *
-     * To maintain compatibility, in the past, we checked the current Gnome Shell
-     * version and, based on that, set the binary or the text clipboards.
-     *
-     * With the newer versions of gtk4-ding, we only set the binary version and add
-     * other composite providers for the plain text versions like the newer
-     * Nautilus/Files.
-     */
-
-    _manageCutCopy(action) {
-        const uriList =
-            this._dragManager
-            .fillDragDataGet(this._Enums.DndTargetInfo.TEXT_URI_LIST);
-
-        if (!uriList?.length)
-            return;
-
-        const pathList =
-            this._dragManager
-            .fillDragDataGet(this._Enums.DndTargetInfo.TEXT_PLAIN);
-
-        const clipboard = Gdk.Display.get_default().get_clipboard();
-        const textCoder = new TextEncoder();
-
-        let content = action ? 'copy\n' : 'cut\n';
-        content += uriList?.replaceAll('\r', '').trim();
-
-        const encodedUriList = textCoder.encode(uriList);
-        const encodedPathList = textCoder.encode(pathList);
-
-        const gnomeContentProvider =
-            Gdk.ContentProvider.new_for_bytes(
-                'x-special/gnome-copied-files',
-                textCoder.encode(content)
-            );
-
-        const textUriListContentProvider =
-            Gdk.ContentProvider
-            .new_for_bytes(
-                this._Enums.DndTargetInfo.URI_LIST,
-                encodedUriList
-            );
-
-        const textListContentProvider =
-            Gdk.ContentProvider
-                .new_for_bytes(
-                    this._Enums.DndTargetInfo.TEXT_PLAIN,
-                    encodedPathList
-                );
-
-        const textUtf8ListContentProvider =
-            Gdk.ContentProvider
-            .new_for_bytes(
-                this._Enums.DndTargetInfo.TEXT_PLAIN_UTF8,
-                encodedPathList
-            );
-
-        const clipboardContentProvider =
-            Gdk.ContentProvider.new_union([
-                gnomeContentProvider,
-                textUriListContentProvider,
-                textListContentProvider,
-                textUtf8ListContentProvider,
-            ]);
-
-        clipboard.set_content(clipboardContentProvider);
-    }
-
-
     get _desktopDir() {
-        return this._desktopManager._desktopDir;
+        return this._desktopManager.desktopDir;
     }
 
     get activeFileItem() {

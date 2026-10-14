@@ -48,6 +48,8 @@ const WindowManager = class {
         this._hidden = false;
         this._pendingGridWindowsUpdate = null;
         this._gridWindowsUpdatePromise = null;
+        this._lastAppliedGeometry = null;
+        this._geometryNeedsRecovery = false;
 
         this._registerWidgetLayerAction();
         this._dbusAdvertiseUpdate();
@@ -60,7 +62,7 @@ const WindowManager = class {
         });
 
         updateGridWindows.connect('activate', (action, parameter) => {
-            this.updateGridWindows(parameter.recursiveUnpack())
+            this.updateGridWindows(parameter)
             .catch(e => logError(e));
         });
 
@@ -151,14 +153,30 @@ const WindowManager = class {
             // Drain the newest pending request one at a time so bursty
             // geometry changes collapse down to the latest state.
             while (this._pendingGridWindowsUpdate != null) {
-                const nextUpdate = [...this._pendingGridWindowsUpdate];
+                const nextUpdate = this._pendingGridWindowsUpdate;
                 this._pendingGridWindowsUpdate = null;
 
                 try {
                     // eslint-disable-next-line no-await-in-loop
                     await this._desktopManager.runSerializedDesktopMutation(
-                        this._applyGridWindowsUpdate.bind(this, nextUpdate)
+                        async () => {
+                            if (!this._geometryNeedsRecovery &&
+                                this._lastAppliedGeometry?.equal(nextUpdate))
+                                return;
+
+                            const desktopList = nextUpdate.recursiveUnpack();
+                            try {
+                                await this._applyGridWindowsUpdate(desktopList);
+                            } catch (e) {
+                                this._lastAppliedGeometry = null;
+                                this._geometryNeedsRecovery = true;
+                                throw e;
+                            }
+                            this._geometryNeedsRecovery = false;
+                            this._lastAppliedGeometry = nextUpdate;
+                        }
                     );
+                    lastError = null;
                 } catch (e) {
                     lastError = e;
                 }
@@ -182,6 +200,13 @@ const WindowManager = class {
     async _applyGridWindowsUpdate(newdesktoplist) {
         const changeInfo =
             this._computeDesktopChangeInfo(newdesktoplist);
+
+        // A failed apply may have changed both bookkeeping and live windows.
+        // Rebuild instead of diffing against that partially applied state.
+        if (this._geometryNeedsRecovery) {
+            await this._handleMonitorCountChange();
+            return;
+        }
 
         const {
             firstDesktop,
@@ -676,6 +701,10 @@ const WindowManager = class {
 
         // Catch All if everything fails
         return this._desktops[0];
+    }
+
+    stopDragHandling() {
+        this._desktops.forEach(desktop => desktop.stopDragHandling());
     }
 
     destroyDesktops() {

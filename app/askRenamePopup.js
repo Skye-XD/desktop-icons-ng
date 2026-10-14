@@ -26,13 +26,13 @@ const AskRenamePopup = class {
         fileItem,
         allowReturnOnSameName,
         closeCB,
-        setPendingDropCoordinatesCB,
+        setPendingFilePositionCB,
         Data
     ) {
         this.FileUtils = Data.FileUtils;
         this.DesktopIconsUtil = Data.DesktopIconsUtil;
         this.DBusUtils = Data.DBusUtils;
-        this.setPendingDropCoordinates = setPendingDropCoordinatesCB;
+        this.setPendingFilePosition = setPendingFilePositionCB;
         this._validateCancellable = new Gio.Cancellable();
         this._closeCB = closeCB;
         this._allowReturnOnSameName = allowReturnOnSameName;
@@ -188,7 +188,7 @@ const AskRenamePopup = class {
 
         let newFile = Gio.File.new_for_path(newFilePath);
 
-        this.setPendingDropCoordinates(
+        this.setPendingFilePosition(
             newFile,
             this._fileItem.savedCoordinates
         );
