@@ -48,6 +48,7 @@ const WindowManager = class {
         this._hidden = false;
         this._pendingGridWindowsUpdate = null;
         this._gridWindowsUpdatePromise = null;
+        this._lastAppliedGeometry = null;
 
         this._registerWidgetLayerAction();
         this._dbusAdvertiseUpdate();
@@ -60,7 +61,7 @@ const WindowManager = class {
         });
 
         updateGridWindows.connect('activate', (action, parameter) => {
-            this.updateGridWindows(parameter.recursiveUnpack())
+            this.updateGridWindows(parameter)
             .catch(e => logError(e));
         });
 
@@ -123,15 +124,24 @@ const WindowManager = class {
             // Drain the newest pending request one at a time so bursty
             // geometry changes collapse down to the latest state.
             while (this._pendingGridWindowsUpdate != null) {
-                const nextUpdate = [...this._pendingGridWindowsUpdate];
+                const nextUpdate = this._pendingGridWindowsUpdate;
                 this._pendingGridWindowsUpdate = null;
 
                 try {
                     // eslint-disable-next-line no-await-in-loop
                     await this._desktopManager.runSerializedDesktopMutation(
-                        this._applyGridWindowsUpdate.bind(this, nextUpdate)
+                        async () => {
+                            if (this._lastAppliedGeometry?.equal(nextUpdate))
+                                return;
+
+                            this._lastAppliedGeometry = null;
+                            const desktopList = nextUpdate.recursiveUnpack();
+                            await this._applyGridWindowsUpdate(desktopList);
+                            this._lastAppliedGeometry = nextUpdate;
+                        }
                     );
                 } catch (e) {
+                    this._lastAppliedGeometry = null;
                     lastError = e;
                 }
             }
