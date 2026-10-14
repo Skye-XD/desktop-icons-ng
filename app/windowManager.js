@@ -49,6 +49,7 @@ const WindowManager = class {
         this._pendingGridWindowsUpdate = null;
         this._gridWindowsUpdatePromise = null;
         this._lastAppliedGeometry = null;
+        this._geometryNeedsRecovery = false;
 
         this._registerWidgetLayerAction();
         this._dbusAdvertiseUpdate();
@@ -131,17 +132,24 @@ const WindowManager = class {
                     // eslint-disable-next-line no-await-in-loop
                     await this._desktopManager.runSerializedDesktopMutation(
                         async () => {
-                            if (this._lastAppliedGeometry?.equal(nextUpdate))
+                            if (!this._geometryNeedsRecovery &&
+                                this._lastAppliedGeometry?.equal(nextUpdate))
                                 return;
 
-                            this._lastAppliedGeometry = null;
                             const desktopList = nextUpdate.recursiveUnpack();
-                            await this._applyGridWindowsUpdate(desktopList);
+                            try {
+                                await this._applyGridWindowsUpdate(desktopList);
+                            } catch (e) {
+                                this._lastAppliedGeometry = null;
+                                this._geometryNeedsRecovery = true;
+                                throw e;
+                            }
+                            this._geometryNeedsRecovery = false;
                             this._lastAppliedGeometry = nextUpdate;
                         }
                     );
+                    lastError = null;
                 } catch (e) {
-                    this._lastAppliedGeometry = null;
                     lastError = e;
                 }
             }
@@ -164,6 +172,13 @@ const WindowManager = class {
     async _applyGridWindowsUpdate(newdesktoplist) {
         const changeInfo =
             this._computeDesktopChangeInfo(newdesktoplist);
+
+        // A failed apply may have changed both bookkeeping and live windows.
+        // Rebuild instead of diffing against that partially applied state.
+        if (this._geometryNeedsRecovery) {
+            await this._handleMonitorCountChange();
+            return;
+        }
 
         const {
             firstDesktop,

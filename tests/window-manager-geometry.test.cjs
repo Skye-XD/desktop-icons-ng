@@ -91,3 +91,68 @@ test('different variants are applied and replace the cached geometry', async () 
     await manager.updateGridWindows(new Variant('A'));
     assert.deepEqual(applied, ['A', 'B', 'A']);
 });
+
+function realApplyFixture() {
+    const {manager} = fixture();
+    delete manager._applyGridWindowsUpdate;
+    const area = {
+        x: 0, y: 0, width: 1920, height: 1080, zoom: 1,
+        scaleFactor: 1, monitorIndex: 0, primaryMonitor: 0,
+        marginTop: 0, marginBottom: 0, marginLeft: 0, marginRight: 0,
+    };
+    manager._desktopList = [area];
+    manager._primaryIndex = 0;
+    manager._primaryMonitorIndex = 0;
+    manager._priorScaleFactor = 1;
+    manager._geometryNeedsRecovery = false;
+    return {manager, area};
+}
+
+test('identical geometry rebuilds after a partial apply failure and retries failed recovery', async () => {
+    const {manager, area} = realApplyFixture();
+    const geometry = new Variant({...area, width: 1280});
+    manager._handleRedisplay = () => {
+        throw new Error('partial apply');
+    };
+    await assert.rejects(manager.updateGridWindows(geometry), /partial apply/);
+    assert.equal(manager._desktopList[0].width, 1280);
+
+    const calls = [];
+    manager._desktopManager.clearAllLayersFromGrids = () => calls.push('clear');
+    manager.createGridWindows = () => calls.push('rebuild');
+    manager.queue_draw = () => calls.push('draw');
+    manager._desktopManager.applyDesktopLayoutChange = () => {
+        throw new Error('recovery failed');
+    };
+    await assert.rejects(manager.updateGridWindows(geometry), /recovery failed/);
+    assert.equal(manager._geometryNeedsRecovery, true);
+    assert.equal(manager._lastAppliedGeometry, null);
+
+    calls.length = 0;
+    manager._desktopManager.applyDesktopLayoutChange = options => {
+        assert.equal(options.redisplay, true);
+        assert.equal(options.monitorschanged, true);
+        assert.equal(options.gridschanged, true);
+        calls.push('layout');
+    };
+    await manager.updateGridWindows(geometry);
+    assert.deepEqual(calls, ['clear', 'rebuild', 'layout', 'draw']);
+    assert.equal(manager._geometryNeedsRecovery, false);
+    assert.equal(manager._lastAppliedGeometry, geometry);
+});
+
+test('successful pending recovery resolves the shared drain after an earlier failure', async () => {
+    const {manager} = fixture();
+    let pending;
+    manager._applyGridWindowsUpdate = data => {
+        if (data[0] === 'A') {
+            pending = manager.updateGridWindows(new Variant('B'));
+            throw new Error('first update failed');
+        }
+        assert.equal(manager._geometryNeedsRecovery, true);
+    };
+    await manager.updateGridWindows(new Variant('A'));
+    await pending;
+    assert.equal(manager._lastAppliedGeometry.value, 'B');
+    assert.equal(manager._geometryNeedsRecovery, false);
+});
