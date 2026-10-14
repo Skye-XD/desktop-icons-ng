@@ -29,6 +29,10 @@ const DBusInterfaces = {
     // org.freedesktop.FileManager1
     'org.freedesktop.FileManager1': `<node>
     <interface name='org.freedesktop.FileManager1'>
+      <method name='ShowFolders'>
+        <arg name='URIs' type='as' direction='in'/>
+        <arg name='StartupId' type='s' direction='in'/>
+      </method>
       <method name='ShowItems'>
         <arg name='URIs' type='as' direction='in'/>
         <arg name='StartupId' type='s' direction='in'/>

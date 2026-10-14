@@ -614,6 +614,7 @@ const ShortcutManager = class {
             'previewAction',
             'unselectAll',
             'openOneFileAction',
+            'openInNewWindow',
             'movetotrash',
             'chooseIconLeft',
             'chooseIconRight',

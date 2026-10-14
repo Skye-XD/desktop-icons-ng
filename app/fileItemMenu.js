@@ -15,7 +15,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-import {Gtk, Gdk, Gio, GLib} from '../dependencies/gi.js';
+import {Gtk, Gdk, Gio, GLib, DesktopAppInfo} from '../dependencies/gi.js';
 import {_, Gettext} from '../dependencies/gettext.js';
 
 export {FileItemMenu};
@@ -163,6 +163,14 @@ const FileItemMenu = class {
 
                 openMenu.append(_('Extract To...'), 'app.extractto');
             }
+        }
+
+        if (fileItem.isDirectory &&
+            selectedItemsNum === 1 &&
+            !fileItem.isStackMarker &&
+            this._Prefs.isGnomeFiles) {
+            openMenu.append(
+                _('Open in New Window'), 'app.openInNewWindow');
         }
 
         if (fileItem.isDirectory &&
@@ -551,6 +559,16 @@ const FileItemActions = class {
             });
         this._mainApp.add_action(stackunstack);
 
+        const openInNewWindow = Gio.SimpleAction.new('openInNewWindow', null);
+        openInNewWindow.set_enabled(this._Prefs.isGnomeFiles);
+
+        openInNewWindow.connect('activate', () => {
+            this._doOpenInNewWindow(this.activeFileItem)
+                .catch(e => console.error(e));
+        });
+
+        this._mainApp.add_action(openInNewWindow);
+
         const doopenwith = Gio.SimpleAction.new('doopenwith', null);
         doopenwith.connect('activate', () => {
             this._doOpenWith().catch(e => logError(e));
@@ -774,6 +792,41 @@ const FileItemActions = class {
             unstackList.push(type);
         }
         this._Prefs.UnstackList = unstackList;
+    }
+
+    async _doOpenInNewWindow(fileItem) {
+        if (!fileItem?.isDirectory)
+            return;
+
+        const context = Gdk.Display.get_default().get_app_launch_context();
+        context.set_timestamp(Gdk.CURRENT_TIME);
+
+        if (this._Prefs.isGnomeFiles) {
+            try {
+                const installedApp = this._Prefs.fileManagerAppInfo;
+                const keyFile = new GLib.KeyFile();
+
+                keyFile.load_from_file(
+                    installedApp.get_filename(),
+                    GLib.KeyFileFlags.KEEP_TRANSLATIONS);
+
+                // Override the in-memory copy, preserving launch metadata.
+                keyFile.set_string(
+                    'Desktop Entry', 'Exec', 'nautilus --new-window %U');
+
+                // Use Exec; Nautilus forwards it to the running instance.
+                keyFile.set_boolean('Desktop Entry', 'DBusActivatable', false);
+                const launcher = DesktopAppInfo.new_from_keyfile(keyFile);
+
+                if (launcher.launch_uris([fileItem.file.get_uri()], context))
+                    return;
+            } catch (e) {
+                // Fall back to the default URI handler if launch fails.
+            }
+        }
+
+        await Gio.AppInfo.launch_default_for_uri_async(
+            fileItem.file.get_uri(), context, null);
     }
 
     async _doOpenWith() {
