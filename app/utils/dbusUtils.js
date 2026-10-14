@@ -775,13 +775,16 @@ class DbusOperationsManager {
         );
     }
 
+    // Currently unused; retained for FileManager1 interface completeness.
     ShowFolderRemote(folderToShow, timestamp, callback = null) {
         if (!this.freeDesktopFileManager.proxy) {
             this._sendNoProxyError(callback);
+
             return;
         }
 
         const uris = [folderToShow];
+
         this.freeDesktopFileManager.proxy.ShowFoldersRemote(
             uris,
             this._getStartupId(uris, timestamp),
