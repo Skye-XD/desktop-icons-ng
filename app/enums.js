@@ -93,6 +93,9 @@ export const DndTargetInfo = {
     DING_ICON_LIST: 'x-special/ding-icon-list',
     GNOME_ICON_LIST: 'x-special/gnome-icon-list',
     URI_LIST: 'text/uri-list',
+    // libadwaita offers this for a tab dragged out of its window, and
+    // detaches the tab when the root window reads it.
+    ROOT_WINDOW_DROP: 'application/x-rootwindow-drop',
     TEXT_PLAIN: 'text/plain',
     TEXT_PLAIN_UTF8: 'text/plain;charset=utf-8',
     TEXT_PLAIN_UTF8_SPACED: 'text/plain; charset=utf-8',
@@ -114,6 +117,7 @@ export const DndOfferRoute = {
     INSPECT_URI_LIST: 'inspect-uri-list',
     READ_FILE_CONTENT: 'read-file-content',
     READ_TEXT_OR_WEB_LINK: 'read-text-or-web-link',
+    ROOT_WINDOW: 'root-window',
     UNSUPPORTED: 'unsupported',
 };
 

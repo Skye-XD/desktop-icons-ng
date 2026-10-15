@@ -1833,6 +1833,9 @@ const ControlGrid = class extends DrawGrid {
 
     _routeDroppedData(drop, x, y) {
         const session = this._dropSession;
+        if (session.route === this.Enums.DndOfferRoute.ROOT_WINDOW)
+            return this._acceptRootWindowDrop(drop);
+
         const pointerDestination = this._findDropDestination(x, y);
         const effectiveDestination = session.resolveEffectiveDestination(
             drop,
@@ -1865,6 +1868,26 @@ const ControlGrid = class extends DrawGrid {
 
         // True means that we accepted responsibility for finishing the drop;
         // it does not mean that the asynchronous operation has finished yet.
+        return true;
+    }
+
+    // Reading the offer is the signal: the source detaches the dragged tab
+    // into a new window once the drop finishes. The payload is empty.
+    _acceptRootWindowDrop(drop) {
+        drop.read_async([this.Enums.DndTargetInfo.ROOT_WINDOW_DROP],
+            GLib.PRIORITY_DEFAULT, null, (source, result) => {
+                let action = Gdk.DragAction.MOVE;
+                try {
+                    const [stream] = source.read_finish(result);
+                    stream.close(null);
+                } catch (e) {
+                    logError(e);
+                    action = Gdk.DragAction.NONE ?? 0;
+                }
+                source.finish(action);
+                this._dropSession?.release(drop);
+            });
+
         return true;
     }
 

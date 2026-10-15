@@ -200,6 +200,13 @@ const DropSession = class {
         const routes = Enums.DndOfferRoute;
         const targets = Enums.DndTargetInfo;
 
+        // The desktop stands in for the root window. On Wayland the
+        // compositor answers root-window drops only where no client surface
+        // is, and the desktop covers every such spot, so a tab dropped there
+        // was refused and never became a window.
+        if (this._offersMime(targets.ROOT_WINDOW_DROP))
+            return routes.ROOT_WINDOW;
+
         if (this._offersMime(targets.DING_ICON_LIST))
             return routes.INTERNAL_DESKTOP_ITEMS;
 
@@ -362,6 +369,9 @@ const DropSession = class {
 
     _preferredActionFor(destination = null) {
         const routes = Enums.DndOfferRoute;
+        if (this._route === routes.ROOT_WINDOW)
+            return this._drop.get_actions() & Gdk.DragAction.MOVE;
+
         if (this._routeCreatesDesktopContent()) {
             if (destination?.fileItem)
                 return Gdk.DragAction.NONE ?? 0;
