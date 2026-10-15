@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-13 18:34-0400\n"
+"POT-Creation-Date: 2026-10-15 09:43-0400\n"
 "PO-Revision-Date: 2026-09-14 15:44+0000\n"
 "Last-Translator: Sundeep Mediratta <smedius@gmail.com>\n"
 "Language-Team: Irish <https://hosted.weblate.org/projects/gtk4-desktop-icons-"
@@ -72,267 +72,267 @@ msgid "Help translate in your web browser"
 msgstr "Cabhair aistriú i do bhrabhsálaí gréasáin"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:628 app/adwPreferencesWindow.js:629
+#: app/adwPreferencesWindow.js:630 app/adwPreferencesWindow.js:631
 msgid "Desktop"
 msgstr "Riachtanais uisce: measartha"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:634 app/adwPreferencesWindow.js:635
+#: app/adwPreferencesWindow.js:636 app/adwPreferencesWindow.js:637
 msgid "Files"
 msgstr "Amharc ar gach eolas"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:640 app/adwPreferencesWindow.js:641
-#: app/adwPreferencesWindow.js:683
+#: app/adwPreferencesWindow.js:642 app/adwPreferencesWindow.js:643
+#: app/adwPreferencesWindow.js:685
 msgid "Tweaks"
 msgstr "Taiseachas aeir: fliuch"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:646 app/adwPreferencesWindow.js:647
+#: app/adwPreferencesWindow.js:648 app/adwPreferencesWindow.js:649
 msgid "More"
 msgstr "Tuilleadh eolais"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:658
+#: app/adwPreferencesWindow.js:660
 msgid "Desktop Settings"
 msgstr "Socruithe Deasc"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:659
+#: app/adwPreferencesWindow.js:661
 msgid "Settings for the Desktop Program"
 msgstr "Socruithe don Chlár Deasc"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:665
+#: app/adwPreferencesWindow.js:667
 msgid "Desktop Folder"
 msgstr "Seirbhís do Chustaiméirí"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:666
+#: app/adwPreferencesWindow.js:668
 msgid "Current Desktop: "
 msgstr "Deasc Reatha:"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:676
+#: app/adwPreferencesWindow.js:678
 msgid "Files Settings"
 msgstr "Naisc ábhartha eile"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:677
+#: app/adwPreferencesWindow.js:679
 msgid "Settings shared with Gnome Files"
 msgstr "Socruithe roinnte le Comhaid Gnome"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:684
+#: app/adwPreferencesWindow.js:686
 msgid "Miscellaneous Tweaks"
 msgstr "An tAcht iomlán. taiseachas aeir: fliuch"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:708
+#: app/adwPreferencesWindow.js:710
 msgid "Size for the desktop icons"
 msgstr "Méid do na deilbhíní deisce"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:710
+#: app/adwPreferencesWindow.js:712
 msgid "Tiny"
 msgstr "Riachtanais uisce: measartha"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:711
+#: app/adwPreferencesWindow.js:713
 msgid "Small"
 msgstr "Beag beann ar"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:712
+#: app/adwPreferencesWindow.js:714
 msgid "Standard"
 msgstr "Caighdeán Caighdeánach"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:713
+#: app/adwPreferencesWindow.js:715
 msgid "Large"
 msgstr "Móra"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:719
+#: app/adwPreferencesWindow.js:721
 msgid "New icons alignment"
 msgstr "Ailíniú deilbhíní nua"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:721
+#: app/adwPreferencesWindow.js:723
 msgid "Top left corner"
 msgstr "Cúinne ar chlé Barr"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:722
+#: app/adwPreferencesWindow.js:724
 msgid "Top right corner"
 msgstr "Cúinne ceart Barr"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:723
+#: app/adwPreferencesWindow.js:725
 msgid "Bottom left corner"
 msgstr "Cúinne na láimhe clé"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:724
+#: app/adwPreferencesWindow.js:726
 msgid "Bottom right corner"
 msgstr "Cúinne ceart bun"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:730
+#: app/adwPreferencesWindow.js:732
 msgid "Add new icons to Secondary Monitors first, if available"
 msgstr "Cuir deilbhíní nua le Monatóirí Darach ar dtús, má tá siad ar fáil"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:734
+#: app/adwPreferencesWindow.js:736
 msgid "Snap icons to grid"
 msgstr "Deilbhíní Snap le greille"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:740
+#: app/adwPreferencesWindow.js:742
 msgid "Show desktop widgets"
 msgstr "Giuirléidí deisce"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:745
+#: app/adwPreferencesWindow.js:747
 msgid "New Desktop Folder"
 msgstr "New Deisce Fillteán"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:746
+#: app/adwPreferencesWindow.js:748
 msgid "Set a new folder for the desktop"
 msgstr "Socraigh fillteán nua don deasc"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:747 app/utils/desktopFolderUtils.js:85
+#: app/adwPreferencesWindow.js:749 app/utils/desktopFolderUtils.js:85
 msgid "Choose"
 msgstr "Roghnaigh"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:752
+#: app/adwPreferencesWindow.js:754
 msgid "Set Desktop back to ~/"
 msgstr "Socraigh Deasc ar ais go dtí ~ /"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:754
+#: app/adwPreferencesWindow.js:756
 msgid "Restore Default Desktop Folder"
 msgstr "Déan teagmháil Linn"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:756
+#: app/adwPreferencesWindow.js:758
 msgid "Restore"
 msgstr "Déan teagmháil linn"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:765
+#: app/adwPreferencesWindow.js:767
 msgid "Highlight the drop grid"
 msgstr "Solas an ghreille titim"
 
-#: app/adwPreferencesWindow.js:775
+#: app/adwPreferencesWindow.js:777
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:110
 msgid "Keep pinned widgets below application windows"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:777
+#: app/adwPreferencesWindow.js:779
 msgid "Interactive pinned widgets without covering applications."
 msgstr ""
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:793
+#: app/adwPreferencesWindow.js:795
 msgid "Add information emblems for links, encryption"
 msgstr "Cuir feathail eolais le haghaidh naisc, criptithe"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:797
+#: app/adwPreferencesWindow.js:799
 msgid "Use dark text in icon labels"
 msgstr "Bain úsáid as téacs dorcha i lipéid deilbhín"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:802
+#: app/adwPreferencesWindow.js:804
 msgid "Show the personal folder on the desktop"
 msgstr "Taispeáin an fillteán pearsanta ar an deasc"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:807
+#: app/adwPreferencesWindow.js:809
 msgid "Show the trash icon on the desktop"
 msgstr "Taispeáin an deilbhín bruscar ar an deasc"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:812
+#: app/adwPreferencesWindow.js:814
 msgid "Show external drives on the desktop"
 msgstr "Taispeáin thiomáineann seachtracha ar an deasc"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:817
+#: app/adwPreferencesWindow.js:819
 msgid "Show network drives on the desktop"
 msgstr "Taispeáin thiomáineann líonra ar an deasc"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:822
+#: app/adwPreferencesWindow.js:824
 msgid "Add new drives to the opposite side of the desktop"
 msgstr "Cuir thiomáineann nua ar an taobh eile den deasc"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:827
+#: app/adwPreferencesWindow.js:829
 msgid "Action to Open Items"
 msgstr "Gnímh chun Míreanna Oscailte"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:829
+#: app/adwPreferencesWindow.js:831
 msgid "Single click"
 msgstr "Cliceáil grianghraf a mhéadú"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:830
+#: app/adwPreferencesWindow.js:832
 msgid "Double click"
 msgstr "Cliceáil grianghraf a mhéadú"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:835
+#: app/adwPreferencesWindow.js:837
 msgid "Show image thumbnails"
 msgstr "Taispeáin thumbnails íomhá"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:837
+#: app/adwPreferencesWindow.js:839
 msgid "Always"
 msgstr "I gcónaí"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:838
+#: app/adwPreferencesWindow.js:840
 msgid "On this computer only"
 msgstr "Ar an ríomhaire ach amháin"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:839
+#: app/adwPreferencesWindow.js:841
 msgid "Never"
 msgstr "Ná bíodh"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:844
+#: app/adwPreferencesWindow.js:846
 msgid "Show a context menu item to delete permanently"
 msgstr "Taispeáin mír roghchlár comhthéacs a scriosadh go buan"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:849
+#: app/adwPreferencesWindow.js:851
 msgid "Show hidden files"
 msgstr "Taispeáin comhaid i bhfolach"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:854
+#: app/adwPreferencesWindow.js:856
 msgid "Open folders on drag hover"
 msgstr "Fillteáin oscailte ar hover tarraing"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:858
+#: app/adwPreferencesWindow.js:860
 msgid "About..."
 msgstr "Maidir..."
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:871
+#: app/adwPreferencesWindow.js:873
 msgid "Translation"
 msgstr "Aistriúchán"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:872
+#: app/adwPreferencesWindow.js:874
 msgid ""
 "Machine translated using LibreTranslate. User verified and edited on Weblate."
 msgstr ""
@@ -340,17 +340,17 @@ msgstr ""
 "eagarthóireacht ar Weblate."
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:877
+#: app/adwPreferencesWindow.js:879
 msgid "Edit Translations"
 msgstr "Cuir Aistriúchán"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:878
+#: app/adwPreferencesWindow.js:880
 msgid "Verify, add or correct translation in your web browser"
 msgstr "Fíoraigh, cuir nó aistriúchán ceart i do bhrabhsálaí gréasáin"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:879
+#: app/adwPreferencesWindow.js:881
 msgid "Translate"
 msgstr "Taiseachas aeir: fliuch"
 
@@ -442,7 +442,8 @@ msgstr "Níor oibrigh nasc nó íoslódáil i gceart"
 # MT: LibreTranslate
 #: app/appImageFileItem.js:87
 msgid "This AppImage file is not trusted, it can not be launched."
-msgstr "Amharc ar gach eolas Níl comhad íomhá iontaofa, ní féidir é a sheoladh."
+msgstr ""
+"Amharc ar gach eolas Níl comhad íomhá iontaofa, ní féidir é a sheoladh."
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:88 app/desktopFileIcon.js:190
@@ -456,7 +457,7 @@ msgstr "cumas a chumasú"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:90 app/desktopFileIcon.js:192
-#: app/fileItemMenu.js:318 app/fileItemMenu.js:332
+#: app/fileItemMenu.js:326 app/fileItemMenu.js:340
 msgid "Allow Launching"
 msgstr "Ceadaigh Seoladh"
 
@@ -473,9 +474,10 @@ msgstr ""
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:206 app/autoAr.js:305 app/autoAr.js:634
-#: app/desktopManager.js:223 app/desktopManager.js:1354 app/dragManager.js:817
-#: app/fileItemMenu.js:918 app/fileItemMenu.js:971 app/showErrorPopup.js:49
-#: app/showErrorPopup.js:66 app/widgetManager.js:3321
+#: app/desktopDropOperations.js:291 app/desktopManager.js:230
+#: app/desktopManager.js:1365 app/fileItemMenu.js:973 app/fileItemMenu.js:1026
+#: app/showErrorPopup.js:49 app/showErrorPopup.js:66 app/widgetManager.js:3321
+#: data/ui/ding-widget-chooser.ui:34
 msgid "Cancel"
 msgstr "Cealaigh"
 
@@ -487,7 +489,8 @@ msgstr ""
 #: app/appImageFileItem.js:232
 #, fuzzy
 msgid "This AppImage could not be launched."
-msgstr "Amharc ar gach eolas Níl comhad íomhá iontaofa, ní féidir é a sheoladh."
+msgstr ""
+"Amharc ar gach eolas Níl comhad íomhá iontaofa, ní féidir é a sheoladh."
 
 # MT: LibreTranslate
 #: app/askRenamePopup.js:61
@@ -500,8 +503,8 @@ msgid "File name"
 msgstr "Ainm comhaid"
 
 # MT: LibreTranslate
-#: app/askRenamePopup.js:75 app/autoAr.js:313 app/desktopManager.js:1352
-#: app/fileItemMenu.js:971
+#: app/askRenamePopup.js:75 app/autoAr.js:313 app/desktopManager.js:1363
+#: app/fileItemMenu.js:1026
 msgid "OK"
 msgstr "OK"
 
@@ -661,6 +664,46 @@ msgid "Smaller archives but must be installed on Windows and Mac."
 msgstr "Cartlainne níos lú ach ní mór iad a shuiteáil ar Windows agus Mac."
 
 # MT: LibreTranslate
+#: app/desktopDropOperations.js:250
+msgid "Copy/Move Failed"
+msgstr "Cóip / Bog Failed"
+
+# MT: LibreTranslate
+#: app/desktopDropOperations.js:251
+msgid "{0} Does not exist"
+msgstr "{0}] Nach bhfuil ann"
+
+# MT: LibreTranslate
+#: app/desktopDropOperations.js:290
+msgid "Choose Action for Files"
+msgstr "Roghnaigh Gníomh le haghaidh Comhaid"
+
+# MT: LibreTranslate
+#: app/desktopDropOperations.js:291
+msgid "Move"
+msgstr "Taiseachas aeir: fliuch"
+
+# MT: LibreTranslate
+#: app/desktopDropOperations.js:291 app/fileItemMenu.js:250
+msgid "Copy"
+msgstr "Cóip Uaireadóirí Cóip"
+
+# MT: LibreTranslate
+#: app/desktopDropOperations.js:291
+msgid "Link"
+msgstr "Naisc ábhartha eile"
+
+# MT: LibreTranslate
+#: app/desktopDropOperations.js:391
+msgid "Making SymLink Failed"
+msgstr "Ag déanamh SymLink Failed"
+
+# MT: LibreTranslate
+#: app/desktopDropOperations.js:392
+msgid "Could not create symbolic link"
+msgstr "Níorbh fhéidir a chruthú nasc siombalach"
+
+# MT: LibreTranslate
 #: app/desktopFileIcon.js:139
 msgid "The Displayed Desktop is writable by others"
 msgstr "Is é an Deasc Taispeáin inscríofa ag daoine eile"
@@ -719,7 +762,7 @@ msgid "This Desktop file is not trusted, it can not be launched."
 msgstr "Níl an comhad Deasc muiníneach seo, ní féidir é a sheoladh."
 
 # MT: LibreTranslate
-#: app/desktopFileIcon.js:218 app/gnomeShellDragDrop.js:355
+#: app/desktopFileIcon.js:218 app/gnomeShellDragDrop.js:410
 msgid "Could not open File"
 msgstr "Níorbh fhéidir a oscailt Déan Teagmháil Linn"
 
@@ -754,32 +797,32 @@ msgid "Switching to new Desktop..."
 msgstr "Ag athrú go deasc nua..."
 
 # MT: LibreTranslate
-#: app/desktopGrid.js:66 data/com.desktop.ding.desktop.in:3
+#: app/desktopGrid.js:67 data/com.desktop.ding.desktop.in:3
 #: data/com.desktop.ding.desktop.in:4
 msgid "Desktop Icons"
 msgstr "Seirbhís do Chustaiméirí"
 
 # MT: LibreTranslate
-#: app/desktopGrid.js:2591
+#: app/desktopGrid.js:2311
 #, fuzzy
 msgid "Back to Desktop"
 msgstr "Déan Teagmháil Linn"
 
-#: app/desktopGrid.js:2592 app/widgetManager.js:1762
+#: app/desktopGrid.js:2312 app/widgetManager.js:1762
 msgid "Toggle Widget Grid"
 msgstr ""
 
-#: app/desktopGrid.js:2593
+#: app/desktopGrid.js:2313
 msgid "Add Widget..."
 msgstr "Cuir giuirléid leis"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:209
+#: app/desktopManager.js:216
 msgid "Monitor Frame Buffer Scaling is not enabled"
 msgstr "Monatóireacht a dhéanamh ar Fráma Buffer Níl Scaling chumas"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:210
+#: app/desktopManager.js:217
 msgid ""
 "Multiple monitors with different zoom settings, recommend per monitor "
 "framebuffer scaling.\n"
@@ -792,7 +835,7 @@ msgstr ""
 "Cuir ar chumas i Socruithe Dconf Mutter"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:221
+#: app/desktopManager.js:228
 msgid ""
 "Multiple monitors with different zoom settings.\n"
 "\n"
@@ -804,18 +847,18 @@ msgstr ""
 "Dconf Mutter?"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:224 data/com.desktop.ding.desktop.in:25
+#: app/desktopManager.js:231 data/com.desktop.ding.desktop.in:25
 msgid "Enable"
 msgstr "Cumasaigh"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:248 app/desktopManager.js:258
+#: app/desktopManager.js:255 app/desktopManager.js:265
 msgid "Can Not Show the Desktop"
 msgstr "An féidir Ní Taispeáin an Deasc"
 
 # MT: LibreTranslate
 #. TRANSLATORS: {desktop} folder path automatically inserted
-#: app/desktopManager.js:250
+#: app/desktopManager.js:257
 msgid ""
 "The Desktop folder {desktop} is a Symbolic Link\n"
 "\n"
@@ -827,7 +870,7 @@ msgstr ""
 
 # MT: LibreTranslate
 #. TRANSLATORS: {desktop} folder path automatically inserted
-#: app/desktopManager.js:260
+#: app/desktopManager.js:267
 msgid ""
 "The Desktop folder {desktop} does not exist, or is not a Directory\n"
 "\n"
@@ -838,32 +881,33 @@ msgstr ""
 "Seiceáil do xdg-utils shuiteáil agus a leagtar an Fillteán ceart Deasc"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:271
+#: app/desktopManager.js:278
 msgid "GNOME Files not found"
 msgstr "Seirbhís do Chustaiméirí Comhaid nach bhfuarthas"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:272
+#: app/desktopManager.js:279
 msgid "The GNOME Files application is required by Gtk4 Desktop Icons NG."
-msgstr "An GNOME Tá iarratais Comhaid ag teastáil ag Gtk4 Desktop deilbhíní NG."
+msgstr ""
+"An GNOME Tá iarratais Comhaid ag teastáil ag Gtk4 Desktop deilbhíní NG."
 
 # MT: LibreTranslate
-#: app/desktopManager.js:279
+#: app/desktopManager.js:286
 msgid "There is no default File Manager"
 msgstr "Níl aon Bhainisteoir Comhad réamhshocraithe"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:280
+#: app/desktopManager.js:287
 msgid "There is no application that handles mimetype \"inode/directory\""
 msgstr "Níl aon iarratas a láimhseálann mimetype \"inode / eolaire\""
 
 # MT: LibreTranslate
-#: app/desktopManager.js:287
+#: app/desktopManager.js:294
 msgid "Gnome Files is not registered as a File Manager"
 msgstr "Níl Comhaid Gnome cláraithe mar Bhainisteoir Comhad"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:288
+#: app/desktopManager.js:295
 msgid ""
 "The Gnome Files application is not programmed to open Folders!\n"
 "Check your xdg-utils installation\n"
@@ -874,213 +918,177 @@ msgstr ""
 "Seiceáil Comhaid Gnome .desktop Suiteáil comhad"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:406
+#: app/desktopManager.js:417
 msgid "Clear current selection before new search"
 msgstr "Rogha reatha soiléir roimh chuardach nua"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:1356
+#: app/desktopManager.js:1367
 msgid "Find Files on Desktop"
 msgstr "Aimsigh Comhaid ar Deasc"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:1708 app/desktopMenu.js:1130 app/shortcuts.js:10
+#: app/desktopManager.js:1730 app/desktopMenu.js:982 app/shortcuts.js:10
 msgid "New Folder"
 msgstr "Seirbhís do Chustaiméirí"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:1742
+#: app/desktopManager.js:1764
 msgid "Folder Creation Failed"
 msgstr "Fillte Creation Failed"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:1743
+#: app/desktopManager.js:1765
 msgid "Could not create folder"
 msgstr "Níorbh fhéidir a chruthú fillteán"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:650
+#: app/desktopMenu.js:502
 msgid "Unable to open Desktop in Gnome Files"
 msgstr "Ní féidir a oscailt Deasc i Comhaid Gnome"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:669
+#: app/desktopMenu.js:521
 msgid "Preferences Window is Open"
 msgstr "Tá Preferences Fuinneog Oscailte"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:670
+#: app/desktopMenu.js:522
 msgid "This Window is open. Please switch to the active window."
 msgstr "Tá an Fuinneog oscailte. Téigh go dtí an fhuinneog gníomhach."
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:682 app/desktopMenu.js:1183
+#: app/desktopMenu.js:534 app/desktopMenu.js:1037
 msgid "Settings"
 msgstr "An tSraith Shinsearach"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:972
+#: app/desktopMenu.js:824
 msgid "Template Creation Error"
 msgstr "Plean Gníomhaíochta don Oideachas"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:973
+#: app/desktopMenu.js:825
 msgid "Could not create document"
 msgstr "Níorbh fhéidir doiciméad a chruthú"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1091
+#: app/desktopMenu.js:943
 msgid "Name"
 msgstr "Ainm an ainm"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1093
+#: app/desktopMenu.js:945
 msgid "Name Z-A"
 msgstr "Ainm Z-A"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1095
+#: app/desktopMenu.js:947
 msgid "Modified Time"
 msgstr "Am Athraithe"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1097
+#: app/desktopMenu.js:949
 msgid "Type"
 msgstr "Cineál"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1099
+#: app/desktopMenu.js:951
 msgid "Size"
 msgstr "Méid an Méid"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1104
+#: app/desktopMenu.js:956
 msgid "Keep Arranged…"
 msgstr "Coinnigh Socraigh.."
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1109
+#: app/desktopMenu.js:961
 msgid "Keep Stacked by Type…"
 msgstr "Coinnigh Stack de réir Cineál.."
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1111
+#: app/desktopMenu.js:963
 msgid "Sort Home/Drives/Trash…"
 msgstr "Baile Sórtáil / Drives / Airgead Tirim.."
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1116
+#: app/desktopMenu.js:968
 msgid "Change Desktop"
 msgstr "Cliceáil grianghraf a mhéadú"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1121
+#: app/desktopMenu.js:973
 msgid "Restore Default Desktop"
 msgstr "Déan teagmháil Linn"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1125
+#: app/desktopMenu.js:977
 msgid "Desktop Icon Settings"
 msgstr "Deisce Socruithe Icon"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1127
+#: app/desktopMenu.js:979
 msgid "Show Shortcuts"
 msgstr "Amharc ar gach eolas"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1135 app/shortcuts.js:72
+#: app/desktopMenu.js:987 app/shortcuts.js:72
 msgid "New Document"
 msgstr "Eolas faoin Aontas"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1140 app/shortcuts.js:11
+#: app/desktopMenu.js:992 app/shortcuts.js:11
 msgid "Paste"
 msgstr "Taiseachas aeir: fliuch"
 
+#: app/desktopMenu.js:994
+msgid "Paste as Link"
+msgstr ""
+
 # MT: LibreTranslate
-#: app/desktopMenu.js:1142 app/shortcuts.js:12
+#: app/desktopMenu.js:996 app/shortcuts.js:12
 msgid "Undo"
 msgstr "Rinne sé"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1144 app/shortcuts.js:13
+#: app/desktopMenu.js:998 app/shortcuts.js:13
 msgid "Redo"
 msgstr "Taiseachas aeir: fliuch"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1150 app/shortcuts.js:14
+#: app/desktopMenu.js:1004 app/shortcuts.js:14
 msgid "Select All"
 msgstr "Roghnaigh gach rud"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1157
+#: app/desktopMenu.js:1011
 msgid "Arrange Icons"
 msgstr "Inis dúinn, le do thoil.."
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1161
+#: app/desktopMenu.js:1015
 msgid "Arrange By…"
 msgstr "Socraigh De réir.."
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1169
+#: app/desktopMenu.js:1023
 msgid "Show Desktop In {0}"
 msgstr "Taispeáin Deasc I {0}]"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1174
+#: app/desktopMenu.js:1028
 msgid "Open In {0}"
 msgstr "Oscailte i {0}]"
 
-#: app/desktopMenu.js:1191
+#: app/desktopMenu.js:1045
 msgid "Edit Widgets…"
 msgstr "Cuir giuirléidí in eagar"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1198
+#: app/desktopMenu.js:1052
 msgid "Shell Menu…"
 msgstr "Shell Roghchlár.."
-
-# MT: LibreTranslate
-#: app/dragManager.js:101 app/dragManager.js:964
-msgid "Making SymLink Failed"
-msgstr "Ag déanamh SymLink Failed"
-
-# MT: LibreTranslate
-#: app/dragManager.js:102 app/dragManager.js:965
-msgid "Could not create symbolic link"
-msgstr "Níorbh fhéidir a chruthú nasc siombalach"
-
-# MT: LibreTranslate
-#: app/dragManager.js:773
-msgid "Copy/Move Failed"
-msgstr "Cóip / Bog Failed"
-
-# MT: LibreTranslate
-#: app/dragManager.js:774
-msgid "{0} Does not exist"
-msgstr "{0}] Nach bhfuil ann"
-
-# MT: LibreTranslate
-#: app/dragManager.js:816
-msgid "Choose Action for Files"
-msgstr "Roghnaigh Gníomh le haghaidh Comhaid"
-
-# MT: LibreTranslate
-#: app/dragManager.js:817
-msgid "Move"
-msgstr "Taiseachas aeir: fliuch"
-
-# MT: LibreTranslate
-#: app/dragManager.js:817 app/fileItemMenu.js:242
-msgid "Copy"
-msgstr "Cóip Uaireadóirí Cóip"
-
-# MT: LibreTranslate
-#: app/dragManager.js:817
-msgid "Link"
-msgstr "Naisc ábhartha eile"
 
 # MT: LibreTranslate
 #: app/fileItemIcon.js:126
@@ -1093,12 +1101,12 @@ msgid "File"
 msgstr "Déan Teagmháil Linn"
 
 # MT: LibreTranslate
-#: app/fileItemIcon.js:369
+#: app/fileItemIcon.js:373
 msgid "Opening File Failed"
 msgstr "Oscailt Comhad Failed"
 
 # MT: LibreTranslate
-#: app/fileItemIcon.js:375
+#: app/fileItemIcon.js:379
 msgid "There is no application installed to open \"{fo}\" files."
 msgstr "Níl aon iarratas suiteáilte a oscailt \"{fo}\" comhaid."
 
@@ -1141,67 +1149,73 @@ msgid "Extract To..."
 msgstr "An bhfuil a fhios agat..."
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:172 app/fileItemMenu.js:179
+#: app/fileItemMenu.js:173
+#, fuzzy
+msgid "Open in New Window"
+msgstr "Oscailte i gCríochfort"
+
+# MT: LibreTranslate
+#: app/fileItemMenu.js:180 app/fileItemMenu.js:187
 msgid "Open With..."
 msgstr "Oscail Le..."
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:178
+#: app/fileItemMenu.js:186
 msgid "Open All With Other Application..."
 msgstr "Oscail Gach Le Iarratas Eile..."
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:186
+#: app/fileItemMenu.js:194
 msgid "Launch using Integrated Graphics Card"
 msgstr "Seoladh ag baint úsáide as Cárta Grafaic Comhtháite"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:208
+#: app/fileItemMenu.js:216
 msgid "Stack This Type"
 msgstr "Stack an Cineál"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:209
+#: app/fileItemMenu.js:217
 msgid "Unstack This Type"
 msgstr "Níl an Tweet seo ar fáil"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:233
+#: app/fileItemMenu.js:241
 msgid "Run as a Program"
 msgstr "Rith mar Chlár"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:236
+#: app/fileItemMenu.js:244
 msgid "Scripts"
 msgstr "Scripteanna"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:241
+#: app/fileItemMenu.js:249
 msgid "Cut"
 msgstr "Gearradh"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:246
+#: app/fileItemMenu.js:254
 msgid "Move to..."
 msgstr "Bog go..."
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:247
+#: app/fileItemMenu.js:255
 msgid "Copy to..."
 msgstr "Cóipeáil go..."
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:251
+#: app/fileItemMenu.js:259
 msgid "Rename…"
 msgstr "Athainmniú.."
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:256
+#: app/fileItemMenu.js:264
 msgid "Create Link..."
 msgstr "Cruthaigh Nasc..."
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:263
+#: app/fileItemMenu.js:271
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] "Compress {0} fillteán]"
@@ -1209,7 +1223,7 @@ msgstr[1] "Compress {0} fillteán]"
 msgstr[2] "Compress {0} fillteán]"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:271
+#: app/fileItemMenu.js:279
 msgid "Compress {0} file"
 msgid_plural "Compress {0} files"
 msgstr[0] "Compress {0} comhad"
@@ -1217,189 +1231,189 @@ msgstr[1] "Compress {0} comhad"
 msgstr[2] "Compress {0} comhad"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:278
+#: app/fileItemMenu.js:286
 msgid "Email to..."
 msgstr "Ríomhphost chuig..."
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:288
+#: app/fileItemMenu.js:296
 msgid "Send to Mobile Device"
 msgstr "Seol chuig Gléas Soghluaiste"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:296
+#: app/fileItemMenu.js:304
 msgid "Move to Trash"
 msgstr "Bog chuig Bruscar"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:304
+#: app/fileItemMenu.js:312
 msgid "Delete permanently"
 msgstr "Scrios go buan"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:317 app/fileItemMenu.js:331
+#: app/fileItemMenu.js:325 app/fileItemMenu.js:339
 msgid "Don't Allow Launching"
 msgstr "Ná Ceadaigh Seoladh"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:341
+#: app/fileItemMenu.js:349
 msgid "Empty Trash"
 msgstr "Bruscar Folamh"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:347
+#: app/fileItemMenu.js:355
 msgid "Eject"
 msgstr "Instealladh"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:350
+#: app/fileItemMenu.js:358
 msgid "Unmount"
 msgstr "Suimeanna nach mó"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:356
+#: app/fileItemMenu.js:364
 msgid "Common Properties"
 msgstr "Amharc ar gach eolas"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:357
+#: app/fileItemMenu.js:365
 msgid "Properties"
 msgstr "Díroghnaigh gach rud"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:364
+#: app/fileItemMenu.js:372
 msgid "Show All in {0}"
 msgstr "Taispeáin Gach i {0}]"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:365
+#: app/fileItemMenu.js:373
 msgid "Show in {0}"
 msgstr "Taispeáin i {0}]"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:376
+#: app/fileItemMenu.js:384
 msgid "Open in {0}"
 msgstr "Oscailte i {0}]"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:540
+#: app/fileItemMenu.js:550
 msgid "Open Item"
 msgstr "Mír oscailte"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:823
+#: app/fileItemMenu.js:878
 msgid "Extraction Cancelled"
 msgstr "Sliocht Cealaigh"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:824
+#: app/fileItemMenu.js:879
 msgid "Unable to extract File, no destination folder"
 msgstr "Ní féidir sliocht a bhaint Comhad, aon fillteán scríbe"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:880 app/fileItemMenu.js:909
+#: app/fileItemMenu.js:935 app/fileItemMenu.js:964
 msgid "Select Destination"
 msgstr "Roghnaigh Scríbe"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:883 app/fileItemMenu.js:911
+#: app/fileItemMenu.js:938 app/fileItemMenu.js:966
 msgid "Select"
 msgstr "Roghnaigh gach rud"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:967
+#: app/fileItemMenu.js:1022
 msgid "Can not email a Directory"
 msgstr "Ní féidir ríomhphost Eolaire"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:969
+#: app/fileItemMenu.js:1024
 msgid "Selection includes a Directory, compress to a .zip file first?"
 msgstr "Áirítear Roghnú Eolaire, compress le .zip comhad ar dtús?"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:995 app/fileItemMenu.js:1026 app/fileItemMenu.js:1043
-#: app/fileItemMenu.js:1062
+#: app/fileItemMenu.js:1050 app/fileItemMenu.js:1081 app/fileItemMenu.js:1098
+#: app/fileItemMenu.js:1117
 msgid "Mail Error"
 msgstr "Clár na dToghthóirí"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:997
+#: app/fileItemMenu.js:1052
 msgid "Unable to find zip command, please install the program"
 msgstr "Ní féidir a fháil ordú zip, le do thoil a shuiteáil ar an gclár"
 
 # MT: LibreTranslate
 #. Translators - basename for a zipped archive created for mailing
-#: app/fileItemMenu.js:1003
+#: app/fileItemMenu.js:1058
 msgid "Archive.zip"
 msgstr "Bhí an t-eolas úsáideach"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:1027
+#: app/fileItemMenu.js:1082
 msgid "There was an error in creating a zip archive"
 msgstr "Bhí earráid a chruthú cartlann zip"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:1045
+#: app/fileItemMenu.js:1100
 msgid "Unable to find xdg-email, please install the program"
 msgstr "Ní féidir a fháil xdg-ríomhphost, le do thoil a shuiteáil ar an gclár"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:1063
+#: app/fileItemMenu.js:1118
 msgid "There was an error in emailing Files"
 msgstr "Bhí earráid i r-phost Comhaid"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:1173
+#: app/fileItemMenu.js:1228
 msgid "Can Not open the Working Directory"
 msgstr "An féidir Ní oscailt an Eolaire Oibre"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:1224
+#: app/fileItemMenu.js:1279
 msgid "Unable to Open in Gnome Console"
 msgstr "Ní féidir a oscailt i Gnome Console"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:1226
+#: app/fileItemMenu.js:1281
 msgid "Please Install Gnome Console or other Terminal Program"
 msgstr "Le do thoil Suiteáil Console Gnome nó Clár Críochfort eile"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:1234
+#: app/fileItemMenu.js:1289
 msgid "Unable to Open {0}"
 msgstr "Ní féidir a oscailt {0}]"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:1236
+#: app/fileItemMenu.js:1291
 msgid "Please Install {0}"
 msgstr "Cuir Suiteáil {0}]"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:1280
+#: app/fileItemMenu.js:1341
 msgid "Copy Cancelled"
 msgstr "Cóipeáil Cealaigh"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:1281
+#: app/fileItemMenu.js:1342
 msgid "Unable to copy Files, no destination folder"
 msgstr "Unable a chóipeáil Comhaid, aon fillteán scríbe"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:1304
+#: app/fileItemMenu.js:1365
 msgid "Move Cancelled"
 msgstr "Bog Cealaigh"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:1305
+#: app/fileItemMenu.js:1366
 msgid "Unable to move Files, no destination folder"
 msgstr "Unable chun Comhaid a bhogadh, aon fillteán scríbe"
 
 # MT: LibreTranslate
-#: app/gnomeShellDragDrop.js:356
+#: app/gnomeShellDragDrop.js:411
 msgid "$appName$ can not open files of this Type!"
 msgstr "Ní féidir $appName $ comhaid oscailte den chineál seo!"
 
 # MT: LibreTranslate
-#: app/preferences.js:1065
+#: app/preferences.js:1090
 msgid "Console"
 msgstr "Console"
 
@@ -1459,22 +1473,22 @@ msgid "System Keyboard Shortcuts"
 msgstr "Amharc ar gach eolas"
 
 # MT: LibreTranslate
-#: app/shortcutManager.js:693
+#: app/shortcutManager.js:694
 msgid "Keyboard Shortcuts"
 msgstr "Seirbhís do Chustaiméirí"
 
 # MT: LibreTranslate
-#: app/shortcutManager.js:705
+#: app/shortcutManager.js:706
 msgid "Reset Shortcuts"
 msgstr "Amharc ar gach eolas"
 
 # MT: LibreTranslate
-#: app/shortcutManager.js:706
+#: app/shortcutManager.js:707
 msgid "Reset all shortcuts to Defaults"
 msgstr "Athshocraigh gach shortcuts chun lochtanna"
 
 # MT: LibreTranslate
-#: app/shortcutManager.js:709
+#: app/shortcutManager.js:710
 msgid "Reset All..."
 msgstr "Athshocraigh Gach..."
 
@@ -1586,6 +1600,7 @@ msgid "Toggle Pinned Widgets Below Applications"
 msgstr ""
 
 #: app/shortcuts.js:45 app/widgetManager.js:1698
+#: data/ui/ding-widget-chooser.ui:10 data/ui/ding-widget-chooser.ui:23
 msgid "Add Widget"
 msgstr "Cuir giuirléid leis"
 
@@ -1647,6 +1662,12 @@ msgstr ""
 #: app/shortcuts.js:75
 msgid "Show Or Hide Desktop Icons"
 msgstr "Taispeáin Nó Folaigh Desktop deilbhíní"
+
+# MT: LibreTranslate
+#: app/shortcuts.js:80
+#, fuzzy
+msgid "Open Folder in New Window"
+msgstr "Fillteán Oscailte"
 
 # MT: LibreTranslate
 #: app/showErrorPopup.js:50
@@ -1883,7 +1904,7 @@ msgid "Choose Desktop Folder"
 msgstr "Cliceáil grianghraf a mhéadú"
 
 # MT: LibreTranslate
-#: app/utils/desktopIconsUtil.js:238
+#: app/utils/desktopIconsUtil.js:240
 msgid "Command not found"
 msgstr "Ordú nach bhfuarthas"
 
@@ -1906,6 +1927,14 @@ msgstr "Déan teagmháil linn"
 #: data/ui/ding-app-chooser.ui:110
 msgid "_Open"
 msgstr "Maidir"
+
+#: data/ui/ding-widget-chooser.ui:42
+msgid "Add"
+msgstr ""
+
+#: data/ui/ding-widget-chooser.ui:83
+msgid "Download Latest"
+msgstr ""
 
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:5
