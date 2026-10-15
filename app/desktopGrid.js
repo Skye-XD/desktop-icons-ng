@@ -1665,7 +1665,10 @@ const ControlGrid = class extends DrawGrid {
             return;
         }
 
-        this._clickStart = [x, y];
+        // Disarmed until the press is known to be on bare desktop: armed for
+        // an icon, a press on its edge that drifts off it by less than the
+        // drag threshold would be released on desktop and read as a click.
+        this._clickStart = null;
 
         const button = actor.get_current_button();
         const timestamp = actor.get_current_event_time();
@@ -1690,6 +1693,7 @@ const ControlGrid = class extends DrawGrid {
             return;
         }
 
+        this._clickStart = [x, y];
         this._desktopManager
             .onPressButton(X, Y, x, y, button, isShift, isCtrl, this, timestamp);
     }
@@ -1722,7 +1726,7 @@ const ControlGrid = class extends DrawGrid {
 
         this._dragManager.onReleaseButton();
 
-        if (!clickItem && moved <= CLICK_SLOP_PX && nPress === 1 && !isShift &&
+        if (!clickItemClickable && moved <= CLICK_SLOP_PX && nPress === 1 && !isShift &&
             !isCtrl && button === Gdk.BUTTON_PRIMARY)
             this._desktopManager.windowManager.notifyDesktopClick(X, Y);
 
@@ -1829,6 +1833,9 @@ const ControlGrid = class extends DrawGrid {
 
     _routeDroppedData(drop, x, y) {
         const session = this._dropSession;
+        if (session.route === this.Enums.DndOfferRoute.ROOT_WINDOW)
+            return this._acceptRootWindowDrop(drop);
+
         const pointerDestination = this._findDropDestination(x, y);
         const effectiveDestination = session.resolveEffectiveDestination(
             drop,
@@ -1861,6 +1868,26 @@ const ControlGrid = class extends DrawGrid {
 
         // True means that we accepted responsibility for finishing the drop;
         // it does not mean that the asynchronous operation has finished yet.
+        return true;
+    }
+
+    // Reading the offer is the signal: the source detaches the dragged tab
+    // into a new window once the drop finishes. The payload is empty.
+    _acceptRootWindowDrop(drop) {
+        drop.read_async([this.Enums.DndTargetInfo.ROOT_WINDOW_DROP],
+            GLib.PRIORITY_DEFAULT, null, (source, result) => {
+                let action = Gdk.DragAction.MOVE;
+                try {
+                    const [stream] = source.read_finish(result);
+                    stream.close(null);
+                } catch (e) {
+                    logError(e);
+                    action = Gdk.DragAction.NONE ?? 0;
+                }
+                source.finish(action);
+                this._dropSession?.release(drop);
+            });
+
         return true;
     }
 
