@@ -1665,7 +1665,10 @@ const ControlGrid = class extends DrawGrid {
             return;
         }
 
-        this._clickStart = [x, y];
+        // Disarmed until the press is known to be on bare desktop: armed for
+        // an icon, a press on its edge that drifts off it by less than the
+        // drag threshold would be released on desktop and read as a click.
+        this._clickStart = null;
 
         const button = actor.get_current_button();
         const timestamp = actor.get_current_event_time();
@@ -1690,6 +1693,7 @@ const ControlGrid = class extends DrawGrid {
             return;
         }
 
+        this._clickStart = [x, y];
         this._desktopManager
             .onPressButton(X, Y, x, y, button, isShift, isCtrl, this, timestamp);
     }
@@ -1722,7 +1726,7 @@ const ControlGrid = class extends DrawGrid {
 
         this._dragManager.onReleaseButton();
 
-        if (!clickItem && moved <= CLICK_SLOP_PX && nPress === 1 && !isShift &&
+        if (!clickItemClickable && moved <= CLICK_SLOP_PX && nPress === 1 && !isShift &&
             !isCtrl && button === Gdk.BUTTON_PRIMARY)
             this._desktopManager.windowManager.notifyDesktopClick(X, Y);
 
