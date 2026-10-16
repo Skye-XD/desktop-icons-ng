@@ -16,8 +16,9 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-15 09:43-0400\n"
-"PO-Revision-Date: 2026-09-14 15:42+0000\n"
-"Last-Translator: Василь Мариняк <mariniack@gmail.com>\n"
+"PO-Revision-Date: 2026-10-16 01:24+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/uk/>\n"
 "Language: uk\n"
@@ -26,7 +27,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 2026.10.dev0\n"
+"X-Generator: Weblate 2026.11.dev0\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
@@ -1104,9 +1105,8 @@ msgid "Extract To..."
 msgstr "Розпакувати до..."
 
 #: app/fileItemMenu.js:173
-#, fuzzy
 msgid "Open in New Window"
-msgstr "Відкрити в терміналі"
+msgstr "Відкрити у новому вікні"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:180 app/fileItemMenu.js:187
@@ -1603,9 +1603,8 @@ msgstr "Показати або приховати робочі іконки"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:80
-#, fuzzy
 msgid "Open Folder in New Window"
-msgstr "Відкритий склад"
+msgstr "Відкрити у новому вікні"
 
 # MT: LibreTranslate
 #: app/showErrorPopup.js:50
@@ -1867,7 +1866,7 @@ msgstr "_Відкрито"
 
 #: data/ui/ding-widget-chooser.ui:42
 msgid "Add"
-msgstr ""
+msgstr "Додати"
 
 #: data/ui/ding-widget-chooser.ui:83
 msgid "Download Latest"

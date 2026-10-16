@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-15 09:43-0400\n"
-"PO-Revision-Date: 2026-10-02 06:51+0000\n"
+"PO-Revision-Date: 2026-10-16 01:25+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
 "Language-Team: Kazakh <https://hosted.weblate.org/projects/gtk4-desktop-"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2026.10\n"
+"X-Generator: Weblate 2026.11.dev0\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
@@ -917,9 +917,8 @@ msgid "Extract To..."
 msgstr "Шығару..."
 
 #: app/fileItemMenu.js:173
-#, fuzzy
 msgid "Open in New Window"
-msgstr "Терминалда ашу"
+msgstr "Жаңа терезеде ашу"
 
 #: app/fileItemMenu.js:180 app/fileItemMenu.js:187
 msgid "Open With..."
@@ -1576,11 +1575,11 @@ msgstr "_Ашу"
 
 #: data/ui/ding-widget-chooser.ui:42
 msgid "Add"
-msgstr ""
+msgstr "Қосу"
 
 #: data/ui/ding-widget-chooser.ui:83
 msgid "Download Latest"
-msgstr ""
+msgstr "Қалайша жүктеп алу"
 
 #: data/com.desktop.ding.desktop.in:5
 msgid "Display icons on the GNOME desktop"

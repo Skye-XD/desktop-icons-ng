@@ -12,13 +12,16 @@
 # Sundeep Mediratta <smedius@gmail.com>, 2026.
 # LittleFox2024 <btdefores@outlook.com>, 2026.
 # xiezhihai <xiezhihai7321@outlook.com>, 2026.
+# Anonymous <anonymous@users.noreply.hosted.weblate.org>, 2026.
+# xiezhihai <xiezhihai@users.noreply.hosted.weblate.org>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-15 09:43-0400\n"
-"PO-Revision-Date: 2026-09-14 15:41+0000\n"
-"Last-Translator: Sundeep Mediratta <smedius@gmail.com>\n"
+"PO-Revision-Date: 2026-10-16 01:24+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/ja/>\n"
 "Language: ja\n"
@@ -26,7 +29,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2026.10.dev0\n"
+"X-Generator: Weblate 2026.11.dev0\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
@@ -327,8 +330,7 @@ msgstr "コンテンツ"
 #: app/adwPreferencesWindow.js:874
 msgid ""
 "Machine translated using LibreTranslate. User verified and edited on Weblate."
-msgstr ""
-"LibreTranslate を使用して翻訳されたマシン。 Weblate でユーザー検証と編集."
+msgstr "LibreTranslate を使用して翻訳されたマシン。 Weblate でユーザー検証と編集."
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:879
@@ -1080,8 +1082,7 @@ msgstr "ファイルを開く 失敗"
 # MT: LibreTranslate
 #: app/fileItemIcon.js:379
 msgid "There is no application installed to open \"{fo}\" files."
-msgstr ""
-"[\"{fo}\"]ファイルを開くためのアプリケーションはインストールされていません."
+msgstr "[\"{fo}\"]ファイルを開くためのアプリケーションはインストールされていません."
 
 #: app/fileItemMenu.js:106
 msgid "New Folder with {0} item"
@@ -1115,9 +1116,8 @@ msgid "Extract To..."
 msgstr "展開先..."
 
 #: app/fileItemMenu.js:173
-#, fuzzy
 msgid "Open in New Window"
-msgstr "端末で開く"
+msgstr "新しいウィンドウを開く"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:180 app/fileItemMenu.js:187
@@ -1321,8 +1321,7 @@ msgstr "Gnome Consoleで開くことができません"
 # MT: LibreTranslate
 #: app/fileItemMenu.js:1281
 msgid "Please Install Gnome Console or other Terminal Program"
-msgstr ""
-"Gnome Consoleまたはその他のターミナルプログラムをインストールしてください"
+msgstr "Gnome Consoleまたはその他のターミナルプログラムをインストールしてください"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:1289
@@ -1611,9 +1610,8 @@ msgstr "デスクトップアイコンを表示または非表示"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:80
-#, fuzzy
 msgid "Open Folder in New Window"
-msgstr "フォルダを開く"
+msgstr "ファイルを新しいウィンドウで開く:"
 
 # MT: LibreTranslate
 #: app/showErrorPopup.js:50
@@ -1787,8 +1785,8 @@ msgid ""
 "\n"
 "Web access and capabilities are restricted according to the active policy."
 msgstr ""
-"ウィジェットは、あらかじめ定義されたウェブセキュリティポリシーで動作しま"
-"す。\n"
+"ウィジェットは、あらかじめ定義されたウェブセキュリティポリシーで動作します"
+"。\n"
 "\n"
 "ウェブアクセスと機能は、適用されているポリシーに従って制限されます。"
 
@@ -1819,8 +1817,8 @@ msgid ""
 "This widget, {widgetId} runs a background process on your computer.\n"
 "\n"
 msgstr ""
-"このウィジェット、{widgetId} は、あなたのコンピュータでバックグラウンドプロセ"
-"スを実行します。\n"
+"このウィジェット、{widgetId} は、あなたのコンピュータで"
+"バックグラウンドプロセスを実行します。\n"
 "\n"
 
 #: app/widgetManager.js:3483
@@ -1837,8 +1835,8 @@ msgid ""
 "your user account permissions.\n"
 "\n"
 msgstr ""
-"それは、ユーザーアカウントの権限に従って、ファイル、システムリソース、ネット"
-"ワークにアクセスすることができます。\n"
+"それは、ユーザーアカウントの権限に従って、ファイル、システムリソース、"
+"ネットワークにアクセスすることができます。\n"
 "\n"
 
 #: app/widgetManager.js:3487
@@ -1881,8 +1879,8 @@ msgstr "[\"${programName}\"]は利用できません"
 msgid ""
 "Install \"${programName}\" to enable Desktop Icons to perform these actions."
 msgstr ""
-"デスクトップアイコンを有効にするには、[\"${programName}\"]をインストールし"
-"て、これらのアクションを実行します."
+"デスクトップアイコンを有効にするには、[\"${programName}\"]をインストールして"
+"、これらのアクションを実行します."
 
 # MT: LibreTranslate
 #: app/utils/desktopFolderUtils.js:84
@@ -1915,7 +1913,7 @@ msgstr "_オープン"
 
 #: data/ui/ding-widget-chooser.ui:42
 msgid "Add"
-msgstr ""
+msgstr "追加"
 
 #: data/ui/ding-widget-chooser.ui:83
 msgid "Download Latest"
@@ -1930,8 +1928,8 @@ msgstr "GNOMEデスクトップにアイコンを表示"
 #: data/com.desktop.ding.desktop.in:6
 msgid "desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;"
 msgstr ""
-"デスクトップ;アイコン;ファイル;フォルダ;マネージャー;範囲;非表示;ショー;ラン"
-"チャー;ショートカット;"
+"デスクトップ;アイコン;ファイル;フォルダ;マネージャー;範囲;非表"
+"示;ショー;ランチャー;ショートカット;"
 
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:21
@@ -2146,8 +2144,7 @@ msgstr "ユーザーアプリケーションショートカット"
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:126
 msgid "Override for default application shortcuts set by the User"
-msgstr ""
-"ユーザが設定したデフォルトのアプリケーションショートカットのオーバーライド"
+msgstr "ユーザが設定したデフォルトのアプリケーションショートカットのオーバーライド"
 
 #~ msgid "User"
 #~ msgstr "利用者"

@@ -13,13 +13,15 @@
 # Allan Novaes Lima <lnapublicidade@gmail.com>, 2024, 2026.
 # Lúcia <lucia.hates.proton@proton.me>, 2025, 2026.
 # Mateus Liberale Gomes <sergiogomes209403@gmail.com>, 2026.
+# Mateus Liberale Gomes <sergiogomes209403@users.noreply.hosted.weblate.org>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-15 09:43-0400\n"
-"PO-Revision-Date: 2026-09-14 15:41+0000\n"
-"Last-Translator: Lúcia <lucia.hates.proton@proton.me>\n"
+"PO-Revision-Date: 2026-10-16 01:24+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/gtk4-"
 "desktop-icons-ng/gtk4-ding-pot/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -27,7 +29,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2026.10.dev0\n"
+"X-Generator: Weblate 2026.11.dev0\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
@@ -594,8 +596,7 @@ msgstr "O arquivo de saída '${outputFile}' já existe."
 # MT: LibreTranslate
 #: app/autoAr.js:523
 msgid "Compressing files into '${outputFile}' has been cancelled by the user."
-msgstr ""
-"A compressão de arquivos em '${outputFile}' foi cancelada pelo usuário."
+msgstr "A compressão de arquivos em '${outputFile}' foi cancelada pelo usuário."
 
 # MT: LibreTranslate
 #: app/autoAr.js:526
@@ -1111,9 +1112,8 @@ msgid "Extract To..."
 msgstr "Extrair para…"
 
 #: app/fileItemMenu.js:173
-#, fuzzy
 msgid "Open in New Window"
-msgstr "Abrir no terminal"
+msgstr "Abrir em uma Nova Janela"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:180 app/fileItemMenu.js:187
@@ -1276,8 +1276,7 @@ msgstr "Não é possível enviar um diretório por email"
 # MT: LibreTranslate
 #: app/fileItemMenu.js:1024
 msgid "Selection includes a Directory, compress to a .zip file first?"
-msgstr ""
-"A seleção inclui um diretório, comprimir para um arquivo .zip primeiro?"
+msgstr "A seleção inclui um diretório, comprimir para um arquivo .zip primeiro?"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:1050 app/fileItemMenu.js:1081 app/fileItemMenu.js:1098
@@ -1613,9 +1612,8 @@ msgstr "Mostrar ou Ocultar Ícones de Ecrã"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:80
-#, fuzzy
 msgid "Open Folder in New Window"
-msgstr "Abrir pasta"
+msgstr "Abrir em uma Nova Janela"
 
 # MT: LibreTranslate
 #: app/showErrorPopup.js:50
@@ -1876,11 +1874,11 @@ msgstr "_Abra"
 
 #: data/ui/ding-widget-chooser.ui:42
 msgid "Add"
-msgstr ""
+msgstr "Adicionar"
 
 #: data/ui/ding-widget-chooser.ui:83
 msgid "Download Latest"
-msgstr ""
+msgstr "Baixar Dados Mais Recentes"
 
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:5

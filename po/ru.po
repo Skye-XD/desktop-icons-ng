@@ -13,13 +13,16 @@
 # Sundeep Mediratta <smedius@gmail.com>, 2026.
 # Кирилл <09plf5@gmail.com>, 2026.
 # Kosadeath <kosadeath@gmail.com>, 2026.
+# Кирилл <09plf5@users.noreply.hosted.weblate.org>, 2026.
+# dinos <dinos@users.noreply.hosted.weblate.org>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-15 09:43-0400\n"
-"PO-Revision-Date: 2026-09-18 16:51+0000\n"
-"Last-Translator: Kosadeath <kosadeath@gmail.com>\n"
+"PO-Revision-Date: 2026-10-16 01:24+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/ru/>\n"
 "Language: ru\n"
@@ -28,7 +31,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 2026.10.dev0\n"
+"X-Generator: Weblate 2026.11.dev0\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
@@ -164,8 +167,7 @@ msgstr "Нижний правый угол"
 
 #: app/adwPreferencesWindow.js:732
 msgid "Add new icons to Secondary Monitors first, if available"
-msgstr ""
-"Сначала добавлять новые значки на вторичные мониторы, если они доступны"
+msgstr "Сначала добавлять новые значки на вторичные мониторы, если они доступны"
 
 #: app/adwPreferencesWindow.js:736
 msgid "Snap icons to grid"
@@ -623,8 +625,8 @@ msgid ""
 "Please check the permissions of this Desktop Folder, and make sure it is not "
 "writable by others."
 msgstr ""
-".desktop-файлы не могут быть запущены с этого рабочего стола, так как папка "
-"«Рабочий стол» доступна для записи другим пользователям.\n"
+".desktop-файлы не могут быть запущены с этого рабочего стола, так как папка «"
+"Рабочий стол» доступна для записи другим пользователям.\n"
 "\n"
 "Пожалуйста, проверьте права доступа к этой папке рабочего стола и убедитесь, "
 "что она недоступна для записи другим пользователям."
@@ -985,9 +987,8 @@ msgid "Extract To..."
 msgstr "Извлечь в..."
 
 #: app/fileItemMenu.js:173
-#, fuzzy
 msgid "Open in New Window"
-msgstr "Открыть в терминале"
+msgstr "Открыть в новом окне"
 
 #: app/fileItemMenu.js:180 app/fileItemMenu.js:187
 msgid "Open With..."
@@ -1406,9 +1407,8 @@ msgid "Show Or Hide Desktop Icons"
 msgstr "Показать или скрыть «Desktop Icons»"
 
 #: app/shortcuts.js:80
-#, fuzzy
 msgid "Open Folder in New Window"
-msgstr "Открыть папку"
+msgstr "Открывать файлы в новом окне:"
 
 #: app/showErrorPopup.js:50
 msgid "More Information"
@@ -1691,11 +1691,11 @@ msgstr "_Открыть"
 
 #: data/ui/ding-widget-chooser.ui:42
 msgid "Add"
-msgstr ""
+msgstr "Добавить"
 
 #: data/ui/ding-widget-chooser.ui:83
 msgid "Download Latest"
-msgstr ""
+msgstr "Скачать последние данные"
 
 #: data/com.desktop.ding.desktop.in:5
 msgid "Display icons on the GNOME desktop"

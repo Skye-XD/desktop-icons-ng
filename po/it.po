@@ -13,13 +13,16 @@
 # dev0null <dev0null@users.noreply.hosted.weblate.org>, 2025, 2026.
 # Visconte di Carmagnola <carmagnola@users.noreply.hosted.weblate.org>, 2025, 2026.
 # Sundeep Mediratta <smedius@gmail.com>, 2026.
+# Anonymous <anonymous@users.noreply.hosted.weblate.org>, 2026.
+# Jimmy Scionti <amivaleo@users.noreply.hosted.weblate.org>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-15 09:43-0400\n"
-"PO-Revision-Date: 2026-09-14 15:41+0000\n"
-"Last-Translator: Fabian Esposito <fabian.esposito@outlook.com>\n"
+"PO-Revision-Date: 2026-10-16 01:24+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/it/>\n"
 "Language: it\n"
@@ -27,7 +30,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2026.10.dev0\n"
+"X-Generator: Weblate 2026.11.dev0\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
@@ -175,8 +178,7 @@ msgstr "In basso a destra"
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:732
 msgid "Add new icons to Secondary Monitors first, if available"
-msgstr ""
-"Aggiungere le nuove icone prima negli schermi secondari, se disponibili"
+msgstr "Aggiungere le nuove icone prima negli schermi secondari, se disponibili"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:736
@@ -1110,9 +1112,8 @@ msgid "Extract To..."
 msgstr "Estrai in…"
 
 #: app/fileItemMenu.js:173
-#, fuzzy
 msgid "Open in New Window"
-msgstr "Apri in Terminale"
+msgstr "Apri in una nuova finestra"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:180 app/fileItemMenu.js:187
@@ -1605,9 +1606,8 @@ msgstr "Mostrare o nascondere icone sulla scrivania"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:80
-#, fuzzy
 msgid "Open Folder in New Window"
-msgstr "Apri cartella"
+msgstr "Apri in una nuova finestra"
 
 # MT: LibreTranslate
 #: app/showErrorPopup.js:50
@@ -1867,11 +1867,11 @@ msgstr "_Apri"
 
 #: data/ui/ding-widget-chooser.ui:42
 msgid "Add"
-msgstr ""
+msgstr "Aggiungi"
 
 #: data/ui/ding-widget-chooser.ui:83
 msgid "Download Latest"
-msgstr ""
+msgstr "Scarica Dati Più Recenti"
 
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:5
@@ -1881,7 +1881,8 @@ msgstr "Visualizza icone sulla scrivania"
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:6
 msgid "desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;"
-msgstr "desktop;icone;file;cartelle;gestore;ordine;nascondi;mostra;lanciatore;scorciatoie;"
+msgstr ""
+"desktop;icone;file;cartelle;gestore;ordine;nascondi;mostra;lanciatore;scorciatoie;"
 
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:21
@@ -1960,8 +1961,7 @@ msgstr ""
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:60
 msgid "Shows a rectangle in the destination place during DnD"
-msgstr ""
-"Mostra un rettangolo nel punto di destinazione durante il trascinamento"
+msgstr "Mostra un rettangolo nel punto di destinazione durante il trascinamento"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:61
 msgid ""

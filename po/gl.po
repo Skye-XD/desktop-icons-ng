@@ -7,13 +7,15 @@
 # Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2025, 2026.
 # Sundeep Mediratta <smedius@gmail.com>, 2026.
 # Xosé Calvo <xosecalvo@gmail.com>, 2026.
+# Anonymous <anonymous@users.noreply.hosted.weblate.org>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-15 09:43-0400\n"
-"PO-Revision-Date: 2026-09-14 15:44+0000\n"
-"Last-Translator: Xosé Calvo <xosecalvo@gmail.com>\n"
+"PO-Revision-Date: 2026-10-16 01:24+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Galician <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/gl/>\n"
 "Language: gl\n"
@@ -21,7 +23,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2026.10.dev0\n"
+"X-Generator: Weblate 2026.11.dev0\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
@@ -1149,9 +1151,8 @@ msgstr "Extraer para..."
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:173
-#, fuzzy
 msgid "Open in New Window"
-msgstr "Abrir na terminal"
+msgstr "Abrir nunha nova xanela"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:180 app/fileItemMenu.js:187
@@ -1663,9 +1664,8 @@ msgstr "Mostrar ou ocultar Iconas de escritorio"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:80
-#, fuzzy
 msgid "Open Folder in New Window"
-msgstr "Abrir cartafol"
+msgstr "Abrir nunha nova xa&nela"
 
 # MT: LibreTranslate
 #: app/showErrorPopup.js:50
@@ -1927,11 +1927,11 @@ msgstr "-Abrir"
 
 #: data/ui/ding-widget-chooser.ui:42
 msgid "Add"
-msgstr ""
+msgstr "Engadir"
 
 #: data/ui/ding-widget-chooser.ui:83
 msgid "Download Latest"
-msgstr ""
+msgstr "Descargar como"
 
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:5
@@ -2186,8 +2186,7 @@ msgstr "Aplicación de usuario Shortcuts"
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:126
 msgid "Override for default application shortcuts set by the User"
-msgstr ""
-"Eliminar os atallos de aplicación por defecto establecidos polo usuario"
+msgstr "Eliminar os atallos de aplicación por defecto establecidos polo usuario"
 
 #~ msgid "User"
 #~ msgstr "Usuario"

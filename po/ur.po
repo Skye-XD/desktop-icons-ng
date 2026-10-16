@@ -6,13 +6,15 @@
 # Weblate <noreply-mt-weblate@weblate.org>, 2025, 2026.
 # Sundeep Mediratta <smedius@gmail.com>, 2026.
 # Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2026.
+# Anonymous <anonymous@users.noreply.hosted.weblate.org>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-15 09:43-0400\n"
-"PO-Revision-Date: 2026-09-14 15:45+0000\n"
-"Last-Translator: Sundeep Mediratta <smedius@gmail.com>\n"
+"PO-Revision-Date: 2026-10-16 01:25+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Urdu <https://hosted.weblate.org/projects/gtk4-desktop-icons-"
 "ng/gtk4-ding-pot/ur/>\n"
 "Language: ur\n"
@@ -20,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2026.10.dev0\n"
+"X-Generator: Weblate 2026.11.dev0\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
@@ -524,8 +526,8 @@ msgid ""
 "To be able to work with compressed files, install file-roller and/or gir-1.2-"
 "gnomeAutoAr"
 msgstr ""
-"نصب شدہ فائلیں کے ساتھ کام کرنے کے قابل ہو سکتے ہیں، فائل-رولر اور/یا "
-"Gir-1.2-Mobile خود کار"
+"نصب شدہ فائلیں کے ساتھ کام کرنے کے قابل ہو سکتے ہیں، فائل-رولر اور/یا Gir-"
+"1.2-Mobile خود کار"
 
 # MT: LibreTranslate
 #: app/autoAr.js:207
@@ -896,8 +898,7 @@ msgstr "فائل رولر نہیں پائے گا"
 #: app/desktopManager.js:287
 msgid "There is no application that handles mimetype \"inode/directory\""
 msgstr ""
-"کوئی بھی اطلاق نہیں ہوتا جس میں ممی ٹائپ \"انود/ سمتیہ\" کو ہینڈل کیا جاتا "
-"ہے۔"
+"کوئی بھی اطلاق نہیں ہوتا جس میں ممی ٹائپ \"انود/ سمتیہ\" کو ہینڈل کیا جاتا ہے۔"
 
 # MT: LibreTranslate
 #: app/desktopManager.js:294
@@ -1147,9 +1148,8 @@ msgstr "نکالیں تا..."
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:173
-#, fuzzy
 msgid "Open in New Window"
-msgstr "ٹرمینل میں کھولیں"
+msgstr "نئے ونڈو میں كھولیے"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:180 app/fileItemMenu.js:187
@@ -1928,11 +1928,11 @@ msgstr "کھولیں"
 
 #: data/ui/ding-widget-chooser.ui:42
 msgid "Add"
-msgstr ""
+msgstr "جمع کریں"
 
 #: data/ui/ding-widget-chooser.ui:83
 msgid "Download Latest"
-msgstr ""
+msgstr "Download update"
 
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:5
@@ -2136,8 +2136,8 @@ msgid ""
 "If a second monitor is connected, new icons are placed on the non primary "
 "monitor"
 msgstr ""
-"اگر کوئی دوسرا مینار متصل ہو تو غیر بنیادی مانیٹر پر نئی تصاویر رکھی جاتی "
-"ہیں۔"
+"اگر کوئی دوسرا مینار متصل ہو تو غیر بنیادی مانیٹر پر نئی تصاویر رکھی جاتی ہیں"
+"۔"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105

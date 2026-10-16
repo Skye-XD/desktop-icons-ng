@@ -6,13 +6,15 @@
 # Weblate <noreply-mt-weblate@weblate.org>, 2025, 2026.
 # Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2025, 2026.
 # Sundeep Mediratta <smedius@gmail.com>, 2026.
+# Anonymous <anonymous@users.noreply.hosted.weblate.org>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-15 09:43-0400\n"
-"PO-Revision-Date: 2026-09-14 15:45+0000\n"
-"Last-Translator: Sundeep Mediratta <smedius@gmail.com>\n"
+"PO-Revision-Date: 2026-10-16 01:25+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Latvian <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/lv/>\n"
 "Language: lv\n"
@@ -20,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2;\n"
-"X-Generator: Weblate 2026.10.dev0\n"
+"X-Generator: Weblate 2026.11.dev0\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
@@ -180,8 +182,7 @@ msgstr "Apakšējā labajā stūrī"
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:732
 msgid "Add new icons to Secondary Monitors first, if available"
-msgstr ""
-"Vispirms pievienot jaunas ikonas sekundārajiem monitoriem, ja pieejamas"
+msgstr "Vispirms pievienot jaunas ikonas sekundārajiem monitoriem, ja pieejamas"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:736
@@ -524,8 +525,8 @@ msgid ""
 "To be able to work with compressed files, install file-roller and/or gir-1.2-"
 "gnomeAutoAr"
 msgstr ""
-"Lai varētu strādāt ar saspiestu failus, instalēt failu roller un / vai "
-"gir-1,2-Gnome AutoAr"
+"Lai varētu strādāt ar saspiestu failus, instalēt failu roller un / vai gir-"
+"1,2-Gnome AutoAr"
 
 # MT: LibreTranslate
 #: app/autoAr.js:207
@@ -1147,9 +1148,8 @@ msgstr "Atspiest uz..."
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:173
-#, fuzzy
 msgid "Open in New Window"
-msgstr "Atvērt terminālī"
+msgstr "Atvērt jaunā logā"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:180 app/fileItemMenu.js:187
@@ -1929,11 +1929,11 @@ msgstr "_Atvērt"
 
 #: data/ui/ding-widget-chooser.ui:42
 msgid "Add"
-msgstr ""
+msgstr "Pievienot"
 
 #: data/ui/ding-widget-chooser.ui:83
 msgid "Download Latest"
-msgstr ""
+msgstr "Lejupielādēt kā"
 
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:5
@@ -1943,7 +1943,8 @@ msgstr "Rādīt GNOME darbvirsmas ikonas"
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:6
 msgid "desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;"
-msgstr "darbvirsma;icons;files;folders;manager;arange;hide;show;palaišana;shortcuts;"
+msgstr ""
+"darbvirsma;icons;files;folders;manager;arange;hide;show;palaišana;shortcuts;"
 
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:21
