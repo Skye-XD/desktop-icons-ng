@@ -97,14 +97,20 @@ const DropSession = class {
      * @returns {Promise<DropContents>} fully decoded contents
      */
     async readDropContents(context) {
-        this._dropBeingProcessed = context.drop;
-        this._hovering = false;
+        this.markDropProcessing(context.drop);
         const contents = await this._readCapturedDropContents(context);
 
         if (context.cancellable.is_cancelled())
             throw new Error('Drop was cancelled while reading its contents');
 
         return contents;
+    }
+
+    // A drop being finished must survive the drag-leave GTK sends after the
+    // drop signal; completeDrop() clears the mark.
+    markDropProcessing(drop) {
+        this._dropBeingProcessed = drop;
+        this._hovering = false;
     }
 
     reportDropError(context, error) {

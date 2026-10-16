@@ -19,11 +19,12 @@ gnome.post_install(
   update_desktop_database: true,
 )
 
+# No source_dir: meson then searches the dependencies' build dir before this
+# source dir, so the merged .desktop (with this build's extension_id) wins
+# over the stale upstream copy committed next to the .xml.
 gnome.compile_resources(
   app_id + '.data',
   app_id + '.data.gresource.xml',
-  source_dir: meson.current_source_dir(),
-  extra_args: ['--sourcedir=' + meson.current_build_dir()],
   dependencies: [ desktop_merged ],
   gresource_bundle: true,
   install: true,
