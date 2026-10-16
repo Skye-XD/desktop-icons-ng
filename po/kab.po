@@ -10,8 +10,9 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-15 09:43-0400\n"
-"PO-Revision-Date: 2026-09-14 15:46+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2026-10-16 01:25+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Kabyle <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/kab/>\n"
 "Language: kab\n"
@@ -19,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2026.10.dev0\n"
+"X-Generator: Weblate 2026.11.dev0\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
@@ -929,9 +930,8 @@ msgid "Extract To..."
 msgstr "Ssef ɣer…"
 
 #: app/fileItemMenu.js:173
-#, fuzzy
 msgid "Open in New Window"
-msgstr "Ldi deg yixef"
+msgstr "Ldi deg usfaylu amaynut"
 
 #: app/fileItemMenu.js:180 app/fileItemMenu.js:187
 msgid "Open With..."
@@ -1601,11 +1601,11 @@ msgstr "_Ldi"
 
 #: data/ui/ding-widget-chooser.ui:42
 msgid "Add"
-msgstr ""
+msgstr "Rnu"
 
 #: data/ui/ding-widget-chooser.ui:83
 msgid "Download Latest"
-msgstr ""
+msgstr "Zdem-d am"
 
 #: data/com.desktop.ding.desktop.in:5
 msgid "Display icons on the GNOME desktop"
@@ -1613,7 +1613,8 @@ msgstr "Sken tignitin deg tnarit GNOME"
 
 #: data/com.desktop.ding.desktop.in:6
 msgid "desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;"
-msgstr "tanarit;tignitin;ikaramen;amsefrak;asmizzwer;ffer;sken;amsekker;inegzumen;"
+msgstr ""
+"tanarit;tignitin;ikaramen;amsefrak;asmizzwer;ffer;sken;amsekker;inegzumen;"
 
 #: data/com.desktop.ding.desktop.in:21
 msgid "Show<>Hide"

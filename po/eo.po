@@ -11,8 +11,9 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-15 09:43-0400\n"
-"PO-Revision-Date: 2026-09-14 15:43+0000\n"
-"Last-Translator: Sundeep Mediratta <smedius@gmail.com>\n"
+"PO-Revision-Date: 2026-10-16 01:24+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Esperanto <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/eo/>\n"
 "Language: eo\n"
@@ -20,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2026.10.dev0\n"
+"X-Generator: Weblate 2026.11.dev0\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
@@ -524,8 +525,8 @@ msgid ""
 "To be able to work with compressed files, install file-roller and/or gir-1.2-"
 "gnomeAutoAr"
 msgstr ""
-"Por povi labori kun kunpremitaj dosieroj, instali dosierskribilon kaj/aŭ "
-"ĝi-1.2-gnome Aŭtoj"
+"Por povi labori kun kunpremitaj dosieroj, instali dosierskribilon kaj/aŭ ĝi-"
+"1.2-gnome Aŭtoj"
 
 # MT: LibreTranslate
 #: app/autoAr.js:207
@@ -660,8 +661,7 @@ msgstr "Pli malgrandaj arkivoj sed Linukso kaj Mac nur."
 # MT: LibreTranslate
 #: app/autoAr.js:740
 msgid "Smaller archives but must be installed on Windows and Mac."
-msgstr ""
-"Pli malgrandaj arkivoj sed devas esti instalitaj sur Fenestroj kaj Mac."
+msgstr "Pli malgrandaj arkivoj sed devas esti instalitaj sur Fenestroj kaj Mac."
 
 # MT: LibreTranslate
 #: app/desktopDropOperations.js:250
@@ -1141,9 +1141,8 @@ msgstr "Ekstrakto al..."
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:173
-#, fuzzy
 msgid "Open in New Window"
-msgstr "Malfermite en Terminalo"
+msgstr "Malfermi en nova fenestro"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:180 app/fileItemMenu.js:187
@@ -1654,9 +1653,8 @@ msgstr "Montras aŭ Kaŝi Desktop Icons"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:80
-#, fuzzy
 msgid "Open Folder in New Window"
-msgstr "Open Folder"
+msgstr "Malfermi en nova fenestro"
 
 # MT: LibreTranslate
 #: app/showErrorPopup.js:50
@@ -1916,11 +1914,11 @@ msgstr "Open"
 
 #: data/ui/ding-widget-chooser.ui:42
 msgid "Add"
-msgstr ""
+msgstr "Aldoni"
 
 #: data/ui/ding-widget-chooser.ui:83
 msgid "Download Latest"
-msgstr ""
+msgstr "Elŝuti kiel"
 
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:5

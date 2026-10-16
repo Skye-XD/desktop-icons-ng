@@ -10,8 +10,9 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-15 09:43-0400\n"
-"PO-Revision-Date: 2026-09-15 16:51+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2026-10-16 01:24+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/sl/>\n"
 "Language: sl\n"
@@ -20,7 +21,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
 "n%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 2026.10.dev0\n"
+"X-Generator: Weblate 2026.11.dev0\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
@@ -1147,9 +1148,8 @@ msgstr "Izvleci v..."
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:173
-#, fuzzy
 msgid "Open in New Window"
-msgstr "Odpri v terminalu"
+msgstr "Odpri v novem _oknu"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:180 app/fileItemMenu.js:187
@@ -1929,7 +1929,7 @@ msgstr "_Odpri"
 
 #: data/ui/ding-widget-chooser.ui:42
 msgid "Add"
-msgstr ""
+msgstr "Dodaj"
 
 #: data/ui/ding-widget-chooser.ui:83
 msgid "Download Latest"

@@ -17,13 +17,15 @@
 # Rockytkg <2696916846@qq.com>, 2026.
 # xiezhihai <xiezhihai7321@outlook.com>, 2026.
 # jywondf <99643089+JoyWonderful@users.noreply.github.com>, 2026.
+# Anonymous <anonymous@users.noreply.hosted.weblate.org>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-15 09:43-0400\n"
-"PO-Revision-Date: 2026-10-10 14:51+0000\n"
-"Last-Translator: jywondf <99643089+JoyWonderful@users.noreply.github.com>\n"
+"PO-Revision-Date: 2026-10-16 01:24+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/gtk4-desktop-icons-ng/gtk4-ding-pot/zh_Hans/>\n"
 "Language: zh-Hans\n"
@@ -31,7 +33,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2026.10.1.dev0\n"
+"X-Generator: Weblate 2026.11.dev0\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
@@ -1147,9 +1149,8 @@ msgstr "提取到..."
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:173
-#, fuzzy
 msgid "Open in New Window"
-msgstr "在终端中打开"
+msgstr "在新窗口中打开"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:180 app/fileItemMenu.js:187
@@ -1658,9 +1659,8 @@ msgstr "显示或隐藏桌面图标"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:80
-#, fuzzy
 msgid "Open Folder in New Window"
-msgstr "打开文件夹"
+msgstr "在新窗口中打开"
 
 # MT: LibreTranslate
 #: app/showErrorPopup.js:50
@@ -1951,7 +1951,7 @@ msgstr "_打开"
 
 #: data/ui/ding-widget-chooser.ui:42
 msgid "Add"
-msgstr ""
+msgstr "添加"
 
 #: data/ui/ding-widget-chooser.ui:83
 msgid "Download Latest"
@@ -2076,8 +2076,7 @@ msgstr "排序特殊文件夹 - 主目录/回收站驱动器."
 msgid ""
 "When arranging Icons on desktop, to sort and change the position of the "
 "Home, Trash and mounted Network or External Drives"
-msgstr ""
-"在桌面上安排图标时, 以排序和更改 Home、 回收站和挂载的网络或外部驱动器的位置"
+msgstr "在桌面上安排图标时, 以排序和更改 Home、 回收站和挂载的网络或外部驱动器的位置"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:70

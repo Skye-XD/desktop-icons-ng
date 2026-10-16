@@ -6,12 +6,13 @@
 # pacu23 <pcslstr106@gmail.com>, 2025, 2026.
 # Weblate <noreply-mt-weblate@weblate.org>, 2025, 2026.
 # Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2025, 2026.
+# pacu23 <pacu23@users.noreply.hosted.weblate.org>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-15 09:43-0400\n"
-"PO-Revision-Date: 2026-09-14 15:44+0000\n"
+"PO-Revision-Date: 2026-10-16 01:24+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/gtk4-desktop-"
@@ -21,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2026.10.dev0\n"
+"X-Generator: Weblate 2026.11.dev0\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
@@ -1150,9 +1151,8 @@ msgstr "Извличане във..."
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:173
-#, fuzzy
 msgid "Open in New Window"
-msgstr "Отваряне в терминал"
+msgstr "Отваряне в нов прозорец"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:180 app/fileItemMenu.js:187
@@ -1902,8 +1902,7 @@ msgstr "Команда:"
 
 #: app/widgetManager.js:3495
 msgid "Only allow this for widgets you implicitly trust."
-msgstr ""
-"Разрешавайте това само за приспособления, на които имате пълно доверие."
+msgstr "Разрешавайте това само за приспособления, на които имате пълно доверие."
 
 #: app/widgetManager.js:3499
 msgid "Allow widget backend?"
@@ -1969,7 +1968,7 @@ msgstr "_Отваряне"
 
 #: data/ui/ding-widget-chooser.ui:42
 msgid "Add"
-msgstr ""
+msgstr "Добавяне"
 
 #: data/ui/ding-widget-chooser.ui:83
 msgid "Download Latest"

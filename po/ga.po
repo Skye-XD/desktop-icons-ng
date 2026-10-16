@@ -6,13 +6,15 @@
 # Weblate <noreply-mt-weblate@weblate.org>, 2025, 2026.
 # Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2025, 2026.
 # Sundeep Mediratta <smedius@gmail.com>, 2026.
+# Anonymous <anonymous@users.noreply.hosted.weblate.org>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-15 09:43-0400\n"
-"PO-Revision-Date: 2026-09-14 15:44+0000\n"
-"Last-Translator: Sundeep Mediratta <smedius@gmail.com>\n"
+"PO-Revision-Date: 2026-10-16 01:24+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Irish <https://hosted.weblate.org/projects/gtk4-desktop-icons-"
 "ng/gtk4-ding-pot/ga/>\n"
 "Language: ga\n"
@@ -20,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n==2 ? 1 : 2;\n"
-"X-Generator: Weblate 2026.10.dev0\n"
+"X-Generator: Weblate 2026.11.dev0\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
@@ -442,8 +444,7 @@ msgstr "Níor oibrigh nasc nó íoslódáil i gceart"
 # MT: LibreTranslate
 #: app/appImageFileItem.js:87
 msgid "This AppImage file is not trusted, it can not be launched."
-msgstr ""
-"Amharc ar gach eolas Níl comhad íomhá iontaofa, ní féidir é a sheoladh."
+msgstr "Amharc ar gach eolas Níl comhad íomhá iontaofa, ní féidir é a sheoladh."
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:88 app/desktopFileIcon.js:190
@@ -489,8 +490,7 @@ msgstr ""
 #: app/appImageFileItem.js:232
 #, fuzzy
 msgid "This AppImage could not be launched."
-msgstr ""
-"Amharc ar gach eolas Níl comhad íomhá iontaofa, ní féidir é a sheoladh."
+msgstr "Amharc ar gach eolas Níl comhad íomhá iontaofa, ní féidir é a sheoladh."
 
 # MT: LibreTranslate
 #: app/askRenamePopup.js:61
@@ -888,8 +888,7 @@ msgstr "Seirbhís do Chustaiméirí Comhaid nach bhfuarthas"
 # MT: LibreTranslate
 #: app/desktopManager.js:279
 msgid "The GNOME Files application is required by Gtk4 Desktop Icons NG."
-msgstr ""
-"An GNOME Tá iarratais Comhaid ag teastáil ag Gtk4 Desktop deilbhíní NG."
+msgstr "An GNOME Tá iarratais Comhaid ag teastáil ag Gtk4 Desktop deilbhíní NG."
 
 # MT: LibreTranslate
 #: app/desktopManager.js:286
@@ -1150,9 +1149,8 @@ msgstr "An bhfuil a fhios agat..."
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:173
-#, fuzzy
 msgid "Open in New Window"
-msgstr "Oscailte i gCríochfort"
+msgstr "Oscail i bhFuinneog Nua"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:180 app/fileItemMenu.js:187
@@ -1930,11 +1928,11 @@ msgstr "Maidir"
 
 #: data/ui/ding-widget-chooser.ui:42
 msgid "Add"
-msgstr ""
+msgstr "Cuir leis"
 
 #: data/ui/ding-widget-chooser.ui:83
 msgid "Download Latest"
-msgstr ""
+msgstr "Íoslódáil mar"
 
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:5

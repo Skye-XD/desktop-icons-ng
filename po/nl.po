@@ -6,13 +6,15 @@
 # Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023, 2024, 2025, 2026.
 # Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024, 2025, 2026.
 # Sundeep Mediratta <smedius@gmail.com>, 2026.
+# Anonymous <anonymous@users.noreply.hosted.weblate.org>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-15 09:43-0400\n"
-"PO-Revision-Date: 2026-09-14 15:41+0000\n"
-"Last-Translator: Sundeep Mediratta <smedius@gmail.com>\n"
+"PO-Revision-Date: 2026-10-16 01:24+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/gtk4-desktop-icons-"
 "ng/gtk4-ding-pot/nl/>\n"
 "Language: nl\n"
@@ -20,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2026.10.dev0\n"
+"X-Generator: Weblate 2026.11.dev0\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
@@ -648,8 +650,7 @@ msgstr "Compatibel met alle besturingssystemen."
 # MT: LibreTranslate
 #: app/autoAr.js:728
 msgid "Password protected .zip, must be installed on Windows and Mac."
-msgstr ""
-"Wachtwoord beveiligd .zip, moet worden geïnstalleerd op Windows en Mac."
+msgstr "Wachtwoord beveiligd .zip, moet worden geïnstalleerd op Windows en Mac."
 
 # MT: LibreTranslate
 #: app/autoAr.js:734
@@ -1135,9 +1136,8 @@ msgid "Extract To..."
 msgstr "Uitpakken naar…"
 
 #: app/fileItemMenu.js:173
-#, fuzzy
 msgid "Open in New Window"
-msgstr "Openen in terminalvenster"
+msgstr "Openen in nieuw venster"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:180 app/fileItemMenu.js:187
@@ -1637,9 +1637,8 @@ msgstr "Bureaubladpictogrammen tonen of verbergen"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:80
-#, fuzzy
 msgid "Open Folder in New Window"
-msgstr "Map openen"
+msgstr "Openen in nieuw venster"
 
 # MT: LibreTranslate
 #: app/showErrorPopup.js:50
@@ -1902,7 +1901,7 @@ msgstr "_Openen"
 
 #: data/ui/ding-widget-chooser.ui:42
 msgid "Add"
-msgstr ""
+msgstr "Toevoegen"
 
 #: data/ui/ding-widget-chooser.ui:83
 msgid "Download Latest"
@@ -1916,7 +1915,8 @@ msgstr "Pictogrammen op het GNOME-bureaublad tonen"
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:6
 msgid "desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;"
-msgstr "desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;"
+msgstr ""
+"desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;"
 
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:21
@@ -2058,8 +2058,7 @@ msgstr "Pictogrammen gestapeld houden"
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:81
 msgid "Always keep Icons Stacked, Similar types are grouped"
-msgstr ""
-"Altijd Pictogrammen Stacked houden, Soortgelijke types zijn gegroepeerd"
+msgstr "Altijd Pictogrammen Stacked houden, Soortgelijke types zijn gegroepeerd"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:85
