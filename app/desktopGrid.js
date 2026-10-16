@@ -1874,6 +1874,8 @@ const ControlGrid = class extends DrawGrid {
     // Reading the offer is the signal: the source detaches the dragged tab
     // into a new window once the drop finishes. The payload is empty.
     _acceptRootWindowDrop(drop) {
+        const session = this._dropSession;
+        session.markDropProcessing(drop);
         drop.read_async([this.Enums.DndTargetInfo.ROOT_WINDOW_DROP],
             GLib.PRIORITY_DEFAULT, null, (source, result) => {
                 let action = Gdk.DragAction.MOVE;
@@ -1884,8 +1886,7 @@ const ControlGrid = class extends DrawGrid {
                     logError(e);
                     action = Gdk.DragAction.NONE ?? 0;
                 }
-                source.finish(action);
-                this._dropSession?.release(drop);
+                session.completeDrop(drop, action);
             });
 
         return true;
