@@ -6,7 +6,7 @@ Comment=Display icons on the GNOME desktop
 Keywords=desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;
 Icon=com.desktop.ding
 
-Exec=gdbus call --session --dest org.gnome.Shell --object-path /org/gnome/Shell --method org.gnome.Shell.Extensions.EnableExtension gtk4-ding@smedius.gitlab.com
+Exec=gdbus call --session --dest org.gnome.Shell --object-path /org/gnome/Shell --method org.gnome.Shell.Extensions.EnableExtension @EXTENSION_ID@
 TryExec=/usr/bin/gdbus
 Terminal=false
 StartupNotify=false
@@ -23,7 +23,7 @@ Exec=gapplication action com.desktop.ding toggleVisibility
 
 [Desktop Action enable]
 Name=Enable
-Exec=gdbus call --session --dest org.gnome.Shell --object-path /org/gnome/Shell --method org.gnome.Shell.Extensions.EnableExtension gtk4-ding@smedius.gitlab.com
+Exec=gdbus call --session --dest org.gnome.Shell --object-path /org/gnome/Shell --method org.gnome.Shell.Extensions.EnableExtension @EXTENSION_ID@
 
 [Desktop Action showshortcuts]
 Name=Shortcuts
@@ -35,4 +35,4 @@ Exec=gapplication action com.desktop.ding changeDesktopIconSettings
 
 [Desktop Action disable]
 Name=Disable
-Exec=gdbus call --session --dest org.gnome.Shell --object-path /org/gnome/Shell --method org.gnome.Shell.Extensions.DisableExtension gtk4-ding@smedius.gitlab.com
+Exec=gdbus call --session --dest org.gnome.Shell --object-path /org/gnome/Shell --method org.gnome.Shell.Extensions.DisableExtension @EXTENSION_ID@
