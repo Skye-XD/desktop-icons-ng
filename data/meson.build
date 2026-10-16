@@ -1,7 +1,13 @@
 desktop_file_dir = join_paths(datadir, 'applications')
 
-desktop_merged = i18n.merge_file(
+desktop_configured = configure_file(
   input: 'com.desktop.ding.desktop.in',
+  output: 'com.desktop.ding.desktop.configured.in',
+  configuration: {'EXTENSION_ID': extension_id},
+)
+
+desktop_merged = i18n.merge_file(
+  input: desktop_configured,
   output: 'com.desktop.ding.desktop',
   po_dir: join_paths(meson.project_source_root(), 'po'),
   type: 'desktop',
